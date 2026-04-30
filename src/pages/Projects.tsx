@@ -1,6 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import Layout from '../components/Layout';
+import sleepGuardianCoverP from '../assets/images/home/sleep-guardian-cover.png';
+import oblivilightCoverP from '../assets/images/home/Oblivilight-cover.jpg';
+import muCoverP from '../assets/images/home/mu-cover.jpg';
+import innoconnectCoverP from '../assets/images/home/innoconnect-cover.jpg';
+import gcceCoverP from '../assets/images/home/GCCE-cover.JPG';
+import timesYoungCover from '../assets/images/project/TimesYoungCreativeAwards/timesyoungcreativeawards-cover.png';
+import bigDataCupCover from '../assets/images/project/BigDataMarketingCup/big-data-cup-cover.png';
+import kdanCover from '../assets/images/project/AdnexInternship/ADNEX-social-cover.png';
+import pennStateCover from '../assets/images/project/ProjectArchive/penn-state-uni-cover.jpeg';
 
 type ProjectCategory = 'award' | 'research-exp' | 'design';
 
@@ -16,10 +25,21 @@ type ProjectItem = {
 };
 
 const projectsData: ProjectItem[] = [
+  // Row 1
+  {
+    slug: 'sleep-guardian',
+    image: sleepGuardianCoverP,
+    period: '2025 - 2026',
+    type: 'HCI Research & App Design',
+    title: 'Sleep Guardian | Notification Intervention Design',
+    description: 'Lead Researcher & Designer: Planned and executed a controlled EMA user research study, designed interaction flows and prototypes for a React Native intervention app to study in-bed smartphone procrastination.',
+    tags: ['M.S. Thesis', 'User Research Planning', 'EMA'],
+    category: 'research-exp'
+  },
   {
     slug: 'innoconnect',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=1080',
-    period: '2024',
+    image: innoconnectCoverP,
+    period: '2024 Oct - 2025 Mar',
     type: 'Service Design & UX',
     title: 'Innoconnect | Gift Service Optimization',
     description: '🏆 Gold Award Winner (1/186). Optimizing the O2O gifting experience for Hi-Life via gamification and social features.',
@@ -28,38 +48,29 @@ const projectsData: ProjectItem[] = [
   },
   {
     slug: 'oblivilight',
-    image: 'https://images.unsplash.com/photo-1517457210348-703079e57d4b?auto=format&fit=crop&q=80&w=1080',
-    period: '2025 July',
+    image: oblivilightCoverP,
+    period: '2025 Jun - Aug',
     type: 'Interaction Design',
     title: "OpenHCI'25 | Oblivilight",
     description: '🏆 Best Demo Award Winner. A tangible interaction device built in a 6-day workshop exploring how AI "forgets".',
     tags: ['Best Demo Award', 'Tangible UI', 'Arduino'],
     category: 'award'
   },
+  // Row 2
   {
-    slug: 'times-awards',
-    image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=1080',
-    period: '2024',
-    type: 'Advertising & Creative',
-    title: '2025 34th Times Young Creative Awards',
-    description: '🥉 National 3rd Place Winner. A multi-channel campaign (Video, Web, Audio) using "Gashapon" as a metaphor for job hunting.',
-    tags: ['Advertising', 'Copywriting', 'Campaign'],
-    category: 'award'
+    slug: 'mu',
+    image: muCoverP,
+    period: '2025 Jul - Dec',
+    type: 'UX Design & Research',
+    title: 'UX Design Awards｜Mú',
+    description: "Nominated for UX Design Awards. A multisensory guide to Taiwan's endangered woods exploring emotional design.",
+    tags: ['Nominated', 'Multisensory'],
+    category: 'design'
   },
   {
-    slug: 'kdan-internship',
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1080',
-    period: '2024',
-    type: 'Marketing & Data Analytics',
-    title: 'KDAN Mobile | Marketing Intern',
-    description: 'Optimized social workflow increasing IG growth by 101%. Led AI training.',
-    tags: ['Marketing', 'Internship'],
-    category: 'research-exp'
-  },
-  {
-    slug: 'research-papers',
-    image: 'https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&q=80&w=1080',
-    period: '2024 - 2025',
+    slug: 'hci-publications',
+    image: gcceCoverP,
+    period: '2025 Apr - Sep',
     type: 'HCI Research',
     title: 'HCI Research Publications',
     description: '🏆 SSIM 2024 Best Paper & IEEE GCCE 2025. Research on AI music & voice emotion.',
@@ -67,29 +78,30 @@ const projectsData: ProjectItem[] = [
     category: 'research-exp'
   },
   {
-    slug: 'mu-multisensory',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1080',
-    period: '2024',
-    type: 'UX Design & Research',
-    title: 'UX Design Awards｜Mú',
-    description: 'Nominated for UX Design Awards. A multisensory guide to Taiwan’s endangered woods exploring emotional design.',
-    tags: ['Nominated', 'Multisensory'],
-    category: 'design'
-  },
-  {
-    slug: 'bilingual-center',
-    image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=1080',
-    period: '2023 - 2024',
-    type: 'Project Management',
-    title: 'Taipei Tech｜Part-Time Project Assistant @ Center for Bilingual Learning',
-    description: 'Assisted in promoting bilingual education projects and managing administrative tasks at the Center for Bilingual Learning.',
-    tags: ['Project Assistant', 'Management'],
+    slug: 'adnex-internship',
+    image: kdanCover,
+    period: '2024 Mar - Nov',
+    type: 'Marketing & Data Analytics',
+    title: 'KDAN Mobile | Marketing Intern',
+    description: 'Optimized social workflow increasing IG growth by 101%. Led AI training.',
+    tags: ['Marketing', 'Internship'],
     category: 'research-exp'
+  },
+  // Row 3
+  {
+    slug: 'times-awards',
+    image: timesYoungCover,
+    period: '2025 Apr - May',
+    type: 'Advertising & Creative',
+    title: '2025 34th Times Young Creative Awards',
+    description: '🥉 National 3rd Place Winner. A multi-channel campaign (Video, Web, Audio) using "Gashapon" as a metaphor for job hunting.',
+    tags: ['Advertising', 'Copywriting', 'Campaign'],
+    category: 'award'
   },
   {
     slug: 'big-data-cup',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1080',
-    period: '2024',
+    image: bigDataCupCover,
+    period: '2024 Sep - Nov',
     type: 'UI/UX Design & Research',
     title: 'Big Data Marketing Cup',
     description: '🥉 3rd Place Winner. Designed the UI/UX for "Taiwan Livestock" fitness app.',
@@ -97,11 +109,11 @@ const projectsData: ProjectItem[] = [
     category: 'award'
   },
   {
-    slug: 'academic-collaborations',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1080',
+    slug: 'project-archive',
+    image: pennStateCover,
     period: '2022 - 2024',
     type: 'Academic Collaborations',
-    title: 'Taipei Tech Academic Collaborations',
+    title: 'Academic Collaborations',
     description: 'Includes the "Good Luck Peanut" branding project and the "Taipei Tech x Penn State GenAI Workshop".',
     tags: ['GenAI', 'Branding'],
     category: 'design'
@@ -110,6 +122,13 @@ const projectsData: ProjectItem[] = [
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | 'all'>('all');
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowTop(window.scrollY > 300);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const filteredProjects = activeCategory === 'all' 
     ? projectsData 
@@ -258,6 +277,38 @@ export default function Projects() {
           }
         `}</style>
       </div>
+
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+        style={{
+          position: 'fixed',
+          bottom: '32px',
+          right: '32px',
+          width: '48px',
+          height: '48px',
+          borderRadius: '50%',
+          background: '#1A1A18',
+          color: '#FFE699',
+          border: 'none',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '18px',
+          lineHeight: '1',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.18)',
+          transition: 'opacity 0.25s ease, transform 0.2s ease',
+          zIndex: 999,
+          opacity: showTop ? 1 : 0,
+          pointerEvents: showTop ? 'auto' : 'none',
+          transform: showTop ? 'translateY(0)' : 'translateY(8px)',
+        }}
+        onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-3px)'; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0)'; }}
+      >
+        ↑
+      </button>
     </Layout>
   );
 }

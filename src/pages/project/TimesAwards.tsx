@@ -1,9 +1,40 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
 import { Award, Video, Globe, Headphones, Lightbulb, Target, Sparkles, Star } from 'lucide-react';
 
+const timesPhotos = import.meta.glob(
+  '../../assets/images/project/TimesYoungCreativeAwards/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
+  { eager: true, import: 'default' }
+);
+const tp = Object.values(timesPhotos) as string[];
+
+// 建立精準檔名呼叫工具
+const getImage = (fileName: string) => {
+  const fileLower = fileName.toLowerCase();
+  const match = Object.entries(timesPhotos).find(([path]) => {
+    const pathLower = path.toLowerCase();
+    return pathLower.includes(`/${fileLower}.`);
+  });
+  return match ? (match[1] as string) : '';
+};
+
+const TIMES_LINKS = {
+  interactive1: 'https://drive.google.com/file/d/1tAK-pT1JsNTdguIXp-6rlTL4tGcL9B2V/view?usp=drive_link',
+  interactive2: 'https://drive.google.com/file/d/1nRYmki3bkBP8dyxMzaitHYM26Z4HBD39/view?usp=drive_link',
+  video: 'https://drive.google.com/file/d/19tky-lxm0VNKvpGqx6ZeUFU0nlbiv6Dj/view?usp=drive_link',
+  audio: 'https://drive.google.com/file/d/1hpx6270NeajjNjmzpO9KzY_jTY0fnBgY/view?usp=drive_link',
+  youtube: 'https://youtube.com/playlist?list=PLye4rfClaePQK4OI4WEuNE9m2LrMKub_9&feature=shared',
+};
+
 export default function TimesAwards() {
+
+  const [showTop, setShowTop] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setShowTop(window.scrollY > 300);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Scroll-triggered reveal animations
   useEffect(() => {
@@ -60,23 +91,23 @@ export default function TimesAwards() {
                   <span>{'✨ 3x Shortlisted Works'}</span>
                 </div>
               </div>
-              
+
               {/* Project Title */}
               <h1 className="hero-title">
                 {'2025 34th Times Young Creative Awards'}
               </h1>
-              
+
               {/* Subtitle */}
               <p className="hero-subtitle">
                 {'Yung Ching Housing Employer Branding Campaign'}
               </p>
 
-              {/* Project Details Grid */}
-              <div className="hero-details">
+              {/* Project Details Grid - 修改為強制同一橫列 */}
+              <div className="hero-details" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '32px' }}>
                 <div className="detail-item">
                   <span className="detail-label">{'Timeline'}</span>
                   <span className="detail-value">
-                    {'2024'}
+                    {'Mar - May 2025'}
                   </span>
                   <span className="detail-sub">
                     {'Times Young Creative Awards'}
@@ -192,7 +223,8 @@ export default function TimesAwards() {
               </div>
             </div>
 
-            <div className="work-content">
+            {/* 修改：移除 work-content 的 grid，改為 block 以實現全寬 */}
+            <div className="work-content" style={{ display: 'block' }}>
               <div className="work-description">
                 <h3 className="subsection-title">
                   {'Concept'}
@@ -201,15 +233,7 @@ export default function TimesAwards() {
                   {'The main video features a visually striking capsule machine designed for fresh graduates. Inside the transparent capsules are symbolic "career charms"—including "50k Guaranteed Salary" and "Freedom from Contracts." The film uses warm, inviting cinematography to contrast the cold reality of typical job hunting, positioning Yung Ching as a trustworthy partner rather than a gamble.'}
                 </p>
 
-                <div className="key-message-box">
-                  <h4 className="key-message-title">
-                    {'Key Copy'}
-                  </h4>
-                  <blockquote className="key-copy">
-                    {'"True value isn\'t luck, it\'s choosing a worthy partner."'}
-                  </blockquote>
-                </div>
-
+                {/* 修改：上下互換並設定全寬 */}
                 <div className="features-list">
                   <h4 className="features-title">{'Creative Elements'}</h4>
                   <ul>
@@ -219,26 +243,28 @@ export default function TimesAwards() {
                     <li>{'Warm cinematography vs. cold job market contrast'}</li>
                   </ul>
                 </div>
+
+                <div className="key-message-box" style={{ width: '100%', marginTop: '32px' }}>
+                  <h4 className="key-message-title">
+                    {'Key Copy'}
+                  </h4>
+                  <blockquote className="key-copy">
+                    {'"True value isn\'t luck, it\'s choosing a worthy partner."'}
+                  </blockquote>
+                </div>
               </div>
 
-              <div className="work-visuals">
-                <div className="image-placeholder video-main">
-                  <p className="placeholder-label">
-                    {'[Video: Career Festival Main Advertisement]'}
-                  </p>
-                </div>
-                <div className="visual-grid">
-                  <div className="image-placeholder video-frame">
-                    <p className="placeholder-label">
-                      {'[Image: Capsule Machine Scene]'}
-                    </p>
+              {/* 移入原本在 Work 3 的影片圖片與全寬影片連結 */}
+              <div className="work-visuals" style={{ marginTop: '48px' }}>
+                <img src={getImage('job-transfer-celebration') || tp[0]} alt="Job Transfer Celebration" loading="lazy" style={{ width: '100%', height: 'auto', objectFit: 'cover', display: 'block', borderRadius: '12px', marginBottom: '24px' }} />
+                <a href={TIMES_LINKS.video} target="_blank" rel="noopener noreferrer"
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', gap: '24px', border: '1px solid rgba(12,12,12,.12)', borderRadius: '12px', background: 'rgba(12,12,12,.02)', textDecoration: 'none', color: 'inherit', padding: '24px' }}>
+                  <span style={{ fontSize: '48px' }}>🎬</span>
+                  <div>
+                    <div style={{ fontFamily: '"Space Grotesk",sans-serif', fontWeight: 600, fontSize: '18px', color: '#0C0C0C', marginBottom: '4px' }}>《轉動職涯》</div>
+                    <div style={{ fontFamily: '"IBM Plex Mono",monospace', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: '#6B6A62' }}>Video Work ↗</div>
                   </div>
-                  <div className="image-placeholder video-frame">
-                    <p className="placeholder-label">
-                      {'[Image: Career Charms Close-up]'}
-                    </p>
-                  </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -290,25 +316,24 @@ export default function TimesAwards() {
                 </div>
               </div>
 
+              {/* 移入原本在 Work 1 的 tp[1], tp[2], tp[3] (依照現在的陣列順序) */}
               <div className="work-visuals">
-                <div className="image-placeholder web-ui">
-                  <p className="placeholder-label">
-                    {'[Image: Online Gashapon Interface]'}
-                  </p>
-                </div>
+                <img src={tp[3]} alt="Work Visual" loading="lazy" style={{ width: '100%', height: 'auto', objectFit: 'cover', display: 'block', borderRadius: '12px' }} />
                 <div className="visual-grid">
-                  <div className="image-placeholder ui-detail">
-                    <p className="placeholder-label">
-                      {'[Image: Career Pass Cards]'}
-                    </p>
-                  </div>
-                  <div className="image-placeholder ui-detail">
-                    <p className="placeholder-label">
-                      {'[Image: Chatbot Flow]'}
-                    </p>
-                  </div>
+                  <img src={tp[4]} alt="Visual detail 1" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '8px' }} />
+                  <img src={tp[5]} alt="Visual detail 2" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '8px' }} />
                 </div>
               </div>
+                <div className="work-visuals" style={{ marginTop: '48px', gridColumn: '1 / -1' }}>
+                  <a href={TIMES_LINKS.interactive1} target="_blank" rel="noopener noreferrer"
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', gap: '24px', border: '1px solid rgba(12,12,12,.12)', borderRadius: '12px', background: 'rgba(12,12,12,.02)', textDecoration: 'none', color: 'inherit', padding: '24px' }}>
+                    <span style={{ fontSize: '48px' }}>🌐</span>
+                    <div>
+                      <div style={{ fontFamily: '"Space Grotesk",sans-serif', fontWeight: 600, fontSize: '18px', color: '#0C0C0C', marginBottom: '6px' }}>《轉動職涯》</div>
+                      <div style={{ fontFamily: '"IBM Plex Mono",monospace', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: '#6B6A62' }}>Interactive Web ↗</div>
+                    </div>
+                  </a>
+                </div>
             </div>
           </div>
         </section>
@@ -330,7 +355,8 @@ export default function TimesAwards() {
               </div>
             </div>
 
-            <div className="work-content">
+            {/* 修改：改為 block 實現全寬連結 */}
+            <div className="work-content" style={{ display: 'block' }}>
               <div className="work-description">
                 <h3 className="subsection-title">
                   {'Concept'}
@@ -359,24 +385,17 @@ export default function TimesAwards() {
                 </div>
               </div>
 
-              <div className="work-visuals">
-                <div className="image-placeholder personality-test">
-                  <p className="placeholder-label">
-                    {'[Image: Personality Test UI]'}
-                  </p>
-                </div>
-                <div className="visual-grid">
-                  <div className="image-placeholder test-result">
-                    <p className="placeholder-label">
-                      {'[Image: Result Page Example]'}
-                    </p>
+              {/* 移入原本在 Work 2 的互動連結 interactive2 */}
+              <div className="work-visuals" style={{ marginTop: '48px' }}>
+                <img src={tp[1]} alt="Psychological Test" loading="lazy" style={{ width: '100%', height: 'auto', objectFit: 'cover', display: 'block', borderRadius: '12px', marginBottom: '24px' }} />
+                <a href={TIMES_LINKS.interactive2} target="_blank" rel="noopener noreferrer"
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', gap: '24px', border: '1px solid rgba(12,12,12,.12)', borderRadius: '12px', background: 'rgba(12,12,12,.02)', textDecoration: 'none', color: 'inherit', padding: '24px' }}>
+                  <span style={{ fontSize: '48px' }}>🌐</span>
+                  <div>
+                    <div style={{ fontFamily: '"Space Grotesk",sans-serif', fontWeight: 600, fontSize: '18px', color: '#0C0C0C', marginBottom: '6px' }}>《工作不靠運，職涯選永慶》</div>
+                    <div style={{ fontFamily: '"IBM Plex Mono",monospace', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: '#6B6A62' }}>Interactive Web ↗</div>
                   </div>
-                  <div className="image-placeholder test-result">
-                    <p className="placeholder-label">
-                      {'[Image: Persona Cards]'}
-                    </p>
-                  </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -399,7 +418,8 @@ export default function TimesAwards() {
               </div>
             </div>
 
-            <div className="work-content">
+            {/* 修改：使用 block 佈局並上下互換 Elements 與 Key Sound */}
+            <div className="work-content" style={{ display: 'block' }}>
               <div className="work-description">
                 <h3 className="subsection-title">
                   {'Concept'}
@@ -407,15 +427,6 @@ export default function TimesAwards() {
                 <p className="body-text">
                   {'An audio-only experience that uses sound design to simulate the tactile anticipation of turning a gashapon machine. The "click-click-click" rhythm mimics a heartbeat, building tension before the satisfying "pop" of success. The script cleverly uses first-person narration to make listeners feel like they\'re making their own career choice in real-time.'}
                 </p>
-
-                <div className="key-message-box">
-                  <h4 className="key-message-title">
-                    {'Key Sound Design'}
-                  </h4>
-                  <blockquote className="key-copy">
-                    {'"Click-click-click... (heartbeat rhythm) ...POP! (career choice made)"'}
-                  </blockquote>
-                </div>
 
                 <div className="features-list">
                   <h4 className="features-title">{'Creative Elements'}</h4>
@@ -426,28 +437,44 @@ export default function TimesAwards() {
                     <li>{'Audio-only storytelling (theater of the mind)'}</li>
                   </ul>
                 </div>
+
+                {/* Key Sound Design 設為全寬，放置於 Elements 下方 */}
+                <div className="key-message-box" style={{ width: '100%', marginTop: '32px' }}>
+                  <h4 className="key-message-title">
+                    {'Key Sound Design'}
+                  </h4>
+                  <blockquote className="key-copy">
+                    {'"Click-click-click... (heartbeat rhythm) ...POP! (career choice made)"'}
+                  </blockquote>
+                </div>
               </div>
 
-              <div className="work-visuals">
-                <div className="image-placeholder audio-visual">
-                  <p className="placeholder-label">
-                    {'[Image: Audio Waveform Visualization]'}
-                  </p>
-                </div>
-                <div className="visual-grid">
-                  <div className="image-placeholder sound-design">
-                    <p className="placeholder-label">
-                      {'[Image: Sound Design Concept]'}
-                    </p>
+              {/* 全寬音檔連結放置於最下方 */}
+              <div className="work-visuals" style={{ marginTop: '48px' }}>
+                <a href={TIMES_LINKS.audio} target="_blank" rel="noopener noreferrer"
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', width: '100%', border: '1px solid rgba(12,12,12,.12)', borderRadius: '12px', background: 'rgba(12,12,12,.02)', textDecoration: 'none', color: 'inherit', padding: '24px' }}>
+                  <span style={{ fontSize: '48px' }}>🎵</span>
+                  <div>
+                    <div style={{ fontFamily: '"Space Grotesk",sans-serif', fontWeight: 600, fontSize: '18px', color: '#0C0C0C', marginBottom: '6px' }}>《這一轉，選對了》</div>
+                    <div style={{ fontFamily: '"IBM Plex Mono",monospace', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: '#6B6A62' }}>Audio Work · Click to Listen ↗</div>
                   </div>
-                  <div className="image-placeholder sound-design">
-                    <p className="placeholder-label">
-                      {'[Image: Script Excerpt]'}
-                    </p>
-                  </div>
-                </div>
+                </a>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* 新增：完整作品播放清單 (獨立全寬區塊，放置於 Impact 上方) */}
+        <section className="content-section reveal" style={{ padding: '40px 0' }}>
+          <div className="container" style={{ maxWidth: '1200px' }}>
+            <a href={TIMES_LINKS.youtube} target="_blank" rel="noopener noreferrer"
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', width: '100%', border: '1px solid rgba(12,12,12,.12)', borderRadius: '12px', background: 'rgba(12,12,12,.02)', textDecoration: 'none', color: 'inherit', padding: '24px', transition: 'background 0.2s ease' }}>
+              <span style={{ fontSize: '48px' }}>▶️</span>
+              <div>
+                <div style={{ fontFamily: '"Space Grotesk",sans-serif', fontWeight: 600, fontSize: '18px', color: '#0C0C0C', marginBottom: '6px' }}>《完整作品播放清單》</div>
+                <div style={{ fontFamily: '"IBM Plex Mono",monospace', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: '#6B6A62' }}>YouTube Playlist ↗</div>
+              </div>
+            </a>
           </div>
         </section>
 
@@ -456,10 +483,13 @@ export default function TimesAwards() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="outcome-section">
               <div className="outcome-header">
-                <Award size={48} color="#CD853F" />
-                <h2 className="section-heading" style={{ marginBottom: '16px' }}>
-                  {'Campaign Impact & Recognition'}
-                </h2>
+                {/* 修正對齊：將 icon 與文字包在 flex 容器中 */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '16px' }}>
+                  <Award size={48} color="#CD853F" />
+                  <h2 className="section-heading" style={{ margin: 0 }}>
+                    {'Campaign Impact & Recognition'}
+                  </h2>
+                </div>
                 <p className="section-subheading">
                   {'National Recognition Across Multiple Formats'}
                 </p>
@@ -1251,6 +1281,34 @@ export default function TimesAwards() {
           }
         `}</style>
       </div>
+
+      <button
+        onClick={() => window.history.back()}
+        aria-label="Go back"
+        style={{
+          position: 'fixed', top: '76px', left: '24px',
+          width: '36px', height: '36px', borderRadius: '50%',
+          background: 'rgba(238,234,224,0.95)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
+          border: '1.5px solid rgba(12,12,12,0.25)',
+          color: '#0C0C0C', cursor: 'pointer',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: '16px', lineHeight: 1,
+          boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+          zIndex: 90,
+          transition: 'background .2s, box-shadow .2s',
+        }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLButtonElement).style.background = '#EEEAE0';
+          (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.13)';
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLButtonElement).style.background = 'rgba(238,234,224,0.95)';
+          (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+        }}
+      >←</button>
+
     </Layout>
   );
 }

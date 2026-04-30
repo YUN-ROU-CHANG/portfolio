@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import mePng from '../assets/images/Me.png';
 import Layout from '../components/Layout';
 import svgPaths from '../imports/svg-h76qvpq2g9';
-import { Lightbulb, Users, Shield, Target, Heart, Rocket, Music, Search, Puzzle, Bot, MessageCircle } from 'lucide-react';
+import { Lightbulb, Users, Shield, Target, Heart, Rocket, Music, Search, Puzzle, Bot, MessageCircle, Monitor } from 'lucide-react';
 
 // Strength icon component
 function StrengthIcon({ iconType, color }: { iconType: string; color: string }) {
@@ -53,6 +54,14 @@ export default function About() {
     return () => io.disconnect();
   }, []);
 
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowTop(window.scrollY > 300);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const strengths = [
     {
       iconType: 'search',
@@ -64,10 +73,7 @@ export default function About() {
       description: (
         <>
           <p style={{ marginBottom: '8px' }}><strong>Blending academic rigor with design empathy.</strong></p>
-          <ul style={{ paddingLeft: '20px', marginTop: '8px', lineHeight: '1.6' }}>
-            <li style={{ marginBottom: '4px' }}>With experience in mixed-method research, which ranging from SPSS quantitative analysis to in-depth qualitative interviews.</li>
-            <li>My research capabilities have been recognized with an <strong>IEEE Best Paper Award</strong> and conference acceptances.</li>
-          </ul>
+          <p style={{ fontSize: '16px', lineHeight: '1.7' }}>Mixed-method research spanning competitor analysis reports, SPSS quantitative analysis, to in-depth qualitative interviews and usability testing—recognized with an <strong>IEEE Best Paper Award</strong>.</p>
         </>
       )
     },
@@ -81,10 +87,7 @@ export default function About() {
       description: (
         <>
           <p style={{ marginBottom: '8px' }}><strong>Bridging the gap between user needs and business goals.</strong></p>
-          <ul style={{ paddingLeft: '20px', marginTop: '8px', lineHeight: '1.6' }}>
-            <li style={{ marginBottom: '4px' }}>Transitioning from <strong>Digital Marketing</strong> to Interaction Design.</li>
-            <li>I consider market viability and brand strategy. This holistic approach helped my team secure the <strong>Gold Prize at the InnoConnect+ competition</strong>, turning user insights into a commercially viable service model.</li>
-          </ul>
+          <p style={{ fontSize: '16px', lineHeight: '1.7' }}>My cross-domain background helped secure the <strong>InnoConnect+ Gold Prize</strong>, turning user insights into a commercially viable service model, supported by information architecture design and cross-functional prototype proposals.</p>
         </>
       )
     },
@@ -98,10 +101,7 @@ export default function About() {
       description: (
         <>
           <p style={{ marginBottom: '8px' }}><strong>Designing for the future with emerging technologies.</strong></p>
-          <ul style={{ paddingLeft: '20px', marginTop: '8px', lineHeight: '1.6' }}>
-            <li style={{ marginBottom: '4px' }}>Beyond standard prototyping, I experiment with <strong>Generative AI workflows</strong>, Python, and Arduino to explore new possibilities.</li>
-            <li>Whether it's researching AI voice synthesis or optimizing workflows with AI tools, I am always ready to adapt to the latest tech trends.</li>
-          </ul>
+          <p style={{ fontSize: '16px', lineHeight: '1.7' }}>I experiment with <strong>Generative AI</strong>, Python, and Arduino—and research AI voice synthesis in my academic work.</p>
         </>
       )
     },
@@ -115,10 +115,7 @@ export default function About() {
       description: (
         <>
           <p style={{ marginBottom: '8px' }}><strong>Translating complex ideas into team success.</strong></p>
-          <ul style={{ paddingLeft: '20px', marginTop: '8px', lineHeight: '1.6' }}>
-            <li style={{ marginBottom: '4px' }}>From managing influencer marketing campaigns to collaborating with engineers on hardware-software integration.</li>
-            <li>My experience as a <strong>Marketing Intern</strong> and a research assistant has honed my communication skills, enabling me to align stakeholders and drive projects from concept to launch.</li>
-          </ul>
+          <p style={{ fontSize: '16px', lineHeight: '1.7' }}>From influencer marketing to hardware-software integration, I align stakeholders and drive projects from concept to launch.</p>
         </>
       )
     }
@@ -127,54 +124,89 @@ export default function About() {
   return (
     <Layout>
       <div id="about-page">
-        {/* Section 1: Hero Intro - Two Column */}
-        <section className="section" id="about-hero" style={{ paddingTop: '80px' }}>
-          <div className="container">
-            <div className="about-hero-grid reveal" ref={heroRef}>
-              {/* Left: Portrait Photo */}
-              <div className="about-hero-photo">
-                <div className="gframe" style={{ borderRadius: 'var(--radius-lg)' }}>
+        {/* Section 1: Hero Intro — Portrait Tile + Skill Matrix */}
+        <section style={{ padding: '120px 0', position: 'relative', zIndex: 1 }}>
+          <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 clamp(16px, 2.2vw, 32px)' }}>
+
+            {/* Two-column grid */}
+            <div className="about-two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '64px', alignItems: 'start' }}>
+
+              {/* ── Left: Portrait Tile ── */}
+              <div style={{ position: 'relative', border: '1px solid #0C0C0C', background: '#F6F2E7', padding: '20px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontFamily: '"IBM Plex Mono", monospace', fontSize: '10px', letterSpacing: '.14em', textTransform: 'uppercase', color: '#6B6A62', marginBottom: '14px' }}>
+                  <span>SUBJECT · RC-26</span>
+                  <span>FILE 03.01</span>
+                </div>
+                <div style={{ aspectRatio: '4/5', overflow: 'hidden', background: '#E3DED1', position: 'relative' }}>
                   <img
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop"
-                    alt="Rose Chang portrait"
+                    src={mePng}
+                    alt="Rose Chang"
                     loading="eager"
-                    decoding="async"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      borderRadius: 'var(--radius-lg)',
-                      display: 'block'
-                    }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(15%)' }}
                   />
+                  {/* Spinning stamp */}
+                  <div style={{ position: 'absolute', bottom: '16px', right: '16px', width: '84px', height: '84px', borderRadius: '50%', border: '1.5px solid #0C0C0C', background: '#FFE699', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px', letterSpacing: '.14em', textTransform: 'uppercase', textAlign: 'center', lineHeight: 1.2, animation: 'spinSlow 22s linear infinite' }}>
+                    CERTIFIED /<br/>DESIGNER<br/>· 2026 ·
+                  </div>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginTop: '14px', paddingTop: '14px', borderTop: '1px solid rgba(12,12,12,.12)', fontFamily: '"IBM Plex Mono", monospace', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', color: '#6B6A62' }}>
+                  <div><span style={{ color: '#0C0C0C', marginRight: '4px' }}>BASED</span>Taipei</div>
+                  <div><span style={{ color: '#0C0C0C', marginRight: '4px' }}>PROGRAM</span>M.Des '26</div>
+                  <div><span style={{ color: '#0C0C0C', marginRight: '4px' }}>LANG.</span>中 / EN</div>
                 </div>
               </div>
 
-              {/* Right: Text Block */}
-              <div className="about-hero-text">
-                <h1 className="name" style={{ textAlign: 'left', fontSize: '48px', lineHeight: '1.2', marginBottom: '24px' }}>
-                  Hey, I'm Rose. Nice to meet you!
-                </h1>
+              {/* ── Right: Bio + Skill Matrix ── */}
+              <div>
+                <h3 style={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 500, fontSize: 'clamp(30px,4vw,52px)', lineHeight: 1.02, letterSpacing: '-.02em', margin: '0 0 28px', textTransform: 'uppercase', color: 'var(--md-primary)' }}>
+                  A researcher who codes.{' '}
+                  <span style={{ color: '#E23A1C', fontStyle: 'italic', fontWeight: 400, margin: '0 .06em' }}>/</span>{' '}
+                  A designer who{' '}
+                  <em style={{ fontStyle: 'normal', color: '#7A5C00', background: '#FFE699', padding: '0 .1em', display: 'inline-block', transform: 'translateY(-.04em)' }}>asks why.</em>
+                </h3>
 
-                <div className="body" style={{ fontSize: '16px', lineHeight: '1.7', color: 'var(--md-on-background)' }}>
-                  <p style={{ marginBottom: '16px' }}>
-                    I'm a detail-oriented and insightful UI/UX designer passionate about crafting intuitive and user-centered digital experiences. My experience spans both UI design and UX research, and I had the honor of contributing to a team project that won the Gold Award at the 2024 InnoConnect+ competition for Hi-Life.
-                  </p>
+                <p style={{ fontSize: '16px', lineHeight: 1.65, color: '#1A1A1A', margin: '0 0 16px', maxWidth: '56ch' }}>
+                  I'm a detail-oriented and insightful UI/UX designer passionate about crafting intuitive and user-centered digital experiences. My experience spans both UI design and UX research, and I had the honor of contributing to a team project that won the <strong style={{ color: '#0C0C0C', fontWeight: 600 }}>Gold Award at the 2024 InnoConnect+</strong> competition for Hi-Life.
+                </p>
+                <p style={{ fontSize: '16px', lineHeight: 1.65, color: '#1A1A1A', margin: '0 0 16px', maxWidth: '56ch' }}>
+                  Previously, I worked as a <strong style={{ color: '#0C0C0C', fontWeight: 600 }}>marketing intern at KDAN</strong>, where I created visual content for social media and produced analytical reports on influencer and advertising performance. I'm especially interested in emerging technologies such as AI and interactive design, with a current research focus on AI-generated music and voice synthesis.
+                </p>
+                <p style={{ fontSize: '16px', lineHeight: 1.65, color: '#1A1A1A', margin: 0, maxWidth: '56ch' }}>
+                  Beyond pixels and prototypes, I'm driven by collaboration — working with cross-functional teams to transform ideas into user-centered solutions. When I'm not designing: new music, creative coding, or the latest design trends.
+                </p>
 
-                  <p style={{ marginBottom: '16px' }}>
-                    Previously, I worked as a marketing intern at KDAN, where I created visual content for social media and produced analytical reports on influencer and advertising performance. I'm especially interested in emerging technologies such as AI and interactive design, with a current research focus on AI-generated music and voice synthesis.
-                  </p>
-
-                  <p style={{ marginBottom: '16px' }}>
-                    Beyond pixels and prototypes, I'm driven by collaboration. I love working with cross-functional teams—engineers, product managers, researchers—to transform ideas into user-centered solutions. I'm always eager to grow through collaboration, innovation, and meaningful storytelling at the intersection of design and technology.
-                  </p>
-
-                  <p>
-                    When I'm not designing, you'll find me exploring new music, experimenting with creative coding, or diving into the latest design trends. I'm always learning, always curious, and always ready for the next creative challenge.
-                  </p>
+                {/* Skill Matrix */}
+                <div style={{ marginTop: '40px', border: '1px solid #0C0C0C' }}>
+                  {[
+                    { cat: 'Research', skills: [{ label: 'Usability Testing', hot: true }, { label: 'Diary Studies', hot: true }, { label: 'SPSS / Quant', lvl: 'ADV' }, { label: 'Interviews' }, { label: 'Survey Design' }, { label: 'Mixed Methods' }] },
+                    { cat: 'Craft', skills: [{ label: 'Figma · Auto-layout', hot: true }, { label: 'Prototype / React' }, { label: 'Arduino', lvl: 'INT' }, { label: 'Gen-AI Workflows' }, { label: 'Motion' }] },
+                    { cat: 'Strategy', skills: [{ label: 'Service Design' }, { label: 'Product Strategy' }, { label: 'Facilitation' }, { label: 'Marketing Ops' }] },
+                  ].map(({ cat, skills }, gi, arr) => (
+                    <div key={cat} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', borderBottom: gi < arr.length - 1 ? '1px solid rgba(12,12,12,.12)' : 'none' }}>
+                      <div style={{ padding: '18px 16px', borderRight: '1px solid rgba(12,12,12,.12)', background: '#F6F2E7', fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', letterSpacing: '.14em', textTransform: 'uppercase', color: '#0C0C0C' }}>
+                        {cat}
+                      </div>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', padding: '14px 16px', alignItems: 'center' }}>
+                        {skills.map(({ label, hot, lvl }: { label: string; hot?: boolean; lvl?: string }) => (
+                          <span key={label}
+                            style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', letterSpacing: '.06em', textTransform: 'uppercase', padding: '6px 10px', border: '1px solid #0C0C0C', borderRadius: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px', background: hot ? '#FFE699' : 'transparent', cursor: 'default', transition: 'background .2s, color .2s' }}
+                            onMouseEnter={e => { if (!hot) { (e.currentTarget as HTMLElement).style.background = '#0C0C0C'; (e.currentTarget as HTMLElement).style.color = '#FFE699'; } }}
+                            onMouseLeave={e => { if (!hot) { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.color = 'inherit'; } }}
+                          >
+                            {label}{lvl && <span style={{ fontSize: '9px', opacity: .6 }}>{lvl}</span>}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
+
+            <style>{`
+              @keyframes spinSlow { to { transform: rotate(360deg); } }
+              @media (max-width: 900px) { .about-two-col { grid-template-columns: 1fr !important; gap: 40px !important; } }
+            `}</style>
           </div>
         </section>
 
@@ -252,7 +284,7 @@ export default function About() {
                     Clarity in Chaos
                   </h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>I turn complex information into actionable plans.</strong> I am a "documentation enthusiast" who believes that success lies in the details. Whether it's organizing research data or tracking project milestones, I meticulously document processes to ensure no insight is lost. This habit helps reduce ambiguity for my team, keeping stakeholders aligned and moving forward with a clear, shared vision.
+                    <strong>I turn complex information into actionable plans.</strong> I meticulously document processes to ensure no insight is lost, keeping stakeholders aligned with a clear vision.
                   </p>
                 </div>
               </div>
@@ -276,7 +308,7 @@ export default function About() {
                     Curiosity as a Driver
                   </h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>I embrace the new to optimize the now.</strong> With an open mind toward emerging technologies, I see change as an opportunity rather than a hurdle. From mastering Generative AI tools to coding in Python, I actively learn and share new methodologies. I strive to be the bridge that connects cutting-edge tech with practical workflows, empowering my team to work smarter, not just harder.
+                    <strong>I embrace the new to optimize the now.</strong> I actively bridge cutting-edge tech with practical workflows, empowering teams to work smarter.
                   </p>
                 </div>
               </div>
@@ -300,72 +332,32 @@ export default function About() {
                     Resilience &amp; Empathy
                   </h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>I foster a positive and collaborative environment.</strong> As an empathetic listener and an optimistic team player (ISFJ), I believe psychological safety creates the best work. I bring resilience to challenges and warmth to collaboration, ensuring that user needs are heard and team morale remains high. I don't just solve problems; I care about the people I solve them with.
+                    <strong>I foster a positive and collaborative environment.</strong> I bring resilience and warmth to collaboration—ensuring user needs are heard and team morale stays high.
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Section 4: More About Me - Composition */}
-        <section className="section" id="about-more" style={{ paddingTop: '80px', paddingBottom: '120px' }}>
-          <div className="container" style={{ maxWidth: '1200px' }}>
-            <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px' }}>
-              <Music size={32} color="hsl(var(--g4))" />
-              More about me — Composition
-            </h2>
-
-            <div className="gframe reveal" ref={moreRef}>
-              <div className="card glass" style={{ padding: '48px' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                  {/* Icon + Description */}
-                  <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                    <div style={{
-                      width: '56px',
-                      height: '56px',
-                      borderRadius: 'var(--radius-md)',
-                      background: 'linear-gradient(135deg, hsl(var(--g4)/.15), hsl(var(--g1)/.15))',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0
-                    }}>
-                      <Music size={28} color="hsl(var(--g4))" aria-hidden="true" />
-                    </div>
-                    <div className="body" style={{ fontSize: '16px', lineHeight: '1.7', flex: 1 }}>
-                      <p style={{ marginBottom: '16px' }}>
-                        Music composition has been a creative outlet for me since childhood. I approach it much like I approach design—starting with a mood or emotion I want to convey, then layering elements to build something cohesive and meaningful.
-                      </p>
-                      <p>
-                        Whether I'm arranging harmonies or designing interfaces, the process is the same: iterate, refine, and listen closely to the feedback. Below is a placeholder for one of my recent compositions.
-                      </p>
-                    </div>
+              {/* Value Card 4 - Hardware Meets Interface */}
+              <div className="gframe reveal" style={{ height: '100%' }}>
+                <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: 'var(--radius-md)',
+                    background: 'linear-gradient(135deg, hsl(var(--g4)/.15), hsl(var(--g1)/.15))',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '8px'
+                  }}>
+                    <Monitor size={24} color="hsl(var(--g4))" aria-hidden="true" />
                   </div>
-
-                  {/* Embedded Media Placeholder */}
-                  <div
-                    className="gframe"
-                    style={{
-                      borderRadius: 'var(--radius-md)',
-                      background: 'linear-gradient(135deg, hsl(var(--g1)/.08), hsl(var(--g3)/.08))',
-                      padding: '64px 32px',
-                      textAlign: 'center'
-                    }}
-                  >
-                    <div style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      gap: '16px',
-                      color: 'var(--color-text-muted)'
-                    }}>
-                      <Music size={48} aria-hidden="true" style={{ opacity: 0.4 }} />
-                      <p className="body muted" style={{ fontSize: '14px', maxWidth: '400px' }}>
-                        Audio player or embedded media content will be displayed here
-                      </p>
-                    </div>
-                  </div>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>
+                    Hardware Meets Interface
+                  </h3>
+                  <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
+                    <strong>I'm drawn to the intersection of physical products and digital experiences.</strong> From automotive UX to wearable interfaces, I'm eager to design for embedded systems where constraints spark the most creative solutions.
+                  </p>
                 </div>
               </div>
             </div>
@@ -489,8 +481,8 @@ export default function About() {
           /* Values Grid - 3 Columns */
           .about-values-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
           }
 
           .card.glass {
@@ -572,6 +564,38 @@ export default function About() {
           }
         `}</style>
       </div>
+
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+        style={{
+          position: 'fixed',
+          bottom: '32px',
+          right: '32px',
+          width: '48px',
+          height: '48px',
+          borderRadius: '50%',
+          background: '#1A1A18',
+          color: '#FFE699',
+          border: 'none',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '18px',
+          lineHeight: '1',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.18)',
+          transition: 'opacity 0.25s ease, transform 0.2s ease',
+          zIndex: 999,
+          opacity: showTop ? 1 : 0,
+          pointerEvents: showTop ? 'auto' : 'none',
+          transform: showTop ? 'translateY(0)' : 'translateY(8px)',
+        }}
+        onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-3px)'; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0)'; }}
+      >
+        ↑
+      </button>
     </Layout>
   );
 }

@@ -47,6 +47,15 @@
   --g4: 210 90% 65%;
   --focus: hsl(var(--g4)/.55);
   
+  /* Editorial design tokens */
+  --ink: #0C0C0C;
+  --ink-2: #1A1A1A;
+  --bone: #EEEAE0;
+  --bone-2: #E3DED1;
+  --acid: #FFE699;
+  --acid-ink: #7A5C00;
+  --font-mono: 'IBM Plex Mono', monospace;
+
   /* Project colors */
   --text: #0a0a0a;
   --color-text-muted: #666;

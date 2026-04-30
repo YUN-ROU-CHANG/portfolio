@@ -22,7 +22,7 @@ const resumeData = {
       year: '2025 Sep',
       title: 'Part-Time Project Assistant',
       company: 'NTUT; Center for Bilingual Learning', 
-      period: 'Sep 2025 – Present',
+      period: 'Sep 2025 – Feb 2026',
       description: [
         'Assisted the Center for Bilingual Learning at NTUT with social media management across Facebook, LINE, and the center’s website.',
         'Supported the execution of workshops, including venue setup, assisting international instructors, and coordinating students.',
@@ -159,6 +159,14 @@ function ExperienceItem({ experience }: { experience: Experience }) {
 }
 
 export default function Resume() {
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowTop(window.scrollY > 300);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <Layout>
       <div id="resume-page">
@@ -523,6 +531,38 @@ export default function Resume() {
           .education-cert-grid { grid-template-columns: 1fr; gap: 32px; }
         }
       `}</style>
+
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+        style={{
+          position: 'fixed',
+          bottom: '32px',
+          right: '32px',
+          width: '48px',
+          height: '48px',
+          borderRadius: '50%',
+          background: '#1A1A18',
+          color: '#FFE699',
+          border: 'none',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '18px',
+          lineHeight: '1',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.18)',
+          transition: 'opacity 0.25s ease, transform 0.2s ease',
+          zIndex: 999,
+          opacity: showTop ? 1 : 0,
+          pointerEvents: showTop ? 'auto' : 'none',
+          transform: showTop ? 'translateY(0)' : 'translateY(8px)',
+        }}
+        onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-3px)'; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0)'; }}
+      >
+        ↑
+      </button>
     </Layout>
   );
 }

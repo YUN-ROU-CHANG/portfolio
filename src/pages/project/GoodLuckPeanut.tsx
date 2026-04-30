@@ -1,9 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
 import { Award, Package, Globe, Lightbulb, Users, TrendingUp, ArrowRight } from 'lucide-react';
 
 export default function GoodLuckPeanut() {
+
+  const [showTop, setShowTop] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setShowTop(window.scrollY > 300);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Scroll-triggered reveal animations
   useEffect(() => {
@@ -1223,6 +1230,35 @@ export default function GoodLuckPeanut() {
           }
         `}</style>
       </div>
+
+      <button
+        onClick={() => window.history.back()}
+        aria-label="Go back"
+        style={{
+          position: 'fixed', top: '76px', left: '24px',
+          width: '36px', height: '36px', borderRadius: '50%',
+          background: 'rgba(238,234,224,0.95)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
+          border: '1.5px solid rgba(12,12,12,0.25)',
+          color: '#0C0C0C', cursor: 'pointer',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: '16px', lineHeight: 1,
+          boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+          zIndex: 90,
+          transition: 'background .2s, box-shadow .2s',
+        }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLButtonElement).style.background = '#EEEAE0';
+          (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.13)';
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLButtonElement).style.background = 'rgba(238,234,224,0.95)';
+          (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+        }}
+      >←</button>
+
+      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top" style={{ position:'fixed', bottom:'32px', right:'32px', width:'48px', height:'48px', borderRadius:'50%', background:'#1A1A18', color: '#FFE699', border:'none', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'18px', lineHeight:1, boxShadow:'0 4px 20px rgba(0,0,0,0.18)', transition:'opacity 0.25s ease, transform 0.2s ease', zIndex:999, opacity:showTop?1:0, pointerEvents:showTop?'auto':'none', transform:showTop?'translateY(0)':'translateY(8px)' }} onMouseEnter={e=>{(e.currentTarget as HTMLButtonElement).style.transform='translateY(-3px)';}} onMouseLeave={e=>{(e.currentTarget as HTMLButtonElement).style.transform=showTop?'translateY(0)':'translateY(8px)';}}>↑</button>
     </Layout>
   );
 }

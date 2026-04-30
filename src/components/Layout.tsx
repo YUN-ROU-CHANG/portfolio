@@ -1,6 +1,25 @@
 import { useState, useEffect, ReactNode } from 'react';
-import { Link, useLocation } from 'react-router';
-import { motion } from 'motion/react'; // 確保你有安裝 motion
+import { Link, NavLink } from 'react-router';
+
+function Clock() {
+  const [time, setTime] = useState('');
+  useEffect(() => {
+    const update = () => {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      setTime(`TPE · ${h}:${m}`);
+    };
+    update();
+    const id = setInterval(update, 60000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <span style={{ color: '#6B6A62', fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', letterSpacing: '.08em' }}>
+      {time}
+    </span>
+  );
+}
 
 type LayoutProps = {
   children: ReactNode;
@@ -9,7 +28,13 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   // Mouse follower effect
   useEffect(() => {
@@ -35,12 +60,6 @@ export default function Layout({ children }: LayoutProps) {
     };
   }, []);
 
-  const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/resume', label: 'Resume' },
-  ];
 
   return (
     <div className="page-root" id="home">
@@ -56,68 +75,56 @@ export default function Layout({ children }: LayoutProps) {
         }}
       />
 
-      {/* Tubelight Style Navigation */}
-      <header className="nav" role="banner">
-        <div className="container nav-row">
-          <Link to="/" className="nav-brand">Yun-Rou Chang</Link>
-          
-          {/* Desktop Nav */}
-          <nav className="nav-links desktop-only">
-            {navItems.map((item) => {
-              const isActive = location.pathname === item.path;
-              return (
-                <Link 
-                  key={item.path} 
-                  to={item.path} 
-                  className={`nav-item ${isActive ? 'active' : ''}`}
-                >
-                  <span className="nav-text">{item.label}</span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="tubelight"
-                      className="nav-tubelight"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
-                </Link>
-              );
-            })}
+      {/* Top Bar Navigation */}
+      <header className="top-bar" role="banner" style={{ padding: scrolled ? '9px clamp(16px,2.2vw,32px)' : undefined, boxShadow: scrolled ? '0 2px 12px rgba(12,12,12,0.08)' : undefined, transition: 'padding 0.3s ease, box-shadow 0.3s ease' }}>
+        {/* Left: name + clock */}
+        <div className="top-left">
+          <Link to="/" style={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 600, fontSize: '13px', letterSpacing: '-.01em', textTransform: 'none', color: '#0C0C0C', textDecoration: 'none' }}>
+            Yun-Rou Chang
+          </Link>
+          <span style={{ color: '#6B6A62', fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', letterSpacing: '.08em' }}>— ROSE</span>
+          <Clock />
+        </div>
+
+        {/* Mid: capsule nav */}
+        <nav className="top-mid" aria-label="Primary">
+          <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink>
+          <NavLink to="/about" className={({ isActive }) => isActive ? 'active' : ''}>About</NavLink>
+          <NavLink to="/projects" className={({ isActive }) => isActive ? 'active' : ''}>Projects</NavLink>
+          <NavLink to="/resume" className={({ isActive }) => isActive ? 'active' : ''}>Resume</NavLink>
+        </nav>
+
+        {/* Right: chip + CTA (hidden ≤820px) */}
+        <div className="top-right">
+          <span className="top-chip">
+            <span className="dot" />
+            Open to '26 Roles
+          </span>
+          <a href="mailto:yuu07798@gmail.com" className="top-cta">Contact →</a>
+        </div>
+
+        {/* Mobile Hamburger (visible ≤820px) */}
+        <button
+          className="nav-hamburger"
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          style={{ display: 'none' }}
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`mobile-nav-overlay ${mobileMenuOpen ? 'open' : ''}`}>
+          <nav className="mobile-nav-links">
+            {[{ path: '/', label: 'Home' }, { path: '/about', label: 'About' }, { path: '/projects', label: 'Projects' }, { path: '/resume', label: 'Resume' }].map(item => (
+              <NavLink key={item.path} to={item.path} end={item.path === '/'} onClick={() => setMobileMenuOpen(false)}
+                className={({ isActive }) => isActive ? 'active' : ''}>
+                {item.label}
+              </NavLink>
+            ))}
+            <a href="mailto:yuu07798@gmail.com" onClick={() => setMobileMenuOpen(false)} style={{ fontSize: '18px', color: '#0C0C0C', textDecoration: 'none', fontFamily: '"IBM Plex Mono", monospace' }}>Contact →</a>
           </nav>
-
-          {/* Mobile Hamburger */}
-          <button 
-            className="nav-hamburger" 
-            aria-label="Toggle navigation menu"
-            aria-expanded={mobileMenuOpen}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          {/* Mobile Menu Overlay */}
-          <div className={`mobile-nav-overlay ${mobileMenuOpen ? 'open' : ''}`}>
-             <nav className="mobile-nav-links">
-                {navItems.map((item) => (
-                  <Link 
-                    key={item.path} 
-                    to={item.path} 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={location.pathname === item.path ? 'active' : ''}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <a className="btn-pill interactive-button-base btn--primary" href="#contact" onClick={() => setMobileMenuOpen(false)}>
-                   Contact Me
-                </a>
-             </nav>
-          </div>
-
-          <a className="btn-pill interactive-button-base btn--primary nav-cta desktop-only" href="#contact">
-            Contact <span className="dot">→</span>
-          </a>
         </div>
       </header>
 
@@ -160,73 +167,66 @@ export default function Layout({ children }: LayoutProps) {
         h1, h2, h3 { color: var(--md-on-surface); }
         .muted { color: var(--color-text-muted); }
 
-        /* Navigation (Tubelight Style - Note 6) */
-        header.nav {
-          position: fixed;
-          top: 20px; /* Floating effect */
-          left: 0;
-          right: 0;
-          z-index: 50;
-          margin-left: auto;
-          margin-right: auto;
-          width: calc(100% - 32px);
-          max-width: var(--container-width);
-          border-radius: 999px;
-          background: rgba(255, 255, 255, 0.85); /* White bg, slightly transparent */
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(0,0,0,0.05);
-          box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-          transition: all 0.3s ease;
+        /* ── Top Bar ── */
+        .top-bar {
+          position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          gap: 24px; align-items: center;
+          padding: 14px clamp(16px, 2.2vw, 32px);
+          background: rgba(238,234,224,0.82);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-bottom: 1px solid #0C0C0C;
+          font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+          font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
         }
-        
-        .nav-row {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 8px 12px; /* Compact padding */
-        }
-
-        .nav-brand {
-          font-weight: 700;
-          font-size: 18px;
-          text-decoration: none;
-          color: #000;
-          padding-left: 12px;
-        }
-
-        .nav-links.desktop-only {
-          display: flex;
-          gap: 4px;
-          background: rgba(0,0,0,0.03);
+        .top-left { display: flex; gap: 18px; align-items: center; }
+        .top-mid {
+          display: flex; gap: 4px; align-items: center;
+          justify-content: center;
           padding: 4px;
-          border-radius: 999px;
+          border: 1px solid #0C0C0C; border-radius: 999px;
+          background: #F6F2E7;
         }
-
-        .nav-item {
-          position: relative;
-          padding: 8px 20px;
-          font-size: 14px;
-          font-weight: 500;
-          color: #555;
+        .top-mid a {
+          padding: 7px 14px; border-radius: 999px;
+          transition: background .25s cubic-bezier(.2,.8,.2,1), color .25s cubic-bezier(.2,.8,.2,1);
+          font-family: "IBM Plex Mono", monospace;
+          font-size: 11px; letter-spacing: .08em;
+          text-transform: uppercase; text-decoration: none;
+          color: #6B6A62;
+        }
+        .top-mid a:hover { background: #0C0C0C; color: #EEEAE0; }
+        .top-mid a.active { background: #0C0C0C; color: #FFE699; }
+        .top-right {
+          display: flex; gap: 14px; align-items: center;
+          justify-content: flex-end;
+        }
+        .top-chip {
+          display: inline-flex; align-items: center; gap: 6px;
+          padding: 6px 10px;
+          border: 1px solid #0C0C0C; border-radius: 999px;
+          font-family: "IBM Plex Mono", monospace;
+          font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+          color: #0C0C0C;
+        }
+        .top-chip .dot {
+          width: 6px; height: 6px; border-radius: 50%;
+          background: #E23A1C;
+          animation: chipBlink 1.6s steps(2) infinite;
+        }
+        @keyframes chipBlink { 50% { opacity: .3; } }
+        .top-cta {
+          padding: 8px 14px;
+          background: #0C0C0C; color: #FFE699;
+          border-radius: 999px; border: none; cursor: pointer;
+          font-family: "IBM Plex Mono", monospace;
+          font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
           text-decoration: none;
-          border-radius: 999px;
-          transition: color 0.2s ease;
+          transition: transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s cubic-bezier(.2,.8,.2,1);
         }
-        
-        .nav-item:hover { color: #000; }
-        .nav-item.active { color: #000; }
-
-        .nav-text { position: relative; z-index: 2; }
-
-        /* The floating highlight */
-        .nav-tubelight {
-          position: absolute;
-          inset: 0;
-          background: #fff;
-          border-radius: 999px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-          z-index: 1;
-        }
+        .top-cta:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 #0C0C0C; }
 
         /* Buttons (Note 2) */
         .interactive-button-base {
@@ -276,9 +276,9 @@ export default function Layout({ children }: LayoutProps) {
         /* Common Styles */
         .section { padding: 80px 0; }
         
-        /* Main content spacing for fixed nav */
+        /* Main content spacing for fixed top bar (~52px tall) */
         main#main {
-          padding-top: 120px;
+          padding-top: 72px;
         }
         
         /* Typography Scale */
@@ -299,9 +299,9 @@ export default function Layout({ children }: LayoutProps) {
         }
         .shadow-glow { box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1); }
 
-        /* Mobile Nav (Note 3 - Solid background) */
+        /* Mobile Nav */
         .nav-hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; }
-        .nav-hamburger span { display: block; width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
+        .nav-hamburger span { display: block; width: 24px; height: 2px; background: #0C0C0C; border-radius: 2px; transition: all 0.3s; }
         
         .mobile-nav-overlay {
           position: fixed;
@@ -333,11 +333,13 @@ export default function Layout({ children }: LayoutProps) {
         .mobile-nav-links a.active { color: var(--md-primary); }
 
         /* Responsive */
-        @media (max-width: 768px) {
-          .desktop-only { display: none !important; }
-          .nav-hamburger { display: flex; }
-          header.nav { top: 10px; border-radius: 16px; width: calc(100% - 32px); }
-          main#main { padding-top: 100px; }
+        @media (max-width: 820px) {
+          .top-bar { grid-template-columns: 1fr auto; }
+          .top-right { display: none; }
+          .nav-hamburger { display: flex !important; }
+        }
+        @media (max-width: 560px) {
+          .top-mid a { padding: 7px 8px; font-size: 10px; }
         }
 
         /* Skip Link */
