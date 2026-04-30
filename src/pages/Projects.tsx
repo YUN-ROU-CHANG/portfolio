@@ -5,7 +5,7 @@ import sleepGuardianCoverP from '../assets/images/home/sleep-guardian-cover.png'
 import oblivilightCoverP from '../assets/images/home/Oblivilight-cover.jpg';
 import muCoverP from '../assets/images/home/mu-cover.jpg';
 import innoconnectCoverP from '../assets/images/home/innoconnect-cover.jpg';
-import gcceCoverP from '../assets/images/home/GCCE-cover.JPG';
+import gcceCoverP from '../assets/images/home/gcce-cover.jpg';
 import timesYoungCover from '../assets/images/project/TimesYoungCreativeAwards/timesyoungcreativeawards-cover.png';
 import bigDataCupCover from '../assets/images/project/BigDataMarketingCup/big-data-cup-cover.png';
 import kdanCover from '../assets/images/project/AdnexInternship/ADNEX-social-cover.png';

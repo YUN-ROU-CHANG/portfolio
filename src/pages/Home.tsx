@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 import { Briefcase, Award, Mail, Sparkles, BookOpen } from 'lucide-react';
 import { Separator } from '../components/ui/separator';
 import sleepGuardianCover from '../assets/images/home/sleep-guardian-cover.png';
-import oblivilightCover from '../assets/images/home/oblivilight-cover.jpg';
+import oblivilightCover from '../assets/images/home/Oblivilight-cover.jpg';
 import muCover from '../assets/images/home/mu-cover.jpg';
 import innoconnectCover from '../assets/images/home/innoconnect-cover.jpg';
 import gcceCover from '../assets/images/home/gcce-cover.jpg';

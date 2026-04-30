@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import sleepGuardianCover from '../../assets/images/sleep-guardian-cover.png';
+import sleepGuardianCover from '../../assets/images/home/sleep-guardian-cover.png';
 import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
 import {
