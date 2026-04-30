@@ -7,6 +7,9 @@ import { Button } from '../components/ui/button';
 import { Separator } from '../components/ui/separator';
 import { Download, Linkedin, Github, Briefcase, GraduationCap, Award, Code } from 'lucide-react';
 
+// 引入你指定的 PDF 檔案
+import resumePdf from '../assets/images/Yun-Rou_Chang_Resume.pdf';
+
 // Types
 type Experience = {
   id: string; year: string; title: string; company: string; period: string; description: string[]; badges: string[];
@@ -17,24 +20,24 @@ const resumeData = {
   lastUpdated: '2025-11-19',
   contact: { email: 'yuu07798@gmail.com', linkedin: 'https://www.linkedin.com/in/rose-chang0708', github: 'https://github.com' },
   experience: [
-    { 
+    {
       id: 'exp-1',
       year: '2025 Sep',
       title: 'Part-Time Project Assistant',
-      company: 'NTUT; Center for Bilingual Learning', 
+      company: 'NTUT; Center for Bilingual Learning',
       period: 'Sep 2025 – Feb 2026',
       description: [
         'Assisted the Center for Bilingual Learning at NTUT with social media management across Facebook, LINE, and the center’s website.',
         'Supported the execution of workshops, including venue setup, assisting international instructors, and coordinating students.',
         'Handled administrative tasks related to the Center for Bilingual Learning.',
       ],
-      badges: ['Social Media Management', 'Event Coordination', 'Document Handling and File Management', 'Administrative Support', 'Canva'] 
+      badges: ['Social Media Management', 'Event Coordination', 'Document Handling and File Management', 'Administrative Support', 'Canva']
     },
-    { 
+    {
       id: 'exp-2',
       year: '2024 Sep',
       title: 'Research Assistant',
-      company: 'NTUT', 
+      company: 'NTUT',
       period: 'Sep 2024 – Jul 2025',
       description: [
         'Assisted Prof. Chien-Wen Cheng in executing project-related tasks.',
@@ -43,13 +46,13 @@ const resumeData = {
         'Developed the project findings into a conference paper and submitted it to SSIM 2025, titled “Artificial Intelligence-Assisted Music and Interactive Design for University Students: Exploring Needs and Skill-Based Variations in Music Creation Experience.”',
         'Provided administrative support for project documentation and coordination.',
       ],
-      badges: ['Research Report and Academic Paper Writing', 'Research Proposal Development and Project Execution', 'Statistical Software Proficiency', 'Qualitative Interview Techniques'] 
+      badges: ['Research Report and Academic Paper Writing', 'Research Proposal Development and Project Execution', 'Statistical Software Proficiency', 'Qualitative Interview Techniques']
     },
-    { 
+    {
       id: 'exp-3',
       year: '2024 Mar',
       title: 'Marketing Intern',
-      company: 'KDAN｜ADNEX', 
+      company: 'KDAN｜ADNEX',
       period: 'Mar 2024 – Nov 2024',
       description: [
         'Communicated with over 110 Key Option Leaders (KOL).',
@@ -61,7 +64,7 @@ const resumeData = {
       ],
       badges: ['Social Media Management', 'Ad Campaign Planning & Copywriting', 'Creative Advertising Ideation', 'Cross-Industry Partnership Planning', 'Brand Awareness Promotion', 'Market Research Planning & Execution']
     },
-    { 
+    {
       id: 'exp-4',
       year: '2022 Jul',
       title: 'Corporate Training Project Intern',
@@ -73,20 +76,20 @@ const resumeData = {
         'Assisted the sales team with pre-training preparations, including coordination between instructors and corporate clients, as well as handling related administrative tasks.',
         'Executed on-site corporate training services and supported post-training wrap-up and project closure.',
       ],
-      badges: ['Advertising Sales Skills', 'Customer Relationship Management (CRM)', 'Client Data Updating and Maintenance', 'Document Processing and Layout Design','Data Entry and Document Filing','Administrative Support'] 
+      badges: ['Advertising Sales Skills', 'Customer Relationship Management (CRM)', 'Client Data Updating and Maintenance', 'Document Processing and Layout Design', 'Data Entry and Document Filing', 'Administrative Support']
     },
-    { 
+    {
       id: 'exp-5',
       year: '2022 Jan',
       title: 'Part-time worker',
-      company: 'Won-Lai-Won Enterprise Group', 
+      company: 'Won-Lai-Won Enterprise Group',
       period: 'Jan 2022 – Feb 2022',
       description: [
         'Responsible for product photography, background removal, photo editing, and uploading product listings.',
         'Assisted in writing product descriptions and promotional copy.',
         'Assisted with document filing and record management for the company.',
       ],
-      badges: ['Product Photography', 'Product Background Removal', 'Advertising Campaign Planning and Copywriting', 'Document Processing and Layout Design','Data Entry and Document Filing','Photoshop','Illustrator'] 
+      badges: ['Product Photography', 'Product Background Removal', 'Advertising Campaign Planning and Copywriting', 'Document Processing and Layout Design', 'Data Entry and Document Filing', 'Photoshop', 'Illustrator']
     },
   ],
   skills: [
@@ -107,8 +110,8 @@ function ExperienceItem({ experience }: { experience: Experience }) {
   const ref = useRef<HTMLLIElement>(null);
   // Grid Layout eliminates need for scroll transform logic for alignment
   return (
-    <motion.li 
-      ref={ref} 
+    <motion.li
+      ref={ref}
       className="timeline-item"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -130,13 +133,13 @@ function ExperienceItem({ experience }: { experience: Experience }) {
       <div className="timeline-content">
         <Card className="timeline-card">
           <CardHeader className="resume-card-header">
-             <div className="exp-icon-box">
-                <Briefcase size={20} />
-             </div>
-             <div>
-               <CardTitle className="exp-title">{experience.title}</CardTitle>
-               <CardDescription className="exp-meta">{experience.company} · {experience.period}</CardDescription>
-             </div>
+            <div className="exp-icon-box">
+              <Briefcase size={20} />
+            </div>
+            <div>
+              <CardTitle className="exp-title">{experience.title}</CardTitle>
+              <CardDescription className="exp-meta">{experience.company} · {experience.period}</CardDescription>
+            </div>
           </CardHeader>
           <CardContent className="resume-card-content">
             <ul className="exp-desc-list">
@@ -179,7 +182,7 @@ export default function Resume() {
               </div>
               <div className="resume-actions">
                 <Button className="btn-pill interactive-button-base btn--primary" asChild>
-                  <a href="/Resume_250808.pdf" download><Download size={18} /> Download PDF</a>
+                  <a href={resumePdf} download><Download size={18} /> Download PDF</a>
                 </Button>
                 {resumeData.contact.linkedin && (
                   <Button variant="outline" className="btn-pill interactive-button-base" asChild>
@@ -198,15 +201,15 @@ export default function Resume() {
           <div className="container" style={{ maxWidth: '1400px' }}>
             <div className="resume-pdf-container">
               <object
-                data="/Resume_250808.pdf#view=FitH"
+                data={`${resumePdf}#view=FitH`}
                 type="application/pdf"
                 className="resume-pdf-object"
                 aria-label="Resume PDF viewer"
               >
                 {/* Fallback: Image + Download Button */}
                 <div className="resume-pdf-fallback">
-                  <div style={{ 
-                    padding: 'var(--space-10)', 
+                  <div style={{
+                    padding: 'var(--space-10)',
                     textAlign: 'center',
                     display: 'flex',
                     flexDirection: 'column',
@@ -232,9 +235,9 @@ export default function Resume() {
                         Your browser doesn't support embedded PDFs. Please download the file to view it.
                       </p>
                     </div>
-                    <Button 
+                    <Button
                       className="interactive-button-base btn--primary"
-                      style={{ 
+                      style={{
                         gap: 'var(--space-2)',
                         padding: 'var(--space-3) var(--space-5)',
                         background: 'var(--md-primary)',
@@ -243,7 +246,7 @@ export default function Resume() {
                       }}
                       asChild
                     >
-                      <a href="/Resume_250808.pdf" download>
+                      <a href={resumePdf} download>
                         <Download size={18} />
                         Download Resume PDF
                       </a>
@@ -251,13 +254,13 @@ export default function Resume() {
                   </div>
                 </div>
               </object>
-              <p className="body muted" style={{ 
-                textAlign: 'center', 
+              <p className="body muted" style={{
+                textAlign: 'center',
                 marginTop: 'var(--space-4)'
               }}>
-                Can't view the PDF? <a 
-                  href="/Resume_250808.pdf" 
-                  target="_blank" 
+                Can't view the PDF? <a
+                  href={resumePdf}
+                  target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: 'hsl(var(--g1))', textDecoration: 'underline' }}
                 >
@@ -267,7 +270,7 @@ export default function Resume() {
             </div>
           </div>
         </section>
-        
+
         {/* Experience Timeline */}
         <section className="section">
           <div className="container">
@@ -291,8 +294,8 @@ export default function Resume() {
         <section className="section" style={{ paddingTop: 'var(--space-10)', paddingBottom: 'var(--space-10)' }}>
           <div className="container" style={{ maxWidth: '1400px' }}>
             <div style={{ marginBottom: 'var(--space-10)' }}>
-              <h2 className="section-head" style={{textAlign:'left', display:'flex', alignItems:'center', gap:'12px'}}>
-                <Code size={32} color="hsl(var(--g2))"/> Skills
+              <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <Code size={32} color="hsl(var(--g2))" /> Skills
               </h2>
             </div>
 
@@ -312,7 +315,7 @@ export default function Resume() {
                       }}>
                         <Code size={20} style={{ color: 'hsl(var(--g2))' }} aria-hidden="true" />
                       </div>
-                      <CardTitle style={{ 
+                      <CardTitle style={{
                         color: 'var(--md-on-surface)',
                         marginBottom: '0'
                       }}>
@@ -323,7 +326,7 @@ export default function Resume() {
                   <CardContent style={{ padding: 'var(--space-6)', paddingTop: 0, gap: '0' }}>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
                       {skillGroup.items.map((skill) => (
-                        <Badge 
+                        <Badge
                           key={skill}
                           variant="secondary"
                           style={{
@@ -352,43 +355,43 @@ export default function Resume() {
             <div className="education-cert-grid">
               {/* Education */}
               <div>
-                 <h2 className="section-head" style={{textAlign:'left', display:'flex', alignItems:'center', gap:'12px'}}>
-                   <GraduationCap size={32} color="var(--md-primary)"/> Education
-                 </h2>
-                 <div style={{display:'flex', flexDirection:'column', gap:'16px'}}>
-                   {resumeData.education.map((edu, index) => (
-                     <Card key={index} style={{border:'1px solid rgba(0,0,0,0.06)'}}>
-                       <CardHeader style={{padding:'24px'}}>
-                         <CardTitle className="exp-title">{edu.degree}</CardTitle>
-                         <CardDescription>{edu.institution} · {edu.year}</CardDescription>
-                         {edu.description && <p style={{fontSize:'14px', marginTop:'8px', color:'#666'}}>{edu.description}</p>}
-                       </CardHeader>
-                     </Card>
-                   ))}
-                 </div>
+                <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <GraduationCap size={32} color="var(--md-primary)" /> Education
+                </h2>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {resumeData.education.map((edu, index) => (
+                    <Card key={index} style={{ border: '1px solid rgba(0,0,0,0.06)' }}>
+                      <CardHeader style={{ padding: '24px' }}>
+                        <CardTitle className="exp-title">{edu.degree}</CardTitle>
+                        <CardDescription>{edu.institution} · {edu.year}</CardDescription>
+                        {edu.description && <p style={{ fontSize: '14px', marginTop: '8px', color: '#666' }}>{edu.description}</p>}
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
               </div>
 
               {/* Certifications */}
               <div>
-                 <h2 className="section-head" style={{textAlign:'left', display:'flex', alignItems:'center', gap:'12px'}}>
-                   <Award size={32} color="hsl(var(--g3))"/> Certifications
-                 </h2>
-                 <div style={{display:'flex', flexDirection:'column', gap:'16px'}}>
-                   {resumeData.certifications.map((cert, index) => (
-                     <Card key={index} style={{border:'1px solid rgba(0,0,0,0.06)'}}>
-                       <CardHeader style={{padding:'24px'}}>
-                         <CardTitle className="exp-title">{cert.name}</CardTitle>
-                         <CardDescription>{cert.issuer} · {cert.year}</CardDescription>
-                       </CardHeader>
-                     </Card>
-                   ))}
-                 </div>
+                <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <Award size={32} color="hsl(var(--g3))" /> Certifications
+                </h2>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {resumeData.certifications.map((cert, index) => (
+                    <Card key={index} style={{ border: '1px solid rgba(0,0,0,0.06)' }}>
+                      <CardHeader style={{ padding: '24px' }}>
+                        <CardTitle className="exp-title">{cert.name}</CardTitle>
+                        <CardDescription>{cert.issuer} · {cert.year}</CardDescription>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
       </div>
-      
+
       <style>{`
         .header-section { padding-top: 40px; padding-bottom: 40px; }
         .resume-header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }

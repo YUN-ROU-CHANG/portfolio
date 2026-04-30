@@ -82,7 +82,7 @@ const projectsData: ProjectItem[] = [
     image: kdanCover,
     period: '2024 Mar - Nov',
     type: 'Marketing & Data Analytics',
-    title: 'KDAN Mobile | Marketing Intern',
+    title: 'KDAN | Marketing Intern',
     description: 'Optimized social workflow increasing IG growth by 101%. Led AI training.',
     tags: ['Marketing', 'Internship'],
     category: 'research-exp'

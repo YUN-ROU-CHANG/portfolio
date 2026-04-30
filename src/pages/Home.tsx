@@ -497,14 +497,14 @@ export default function Home() {
             <div className="award-item-clean">
               <span className="award-year">2025</span>
               <div>
-                <h4>IEEE GCCE & TAICHI '25 (Paper Accepted)</h4>
+                <h4>IEEE GCCE(Paper Accepted)</h4>
                 <p>First Author. Explored AI voice subjectivity and interactive product design.</p>
               </div>
             </div>
             <div className="award-item-clean">
               <span className="award-year">2025</span>
               <div>
-                <h4>NTU OpenHCI'25 | Best Demo Award</h4>
+                <h4>NTU OpenHCI'25 | Best Demo Award & off to TAICHI '25 </h4>
                 <p>Led UX research and product design. Tangible AI interaction device exploring emotional memory — awarded Best Demo at OpenHCI 2025.</p>
               </div>
             </div>
@@ -525,7 +525,7 @@ export default function Home() {
             <div className="award-item-clean">
               <span className="award-year">2024</span>
               <div>
-                <h4>IEEE SSIM Best Paper Award</h4>
+                <h4>SSIM Best Paper Award</h4>
                 <p>First Author. Focused on Human-AI music collaboration interfaces.</p>
               </div>
             </div>
