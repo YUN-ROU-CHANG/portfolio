@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../components/Layout';
-import { Briefcase, Award, Mail, Sparkles, BookOpen } from 'lucide-react';
+// 💡 加入了 FileText Icon 用於證書按鈕
+import { Briefcase, Award, Mail, Sparkles, BookOpen, FileText } from 'lucide-react';
 import { Separator } from '../components/ui/separator';
+
 import sleepGuardianCover from '../assets/images/home/sleep-guardian-cover.png';
 import oblivilightCover from '../assets/images/home/Oblivilight-cover.jpg';
 import muCover from '../assets/images/home/mu-cover.jpg';
@@ -17,6 +19,16 @@ import controlNotif from '../assets/images/home/control.png';
 import photographyCover from '../assets/images/photography/photography-cover.png';
 import concertImg from '../assets/images/home/concert.png';
 import vibeCodingImg from '../assets/images/home/vibe-coding.png';
+
+// 💡 引入所有的獎狀與證明圖片
+import tuitionCert from '../assets/images/home/tuition.jpg';
+import timesYoungCert from '../assets/images/home/times-young-creative-awards.jpg';
+import ieeeGcceCert from '../assets/images/home/ieeegcce-presentation.jpg';
+import openhciCert from '../assets/images/home/best-demo.jpeg';
+import uxdaCert from '../assets/images/home/uxda-nominated.jpg';
+import innoconnectCert from '../assets/images/home/innoconnect-certificate.jpg';
+import bigDataCert from '../assets/images/home/big-data-cup.jpg';
+import ssimCert from '../assets/images/home/ssim-award.jpg';
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -231,141 +243,141 @@ export default function Home() {
 
             {/* 01 — Sleep Guardian */}
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0, ease: [0.2, 0.8, 0.2, 1] }}>
-            <Link to="/projects/sleep-guardian" className="reveal" ref={addToRefs}
-              style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
-              <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 01</div>
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
-                  Sleep Guardian /{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>interrupting</em>{' '}the scroll before it becomes sleep debt.
-                </h3>
-                <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Planned and executed a controlled EMA user research study, designed interaction flows and prototypes for a React Native intervention app to study in-bed smartphone procrastination.</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                  {['M.S. Thesis', 'User Research', 'EMA'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+              <Link to="/projects/sleep-guardian" className="reveal" ref={addToRefs}
+                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
+                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 01</div>
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
+                    Sleep Guardian /{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>interrupting</em>{' '}the scroll before it becomes sleep debt.
+                  </h3>
+                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Planned and executed a controlled EMA user research study, designed interaction flows and prototypes for a React Native intervention app to study in-bed smartphone procrastination.</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
+                    {['M.S. Thesis', 'User Research', 'EMA'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+                  </div>
                 </div>
-              </div>
-              <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
-                <img src={sleepGuardianCover} alt="Sleep Guardian" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }}/>
-              </div>
-              <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
-                <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2026</span>
-                <span style={{ color: '#E23A1C', fontWeight: 500 }}>M.S. Thesis</span>
-              </div>
-              <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
-            </Link>
+                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
+                  <img src={sleepGuardianCover} alt="Sleep Guardian" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
+                </div>
+                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
+                  <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2026</span>
+                  <span style={{ color: '#E23A1C', fontWeight: 500 }}>M.S. Thesis</span>
+                </div>
+                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
+              </Link>
 
             </motion.div>
 
             {/* 02 — Oblivilight */}
-            <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,margin:'-60px'}} transition={{duration:0.5,delay:0.08,ease:[0.2,0.8,0.2,1]}}>
-            <Link to="/projects/oblivilight" className="reveal" ref={addToRefs}
-              style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
-              <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 02</div>
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
-                  Oblivilight —{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>teaching</em>{' '}AI to forget.
-                </h3>
-                <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Built a tangible interaction device in a 6-day sprint, exploring how AI systems handle "forgetting" mechanisms. Best Demo Award at OpenHCI '25.</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                  {["OpenHCI'25", 'Tangible UX', 'HCI'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.08, ease: [0.2, 0.8, 0.2, 1] }}>
+              <Link to="/projects/oblivilight" className="reveal" ref={addToRefs}
+                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
+                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 02</div>
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
+                    Oblivilight —{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>teaching</em>{' '}AI to forget.
+                  </h3>
+                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Built a tangible interaction device in a 6-day sprint, exploring how AI systems handle "forgetting" mechanisms. Best Demo Award at OpenHCI '25.</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
+                    {["OpenHCI'25", 'Tangible UX', 'HCI'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+                  </div>
                 </div>
-              </div>
-              <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
-                <img src={oblivilightCover} alt="Oblivilight" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }}/>
-              </div>
-              <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
-                <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2025</span>
-                <span style={{ color: '#E23A1C', fontWeight: 500 }}>Best Demo Award</span>
-              </div>
-              <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
-            </Link>
+                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
+                  <img src={oblivilightCover} alt="Oblivilight" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
+                </div>
+                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
+                  <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2025</span>
+                  <span style={{ color: '#E23A1C', fontWeight: 500 }}>Best Demo Award</span>
+                </div>
+                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
+              </Link>
 
             </motion.div>
 
             {/* 03 — Mú */}
-            <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,margin:'-60px'}} transition={{duration:0.5,delay:0.16,ease:[0.2,0.8,0.2,1]}}>
-            <Link to="/projects/mu" className="reveal" ref={addToRefs}
-              style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
-              <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 03</div>
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
-                  Mú —{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>listening</em>{' '}to wood before it disappears.
-                </h3>
-                <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Created a multisensory interactive guide for Taiwan's endangered woods, leveraging emotional design and mixed-method research to preserve cultural memory.</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                  {['UX Design Awards', 'Multisensory', 'Nominated'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.16, ease: [0.2, 0.8, 0.2, 1] }}>
+              <Link to="/projects/mu" className="reveal" ref={addToRefs}
+                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
+                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 03</div>
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
+                    Mú —{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>listening</em>{' '}to wood before it disappears.
+                  </h3>
+                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Created a multisensory interactive guide for Taiwan's endangered woods, leveraging emotional design and mixed-method research to preserve cultural memory.</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
+                    {['UX Design Awards', 'Multisensory', 'Nominated'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+                  </div>
                 </div>
-              </div>
-              <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
-                <img src={muCover} alt="Mú" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }}/>
-              </div>
-              <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
-                <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
-                <span style={{ color: '#E23A1C', fontWeight: 500 }}>Nominated</span>
-              </div>
-              <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
-            </Link>
+                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
+                  <img src={muCover} alt="Mú" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
+                </div>
+                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
+                  <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
+                  <span style={{ color: '#E23A1C', fontWeight: 500 }}>Nominated</span>
+                </div>
+                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
+              </Link>
 
             </motion.div>
 
             {/* 04 — Innoconnect */}
-            <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,margin:'-60px'}} transition={{duration:0.5,delay:0.24,ease:[0.2,0.8,0.2,1]}}>
-            <Link to="/projects/innoconnect" className="reveal" ref={addToRefs}
-              style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
-              <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 04</div>
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
-                  Innoconnect+ / gifting, as a{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>game</em>{' '}people finish.
-                </h3>
-                <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Competitor analysis, service blueprint, and prototype validation for Hi-Life O2O gifting. Optimized via gamification, solving complex flow issues. Gold Award winner.</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                  {['Service Design', 'Competitor Analysis', 'Gold Award'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.24, ease: [0.2, 0.8, 0.2, 1] }}>
+              <Link to="/projects/innoconnect" className="reveal" ref={addToRefs}
+                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
+                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 04</div>
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
+                    Innoconnect+ / gifting, as a{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>game</em>{' '}people finish.
+                  </h3>
+                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Competitor analysis, service blueprint, and prototype validation for Hi-Life O2O gifting. Optimized via gamification, solving complex flow issues. Gold Award winner.</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
+                    {['Service Design', 'Competitor Analysis', 'Gold Award'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+                  </div>
                 </div>
-              </div>
-              <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
-                <img src={innoconnectCover} alt="Innoconnect" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }}/>
-              </div>
-              <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
-                <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
-                <span style={{ color: '#E23A1C', fontWeight: 500 }}>Gold Award</span>
-              </div>
-              <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
-            </Link>
+                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
+                  <img src={innoconnectCover} alt="Innoconnect" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
+                </div>
+                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
+                  <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
+                  <span style={{ color: '#E23A1C', fontWeight: 500 }}>Gold Award</span>
+                </div>
+                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
+              </Link>
 
             </motion.div>
 
             {/* 05 — IEEE Research */}
-            <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,margin:'-60px'}} transition={{duration:0.5,delay:0.32,ease:[0.2,0.8,0.2,1]}}>
-            <Link to="/projects/hci-publications" className="reveal" ref={addToRefs}
-              style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
-              <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 05</div>
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
-                  Voice of Machines —{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>two</em>{' '}IEEE papers.
-                </h3>
-                <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>First-author research on Human-AI music collaboration and voice emotion analysis. Accepted at IEEE GCCE, TAICHI, and SSIM — recognized with Best Paper Award.</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                  {['IEEE', 'HCI Research', 'Best Paper'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.32, ease: [0.2, 0.8, 0.2, 1] }}>
+              <Link to="/projects/hci-publications" className="reveal" ref={addToRefs}
+                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
+                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 05</div>
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
+                    Voice of Machines —{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>two</em>{' '}IEEE papers.
+                  </h3>
+                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>First-author research on Human-AI music collaboration and voice emotion analysis. Accepted at IEEE GCCE, TAICHI, and SSIM — recognized with Best Paper Award.</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
+                    {['IEEE', 'HCI Research', 'Best Paper'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+                  </div>
                 </div>
-              </div>
-              <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
-                <img src={gcceCover} alt="Research Papers" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }}/>
-              </div>
-              <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
-                <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
-                <span style={{ color: '#E23A1C', fontWeight: 500 }}>Best Paper</span>
-              </div>
-              <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
-            </Link>
+                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
+                  <img src={gcceCover} alt="Research Papers" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
+                </div>
+                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
+                  <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
+                  <span style={{ color: '#E23A1C', fontWeight: 500 }}>Best Paper</span>
+                </div>
+                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
+              </Link>
             </motion.div>
 
           </div>
@@ -392,14 +404,14 @@ export default function Home() {
                 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(32px,4.5vw,64px)', lineHeight: 1.02, letterSpacing: '-.03em', textTransform: 'uppercase', margin: '0 0 28px', color: 'var(--bone,#EEEAE0)' }}
               >
                 {['Why we', 'stay up', '/', 'when we'].map((word, i) => (
-                  <motion.span key={i} variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2,0.8,0.2,1] } } }} style={{ display: 'inline-block', marginRight: word === '/' ? '0' : '.25em', color: word === '/' ? '#FF5A36' : 'inherit', fontStyle: word === '/' ? 'italic' : 'normal', fontWeight: word === '/' ? 400 : 500 }}>
+                  <motion.span key={i} variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] } } }} style={{ display: 'inline-block', marginRight: word === '/' ? '0' : '.25em', color: word === '/' ? '#FF5A36' : 'inherit', fontStyle: word === '/' ? 'italic' : 'normal', fontWeight: word === '/' ? 400 : 500 }}>
                     {word}
                   </motion.span>
                 ))}{' '}
-                <motion.em variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2,0.8,0.2,1] } } }} style={{ fontStyle: 'normal', color: 'var(--acid-ink,#7A5C00)', background: 'var(--acid,#FFE699)', padding: '0 .1em', display: 'inline-block' }}>
+                <motion.em variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] } } }} style={{ fontStyle: 'normal', color: 'var(--acid-ink,#7A5C00)', background: 'var(--acid,#FFE699)', padding: '0 .1em', display: 'inline-block' }}>
                   already
                 </motion.em>{' '}
-                <motion.span variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2,0.8,0.2,1] } } }} style={{ display: 'inline-block' }}>
+                <motion.span variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] } } }} style={{ display: 'inline-block' }}>
                   know better.
                 </motion.span>
               </motion.h3>
@@ -412,9 +424,9 @@ export default function Home() {
               {/* Stats row — count-up */}
               <div ref={statsRef} className="research-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '24px', marginTop: '40px', borderTop: '1px solid rgba(238,234,224,.25)', paddingTop: '24px' }}>
                 {[
-                  { n: visibleStats[0].toString().padStart(2,'0'), u: 'N', l: 'Participants · EMA' },
-                  { n: visibleStats[1].toString().padStart(2,'0'), u: 'CONDITIONS', l: 'Notification Types' },
-                  { n: visibleStats[2].toString().padStart(2,'0'), u: 'WEEKS', l: 'Diary Study Duration' },
+                  { n: visibleStats[0].toString().padStart(2, '0'), u: 'N', l: 'Participants · EMA' },
+                  { n: visibleStats[1].toString().padStart(2, '0'), u: 'CONDITIONS', l: 'Notification Types' },
+                  { n: visibleStats[2].toString().padStart(2, '0'), u: 'WEEKS', l: 'Diary Study Duration' },
                   { n: '06/30', u: '', l: 'Defence · June' },
                 ].map(({ n, u, l }) => (
                   <div key={l}>
@@ -472,7 +484,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Streamlined Awards Section (Grid Layout instead of Accordion) */}
+      {/* 4. Streamlined Awards Section (Grid Layout with Certificates) */}
       <section className="section bg-light-gray" id="awards" style={{ padding: '80px 0' }}>
         <div className="container">
           <h2 className="section-head">
@@ -480,55 +492,119 @@ export default function Home() {
             Select Honors & Awards
           </h2>
           <div className="awards-grid reveal" ref={addToRefs}>
+
+            {/* Award 1 */}
             <div className="award-item-clean">
               <span className="award-year">2025</span>
-              <div>
-                <h4>Outstanding Graduate Research Award</h4>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>Outstanding Graduate Research Award</h4>
+                  <button onClick={() => setLightbox(tuitionCert)} className="cert-btn" aria-label="View Certificate">
+                    <FileText size={14} /> <span>證書</span>
+                  </button>
+                </div>
                 <p>Full Tuition Waiver for publishing two high-impact HCI academic papers.</p>
               </div>
             </div>
+
+            {/* Award 2 (NEW: UXDA) */}
             <div className="award-item-clean">
               <span className="award-year">2025</span>
-              <div>
-                <h4>Times Young Creative Awards (National 3rd)</h4>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>UX Design Awards</h4>
+                  <button onClick={() => setLightbox(uxdaCert)} className="cert-btn" aria-label="View Certificate">
+                    <FileText size={14} /> <span>證書</span>
+                  </button>
+                </div>
+                <p>Nominated for the global UX Design Awards for the multisensory interactive guide, Mú.</p>
+              </div>
+            </div>
+
+            {/* Award 3 */}
+            <div className="award-item-clean">
+              <span className="award-year">2025</span>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>Times Young Creative Awards (National 3rd)</h4>
+                  <button onClick={() => setLightbox(timesYoungCert)} className="cert-btn" aria-label="View Certificate">
+                    <FileText size={14} /> <span>證書</span>
+                  </button>
+                </div>
                 <p>Led marketing strategy and interactive design for YungChing Realty.</p>
               </div>
             </div>
+
+            {/* Award 4 */}
             <div className="award-item-clean">
               <span className="award-year">2025</span>
-              <div>
-                <h4>IEEE GCCE(Paper Accepted)</h4>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>IEEE GCCE (Paper Accepted)</h4>
+                  <button onClick={() => setLightbox(ieeeGcceCert)} className="cert-btn" aria-label="View Certificate">
+                    <FileText size={14} /> <span>證書</span>
+                  </button>
+                </div>
                 <p>First Author. Explored AI voice subjectivity and interactive product design.</p>
               </div>
             </div>
+
+            {/* Award 5 */}
             <div className="award-item-clean">
               <span className="award-year">2025</span>
-              <div>
-                <h4>NTU OpenHCI'25 | Best Demo Award & off to TAICHI '25 </h4>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>NTU OpenHCI'25 | Best Demo Award & off to TAICHI '25</h4>
+                  <button onClick={() => setLightbox(openhciCert)} className="cert-btn" aria-label="View Certificate">
+                    <FileText size={14} /> <span>證書</span>
+                  </button>
+                </div>
                 <p>Led UX research and product design. Tangible AI interaction device exploring emotional memory — awarded Best Demo at OpenHCI 2025.</p>
               </div>
             </div>
+
+            {/* Award 6 */}
             <div className="award-item-clean">
               <span className="award-year">2024</span>
-              <div>
-                <h4>InnoConnect+ Service Innovation (Gold)</h4>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>InnoConnect+ Service Innovation (Gold)</h4>
+                  <button onClick={() => setLightbox(innoconnectCert)} className="cert-btn" aria-label="View Certificate">
+                    <FileText size={14} /> <span>證書</span>
+                  </button>
+                </div>
                 <p>End-to-end UX/UI design for Hi-Life O2O gifting service (Ranked 1/186).</p>
               </div>
             </div>
+
+            {/* Award 7 */}
             <div className="award-item-clean">
               <span className="award-year">2024</span>
-              <div>
-                <h4>Big Data Marketing Cup (3rd Place)</h4>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>Big Data Marketing Cup (3rd Place)</h4>
+                  <button onClick={() => setLightbox(bigDataCert)} className="cert-btn" aria-label="View Certificate">
+                    <FileText size={14} /> <span>證書</span>
+                  </button>
+                </div>
                 <p>Market research and app prototyping for Taiwan Livestock.</p>
               </div>
             </div>
+
+            {/* Award 8 */}
             <div className="award-item-clean">
               <span className="award-year">2024</span>
-              <div>
-                <h4>SSIM Best Paper Award</h4>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>SSIM Best Paper Award</h4>
+                  <button onClick={() => setLightbox(ssimCert)} className="cert-btn" aria-label="View Certificate">
+                    <FileText size={14} /> <span>證書</span>
+                  </button>
+                </div>
                 <p>First Author. Focused on Human-AI music collaboration interfaces.</p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -998,8 +1074,39 @@ export default function Home() {
         .award-item-clean:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
         .award-year { font-family: monospace; font-size: 18px; font-weight: 700; color: hsl(var(--g3)); opacity: 0.8; padding-top: 2px; }
         .award-item-clean h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
-        .award-item-clean p { font-size: 14px; color: var(--color-text-muted); line-height: 1.5; }
+        .award-item-clean p { font-size: 14px; color: var(--color-text-muted); line-height: 1.5; margin: 0; }
         @media (max-width: 768px) { .awards-grid { grid-template-columns: 1fr; } }
+        
+        /* ── Certificate Button CSS ── */
+        .cert-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 12px;
+          border-radius: 100px;
+          background: rgba(0,0,0,0.04);
+          border: 1px solid rgba(0,0,0,0.06);
+          color: var(--text);
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.25s ease;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .cert-btn:hover {
+          background: rgba(0,0,0,0.08);
+          border-color: rgba(0,0,0,0.15);
+          transform: translateY(-1px);
+        }
+        .dark .cert-btn {
+          background: rgba(255,255,255,0.05);
+          border-color: rgba(255,255,255,0.1);
+          color: var(--text);
+        }
+        .dark .cert-btn:hover {
+          background: rgba(255,255,255,0.1);
+        }
 
         /* ── Playground ── */
         .playground-section { position: relative; padding: 80px 0; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.03)); overflow: hidden; }
