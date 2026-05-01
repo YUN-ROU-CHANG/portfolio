@@ -500,7 +500,7 @@ export default function Home() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                   <h4 style={{ margin: 0, marginBottom: '6px' }}>Outstanding Graduate Research Award</h4>
                   <button onClick={() => setLightbox(tuitionCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={14} /> <span>證書</span>
+                    <FileText size={12} /> <span>Certificate</span>
                   </button>
                 </div>
                 <p>Full Tuition Waiver for publishing two high-impact HCI academic papers.</p>
@@ -514,7 +514,7 @@ export default function Home() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                   <h4 style={{ margin: 0, marginBottom: '6px' }}>UX Design Awards</h4>
                   <button onClick={() => setLightbox(uxdaCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={14} /> <span>證書</span>
+                    <FileText size={12} /> <span>Certificate</span>
                   </button>
                 </div>
                 <p>Nominated for the global UX Design Awards for the multisensory interactive guide, Mú.</p>
@@ -528,7 +528,7 @@ export default function Home() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                   <h4 style={{ margin: 0, marginBottom: '6px' }}>Times Young Creative Awards (National 3rd)</h4>
                   <button onClick={() => setLightbox(timesYoungCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={14} /> <span>證書</span>
+                    <FileText size={12} /> <span>Certificate</span>
                   </button>
                 </div>
                 <p>Led marketing strategy and interactive design for YungChing Realty.</p>
@@ -542,7 +542,7 @@ export default function Home() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                   <h4 style={{ margin: 0, marginBottom: '6px' }}>IEEE GCCE (Paper Accepted)</h4>
                   <button onClick={() => setLightbox(ieeeGcceCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={14} /> <span>證書</span>
+                    <FileText size={12} /> <span>Certificate</span>
                   </button>
                 </div>
                 <p>First Author. Explored AI voice subjectivity and interactive product design.</p>
@@ -556,7 +556,7 @@ export default function Home() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                   <h4 style={{ margin: 0, marginBottom: '6px' }}>NTU OpenHCI'25 | Best Demo Award & off to TAICHI '25</h4>
                   <button onClick={() => setLightbox(openhciCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={14} /> <span>證書</span>
+                    <FileText size={12} /> <span>Certificate</span>
                   </button>
                 </div>
                 <p>Led UX research and product design. Tangible AI interaction device exploring emotional memory — awarded Best Demo at OpenHCI 2025.</p>
@@ -570,7 +570,7 @@ export default function Home() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                   <h4 style={{ margin: 0, marginBottom: '6px' }}>InnoConnect+ Service Innovation (Gold)</h4>
                   <button onClick={() => setLightbox(innoconnectCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={14} /> <span>證書</span>
+                    <FileText size={12} /> <span>Certificate</span>
                   </button>
                 </div>
                 <p>End-to-end UX/UI design for Hi-Life O2O gifting service (Ranked 1/186).</p>
@@ -584,7 +584,7 @@ export default function Home() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                   <h4 style={{ margin: 0, marginBottom: '6px' }}>Big Data Marketing Cup (3rd Place)</h4>
                   <button onClick={() => setLightbox(bigDataCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={14} /> <span>證書</span>
+                    <FileText size={12} /> <span>Certificate</span>
                   </button>
                 </div>
                 <p>Market research and app prototyping for Taiwan Livestock.</p>
@@ -598,7 +598,7 @@ export default function Home() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                   <h4 style={{ margin: 0, marginBottom: '6px' }}>SSIM Best Paper Award</h4>
                   <button onClick={() => setLightbox(ssimCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={14} /> <span>證書</span>
+                    <FileText size={12} /> <span>Certificate</span>
                   </button>
                 </div>
                 <p>First Author. Focused on Human-AI music collaboration interfaces.</p>
