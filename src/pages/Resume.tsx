@@ -254,20 +254,20 @@ export default function Resume() {
                   </div>
                 </div>
               </object>
-              <p className="body muted" style={{
-                textAlign: 'center',
-                marginTop: 'var(--space-4)'
-              }}>
-                Can't view the PDF? <a
-                  href={resumePdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: 'hsl(var(--g1))', textDecoration: 'underline' }}
-                >
-                  Open in new window
-                </a>
-              </p>
             </div>
+            <p className="body muted" style={{
+              textAlign: 'center',
+              marginTop: 'var(--space-4)'
+            }}>
+              Can't view the PDF? <a
+                href={resumePdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'hsl(var(--g1))', textDecoration: 'underline' }}
+              >
+                Open in new window
+              </a>
+            </p>
           </div>
         </section>
 
@@ -393,6 +393,38 @@ export default function Resume() {
       </div>
 
       <style>{`
+        /* ==================================================
+           PDF Embed Styles (新增的重點修復)
+           ================================================== */
+        .resume-pdf-container {
+          width: 100%;
+          height: 85vh;          /* 使用畫面高度比例，確保在大螢幕也能看得清楚 */
+          min-height: 600px;     /* 設定最小高度，避免在縮放時變得太小 */
+          border-radius: 16px;
+          overflow: hidden;
+          border: 1px solid rgba(0,0,0,0.08);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+          background: #f8fafc;
+        }
+        
+        .resume-pdf-object {
+          width: 100%;
+          height: 100%;
+          display: block;
+          border: none;
+        }
+
+        /* 針對手機裝置的優化 */
+        @media (max-width: 768px) {
+          .resume-pdf-container {
+            height: 70vh;
+            min-height: 500px;
+          }
+        }
+
+        /* ==================================================
+           原本的樣式 (完全不更動)
+           ================================================== */
         .header-section { padding-top: 40px; padding-bottom: 40px; }
         .resume-header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
         .resume-actions { display: flex; gap: 12px; }
