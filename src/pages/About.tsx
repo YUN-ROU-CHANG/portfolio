@@ -6,7 +6,7 @@ import { Lightbulb, Target, Heart, Rocket, Monitor } from 'lucide-react';
 // ─── 引入 My Strengths 會用到的 5 張背景圖片 ───
 import experimentNotion from '../assets/images/experiment-notion.png';
 import awardsReport from '../assets/images/awards-report.jpg';
-import figmaImg from '../assets/images/figma.jpg';
+import figmaImg from '../assets/images/figma.png';
 import codingImg from '../assets/images/coding.png';
 import crossFunctional from '../assets/images/cross-functional.jpg';
 
@@ -48,7 +48,7 @@ export default function About() {
   return (
     <Layout>
       <div id="about-page">
-        {/* Section 1: Hero Intro — Portrait Tile + Skill Matrix (完全保留) */}
+        {/* Section 1: Hero Intro — Portrait Tile + Skill Matrix */}
         <section style={{ padding: '120px 0', position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 clamp(16px, 2.2vw, 32px)' }}>
             <div className="about-two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '64px', alignItems: 'start' }}>
@@ -127,7 +127,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* ─── Section 2: My Strengths (全新的 Bento Grid) ─── */}
+        {/* ─── Section 2: My Strengths (Bento Grid + 漸層遮罩) ─── */}
         <section className="section" id="about-strengths" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
@@ -218,7 +218,7 @@ export default function About() {
               <div className="bento-card bento-light bento-card--wide reveal">
                 <div className="bento-bg">
                   <img src={crossFunctional} alt="Cross Functional Collaboration" loading="lazy" />
-                  <div className="bento-overlay overlay-light-heavy"></div>
+                  <div className="bento-overlay overlay-wide"></div>
                 </div>
                 <div className="bento-content bento-content--row">
                   <div className="content-left">
@@ -249,7 +249,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* Section 3: My Values - 3 Card Grid (完全保留) */}
+        {/* Section 3: My Values - 3 Card Grid */}
         <section className="section" id="about-values" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
@@ -309,14 +309,13 @@ export default function About() {
           </div>
         </section>
 
-        {/* ─── 專屬 CSS 樣式 (包含 Bento Grid 玻璃擬物設計) ─── */}
+        {/* ─── 專屬 CSS 樣式 (Bento Grid + 漸層遮罩方案 A) ─── */}
         <style>{`
           /* === Base === */
           .mt-auto { margin-top: auto; }
           
           /* Hero Section Animations */
           @keyframes spinSlow { to { transform: rotate(360deg); } }
-          @media (max-width: 900px) { .about-two-col { grid-template-columns: 1fr !important; gap: 40px !important; } }
           
           .section-head {
             font-size: clamp(28px, 4vw, 48px);
@@ -347,7 +346,7 @@ export default function About() {
 
           .bento-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
             border-color: rgba(0, 0, 0, 0.15);
           }
 
@@ -375,38 +374,51 @@ export default function About() {
             transform: scale(1.08);
           }
 
-          /* Glass Overlays */
+          /* === Glass Overlays (方案 A：漸層遮罩) === */
           .bento-overlay {
             position: absolute;
             inset: 0;
-            transition: backdrop-filter 0.4s ease;
+            transition: all 0.4s ease;
           }
           
-          /* Dark Card Overlay (Research at Scale) */
+          /* Dark Card Overlay (Research at Scale) - 左上重，右下輕 */
           .overlay-dark {
-            background: linear-gradient(135deg, rgba(8, 20, 18, 0.88), rgba(12, 12, 12, 0.94));
-            backdrop-filter: blur(4px);
+            background: linear-gradient(135deg, rgba(12, 12, 12, 0.95) 0%, rgba(12, 12, 12, 0.75) 45%, rgba(12, 12, 12, 0.1) 100%);
+            backdrop-filter: blur(3px);
           }
-          .bento-card:hover .overlay-dark { backdrop-filter: blur(1px); }
+          .bento-card:hover .overlay-dark {
+            background: linear-gradient(135deg, rgba(12, 12, 12, 0.92) 0%, rgba(12, 12, 12, 0.6) 45%, transparent 100%);
+            backdrop-filter: blur(0px);
+          }
 
-          /* Light Card Overlay (Standard) */
+          /* Light Card Overlay (Standard) - 左上重，右下輕 */
           .overlay-light {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(246, 242, 231, 0.96));
-            backdrop-filter: blur(8px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(3px);
           }
-          .bento-card:hover .overlay-light { backdrop-filter: blur(4px); }
+          .bento-card:hover .overlay-light {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.65) 50%, transparent 100%);
+            backdrop-filter: blur(0px);
+          }
 
           /* Light Card Blurrier (For complex Figma BG) */
           .overlay-light-blur {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 55%, rgba(255, 255, 255, 0.2) 100%);
+            backdrop-filter: blur(4px);
           }
-          .bento-card:hover .overlay-light-blur { backdrop-filter: blur(6px); }
+          .bento-card:hover .overlay-light-blur {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.65) 50%, transparent 100%);
+            backdrop-filter: blur(0px);
+          }
 
-          /* Heavy Light Overlay (For wide card text readability) */
-          .overlay-light-heavy {
-            background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
-            backdrop-filter: blur(10px);
+          /* Wide Card Overlay (Cross Functional) - 左重，右輕 */
+          .overlay-wide {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(3px);
+          }
+          .bento-card:hover .overlay-wide {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 45%, transparent 100%);
+            backdrop-filter: blur(0px);
           }
 
           /* Content Wrapper */
@@ -427,8 +439,21 @@ export default function About() {
           }
 
           /* Typography & Colors inside Bento */
-          .bento-dark { color: #fff; }
           .bento-light { color: var(--md-on-surface); }
+          
+          /* 增強 Dark Card 的文字陰影，保證純白與易讀性 */
+          .bento-dark .bento-title {
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+          }
+          .bento-dark .bento-sub {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+          }
+          .bento-dark .bento-stat-label {
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+          }
 
           .bento-title {
             font-family: "Space Grotesk", sans-serif;
@@ -443,8 +468,8 @@ export default function About() {
             line-height: 1.6;
             color: var(--color-text-muted);
             margin: 0;
+            font-weight: 500;
           }
-          .bento-dark .bento-sub { color: rgba(255, 255, 255, 0.7); }
 
           /* Tags */
           .bento-tag {
@@ -460,7 +485,7 @@ export default function About() {
             align-self: flex-start;
           }
 
-          .tag-dark { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+          .tag-dark { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(4px); }
           .tag-amber { background: #FAEEDA; color: #633806; }
           .tag-teal { background: rgba(42,157,110,0.15); color: #1A6B4A; }
           .tag-blue { background: #E6F1FB; color: #0C447C; }
@@ -478,11 +503,11 @@ export default function About() {
             font-weight: 700;
             line-height: 1;
             margin-bottom: 4px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.4);
           }
           .highlight-acid { color: var(--acid); }
           .bento-stat-label {
             font-size: 12px;
-            color: rgba(255,255,255,0.6);
             line-height: 1.4;
           }
 
@@ -498,8 +523,9 @@ export default function About() {
             padding: 6px 12px;
             border-radius: 100px;
             border: 1px solid rgba(0,0,0,0.08);
-            background: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.7);
             color: var(--md-on-surface);
+            backdrop-filter: blur(4px);
           }
 
           /* Pill Stack (Card 3) */
@@ -515,9 +541,10 @@ export default function About() {
             letter-spacing: 0.04em;
             padding: 6px 12px;
             border-radius: 4px;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.6);
             border: 1px solid rgba(0,0,0,0.1);
             color: var(--md-on-surface);
+            backdrop-filter: blur(4px);
           }
 
           /* Mini Grid (Card 5 Wide) */
@@ -525,10 +552,11 @@ export default function About() {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 16px;
-            background: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.65);
             padding: 24px;
             border-radius: 16px;
             border: 1px solid rgba(0,0,0,0.05);
+            backdrop-filter: blur(4px);
           }
           .bento-mini-stat { text-align: center; }
           .mini-stat-num {
@@ -543,6 +571,7 @@ export default function About() {
             font-size: 12px;
             color: var(--color-text-muted);
             line-height: 1.4;
+            font-weight: 500;
           }
 
           /* === My Values === */
@@ -561,6 +590,7 @@ export default function About() {
 
           /* === Responsive === */
           @media (max-width: 959px) {
+            .about-two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
             .bento-grid { grid-template-columns: 1fr; }
             .bento-card--wide { grid-column: auto; }
             .bento-content--row { flex-direction: column; align-items: flex-start; }
