@@ -1,36 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import mePng from '../assets/images/Me.png';
 import Layout from '../components/Layout';
-import svgPaths from '../imports/svg-h76qvpq2g9';
-import { Lightbulb, Users, Shield, Target, Heart, Rocket, Music, Search, Puzzle, Bot, MessageCircle, Monitor } from 'lucide-react';
+import { Lightbulb, Target, Heart, Rocket, Monitor } from 'lucide-react';
 
-// Strength icon component
-function StrengthIcon({ iconType, color }: { iconType: string; color: string }) {
-  const iconMap: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
-    lightbulb: Lightbulb,
-    users: Users,
-    shield: Shield,
-    target: Target,
-    search: Search,
-    puzzle: Puzzle,
-    bot: Bot,
-    messageCircle: MessageCircle
-  };
-
-  const IconComponent = iconMap[iconType] || Lightbulb;
-
-  return (
-    <div className="relative shrink-0 size-[32px]">
-      <IconComponent size={32} color={color} />
-    </div>
-  );
-}
+// ─── 引入 My Strengths 會用到的 5 張背景圖片 ───
+import experimentNotion from '../assets/images/experiment-notion.png';
+import awardsReport from '../assets/images/awards-report.jpg';
+import figmaImg from '../assets/images/figma.jpg';
+import codingImg from '../assets/images/coding.png';
+import crossFunctional from '../assets/images/cross-functional.jpg';
 
 export default function About() {
   const heroRef = useRef<HTMLDivElement>(null);
   const strengthsRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
-  const moreRef = useRef<HTMLDivElement>(null);
 
   // Scroll-triggered reveal animations with Reduced Motion guard
   useEffect(() => {
@@ -62,73 +45,12 @@ export default function About() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const strengths = [
-    {
-      iconType: 'search',
-      iconColor: '#5B8CFF',
-      gradientFrom: 'rgba(91, 140, 255, 0.2)',
-      gradientTo: 'rgba(0, 163, 163, 0.2)',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800',
-      title: 'Evidence-Based UX Research',
-      description: (
-        <>
-          <p style={{ marginBottom: '8px' }}><strong>Blending academic rigor with design empathy.</strong></p>
-          <p style={{ fontSize: '16px', lineHeight: '1.7' }}>Mixed-method research spanning competitor analysis reports, SPSS quantitative analysis, to in-depth qualitative interviews and usability testing—recognized with an <strong>IEEE Best Paper Award</strong>.</p>
-        </>
-      )
-    },
-    {
-      iconType: 'puzzle',
-      iconColor: '#A871F4',
-      gradientFrom: 'rgba(168, 113, 244, 0.2)',
-      gradientTo: 'rgba(249, 118, 31, 0.2)',
-      image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800',
-      title: 'Strategic Product Thinking',
-      description: (
-        <>
-          <p style={{ marginBottom: '8px' }}><strong>Bridging the gap between user needs and business goals.</strong></p>
-          <p style={{ fontSize: '16px', lineHeight: '1.7' }}>My cross-domain background helped secure the <strong>InnoConnect+ Gold Prize</strong>, turning user insights into a commercially viable service model, supported by information architecture design and cross-functional prototype proposals.</p>
-        </>
-      )
-    },
-    {
-      iconType: 'bot',
-      iconColor: '#00A3A3',
-      gradientFrom: 'rgba(0, 163, 163, 0.2)',
-      gradientTo: 'rgba(91, 140, 255, 0.2)',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800',
-      title: 'AI & Tech Integration',
-      description: (
-        <>
-          <p style={{ marginBottom: '8px' }}><strong>Designing for the future with emerging technologies.</strong></p>
-          <p style={{ fontSize: '16px', lineHeight: '1.7' }}>I experiment with <strong>Generative AI</strong>, Python, and Arduino—and research AI voice synthesis in my academic work.</p>
-        </>
-      )
-    },
-    {
-      iconType: 'messageCircle',
-      iconColor: '#F9761F',
-      gradientFrom: 'rgba(249, 118, 31, 0.2)',
-      gradientTo: 'rgba(168, 113, 244, 0.2)',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800',
-      title: 'Cross-Functional Collaboration',
-      description: (
-        <>
-          <p style={{ marginBottom: '8px' }}><strong>Translating complex ideas into team success.</strong></p>
-          <p style={{ fontSize: '16px', lineHeight: '1.7' }}>From influencer marketing to hardware-software integration, I align stakeholders and drive projects from concept to launch.</p>
-        </>
-      )
-    }
-  ];
-
   return (
     <Layout>
       <div id="about-page">
-        {/* Section 1: Hero Intro — Portrait Tile + Skill Matrix */}
+        {/* Section 1: Hero Intro — Portrait Tile + Skill Matrix (完全保留) */}
         <section style={{ padding: '120px 0', position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 clamp(16px, 2.2vw, 32px)' }}>
-
-            {/* Two-column grid */}
             <div className="about-two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '64px', alignItems: 'start' }}>
 
               {/* ── Left: Portrait Tile ── */}
@@ -146,7 +68,7 @@ export default function About() {
                   />
                   {/* Spinning stamp */}
                   <div style={{ position: 'absolute', bottom: '16px', right: '16px', width: '84px', height: '84px', borderRadius: '50%', border: '1.5px solid #0C0C0C', background: '#FFE699', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px', letterSpacing: '.14em', textTransform: 'uppercase', textAlign: 'center', lineHeight: 1.2, animation: 'spinSlow 22s linear infinite' }}>
-                    CERTIFIED /<br/>DESIGNER<br/>· 2026 ·
+                    CERTIFIED /<br />DESIGNER<br />· 2026 ·
                   </div>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginTop: '14px', paddingTop: '14px', borderTop: '1px solid rgba(12,12,12,.12)', fontFamily: '"IBM Plex Mono", monospace', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', color: '#6B6A62' }}>
@@ -179,7 +101,7 @@ export default function About() {
                 <div style={{ marginTop: '40px', border: '1px solid #0C0C0C' }}>
                   {[
                     { cat: 'Research', skills: [{ label: 'Usability Testing', hot: true }, { label: 'Diary Studies', hot: true }, { label: 'SPSS / Quant', lvl: 'ADV' }, { label: 'Interviews' }, { label: 'Survey Design' }, { label: 'Mixed Methods' }] },
-                    { cat: 'Craft', skills: [{ label: 'Figma · Auto-layout', hot: true }, { label: 'Prototype / React' }, { label: 'Arduino', lvl: 'INT' }, { label: 'Gen-AI Workflows' }, { label: 'Motion' }] },
+                    { cat: 'Craft', skills: [{ label: 'Figma · Auto-layout', hot: true }, { label: 'Prototype / React' }, { label: 'Gen-AI Workflows' }] },
                     { cat: 'Strategy', skills: [{ label: 'Service Design' }, { label: 'Product Strategy' }, { label: 'Facilitation' }, { label: 'Marketing Ops' }] },
                   ].map(({ cat, skills }, gi, arr) => (
                     <div key={cat} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', borderBottom: gi < arr.length - 1 ? '1px solid rgba(12,12,12,.12)' : 'none' }}>
@@ -202,15 +124,10 @@ export default function About() {
                 </div>
               </div>
             </div>
-
-            <style>{`
-              @keyframes spinSlow { to { transform: rotate(360deg); } }
-              @media (max-width: 900px) { .about-two-col { grid-template-columns: 1fr !important; gap: 40px !important; } }
-            `}</style>
           </div>
         </section>
 
-        {/* Section 2: My Strengths - Card Grid */}
+        {/* ─── Section 2: My Strengths (全新的 Bento Grid) ─── */}
         <section className="section" id="about-strengths" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
@@ -218,45 +135,121 @@ export default function About() {
               My Strengths
             </h2>
 
-            <div className="strengths-grid" ref={strengthsRef}>
-              {strengths.map((strength, index) => (
-                <div key={index} className="strength-card reveal">
-                  <div className="strength-card-inner">
-                    {/* Image with Icon Overlay */}
-                    <div className="strength-image-wrapper">
-                      <img
-                        src={strength.image}
-                        alt={strength.title}
-                        loading="lazy"
-                        className="strength-image"
-                      />
-                      <div
-                        className="strength-icon-container"
-                        style={{
-                          backgroundImage: `linear-gradient(135deg, ${strength.gradientFrom} 0%, ${strength.gradientTo} 100%)`
-                        }}
-                      >
-                        <StrengthIcon iconType={strength.iconType} color={strength.iconColor} />
-                      </div>
-                    </div>
+            <div className="bento-grid" ref={strengthsRef}>
 
-                    {/* Content */}
-                    <div className="strength-content">
-                      <h3 className="strength-title">
-                        {strength.title}
-                      </h3>
-                      <div className="strength-description">
-                        {strength.description}
+              {/* Card 1: Rigorous Research (Dark Theme) */}
+              <div className="bento-card bento-dark reveal">
+                <div className="bento-bg">
+                  <img src={experimentNotion} alt="Research Notion" loading="lazy" />
+                  <div className="bento-overlay overlay-dark"></div>
+                </div>
+                <div className="bento-content">
+                  <span className="bento-tag tag-dark">Research at Scale</span>
+                  <h3 className="bento-title">Rigorous Research,<br />Real Numbers</h3>
+                  <p className="bento-sub">Full-cycle mixed-methods study on bedtime procrastination — from recruitment to validated analysis.</p>
+                  <div className="bento-stats-row mt-auto">
+                    <div className="bento-stat">
+                      <span className="bento-stat-num highlight-acid">48</span>
+                      <span className="bento-stat-label">participants<br />recruited</span>
+                    </div>
+                    <div className="bento-stat">
+                      <span className="bento-stat-num highlight-acid">×5</span>
+                      <span className="bento-stat-label">validated<br />scales</span>
+                    </div>
+                    <div className="bento-stat">
+                      <span className="bento-stat-num highlight-acid">×2</span>
+                      <span className="bento-stat-label">methods:<br />quant + qual</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 2: Insight to Gold */}
+              <div className="bento-card bento-light reveal">
+                <div className="bento-bg">
+                  <img src={awardsReport} alt="Awards Report" loading="lazy" />
+                  <div className="bento-overlay overlay-light"></div>
+                </div>
+                <div className="bento-content">
+                  <span className="bento-tag tag-amber">Research → Product</span>
+                  <h3 className="bento-title">From Insight<br />to Gold</h3>
+                  <p className="bento-sub">Turning user research into winning strategy — nationally recognized in both academic and commercial arenas.</p>
+                  <div className="bento-badge-row mt-auto">
+                    <span className="bento-badge badge-award">InnoConnect+ Gold</span>
+                    <span className="bento-badge badge-award">IEEE Best Paper</span>
+                    <span className="bento-badge badge-award">時報金犢獎 3rd</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: UI Design */}
+              <div className="bento-card bento-light reveal">
+                <div className="bento-bg">
+                  <img src={figmaImg} alt="Figma UI Design" loading="lazy" />
+                  <div className="bento-overlay overlay-light-blur"></div>
+                </div>
+                <div className="bento-content">
+                  <span className="bento-tag tag-teal">Full-Cycle UI Design</span>
+                  <h3 className="bento-title">Design Systems,<br />Not Just Screens</h3>
+                  <p className="bento-sub">Full Figma stack — wireframes through to component libraries and interactive prototypes.</p>
+                  <div className="bento-pill-stack mt-auto">
+                    <span className="bento-pill">Wireframing</span>
+                    <span className="bento-pill">Design System</span>
+                    <span className="bento-pill">Component Library</span>
+                    <span className="bento-pill">Interactive Prototype</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 4: AI-Augmented */}
+              <div className="bento-card bento-light reveal">
+                <div className="bento-bg">
+                  <img src={codingImg} alt="AI Coding" loading="lazy" />
+                  <div className="bento-overlay overlay-light"></div>
+                </div>
+                <div className="bento-content">
+                  <span className="bento-tag tag-blue">AI-Augmented</span>
+                  <h3 className="bento-title">Designing With AI,<br />Not Just About It</h3>
+                  <p className="bento-sub">Built this portfolio with AI-assisted development. Trained a 10-person team on AI creative tools. Researching AI vocal agency at IEEE GCCE 2025.</p>
+                </div>
+              </div>
+
+              {/* Card 5: Cross-Functional (Wide) */}
+              <div className="bento-card bento-light bento-card--wide reveal">
+                <div className="bento-bg">
+                  <img src={crossFunctional} alt="Cross Functional Collaboration" loading="lazy" />
+                  <div className="bento-overlay overlay-light-heavy"></div>
+                </div>
+                <div className="bento-content bento-content--row">
+                  <div className="content-left">
+                    <span className="bento-tag tag-gray">Cross-Functional</span>
+                    <h3 className="bento-title">One Person,<br />Many Languages</h3>
+                    <p className="bento-sub" style={{ maxWidth: '400px' }}>Speaking fluently across research, design, business, and stakeholder contexts.</p>
+                  </div>
+                  <div className="content-right mt-auto">
+                    <div className="bento-mini-grid">
+                      <div className="bento-mini-stat">
+                        <div className="mini-stat-num">110+</div>
+                        <div className="mini-stat-label">KOL relationships<br />managed</div>
+                      </div>
+                      <div className="bento-mini-stat">
+                        <div className="mini-stat-num">60</div>
+                        <div className="mini-stat-label">participants per<br />Fulbright workshop</div>
+                      </div>
+                      <div className="bento-mini-stat">
+                        <div className="mini-stat-num">3</div>
+                        <div className="mini-stat-label">enterprise clients<br />managed</div>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
+
             </div>
           </div>
         </section>
 
-        {/* Section 3: My Values - 3 Card Grid */}
+        {/* Section 3: My Values - 3 Card Grid (完全保留) */}
         <section className="section" id="about-values" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
@@ -265,96 +258,48 @@ export default function About() {
             </h2>
 
             <div className="about-values-grid" ref={valuesRef}>
-              {/* Value Card 1 - Clarity in Chaos */}
               <div className="gframe reveal" style={{ height: '100%' }}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: 'var(--radius-md)',
-                    background: 'linear-gradient(135deg, hsl(var(--g1)/.15), hsl(var(--g2)/.15))',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '8px'
-                  }}>
+                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, hsl(var(--g1)/.15), hsl(var(--g2)/.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Target size={24} color="hsl(var(--g1))" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>
-                    Clarity in Chaos
-                  </h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>Clarity in Chaos</h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
                     <strong>I turn complex information into actionable plans.</strong> I meticulously document processes to ensure no insight is lost, keeping stakeholders aligned with a clear vision.
                   </p>
                 </div>
               </div>
 
-              {/* Value Card 2 - Curiosity as a Driver */}
               <div className="gframe reveal" style={{ height: '100%' }}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: 'var(--radius-md)',
-                    background: 'linear-gradient(135deg, hsl(var(--g3)/.15), hsl(var(--g4)/.15))',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '8px'
-                  }}>
+                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, hsl(var(--g3)/.15), hsl(var(--g4)/.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Rocket size={24} color="hsl(var(--g3))" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>
-                    Curiosity as a Driver
-                  </h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>Curiosity as a Driver</h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
                     <strong>I embrace the new to optimize the now.</strong> I actively bridge cutting-edge tech with practical workflows, empowering teams to work smarter.
                   </p>
                 </div>
               </div>
 
-              {/* Value Card 3 - Resilience & Empathy */}
               <div className="gframe reveal" style={{ height: '100%' }}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: 'var(--radius-md)',
-                    background: 'linear-gradient(135deg, hsl(var(--g2)/.15), hsl(var(--g3)/.15))',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '8px'
-                  }}>
+                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, hsl(var(--g2)/.15), hsl(var(--g3)/.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Heart size={24} color="hsl(var(--g2))" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>
-                    Resilience &amp; Empathy
-                  </h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>Resilience &amp; Empathy</h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
                     <strong>I foster a positive and collaborative environment.</strong> I bring resilience and warmth to collaboration—ensuring user needs are heard and team morale stays high.
                   </p>
                 </div>
               </div>
 
-              {/* Value Card 4 - Hardware Meets Interface */}
               <div className="gframe reveal" style={{ height: '100%' }}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: 'var(--radius-md)',
-                    background: 'linear-gradient(135deg, hsl(var(--g4)/.15), hsl(var(--g1)/.15))',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '8px'
-                  }}>
+                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, hsl(var(--g4)/.15), hsl(var(--g1)/.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Monitor size={24} color="hsl(var(--g4))" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>
-                    Hardware Meets Interface
-                  </h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>Hardware Meets Interface</h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
                     <strong>I'm drawn to the intersection of physical products and digital experiences.</strong> From automotive UX to wearable interfaces, I'm eager to design for embedded systems where constraints spark the most creative solutions.
                   </p>
@@ -364,9 +309,15 @@ export default function About() {
           </div>
         </section>
 
-        {/* About Page Specific Styles */}
+        {/* ─── 專屬 CSS 樣式 (包含 Bento Grid 玻璃擬物設計) ─── */}
         <style>{`
-          /* Section Heading (matches Resume.tsx style) */
+          /* === Base === */
+          .mt-auto { margin-top: auto; }
+          
+          /* Hero Section Animations */
+          @keyframes spinSlow { to { transform: rotate(360deg); } }
+          @media (max-width: 900px) { .about-two-col { grid-template-columns: 1fr !important; gap: 40px !important; } }
+          
           .section-head {
             font-size: clamp(28px, 4vw, 48px);
             font-weight: 700;
@@ -374,117 +325,232 @@ export default function About() {
             margin-bottom: 32px;
           }
 
-          /* Hero Section - Two Column Layout */
-          .about-hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 48px;
-            align-items: start;
-          }
-
-          .about-hero-photo {
-            position: relative;
-            aspect-ratio: 3 / 4;
-            overflow: hidden;
-          }
-
-          .about-hero-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          }
-
-          /* Strengths Grid - 2x2 */
-          .strengths-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            max-width: 1200px;
-            margin: 0 auto;
-          }
-
-          /* Strength Card */
-          .strength-card {
-            position: relative;
-            width: 100%;
-            transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
-          }
-
-          .strength-card:hover {
-            transform: translateY(-4px);
-          }
-
-          .strength-card-inner {
-            position: relative;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            transition: box-shadow 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
-          }
-
-          .strength-card:hover .strength-card-inner {
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-          }
-
-          /* Image Wrapper with Icon */
-          .strength-image-wrapper {
-            position: relative;
-            width: 100%;
-            height: 190px;
-            overflow: hidden;
-          }
-
-          .strength-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-          }
-
-          /* Icon Container - Positioned at top right */
-          .strength-icon-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 56px;
-            height: 56px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          }
-
-          /* Content Area */
-          .strength-content {
-            padding: 24px 29px;
-          }
-
-          .strength-title {
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 1.3;
-            color: var(--md-on-surface);
-            margin: 0 0 12px 0;
-          }
-
-          .strength-description {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--color-text-muted);
-            margin: 0;
-          }
-
-          /* Values Grid - 3 Columns */
-          .about-values-grid {
+          /* === 🍱 My Strengths: Bento Grid === */
+          .bento-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
           }
 
+          /* Card Base */
+          .bento-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+          }
+
+          .bento-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+            border-color: rgba(0, 0, 0, 0.15);
+          }
+
+          .bento-card--wide {
+            grid-column: 1 / -1;
+          }
+
+          /* Background Image & Hover Zoom */
+          .bento-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+          }
+          
+          .bento-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+          }
+
+          .bento-card:hover .bento-bg img {
+            transform: scale(1.08);
+          }
+
+          /* Glass Overlays */
+          .bento-overlay {
+            position: absolute;
+            inset: 0;
+            transition: backdrop-filter 0.4s ease;
+          }
+          
+          /* Dark Card Overlay (Research at Scale) */
+          .overlay-dark {
+            background: linear-gradient(135deg, rgba(8, 20, 18, 0.88), rgba(12, 12, 12, 0.94));
+            backdrop-filter: blur(4px);
+          }
+          .bento-card:hover .overlay-dark { backdrop-filter: blur(1px); }
+
+          /* Light Card Overlay (Standard) */
+          .overlay-light {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(246, 242, 231, 0.96));
+            backdrop-filter: blur(8px);
+          }
+          .bento-card:hover .overlay-light { backdrop-filter: blur(4px); }
+
+          /* Light Card Blurrier (For complex Figma BG) */
+          .overlay-light-blur {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+          }
+          .bento-card:hover .overlay-light-blur { backdrop-filter: blur(6px); }
+
+          /* Heavy Light Overlay (For wide card text readability) */
+          .overlay-light-heavy {
+            background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
+            backdrop-filter: blur(10px);
+          }
+
+          /* Content Wrapper */
+          .bento-content {
+            position: relative;
+            z-index: 1;
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          }
+
+          .bento-content--row {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 24px;
+          }
+
+          /* Typography & Colors inside Bento */
+          .bento-dark { color: #fff; }
+          .bento-light { color: var(--md-on-surface); }
+
+          .bento-title {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 16px 0 12px;
+          }
+
+          .bento-sub {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--color-text-muted);
+            margin: 0;
+          }
+          .bento-dark .bento-sub { color: rgba(255, 255, 255, 0.7); }
+
+          /* Tags */
+          .bento-tag {
+            display: inline-flex;
+            align-items: center;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 100px;
+            align-self: flex-start;
+          }
+
+          .tag-dark { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+          .tag-amber { background: #FAEEDA; color: #633806; }
+          .tag-teal { background: rgba(42,157,110,0.15); color: #1A6B4A; }
+          .tag-blue { background: #E6F1FB; color: #0C447C; }
+          .tag-gray { background: #F3F3F5; color: #475569; border: 1px solid rgba(0,0,0,0.06); }
+
+          /* Stats Row (Card 1) */
+          .bento-stats-row {
+            display: flex;
+            gap: 32px;
+          }
+          .bento-stat { display: flex; flex-direction: column; }
+          .bento-stat-num {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 4px;
+          }
+          .highlight-acid { color: var(--acid); }
+          .bento-stat-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.4;
+          }
+
+          /* Badge Row (Card 2) */
+          .bento-badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+          }
+          .bento-badge {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 100px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: rgba(255,255,255,0.6);
+            color: var(--md-on-surface);
+          }
+
+          /* Pill Stack (Card 3) */
+          .bento-pill-stack {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+          }
+          .bento-pill {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 6px 12px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.5);
+            border: 1px solid rgba(0,0,0,0.1);
+            color: var(--md-on-surface);
+          }
+
+          /* Mini Grid (Card 5 Wide) */
+          .bento-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            background: rgba(255,255,255,0.6);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
+          }
+          .bento-mini-stat { text-align: center; }
+          .mini-stat-num {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--md-primary);
+            line-height: 1;
+            margin-bottom: 6px;
+          }
+          .mini-stat-label {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            line-height: 1.4;
+          }
+
+          /* === My Values === */
+          .about-values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+          }
           .card.glass {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(12px);
@@ -493,74 +559,22 @@ export default function About() {
             border-radius: var(--radius-lg);
           }
 
-          /* Tablet Responsive */
+          /* === Responsive === */
           @media (max-width: 959px) {
-            .about-hero-grid {
-              grid-template-columns: 1fr;
-              gap: 32px;
-            }
-
-            .about-hero-photo {
-              max-width: 400px;
-              margin: 0 auto;
-            }
-
-            .about-hero-text h1 {
-              text-align: center;
-              font-size: 36px !important;
-            }
-
-            .strengths-grid {
-              grid-template-columns: 1fr;
-              gap: 24px;
-            }
-
-            .about-values-grid {
-              grid-template-columns: repeat(2, 1fr);
-            }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-card--wide { grid-column: auto; }
+            .bento-content--row { flex-direction: column; align-items: flex-start; }
+            .about-values-grid { grid-template-columns: 1fr; }
           }
-
-          /* Mobile Responsive */
           @media (max-width: 640px) {
-            .about-hero-text h1 {
-              font-size: 32px !important;
-            }
-
-            .strengths-grid {
-              gap: 20px;
-            }
-
-            .strength-content {
-              padding: 20px 24px;
-            }
-
-            .strength-title {
-              font-size: 18px;
-            }
-
-            .strength-description {
-              font-size: 13px;
-            }
-
-            .about-values-grid {
-              grid-template-columns: 1fr;
-            }
-
-            .card.glass {
-              padding: 24px !important;
-            }
+            .bento-content { padding: 24px; }
+            .bento-title { font-size: 24px; }
+            .bento-stats-row { flex-wrap: wrap; gap: 20px; }
+            .bento-mini-grid { grid-template-columns: 1fr; gap: 20px; width: 100%; }
           }
-
-          /* Reduced Motion */
           @media (prefers-reduced-motion: reduce) {
-            .strength-card,
-            .strength-card-inner {
-              transition: none !important;
-            }
-
-            .strength-card:hover {
-              transform: none !important;
-            }
+            .bento-card, .bento-bg img, .bento-overlay { transition: none !important; }
+            .bento-card:hover { transform: none !important; }
           }
         `}</style>
       </div>

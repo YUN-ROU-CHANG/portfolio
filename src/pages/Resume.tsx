@@ -17,7 +17,7 @@ type Experience = {
 
 // Data
 const resumeData = {
-  lastUpdated: '2025-11-19',
+  lastUpdated: '2026-04-30',
   contact: { email: 'yuu07798@gmail.com', linkedin: 'https://www.linkedin.com/in/rose-chang0708', github: 'https://github.com' },
   experience: [
     {
@@ -94,7 +94,7 @@ const resumeData = {
   ],
   skills: [
     { category: 'Tools', items: ['Figma', 'Maze', 'Photoshop', 'Illustrator', 'Premiere', 'DaVinci Resolve', 'Google Analytics', 'Canva', 'SketchUp'] },
-    { category: 'Programming Languages', items: ['HTML', 'CSS', 'JavaScript'] },
+    { category: 'Programming Languages(basic familiarity)', items: ['HTML', 'CSS', 'JavaScript', 'React'] },
     { category: 'Methods', items: ['Prototyping', 'User Research', 'Usability Testing', 'Design Thinking', 'Wireframing', 'Design systems'] }
   ],
   education: [
