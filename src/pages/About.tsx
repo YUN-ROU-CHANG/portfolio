@@ -8,7 +8,7 @@ import experimentNotion from '../assets/images/experiment-notion.png';
 import awardsReport from '../assets/images/awards-report.jpg';
 import figmaImg from '../assets/images/figma.png';
 import codingImg from '../assets/images/coding.png';
-import crossFunctional from '../assets/images/cross-functional.png';
+import crossFunctional from '../assets/images/cross-functional.jpeg';
 
 export default function About() {
   const heroRef = useRef<HTMLDivElement>(null);
