@@ -8,6 +8,17 @@ import {
   BookOpen, Layers, CheckCircle2, AlertTriangle
 } from 'lucide-react';
 
+// 引入你指定的新圖片
+import codeImg from '../../assets/images/project/sleep-guardian/sleep-guardian-code.png';
+import notionImg from '../../assets/images/project/sleep-guardian/experiment-notion.png';
+import appAudio from '../../assets/images/project/sleep-guardian/audio.png';
+import appEmpathy from '../../assets/images/project/sleep-guardian/empathy.png';
+import appFinish from '../../assets/images/project/sleep-guardian/finish.png';
+import appIntro2 from '../../assets/images/project/sleep-guardian/intro-2.png';
+import appIntro from '../../assets/images/project/sleep-guardian/intro.png';
+import appStatistic from '../../assets/images/project/sleep-guardian/statistic.png';
+import appSurvey from '../../assets/images/project/sleep-guardian/survey.png';
+
 export default function SleepGuardian() {
   const [showTop, setShowTop] = useState(false);
   useEffect(() => {
@@ -32,6 +43,17 @@ export default function SleepGuardian() {
     reveals.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
+
+  // App screens 陣列，方便 map 渲染
+  const appScreens = [
+    { src: appIntro, alt: 'App Intro' },
+    { src: appIntro2, alt: 'App Setup' },
+    { src: appEmpathy, alt: 'Empathy Appeal' },
+    { src: appAudio, alt: 'Audio Modality' },
+    { src: appSurvey, alt: 'WebView Survey' },
+    { src: appStatistic, alt: 'Session Statistics' },
+    { src: appFinish, alt: 'Session Finish' },
+  ];
 
   return (
     <Layout>
@@ -235,7 +257,7 @@ export default function SleepGuardian() {
             <p className="sg-body sg-body--wide">
               Rather than running a controlled lab study (which would destroy ecological
               validity for a bedtime behavior), I used <strong>Ecological Momentary
-              Assessment (EMA)</strong> — collecting data remotely and asynchronously
+                Assessment (EMA)</strong> — collecting data remotely and asynchronously
               in participants' actual sleep environments.
             </p>
 
@@ -298,7 +320,7 @@ export default function SleepGuardian() {
           </div>
         </section>
 
-        {/* ── SLEEP GUARDIAN APP ── */}
+        {/* ── SLEEP GUARDIAN APP (MODIFIED) ── */}
         <section className="sg-section sg-section--dark sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label sg-section-label--light">
@@ -356,6 +378,42 @@ export default function SleepGuardian() {
                 </p>
               </div>
             </div>
+
+            {/* --- 新增的圖片展示區塊 --- */}
+
+            <div className="sg-instrument-visuals">
+
+              {/* 1. App 介面展示 (7張圖網格) */}
+              <div className="sg-visual-block">
+                <h3 className="sg-visual-title">App User Interface</h3>
+                <div className="sg-app-screens-grid">
+                  {appScreens.map((screen, idx) => (
+                    <div key={idx} className="sg-app-screen-wrap">
+                      <img src={screen.src} alt={screen.alt} loading="lazy" className="sg-app-screen-img" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 2. 實驗時程管理圖 (Notion) */}
+              <div className="sg-visual-block">
+                <h3 className="sg-visual-title">Experiment Management Timeline</h3>
+                <div className="sg-notion-img-wrap">
+                  <img src={notionImg} alt="Experiment Schedule Notion" loading="lazy" className="sg-featured-img" />
+                </div>
+              </div>
+
+              {/* 3. Code (放在最下面) */}
+              <div className="sg-visual-block">
+                <h3 className="sg-visual-title">Development & Code Architecture</h3>
+                <div className="sg-code-img-wrap">
+                  <img src={codeImg} alt="Sleep Guardian Source Code" loading="lazy" className="sg-featured-img" />
+                </div>
+              </div>
+
+            </div>
+            {/* --- 新增的圖片展示區塊 結束 --- */}
+
           </div>
         </section>
 
@@ -543,7 +601,11 @@ export default function SleepGuardian() {
             --sg-accent: #2563eb;
             --sg-green: #16a34a;
             --sg-border: rgba(0,0,0,0.07);
-            font-family: var(--font-body, 'DM Sans', sans-serif);
+            
+            /* 將有特色的無襯線字體設為主要標題字體 */
+            --font-display: 'Futura', 'Tw Cen MT', 'Century Gothic', sans-serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+            font-family: var(--font-body);
           }
 
           .sg-container {
@@ -598,12 +660,14 @@ export default function SleepGuardian() {
             border: 1px solid rgba(22,163,74,0.35);
           }
           .sg-hero-title {
+            font-family: var(--font-display); /* 套用 Futura */
             font-size: clamp(36px, 6vw, 60px);
             font-weight: 700;
             line-height: 1.1;
             color: #fff;
             margin-bottom: 16px;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
           }
           .sg-hero-sub {
             font-size: clamp(18px, 2.5vw, 24px);
@@ -661,12 +725,12 @@ export default function SleepGuardian() {
           }
           .sg-section-label--light { color: #93c5fd; }
           .sg-section-title {
-            font-size: clamp(22px, 3vw, 34px);
-            font-weight: 600;
+            font-family: var(--font-display); /* 套用 Futura */
+            font-size: clamp(26px, 3.5vw, 38px); /* 稍微調大一點，因為無襯線視覺較小 */
+            font-weight: 700;
             line-height: 1.25;
             color: var(--sg-text);
             margin-bottom: 32px;
-            line-height: 1.2;
             letter-spacing: -0.5px;
           }
           .sg-title--light { color: #fff; }
@@ -744,7 +808,7 @@ export default function SleepGuardian() {
             color: var(--sg-muted);
             margin-bottom: 8px;
           }
-          .sg-pathway-title { font-size: 19px; font-weight: 600; color: var(--sg-text); margin-bottom: 4px; }
+          .sg-pathway-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--sg-text); margin-bottom: 4px; }
           .sg-pathway-mech { font-size: 12px; font-family: 'Courier New', monospace; color: var(--sg-muted); margin-bottom: 14px; }
           .sg-pathway-desc { font-size: 14px; line-height: 1.7; color: var(--sg-muted); margin-bottom: 20px; }
           .sg-pathway-example { padding: 14px 16px; border-radius: 8px; background: var(--sg-surface); }
@@ -783,7 +847,7 @@ export default function SleepGuardian() {
             font-family: 'Courier New', monospace;
             margin-bottom: 8px;
           }
-          .sg-axis-title { font-size: 17px; font-weight: 700; color: var(--sg-text); margin-bottom: 16px; }
+          .sg-axis-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--sg-text); margin-bottom: 16px; }
           .sg-axis-items { display: flex; flex-direction: column; gap: 8px; }
           .sg-axis-item {
             display: inline-block;
@@ -826,7 +890,7 @@ export default function SleepGuardian() {
             background: var(--sg-surface);
           }
           .sg-decision-card svg { color: var(--sg-accent); margin-bottom: 12px; }
-          .sg-decision-card h4 { font-size: 15px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
+          .sg-decision-card h4 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
           .sg-decision-card p { font-size: 13px; line-height: 1.6; color: var(--sg-muted); }
 
           .sg-app-features {
@@ -849,8 +913,81 @@ export default function SleepGuardian() {
             color: #93c5fd;
             margin-bottom: 10px;
           }
-          .sg-app-feature-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+          .sg-app-feature-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
           .sg-app-feature-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.55); }
+
+          /* =========================================
+             新增圖片展示區塊 Styles 
+             ========================================= */
+          .sg-instrument-visuals {
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+          }
+          
+          .sg-visual-block {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+          }
+
+          .sg-visual-title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            color: #93c5fd;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 12px;
+          }
+
+          /* App Screens Grid (Auto-fit, Min 120px 確保清晰) */
+          .sg-app-screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 20px;
+            justify-items: center;
+          }
+          
+          .sg-app-screen-wrap {
+            width: 100%;
+            max-width: 220px; /* 限制單張最大寬度 */
+            aspect-ratio: 9/19.5; /* iPhone 比例 */
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 4px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+          }
+          
+          .sg-app-screen-wrap:hover {
+            transform: translateY(-8px);
+          }
+
+          .sg-app-screen-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          /* 大圖 Wrapper (Notion & Code) */
+          .sg-notion-img-wrap,
+          .sg-code-img-wrap {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.02);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+          }
+
+          .sg-featured-img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
 
           .sg-measure-timeline {
             display: flex;
@@ -903,7 +1040,7 @@ export default function SleepGuardian() {
             color: var(--sg-accent);
             margin-bottom: 4px;
           }
-          .sg-measure-name { font-size: 14px; font-weight: 700; color: var(--sg-text); margin-bottom: 6px; }
+          .sg-measure-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--sg-text); margin-bottom: 6px; }
           .sg-measure-purpose { font-size: 12px; line-height: 1.6; color: var(--sg-muted); }
 
           .sg-rq-list {
@@ -930,7 +1067,7 @@ export default function SleepGuardian() {
             padding-top: 2px;
             min-width: 64px;
           }
-          .sg-rq-q { font-size: 15px; font-weight: 600; color: var(--sg-text); margin-bottom: 8px; line-height: 1.5; }
+          .sg-rq-q { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; line-height: 1.5; }
           .sg-rq-h { font-size: 13px; line-height: 1.6; color: var(--sg-muted); }
           .sg-analysis-note {
             display: flex;
@@ -969,7 +1106,7 @@ export default function SleepGuardian() {
           }
           .sg-status--progress { color: var(--sg-accent); }
           .sg-status--pending { color: var(--sg-muted); }
-          .sg-contribution-card h4 { font-size: 16px; font-weight: 700; color: var(--sg-text); margin-bottom: 10px; line-height: 1.4; }
+          .sg-contribution-card h4 { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--sg-text); margin-bottom: 10px; line-height: 1.4; }
           .sg-contribution-card p { font-size: 13px; line-height: 1.7; color: var(--sg-muted); }
 
           @media (max-width: 960px) {
@@ -980,12 +1117,14 @@ export default function SleepGuardian() {
             .sg-contribution-grid { grid-template-columns: 1fr; }
             .sg-design-matrix { flex-direction: column; align-items: stretch; }
             .sg-matrix-cross { text-align: center; }
+            .sg-app-screens-grid { grid-template-columns: repeat(3, 1fr); }
           }
 
           @media (max-width: 640px) {
             .sg-hero { padding: 100px 0 60px; }
             .sg-section { padding: 60px 0; }
             .sg-container { padding: 0 20px; }
+            .sg-app-screens-grid { grid-template-columns: repeat(2, 1fr); }
           }
 
           @media (prefers-reduced-motion: reduce) {
@@ -1025,7 +1164,7 @@ export default function SleepGuardian() {
         }}
       >←</button>
 
-      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top" style={{ position:'fixed', bottom:'32px', right:'32px', width:'48px', height:'48px', borderRadius:'50%', background:'#1A1A18', color: '#FFE699', border:'none', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'18px', lineHeight:1, boxShadow:'0 4px 20px rgba(0,0,0,0.18)', transition:'opacity 0.25s ease, transform 0.2s ease', zIndex:999, opacity:showTop?1:0, pointerEvents:showTop?'auto':'none', transform:showTop?'translateY(0)':'translateY(8px)' }} onMouseEnter={e=>{(e.currentTarget as HTMLButtonElement).style.transform='translateY(-3px)';}} onMouseLeave={e=>{(e.currentTarget as HTMLButtonElement).style.transform=showTop?'translateY(0)':'translateY(8px)';}}>↑</button>
+      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top" style={{ position: 'fixed', bottom: '32px', right: '32px', width: '48px', height: '48px', borderRadius: '50%', background: '#1A1A18', color: '#FFE699', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', lineHeight: 1, boxShadow: '0 4px 20px rgba(0,0,0,0.18)', transition: 'opacity 0.25s ease, transform 0.2s ease', zIndex: 999, opacity: showTop ? 1 : 0, pointerEvents: showTop ? 'auto' : 'none', transform: showTop ? 'translateY(0)' : 'translateY(8px)' }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-3px)'; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = showTop ? 'translateY(0)' : 'translateY(8px)'; }}>↑</button>
     </Layout>
   );
 }
