@@ -66,10 +66,6 @@ export default function About() {
                     loading="eager"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(15%)' }}
                   />
-                  {/* Spinning stamp */}
-                  <div style={{ position: 'absolute', bottom: '16px', right: '16px', width: '84px', height: '84px', borderRadius: '50%', border: '1.5px solid #0C0C0C', background: '#FFE699', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px', letterSpacing: '.14em', textTransform: 'uppercase', textAlign: 'center', lineHeight: 1.2, animation: 'spinSlow 22s linear infinite' }}>
-                    CERTIFIED /<br />DESIGNER<br />· 2026 ·
-                  </div>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginTop: '14px', paddingTop: '14px', borderTop: '1px solid rgba(12,12,12,.12)', fontFamily: '"IBM Plex Mono", monospace', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', color: '#6B6A62' }}>
                   <div><span style={{ color: '#0C0C0C', marginRight: '4px' }}>BASED</span>Taipei</div>
