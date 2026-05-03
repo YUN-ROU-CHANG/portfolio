@@ -257,7 +257,7 @@ export default function SleepGuardian() {
             <p className="sg-body sg-body--wide">
               Rather than running a controlled lab study (which would destroy ecological
               validity for a bedtime behavior), I used <strong>Ecological Momentary
-                Assessment (EMA)</strong> — collecting data remotely and asynchronously
+              Assessment (EMA)</strong> — collecting data remotely and asynchronously
               in participants' actual sleep environments.
             </p>
 
@@ -380,9 +380,9 @@ export default function SleepGuardian() {
             </div>
 
             {/* --- 新增的圖片展示區塊 --- */}
-
+            
             <div className="sg-instrument-visuals">
-
+              
               {/* 1. App 介面展示 (7張圖網格) */}
               <div className="sg-visual-block">
                 <h3 className="sg-visual-title">App User Interface</h3>
@@ -579,7 +579,7 @@ export default function SleepGuardian() {
                 <p>Participant recruitment and data collection ongoing. Target completion before M.S. thesis submission — July 2026.</p>
               </div>
               <div className="sg-contribution-card sg-contribution-card--pending">
-                <div className="sg-contribution-status sg-status--pending">◦ Pending</div>
+                <div className="sg-contribution-status sg-status--progress">↻ In Progress</div>
                 <h4>Results, analysis & design recommendations</h4>
                 <p>Mixed ANOVA analysis and evidence-based notification design guidelines to be delivered upon experiment completion.</p>
               </div>
@@ -1173,7 +1173,7 @@ export default function SleepGuardian() {
         }}
       >←</button>
 
-      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top" style={{ position: 'fixed', bottom: '32px', right: '32px', width: '48px', height: '48px', borderRadius: '50%', background: '#1A1A18', color: '#FFE699', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', lineHeight: 1, boxShadow: '0 4px 20px rgba(0,0,0,0.18)', transition: 'opacity 0.25s ease, transform 0.2s ease', zIndex: 999, opacity: showTop ? 1 : 0, pointerEvents: showTop ? 'auto' : 'none', transform: showTop ? 'translateY(0)' : 'translateY(8px)' }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-3px)'; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = showTop ? 'translateY(0)' : 'translateY(8px)'; }}>↑</button>
+      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top" style={{ position:'fixed', bottom:'32px', right:'32px', width:'48px', height:'48px', borderRadius:'50%', background:'#1A1A18', color: '#FFE699', border:'none', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'18px', lineHeight:1, boxShadow:'0 4px 20px rgba(0,0,0,0.18)', transition:'opacity 0.25s ease, transform 0.2s ease', zIndex:999, opacity:showTop?1:0, pointerEvents:showTop?'auto':'none', transform:showTop?'translateY(0)':'translateY(8px)' }} onMouseEnter={e=>{(e.currentTarget as HTMLButtonElement).style.transform='translateY(-3px)';}} onMouseLeave={e=>{(e.currentTarget as HTMLButtonElement).style.transform=showTop?'translateY(0)':'translateY(8px)';}}>↑</button>
     </Layout>
   );
 }
