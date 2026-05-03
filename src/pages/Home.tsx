@@ -177,7 +177,7 @@ export default function Home() {
             <div className="hero-text reveal" ref={addToRefs}>
               <div className="avail-badge">
                 <span className="avail-dot"></span>
-                <span className="avail-label">Open to full-time roles · Aug 2026</span>
+                <span className="avail-label">Open to full-time roles · Jul 2026</span>
               </div>
               <h1 className="name interactive-name">
                 {"Rose Chang".split("").map((char, index) => (

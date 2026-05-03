@@ -576,7 +576,7 @@ export default function SleepGuardian() {
               <div className="sg-contribution-card sg-contribution-card--inprogress">
                 <div className="sg-contribution-status">✓ Completed</div>
                 <h4>Main experiment (N=48)</h4>
-                <p>Participant recruitment and data collection ongoing. Target completion before M.S. thesis submission — July 2026.</p>
+                <p>Participant recruitment and data collection ongoing. Target completion before M.S. thesis submission — June 2026.</p>
               </div>
               <div className="sg-contribution-card sg-contribution-card--pending">
                 <div className="sg-contribution-status sg-status--progress">↻ In Progress</div>
