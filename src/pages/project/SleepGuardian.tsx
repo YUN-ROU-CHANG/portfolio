@@ -574,8 +574,8 @@ export default function SleepGuardian() {
                 <p>Designed all 12 notification stimuli — text, visual assets, audio recordings, and the design friction math-input interface — with equivalence controls for duration and visual complexity across conditions.</p>
               </div>
               <div className="sg-contribution-card sg-contribution-card--inprogress">
-                <div className="sg-contribution-status sg-status--progress">↻ In Progress</div>
-                <h4>Main experiment (N=60 target)</h4>
+                <div className="sg-contribution-status">✓ Completed</div>
+                <h4>Main experiment (N=48)</h4>
                 <p>Participant recruitment and data collection ongoing. Target completion before M.S. thesis submission — July 2026.</p>
               </div>
               <div className="sg-contribution-card sg-contribution-card--pending">
