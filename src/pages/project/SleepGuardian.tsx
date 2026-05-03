@@ -602,7 +602,6 @@ export default function SleepGuardian() {
             --sg-green: #16a34a;
             --sg-border: rgba(0,0,0,0.07);
             
-            /* 將有特色的無襯線字體設為主要標題字體 */
             --font-display: 'Futura', 'Tw Cen MT', 'Century Gothic', sans-serif;
             --font-body: 'DM Sans', system-ui, sans-serif;
             font-family: var(--font-body);
@@ -645,9 +644,9 @@ export default function SleepGuardian() {
             padding: 6px 14px;
             border-radius: 100px;
             font-size: 13px;
-            font-family: 'Courier New', monospace;
-            font-weight: 600;
-            letter-spacing: 0.3px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: 0.5px;
           }
           .sg-badge--thesis {
             background: rgba(37,99,235,0.2);
@@ -660,7 +659,7 @@ export default function SleepGuardian() {
             border: 1px solid rgba(22,163,74,0.35);
           }
           .sg-hero-title {
-            font-family: var(--font-display); /* 套用 Futura */
+            font-family: var(--font-display);
             font-size: clamp(36px, 6vw, 60px);
             font-weight: 700;
             line-height: 1.1;
@@ -672,10 +671,10 @@ export default function SleepGuardian() {
           .sg-hero-sub {
             font-size: clamp(18px, 2.5vw, 24px);
             color: #93c5fd;
-            font-weight: 400;
+            font-weight: 500;
             line-height: 1.5;
             margin-bottom: 28px;
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-display);
             letter-spacing: 0.2px;
           }
           .sg-hero-hook {
@@ -695,16 +694,18 @@ export default function SleepGuardian() {
           }
           .sg-meta-item { display: flex; flex-direction: column; gap: 4px; }
           .sg-meta-label {
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1.2px;
             color: rgba(255,255,255,0.35);
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-display);
+            font-weight: 700;
           }
           .sg-meta-value {
             font-size: 14px;
             color: rgba(255,255,255,0.85);
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-body);
+            font-weight: 500;
             line-height: 1.4;
           }
 
@@ -715,18 +716,18 @@ export default function SleepGuardian() {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 12px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--sg-accent);
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-display);
             font-weight: 700;
             margin-bottom: 16px;
           }
           .sg-section-label--light { color: #93c5fd; }
           .sg-section-title {
-            font-family: var(--font-display); /* 套用 Futura */
-            font-size: clamp(26px, 3.5vw, 38px); /* 稍微調大一點，因為無襯線視覺較小 */
+            font-family: var(--font-display);
+            font-size: clamp(26px, 3.5vw, 38px);
             font-weight: 700;
             line-height: 1.25;
             color: var(--sg-text);
@@ -767,9 +768,9 @@ export default function SleepGuardian() {
             font-size: 36px;
             font-weight: 800;
             color: var(--sg-text);
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-display);
             margin-bottom: 6px;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
           }
           .sg-stat-desc { font-size: 13px; line-height: 1.6; color: var(--sg-muted); }
 
@@ -801,23 +802,24 @@ export default function SleepGuardian() {
           .sg-pathway-card--empathy .sg-pathway-icon { background: rgba(124,58,237,0.08); color: var(--sg-empathy); }
           .sg-pathway-card--friction .sg-pathway-icon { background: rgba(217,119,6,0.08); color: var(--sg-friction); }
           .sg-pathway-num {
-            font-size: 11px;
-            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            font-family: var(--font-display);
             font-weight: 700;
             letter-spacing: 1px;
             color: var(--sg-muted);
             margin-bottom: 8px;
           }
           .sg-pathway-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--sg-text); margin-bottom: 4px; }
-          .sg-pathway-mech { font-size: 12px; font-family: 'Courier New', monospace; color: var(--sg-muted); margin-bottom: 14px; }
+          .sg-pathway-mech { font-size: 13px; font-family: var(--font-display); font-weight: 600; color: var(--sg-muted); margin-bottom: 14px; }
           .sg-pathway-desc { font-size: 14px; line-height: 1.7; color: var(--sg-muted); margin-bottom: 20px; }
           .sg-pathway-example { padding: 14px 16px; border-radius: 8px; background: var(--sg-surface); }
           .sg-example-label {
-            font-size: 10px;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--sg-muted);
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-display);
+            font-weight: 600;
             display: block;
             margin-bottom: 6px;
           }
@@ -840,23 +842,25 @@ export default function SleepGuardian() {
           .sg-matrix-axis--between { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.2); }
           .sg-matrix-axis--within { background: rgba(124,58,237,0.04); border-color: rgba(124,58,237,0.2); }
           .sg-axis-label {
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--sg-muted);
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-display);
+            font-weight: 600;
             margin-bottom: 8px;
           }
           .sg-axis-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--sg-text); margin-bottom: 16px; }
           .sg-axis-items { display: flex; flex-direction: column; gap: 8px; }
           .sg-axis-item {
             display: inline-block;
-            font-size: 13px;
+            font-size: 14px;
             padding: 6px 12px;
             border-radius: 6px;
             background: rgba(0,0,0,0.04);
             color: var(--sg-text);
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-display);
+            font-weight: 500;
           }
           .sg-axis-item--threat { background: rgba(229,62,62,0.08); color: var(--sg-threat); }
           .sg-axis-item--empathy { background: rgba(124,58,237,0.08); color: var(--sg-empathy); }
@@ -906,9 +910,9 @@ export default function SleepGuardian() {
             background: rgba(255,255,255,0.04);
           }
           .sg-app-feature-num {
-            font-size: 11px;
-            font-family: 'Courier New', monospace;
-            font-weight: 700;
+            font-size: 12px;
+            font-family: var(--font-display);
+            font-weight: 800;
             letter-spacing: 1px;
             color: #93c5fd;
             margin-bottom: 10px;
@@ -917,7 +921,7 @@ export default function SleepGuardian() {
           .sg-app-feature-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.55); }
 
           /* =========================================
-             新增圖片展示區塊 Styles 
+             圖片展示區塊 Styles 
              ========================================= */
           .sg-instrument-visuals {
             margin-top: 60px;
@@ -940,6 +944,7 @@ export default function SleepGuardian() {
             letter-spacing: 1px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             padding-bottom: 12px;
+            font-weight: 700;
           }
 
           /* App Screens Grid (Auto-fit, Min 120px 確保清晰) */
@@ -952,8 +957,8 @@ export default function SleepGuardian() {
           
           .sg-app-screen-wrap {
             width: 100%;
-            max-width: 220px; /* 限制單張最大寬度 */
-            aspect-ratio: 9/19.5; /* iPhone 比例 */
+            max-width: 220px;
+            aspect-ratio: 9/19.5;
             background: #000;
             border-radius: 20px;
             overflow: hidden;
@@ -1011,8 +1016,8 @@ export default function SleepGuardian() {
             background: var(--sg-accent);
           }
           .sg-phase-label {
-            font-size: 12px;
-            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            font-family: var(--font-display);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -1033,8 +1038,8 @@ export default function SleepGuardian() {
             min-width: 200px;
           }
           .sg-measure-abbr {
-            font-size: 11px;
-            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            font-family: var(--font-display);
             font-weight: 800;
             letter-spacing: 1px;
             color: var(--sg-accent);
@@ -1056,16 +1061,20 @@ export default function SleepGuardian() {
             border: 1px solid var(--sg-border);
             border-radius: 12px;
             background: #fff;
+            align-items: flex-start; /* 確保文字與標籤頂部對齊 */
           }
           .sg-rq-tag {
-            font-size: 11px;
-            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            font-family: var(--font-display);
             font-weight: 800;
             letter-spacing: 0.5px;
             color: var(--sg-accent);
             white-space: nowrap;
             padding-top: 2px;
-            min-width: 64px;
+            
+            /* 解決重疊問題的關鍵設定 👇 */
+            min-width: 85px; 
+            flex-shrink: 0; 
           }
           .sg-rq-q { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; line-height: 1.5; }
           .sg-rq-h { font-size: 13px; line-height: 1.6; color: var(--sg-muted); }
@@ -1097,8 +1106,8 @@ export default function SleepGuardian() {
           .sg-contribution-card--inprogress { background: rgba(37,99,235,0.03); border-color: rgba(37,99,235,0.2); }
           .sg-contribution-card--pending { background: var(--sg-surface); }
           .sg-contribution-status {
-            font-size: 11px;
-            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            font-family: var(--font-display);
             font-weight: 800;
             letter-spacing: 0.5px;
             color: var(--sg-green);
