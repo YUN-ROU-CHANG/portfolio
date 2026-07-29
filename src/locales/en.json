@@ -1,0 +1,1546 @@
+{
+  "nav": {
+    "skipLink": "Skip to content",
+    "brand": "Yun-Rou Chang",
+    "brandSub": "— ROSE",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "resume": "Resume",
+    "chip": "Open to '26 Roles",
+    "contact": "Contact →",
+    "footer": "© Yun-Rou Chang 2026"
+  },
+  "common": {
+    "certificate": "Certificate",
+    "enlargedView": "Enlarged view",
+    "explore": "Explore →"
+  },
+  "home": {
+    "hero": {
+      "badge": "Open to full-time roles · Aug 2026",
+      "name": "Rose Chang",
+      "title": "UX Researcher & Product Designer",
+      "subtitle": "From user research to digital and physical product design",
+      "desc": "I'm a designer driven by research and insight, carrying it all the way through to the product. My master's thesis used a controlled experiment and mixed methods to study bedtime procrastination (N=48, 45 interviews), and I've turned research into award-winning strategy (InnoConnect+ Gold, OpenHCI '25). From research planning and service blueprints to UI prototyping and validation, I keep every design decision grounded in evidence, and I enjoy working with cross-functional teams to shape rough ideas into products people genuinely need.",
+      "aboutBtn": "About Me",
+      "viewWorkBtn": "View Work",
+      "photoAlt": "Rose Chang at OpenHCI"
+    },
+    "works": {
+      "heading": "Selected Works",
+      "viewAll": "View all projects →",
+      "sleepGuardian": {
+        "titlePre": "Sleep Guardian /",
+        "titleHighlight": "interrupting",
+        "titlePost": "in-bed procrastination before it becomes sleep debt.",
+        "desc": "Planned and ran a remote, asynchronous experiment; designed the interaction flows and prototypes for a React Native intervention app studying in-bed smartphone procrastination.",
+        "tag1": "M.S. Thesis",
+        "tag2": "User Research",
+        "tag3": "Controlled Experiment",
+        "imgAlt": "Sleep Guardian"
+      },
+      "oblivilight": {
+        "titlePre": "Oblivilight —",
+        "titleHighlight": "forgetting",
+        "titlePost": "what you don't want AI to remember.",
+        "desc": "Built a tangible interaction device in a 6-day sprint, exploring how AI systems handle \"forgetting\" mechanisms. Best Demo Award at OpenHCI '25.",
+        "tag1": "OpenHCI'25",
+        "tag2": "Tangible UX",
+        "tag3": "HCI",
+        "imgAlt": "Oblivilight",
+        "status": "Best Demo Award\nTAICHI '25 Demo"
+      },
+      "mu": {
+        "titlePre": "Mù —",
+        "titleHighlight": "listening",
+        "titlePost": "to wood before it disappears.",
+        "desc": "Created a multisensory interactive guide for Taiwan's endangered woods, using emotional design and mixed-method research to preserve cultural memory.",
+        "tag2": "Multisensory",
+        "tag3": "Emotional Design",
+        "status": "Nominated",
+        "imgAlt": "Mù"
+      },
+      "innoconnect": {
+        "titlePre": "Innoconnect+ /",
+        "titleHighlight": "gifting",
+        "titlePost": "is an experience worth designing.",
+        "desc": "Service blueprint, user journey design, and prototype usability testing for Hi-Life's Send-a-Gift O2O service. Tackled marketing and usability pain points with a personality quiz and flow optimization. Gold Award winner.",
+        "tag1": "Service Design",
+        "tag2": "User Journey",
+        "tag3": "Gold Award",
+        "imgAlt": "Innoconnect"
+      },
+      "publications": {
+        "titlePre": "Voice of Machines —",
+        "titleHighlight": "two",
+        "titlePost": "first-author conference papers.",
+        "desc": "First-author research on Human-AI music collaboration and AI voice emotion, presented at IEEE GCCE 2025 and SSIM 2024. The SSIM paper won the Best Paper Award.",
+        "tag1": "IEEE GCCE",
+        "tag2": "HCI Research",
+        "tag3": "Best Paper",
+        "imgAlt": "Research Papers"
+      }
+    },
+    "research": {
+      "heading": "Research / Thesis",
+      "headline": {
+        "w1": "Why we",
+        "w2": "stay up",
+        "w3": "when we",
+        "highlight": "already",
+        "tail": "know better."
+      },
+      "p1a": "My thesis investigates",
+      "p1strong": "bedtime procrastination",
+      "p1b": "— the gap between the sleep we intend and the sleep we actually get. HCI × behavioural science × self-regulation and dual-process theory.",
+      "p2": "Mixed methods: a controlled experiment, SPSS analysis, and semi-structured interviews. The goal is to design notification interventions that respect autonomy instead of shaming users.",
+      "stat1": {
+        "unit": "N",
+        "label": "Participants · Experiment"
+      },
+      "stat2": {
+        "unit": "TYPES",
+        "label": "Threat · Empathy · Friction"
+      },
+      "stat3": {
+        "unit": "MODALITIES",
+        "label": "Visual · Audio · Audiovisual"
+      },
+      "stat4": {
+        "label": "Defended · Jun 2026"
+      },
+      "matrix": {
+        "caption1": "Notification Conditions · N=48",
+        "caption2": "3×3 Mixed Design + Baseline",
+        "threat": {
+          "labelZh": "威脅訴求",
+          "labelEn": "Threat Appeal",
+          "imgAlt": "Threat Appeal notification"
+        },
+        "empathy": {
+          "labelZh": "共情訴求",
+          "labelEn": "Empathy Appeal",
+          "imgAlt": "Empathy Appeal notification"
+        },
+        "friction": {
+          "labelZh": "設計摩擦",
+          "labelEn": "Friction Design",
+          "imgAlt": "Design Friction notification"
+        },
+        "control": {
+          "labelZh": "一般通知",
+          "labelEn": "Control",
+          "imgAlt": "Control notification"
+        }
+      }
+    },
+    "awards": {
+      "heading": "Select Honors & Awards",
+      "tuition": {
+        "title": "Outstanding Graduate Research Award",
+        "desc": "Full tuition waiver for publishing two first-author HCI conference papers."
+      },
+      "uxda": {
+        "title": "UX Design Awards",
+        "desc": "Nominated for the global UX Design Awards for the multisensory interactive guide, Mù."
+      },
+      "timesYoung": {
+        "title": "Times Young Creative Awards (National 3rd)",
+        "desc": "Led marketing strategy and interactive design for Yung Ching Realty."
+      },
+      "gcce": {
+        "title": "IEEE GCCE 2025 (Oral Presentation)",
+        "desc": "First Author. Explored AI voice subjectivity and interactive product design."
+      },
+      "openhci": {
+        "title": "OpenHCI '25 | Best Demo Award · Invited to TAICHI '25",
+        "desc": "Led UX research and product design. Tangible AI interaction device exploring emotional memory — awarded Best Demo at OpenHCI 2025."
+      },
+      "innoconnect": {
+        "title": "InnoConnect+ Service Innovation (Gold)",
+        "desc": "End-to-end UX/UI design for Hi-Life O2O gifting service (Ranked 1/186)."
+      },
+      "bigData": {
+        "title": "Big Data Marketing Cup (3rd Place)",
+        "desc": "Market research and app prototyping for Taiwan Livestock."
+      },
+      "ssim": {
+        "title": "SSIM Best Paper Award",
+        "desc": "First Author. Focused on Human-AI music collaboration interfaces."
+      }
+    },
+    "playground": {
+      "heading": "Playground & Life",
+      "sub": "When I'm not designing interfaces, I'm exploring new mediums.",
+      "photography": {
+        "title": "Photography",
+        "desc": "Capturing everyday moments, textures, and light. Photography sharpens my eye for composition and detail in design work."
+      },
+      "music": {
+        "title": "Musical composition",
+        "desc": "Composing ambient and experimental pieces as a creative outlet—music as another form of interaction design.",
+        "label": "Listen ↗"
+      },
+      "vibeCoding": {
+        "title": "Vibe Coding & AI Tools",
+        "desc": "Experimenting with generative AI, creative coding, and building side projects that blend code with design curiosity.",
+        "label": "Read More →"
+      }
+    },
+    "contact": {
+      "heading": "Let's Build Together",
+      "sub": "Open for full-time opportunities, collaborations, and coffee chats.",
+      "linkedin": "Connect on LinkedIn"
+    }
+  },
+  "about": {
+    "dossier": {
+      "subject": "SUBJECT · RC-26",
+      "file": "FILE 03.01",
+      "photoAlt": "Rose Chang",
+      "basedLabel": "BASED",
+      "basedValue": "Taipei",
+      "programLabel": "PROGRAM",
+      "programValue": "M.Des '26",
+      "langLabel": "LANG.",
+      "langValue": "中 / EN"
+    },
+    "intro": {
+      "line1": "A researcher who codes.",
+      "line2": "A designer who",
+      "line2Em": "asks why.",
+      "p1a": "I'm a UI/UX designer who sweats the details and asks why they matter. My work spans UI design and UX research, including a team project that won the",
+      "p1strong": "Gold Award at the 2024 InnoConnect+",
+      "p1b": "competition for Hi-Life.",
+      "p2a": "Previously, I worked as a",
+      "p2strong": "marketing intern at KDAN",
+      "p2b": ", where I created social media content and wrote analytical reports on influencer and ad performance. These days my research focus is AI-generated music and voice synthesis.",
+      "p3": "I like building things with people — cross-functional teams turning rough ideas into something users actually want. When I'm not designing: new music, creative coding, or the latest design trends."
+    },
+    "skills": {
+      "catResearch": "Research",
+      "catCraft": "Craft",
+      "catStrategy": "Strategy",
+      "usability": "Usability Testing",
+      "diary": "Diary Studies",
+      "spss": "SPSS / Quant",
+      "interviews": "Interviews",
+      "survey": "Survey Design",
+      "mixed": "Mixed Methods",
+      "figma": "Figma · Auto-layout",
+      "prototype": "Prototype / React",
+      "genai": "Gen-AI Workflows",
+      "serviceDesign": "Service Design",
+      "productStrategy": "Product Strategy",
+      "facilitation": "Facilitation",
+      "marketingOps": "Marketing Ops",
+      "lvlAdv": "ADV"
+    },
+    "strengths": {
+      "heading": "My Strengths",
+      "research": {
+        "tag": "Research at Scale",
+        "titleLine1": "Rigorous Research,",
+        "titleLine2": "Real Numbers",
+        "desc": "Full-cycle mixed-methods study on bedtime procrastination — from recruitment to validated analysis.",
+        "imgAlt": "Research Notion",
+        "stat1a": "participants",
+        "stat1b": "recruited",
+        "stat2a": "validated",
+        "stat2b": "scales",
+        "stat3a": "methods:",
+        "stat3b": "quant + qual"
+      },
+      "awards": {
+        "tag": "Research → Product",
+        "titleLine1": "From Insight",
+        "titleLine2": "to Gold",
+        "desc": "Turning user research into winning strategy — nationally recognized in both academic and commercial arenas.",
+        "imgAlt": "Awards Report",
+        "badge1": "InnoConnect+ Gold",
+        "badge2": "SSIM Best Paper",
+        "badge3": "時報金犢獎 3rd"
+      },
+      "uiDesign": {
+        "tag": "Full-Cycle UI Design",
+        "titleLine1": "Design Systems,",
+        "titleLine2": "Not Just Screens",
+        "desc": "Full Figma stack — wireframes through to component libraries and interactive prototypes.",
+        "imgAlt": "Figma UI Design",
+        "pill1": "Wireframing",
+        "pill2": "Design System",
+        "pill3": "Component Library",
+        "pill4": "Interactive Prototype"
+      },
+      "ai": {
+        "tag": "AI-Augmented",
+        "titleLine1": "Designing With AI,",
+        "titleLine2": "Not Just About It",
+        "desc": "Built this portfolio with AI-assisted development. Trained a 10-person team on AI creative tools. Researching AI vocal agency at IEEE GCCE 2025.",
+        "imgAlt": "AI Coding"
+      },
+      "crossFunc": {
+        "tag": "Cross-Functional",
+        "titleLine1": "One Person,",
+        "titleLine2": "Many Languages",
+        "desc": "Speaking fluently across research, design, business, and stakeholder contexts.",
+        "imgAlt": "Cross Functional Collaboration",
+        "stat1a": "KOL relationships",
+        "statManaged": "managed",
+        "stat2a": "participants per",
+        "stat2b": "Fulbright workshop",
+        "stat3a": "enterprise clients"
+      }
+    },
+    "values": {
+      "heading": "My Values",
+      "clarity": {
+        "title": "Clarity in Chaos",
+        "lead": "I turn complex information into actionable plans.",
+        "desc": "I document carefully so no insight gets lost, and stakeholders stay aligned on a clear vision."
+      },
+      "curiosity": {
+        "title": "Curiosity as a Driver",
+        "lead": "I embrace the new to optimize the now.",
+        "desc": "I actively bridge new tech with practical workflows, helping teams work smarter."
+      },
+      "resilience": {
+        "title": "Resilience & Empathy",
+        "lead": "I foster a positive and collaborative environment.",
+        "desc": "I bring resilience and warmth to collaboration—ensuring user needs are heard and team morale stays high."
+      },
+      "hardware": {
+        "title": "Hardware Meets Interface",
+        "lead": "I'm drawn to the intersection of physical products and digital experiences.",
+        "desc": "From automotive UX to wearable interfaces, I'm eager to design for embedded systems where constraints spark the most creative solutions."
+      }
+    }
+  },
+  "projects": {
+    "header": {
+      "title": "Projects",
+      "sub": "A collection of design work spanning awards, research, and creative projects."
+    },
+    "filters": {
+      "all": "All",
+      "awards": "Awards",
+      "research": "Research & Exp.",
+      "design": "Design Projects"
+    },
+    "cards": {
+      "sleepGuardian": {
+        "period": "2025 - 2026",
+        "type": "HCI Research & App Design",
+        "title": "Sleep Guardian | Notification Intervention Design",
+        "desc": "Lead researcher & designer: planned and executed a controlled experiment, and designed interaction flows and prototypes for a React Native intervention app to study in-bed smartphone procrastination.",
+        "tag1": "M.S. Thesis",
+        "tag2": "User Research Planning",
+        "tag3": "Controlled Experiment"
+      },
+      "innoconnect": {
+        "period": "2024 Oct - 2025 Mar",
+        "type": "Service Design & UX",
+        "title": "Innoconnect | Gift Service Optimization",
+        "desc": "🏆 Gold Award Winner (1/186). Optimizing the O2O gifting experience for Hi-Life via gamification and social features.",
+        "tag1": "Gold Award",
+        "tag2": "Service Design",
+        "tag3": "Gamification"
+      },
+      "oblivilight": {
+        "period": "2025 Jun - Aug",
+        "type": "Interaction Design",
+        "title": "OpenHCI'25 | Oblivilight",
+        "desc": "🏆 Best Demo Award Winner. A tangible interaction device built in a 6-day workshop exploring how AI \"forgets\".",
+        "tag1": "Best Demo Award",
+        "tag2": "Tangible UI",
+        "tag3": "Arduino"
+      },
+      "mu": {
+        "period": "2025 Jul - Dec",
+        "type": "UX Design & Research",
+        "title": "UX Design Awards｜Mù",
+        "desc": "Nominated for UX Design Awards. A multisensory guide to Taiwan's endangered woods exploring emotional design.",
+        "tag1": "Nominated",
+        "tag2": "Multisensory"
+      },
+      "publications": {
+        "period": "2025 Apr - Sep",
+        "type": "HCI Research",
+        "title": "HCI Research Publications",
+        "desc": "🏆 SSIM 2024 Best Paper & IEEE GCCE 2025. Research on AI music & voice emotion.",
+        "tag2": "IEEE"
+      },
+      "kdan": {
+        "period": "2024 Mar - Nov",
+        "type": "Marketing & Data Analytics",
+        "title": "KDAN | Marketing Intern",
+        "desc": "Optimized social workflow. Led AI training.",
+        "tag1": "Marketing",
+        "tag2": "Internship"
+      },
+      "timesAwards": {
+        "period": "2025 Apr - May",
+        "type": "Advertising & Creative",
+        "title": "2025 34th Times Young Creative Awards",
+        "desc": "🥉 National 3rd Place Winner. A multi-channel campaign (Video, Web, Audio) using \"Gashapon\" as a metaphor for job hunting.",
+        "tag1": "Advertising",
+        "tag2": "Copywriting",
+        "tag3": "Campaign"
+      },
+      "bigDataCup": {
+        "period": "2024 Sep - Nov",
+        "type": "UI/UX Design & Research",
+        "title": "Big Data Marketing Cup",
+        "desc": "🥉 3rd Place Winner. Designed the UI/UX for \"Taiwan Livestock\" fitness app.",
+        "tag1": "UI Design",
+        "tag2": "3rd Place"
+      },
+      "archive": {
+        "period": "2022 - 2024",
+        "title": "Academic Collaborations",
+        "desc": "Includes the \"Good Luck Peanut\" branding project and the \"Taipei Tech x Penn State GenAI Workshop\".",
+        "tag1": "GenAI",
+        "tag2": "Branding"
+      }
+    }
+  },
+  "resume": {
+    "header": {
+      "title": "Resume",
+      "lastUpdated": "Last updated:",
+      "downloadPdf": "Download PDF",
+      "linkedin": "LinkedIn"
+    },
+    "viewer": {
+      "notAvailable": "PDF Viewer Not Available",
+      "fallbackDesc": "Your browser doesn't support embedded PDFs. Please download the file to view it.",
+      "downloadBtn": "Download Resume PDF",
+      "cantView": "Can't view the PDF?",
+      "openNewWindow": "Open in new window"
+    },
+    "experience": {
+      "heading": "Experience",
+      "sub": "A chronological overview of my professional journey in Marketing and design.",
+      "bilingual": {
+        "year": "2025 Sep",
+        "title": "Part-Time Project Assistant",
+        "company": "NTUT; Center for Bilingual Learning",
+        "period": "Sep 2025 – Feb 2026",
+        "d1": "Assisted the Center for Bilingual Learning at NTUT with social media management across Facebook, LINE, and the center’s website.",
+        "d2": "Supported the execution of workshops, including venue setup, assisting international instructors, and coordinating students.",
+        "d3": "Handled administrative tasks related to the Center for Bilingual Learning."
+      },
+      "ra": {
+        "year": "2024 Sep",
+        "title": "Research Assistant",
+        "company": "NTUT",
+        "period": "Sep 2024 – Jul 2025",
+        "d1": "Assisted Prof. Chien-Wen Cheng in executing project-related tasks.",
+        "d2": "Prepared funding applications for the Teaching Practice Research Program.",
+        "d3": "Contributed to writing the 2025 Teaching Practice Research Proposal.",
+        "d4": "Developed the project findings into a conference paper and submitted it to SSIM, titled “Artificial Intelligence-Assisted Music and Interactive Design for University Students: Exploring Needs and Skill-Based Variations in Music Creation Experience.”",
+        "d5": "Provided administrative support for project documentation and coordination."
+      },
+      "kdan": {
+        "year": "2024 Mar",
+        "title": "Marketing Intern",
+        "company": "KDAN｜ADNEX",
+        "period": "Mar 2024 – Nov 2024",
+        "d1": "Communicated with over 110 Key Opinion Leaders (KOLs).",
+        "d2": "Created over 15 promotional posts for Instagram and Facebook accounts.",
+        "d3": "Increased official account followers by over 750.",
+        "d4": "Analyzed monthly influencer data and submitted 15 reports for client and manager review.",
+        "d5": "Trained 10 marketing staff on AI advertising picture generation.",
+        "d6": "Designed over 5 website graphics of company product."
+      },
+      "mengya": {
+        "year": "2022 Jul",
+        "title": "Corporate Training Project Intern",
+        "company": "Meng Ya Management Consulting Co., Ltd.",
+        "period": "Jul 2022 – Sep 2022",
+        "d1": "Served as the PM (project partner) for three companies, responsible for coordinating client requirements and acting as a bridge between the company and instructors; supported the preparation of over 17 corporate training sessions.",
+        "d2": "Worked as a teaching assistant for corporate training programs, identifying clients’ potential needs during sessions and supporting client development and relationship maintenance.",
+        "d3": "Assisted the sales team with pre-training preparations, including coordination between instructors and corporate clients, as well as handling related administrative tasks.",
+        "d4": "Executed on-site corporate training services and supported post-training wrap-up and project closure."
+      },
+      "wonlaiwon": {
+        "year": "2022 Jan",
+        "title": "Part-Time Worker",
+        "company": "Won-Lai-Won Enterprise Group",
+        "period": "Jan 2022 – Feb 2022",
+        "d1": "Responsible for product photography, background removal, photo editing, and uploading product listings.",
+        "d2": "Assisted in writing product descriptions and promotional copy.",
+        "d3": "Assisted with document filing and record management for the company."
+      }
+    },
+    "chips": {
+      "socialMediaMgmt": "Social Media Management",
+      "eventCoordination": "Event Coordination",
+      "docHandling": "Document Handling and File Management",
+      "adminSupport": "Administrative Support",
+      "researchWriting": "Research Report and Academic Paper Writing",
+      "proposalDev": "Research Proposal Development and Project Execution",
+      "statSoftware": "Statistical Software Proficiency",
+      "qualInterview": "Qualitative Interview Techniques",
+      "adCampaign": "Ad Campaign Planning & Copywriting",
+      "creativeIdeation": "Creative Advertising Ideation",
+      "crossIndustry": "Cross-Industry Partnership Planning",
+      "brandAwareness": "Brand Awareness Promotion",
+      "marketResearch": "Market Research Planning & Execution",
+      "adSales": "Advertising Sales Skills",
+      "crm": "Customer Relationship Management (CRM)",
+      "clientData": "Client Data Updating and Maintenance",
+      "docProcessing": "Document Processing and Layout Design",
+      "dataEntry": "Data Entry and Document Filing",
+      "productPhoto": "Product Photography",
+      "bgRemoval": "Product Background Removal",
+      "adCopywriting": "Advertising Campaign Planning and Copywriting",
+      "figma": "Figma",
+      "maze": "Maze",
+      "photoshop": "Photoshop",
+      "illustrator": "Illustrator",
+      "premiere": "Premiere",
+      "davinci": "DaVinci Resolve",
+      "ga": "Google Analytics",
+      "canva": "Canva",
+      "sketchup": "SketchUp",
+      "html": "HTML",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "react": "React",
+      "prototyping": "Prototyping",
+      "userResearch": "User Research",
+      "usabilityTesting": "Usability Testing",
+      "designThinking": "Design Thinking",
+      "wireframing": "Wireframing",
+      "designSystems": "Design systems"
+    },
+    "skills": {
+      "heading": "Skills",
+      "catTools": "Tools",
+      "catProgramming": "Programming Languages(basic familiarity)",
+      "catMethods": "Methods"
+    },
+    "education": {
+      "heading": "Education",
+      "master": {
+        "degree": "Master of Interaction Design",
+        "institution": "National Taipei University of Technology",
+        "year": "2024 - Present",
+        "desc": "Specialized in Human-Computer Interaction and Interactive Design. Thesis: \"Smartphone Notification Intervention Design for While-in-Bed Procrastination\""
+      },
+      "bachelor": {
+        "degree": "Bachelor of Culture Creativity and Digital Marketing",
+        "institution": "National United University",
+        "year": "2020 - 2024",
+        "desc": "Focus on package design, digital design, typography, and user experience fundamentals."
+      }
+    },
+    "certs": {
+      "heading": "Certifications",
+      "python": {
+        "name": "Information Technology Specialist - Python",
+        "issuer": "Certiport - A Pearson VUE Business",
+        "year": "2023 Jan"
+      }
+    }
+  },
+  "photography": {
+    "title": "Photography",
+    "meta": "35mm · Taiwan · 2023–2025 ·",
+    "frames": "frames",
+    "photos": {
+      "sea": {
+        "alt": "Sea",
+        "caption": "Somewhere by the sea"
+      },
+      "catSleeping": {
+        "alt": "Cat sleeping"
+      },
+      "catFlowers": {
+        "alt": "Cat in flowers"
+      },
+      "trainStation": {
+        "alt": "Train station",
+        "caption": "Train station, Taiwan"
+      },
+      "house": {
+        "alt": "House and sky"
+      },
+      "catGarden": {
+        "alt": "Cat in garden"
+      },
+      "wood": {
+        "alt": "Wood texture"
+      },
+      "exhibition": {
+        "alt": "Exhibition"
+      }
+    }
+  },
+  "howIBuilt": {
+    "title1": "How I Built",
+    "title2": "This.",
+    "meta": "Portfolio v6 · Rose Chang · 2025–2026 · React + Claude Code",
+    "design": {
+      "title": "Design Direction",
+      "subtitle": "index_v2 × brutalist research-notebook",
+      "body": "I started from a Claude Design prototype — a brutalist, lab-notebook aesthetic using bone paper (#EEEAE0), chartreuse accent (#FFE699), and IBM Plex Mono for data labels. The design language reflects how I think: systematic, evidence-based, with a bit of personality.",
+      "tag1": "Claude Design",
+      "tag2": "Figma",
+      "tag3": "Brutalist UI"
+    },
+    "stack": {
+      "title": "Tech Stack",
+      "subtitle": "React + Vite + React Router",
+      "body": "Built with React 18 + TypeScript, bundled with Vite for fast local development. Routing via React Router v6. No UI library — everything is hand-coded inline styles or CSS modules to keep the bundle small.",
+      "tag1": "React 18",
+      "tag2": "TypeScript",
+      "tag3": "Vite",
+      "tag4": "React Router"
+    },
+    "ai": {
+      "title": "AI-Assisted Development",
+      "subtitle": "Claude Code as pair programmer",
+      "body": "I used Claude Code throughout — from generating component scaffolding to debugging CSS layout issues. My workflow: design in Figma → describe the intent to Claude Code → review and refine → iterate. Every prompt was written by me; Claude wrote the code.",
+      "tag1": "Claude Code",
+      "tag2": "Vibe Coding",
+      "tag3": "AI Workflow"
+    },
+    "deploy": {
+      "title": "Deployment",
+      "subtitle": "GitHub Pages / Vercel",
+      "body": "Source code on GitHub. Deployed via Vercel for automatic preview deploys on every push. Custom domain connected. Build time under 30 seconds.",
+      "tag1": "GitHub",
+      "tag2": "Vercel",
+      "tag3": "CI/CD"
+    },
+    "sourceNote": "Source code available on",
+    "githubLink": "GitHub ↗"
+  },
+  "project": {
+    "sleepGuardian": {
+      "hero": {
+        "badge": "M.S. Thesis Research",
+        "status": "Completed · 2025–2026",
+        "title": "Sleep Guardian",
+        "subtitle1": "Notification Intervention Design for",
+        "subtitle2": "Smartphone-Induced In-Bed Procrastination",
+        "introA": "Young adults know they should put their phone down — yet they don't. I designed a custom research app and a controlled experiment to find out",
+        "introHighlight": "which notification design actually works",
+        "introB": "when willpower has already run out.",
+        "roleLabel": "Role",
+        "roleValue": "Lead Researcher · App Developer · Interaction Designer",
+        "frameworkLabel": "Framework",
+        "frameworkValue": "Dual-Process Theory (System 1 & 2)",
+        "methodLabel": "Method",
+        "methodValue": "Controlled Experiment · 3×3 Mixed Design + Baseline",
+        "venueLabel": "Venue",
+        "venueValue": "NTUT Interaction Design, M.S. Thesis"
+      },
+      "appAlts": {
+        "intro": "App Intro",
+        "setup": "App Setup",
+        "audio": "Audio Modality",
+        "survey": "WebView Survey",
+        "stats": "Session Statistics",
+        "finish": "Session Finish"
+      },
+      "problem": {
+        "heading": "The Problem",
+        "title": "A brain at war with itself — every night",
+        "p1a": "While-in-bed procrastination",
+        "p1b": "is distinct from simply going to bed late. It describes users who are",
+        "p1em": "already lying in bed",
+        "p1c": "yet keep scrolling — a state where cognitive resources are depleted and System 1 (fast, automatic, habit-driven) completely dominates System 2 (slow, rational, self-controlling).",
+        "p2": "Existing interventions — screen-time limits, hard locks, blunt warnings — trigger psychological reactance. Users dismiss them reflexively, because the intervention itself is operating at the wrong cognitive level.",
+        "quote": "\"How can a notification design interrupt mindless scrolling without triggering the same automatic dismissal it's trying to prevent?\"",
+        "stat1desc": "of university students report habitually sleeping fewer than 7 hours",
+        "stat2num": "~1.5 hr",
+        "stat2desc": "average delay between intended and actual sleep time among participants in pilot interviews",
+        "stat3num": "N=6",
+        "stat3desc": "pilot semi-structured interviews (ORID method) confirmed that existing tools are bypassed or ignored"
+      },
+      "framework": {
+        "heading": "Theoretical Framework",
+        "title": "Dual-Process Theory as design logic",
+        "introA": "The core design claim: to interrupt in-bed procrastination, interventions must operate on",
+        "introEm": "three complementary pathways",
+        "introB": "that correspond to different cognitive mechanisms — not just repeat the same blunt warning.",
+        "exampleLabel": "Notification example",
+        "threat": {
+          "title": "Threat Appeal",
+          "pathway": "Cognitive pathway → activates System 2",
+          "desc": "Presents health-risk information (e.g. cardiovascular load from sleep deprivation) to trigger rational risk assessment and protective motivation. Based on Witte's Extended Parallel Process Model (1992).",
+          "example": "\"Warning: abnormal resting heart rate detected — continued sleep deprivation significantly increases cardiovascular risk.\""
+        },
+        "empathy": {
+          "title": "Empathy Appeal",
+          "pathway": "Affective pathway → reduces reactance",
+          "desc": "Uses warm, non-judgmental language rooted in self-compassion theory (Neff, 2003) to reduce anxiety, lower psychological reactance, and gently invite rest rather than demand it.",
+          "example": "\"You made it through a tough day — this time belongs to you. Let yourself rest.\""
+        },
+        "friction": {
+          "title": "Design Friction",
+          "pathway": "Behavioral pathway → forces System 2",
+          "descA": "Embeds a simple math problem (e.g. \"Enter 3+4 to dismiss\") directly in the notification UI. Does not rely on persuasion — it",
+          "descEm": "forces",
+          "descB": "a cognitive mode switch, interrupting the automatic scrolling loop. Based on Cox et al. (2016).",
+          "interactionLabel": "Interaction design",
+          "interactionDesc": "User must solve a math equation and type the correct answer before the notification can be dismissed."
+        }
+      },
+      "experiment": {
+        "heading": "Experiment Design",
+        "title": "A 3×3 mixed design in real bedrooms",
+        "introA": "Rather than bringing participants into a lab (which would destroy ecological validity for a bedtime behavior), I ran the controlled experiment",
+        "introEm": "remotely and asynchronously",
+        "introB": "in participants' actual sleep environments.",
+        "betweenLabel": "Between-subjects factor",
+        "betweenTitle": "Notification Type (3 groups)",
+        "withinLabel": "Within-subjects factor",
+        "withinTitle": "Audiovisual Modality (3 modalities + baseline)",
+        "modality1": "Visual only",
+        "modality2": "Audio only",
+        "modality3": "Visual + Audio",
+        "modality4": "Baseline",
+        "counterA": "Counterbalancing via 4×4 Latin Square",
+        "counterB": "— each participant experiences all 4 modality conditions in a balanced order (R1–R4), controlling for order effects and carryover effects across the within-subjects factor.",
+        "proto1title": "Time window",
+        "proto1desc": "21:00–03:00 only. App is time-locked — participants can only open it in their actual bedtime window.",
+        "proto2title": "3-min intervals",
+        "proto2desc": "Each notification is separated by a 3-minute re-immersion period, allowing participants to re-enter mindless scrolling before the next interruption.",
+        "proto3title": "Immersion phase",
+        "proto3desc": "First 3 minutes: no notification delivered. Allows System 1 to fully engage before any intervention — maximizing ecological validity.",
+        "proto4title": "Sample N=48",
+        "proto4desc": "16 per group. Power analysis via G*Power (Faul et al., 2007) informed the sample for detecting a medium interaction effect in the 3×3 mixed ANOVA."
+      },
+      "instrument": {
+        "heading": "The Research Instrument",
+        "title": "Sleep Guardian — built from scratch with AI-assisted development",
+        "intro": "Standard off-the-shelf apps can't run this kind of controlled experiment. I built Sleep Guardian using React Native / Expo — a custom experimental platform with four core modules.",
+        "mod1title": "Instagram Feed Simulation",
+        "mod1desc": "Participants log into their own Instagram accounts inside the app, then scroll a real feed. This is the experimental \"stimulus\" — genuine, naturalistic mindless scrolling, not a fake interface.",
+        "mod2title": "Experience Code + Latin Square Dispatcher",
+        "mod2desc": "Each participant receives a unique experience code that maps to their assigned notification type group (T/E/F) and their specific modality order (R1–R4). The system loads the correct counterbalanced sequence automatically.",
+        "mod3title": "Automated Behavior Logging",
+        "mod3desc": "Two objective behavioral metrics recorded automatically in background:",
+        "ndlName": "Notification Dismissal Latency",
+        "ndlDesc": "— time from notification appearance to dismissal (ms).",
+        "pscName": "Post-notification Scroll Count",
+        "pscDesc": "— number of swipes after each notification, measuring residual mindless scrolling.",
+        "mod4title": "Session Summary + WebView Survey",
+        "mod4desc": "After all 4 notifications, the app displays a session summary screen (Session ID + behavioral data). Participants screenshot this for triangulation, then complete the post-test questionnaire (PAD, TAM, UEQ-S) via embedded WebView with notification screenshots as recall cues.",
+        "uiHeading": "App User Interface",
+        "timelineHeading": "Experiment Management Timeline",
+        "timelineAlt": "Experiment Schedule Notion",
+        "devHeading": "Development & Code Architecture",
+        "devAlt": "Sleep Guardian Source Code"
+      },
+      "measures": {
+        "heading": "Measurement Battery",
+        "title": "Six validated instruments + two objective metrics",
+        "group1": "Screening (2 months prior)",
+        "bpsAbbr": "BPS",
+        "bpsName": "Bedtime Procrastination Scale",
+        "bpsDesc": "Confirms participant has moderate-to-severe in-bed procrastination tendency (Kroese et al., 2014; α=0.92)",
+        "group2": "Pre-test (day of experiment)",
+        "bscsAbbr": "BSCS",
+        "bscsName": "Brief Self-Control Scale",
+        "bscsDesc": "Individual differences in self-regulation as covariate (Tangney et al., 2004)",
+        "reiAbbr": "REI-10",
+        "reiName": "Rational-Experiential Inventory",
+        "reiDesc": "Baseline cognitive style — System 1 vs System 2 preference (Epstein et al., 1996)",
+        "group3": "During experiment (auto-logged)",
+        "ndlAbbr": "NDL",
+        "ndlDesc": "Milliseconds from notification appearance to user dismissal — objective measure of interruption effectiveness",
+        "pscAbbr": "PSC",
+        "pscDesc": "Number of swipes after each notification — measures residual mindless scrolling behavior",
+        "group4": "Post-test (after all 4 notifications)",
+        "padAbbr": "PAD",
+        "padName": "PAD Emotion Scale",
+        "padDesc": "Pleasure / Arousal / Dominance — measures emotional response to each notification type × modality (Mehrabian & Russell, 1974)",
+        "tamAbbr": "TAM",
+        "tamName": "Technology Acceptance Model",
+        "tamDesc": "Perceived Usefulness (PU) + Behavioral Intention (BI) — ease-of-use excluded due to design friction's intentional cognitive cost (Davis, 1989)",
+        "ueqsAbbr": "UEQ-S",
+        "ueqsName": "User Experience Questionnaire (Short)",
+        "ueqsDesc": "Pragmatic + Hedonic quality — overall app experience assessment with minimal cognitive load (Laugwitz et al., 2008)"
+      },
+      "rq": {
+        "heading": "Research Questions & Hypotheses",
+        "title": "What we're testing",
+        "rq1label": "RQ1 / H1",
+        "rq1q": "Do the three notification types differ in their ability to interrupt in-bed procrastination?",
+        "rq1pred": "Predicted: Design Friction will produce the lowest Post-notification Scroll Count, as it forces behavioral interruption independent of user motivation.",
+        "rq2label": "RQ2 / H2",
+        "rq2q": "Do audiovisual modalities differ in Notification Dismissal Latency and emotional arousal?",
+        "rq2pred": "Predicted: Visual+Audio combined will produce the shortest dismissal latency due to highest sensory salience.",
+        "rq3label": "RQ3 / H3",
+        "rq3q": "Is there a significant interaction between notification type and audiovisual modality?",
+        "rq3pred": "Predicted: Specific combinations (e.g. Threat Appeal × Visual+Audio; Design Friction × Audio only) will produce amplified interruption effects beyond main effects alone.",
+        "rq4label": "RQ4 / H4",
+        "rq4q": "Do individual traits (BPS severity, prior app experience) moderate intervention effectiveness?",
+        "rq4pred": "Predicted: Heavy procrastinators and those with prior tool experience will show greater reactance to Threat Appeal, and better compliance with Empathy Appeal or Design Friction.",
+        "statsA": "Statistical analysis plan:",
+        "statsB": "Primary analysis via 3×3 Mixed ANOVA with Bonferroni post-hoc comparisons. If individual traits show significant moderation, elevated to Mixed ANCOVA with BSCS and BPS as covariates. All analyses in IBM SPSS."
+      },
+      "status": {
+        "heading": "My Contribution & Current Status",
+        "title": "What I've built so far",
+        "done": "✓ Completed",
+        "inProgress": "↻ In Progress",
+        "item1title": "Theoretical framework & literature review",
+        "item1desc": "50+ peer-reviewed sources across sleep science, HCI, persuasive design, and dual-process theory. Identified the research gap: no prior in-situ study has compared threat, empathy, and friction interventions within a controlled audiovisual modality design.",
+        "item2title": "Pilot study (N=6, qualitative)",
+        "item2desc": "Semi-structured interviews using the ORID framework. Surfaced three design implications: (1) soft vs. forced control preference split → validates all three intervention types; (2) audio cues effective at night → validates modality factor; (3) mindless scrolling as flow state → validates Instagram-feed simulation approach.",
+        "item3title": "Sleep Guardian app development",
+        "item3desc": "Full experimental platform built in React Native / Expo. Implements Instagram-feed simulation, experience code dispatch, Latin Square counterbalancing (R1–R4), time-locked session window (21:00–03:00), automated behavioral data logging, and WebView survey integration.",
+        "item4title": "Full stimulus design (3×3 matrix + baseline)",
+        "item4desc": "Designed the full notification stimulus set — text, visual assets, audio recordings, and the design friction math-input interface — with equivalence controls for duration and visual complexity across conditions.",
+        "item5title": "Main experiment (N=48)",
+        "item5desc": "Recruitment and data collection completed: N=48 (16 per group), plus 45 qualitative interviews.",
+        "item6title": "Results, analysis & design recommendations",
+        "item6desc": "Mixed ANOVA in SPSS completed; thesis defended on June 26, 2026. Headline findings: interventions moved subjective emotion strongly (η²p = .18–.29) while automatic scrolling barely changed; appeal-type differences concentrated in the audio-only channel; design friction showed a very large arousal effect against baseline (d = −1.282)."
+      }
+    },
+    "oblivilight": {
+      "hero": {
+        "badge": "Best Demo Award",
+        "badge2": "Selected for TAICHI Demo",
+        "title": "OpenHCI'25 | Oblivilight",
+        "subtitle": "Exploring AI Forgetting Mechanisms Through Tangible Interaction",
+        "timelineLabel": "Timeline",
+        "timelineValue": "July 2025",
+        "timelineSub": "OpenHCI Workshop",
+        "roleLabel": "My Role",
+        "roleValue": "Interaction Designer",
+        "teamValue": "Team of 7 Members",
+        "recognitionLabel": "Recognition",
+        "recognitionSub": "TAICHI Demo Selected"
+      },
+      "challenge": {
+        "title": "Rapid Prototyping Challenge",
+        "desc": "This fully functional physical prototype was conceived, designed, and built within an intensive OpenHCI workshop—demonstrating exceptional teamwork, rapid iteration, and innovative problem-solving under pressure.",
+        "card1title": "AI Forgetting",
+        "card1desc": "Selective memory deletion",
+        "card2title": "Tangible Output",
+        "card2desc": "Receipt printer makes memories physical",
+        "card3title": "Ritual Interaction",
+        "card3desc": "Shredding creates a deletion ceremony"
+      },
+      "concept": {
+        "heading": "The Core Concept",
+        "desc": "Oblivilight is a tangible interaction device that explores how AI systems can \"forget\" information. In an era of digital hoarding and privacy concerns, this project reimagines data deletion as a meaningful, ritual-like experience through physical interaction.",
+        "exhibitionAlt": "Exhibition Pictures"
+      },
+      "research": {
+        "heading": "User Research & Insights",
+        "desc": "Understanding the emotional weight of digital memory and the anxiety around AI data retention.",
+        "alt1": "User Concern",
+        "alt2": "After Interview",
+        "alt3": "Interview Results",
+        "alt4": "Persona",
+        "alt5": "POV and HMW"
+      },
+      "flow": {
+        "heading": "Interaction Flow: Print → Review → Decide",
+        "desc": "A 3-step physical ritual to process and curate digital memories.",
+        "demoAlt": "Remember Demo",
+        "step1title": "01. Print (Materialize)",
+        "step1desc": "At the end of the day, Oblivilight synthesizes the user's interactions and prints a physical \"memory receipt\", bringing ephemeral digital data into the physical world.",
+        "step2title": "02. Review (Reflect)",
+        "step2desc": "The user holds the physical paper, reviewing the AI's interpretation of their day. This tangible format forces a slower, more deliberate reflection compared to scrolling on a screen.",
+        "step3title": "03. Decide (Keep or Forget)",
+        "step3desc": "The user makes a physical choice: keep the receipt in a journal (Save), or feed it back into the top of Oblivilight, where a built-in shredder destroys it—signaling the AI to permanently \"forget\" that data."
+      },
+      "interact": {
+        "heading": "How to Interact",
+        "alt1": "Interaction Step 1",
+        "alt2": "Interaction Step 2",
+        "alt3": "Interaction Step 3",
+        "alt4": "Interaction Step 4"
+      },
+      "forgetting": {
+        "heading": "The Forgetting Mechanism",
+        "alt1": "Forget Step 1",
+        "alt2": "Forget Step 2",
+        "alt3": "Forget Step 3"
+      },
+      "tech": {
+        "heading": "Technical Implementation",
+        "intro": "Building Oblivilight required integrating custom hardware with software logic within a 6-day sprint. The system relies on an Arduino microcontroller to orchestrate the interactions — my teammates led the hardware and AI model, while I focused on user research and interaction design.",
+        "item1label": "Arduino Core:",
+        "item1desc": "Handles input/output logic and component synchronization.",
+        "item2label": "Printer Driver:",
+        "item2desc": "Custom integration to format and print thermal receipts dynamically.",
+        "item3label": "Shredder Retrofit:",
+        "item3desc": "Hacked a commercial shredder to trigger via Arduino relay.",
+        "item4label": "Fabrication:",
+        "item4desc": "Laser-cut acrylic enclosure and 3D-printed internal mounts.",
+        "diagramAlt": "Technical Diagram"
+      },
+      "impact": {
+        "heading": "Recognition & Team Impact",
+        "title": "Award-Winning Demo & Exhibition Selection",
+        "taichiDesc": "Chosen to be showcased at the prestigious TAICHI Demo exhibition, highlighting innovative HCI research and prototypes.",
+        "awardsAlt": "Awards Photo",
+        "teamTitle": "Team Collaboration",
+        "teamDesc": "Successfully collaborated in a 7-person team under extreme time pressure, demonstrating effective communication, rapid prototyping, and shared ownership.",
+        "teamAlt": "Our Team"
+      }
+    },
+    "mu": {
+      "hero": {
+        "badge": "UX Design Awards",
+        "badgeSub": "Nominated Concept",
+        "title": "Mù – A Multisensory Guide",
+        "subtitle": "Rebuilding the sensory relationship between people and Taiwan's endangered woods",
+        "timelineLabel": "Timeline",
+        "timelineValue": "Aug - Dec 2025",
+        "roleLabel": "My Role",
+        "roleValue": "Creative Ideation, Video Production",
+        "roleSub": "Desk Research",
+        "teamLabel": "Team",
+        "teamValue": "2 Members",
+        "teamSub": "Collaborative Concept Design",
+        "recognitionLabel": "Recognition",
+        "recognitionValue": "UX Design Awards Nominee",
+        "logoAlt": "Mù Logo"
+      },
+      "overview": {
+        "heading": "Project Overview",
+        "desc": "While twelve native tree species in Taiwan are legally defined as precious woods, most urban visitors only encounter them as commodities. Mù is a multisensory guidance app and exhibition concept that turns abstract ecological loss into a rediscoverable experience. Using scent, sound, touch, and visual storytelling, it lets visitors feel endangered woods as living beings.",
+        "card1title": "Multisensory Immersion",
+        "card1desc": "Engaging users beyond screens through curated soundscapes and localized scents.",
+        "card2title": "4 Themed Zones",
+        "card2desc": "Orchestrating a cohesive journey across the Domain of Sacred Trees to the Forest of Memories.",
+        "card3title": "Micro-learning",
+        "card3desc": "Translating complex conservation data into digestible, card-based tree profiles."
+      },
+      "challenge": {
+        "heading": "The Challenge: Bridging the Awareness Gap",
+        "title": "Why is conservation so hard to communicate?",
+        "desc": "Illegal logging heavily affects Taiwan's first-grade timber species. However, for the general public, this issue feels distant. How do we make urban populations care about something they rarely see or interact with?",
+        "item1label": "Abstract Ecological Loss:",
+        "item1desc": "People know trees are disappearing, but it remains a headline rather than an emotional connection.",
+        "item2label": "Information Overload:",
+        "item2desc": "Traditional museum text panels cause fatigue and fail to evoke empathy for the environment.",
+        "coreLabel": "Core Question",
+        "coreQuote": "\"How can a multisensory, research-driven guide turn 'I know trees are disappearing' into 'I feel connected and want to protect them'?\""
+      },
+      "research": {
+        "heading": "Research & Insights Synthesis",
+        "intro": "To ensure our solution was grounded in reality, we conducted a mixed-methods research approach, including desk research and a quantitative survey (n=23) focused on wood fragrance experiences.",
+        "woodsTitle": "Taiwan's Precious Woods",
+        "woodsAlt": "Precious Woods of Taiwan",
+        "f1title": "Interest vs. Knowledge Gap",
+        "f1desc": "91.3% of respondents showed high interest in sustainability, but lacked basic knowledge of native woods.",
+        "f1bar1": "High Interest",
+        "f1bar2": "High Knowledge",
+        "f1insight": "Insight: A micro-learning approach is essential.",
+        "f2title": "Scent Delivery Preference",
+        "f2desc": "Survey revealed a strong preference for localized, point-based sniffing to avoid sensory overload.",
+        "f2bar1": "78.3% Point-based (Cards/Jars)",
+        "f2bar2": "21.7% Full-room diffusion",
+        "f2insight": "Insight: Scent must be controlled and localized.",
+        "f3title": "Navigation Style Preference",
+        "f3desc": "Feedback was perfectly split, dictating the need for a flexible UX architecture.",
+        "f3bar1": "Guided Tour",
+        "f3bar2": "Free Exploration",
+        "f3insight": "Insight: App must offer Dual-Pathways."
+      },
+      "solutions": {
+        "heading": "Design Solutions & Interactions",
+        "s1title": "Dual Navigation Pathways",
+        "s1desc": "Accommodating different visitor mindsets. The home screen provides a structured narrative path across four themed \"forest islands\".",
+        "s1alt": "Home Navigation",
+        "s2title": "Spatial Pathfinding",
+        "s2desc": "Clear visual cues showing the distance to specific trees or zones, allowing spontaneous exploration based on user location.",
+        "s2alt": "Guide App",
+        "s3title": "Auditory Orchestration",
+        "s3desc": "Syncing with physical installations. Prompting users to pause and listen to breathing soundscapes, rebuilding the \"forest rhythm\".",
+        "s3alt": "Auditory Guide",
+        "s4title": "Micro-learning Profiles",
+        "s4desc": "Replacing long text panels with digestible, card-based UI communicating habitat altitude and conservation threats.",
+        "s4alt": "Tree Profiles"
+      },
+      "impact": {
+        "heading": "Impact & Recognition",
+        "title": "A scalable, ethical exhibition framework",
+        "nomineeDesc": "The concept was officially nominated for the UX Design Awards, validating the project's research methodology and its approach to a difficult environmental communication problem.",
+        "certTitle": "UXDA Certificate",
+        "appAlt": "Mù App Overview"
+      }
+    },
+    "innoconnect": {
+      "hero": {
+        "badge": "🏆 Gold Award Winner",
+        "badgeSub": "1st Place / 186 Teams",
+        "title": "Innoconnect | Hi-Life Gift Service Optimization",
+        "subtitle": "Revitalizing the Digital Gifting Experience for a Major Taiwanese Retail Chain",
+        "timelineLabel": "Timeline",
+        "timelineValue": "Oct 2024 - Mar 2025",
+        "timelineSub": "InnoConnect+ Competition",
+        "roleLabel": "My Role",
+        "roleValue": "UI/UX Designer & Researcher",
+        "roleSub": "Team \"Lai Yi Ka\" (萊一咖) of 3 members",
+        "achievementLabel": "Achievement",
+        "achievementValue": "Gold Award",
+        "achievementSub": "Selected from 186 Teams"
+      },
+      "intro": {
+        "title": "InnoConnect+ 2024 Challenge",
+        "desc": "Selected as the Gold Award winner among 186 competing teams in the 2024 InnoConnect+ Competition, this project reimagined Hi-Life's \"Send a Gift\" (來送禮) O2O service through strategic gamification and social features that drove measurable increases in user engagement and conversion rates."
+      },
+      "overview": {
+        "heading": "Project Overview",
+        "desc": "Hi-Life, one of Taiwan's largest convenience store chains, operates a \"Send a Gift\" (來送禮) service that allows customers to send gifts through their stores. Despite the convenience, the service suffered from low awareness, complex user flows, and punitive policies that discouraged repeat usage. Our mission was to transform this underutilized service into a compelling social gifting platform.",
+        "stat1": "Gold Award Winner",
+        "stat2": "Positive User Ratings (SUS)",
+        "stat3num": "A-grade",
+        "stat3": "Top 37% scored A-level usability"
+      },
+      "challenge": {
+        "heading": "The Challenge",
+        "title": "Why Wasn't Hi-Life's Gift Service Succeeding?",
+        "desc": "Through comprehensive user research and competitive analysis, we identified three critical pain points preventing the \"Send a Gift\" service from reaching its potential. These issues created friction at every stage of the user journey, from awareness to post-purchase experience.",
+        "item1label": "Low Awareness:",
+        "item1desc": "Most users were unaware the service existed. Marketing was minimal, leading to poor traffic and conversion.",
+        "item2label": "Complex User Flow:",
+        "item2desc": "The gifting process required multiple steps, excessive form inputs, and lacked clear visual guidance.",
+        "item3label": "Punitive Policy:",
+        "item3desc": "If a gift expired unclaimed, users had to pay the price difference to redeem it—discouraging gifting altogether.",
+        "problemsAlt": "Problems Analysis",
+        "insightLabel": "Key Insight",
+        "insight": "Users want gifting to feel spontaneous, social, and risk-free—not transactional and complex."
+      },
+      "strategy": {
+        "heading": "The Strategy: Gamification + Social Gifting",
+        "desc": "We devised a two-pronged approach: attract new users through viral gamified marketing, then convert them into active gifters through social features and simplified flows.",
+        "pillar1": "Gamified Marketing",
+        "pillar1alt": "Psychological Test Results",
+        "pillar2": "Social Gifting Features",
+        "pillar2alt": "Wishlist Feature",
+        "pillar3": "Flow Optimization",
+        "pillar3alt": "Gift Recommendation",
+        "leanTitle": "Evaluating the Business Value and Future Feasibility for Hi-Life (Lean Canvas)",
+        "leanAlt": "Lean Canvas"
+      },
+      "solution1": {
+        "heading": "Solution #1: Psychological Test (心理測驗)",
+        "title": "Driving Traffic Through Viral Gamification",
+        "desc": "We created a personality-driven psychological test that matches users with coffee flavors based on their traits. This shareable, fun experience serves as a low-friction entry point to the gifting service, turning casual browsers into engaged users.",
+        "quizLabel": "Play the Quiz",
+        "feat1": "Personality-to-product matching algorithm",
+        "feat2": "Social sharing hooks (viral loop)",
+        "feat3": "Seamless transition to product purchase",
+        "alt1": "Psychological Test 1",
+        "alt2": "Psychological Test Process"
+      },
+      "solution2": {
+        "heading": "Solution #2: Wishlist & Social Gifting (許願池)",
+        "title": "Turning Gifting Into a Social Activity",
+        "desc": "The Wishlist feature allows users to create and share gift requests with friends. Instead of guessing what someone wants, senders can browse their friends' wishlists and send meaningful gifts. Recipients can also send interactive gift cards, increasing engagement and virality.",
+        "feat1title": "Personal Wishlist",
+        "feat1desc": "Users curate gift requests that friends can easily fulfill.",
+        "feat2title": "Friend Discovery",
+        "feat2desc": "Browse wishlists of friends and discover gift opportunities.",
+        "feat3title": "Interactive Cards",
+        "feat3desc": "Recipients send shareable gift cards to encourage friends to send gifts.",
+        "alt1": "Wishlist & Card Customization"
+      },
+      "solution3": {
+        "heading": "Solution #3: Flow Optimization & Policy Changes",
+        "title": "Removing Friction, Eliminating Penalties",
+        "desc": "We completely redesigned the gifting flow, focusing on the core value propositions for both givers and receivers, while optimizing offline delivery and point refund mechanisms to create a frictionless O2O experience.",
+        "vpcTitle": "Value Proposition Canvas",
+        "giverLabel": "送禮者 (Giver)",
+        "giverAlt": "Value Proposition Giver",
+        "receiverLabel": "收禮者 (Receiver)",
+        "receiverAlt": "Value Proposition Receiver",
+        "blueprintTitle": "Service Blueprint",
+        "deliveryTitle": "Offline Delivery Service (Lai-Song-Li)",
+        "deliveryDesc": "We proposed a new delivery platform service, \"Lai-Song-Li\", which delivers \"Send a Gift\" items directly to recipients, significantly reducing their time cost. Givers enjoy discounted shipping rates, or they can opt for Hi-Life's partnered logistics (such as Taiwan Pelican Express and HCT Logistics) for diverse delivery options.",
+        "deliveryAlt": "Offline Shipping Flowchart",
+        "refundTitle": "Gifting Mechanism Optimization (Points Refund)",
+        "refundDesc": "For expired and unclaimed gifts, we eliminated the punitive policy that required users to pay the price difference. Instead, we implemented a mechanism to \"refund equivalent member points to the user's account.\" This optimization not only relieves the givers' anxieties but also leverages the rule that the app must be downloaded to use points, effectively boosting the app's open and retention rates.",
+        "refundAlt": "Price Difference Optimization"
+      },
+      "validation": {
+        "heading": "Validation: Usability Testing (SUS & UEQ)",
+        "desc": "We conducted comprehensive usability testing using the System Usability Scale (SUS) and User Experience Questionnaire (UEQ) to measure the impact of our redesign. The results confirmed significant improvements in user willingness, satisfaction, and overall experience.",
+        "overviewAlt": "SUS and UEQ Overview",
+        "susTitle": "System Usability Scale (SUS)",
+        "susDesc": "90% of participants gave positive ratings; 37% scored in the highest grade (A-level). Low-scoring users cited slight complexity and a learning curve.",
+        "susAlt1": "SUS Chart",
+        "susAlt2": "SUS Details",
+        "ueqTitle": "User Experience Questionnaire (UEQ)",
+        "ueqDesc": "Attractiveness & Enjoyment ranked highest. Functionality scored above average with room for improvement. Overall UX rated at \"Good\" level.",
+        "ueqAlt": "UEQ Results"
+      },
+      "impact": {
+        "heading": "Recognition & Impact",
+        "title": "Gold Award Winner & Measurable Business Impact",
+        "awardTitle": "InnoConnect+ Gold Award",
+        "awardDesc": "Selected as the 1st place winner among 186 competing teams in the 2024 InnoConnect+ Competition. The judges recognized the project's strategic gamification, user-centered design, and measurable impact on conversion metrics.",
+        "engagementTitle": "Increased User Engagement",
+        "engagementDesc": "The psychological test campaign and wishlist features drove meaningful improvements in user acquisition intent and gifting motivation across tested participants.",
+        "researchTitle": "Validated by Research",
+        "researchDesc": "SUS scores ranged from 57.5 to 95 (n=19), with 90% of participants giving positive ratings and 37% reaching A-level usability.",
+        "proofAlt": "InnoConnect+ Award Proof",
+        "reportAlt": "Awards Report"
+      }
+    },
+    "hciPublications": {
+      "header": {
+        "title": "HCI Research Publications",
+        "subtitle": "Data-Driven UX & Academic Inquiry",
+        "tagline": "Advancing User Experience Through Rigorous Research",
+        "desc": "Bridging the gap between empirical academic research and practical product design implications. Showcasing peer-reviewed studies on AI interaction, user emotion, and personalized tech workflows."
+      },
+      "labels": {
+        "challenge": "The Challenge & Motivation",
+        "methodology": "Methodology",
+        "findings": "Key Findings",
+        "implications": "Design Implications for Tech",
+        "authors": "Yun-Rou Chang, Chien-Wen Cheng"
+      },
+      "gcce": {
+        "photoAlt": "GCCE Oral Presentation",
+        "venue": "Accepted and Presented at 2025 IEEE GCCE, Osaka",
+        "title": "An Experimental Study on the Effect of AI Voice Prominence on Users' Emotional Responses",
+        "challenge": "As AI-generated speech becomes increasingly natural and pervasive in digital content, its emotional impact remains underexplored. This study investigates how the \"prominence\" of an AI voice (how foregrounded it is) affects user emotions across different media contexts.",
+        "m1label": "Mixed-Methods Approach:",
+        "m1desc": "Evaluated 39 university students using both the quantitative Self-Assessment Manikin (SAM) scale and qualitative semi-structured interviews.",
+        "m2label": "Experimental Design:",
+        "m2desc": "Tested three levels of AI voice prominence: High (Podcasts), Medium (Travel Vlogs), and Low (Instagram background music).",
+        "m3label": "Statistical Analysis:",
+        "m3desc": "Employed descriptive statistics and one-way ANOVA to test the significance of emotional differences (Pleasure, Arousal, Dominance) across conditions.",
+        "findings": "Quantitative results revealed that lower AI voice prominence significantly increases user pleasure and arousal. Specifically, low prominence (Instagram background) yielded the highest pleasure (M=3.59) and arousal (M=2.88). Interviews indicated that AI voices are more acceptable in humorous or informational content, but less preferred in emotionally expressive formats.",
+        "pubLabel": "IEEE Xplore · GCCE 2025",
+        "pubTitle": "AI Voice Subjectivity and Interactive Product Design",
+        "pubLink": "ieeexplore.ieee.org/document/11275196 ↗",
+        "figAlt": "GCCE Flow Chart",
+        "figCaption": "Fig 1. AI Voice Acceptance Framework detailing cognitive-emotional dynamics.",
+        "implications": "Product designers must calibrate AI vocal prominence to content goals. Highlights the need for context-aware design: use human-like prosody for affective formats, neutral delivery for informational clips, and stylized/robotic speech for comedic effect."
+      },
+      "ssim": {
+        "venue": "Presented at SSIM 2024, Taiwan",
+        "title": "Artificial Intelligence-Assisted Music and Interactive Design for University Students: Exploring Needs and Skill-Based Variations in Music Creation Experience",
+        "challenge": "While AI tools for music composition are proliferating, there is limited research focusing on AI-assisted education tailored to the specific needs of users with varying levels of prior domain experience.",
+        "m1label": "User Segmentation:",
+        "m1desc": "Conducted focus group interviews with two distinct groups of university students (aged 19-21): those with and without prior music composition experience.",
+        "m2label": "Technical Workflow:",
+        "m2desc": "Implemented a modular end-to-end AI workflow utilizing source separation, AI vocal synthesis (Synthesizer V, ACE Studio), and rule-based auto-arrangement.",
+        "m3label": "Performance Metrics:",
+        "m3desc": "Collected quantitative pre-post data across six dimensions: Fluency, Ideational, Flow, Originality, Quality, and Sociality.",
+        "findings": "Both groups exhibited positive attitudes but vastly different needs. Novices showed the largest gains in ideation, flow, and originality. Experienced learners prioritized building personalized AI models and desired minimal instructor interference, favoring prompt-based keyword guidance. Novices relied heavily on pre-designed models and required more basic scaffolding.",
+        "figAlt": "SSIM Paper",
+        "figCaption": "Fig 2. Modular AI workflow separating analysis, conditioning, and resynthesis.",
+        "implications": "Proves the necessity of adaptive UI/UX in AI tools. Products must offer progressive disclosure: providing advanced model-building features and creative freedom for experts, while offering simplified, pre-designed templates for novices."
+      }
+    },
+    "adnex": {
+      "hero": {
+        "badge": "KDAN | ADNEX",
+        "badgeSub": "Data-Driven Marketing & Strategy",
+        "title": "Scaling Brand Impact Through Data & Workflow Optimization",
+        "desc": "A 9-month internship at KDAN's data strategy brand, ADNEX, connecting creative content, KOL relationship management, and data-backed market research to drive measurable growth.",
+        "timelineLabel": "Timeline",
+        "timelineValue": "Mar - Nov 2024",
+        "roleLabel": "Role",
+        "roleValue": "Marketing Intern",
+        "roleSub": "Marketing & Planning Dept. (10+ people)",
+        "focusLabel": "Core Focus",
+        "focusValue": "Social Strategy, KOL Mgt.",
+        "focusSub": "Market Research, AI Enablement"
+      },
+      "challenge": {
+        "heading": "The Challenge",
+        "desc": "As a newly established data strategy brand under KDAN, ADNEX faced initial hurdles in brand awareness. The social media channels suffered from low organic reach and engagement. Simultaneously, the internal workflow for KOL (Key Opinion Leader) outreach and collaboration was highly manual, leading to inefficiencies in tracking and communication across the 10-person marketing team."
+      },
+      "objectives": {
+        "heading": "My Objectives",
+        "o1label": "Content Strategy:",
+        "o1desc": "Revamp social media presence to boost engagement.",
+        "o2label": "Process Optimization:",
+        "o2desc": "Systematize the KOL outreach pipeline and create internal SOPs.",
+        "o3label": "Market Insights:",
+        "o3desc": "Conduct competitive analysis using OpView & Nielsen tools.",
+        "o4label": "Tech Integration:",
+        "o4desc": "Implement AI tools to accelerate internal creative workflows."
+      },
+      "execution": {
+        "heading": "Strategic Execution & Initiatives",
+        "e1title": "Data-Driven Social Strategy",
+        "e1desc": "Designed and produced 15 high-quality social posts. By diagnosing the root causes of low reach and analyzing competitor benchmarks, I tailored distinct operational strategies for Facebook and Instagram. Implemented strict tracking metrics to monitor growth.",
+        "e1result": "Result: Peak single-post engagement reached 10%",
+        "e2title": "KOL Workflow Optimization",
+        "e2desc": "Restructured the KOL outreach process. Executed cold outreach to over 120 potential influencers and successfully assisted in coordinating 15 collaborations. Created comprehensive SOP documentation and standardized closing reports to streamline handoffs between full-time staff and interns.",
+        "e2result": "Result: Dramatically improved cross-team efficiency",
+        "e3title": "AI Implementation & Training",
+        "e3desc": "Introduced AI image generation tools to the department. After testing them thoroughly myself, I wrote a prompt-engineering SOP and ran two training sessions for 10 full-time marketing planners, so the team could generate the visuals they needed on their own.",
+        "e3result": "Result: Accelerated internal design workflows",
+        "e4title": "Market Research & Annual Reports",
+        "e4desc": "Leveraged OpView (social listening) and Nielsen tools to analyze marketing insights. Produced comprehensive industry annual reports for the Online English Education and Fitness sectors, detailing voice volume analysis, ad exposure, and strategic content recommendations.",
+        "e4result": "Result: Provided actionable B2B client insights"
+      },
+      "visuals": {
+        "heading": "Visual Execution & Documentation",
+        "socialAlt": "Social Post",
+        "socialLabel": "Social Media Content",
+        "kolLabel": "KOL Workflow",
+        "aiAlt": "AI Training",
+        "aiLabel": "AI Educational Deck"
+      },
+      "impact": {
+        "heading": "Quantifiable Impact",
+        "m1label": "Follower Growth",
+        "m2label": "Avg. Engagement Rate Increase",
+        "m3label": "KOLs Evaluated & Outreach"
+      }
+    },
+    "bigDataCup": {
+      "hero": {
+        "badge": "Bronze Award (3rd Place)",
+        "badgeSub": "2024 Big Data Precision Marketing Cup",
+        "title": "Breaking Boundaries: Market Strategy & App Design for T-Ham",
+        "desc": "Leveraging big data analytics to identify plant-based protein market gaps, and designing a gamified digital touchpoint (T-Ham Fitness App) to drive user retention and subscription revenue.",
+        "clientLabel": "Client / Brand",
+        "clientValue": "T-Ham (台畜)",
+        "roleLabel": "My Role",
+        "roleValue": "Market Researcher & UI/UX Designer",
+        "roleSub": "Data Analysis, App Prototyping",
+        "scopeLabel": "Project Scope",
+        "scopeValue": "GTM Strategy & Product Design",
+        "scopeSub": "Soy Protein Product Line",
+        "coverAlt": "Big Data Marketing Cup Cover"
+      },
+      "challenge": {
+        "heading": "The Business Challenge",
+        "desc": "T-Ham, a legacy meat processing giant, sought to penetrate the booming high-protein market. Our challenge was to utilize big data (EICP database) to discover an untapped consumer need and design a differentiated product with a complete Go-To-Market (GTM) strategy.",
+        "goal": "Goal: Launch a high-protein product & build brand loyalty"
+      },
+      "insights": {
+        "heading": "Data-Driven Insights (EICP)",
+        "i1label": "Plant-Based Potential:",
+        "i1desc": "Identified high growth potential in Soy Protein, aligning closely with Taiwanese consumer dietary habits.",
+        "i2label": "Physical Channel Persona:",
+        "i2desc": "30-39 young professionals prioritize service and are willing to pay a premium for high value.",
+        "i3label": "Online Channel Persona:",
+        "i3desc": "20-29 university students & fresh graduates are price-sensitive and highly responsive to discount incentives.",
+        "competitorAlt": "Competitor Analysis"
+      },
+      "strategy": {
+        "heading": "Omnichannel & Retention Strategy",
+        "desc": "Transforming data insights into actionable product and marketing execution.",
+        "s1title": "Product Positioning",
+        "s1a": "Introduced a new",
+        "s1em": "Soy Protein Powder",
+        "s1b": "line to differentiate from T-Ham's traditional meat products, catering to the rising demand for plant-based alternatives and lactose-intolerant consumers.",
+        "s2title": "Differentiated O2O Pricing",
+        "s2desc": "Implemented a dual-channel pricing strategy. Premium pricing with value-added services for physical retail (targeting 30-39 yrs), and aggressive bundle discounts for online channels (targeting 20-29 yrs).",
+        "s3title": "Subscription Model",
+        "s3desc": "Designed a short-term marketing thrust focusing on a subscription service, ensuring recurring revenue and lowering the barrier to entry for long-term health commitments.",
+        "s4title": "Digital Ecosystem (App)",
+        "s4a": "Proposed the",
+        "s4em": "T-Ham Fitness App",
+        "s4b": "as a mid-to-long-term strategy. Utilizing Gamification (Octalysis Framework) to build a fitness community and a robust customer loyalty program."
+      },
+      "app": {
+        "heading": "UI/UX Design",
+        "desc": "Translating the subscription business model and gamification strategy into an intuitive, engaging mobile interface designed for young fitness enthusiasts.",
+        "s1alt": "App Start Page",
+        "s1title": "Onboarding",
+        "s1desc": "Brand introduction and energetic start screen.",
+        "s2alt": "App Home",
+        "s2title": "Dashboard",
+        "s2desc": "Quick access to daily nutrition tracking and goals.",
+        "s3alt": "App Plan",
+        "s3title": "Subscription Plans",
+        "s3desc": "Clear, tiered O2O product subscription options.",
+        "s4alt": "App Social",
+        "s4title": "Community Hub",
+        "s4desc": "Gamified fitness challenges and peer engagement.",
+        "s5alt": "App Personal Page",
+        "s5title": "User Profile",
+        "s5desc": "Loyalty rewards, achievements, and order management."
+      },
+      "impact": {
+        "heading": "Business Impact & Recognition",
+        "m1num": "3rd",
+        "m1label": "Place Overall (Bronze)",
+        "m2num": "O2O",
+        "m2label": "Integrated Channel Strategy",
+        "judgesDesc": "The judging panel specifically commended the proposal for its seamless integration of robust EICP data analysis with a highly viable, modern digital product solution, proving the commercial readiness of the GTM strategy."
+      }
+    },
+    "goodLuckPeanut": {
+      "hero": {
+        "badge1": "Branding & Packaging",
+        "badge2": "Website Redesign",
+        "title": "Good Luck Peanut",
+        "subtitle": "Complete Brand Identity & E-Commerce Redesign",
+        "timelineLabel": "Timeline",
+        "timelineValue": "Branding: 2022 | Web: Jul-Sep 2023",
+        "roleLabel": "My Role",
+        "roleValue": "Brand Visual Planning, UI/UX Design",
+        "recognitionLabel": "Recognition",
+        "recognitionValue": "2nd Place - Creative Culture Graduate Exhibition"
+      },
+      "overview": {
+        "heading": "Project Overview",
+        "desc": "This comprehensive project transformed Fuhshyuan Foods (福瑄食品), a traditional Taiwanese peanut brittle manufacturer, through a complete brand redesign and modern e-commerce website. The goal was to bridge generational preferences by modernizing the brand's visual identity and digital presence while preserving its rich Hakka cultural heritage.",
+        "part1title": "Part 1: Brand & Packaging",
+        "part1desc": "Cultural storytelling through modern packaging design inspired by Hakka traditions",
+        "part2title": "Part 2: Website Redesign",
+        "part2desc": "User-centered e-commerce experience with improved navigation and conversion flow"
+      },
+      "brand": {
+        "heading": "Brand & Packaging Redesign",
+        "subtitle": "Revitalizing Traditional Taiwanese Peanut Brittle for Modern Consumers",
+        "challengeHeading": "The Challenge",
+        "challengeDesc": "Fuhshyuan Foods (福瑄食品) faced declining engagement with younger demographics. The traditional packaging design failed to communicate the product's cultural value and quality, positioning it as outdated rather than heritage-rich.",
+        "pain1": "Old packaging was sticky and inconvenient for modern consumption",
+        "pain2": "Visual identity failed to attract 18-35 age demographic",
+        "pain3": "Cultural heritage story was not effectively communicated",
+        "oldPackImg": "[Image: Old Traditional Packaging]"
+      },
+      "strategy": {
+        "heading": "The Strategy",
+        "narrativeTitle": "Cultural Narrative: \"Good Luck\" (好韻)",
+        "narrativeDesc": "The rebranding centered around the Hakka festival \"Tian Chuan Ri\" (天穿日 - Heaven's Birthday). The word \"Yun\" (韻) in Chinese means \"rhyme\" or \"rhythm,\" but phonetically it also implies \"good luck\" and \"fortune.\" This dual meaning transformed the peanut brittle from a simple snack into a culturally meaningful gift symbolizing blessings and prosperity.",
+        "pillar1title": "Cultural Connection",
+        "pillar1desc": "Anchored in Hakka \"Tian Chuan Ri\" festival traditions, making the product culturally significant",
+        "pillar2title": "Visual Modernization",
+        "pillar2desc": "Woodblock printing aesthetics combined with contemporary design principles",
+        "pillar3title": "Format Innovation",
+        "pillar3desc": "Single-serve instant packs solving stickiness while creating gift-ready format"
+      },
+      "design": {
+        "heading": "Design Solution",
+        "img1": "[Image: Final Packaging Design - Hero Shot]",
+        "img2": "[Image: Woodblock Printing Style Graphics]",
+        "img3": "[Image: Brand Characters & Mascot]",
+        "img4": "[Image: Single-Serve Pack Design]",
+        "img5": "[Image: Gift Box Set]",
+        "f1label": "Woodblock Printing Visuals:",
+        "f1desc": "Traditional Hakka art style modernized with vibrant colors and clean typography",
+        "f2label": "Single-Serve Innovation:",
+        "f2desc": "Individual instant packs eliminate stickiness and improve portability",
+        "f3label": "Gift-Ready Format:",
+        "f3desc": "Premium packaging suitable for festivals and cultural celebrations"
+      },
+      "web": {
+        "subtitle": "Modernizing the E-Commerce Experience",
+        "contextHeading": "Project Context",
+        "contextDesc": "Following the successful brand redesign, the official website needed a complete overhaul to match the new brand identity and improve the user experience. The old website suffered from poor navigation, unclear product information, and low conversion rates.",
+        "compareHeading": "Before vs. After",
+        "oldTitle": "Old Website",
+        "oldImg": "[Image: Old Website Screenshot]",
+        "old1": "Cluttered navigation",
+        "old2": "Outdated visual design",
+        "old3": "Poor mobile experience",
+        "old4": "Unclear product info",
+        "newTitle": "New Website",
+        "newImg": "[Image: New Website Screenshot]",
+        "new1": "Clean, intuitive navigation",
+        "new2": "Modern brand-aligned design",
+        "new3": "Mobile-first responsive",
+        "new4": "Clear product presentation",
+        "mapHeading": "UX Process: Functional Map",
+        "mapDesc": "I created a comprehensive functional map to reorganize the website's information architecture. This process helped identify user pain points and streamline the navigation structure for better discoverability and conversion.",
+        "mapImg": "[Image: Functional Map / Site Architecture]",
+        "uiHeading": "UI Design: High-Fidelity Screens",
+        "uiDesc": "The final UI design focused on three key pages: Homepage (brand story and featured products), About Brand (Hakka culture and company values), and Product Listing (intuitive browsing and filtering).",
+        "screen1img": "[Image: Homepage Design]",
+        "screen1": "Homepage",
+        "screen2img": "[Image: About Brand Page]",
+        "screen2": "About Brand",
+        "screen3img": "[Image: Product Listing Page]",
+        "screen3": "Product Listing",
+        "h1title": "Brand Storytelling",
+        "h1desc": "Homepage hero section showcases Hakka culture and \"Good Luck\" concept",
+        "h2title": "Intuitive Navigation",
+        "h2desc": "Simplified menu structure with clear product categories and filters",
+        "h3title": "Mobile-First Design",
+        "h3desc": "Responsive layouts optimized for smartphone shopping experience"
+      },
+      "outcome": {
+        "heading": "Outcome & Impact",
+        "subtitle": "Recognition and Results",
+        "r1title": "2nd Place Award",
+        "r1desc": "Won 2nd Place in the Creative Culture Graduate Exhibition, recognizing excellence in cultural brand design and digital innovation.",
+        "r2title": "Brand Repositioning",
+        "r2desc": "Successfully repositioned a traditional product for younger demographics while preserving cultural authenticity.",
+        "r3title": "Digital Transformation",
+        "r3desc": "Created a modern e-commerce platform that improved user experience and sales conversion."
+      }
+    },
+    "timesAwards": {
+      "labels": {
+        "thirdPlace": "🥉 3rd Place Winner",
+        "shortlisted": "✨ Shortlisted",
+        "concept": "Concept",
+        "creativeElements": "Creative Elements",
+        "keyCopy": "Key Copy"
+      },
+      "hero": {
+        "badgeSub": "Video Category - National",
+        "badge2": "✨ 3x Shortlisted Works",
+        "title": "2025 34th Times Young Creative Awards",
+        "subtitle": "Yung Ching Housing Employer Branding Campaign",
+        "timelineLabel": "Timeline",
+        "timelineValue": "Mar - May 2025",
+        "timelineSub": "Times Young Creative Awards",
+        "roleLabel": "My Role",
+        "roleValue": "Creative Strategy, Copywriting",
+        "roleSub": "Multimedia Design",
+        "teamLabel": "Team",
+        "teamValue": "4 Members",
+        "teamNames": "Chi-Yun Chien, Po-Yu Chen, He-Chi Wang, Yun-Rou Chang",
+        "recognitionLabel": "Recognition",
+        "recognitionValue": "3rd Place",
+        "recognitionSub": "3 Shortlisted Works"
+      },
+      "overview": {
+        "title": "Multi-Channel Employer Branding Campaign",
+        "desc": "A comprehensive campaign for Yung Ching Housing that reimagined job hunting as a \"Career Gashapon\" experience. The project won 3rd place nationally in the video category and had three additional works shortlisted across interactive and audio formats, demonstrating excellence in integrated creative strategy."
+      },
+      "concept": {
+        "heading": "Core Concept",
+        "quote": "\"Job hunting is like a Gashapon (Capsule Toy).\"",
+        "desc": "We transformed the anxiety of job hunting into the anticipation and excitement of a capsule toy machine. Each \"turn\" represents a career choice, but unlike random luck, Yung Ching offers guaranteed value—making the metaphor both relatable and empowering.",
+        "keyMessageLabel": "Key Message:",
+        "keyMessage": "\"True value isn't luck, it's choosing a worthy partner.\""
+      },
+      "works": {
+        "heading": "Creative Works",
+        "formatsLabel": "Media Formats",
+        "formatsValue": "Video, Web, Audio",
+        "resultValue": "3rd Place Winner",
+        "resultSub": "+ 3 Shortlisted"
+      },
+      "work1": {
+        "title": "Work 1: \"Career Festival\" (轉職慶典)",
+        "format": "Video Advertisement",
+        "concept": "The main video features a visually striking capsule machine designed for fresh graduates. Inside the transparent capsules are symbolic \"career charms\"—including \"50k Guaranteed Salary\" and \"Freedom from Contracts.\" The film uses warm, inviting cinematography to contrast the cold reality of typical job hunting, positioning Yung Ching as a trustworthy partner rather than a gamble.",
+        "el1": "Physical capsule machine prop design",
+        "el2": "Symbolic \"career charms\" visual metaphor",
+        "el3": "Fresh graduate persona storytelling",
+        "el4": "Warm cinematography vs. cold job market contrast",
+        "alt": "Job Transfer Celebration",
+        "linkTitle": "《轉動職涯》",
+        "linkLabel": "Video Work ↗"
+      },
+      "work2": {
+        "title": "Work 2: \"Career Takeoff\" (轉動職涯)",
+        "format": "Web Interaction (Chatbot Style)",
+        "concept": "An online interactive experience styled like a Line chatbot, where users \"turn\" a digital gashapon machine to receive \"Career Subscription Passes\"—a clever parody of Netflix's subscription model. Each \"pass\" unlocks different career benefits (training, mentorship, flexibility), gamifying the discovery of Yung Ching's employee value proposition.",
+        "keyCopy": "\"Subscribe to your career, not just a job.\"",
+        "el1": "Netflix subscription parody (familiar UX pattern)",
+        "el2": "Gamified benefit discovery mechanic",
+        "el3": "Line chatbot-style conversational UI",
+        "el4": "Collectible \"career passes\" visual design",
+        "alt": "Work Visual",
+        "altDetail1": "Visual detail 1",
+        "altDetail2": "Visual detail 2",
+        "linkLabel": "Interactive Web ↗"
+      },
+      "work3": {
+        "title": "Work 3: \"Job Personality Test\" (工作不靠運)",
+        "format": "Web Interaction / Psychology Test",
+        "concept": "A shareable personality test that flips the interview script: \"Don't just ask the interviewer, ask yourself.\" Users discover their workplace persona through playful questions, receiving personalized insights that match them with Yung Ching's culture. The viral format drives organic traffic while educating candidates about self-awareness in career planning.",
+        "keyCopy": "\"Don't just ask the interviewer, ask yourself.\"",
+        "el1": "Self-discovery narrative arc",
+        "el2": "Workplace persona matching algorithm",
+        "el3": "Shareable social results (viral mechanic)",
+        "el4": "Educational value proposition embedded",
+        "alt": "Psychological Test",
+        "linkTitle": "《工作不靠運，職涯選永慶》"
+      },
+      "work4": {
+        "title": "Work 4: \"The Right Turn\" (這一轉，選對了)",
+        "format": "Audio Advertisement",
+        "concept": "An audio-only experience that uses sound design to simulate the tactile anticipation of turning a gashapon machine. The \"click-click-click\" rhythm mimics a heartbeat, building tension before the satisfying \"pop\" of success. The script cleverly uses first-person narration to make listeners feel like they're making their own career choice in real-time.",
+        "el1": "Gashapon machine sound simulation",
+        "el2": "Heartbeat-synced rhythm (tension building)",
+        "el3": "First-person immersive narration",
+        "el4": "Audio-only storytelling (theater of the mind)",
+        "soundLabel": "Key Sound Design",
+        "sound": "\"Click-click-click... (heartbeat rhythm) ...POP! (career choice made)\"",
+        "linkTitle": "《這一轉，選對了》",
+        "linkLabel": "Audio Work · Click to Listen ↗"
+      },
+      "playlist": {
+        "title": "《完整作品播放清單》",
+        "linkLabel": "YouTube Playlist ↗"
+      },
+      "impact": {
+        "heading": "Campaign Impact & Recognition",
+        "title": "National Recognition Across Multiple Formats",
+        "r1title": "Times Awards 3rd Place",
+        "r1desc": "Won 3rd Place nationally in the Video Category for \"Career Festival,\" recognized among hundreds of submissions for creative excellence and strategic messaging in employer branding.",
+        "r2title": "Multi-Format Success",
+        "r2desc": "Three additional works shortlisted across Interactive and Audio categories, demonstrating versatility in creative execution and integrated campaign thinking.",
+        "r3title": "Strategic Creativity",
+        "r3desc": "Successfully balanced playful metaphor (\"Gashapon\") with serious employer value proposition, making recruitment messaging both memorable and effective."
+      },
+      "insights": {
+        "heading": "Creative Insights",
+        "i1title": "Metaphor as Strategy",
+        "i1desc": "The \"Gashapon\" metaphor wasn't decoration—it was a strategic device to reframe job hunting anxiety as playful anticipation.",
+        "i2title": "Integrated Storytelling",
+        "i2desc": "A single concept (\"Career Gashapon\") was adapted across 4 formats (video, web, audio), proving the power of flexible creative platforms.",
+        "i3title": "Empowerment Over Promotion",
+        "i3desc": "The campaign prioritized candidate self-awareness and empowerment (\"ask yourself\") over hard-sell tactics, building trust and brand affinity."
+      }
+    },
+    "archive": {
+      "header": {
+        "eyebrow": "Explorations & Archive",
+        "title": "Selected Works & Experiments",
+        "subtitle": "A collection of award-winning marketing campaigns, brand identity designs, and cross-cultural workshop prototypes that highlight my interdisciplinary approach to problem-solving."
+      },
+      "peanut": {
+        "title": "Good-Rhythm Peanut (好韻花生)",
+        "type": "Brand Identity & Packaging Campaign",
+        "role": "Brand Visual, Web Design | Team of 4",
+        "pitch": "Drawing on Hakka Tianchuan Day culture, we developed a youth-oriented rebrand for a long-established Miaoli food producer, elevating local specialty value through innovative packaging and visual identity.",
+        "award1": "🥉 Miaoli Rural Youth Innovation Award — Bronze",
+        "award2": "🥈 School Project Competition — 2nd Place",
+        "tag1": "Brand Identity",
+        "tag2": "Packaging",
+        "tag3": "Web Design"
+      },
+      "bass": {
+        "title": "The Birth of Bass Spirit (鱸魚精の誕生)",
+        "type": "Creative Short-Video Marketing",
+        "role": "Concept, Editing, Voice-over | Team of 2",
+        "pitch": "Blending the \"God created all things\" internet meme with product features, we produced a humorous animated short that resonated with fatigued office workers, promoting a sea bass supplement brand.",
+        "award1": "🥈 2023 The 8th TSC Marketing Symposium — Silver",
+        "tag1": "Video Editing",
+        "tag2": "Creative Strategy",
+        "tag3": "Marketing"
+      },
+      "finlit": {
+        "title": "Financial Literacy App",
+        "type": "Innovation, Entrepreneurship & Design Thinking Proposal",
+        "role": "UI/UX Designer | Cross-national Workshop",
+        "pitch": "In the NTUT × PSU (Penn State Univ.) cross-national workshop, we combined Generative AI and Game-based Learning to design an innovative app proposal for improving financial literacy among young people.",
+        "award1": "🏆 NTUT x Penn State Univ. Workshop Demo",
+        "tag1": "UI/UX",
+        "tag2": "GenAI",
+        "tag3": "Design Thinking"
+      },
+      "filters": {
+        "all": "All",
+        "competitions": "Competitions",
+        "brand": "Brand & Visual",
+        "workshops": "Workshops"
+      }
+    }
+  }
+}
