@@ -1,0 +1,1546 @@
+{
+  "nav": {
+    "skipLink": "跳至主要內容",
+    "brand": "",
+    "brandSub": "",
+    "home": "首頁",
+    "about": "關於我",
+    "projects": "作品",
+    "resume": "履歷",
+    "chip": "求職中 · 2026",
+    "contact": "聯絡我 →",
+    "footer": ""
+  },
+  "common": {
+    "certificate": "證書",
+    "enlargedView": "圖片放大檢視",
+    "explore": "看更多 →"
+  },
+  "home": {
+    "hero": {
+      "badge": "求職中 · 2026 年 8 月可到職",
+      "name": "",
+      "title": "使用者研究與產品設計",
+      "subtitle": "從使用者研究到數位與實體產品設計",
+      "desc": "我是以研究與洞察驅動的設計師，把使用者洞察一路帶到產品面。碩士論文用受控實驗與混合方法研究睡眠拖延（N=48、45 場訪談），也曾把研究轉成得獎策略（InnoConnect+ 金獎、OpenHCI'25）。從研究規劃、服務藍圖到 UI 原型與驗證，我讓每個設計決策都站在證據上，也樂於和跨職能團隊一起把粗糙的想法磨成使用者真正需要的產品。",
+      "aboutBtn": "認識我",
+      "viewWorkBtn": "看作品",
+      "photoAlt": "Rose Chang 於 OpenHCI 活動現場"
+    },
+    "works": {
+      "heading": "精選作品",
+      "viewAll": "看所有專案 →",
+      "sleepGuardian": {
+        "titlePre": "Sleep Guardian /",
+        "titleHighlight": "打斷",
+        "titlePost": "累積成睡眠負債前的在床拖延",
+        "desc": "規劃並執行遠端非同步實驗，設計互動流程與原型，打造 React Native 介入實驗 App，研究睡前躺床滑手機的在床拖延行為。",
+        "tag1": "碩士論文",
+        "tag2": "使用者研究",
+        "tag3": "受控實驗",
+        "imgAlt": "Sleep Guardian 專案封面"
+      },
+      "oblivilight": {
+        "titlePre": "Oblivilight /",
+        "titleHighlight": "遺忘",
+        "titlePost": "不想讓 AI 記得的事。",
+        "desc": "在 6 天工作坊做出可運作的實體互動裝置，探索 AI 如何「遺忘」。獲 OpenHCI '25 Best Demo Award。",
+        "tag1": "OpenHCI'25",
+        "tag2": "實體互動",
+        "tag3": "HCI",
+        "imgAlt": "Oblivilight 裝置照片",
+        "status": "Best Demo Award\nTAICHI '25 Demo"
+      },
+      "mu": {
+        "titlePre": "Mù /",
+        "titleHighlight": "聽見",
+        "titlePost": "木材消失之前的聲音。",
+        "desc": "為台灣瀕危珍貴木打造多感官互動導覽，用情感設計與混合研究方法保存文化記憶。",
+        "tag2": "多感官互動",
+        "tag3": "情感設計",
+        "status": "提名",
+        "imgAlt": "Mù 專案封面"
+      },
+      "innoconnect": {
+        "titlePre": "Innoconnect+ /",
+        "titleHighlight": "送禮",
+        "titlePost": "也是需要被設計的體驗。",
+        "desc": "為萊爾富來送禮 O2O 服務做服務藍圖、使用者旅程設計與原型易用性驗證，用心理測驗與使用流程優化解決行銷與使用痛點，獲金獎。",
+        "tag1": "服務設計",
+        "tag2": "使用者旅程設計",
+        "tag3": "金獎",
+        "imgAlt": "Innoconnect 專案封面"
+      },
+      "publications": {
+        "titlePre": "Voice of Machines /",
+        "titleHighlight": "兩篇",
+        "titlePost": "第一作者研討會論文。",
+        "desc": "第一作者研究，主題涵蓋人與 AI 的音樂共創和 AI 語音情緒，發表於 IEEE GCCE 2025 與 SSIM 2024，SSIM 論文獲最佳論文獎。",
+        "tag1": "IEEE GCCE",
+        "tag2": "HCI 研究",
+        "tag3": "最佳論文",
+        "imgAlt": "研討會論文封面"
+      }
+    },
+    "research": {
+      "heading": "研究與論文",
+      "headline": {
+        "w1": "明明",
+        "w2": "知道該睡",
+        "w3": "我們卻",
+        "highlight": "總是",
+        "tail": "睡不了。"
+      },
+      "p1a": "我的論文研究",
+      "p1strong": "睡眠拖延",
+      "p1b": "，也就是打算睡與實際入睡之間的落差，結合 HCI、行為科學與自我調節、雙重歷程理論。",
+      "p2": "混合方法：受控實驗、SPSS 分析與半結構訪談，目標是設計尊重使用者自主性的通知介入，用引導代替指責。",
+      "stat1": {
+        "unit": "N",
+        "label": "受控實驗參與者"
+      },
+      "stat2": {
+        "unit": "種訴求",
+        "label": "威脅 · 共情 · 設計摩擦"
+      },
+      "stat3": {
+        "unit": "種模態",
+        "label": "視覺 · 聽覺 · 視聽"
+      },
+      "stat4": {
+        "label": "論文口試 · 2026 完成"
+      },
+      "matrix": {
+        "caption1": "通知條件 · N=48",
+        "caption2": "3×3 混合設計＋基線對照",
+        "threat": {
+          "labelZh": "威脅訴求",
+          "labelEn": "Threat Appeal",
+          "imgAlt": "威脅訴求通知示意"
+        },
+        "empathy": {
+          "labelZh": "共情訴求",
+          "labelEn": "Empathy Appeal",
+          "imgAlt": "共情訴求通知示意"
+        },
+        "friction": {
+          "labelZh": "設計摩擦",
+          "labelEn": "Friction Design",
+          "imgAlt": "設計摩擦通知示意"
+        },
+        "control": {
+          "labelZh": "一般通知",
+          "labelEn": "Control",
+          "imgAlt": "一般通知示意"
+        }
+      }
+    },
+    "awards": {
+      "heading": "精選獲獎與榮譽",
+      "tuition": {
+        "title": "",
+        "desc": "發表兩篇第一作者 HCI 研討會論文，獲全額學費減免。"
+      },
+      "uxda": {
+        "title": "",
+        "desc": "以多感官互動導覽 Mù 入圍國際 UX Design Awards。"
+      },
+      "timesYoung": {
+        "title": "時報金犢獎（全國第三名）",
+        "desc": "主導永慶房屋雇主品牌廣告的行銷策略與互動設計。"
+      },
+      "gcce": {
+        "title": "IEEE GCCE 2025（口頭發表）",
+        "desc": "第一作者。探討 AI 語音主體性與互動產品設計。"
+      },
+      "openhci": {
+        "title": "OpenHCI '25 Best Demo Award · 受邀 TAICHI '25 展出",
+        "desc": "主導使用者研究與產品設計，打造探索情緒記憶的實體 AI 互動裝置，獲 OpenHCI 2025 Best Demo。"
+      },
+      "innoconnect": {
+        "title": "全國服務創新跨界共創大賽 萊爾富題金獎",
+        "desc": "負責萊爾富來送禮服務的完整 UX/UI 設計，於 186 組中奪金獎。"
+      },
+      "bigData": {
+        "title": "大數據精準行銷競賽（第三名）",
+        "desc": "為台畜進行市場研究與 App 原型設計。"
+      },
+      "ssim": {
+        "title": "SSIM 2024 最佳論文獎",
+        "desc": "第一作者。研究人與 AI 的音樂共創介面。"
+      }
+    },
+    "playground": {
+      "heading": "工作之外",
+      "sub": "不做設計的時候，我在探索新的媒材。",
+      "photography": {
+        "title": "攝影",
+        "desc": "捕捉日常的瞬間、質地與光線。攝影讓我對構圖和細節更敏銳，也回饋到設計工作上。"
+      },
+      "music": {
+        "title": "音樂創作",
+        "desc": "創作氛圍與實驗性的音樂，把音樂當成另一種互動設計。",
+        "label": "聽聽看 ↗"
+      },
+      "vibeCoding": {
+        "title": "Vibe Coding 與 AI 工具",
+        "desc": "玩生成式 AI 和創意程式，做些把程式與設計好奇心揉在一起的小專案。",
+        "label": "閱讀更多 →"
+      }
+    },
+    "contact": {
+      "heading": "一起做點什麼吧！",
+      "sub": "歡迎聊正職機會、合作提案，或約喝杯咖啡聊聊。",
+      "linkedin": "到 LinkedIn 找我"
+    }
+  },
+  "about": {
+    "dossier": {
+      "subject": "",
+      "file": "",
+      "photoAlt": "Rose Chang 個人照",
+      "basedLabel": "",
+      "basedValue": "台北",
+      "programLabel": "",
+      "programValue": "",
+      "langLabel": "",
+      "langValue": ""
+    },
+    "intro": {
+      "line1": "會寫程式的研究者。",
+      "line2": "也是個懂得問",
+      "line2Em": "為什麼的設計師。",
+      "p1a": "我是重視細節的 UI/UX 設計師，也喜歡追問每個細節背後的原因。工作橫跨 UI 設計與 UX 研究，曾和團隊一起拿下",
+      "p1strong": "2024 InnoConnect+ 金獎",
+      "p1b": "，題目來自萊爾富。",
+      "p2a": "先前我在",
+      "p2strong": "凱鈿 KDAN 擔任行銷實習生",
+      "p2b": "，負責社群內容製作，並產出網紅與廣告成效的分析報告。最近的研究重心是 AI 生成音樂與語音合成。",
+      "p3": "喜歡和跨領域的夥伴一起，把粗糙的想法做成使用者真正需要的東西。不做設計的時候：聽新音樂、寫點創意程式、追最新的設計趨勢。"
+    },
+    "skills": {
+      "catResearch": "研究",
+      "catCraft": "製作",
+      "catStrategy": "策略",
+      "usability": "易用性測試",
+      "diary": "日誌研究",
+      "spss": "SPSS / 量化",
+      "interviews": "訪談",
+      "survey": "問卷設計",
+      "mixed": "混合研究方法",
+      "figma": "",
+      "prototype": "原型 / React",
+      "genai": "生成式 AI 工作流",
+      "serviceDesign": "服務設計",
+      "productStrategy": "產品策略",
+      "facilitation": "工作坊引導",
+      "marketingOps": "行銷營運",
+      "lvlAdv": "進階"
+    },
+    "strengths": {
+      "heading": "我的強項",
+      "research": {
+        "tag": "規模化研究",
+        "titleLine1": "嚴謹研究，",
+        "titleLine2": "真實數據",
+        "desc": "睡眠拖延的完整混合方法研究，從招募到驗證分析一手包辦。",
+        "imgAlt": "研究管理 Notion 畫面",
+        "stat1a": "位參與者",
+        "stat1b": "完成招募",
+        "stat2a": "套驗證",
+        "stat2b": "量表",
+        "stat3a": "種方法：",
+        "stat3b": "量化＋質化"
+      },
+      "awards": {
+        "tag": "從研究到產品",
+        "titleLine1": "從洞察",
+        "titleLine2": "到金獎",
+        "desc": "把使用者研究轉成得獎策略，在學術與商業賽場都拿到全國級肯定。",
+        "imgAlt": "得獎報告",
+        "badge1": "InnoConnect+ 金獎",
+        "badge2": "SSIM 最佳論文",
+        "badge3": ""
+      },
+      "uiDesign": {
+        "tag": "完整 UI 設計流程",
+        "titleLine1": "不只畫畫面，",
+        "titleLine2": "更建立設計系統",
+        "desc": "完整 Figma 工作流，從線框圖一路做到元件庫與互動原型。",
+        "imgAlt": "Figma UI 設計畫面",
+        "pill1": "線框圖",
+        "pill2": "設計系統",
+        "pill3": "元件庫",
+        "pill4": "互動原型"
+      },
+      "ai": {
+        "tag": "AI 增幅",
+        "titleLine1": "不只研究 AI，",
+        "titleLine2": "更用 AI 做設計",
+        "desc": "這個作品集就是用 AI 協作開發完成的。帶過 10 人團隊的 AI 創意工具內訓，也在 IEEE GCCE 2025 發表 AI 語音研究。",
+        "imgAlt": "AI 協作開發畫面"
+      },
+      "crossFunc": {
+        "tag": "跨職能協作",
+        "titleLine1": "一個人，",
+        "titleLine2": "說很多種語言",
+        "desc": "在研究、設計、商業與利害關係人之間流暢切換語言。",
+        "imgAlt": "跨職能協作照片",
+        "stat1a": "位 KOL 關係",
+        "statManaged": "管理",
+        "stat2a": "位參與者的",
+        "stat2b": "Fulbright 工作坊",
+        "stat3a": "家企業客戶"
+      }
+    },
+    "values": {
+      "heading": "我的價值觀",
+      "clarity": {
+        "title": "在混亂中找清晰",
+        "lead": "把複雜資訊整理成可執行的計畫。",
+        "desc": "仔細記錄過程，不讓任何洞察流失，也讓利害關係人對方向有共識。"
+      },
+      "curiosity": {
+        "title": "用好奇心驅動",
+        "lead": "擁抱新事物，優化現在的做法。",
+        "desc": "主動把新技術接進實際工作流，幫團隊做得更聰明。"
+      },
+      "resilience": {
+        "title": "韌性與同理",
+        "lead": "營造正向的協作環境。",
+        "desc": "帶著韌性與溫度合作，確保使用者的需求被聽見，團隊士氣也顧得住。"
+      },
+      "hardware": {
+        "title": "硬體遇上介面",
+        "lead": "著迷於實體產品與數位體驗的交會。",
+        "desc": "從車用 UX 到穿戴裝置，我想在限制最多的嵌入式場景做設計，因為限制往往逼出最有創意的解法。"
+      }
+    }
+  },
+  "projects": {
+    "header": {
+      "title": "作品",
+      "sub": "涵蓋獲獎專案、研究與創意作品的設計合輯。"
+    },
+    "filters": {
+      "all": "全部",
+      "awards": "獲獎",
+      "research": "研究與經歷",
+      "design": "設計專案"
+    },
+    "cards": {
+      "sleepGuardian": {
+        "period": "",
+        "type": "HCI 研究與 App 設計",
+        "title": "Sleep Guardian｜通知介入設計",
+        "desc": "主導研究與設計：規劃並執行受控實驗，設計互動流程與原型，打造 React Native 介入實驗 App，研究睡前躺床滑手機的拖延行為。",
+        "tag1": "碩士論文",
+        "tag2": "使用者研究規劃",
+        "tag3": "受控實驗"
+      },
+      "innoconnect": {
+        "period": "2024/10 - 2025/03",
+        "type": "服務設計與 UX",
+        "title": "Innoconnect｜禮物服務優化",
+        "desc": "🏆 金獎（186 組中第 1）。用遊戲化與社群功能，優化萊爾富的 O2O 送禮體驗。",
+        "tag1": "金獎",
+        "tag2": "服務設計",
+        "tag3": "遊戲化"
+      },
+      "oblivilight": {
+        "period": "2025/06 - 08",
+        "type": "互動設計",
+        "title": "",
+        "desc": "🏆 Best Demo Award。6 天工作坊做出的實體互動裝置，探索 AI 如何「遺忘」。",
+        "tag1": "",
+        "tag2": "實體介面",
+        "tag3": ""
+      },
+      "mu": {
+        "period": "2025/07 - 12",
+        "type": "UX 設計與研究",
+        "title": "",
+        "desc": "入圍 UX Design Awards。為台灣瀕危珍貴木打造的多感官導覽，探索情感設計。",
+        "tag1": "入圍",
+        "tag2": "多感官"
+      },
+      "publications": {
+        "period": "2025/04 - 09",
+        "type": "HCI 研究",
+        "title": "HCI 研究發表",
+        "desc": "🏆 SSIM 2024 最佳論文與 IEEE GCCE 2025。研究 AI 音樂與語音情緒。",
+        "tag2": ""
+      },
+      "kdan": {
+        "period": "2024/03 - 11",
+        "type": "行銷與數據分析",
+        "title": "凱鈿 KDAN｜行銷實習",
+        "desc": "優化社群工作流，主講 AI 工具內訓。",
+        "tag1": "行銷",
+        "tag2": "實習"
+      },
+      "timesAwards": {
+        "period": "2025/04 - 05",
+        "type": "廣告與創意",
+        "title": "2025 第 34 屆時報金犢獎",
+        "desc": "🥉 全國第三名。以「扭蛋」比喻求職的多媒體廣告企劃，橫跨影片、網頁與聲音。",
+        "tag1": "廣告",
+        "tag2": "文案",
+        "tag3": "整合企劃"
+      },
+      "bigDataCup": {
+        "period": "2024/09 - 11",
+        "type": "UI/UX 設計與研究",
+        "title": "大數據精準行銷競賽",
+        "desc": "🥉 第三名。為台畜設計健身 App 的 UI/UX。",
+        "tag1": "UI 設計",
+        "tag2": "第三名"
+      },
+      "archive": {
+        "period": "",
+        "title": "學術合作專案",
+        "desc": "包含「好韻花生」品牌設計，以及北科大 × Penn State 的 GenAI 工作坊。",
+        "tag1": "",
+        "tag2": "品牌設計"
+      }
+    }
+  },
+  "resume": {
+    "header": {
+      "title": "履歷",
+      "lastUpdated": "最後更新：",
+      "downloadPdf": "下載 PDF",
+      "linkedin": ""
+    },
+    "viewer": {
+      "notAvailable": "無法顯示 PDF",
+      "fallbackDesc": "你的瀏覽器不支援內嵌 PDF，請下載檔案觀看。",
+      "downloadBtn": "下載履歷 PDF",
+      "cantView": "看不到 PDF？",
+      "openNewWindow": "另開視窗"
+    },
+    "experience": {
+      "heading": "經歷",
+      "sub": "行銷與設計領域的工作歷程總覽。",
+      "bilingual": {
+        "year": "2025/09",
+        "title": "兼任專案助理",
+        "company": "國立臺北科技大學 雙語學習中心",
+        "period": "2025/09 – 2026/02",
+        "d1": "協助北科大雙語學習中心經營 Facebook、LINE 與中心網站。",
+        "d2": "支援工作坊執行，包含場地佈置、協助外籍講師與學員協調。",
+        "d3": "處理雙語學習中心相關行政事務。"
+      },
+      "ra": {
+        "year": "2024/09",
+        "title": "研究助理",
+        "company": "國立臺北科技大學",
+        "period": "2024/09 – 2025/07",
+        "d1": "協助鄭建文教授執行計畫相關工作。",
+        "d2": "準備教學實踐研究計畫的申請資料。",
+        "d3": "參與撰寫 2025 年教學實踐研究計畫書。",
+        "d4": "將計畫成果發展為研討會論文並投稿 SSIM，題目為「Artificial Intelligence-Assisted Music and Interactive Design for University Students: Exploring Needs and Skill-Based Variations in Music Creation Experience」。",
+        "d5": "支援計畫文件整理與行政協調。"
+      },
+      "kdan": {
+        "year": "2024/03",
+        "title": "行銷實習生",
+        "company": "凱鈿 KDAN｜ADNEX",
+        "period": "2024/03 – 2024/11",
+        "d1": "接洽超過 110 位 KOL。",
+        "d2": "為 Instagram 與 Facebook 製作超過 15 則宣傳貼文。",
+        "d3": "官方帳號追蹤數成長超過 750。",
+        "d4": "分析每月網紅數據，提交 15 份報告供客戶與主管檢視。",
+        "d5": "為 10 位行銷同仁培訓 AI 廣告圖像生成。",
+        "d6": "設計超過 5 張公司產品的網站視覺。"
+      },
+      "mengya": {
+        "year": "2022/07",
+        "title": "企業培訓專案實習生",
+        "company": "",
+        "period": "2022/07 – 2022/09",
+        "d1": "擔任三家企業的專案窗口（PM），統整客戶需求並串接公司與講師，支援超過 17 場企業培訓的籌備。",
+        "d2": "擔任企業培訓課程助教，在課程中發掘客戶潛在需求，支援客戶開發與關係維護。",
+        "d3": "協助業務團隊進行課前準備，包含講師與企業客戶的協調及相關行政事務。",
+        "d4": "執行現場企業培訓服務，支援課後收尾與專案結案。"
+      },
+      "wonlaiwon": {
+        "year": "2022/01",
+        "title": "兼職人員",
+        "company": "",
+        "period": "2022/01 – 2022/02",
+        "d1": "負責商品攝影、去背、修圖與商品上架。",
+        "d2": "協助撰寫商品描述與宣傳文案。",
+        "d3": "協助公司文件歸檔與紀錄管理。"
+      }
+    },
+    "chips": {
+      "socialMediaMgmt": "社群經營",
+      "eventCoordination": "活動協調",
+      "docHandling": "文件與檔案管理",
+      "adminSupport": "行政支援",
+      "researchWriting": "研究報告與學術論文寫作",
+      "proposalDev": "研究計畫申請與專案執行",
+      "statSoftware": "統計軟體操作",
+      "qualInterview": "質性訪談",
+      "adCampaign": "廣告企劃與文案撰寫",
+      "creativeIdeation": "創意廣告發想",
+      "crossIndustry": "跨產業合作規劃",
+      "brandAwareness": "品牌知名度推廣",
+      "marketResearch": "市場調查規劃與執行",
+      "adSales": "廣告業務溝通",
+      "crm": "客戶關係管理（CRM）",
+      "clientData": "客戶資料更新與維護",
+      "docProcessing": "文件處理與排版設計",
+      "dataEntry": "資料輸入與文件歸檔",
+      "productPhoto": "商品攝影",
+      "bgRemoval": "商品去背",
+      "adCopywriting": "廣告活動企劃與文案",
+      "figma": "",
+      "maze": "",
+      "photoshop": "",
+      "illustrator": "",
+      "premiere": "",
+      "davinci": "",
+      "ga": "",
+      "canva": "",
+      "sketchup": "",
+      "html": "",
+      "css": "",
+      "javascript": "",
+      "react": "",
+      "prototyping": "原型製作",
+      "userResearch": "使用者研究",
+      "usabilityTesting": "易用性測試",
+      "designThinking": "設計思考",
+      "wireframing": "線框圖",
+      "designSystems": "設計系統"
+    },
+    "skills": {
+      "heading": "技能",
+      "catTools": "工具",
+      "catProgramming": "程式語言（基礎）",
+      "catMethods": "方法"
+    },
+    "education": {
+      "heading": "學歷",
+      "master": {
+        "degree": "互動設計碩士",
+        "institution": "國立臺北科技大學",
+        "year": "2024 - 至今",
+        "desc": "主修人機互動與互動設計。論文：基於雙重歷程理論之在床拖延手機通知介入設計。"
+      },
+      "bachelor": {
+        "degree": "文化創意與數位行銷學士",
+        "institution": "國立聯合大學",
+        "year": "2020 - 2024",
+        "desc": "主修包裝設計、數位設計、字體排印與使用者體驗基礎。"
+      }
+    },
+    "certs": {
+      "heading": "證照",
+      "python": {
+        "name": "",
+        "issuer": "",
+        "year": "2023/01"
+      }
+    }
+  },
+  "photography": {
+    "title": "攝影",
+    "meta": "35mm · 台灣 · 2023–2025 ·",
+    "frames": "張",
+    "photos": {
+      "sea": {
+        "alt": "海",
+        "caption": "海邊的某處"
+      },
+      "catSleeping": {
+        "alt": "睡著的貓"
+      },
+      "catFlowers": {
+        "alt": "花叢裡的貓"
+      },
+      "trainStation": {
+        "alt": "車站",
+        "caption": "台灣的火車站"
+      },
+      "house": {
+        "alt": "房子與天空"
+      },
+      "catGarden": {
+        "alt": "院子裡的貓"
+      },
+      "wood": {
+        "alt": "木頭紋理"
+      },
+      "exhibition": {
+        "alt": "展覽現場"
+      }
+    }
+  },
+  "howIBuilt": {
+    "title1": "我如何做出",
+    "title2": "這個網站。",
+    "meta": "作品集 v6 · Rose Chang · 2025–2026 · React + Claude Code",
+    "design": {
+      "title": "設計方向",
+      "subtitle": "",
+      "body": "從 Claude Design 的原型出發：粗獷主義的實驗筆記風格，用骨白紙感（#EEEAE0）、螢光黃強調色（#FFE699）與 IBM Plex Mono 標註資料。這套視覺語言反映我思考的方式：系統化、講證據，帶一點個性。",
+      "tag1": "",
+      "tag2": "",
+      "tag3": ""
+    },
+    "stack": {
+      "title": "技術架構",
+      "subtitle": "",
+      "body": "以 React 18 + TypeScript 開發，用 Vite 打包，路由用 React Router v6。沒有引入 UI 套件庫，樣式全部手刻，讓打包體積維持輕量。",
+      "tag1": "",
+      "tag2": "",
+      "tag3": "",
+      "tag4": ""
+    },
+    "ai": {
+      "title": "AI 協作開發",
+      "subtitle": "Claude Code 是我的結對工程師",
+      "body": "整個過程都用 Claude Code：從產生元件骨架到除錯 CSS 版面。我的流程：在 Figma 設計、向 Claude Code 描述意圖、審查與修正、再迭代。每個 prompt 都由我撰寫，程式碼由 Claude 產出。",
+      "tag1": "",
+      "tag2": "",
+      "tag3": ""
+    },
+    "deploy": {
+      "title": "部署",
+      "subtitle": "",
+      "body": "原始碼放在 GitHub，用 Vercel 部署，每次 push 自動產生預覽版本。已連接自訂網域，建置時間不到 30 秒。",
+      "tag1": "",
+      "tag2": "",
+      "tag3": ""
+    },
+    "sourceNote": "原始碼公開於",
+    "githubLink": ""
+  },
+  "project": {
+    "sleepGuardian": {
+      "hero": {
+        "badge": "碩士論文研究",
+        "status": "已完成 · 2025–2026",
+        "title": "",
+        "subtitle1": "針對睡前躺床滑手機拖延的",
+        "subtitle2": "通知介入設計",
+        "introA": "年輕人都知道該放下手機，卻總是做不到。我打造了一個客製研究 App 並執行受控實驗，想找出",
+        "introHighlight": "在意志力用完之後",
+        "introB": "哪一種通知設計真的有效。",
+        "roleLabel": "角色",
+        "roleValue": "主導研究 · App 開發 · 互動設計",
+        "frameworkLabel": "理論框架",
+        "frameworkValue": "雙重歷程理論（系統一與系統二）",
+        "methodLabel": "方法",
+        "methodValue": "受控實驗 · 3×3 混合設計＋基線對照",
+        "venueLabel": "單位",
+        "venueValue": "北科大互動設計系 碩士論文"
+      },
+      "appAlts": {
+        "intro": "App 介紹頁",
+        "setup": "App 設定頁",
+        "audio": "聽覺模態畫面",
+        "survey": "WebView 問卷",
+        "stats": "實驗數據畫面",
+        "finish": "實驗結束畫面"
+      },
+      "problem": {
+        "heading": "問題",
+        "title": "每個夜晚，大腦都在和自己打仗",
+        "p1a": "在床拖延",
+        "p1b": "和單純晚睡並不相同。它描述的是使用者",
+        "p1em": "已經躺在床上",
+        "p1c": "卻停不下滑動的狀態：認知資源耗盡，快速、自動、習慣驅動的系統一完全壓過緩慢、理性、負責自控的系統二。",
+        "p2": "現有的介入方式，像螢幕使用時間限制、強制鎖定、生硬的警告，都會引發心理抗拒。使用者反射性地關掉它們，因為這些介入作用在錯的認知層次上。",
+        "quote": "「一則通知要怎麼設計，才能打斷無意識滑動，又不觸發它想避免的自動關閉反應？」",
+        "stat1desc": "的大學生表示自己習慣性睡不到 7 小時",
+        "stat2num": "約 1.5 小時",
+        "stat2desc": "前導訪談中，參與者打算入睡與實際入睡的平均落差",
+        "stat3num": "",
+        "stat3desc": "場前導半結構訪談（ORID 法）確認：現有工具會被略過或忽視"
+      },
+      "framework": {
+        "heading": "理論框架",
+        "title": "把雙重歷程理論當作設計邏輯",
+        "introA": "核心設計主張：要打斷在床拖延，介入必須作用在",
+        "introEm": "三條互補的路徑",
+        "introB": "上，分別對應不同的認知機制，而非重複同一種生硬警告。",
+        "exampleLabel": "通知範例",
+        "threat": {
+          "title": "威脅訴求",
+          "pathway": "認知路徑 → 啟動系統二",
+          "desc": "呈現健康風險資訊（例如睡眠剝奪造成的心血管負擔），觸發理性的風險評估與保護動機。依據 Witte 的延伸平行歷程模型（1992）。",
+          "example": "「警告：偵測到靜止心率異常，持續睡眠不足會顯著提高心血管風險。」"
+        },
+        "empathy": {
+          "title": "共情訴求",
+          "pathway": "情感路徑 → 降低抗拒",
+          "desc": "使用溫暖、不帶批判的語言，源自自我關懷理論（Neff, 2003），降低焦慮與心理抗拒，溫柔地邀請休息，取代命令。",
+          "example": "「撐過辛苦的一天了，這段時間屬於你。讓自己休息吧。」"
+        },
+        "friction": {
+          "title": "設計摩擦",
+          "pathway": "行為路徑 → 強制啟動系統二",
+          "descA": "把簡單的數學題（例如「輸入 3+4 才能關閉」）直接嵌進通知介面。它不倚賴說服，而是",
+          "descEm": "強制",
+          "descB": "切換認知模式，直接打斷自動化的滑動迴圈。依據 Cox 等人（2016）。",
+          "interactionLabel": "互動設計",
+          "interactionDesc": "使用者必須解開數學題並輸入正確答案，才能關閉通知。"
+        }
+      },
+      "experiment": {
+        "heading": "實驗設計",
+        "title": "在真實臥室進行的 3×3 混合設計",
+        "introA": "與其把參與者帶進實驗室（那會摧毀睡前行為的生態效度），我選擇讓受控實驗",
+        "introEm": "遠端、非同步地",
+        "introB": "在參與者真實的睡眠環境中進行。",
+        "betweenLabel": "受測者間因子",
+        "betweenTitle": "通知類型（3 組）",
+        "withinLabel": "受測者內因子",
+        "withinTitle": "視聽覺模態（3 種模態＋基線）",
+        "modality1": "純視覺",
+        "modality2": "純聽覺",
+        "modality3": "視覺＋聽覺",
+        "modality4": "基線",
+        "counterA": "以 4×4 拉丁方陣平衡順序",
+        "counterB": "，每位參與者以平衡過的順序（R1–R4）經歷全部四種條件，控制受測者內因子的順序效應與殘留效應。",
+        "proto1title": "時間窗",
+        "proto1desc": "僅限 21:00–03:00。App 有時間鎖，參與者只能在自己實際的就寢時段開啟。",
+        "proto2title": "3 分鐘間隔",
+        "proto2desc": "每則通知間隔 3 分鐘的再沉浸期，讓參與者在下一次打斷前重新進入無意識滑動。",
+        "proto3title": "沉浸階段",
+        "proto3desc": "前 3 分鐘不發送任何通知，讓系統一充分接管後才介入，最大化生態效度。",
+        "proto4title": "樣本 N=48",
+        "proto4desc": "每組 16 人。以 G*Power（Faul et al., 2007）進行檢定力分析，確保能偵測 3×3 混合 ANOVA 的中等交互作用效果。"
+      },
+      "instrument": {
+        "heading": "研究工具",
+        "title": "Sleep Guardian：用 AI 協作從零打造",
+        "intro": "市面上的現成 App 跑不了這種受控實驗。我用 React Native / Expo 打造 Sleep Guardian，一個包含四大模組的客製實驗平台。",
+        "mod1title": "Instagram 動態模擬",
+        "mod1desc": "參與者在 App 內登入自己的 Instagram 帳號，滑真實的動態。這就是實驗「刺激物」：真實、自然的無意識滑動，用真的介面取代假畫面。",
+        "mod2title": "體驗碼＋拉丁方陣派發器",
+        "mod2desc": "每位參與者拿到一組專屬體驗碼，對應其通知類型組別（T/E/F）與模態順序（R1–R4）。系統自動載入正確的平衡序列。",
+        "mod3title": "自動行為記錄",
+        "mod3desc": "背景自動記錄兩項客觀行為指標：",
+        "ndlName": "通知關閉延遲",
+        "ndlDesc": "：通知出現到被關閉的時間（毫秒）。",
+        "pscName": "通知後滑動次數",
+        "pscDesc": "：每則通知後的滑動次數，衡量殘餘的無意識滑動。",
+        "mod4title": "實驗摘要＋WebView 問卷",
+        "mod4desc": "四則通知結束後，App 顯示本次實驗摘要（Session ID 與行為數據），參與者截圖供三角驗證，接著透過內嵌 WebView 填寫後測問卷（PAD、TAM、UEQ-S），並以通知截圖輔助回憶。",
+        "uiHeading": "App 介面",
+        "timelineHeading": "實驗管理時程",
+        "timelineAlt": "實驗排程 Notion 畫面",
+        "devHeading": "開發與程式架構",
+        "devAlt": "Sleep Guardian 原始碼畫面"
+      },
+      "measures": {
+        "heading": "測量工具組",
+        "title": "六份驗證量表＋兩項客觀指標",
+        "group1": "篩選（實驗前兩個月）",
+        "bpsAbbr": "",
+        "bpsName": "睡眠拖延量表",
+        "bpsDesc": "確認參與者具有中重度在床拖延傾向（Kroese et al., 2014；α=0.92）",
+        "group2": "前測（實驗當天）",
+        "bscsAbbr": "",
+        "bscsName": "簡式自我控制量表",
+        "bscsDesc": "自我調節的個別差異，作為共變量（Tangney et al., 2004）",
+        "reiAbbr": "",
+        "reiName": "理性經驗量表",
+        "reiDesc": "基線認知風格：偏系統一或系統二（Epstein et al., 1996）",
+        "group3": "實驗中（自動記錄）",
+        "ndlAbbr": "",
+        "ndlDesc": "通知出現到關閉的毫秒數，打斷效果的客觀指標",
+        "pscAbbr": "",
+        "pscDesc": "每則通知後的滑動次數，衡量殘餘的無意識滑動行為",
+        "group4": "後測（四則通知結束後）",
+        "padAbbr": "",
+        "padName": "PAD 情緒量表",
+        "padDesc": "愉悅／喚起／支配，測量對各通知類型 × 模態的情緒反應（Mehrabian & Russell, 1974）",
+        "tamAbbr": "",
+        "tamName": "科技接受模型",
+        "tamDesc": "知覺有用性（PU）＋行為意圖（BI）；因設計摩擦刻意保留認知成本，故排除易用性構面（Davis, 1989）",
+        "ueqsAbbr": "",
+        "ueqsName": "使用者經驗問卷（短版）",
+        "ueqsDesc": "實用品質＋享樂品質，以最小認知負擔評估整體 App 體驗（Laugwitz et al., 2008）"
+      },
+      "rq": {
+        "heading": "研究問題與假設",
+        "title": "我們在驗證什麼",
+        "rq1label": "",
+        "rq1q": "三種通知類型打斷在床拖延的能力是否不同？",
+        "rq1pred": "預測：設計摩擦的通知後滑動次數最低，因為它不依賴使用者動機，直接強制打斷行為。",
+        "rq2label": "",
+        "rq2q": "不同視聽覺模態在通知關閉延遲與情緒喚起上是否有差異？",
+        "rq2pred": "預測：視覺＋聽覺的組合因感官顯著性最高，關閉延遲最短。",
+        "rq3label": "",
+        "rq3q": "通知類型與視聽覺模態之間是否存在顯著交互作用？",
+        "rq3pred": "預測：特定組合（如威脅訴求 × 視聽、設計摩擦 × 純聽覺）會產生超越主效果的放大打斷效果。",
+        "rq4label": "",
+        "rq4q": "個體特質（BPS 嚴重度、先前工具經驗）是否調節介入效果？",
+        "rq4pred": "預測：重度拖延者與有工具經驗者對威脅訴求的抗拒較強，對共情訴求或設計摩擦的配合度較高。",
+        "statsA": "統計分析計畫：",
+        "statsB": "主要分析為 3×3 混合 ANOVA 搭配 Bonferroni 事後比較；若個體特質有顯著調節，升級為以 BSCS 與 BPS 為共變量的混合 ANCOVA。所有分析使用 IBM SPSS。"
+      },
+      "status": {
+        "heading": "我的貢獻與目前進度",
+        "title": "我完成了哪些事",
+        "done": "✓ 已完成",
+        "inProgress": "↻ 進行中",
+        "item1title": "理論框架與文獻回顧",
+        "item1desc": "橫跨睡眠科學、HCI、說服式設計與雙重歷程理論的 50+ 篇同儕審查文獻。找到研究缺口：尚無研究在受控的視聽覺模態設計下，比較威脅、共情與摩擦三種介入。",
+        "item2title": "前導研究（N=6，質性）",
+        "item2desc": "以 ORID 框架進行半結構訪談，浮現三項設計啟示：(1) 軟性與強制控制的偏好分歧，支持三種介入類型並行；(2) 夜間聽覺提示有效，支持模態因子；(3) 無意識滑動是一種心流狀態，支持 Instagram 動態模擬的做法。",
+        "item3title": "Sleep Guardian App 開發",
+        "item3desc": "以 React Native / Expo 打造完整實驗平台，實作 Instagram 動態模擬、體驗碼派發、拉丁方陣平衡（R1–R4）、時段鎖定（21:00–03:00）、自動行為記錄與 WebView 問卷整合。",
+        "item4title": "完整刺激物設計（3×3 矩陣＋基線）",
+        "item4desc": "設計全部通知刺激物：文案、視覺素材、聲音錄製與設計摩擦的數學輸入介面，並針對時長與視覺複雜度做跨條件的等值控制。",
+        "item5title": "正式實驗（N=48）",
+        "item5desc": "招募與資料蒐集完成：N=48（每組 16 人），另完成 45 場質性訪談。",
+        "item6title": "結果、分析與設計建議",
+        "item6desc": "SPSS 混合 ANOVA 分析完成，論文已於 2026/06/26 口試通過。重點發現：介入對主觀情緒有大效果（η²p = .18–.29），對自動化滑動行為幾乎無影響；訴求類型的差異集中在純聽覺條件；設計摩擦相對基線在喚起度呈超大效果（d = −1.282）。"
+      }
+    },
+    "oblivilight": {
+      "hero": {
+        "badge": "",
+        "badge2": "獲選 TAICHI 展示",
+        "title": "",
+        "subtitle": "用實體互動探索 AI 的遺忘機制",
+        "timelineLabel": "時程",
+        "timelineValue": "2025 年 7 月",
+        "timelineSub": "OpenHCI 工作坊",
+        "roleLabel": "我的角色",
+        "roleValue": "互動設計師",
+        "teamValue": "7 人團隊",
+        "recognitionLabel": "獲獎",
+        "recognitionSub": "獲選 TAICHI 展示"
+      },
+      "challenge": {
+        "title": "快速原型挑戰",
+        "desc": "這個可實際運作的實體原型，是在高強度的 OpenHCI 工作坊內從概念、設計到完成，展現了團隊合作、快速迭代與高壓下的解題能力。",
+        "card1title": "AI 遺忘",
+        "card1desc": "選擇性的記憶刪除",
+        "card2title": "實體輸出",
+        "card2desc": "感熱式印表機把記憶變成實體",
+        "card3title": "儀式性互動",
+        "card3desc": "碎紙的動作成為一場刪除儀式"
+      },
+      "concept": {
+        "heading": "核心概念",
+        "desc": "Oblivilight 是一個探索 AI 如何「遺忘」的實體互動裝置。在數位囤積與隱私焦慮的時代，它把資料刪除重新想像成一場有意義、儀式感的實體互動。",
+        "exhibitionAlt": "展覽現場照片"
+      },
+      "research": {
+        "heading": "使用者研究與洞察",
+        "desc": "理解數位記憶的情感重量，以及人們對 AI 保存資料的焦慮。",
+        "alt1": "使用者焦慮",
+        "alt2": "訪談後整理",
+        "alt3": "訪談結果",
+        "alt4": "人物誌",
+        "alt5": "POV 與 HMW"
+      },
+      "flow": {
+        "heading": "互動流程：列印 → 回顧 → 決定",
+        "desc": "用三步驟的實體儀式，整理並篩選數位記憶。",
+        "demoAlt": "記憶展示",
+        "step1title": "01. 列印（實體化）",
+        "step1desc": "一天結束時，Oblivilight 彙整使用者的互動並印出一張實體「記憶收據」，把稍縱即逝的數位資料帶進實體世界。",
+        "step2title": "02. 回顧（反思）",
+        "step2desc": "使用者拿著這張紙，回顧 AI 對這一天的詮釋。相較於滑螢幕，實體的形式讓反思更慢、更深。",
+        "step3title": "03. 決定（留下或遺忘）",
+        "step3desc": "使用者做出實體的選擇：把收據收進日記（保留），或把它送回 Oblivilight 頂部，讓內建碎紙機銷毀，告訴 AI 永久「遺忘」這筆資料。"
+      },
+      "interact": {
+        "heading": "怎麼互動",
+        "alt1": "互動步驟 1",
+        "alt2": "互動步驟 2",
+        "alt3": "互動步驟 3",
+        "alt4": "互動步驟 4"
+      },
+      "forgetting": {
+        "heading": "遺忘機制",
+        "alt1": "遺忘步驟 1",
+        "alt2": "遺忘步驟 2",
+        "alt3": "遺忘步驟 3"
+      },
+      "tech": {
+        "heading": "技術實作",
+        "intro": "Oblivilight 需要在 6 天衝刺內整合客製硬體與軟體邏輯，系統以 Arduino 微控制器串起所有互動。硬體與 AI 模型由組員負責，我專注在使用者研究與互動設計。",
+        "item1label": "Arduino 核心：",
+        "item1desc": "處理輸入輸出邏輯與元件同步。",
+        "item2label": "印表機驅動：",
+        "item2desc": "客製整合，動態排版並列印感熱收據。",
+        "item3label": "碎紙機改裝：",
+        "item3desc": "改裝市售碎紙機，由 Arduino 繼電器觸發。",
+        "item4label": "製作工法：",
+        "item4desc": "雷射切割壓克力外殼與 3D 列印內部支架。",
+        "diagramAlt": "技術架構圖"
+      },
+      "impact": {
+        "heading": "肯定與團隊成果",
+        "title": "得獎展示與展覽邀請",
+        "taichiDesc": "獲選於 TAICHI Demo 展出，該展匯集前沿的 HCI 研究與原型。",
+        "awardsAlt": "得獎照片",
+        "teamTitle": "團隊合作",
+        "teamDesc": "在極高的時間壓力下與 7 人團隊順利協作，展現有效溝通、快速原型與共同承擔。",
+        "teamAlt": "我們的團隊"
+      }
+    },
+    "mu": {
+      "hero": {
+        "badge": "",
+        "badgeSub": "入圍概念",
+        "title": "Mù 多感官導覽",
+        "subtitle": "重建人與台灣瀕危珍貴木的感官連結",
+        "timelineLabel": "時程",
+        "timelineValue": "2025/08 - 12",
+        "roleLabel": "我的角色",
+        "roleValue": "提案發想、影片製作",
+        "roleSub": "案頭研究",
+        "teamLabel": "團隊",
+        "teamValue": "2 人",
+        "teamSub": "共同概念設計",
+        "recognitionLabel": "獲獎",
+        "recognitionValue": "UX Design Awards 入圍",
+        "logoAlt": "Mù 標誌"
+      },
+      "overview": {
+        "heading": "專案概述",
+        "desc": "台灣有十二種原生樹種被法定為珍貴木，但多數都市人只在商品裡遇見它們。Mù 是一套多感官導覽 App 與展覽概念，把抽象的生態消失變成可以重新體驗的經驗：用氣味、聲音、觸覺與視覺敘事，讓觀展者把瀕危木材當成活著的生命去感受。",
+        "card1title": "多感官沉浸",
+        "card1desc": "用策劃過的聲景與定點氣味，讓體驗跳出螢幕。",
+        "card2title": "4 個主題展區",
+        "card2desc": "從神木之域到記憶之森，串成一段完整旅程。",
+        "card3title": "微學習",
+        "card3desc": "把複雜的保育資料轉成好消化的卡片式樹木檔案。"
+      },
+      "challenge": {
+        "heading": "挑戰：跨越認知的落差",
+        "title": "為什麼保育這麼難溝通？",
+        "desc": "盜伐嚴重衝擊台灣一級木樹種，但對一般大眾來說，這件事很遙遠。要怎麼讓幾乎不會接觸到這些樹的都市人在乎它們？",
+        "item1label": "抽象的生態消失：",
+        "item1desc": "大家知道樹在消失，但那只是新聞標題，缺乏情感連結。",
+        "item2label": "資訊超載：",
+        "item2desc": "傳統展場的文字看板讓人疲乏，也喚不起對環境的共感。",
+        "coreLabel": "核心問題",
+        "coreQuote": "「一套以研究為底的多感官導覽，要怎麼把『我知道樹在消失』變成『我有感，而且想保護它們』？」"
+      },
+      "research": {
+        "heading": "研究與洞察整合",
+        "intro": "為了讓方案立足現實，我們採用混合研究方法，包含案頭研究與聚焦木材氣味經驗的量化問卷（n=23）。",
+        "woodsTitle": "台灣的珍貴木",
+        "woodsAlt": "台灣珍貴木圖鑑",
+        "f1title": "興趣與知識的落差",
+        "f1desc": "91.3% 的受訪者對永續高度感興趣，卻缺乏原生木材的基本知識。",
+        "f1bar1": "高興趣",
+        "f1bar2": "高知識",
+        "f1insight": "洞察：微學習的做法是必要的。",
+        "f2title": "氣味呈現偏好",
+        "f2desc": "問卷顯示，受訪者明顯偏好定點、就近聞香，避免感官超載。",
+        "f2bar1": "78.3% 定點式（卡片／罐子）",
+        "f2bar2": "21.7% 全室擴香",
+        "f2insight": "洞察：氣味必須可控且定點。",
+        "f3title": "導覽方式偏好",
+        "f3desc": "偏好剛好五五分，決定了 UX 架構必須保持彈性。",
+        "f3bar1": "引導式導覽",
+        "f3bar2": "自由探索",
+        "f3insight": "洞察：App 必須提供雙路徑。"
+      },
+      "solutions": {
+        "heading": "設計方案與互動",
+        "s1title": "雙導覽路徑",
+        "s1desc": "照顧不同心態的觀展者。首頁提供橫跨四座主題「森林之島」的敘事路線。",
+        "s1alt": "首頁導覽",
+        "s2title": "空間指路",
+        "s2desc": "用清楚的視覺提示顯示與特定樹木或展區的距離，讓人依所在位置隨性探索。",
+        "s2alt": "導覽 App",
+        "s3title": "聲音編排",
+        "s3desc": "與實體裝置同步，提示使用者停下腳步聆聽呼吸般的聲景，重建「森林的節奏」。",
+        "s3alt": "聲音導覽",
+        "s4title": "微學習樹木檔案",
+        "s4desc": "用好消化的卡片式介面取代長篇看板，傳達棲地海拔與保育威脅。",
+        "s4alt": "樹木檔案"
+      },
+      "impact": {
+        "heading": "成果與肯定",
+        "title": "可擴充、有倫理的展覽框架",
+        "nomineeDesc": "此概念正式入圍 UX Design Awards，肯定了專案的研究方法，以及面對困難環境溝通問題的解法。",
+        "certTitle": "UXDA 證書",
+        "appAlt": "Mù App 總覽"
+      }
+    },
+    "innoconnect": {
+      "hero": {
+        "badge": "🏆 金獎",
+        "badgeSub": "186 組中第 1 名",
+        "title": "Innoconnect｜萊爾富禮物服務優化",
+        "subtitle": "為台灣大型零售通路重塑數位送禮體驗",
+        "timelineLabel": "時程",
+        "timelineValue": "2024/10 - 2025/03",
+        "timelineSub": "InnoConnect+ 競賽",
+        "roleLabel": "我的角色",
+        "roleValue": "UI/UX 設計師與研究員",
+        "roleSub": "「萊一咖」3 人團隊",
+        "achievementLabel": "成績",
+        "achievementValue": "金獎",
+        "achievementSub": "自 186 組脫穎而出"
+      },
+      "intro": {
+        "title": "InnoConnect+ 2024 挑戰",
+        "desc": "本專案在 2024 InnoConnect+ 競賽中從 186 組脫穎而出獲得金獎，以策略性的遊戲化與社群功能重新想像萊爾富「來送禮」O2O 服務，帶動使用意願與轉換的實質提升。"
+      },
+      "overview": {
+        "heading": "專案概述",
+        "desc": "萊爾富是台灣主要連鎖便利商店之一，旗下「來送禮」服務讓顧客能透過門市送禮。儘管方便，這項服務長期面臨知名度低、流程複雜、政策帶有懲罰性等問題，抑制了回訪使用。我們的任務是把這個被低估的服務，改造成有吸引力的社群送禮平台。",
+        "stat1": "金獎",
+        "stat2": "SUS 正面評價",
+        "stat3num": "A 級",
+        "stat3": "37% 受測者達 A 級易用性"
+      },
+      "challenge": {
+        "heading": "挑戰",
+        "title": "為什麼萊爾富的送禮服務做不起來？",
+        "desc": "透過完整的使用者研究與競品分析，我們找出讓「來送禮」難以發揮的三大痛點。這些問題在旅程的每個階段都製造摩擦，從認知到購後體驗。",
+        "item1label": "知名度低：",
+        "item1desc": "多數使用者根本不知道這個服務存在。行銷投入少，流量與轉換都疲弱。",
+        "item2label": "流程複雜：",
+        "item2desc": "送禮流程步驟多、表單欄位繁瑣，也缺乏清楚的視覺引導。",
+        "item3label": "懲罰性政策：",
+        "item3desc": "禮物逾期未領時，使用者得補差價才能兌換，讓人更不想送禮。",
+        "problemsAlt": "問題分析",
+        "insightLabel": "關鍵洞察",
+        "insight": "使用者想要的送禮是即興、社交、零風險的，而現況卻交易感重又複雜。"
+      },
+      "strategy": {
+        "heading": "策略：遊戲化＋社群送禮",
+        "desc": "我們採取雙管齊下：先用病毒式的遊戲化行銷吸引新使用者，再靠社群功能與簡化流程，把他們轉化為活躍的送禮者。",
+        "pillar1": "遊戲化行銷",
+        "pillar1alt": "心理測驗結果頁",
+        "pillar2": "社群送禮功能",
+        "pillar2alt": "許願池功能",
+        "pillar3": "流程優化",
+        "pillar3alt": "禮物推薦",
+        "leanTitle": "以精實畫布評估對萊爾富的商業價值與可行性",
+        "leanAlt": "精實畫布"
+      },
+      "solution1": {
+        "heading": "方案一：心理測驗",
+        "title": "用病毒式的遊戲化帶進流量",
+        "desc": "我們打造了一個依人格特質配對咖啡風味的心理測驗。這個好玩、好分享的體驗成為送禮服務的低門檻入口，把路過的瀏覽者變成投入的使用者。",
+        "quizLabel": "玩玩看測驗",
+        "feat1": "人格與商品的配對機制",
+        "feat2": "社群分享鉤子（成長迴圈）",
+        "feat3": "無縫銜接商品購買",
+        "alt1": "心理測驗畫面 1",
+        "alt2": "心理測驗流程"
+      },
+      "solution2": {
+        "heading": "方案二：許願池與社群送禮",
+        "title": "把送禮變成一種社交活動",
+        "desc": "許願池讓使用者建立並分享自己的禮物清單。送禮的人可以直接瀏覽朋友的願望，送出真正想要的禮物，收禮的人也能發送互動賀卡，提高參與度與擴散力。",
+        "feat1title": "個人許願池",
+        "feat1desc": "使用者整理自己的願望清單，朋友能輕鬆實現。",
+        "feat2title": "好友探索",
+        "feat2desc": "瀏覽朋友的許願池，發現送禮的好時機。",
+        "feat3title": "互動賀卡",
+        "feat3desc": "收禮者可分享客製賀卡，鼓勵朋友回送。",
+        "alt1": "許願池與賀卡客製"
+      },
+      "solution3": {
+        "heading": "方案三：流程優化與政策調整",
+        "title": "移除摩擦，取消懲罰",
+        "desc": "我們全面重新設計送禮流程，聚焦送禮者與收禮者雙方的核心價值主張，同時優化線下配送與點數退還機制，打造無摩擦的 O2O 體驗。",
+        "vpcTitle": "價值主張圖",
+        "giverLabel": "",
+        "giverAlt": "送禮者價值主張",
+        "receiverLabel": "",
+        "receiverAlt": "收禮者價值主張",
+        "blueprintTitle": "服務藍圖",
+        "deliveryTitle": "線下配送服務（來送禮）",
+        "deliveryDesc": "我們提出新的配送平台服務「來送禮」，把禮物直接送到收禮者手上，大幅降低時間成本。送禮者享有運費優惠，也可選擇萊爾富合作物流（如台灣宅配通、新竹物流）取得多元配送選項。",
+        "deliveryAlt": "線下配送流程圖",
+        "refundTitle": "送禮機制優化（點數退還）",
+        "refundDesc": "針對逾期未領的禮物，我們取消了補差價的懲罰性規定，改為「將等值會員點數退回帳戶」。這項優化解除了送禮者的焦慮，也善用點數須下載 App 才能使用的規則，有效提升 App 的開啟率與留存率。",
+        "refundAlt": "補差價機制優化"
+      },
+      "validation": {
+        "heading": "驗證：易用性測試（SUS 與 UEQ）",
+        "desc": "我們用系統易用性量表（SUS）與使用者經驗問卷（UEQ）進行完整的易用性測試，衡量再設計的影響。結果確認使用意願、滿意度與整體體驗都有顯著提升。",
+        "overviewAlt": "SUS 與 UEQ 總覽",
+        "susTitle": "系統易用性量表（SUS）",
+        "susDesc": "90% 受測者給出正面評價，37% 達最高等級（A 級）。低分使用者提到略為複雜與學習成本。",
+        "susAlt1": "SUS 圖表",
+        "susAlt2": "SUS 細節",
+        "ueqTitle": "使用者經驗問卷（UEQ）",
+        "ueqDesc": "吸引力與愉悅度得分最高，功能性高於平均但仍有進步空間，整體 UX 達「良好」等級。",
+        "ueqAlt": "UEQ 結果"
+      },
+      "impact": {
+        "heading": "肯定與影響",
+        "title": "金獎與可量化的商業影響",
+        "awardTitle": "InnoConnect+ 金獎",
+        "awardDesc": "在 2024 InnoConnect+ 競賽 186 組中獲得第 1 名。評審點名肯定專案的策略性遊戲化、以使用者為中心的設計，以及對轉換指標的可量化影響。",
+        "engagementTitle": "提升使用者參與",
+        "engagementDesc": "心理測驗活動與許願池功能，在受測者中帶動使用意願與送禮動機的實質提升。",
+        "researchTitle": "以研究驗證",
+        "researchDesc": "SUS 分數介於 57.5 至 95（n=19），90% 受測者給出正面評價，37% 達 A 級易用性。",
+        "proofAlt": "InnoConnect+ 得獎證明",
+        "reportAlt": "得獎報告"
+      }
+    },
+    "hciPublications": {
+      "header": {
+        "title": "HCI 研究發表",
+        "subtitle": "數據驅動的 UX 與學術探究",
+        "tagline": "用嚴謹研究推進使用者經驗",
+        "desc": "串接實證學術研究與實務產品設計，收錄關於 AI 互動、使用者情緒與個人化科技工作流的同儕審查研究。"
+      },
+      "labels": {
+        "challenge": "研究挑戰與動機",
+        "methodology": "研究方法",
+        "findings": "主要發現",
+        "implications": "對科技產品的設計啟示",
+        "authors": ""
+      },
+      "gcce": {
+        "photoAlt": "GCCE 口頭發表現場",
+        "venue": "發表於 2025 IEEE GCCE（日本大阪，口頭發表）",
+        "title": "",
+        "challenge": "AI 生成語音在數位內容中越來越自然、無所不在，但它的情緒影響仍少有研究。本研究探討 AI 語音的「存在感」（它有多突出）如何在不同媒體情境中影響使用者情緒。",
+        "m1label": "混合方法：",
+        "m1desc": "以量化的自我評估人偶量表（SAM）與質性半結構訪談，評估 39 位大學生。",
+        "m2label": "實驗設計：",
+        "m2desc": "測試三種 AI 語音存在感：高（Podcast）、中（旅遊 Vlog）、低（Instagram 背景音樂）。",
+        "m3label": "統計分析：",
+        "m3desc": "以描述統計與單因子 ANOVA 檢定各條件間情緒差異（愉悅、喚起、支配）的顯著性。",
+        "findings": "量化結果顯示，AI 語音存在感越低，使用者的愉悅與喚起越高。低存在感（Instagram 背景）取得最高愉悅（M=3.59）與喚起（M=2.88）。訪談指出，AI 語音在幽默或資訊型內容中較被接受，在情感表達型內容中較不受青睞。",
+        "pubLabel": "",
+        "pubTitle": "",
+        "pubLink": "",
+        "figAlt": "",
+        "figCaption": "圖一：AI 語音接受度框架，描繪認知與情緒的動態。",
+        "implications": "產品設計師必須依內容目標調校 AI 語音的存在感。這凸顯了情境感知設計的必要：情感型內容用擬人聲調，資訊型短片用中性語調，喜劇效果則可用風格化或機械感的語音。"
+      },
+      "ssim": {
+        "venue": "發表於 SSIM 2024（台灣）",
+        "title": "",
+        "challenge": "AI 作曲工具越來越多，但針對不同先備經驗使用者的 AI 輔助教育，相關研究仍然有限。",
+        "m1label": "使用者分群：",
+        "m1desc": "對兩組大學生（19 至 21 歲）進行焦點團體訪談，分為有無音樂創作經驗兩群。",
+        "m2label": "技術流程：",
+        "m2desc": "實作模組化的端對端 AI 工作流，包含音源分離、AI 歌聲合成（Synthesizer V、ACE Studio）與規則式自動編曲。",
+        "m3label": "成效指標：",
+        "m3desc": "蒐集前後測量化資料，涵蓋六個構面：流暢度、構想、心流、原創性、品質與社交性。",
+        "findings": "兩組都展現正向態度，但需求截然不同。新手在構想、心流與原創性的進步最大；有經驗的學習者則重視建立個人化 AI 模型、希望教師介入越少越好，偏好以提示關鍵字引導。新手高度依賴預設模型，需要更多基礎鷹架。",
+        "figAlt": "",
+        "figCaption": "圖二：模組化 AI 工作流，將分析、條件設定與重合成分離。",
+        "implications": "證實 AI 工具需要能適應使用者的 UI/UX。產品必須做到漸進揭露：給專家進階的模型建構功能與創作自由，給新手簡化的預設模板。"
+      }
+    },
+    "adnex": {
+      "hero": {
+        "badge": "",
+        "badgeSub": "數據驅動的行銷與策略",
+        "title": "以數據與流程優化放大品牌影響力",
+        "desc": "在凱鈿 KDAN 的數據策略品牌 ADNEX 進行 9 個月實習，串接創意內容、KOL 關係經營與數據市場研究，帶動可量化的成長。",
+        "timelineLabel": "時程",
+        "timelineValue": "2024/03 - 11",
+        "roleLabel": "角色",
+        "roleValue": "行銷實習生",
+        "roleSub": "行銷企劃部（10+ 人）",
+        "focusLabel": "核心重點",
+        "focusValue": "社群策略、KOL 管理",
+        "focusSub": "市場研究、AI 導入"
+      },
+      "challenge": {
+        "heading": "挑戰",
+        "desc": "ADNEX 是凱鈿旗下新成立的數據策略品牌，起步時面臨品牌知名度不足的難題。社群渠道的自然觸及與互動偏低，同時 KOL 洽談與合作的內部流程高度仰賴人工，讓 10 人行銷團隊在追蹤與溝通上效率不彰。"
+      },
+      "objectives": {
+        "heading": "我的目標",
+        "o1label": "內容策略：",
+        "o1desc": "翻新社群經營，提升互動。",
+        "o2label": "流程優化：",
+        "o2desc": "把 KOL 洽談流程系統化，建立內部 SOP。",
+        "o3label": "市場洞察：",
+        "o3desc": "運用 OpView 與 Nielsen 工具進行競品分析。",
+        "o4label": "技術導入：",
+        "o4desc": "導入 AI 工具，加速內部創意流程。"
+      },
+      "execution": {
+        "heading": "策略執行與行動",
+        "e1title": "數據驅動的社群策略",
+        "e1desc": "設計並產出 15 則高品質社群貼文。透過診斷觸及低落的根因、分析競品標竿，為 Facebook 與 Instagram 量身打造不同的經營策略，並導入嚴謹的追蹤指標監測成長。",
+        "e1result": "成果：單篇互動率高峰達 10%",
+        "e2title": "KOL 流程優化",
+        "e2desc": "重整 KOL 洽談流程，主動冷開發超過 120 位潛在網紅，協助促成 15 檔合作。建立完整 SOP 文件與標準化結案報告，讓正職與實習生之間的交接更順暢。",
+        "e2result": "成果：大幅提升跨團隊效率",
+        "e3title": "AI 導入與培訓",
+        "e3desc": "率先在部門內導入 AI 生成圖工具。經過自己反覆測試後，建立標準化的 prompt 工程 SOP，並為 10 位正職行銷企劃舉辦兩場教育訓練，讓團隊能獨立產出理想的視覺素材。",
+        "e3result": "成果：加速內部設計流程",
+        "e4title": "市場研究與年度報告",
+        "e4desc": "運用 OpView（社群聆聽）與 Nielsen 工具分析行銷洞察，產出線上英語教育與健身產業的完整年度報告，涵蓋聲量分析、廣告曝光與策略性內容建議。",
+        "e4result": "成果：提供可執行的 B2B 客戶洞察"
+      },
+      "visuals": {
+        "heading": "視覺執行與文件",
+        "socialAlt": "社群貼文",
+        "socialLabel": "社群內容",
+        "kolLabel": "KOL 流程",
+        "aiAlt": "AI 培訓",
+        "aiLabel": "AI 教育簡報"
+      },
+      "impact": {
+        "heading": "可量化的成果",
+        "m1label": "追蹤數成長",
+        "m2label": "平均互動率提升",
+        "m3label": "評估與洽談的 KOL"
+      }
+    },
+    "bigDataCup": {
+      "hero": {
+        "badge": "銅獎（第三名）",
+        "badgeSub": "2024 大數據精準行銷競賽",
+        "title": "突破框架：台畜的市場策略與 App 設計",
+        "desc": "運用大數據分析找出植物性蛋白的市場缺口，設計遊戲化的數位觸點（台畜健身 App），帶動使用者留存與訂閱營收。",
+        "clientLabel": "客戶／品牌",
+        "clientValue": "台畜（T-Ham）",
+        "roleLabel": "我的角色",
+        "roleValue": "市場研究員與 UI/UX 設計師",
+        "roleSub": "數據分析、App 原型",
+        "scopeLabel": "專案範圍",
+        "scopeValue": "上市策略與產品設計",
+        "scopeSub": "大豆蛋白產品線",
+        "coverAlt": "大數據精準行銷競賽封面"
+      },
+      "challenge": {
+        "heading": "商業挑戰",
+        "desc": "台畜是老牌肉品加工大廠，想切入蓬勃的高蛋白市場。我們的挑戰是運用大數據（EICP 資料庫）找出尚未被滿足的消費需求，設計出差異化產品並搭配完整的上市（GTM）策略。",
+        "goal": "目標：推出高蛋白產品並建立品牌忠誠度"
+      },
+      "insights": {
+        "heading": "數據驅動的洞察（EICP）",
+        "i1label": "植物性潛力：",
+        "i1desc": "發現大豆蛋白具高成長潛力，與台灣消費者的飲食習慣高度契合。",
+        "i2label": "實體通路輪廓：",
+        "i2desc": "30-39 歲的年輕專業族群重視服務，願意為高價值付出溢價。",
+        "i3label": "線上通路輪廓：",
+        "i3desc": "20-29 歲的大學生與社會新鮮人對價格敏感，對折扣誘因反應強烈。",
+        "competitorAlt": "競品分析"
+      },
+      "strategy": {
+        "heading": "全通路與留存策略",
+        "desc": "把數據洞察轉化為可執行的產品與行銷。",
+        "s1title": "產品定位",
+        "s1a": "推出全新的",
+        "s1em": "大豆蛋白粉",
+        "s1b": "產品線，與台畜傳統肉品做出區隔，回應日益增加的植物性替代需求與乳糖不耐族群。",
+        "s2title": "差異化 O2O 定價",
+        "s2desc": "採雙通路定價策略：實體零售走加值服務的高價位（鎖定 30-39 歲），線上通路則主打組合折扣（鎖定 20-29 歲）。",
+        "s3title": "訂閱模式",
+        "s3desc": "設計短期行銷主軸聚焦訂閱服務，確保穩定的經常性營收，也降低長期健康投入的進入門檻。",
+        "s4title": "數位生態系（App）",
+        "s4a": "提出",
+        "s4em": "台畜健身 App",
+        "s4b": "作為中長期策略，運用遊戲化（八角框架）建立健身社群與穩固的顧客忠誠計畫。"
+      },
+      "app": {
+        "heading": "UI/UX 設計",
+        "desc": "把訂閱商業模式與遊戲化策略，轉譯成直覺、有吸引力的行動介面，為年輕健身族群設計。",
+        "s1alt": "App 啟動頁",
+        "s1title": "上手引導",
+        "s1desc": "品牌介紹與充滿活力的啟動畫面。",
+        "s2alt": "App 首頁",
+        "s2title": "儀表板",
+        "s2desc": "快速存取每日營養追蹤與目標。",
+        "s3alt": "App 方案頁",
+        "s3title": "訂閱方案",
+        "s3desc": "清楚分層的 O2O 產品訂閱選項。",
+        "s4alt": "App 社群頁",
+        "s4title": "社群中心",
+        "s4desc": "遊戲化的健身挑戰與同好互動。",
+        "s5alt": "App 個人頁",
+        "s5title": "個人檔案",
+        "s5desc": "忠誠獎勵、成就與訂單管理。"
+      },
+      "impact": {
+        "heading": "商業影響與肯定",
+        "m1num": "",
+        "m1label": "總名次（銅獎）",
+        "m2num": "",
+        "m2label": "整合通路策略",
+        "judgesDesc": "評審特別肯定本提案將扎實的 EICP 數據分析，與高度可行的現代數位產品方案無縫整合，證明了上市策略的商業成熟度。"
+      }
+    },
+    "goodLuckPeanut": {
+      "hero": {
+        "badge1": "品牌與包裝",
+        "badge2": "網站改版",
+        "title": "好韻花生",
+        "subtitle": "完整品牌識別與電商改版",
+        "timelineLabel": "時程",
+        "timelineValue": "品牌：2022 | 網站：2023/07-09",
+        "roleLabel": "我的角色",
+        "roleValue": "品牌視覺規劃、UI/UX 設計",
+        "recognitionLabel": "獲獎",
+        "recognitionValue": "文創畢業展 第二名"
+      },
+      "overview": {
+        "heading": "專案概述",
+        "desc": "這個專案為福瑄食品這家傳統台灣花生糖製造商，進行完整的品牌改造與現代電商網站設計。目標是在保留豐厚客家文化底蘊的同時，翻新品牌視覺識別與數位形象，跨越世代之間的喜好落差。",
+        "part1title": "第一部分：品牌與包裝",
+        "part1desc": "以客家傳統為靈感的現代包裝設計，說出文化故事",
+        "part2title": "第二部分：網站改版",
+        "part2desc": "以使用者為中心的電商體驗，改善導覽與轉換流程"
+      },
+      "brand": {
+        "heading": "品牌與包裝改造",
+        "subtitle": "為現代消費者重新活化傳統台灣花生糖",
+        "challengeHeading": "挑戰",
+        "challengeDesc": "福瑄食品面臨年輕客群流失的問題。傳統包裝無法傳達產品的文化價值與品質，讓它看起來過時，而非充滿底蘊。",
+        "pain1": "舊包裝黏手，不符合現代的食用情境",
+        "pain2": "視覺識別無法吸引 18-35 歲客群",
+        "pain3": "文化底蘊的故事沒有被有效傳達",
+        "oldPackImg": "（圖：舊有傳統包裝）"
+      },
+      "strategy": {
+        "heading": "策略",
+        "narrativeTitle": "文化敘事：好韻",
+        "narrativeDesc": "品牌重塑圍繞客家「天穿日」展開。「韻」在中文指韻律、節奏，發音上也帶有「好運」與福氣的意涵。這個雙重意義把花生糖從單純的零食，變成象徵祝福與興旺、有文化意義的禮物。",
+        "pillar1title": "文化連結",
+        "pillar1desc": "扎根於客家「天穿日」傳統，讓產品具有文化意義",
+        "pillar2title": "視覺現代化",
+        "pillar2desc": "結合版畫美學與當代設計原則",
+        "pillar3title": "形式創新",
+        "pillar3desc": "單份即食包裝，解決黏手問題，也創造適合送禮的形式"
+      },
+      "design": {
+        "heading": "設計方案",
+        "img1": "（圖：最終包裝設計 - 主視覺）",
+        "img2": "（圖：版畫風格圖像）",
+        "img3": "（圖：品牌角色與吉祥物）",
+        "img4": "（圖：單份包裝設計）",
+        "img5": "（圖：禮盒組）",
+        "f1label": "版畫視覺：",
+        "f1desc": "以鮮明色彩與俐落字體，讓客家傳統藝術風格現代化",
+        "f2label": "單份包裝創新：",
+        "f2desc": "單份即食包裝消除黏手問題，提升攜帶便利性",
+        "f3label": "適合送禮的形式：",
+        "f3desc": "適合節慶與文化場合的精緻包裝"
+      },
+      "web": {
+        "subtitle": "現代化的電商體驗",
+        "contextHeading": "專案背景",
+        "contextDesc": "品牌改造成功後，官網需要完整翻新，才能對齊新的品牌識別並改善使用者體驗。舊網站導覽不良、產品資訊不清，轉換率也偏低。",
+        "compareHeading": "改版前後對比",
+        "oldTitle": "舊網站",
+        "oldImg": "（圖：舊網站截圖）",
+        "old1": "導覽雜亂",
+        "old2": "視覺設計過時",
+        "old3": "行動裝置體驗不佳",
+        "old4": "產品資訊不清",
+        "newTitle": "新網站",
+        "newImg": "（圖：新網站截圖）",
+        "new1": "導覽乾淨直覺",
+        "new2": "契合品牌的現代設計",
+        "new3": "行動優先的響應式設計",
+        "new4": "產品呈現清楚",
+        "mapHeading": "UX 流程：功能地圖",
+        "mapDesc": "我製作了完整的功能地圖，重新整理網站的資訊架構。這個過程幫助找出使用者痛點，並簡化導覽結構，提升可發現性與轉換。",
+        "mapImg": "（圖：功能地圖／網站架構）",
+        "uiHeading": "UI 設計：高擬真畫面",
+        "uiDesc": "最終 UI 設計聚焦三個關鍵頁面：首頁（品牌故事與精選商品）、品牌介紹（客家文化與公司價值）、商品列表（直覺瀏覽與篩選）。",
+        "screen1img": "（圖：首頁設計）",
+        "screen1": "首頁",
+        "screen2img": "（圖：品牌介紹頁）",
+        "screen2": "品牌介紹",
+        "screen3img": "（圖：商品列表頁）",
+        "screen3": "商品列表",
+        "h1title": "品牌敘事",
+        "h1desc": "首頁主視覺呈現客家文化與「好韻」概念",
+        "h2title": "直覺導覽",
+        "h2desc": "簡化的選單結構，商品分類與篩選清楚明確",
+        "h3title": "行動優先設計",
+        "h3desc": "為手機購物體驗優化的響應式版面"
+      },
+      "outcome": {
+        "heading": "成果與影響",
+        "subtitle": "肯定與成果",
+        "r1title": "第二名",
+        "r1desc": "榮獲文化創意畢業展第二名，肯定在文化品牌設計與數位創新上的表現。",
+        "r2title": "品牌重新定位",
+        "r2desc": "成功為年輕客群重新定位傳統產品，同時保留文化的真實性。",
+        "r3title": "數位轉型",
+        "r3desc": "打造現代化電商平台，改善使用者體驗與銷售轉換。"
+      }
+    },
+    "timesAwards": {
+      "labels": {
+        "thirdPlace": "🥉 第三名",
+        "shortlisted": "✨ 入選",
+        "concept": "概念",
+        "creativeElements": "創意元素",
+        "keyCopy": "核心文案"
+      },
+      "hero": {
+        "badgeSub": "影片類 - 全國",
+        "badge2": "✨ 3 件作品入選",
+        "title": "2025 第 34 屆時報金犢獎",
+        "subtitle": "永慶房屋雇主品牌廣告",
+        "timelineLabel": "時程",
+        "timelineValue": "2025/03 - 05",
+        "timelineSub": "時報金犢獎",
+        "roleLabel": "我的角色",
+        "roleValue": "創意策略、文案",
+        "roleSub": "多媒體設計",
+        "teamLabel": "團隊",
+        "teamValue": "4 人",
+        "teamNames": "簡綺韻、陳柏宇、王和琦、張韻柔",
+        "recognitionLabel": "獲獎",
+        "recognitionValue": "第三名",
+        "recognitionSub": "3 件作品入選"
+      },
+      "overview": {
+        "title": "多渠道雇主品牌廣告",
+        "desc": "為永慶房屋打造的整合廣告，把求職重新想像成一場「職涯扭蛋」體驗。作品拿下影片類全國第三名，另有三件作品在互動與聲音類入選，展現整合創意策略的實力。"
+      },
+      "concept": {
+        "heading": "核心概念",
+        "quote": "「求職就像扭蛋。」",
+        "desc": "我們把求職的焦慮，轉化成扭蛋機的期待與興奮。每一「轉」代表一個職涯選擇，但不同於隨機運氣，永慶提供的是有保障的價值，讓這個比喻既有共鳴又給人力量。",
+        "keyMessageLabel": "核心訊息：",
+        "keyMessage": "「真正的價值不靠運氣，而是選對值得的夥伴。」"
+      },
+      "works": {
+        "heading": "創意作品",
+        "formatsLabel": "媒體形式",
+        "formatsValue": "影片、網頁、聲音",
+        "resultValue": "第三名",
+        "resultSub": "＋ 3 件入選"
+      },
+      "work1": {
+        "title": "作品一：轉職慶典",
+        "format": "影片廣告",
+        "concept": "主影片打造了一台為社會新鮮人設計、視覺搶眼的扭蛋機。透明扭蛋裡裝著象徵性的「職涯法寶」，像是「保障 5 萬月薪」與「免綁約自由」。影片用溫暖、有邀請感的畫面，對比一般求職的冷酷現實，把永慶定位成值得信賴的夥伴，而非一場賭注。",
+        "el1": "實體扭蛋機道具設計",
+        "el2": "象徵性的「職涯法寶」視覺比喻",
+        "el3": "社會新鮮人的角色敘事",
+        "el4": "溫暖畫面對比冷酷職場的反差",
+        "alt": "轉職慶典",
+        "linkTitle": "《轉動職涯》",
+        "linkLabel": "影片作品 ↗"
+      },
+      "work2": {
+        "title": "作品二：轉動職涯",
+        "format": "網頁互動（聊天機器人風格）",
+        "concept": "一個仿 Line 聊天機器人的線上互動體驗，使用者「轉動」數位扭蛋機，抽到「職涯訂閱通行證」，巧妙致敬 Netflix 的訂閱模式。每張「通行證」解鎖不同職涯福利（培訓、導師、彈性），把探索永慶員工價值主張的過程遊戲化。",
+        "keyCopy": "「訂閱你的職涯，而不只是一份工作。」",
+        "el1": "Netflix 訂閱致敬（熟悉的 UX 模式）",
+        "el2": "遊戲化的福利探索機制",
+        "el3": "Line 聊天機器人式的對話介面",
+        "el4": "可收集的「職涯通行證」視覺設計",
+        "alt": "作品視覺",
+        "altDetail1": "視覺細節 1",
+        "altDetail2": "視覺細節 2",
+        "linkLabel": "互動網頁 ↗"
+      },
+      "work3": {
+        "title": "作品三：工作不靠運",
+        "format": "網頁互動／心理測驗",
+        "concept": "一個好分享的心理測驗，翻轉了面試的劇本：「別只問面試官，先問問自己。」使用者透過趣味問題找出自己的職場性格，得到與永慶文化相符的個人化洞察。這個病毒式的形式帶動自然流量，也讓求職者學會在職涯規劃裡自我覺察。",
+        "keyCopy": "「別只問面試官，先問問自己。」",
+        "el1": "自我探索的敘事弧線",
+        "el2": "職場性格配對演算法",
+        "el3": "可分享的社群結果（病毒機制）",
+        "el4": "嵌入教育意義的價值主張",
+        "alt": "心理測驗",
+        "linkTitle": "《工作不靠運，職涯選永慶》"
+      },
+      "work4": {
+        "title": "作品四：這一轉，選對了",
+        "format": "聲音廣告",
+        "concept": "純聲音的體驗，用聲音設計模擬轉動扭蛋機時那種觸覺般的期待。「喀、喀、喀」的節奏像心跳，在成功「啵」一聲前堆疊張力。腳本巧妙運用第一人稱敘事，讓聽眾彷彿正即時做出自己的職涯選擇。",
+        "el1": "扭蛋機聲音模擬",
+        "el2": "與心跳同步的節奏（堆疊張力）",
+        "el3": "第一人稱的沉浸式旁白",
+        "el4": "純聲音敘事（心中的劇場）",
+        "soundLabel": "核心聲音設計",
+        "sound": "「喀、喀、喀⋯（心跳節奏）⋯啵！（做出職涯選擇）」",
+        "linkTitle": "《這一轉，選對了》",
+        "linkLabel": "聲音作品 · 點擊聆聽 ↗"
+      },
+      "playlist": {
+        "title": "《完整作品播放清單》",
+        "linkLabel": "YouTube 播放清單 ↗"
+      },
+      "impact": {
+        "heading": "廣告成效與肯定",
+        "title": "跨多種形式的全國肯定",
+        "r1title": "時報金犢獎 第三名",
+        "r1desc": "以「轉職慶典」拿下影片類全國第三名，在數百件投稿中，因創意表現與雇主品牌的策略訊息獲得肯定。",
+        "r2title": "多形式的成功",
+        "r2desc": "另有三件作品在互動與聲音類入選，展現創意執行的多元與整合廣告的思維。",
+        "r3title": "策略性創意",
+        "r3desc": "成功在趣味比喻（扭蛋）與嚴肅的雇主價值主張之間取得平衡，讓招募訊息既好記又有效。"
+      },
+      "insights": {
+        "heading": "創意洞察",
+        "i1title": "比喻即策略",
+        "i1desc": "「扭蛋」不只是裝飾，而是把求職焦慮重新框定為愉快期待的策略工具。",
+        "i2title": "整合敘事",
+        "i2desc": "單一概念（職涯扭蛋）延伸到 4 種形式（影片、網頁、聲音），證明了彈性創意平台的力量。",
+        "i3title": "賦能勝過推銷",
+        "i3desc": "廣告以求職者的自我覺察與賦能（問問自己）為優先，取代硬性推銷，建立信任與品牌好感。"
+      }
+    },
+    "archive": {
+      "header": {
+        "eyebrow": "探索與典藏",
+        "title": "精選作品與實驗",
+        "subtitle": "收錄得獎的行銷企劃、品牌識別設計，以及跨文化工作坊原型，呈現我跨領域的解題方式。"
+      },
+      "peanut": {
+        "title": "好韻花生",
+        "type": "品牌識別與包裝企劃",
+        "role": "品牌視覺、網頁設計 | 4 人團隊",
+        "pitch": "取材客家天穿日文化，為苗栗老字號食品廠打造年輕化的品牌重塑，透過創新包裝與視覺識別提升在地特產的價值。",
+        "award1": "🥉 苗栗青年農村創新獎 — 銅獎",
+        "award2": "🥈 校內專題競賽 — 第二名",
+        "tag1": "品牌識別",
+        "tag2": "包裝",
+        "tag3": "網頁設計"
+      },
+      "bass": {
+        "title": "鱸魚精の誕生",
+        "type": "創意短影音行銷",
+        "role": "概念、剪輯、配音 | 2 人團隊",
+        "pitch": "把「神創造萬物」的網路迷因融入產品特色，做出一支幽默的動畫短片，打中疲憊的上班族，推廣一款鱸魚精補品。",
+        "award1": "🥈 2023 第 8 屆 TSC 行銷研討會 — 銀獎",
+        "tag1": "影片剪輯",
+        "tag2": "創意策略",
+        "tag3": "行銷"
+      },
+      "finlit": {
+        "title": "理財素養 App",
+        "type": "創新創業與設計思考提案",
+        "role": "UI/UX 設計師 | 跨國工作坊",
+        "pitch": "在北科大 × PSU（賓州州立大學）跨國工作坊中，結合生成式 AI 與遊戲化學習，設計一款提升年輕人理財素養的創新 App 提案。",
+        "award1": "🏆 北科大 × 賓州州立大學工作坊展示",
+        "tag1": "UI/UX",
+        "tag2": "GenAI",
+        "tag3": "設計思考"
+      },
+      "filters": {
+        "all": "全部",
+        "competitions": "競賽",
+        "brand": "品牌與視覺",
+        "workshops": "工作坊"
+      }
+    }
+  }
+}
