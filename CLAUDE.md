@@ -128,7 +128,7 @@ Token 分三層，全部定義在 src/styles/globals.css：
 * 成效驗證：SUS 90% 正面、UEQ 三維度皆正向（N=19）；成長迴圈問卷顯示 68% 因心理測驗而使用「來送禮」、73% 願試買 Hi Café，可用性測試 N=19（SUS / UEQ）。
 * 合作對象是萊爾富 Hi-Life，不是全家 FamilyMart。
 
-* Mú：台灣瀕危珍貴木材多感官導覽， Rose 負責使用者研究與提案設計，N=23 訪談與問卷。
+* Mù：台灣瀕危珍貴木材多感官導覽， Rose 負責使用者研究與提案設計，N=23 訪談與問卷。 專案名稱一律寫 Mù（u 上為第四聲符號 ù）， 禁止寫成 Mú、Mǔ、Mū 或無聲調的 Mu。
 
 * 獎項：UX Design Awards 提名
 * 我負責：提案發想、使用者研究（N=23 問卷＋訪談）、user journey、persona、pitch 影片與 AI 輔助展場建模
