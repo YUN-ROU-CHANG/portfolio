@@ -4,10 +4,50 @@ CLAUDE.md
 技術棧
 React 18 + TypeScript + Vite 6 + Tailwind CSS v4 + shadcn/ui
 
-* Framer Motion (motion/react) + react-router-dom，部署於 Vercel。 Tailwind v4 採 CSS-first 設定，無 tailwind.config.js， 所有 token 定義在 src/styles/globals.css 的 @theme 與 @theme inline。
+* Framer Motion (motion/react) + react-router，部署於 Vercel。 路由用 HashRouter，一律 import 自 `react-router`，路由表在 src/App.tsx。 package.json 雖同時裝了 react-router-dom，程式碼未使用。 Tailwind v4 採 CSS-first 設定，無 tailwind.config.js， 所有 token 定義在 src/styles/globals.css 的 @theme 與 @theme inline。
 
 設計 Token（唯一來源）
 所有顏色一律使用 semantic token，禁止硬編碼色值。 Primitive：--ink #0C0C0C / --bone #EEEAE0 / --acid #FFE699 全站只有這三個色相，不得引入第四個色相（藍色一律移除）。 中性階由 ink 派生，不得另建灰色系。
+
+Token 分三層，全部定義在 src/styles/globals.css：
+
+1. Primitive：--ink #0C0C0C、--ink-2 #1A1A18、--ink-bright #E6E1D6、 --bone #EEEAE0、--bone-2 #E3DED1、--bone-3 #F6F2E7、 --acid #FFE699、--acid-ink #7A5C00。
+2. Semantic：--background、--surface、--surface-muted、--surface-subtle、 --surface-inverse、--card-glass、--text-primary、--text-secondary、 --text-tertiary、--text-on-inverse、--border、--border-strong、 --accent、--on-accent、--accent-text、--accent-on-inverse。
+3. shadcn 相容層：--card、--muted、--primary、--popover、--chart-* 等， 一律指向第 2 層，不得自帶色值。
+
+* 新增顏色一律引用第 2 層 semantic token。 直接引用 primitive（--ink、--bone）會導致暗色模式不翻轉。
+* 中性階實際值：亮色 --text-primary #0C0C0C／--text-secondary #4A4A4A／--text-tertiary #616161； 暗色 #E6E1D6／#B5B0A6／#A6A199。
+* --color-text-muted 指向 --text-secondary，不指向 tertiary。
+
+亮暗模式
+.dark class 加在 html，偏好存 localStorage key `theme`， index.html 內嵌 pre-paint script 防止閃爍，切換鈕在 Layout 膠囊導航內。
+
+* globals.css 的 .dark 區塊覆寫整套 semantic token，primitive 維持不變。
+* --on-accent 在兩個模式固定為 --acid-ink。acid 底元素一律鎖 color: var(--on-accent)。
+* --accent-text 亮色為 #7A5C00，暗色為 #FFE699。
+* 深底元素（.top-cta、頁尾深色按鈕）用 --surface-inverse 加 --accent-on-inverse，暗色模式會反轉為亮底。
+* Home 的 Research／Thesis 面板兩模式固定深色（底 --ink-2、字 --bone、斜線 --acid），不要改用會翻轉的 token 當底色。
+* project 案例頁（src/pages/project/*.tsx）的 mockup 採「色相保留、明度自適應」： 粉彩底用 color-mix(色相 10~22%, var(--surface))， 深色相文字用 color-mix(色相 55%, var(--text-primary))， 白玻璃卡一律 var(--card-glass)。 自帶深底的手機畫面 mockup（--sg-night 等）維持靜態。
+* 動 mockup 配色前要先問使用者。
+
+可用性判準
+
+* 文字對比一律符合 WCAG 2.1 AA：一般 ≥ 4.5:1，大字 ≥ 3:1。 全站 31 項對比已於 2026/07/24 重算通過，改動顏色後要重新驗證。
+* 漸層只允許出現在非閱讀區（Hero、章節過渡、品牌識別、裝飾背景）。 正文、研究方法、數據圖表、表格一律純底色加 ink 文字。
+* acid 只能當強調（重點數字、hover、標記），不得大面積鋪背景或當文字底色。
+* 漸層要耐 JPEG 壓縮與低階投影，避免 banding。
+* 稽核判定標籤只用【保留】【收斂】【移除】。 理由若只是「好看」就歸收斂或移除。
+
+文案架構（i18n）
+文案唯一來源是 src/locales/en.json 與 src/locales/zh.json，各 1,180 個 key，結構相同。 改文案編輯 JSON，不要改 component。
+
+* src/contexts/LanguageContext.tsx 提供 useLanguage() 的 t(key)、setLocale、locale。
+* zh 缺值或空字串自動 fallback 到 en，key 不存在時回傳 key 本身。
+* 語言偏好存 localStorage key `locale`，並同步 html lang（zh 為 zh-Hant）。
+* 語言切換鈕在 Layout 膠囊導航內，顯示目標語言（中／EN）。
+* zh.json 目前有 88 個 key 是空字串走 fallback，多數為刻意保留英文的專有名詞（Rose Chang、UX Design Awards 等）。
+* 以下刻意未抽成 i18n，補抽會壞版或無意義，禁止改動： aria-label（Layout 手機版 CSS 用 button[aria-label="Go back"] 當選擇器掛樣式）、 email、純符號、Photography 的 Go to slide 模板字串、Clock 的 TPE 前綴。
+
 字體
 標題（英）Space Grotesk，內文（英）Inter，metadata IBM Plex Mono。 中文標題與內文皆用 Noto Sans TC，靠字重 700 對 400 拉開層次。 不使用台北黑體（本專案已定案採 Noto Sans TC 備案）。 全站開啟 font-variant-numeric: tabular-nums。
 語氣與文案規則
@@ -36,7 +76,9 @@ React 18 + TypeScript + Vite 6 + Tailwind CSS v4 + shadcn/ui
 * 禁止寫成 EMA、ecological momentary assessment、diary study、 longitudinal study、日記研究、縱貫研究。
 * 量化樣本數：N=48（每組 16 人）
 * 質性訪談樣本數：N=45
-* 禁止把 45 寫成量化樣本數，也禁止把 48 寫成訪談人數。
+* 前導研究樣本數：N=6（ORID 半結構訪談）
+* 三個樣本數彼此獨立：前導 N=6、量化 N=48、質性訪談 N=45。 禁止把 45 寫成量化樣本數，禁止把 48 寫成訪談人數， 也禁止把 6 寫成量化樣本數或質性訪談人數。
+* 研究工具：自建 app「Sleep Guardian」，以 React Native / Expo 開發。 禁止寫成現成 app 改裝，禁止改寫 app 名稱。
 * 分析工具：SPSS
 * 關鍵發現可引用：
    * 客觀與主觀分裂：感官與訴求對主觀心理有大效果（η²p .18 到 .29）， 對自動化滑動行為幾乎無影響。
@@ -54,6 +96,19 @@ React 18 + TypeScript + Vite 6 + Tailwind CSS v4 + shadcn/ui
 * 禁止寫「two IEEE papers」或任何等效說法。 正確說法為「two first-author conference papers」（這裡的2篇第一作者是只SSIM & GCCE）。
 
 專案
+
+* Sleep Guardian：碩士論文的研究工具與案例頁。 所有研究方法、實驗設計、樣本數、統計結果一律以上方「碩士論文」為準，不得另行敘述。
+
+* 頁面定位：M.S. Thesis Research，狀態 Completed，2025 到 2026
+* 我負責：Lead Researcher、App Developer、Interaction Designer
+* 技術：React Native / Expo 自建實驗平台，四個核心模組為 Instagram feed 模擬、 體驗碼與拉丁方格派送（T／E／F 組別對應 R1 到 R4 順序）、行為資料自動記錄、WebView 問卷
+* 實驗協定：時間鎖定 21:00 到 03:00、前 3 分鐘沉浸期不發通知、通知間隔 3 分鐘
+* 順序平衡：4×4 拉丁方格（三種感官模態加基線共 4 個受測者內條件）
+* 客觀行為指標兩項：Notification Dismissal Latency（NDL）、Post-notification Scroll Count（PSC）
+* 量表：BPS、BSCS、REI-10、PAD、TAM、UEQ-S
+* 理論依據：威脅訴求本於 Witte EPPM（1992）、共情訴求本於 Neff（2003）自我慈悲、 設計摩擦本於 Cox et al.（2016）
+* 文獻回顧 50+ 篇同儕審查文獻
+* 樣本數推估用 G*Power（Faul et al., 2007）
 
 * Oblivilight：OpenHCI 工作坊作品，7 人團隊，獲 Best Demo， 受邀於 TAICHI 展示。
 
@@ -79,6 +134,16 @@ React 18 + TypeScript + Vite 6 + Tailwind CSS v4 + shadcn/ui
 * 我負責：提案發想、使用者研究（N=23 問卷＋訪談）、user journey、persona、pitch 影片與 AI 輔助展場建模
 * 研究驅動決策：以問卷與訪談檢驗原始「睡眠艙」構想後，主導方向轉換，聚焦台灣 12 種珍貴木的認知推廣
 
+* Good Luck Peanut（好韻）：福瑄食品品牌與包裝改造，加上官網改版。
+
+* 獎項：文創畢業展第二名（2nd Place, Creative Culture Graduate Exhibition）
+* 時程：品牌 2022；網站 2023 年 7 月到 9 月
+* 我負責：品牌視覺規劃、UI/UX 設計
+* 客戶：福瑄食品（Fuhshyuan Foods），台灣傳統花生糖製造商。 禁止寫成其他廠商。
+* 文化切點：客家「天穿日」，「韻」字諧音「運」， 把花生糖從零食轉為帶祝福意味的禮品
+* 三支策略：文化連結、視覺現代化（木刻版畫風格）、 格式創新（單顆隨手包解決黏手問題並適合送禮）
+* 網站改版重做資訊架構功能地圖，高保真聚焦三頁： Homepage、About Brand、Product Listing
+
 * ADNEX（凱鈿子公司）實習：社群經營與 KOL 行銷，
 
 * 開發 110+ 位 KOL、全程執行約 15 檔合作（洽談、合約到結案），推動品牌知名度
@@ -97,9 +162,11 @@ React 18 + TypeScript + Vite 6 + Tailwind CSS v4 + shadcn/ui
 * 競賽：時報金犢獎第三名（永慶房屋雇主品牌招募廣告設計獎）、 大數據精準行銷競賽第三名。
 * Fulbright workshop 與 Penn State GenAI Design Thinking Workshop 是兩個完全不同的活動，禁止合併或互相替換敘述。
 * Python 證照：ITS Python 認證為真實持有。 僅可出現在 Resume 頁的 Certifications 區塊， 禁止出現在首頁、About 技能標語或任何 skill highlight。
-* 禁止提及 Arduino。
+* Arduino 僅可描述為 Oblivilight 的團隊產品技術（硬體由組員負責）， 禁止列為 Rose 的個人技能或個人貢獻。 （2026/07/21 使用者裁決，覆蓋先前的全面禁提規則。）
 * 禁止使用 Instagram 24 位追蹤者成長數字。
+* 禁止使用 101% IG 成長目標數字，任何 Adnex 文案都不得再出現。 （2026/07/21 已從 Projects.tsx 與 AdnexInternship.tsx 移除。）
 * Footer 年份 2026，網址 yunrouchang.me。 禁止出現舊網址 roseportfolio-rho.vercel.app。
+* 站上另有 Times Awards、Big Data Cup、HCI Publications、Project Archive、 Photography、How I Built This 等頁面，事實紅線尚未建立。 改動這些頁面的數字、獎項或機構名稱前要先問使用者。
 
 工作方式
 
