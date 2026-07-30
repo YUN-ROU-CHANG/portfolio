@@ -258,16 +258,18 @@ export default function AdnexInternship() {
                 <h2 className="banner-title">{t('project.adnex.impact.heading')}</h2>
                 <div className="metrics-row">
                   <div className="metric-box">
-                    <div className="metric-number">{'750+'}</div>
+                    <div className="metric-number">{t('project.adnex.impact.m1value')}</div>
                     <div className="metric-label">{t('project.adnex.impact.m1label')}</div>
+                    <div className="metric-sub">{t('project.adnex.impact.m1sub')}</div>
                   </div>
                   <div className="metric-box">
-                    <div className="metric-number">{'5%↑'}</div>
+                    <div className="metric-number">{t('project.adnex.impact.m2value')}</div>
                     <div className="metric-label">{t('project.adnex.impact.m2label')}</div>
                   </div>
                   <div className="metric-box">
-                    <div className="metric-number">{'120+'}</div>
+                    <div className="metric-number">{t('project.adnex.impact.m3value')}</div>
                     <div className="metric-label">{t('project.adnex.impact.m3label')}</div>
+                    <div className="metric-sub">{t('project.adnex.impact.m3sub')}</div>
                   </div>
                 </div>
               </div>
@@ -651,6 +653,15 @@ export default function AdnexInternship() {
             opacity: 0.9;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+          }
+
+          .metric-sub {
+            margin-top: 6px;
+            max-width: 22ch;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            line-height: 1.5;
+            opacity: 0.72;
           }
 
           /* Animations */

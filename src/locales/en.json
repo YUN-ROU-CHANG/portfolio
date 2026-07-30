@@ -802,7 +802,7 @@
         "item5title": "Main experiment (N=48)",
         "item5desc": "Recruitment and data collection completed: N=48 (16 per group), plus 45 qualitative interviews.",
         "item6title": "Results, analysis & design recommendations",
-        "item6desc": "Mixed ANOVA in SPSS completed; thesis defended on June 26, 2026. Headline findings: interventions moved subjective emotion strongly (η²p = .18–.29) while automatic scrolling barely changed; appeal-type differences concentrated in the audio-only channel; design friction showed a very large arousal effect against baseline (d = −1.282)."
+        "item6desc": "Mixed ANOVA in SPSS completed; thesis defended on June 26, 2026. Headline findings: interventions moved subjective emotion strongly (η²p = .18–.29) while automatic scrolling barely changed; appeal-type differences concentrated in the audio-only channel; design friction showed a very large arousal effect against baseline (d = −1.282); and only the empathy group’s intention converted into actual behaviour (r = +.516)."
       }
     },
     "oblivilight": {
@@ -837,7 +837,7 @@
       },
       "research": {
         "heading": "User Research & Insights",
-        "desc": "Understanding the emotional weight of digital memory and the anxiety around AI data retention.",
+        "desc": "I led 11 user interviews on the emotional weight of digital memory. They surfaced one contradiction that reset the project: people want to confide in AI but fear being remembered permanently. That finding pushed us off the original AI-diary concept and onto active forgetting as the core experience, and I translated colour psychology into a system of 10 emotional light states.",
         "alt1": "User Concern",
         "alt2": "After Interview",
         "alt3": "Interview Results",
@@ -932,7 +932,7 @@
       },
       "research": {
         "heading": "Research & Insights Synthesis",
-        "intro": "To ensure our solution was grounded in reality, we conducted a mixed-methods research approach, including desk research and a quantitative survey (n=23) focused on wood fragrance experiences.",
+        "intro": "To ensure our solution was grounded in reality, we conducted a mixed-methods research approach, including desk research and a quantitative survey (n=23) focused on wood fragrance experiences. Testing our original sleep-pod concept against that data is what killed it — I led the pivot to building recognition for Taiwan’s 12 precious woods instead.",
         "woodsTitle": "Taiwan's Precious Woods",
         "woodsAlt": "Precious Woods of Taiwan",
         "f1title": "Interest vs. Knowledge Gap",
@@ -992,7 +992,7 @@
       },
       "intro": {
         "title": "InnoConnect+ 2024 Challenge",
-        "desc": "Gold Award, Hi-Life Track — 2024 National Service Innovation Competition (186 teams entered, 10 finalists). This project reimagined Hi-Life's \"Send a Gift\" (來送禮) O2O service through strategic gamification and social features that drove measurable increases in user engagement and conversion rates."
+        "desc": "Gold Award, Hi-Life Track — InnoConnect+ 2024 National Service Innovation Competition (186 teams entered, 10 finalists). This project reimagined Hi-Life's \"Send a Gift\" (來送禮) O2O service through strategic gamification and social features that drove measurable increases in user engagement and conversion rates."
       },
       "overview": {
         "heading": "Project Overview",
@@ -1084,9 +1084,9 @@
         "heading": "Recognition & Impact",
         "title": "Gold Award Winner & Measurable Business Impact",
         "awardTitle": "InnoConnect+ Gold Award",
-        "awardDesc": "Gold Award, Hi-Life Track — 2024 National Service Innovation Competition (186 teams entered, 10 finalists). The judges recognized the project's strategic gamification, user-centered design, and measurable impact on conversion metrics.",
+        "awardDesc": "Gold Award, Hi-Life Track — InnoConnect+ 2024 National Service Innovation Competition (186 teams entered, 10 finalists). The judges recognized the project's strategic gamification, user-centered design, and measurable impact on conversion metrics.",
         "engagementTitle": "Increased User Engagement",
-        "engagementDesc": "The psychological test campaign and wishlist features drove meaningful improvements in user acquisition intent and gifting motivation across tested participants.",
+        "engagementDesc": "In the concept validation survey (n=19), 68% said the personality quiz would make them use Send-a-Gift, and 73% said it made them willing to try Hi Café — the growth loop worked in both directions.",
         "researchTitle": "Validated by Research",
         "researchDesc": "SUS scores ranged from 57.5 to 95 (n=19), with 90% of participants giving positive ratings and 37% reaching A-level usability.",
         "proofAlt": "InnoConnect+ Award Proof",
@@ -1197,9 +1197,14 @@
       },
       "impact": {
         "heading": "Quantifiable Impact",
-        "m1label": "Follower Growth",
-        "m2label": "Avg. Engagement Rate Increase",
-        "m3label": "KOLs Evaluated & Outreach"
+        "m1value": "10.26%",
+        "m1label": "Best Post Engagement Rate",
+        "m1sub": "2× the 5.09% average over my time there",
+        "m2value": "110+",
+        "m2label": "KOLs Sourced",
+        "m3value": "~15",
+        "m3label": "Campaigns Run End-to-End",
+        "m3sub": "Outreach through contract to wrap-up"
       }
     },
     "bigDataCup": {
