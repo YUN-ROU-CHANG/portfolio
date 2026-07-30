@@ -72,7 +72,7 @@
         "imgAlt": "Innoconnect"
       },
       "publications": {
-        "titlePre": "Voice of Machines —",
+        "titlePre": "Publications —",
         "titleHighlight": "two",
         "titlePost": "first-author conference papers.",
         "desc": "First-author research on Human-AI music collaboration and AI voice emotion, presented at IEEE GCCE 2025 and SSIM 2024. The SSIM paper won the Best Paper Award.",
@@ -159,7 +159,7 @@
       },
       "innoconnect": {
         "title": "InnoConnect+ Service Innovation (Gold)",
-        "desc": "End-to-end UX/UI design for Hi-Life O2O gifting service (Ranked 1/186)."
+        "desc": "End-to-end UX/UI design for Hi-Life's O2O gifting service. Gold Award, Hi-Life track."
       },
       "bigData": {
         "title": "Big Data Marketing Cup (3rd Place)",
@@ -223,7 +223,7 @@
       "catCraft": "Craft",
       "catStrategy": "Strategy",
       "usability": "Usability Testing",
-      "diary": "Diary Studies",
+      "counterbalancing": "Latin Square Counterbalancing",
       "spss": "SPSS / Quant",
       "interviews": "Interviews",
       "survey": "Survey Design",
@@ -342,7 +342,7 @@
         "period": "2024 Oct - 2025 Mar",
         "type": "Service Design & UX",
         "title": "Innoconnect | Gift Service Optimization",
-        "desc": "🏆 Gold Award Winner (1/186). Optimizing the O2O gifting experience for Hi-Life via gamification and social features.",
+        "desc": "🏆 Gold Award, Hi-Life track. Optimizing the O2O gifting experience for Hi-Life via gamification and social features.",
         "tag1": "Gold Award",
         "tag2": "Service Design",
         "tag3": "Gamification"
@@ -354,7 +354,7 @@
         "desc": "🏆 Best Demo Award Winner. A tangible interaction device built in a 6-day workshop exploring how AI \"forgets\".",
         "tag1": "Best Demo Award",
         "tag2": "Tangible UI",
-        "tag3": "Arduino"
+        "tag3": "Tangible Prototype"
       },
       "mu": {
         "period": "2025 Jul - Dec",
@@ -977,7 +977,7 @@
     "innoconnect": {
       "hero": {
         "badge": "🏆 Gold Award Winner",
-        "badgeSub": "1st Place / 186 Teams",
+        "badgeSub": "Hi-Life Track · 186 Teams, 10 Finalists",
         "title": "Innoconnect | Hi-Life Gift Service Optimization",
         "subtitle": "Revitalizing the Digital Gifting Experience for a Major Taiwanese Retail Chain",
         "timelineLabel": "Timeline",
@@ -988,11 +988,11 @@
         "roleSub": "Team \"Lai Yi Ka\" (萊一咖) of 3 members",
         "achievementLabel": "Achievement",
         "achievementValue": "Gold Award",
-        "achievementSub": "Selected from 186 Teams"
+        "achievementSub": "Hi-Life Track · 10 Finalists"
       },
       "intro": {
         "title": "InnoConnect+ 2024 Challenge",
-        "desc": "Selected as the Gold Award winner among 186 competing teams in the 2024 InnoConnect+ Competition, this project reimagined Hi-Life's \"Send a Gift\" (來送禮) O2O service through strategic gamification and social features that drove measurable increases in user engagement and conversion rates."
+        "desc": "Gold Award, Hi-Life Track — 2024 National Service Innovation Competition (186 teams entered, 10 finalists). This project reimagined Hi-Life's \"Send a Gift\" (來送禮) O2O service through strategic gamification and social features that drove measurable increases in user engagement and conversion rates."
       },
       "overview": {
         "heading": "Project Overview",
@@ -1084,7 +1084,7 @@
         "heading": "Recognition & Impact",
         "title": "Gold Award Winner & Measurable Business Impact",
         "awardTitle": "InnoConnect+ Gold Award",
-        "awardDesc": "Selected as the 1st place winner among 186 competing teams in the 2024 InnoConnect+ Competition. The judges recognized the project's strategic gamification, user-centered design, and measurable impact on conversion metrics.",
+        "awardDesc": "Gold Award, Hi-Life Track — 2024 National Service Innovation Competition (186 teams entered, 10 finalists). The judges recognized the project's strategic gamification, user-centered design, and measurable impact on conversion metrics.",
         "engagementTitle": "Increased User Engagement",
         "engagementDesc": "The psychological test campaign and wishlist features drove meaningful improvements in user acquisition intent and gifting motivation across tested participants.",
         "researchTitle": "Validated by Research",

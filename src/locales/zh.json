@@ -72,7 +72,7 @@
         "imgAlt": "Innoconnect 專案封面"
       },
       "publications": {
-        "titlePre": "Voice of Machines /",
+        "titlePre": "研究發表 /",
         "titleHighlight": "兩篇",
         "titlePost": "第一作者研討會論文。",
         "desc": "第一作者研究，主題涵蓋人與 AI 的音樂共創和 AI 語音情緒，發表於 IEEE GCCE 2025 與 SSIM 2024，SSIM 論文獲最佳論文獎。",
@@ -159,7 +159,7 @@
       },
       "innoconnect": {
         "title": "全國服務創新跨界共創大賽 萊爾富題金獎",
-        "desc": "負責萊爾富來送禮服務的完整 UX/UI 設計，於 186 組中奪金獎。"
+        "desc": "負責萊爾富來送禮服務的完整 UX/UI 設計，獲萊爾富題金獎。"
       },
       "bigData": {
         "title": "大數據精準行銷競賽（第三名）",
@@ -223,7 +223,7 @@
       "catCraft": "製作",
       "catStrategy": "策略",
       "usability": "易用性測試",
-      "diary": "日誌研究",
+      "counterbalancing": "拉丁方格平衡",
       "spss": "SPSS / 量化",
       "interviews": "訪談",
       "survey": "問卷設計",
@@ -342,7 +342,7 @@
         "period": "2024/10 - 2025/03",
         "type": "服務設計與 UX",
         "title": "Innoconnect｜禮物服務優化",
-        "desc": "🏆 金獎（186 組中第 1）。用遊戲化與社群功能，優化萊爾富的 O2O 送禮體驗。",
+        "desc": "🏆 萊爾富題金獎。用遊戲化與社群功能，優化萊爾富的 O2O 送禮體驗。",
         "tag1": "金獎",
         "tag2": "服務設計",
         "tag3": "遊戲化"
@@ -354,7 +354,7 @@
         "desc": "🏆 Best Demo Award。6 天工作坊做出的實體互動裝置，探索 AI 如何「遺忘」。",
         "tag1": "",
         "tag2": "實體介面",
-        "tag3": ""
+        "tag3": "實體原型"
       },
       "mu": {
         "period": "2025/07 - 12",
@@ -977,7 +977,7 @@
     "innoconnect": {
       "hero": {
         "badge": "🏆 金獎",
-        "badgeSub": "186 組中第 1 名",
+        "badgeSub": "萊爾富題·全賽事 186 組·決賽 10 隊",
         "title": "Innoconnect｜萊爾富禮物服務優化",
         "subtitle": "為台灣大型零售通路重塑數位送禮體驗",
         "timelineLabel": "時程",
@@ -988,11 +988,11 @@
         "roleSub": "「萊一咖」3 人團隊",
         "achievementLabel": "成績",
         "achievementValue": "金獎",
-        "achievementSub": "自 186 組脫穎而出"
+        "achievementSub": "萊爾富題·決賽 10 隊"
       },
       "intro": {
         "title": "InnoConnect+ 2024 挑戰",
-        "desc": "本專案在 2024 InnoConnect+ 競賽中從 186 組脫穎而出獲得金獎，以策略性的遊戲化與社群功能重新想像萊爾富「來送禮」O2O 服務，帶動使用意願與轉換的實質提升。"
+        "desc": "本專案獲 2024 全國服務創新跨界共創大賽萊爾富題金獎（全賽事 186 組、決賽 10 隊），以策略性的遊戲化與社群功能重新想像萊爾富「來送禮」O2O 服務，帶動使用意願與轉換的實質提升。"
       },
       "overview": {
         "heading": "專案概述",
@@ -1084,7 +1084,7 @@
         "heading": "肯定與影響",
         "title": "金獎與可量化的商業影響",
         "awardTitle": "InnoConnect+ 金獎",
-        "awardDesc": "在 2024 InnoConnect+ 競賽 186 組中獲得第 1 名。評審點名肯定專案的策略性遊戲化、以使用者為中心的設計，以及對轉換指標的可量化影響。",
+        "awardDesc": "獲 2024 全國服務創新跨界共創大賽萊爾富題金獎（全賽事 186 組、決賽 10 隊）。評審點名肯定專案的策略性遊戲化、以使用者為中心的設計，以及對轉換指標的可量化影響。",
         "engagementTitle": "提升使用者參與",
         "engagementDesc": "心理測驗活動與許願池功能，在受測者中帶動使用意願與送禮動機的實質提升。",
         "researchTitle": "以研究驗證",

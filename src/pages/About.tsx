@@ -90,7 +90,7 @@ export default function About() {
                 {/* Skill Matrix */}
                 <div style={{ marginTop: '40px', border: '1px solid var(--border-strong)' }}>
                   {[
-                    { cat: t('about.skills.catResearch'), skills: [{ label: t('about.skills.usability'), hot: true }, { label: t('about.skills.diary'), hot: true }, { label: t('about.skills.spss'), lvl: t('about.skills.lvlAdv') }, { label: t('about.skills.interviews') }, { label: t('about.skills.survey') }, { label: t('about.skills.mixed') }] },
+                    { cat: t('about.skills.catResearch'), skills: [{ label: t('about.skills.usability'), hot: true }, { label: t('about.skills.counterbalancing'), hot: true }, { label: t('about.skills.spss'), lvl: t('about.skills.lvlAdv') }, { label: t('about.skills.interviews') }, { label: t('about.skills.survey') }, { label: t('about.skills.mixed') }] },
                     { cat: t('about.skills.catCraft'), skills: [{ label: t('about.skills.figma'), hot: true }, { label: t('about.skills.prototype') }, { label: t('about.skills.genai') }] },
                     { cat: t('about.skills.catStrategy'), skills: [{ label: t('about.skills.serviceDesign') }, { label: t('about.skills.productStrategy') }, { label: t('about.skills.facilitation') }, { label: t('about.skills.marketingOps') }] },
                   ].map(({ cat, skills }, gi, arr) => (
