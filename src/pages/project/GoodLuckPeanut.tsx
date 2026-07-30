@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { Award, Package, Globe, Lightbulb, Users, TrendingUp, ArrowRight } from 'lucide-react';
 
 export default function GoodLuckPeanut() {
+  const { t } = useLanguage();
 
   const [showTop, setShowTop] = useState(false);
   useEffect(() => {
@@ -50,44 +52,44 @@ export default function GoodLuckPeanut() {
               <div className="hero-tags">
                 <span className="hero-tag branding">
                   <Package size={16} />
-                  {'Branding & Packaging'}
+                  {t('project.goodLuckPeanut.hero.badge1')}
                 </span>
                 <span className="hero-tag web">
                   <Globe size={16} />
-                  {'Website Redesign'}
+                  {t('project.goodLuckPeanut.hero.badge2')}
                 </span>
               </div>
               
               <h1 className="hero-title">
-                {'Good Luck Peanut'}
+                {t('project.goodLuckPeanut.hero.title')}
               </h1>
               
               <p className="hero-subtitle">
-                {'Complete Brand Identity & E-Commerce Redesign'}
+                {t('project.goodLuckPeanut.hero.subtitle')}
               </p>
 
               {/* Project Details Grid */}
               <div className="hero-details">
                 <div className="detail-item">
-                  <span className="detail-label">{'Timeline'}</span>
+                  <span className="detail-label">{t('project.goodLuckPeanut.hero.timelineLabel')}</span>
                   <span className="detail-value">
                     {'2022 - 2023'}
                   </span>
                   <span className="detail-sub">
-                    {'Branding: 2022 | Web: Jul-Sep 2023'}
+                    {t('project.goodLuckPeanut.hero.timelineValue')}
                   </span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{'My Role'}</span>
+                  <span className="detail-label">{t('project.goodLuckPeanut.hero.roleLabel')}</span>
                   <span className="detail-value">
-                    {'Brand Visual Planning, UI/UX Design'}
+                    {t('project.goodLuckPeanut.hero.roleValue')}
                   </span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{'Recognition'}</span>
+                  <span className="detail-label">{t('project.goodLuckPeanut.hero.recognitionLabel')}</span>
                   <span className="detail-value">
                     <Award size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '6px' }} />
-                    {'2nd Place - Creative Culture Exhibition'}
+                    {t('project.goodLuckPeanut.hero.recognitionValue')}
                   </span>
                 </div>
               </div>
@@ -100,10 +102,10 @@ export default function GoodLuckPeanut() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="overview-intro">
               <h2 className="section-heading">
-                {'Project Overview'}
+                {t('project.goodLuckPeanut.overview.heading')}
               </h2>
               <p className="body-text-large">
-                {'This comprehensive project transformed Fuhshyuan Foods (福瑄食品), a traditional Taiwanese peanut brittle manufacturer, through a complete brand redesign and modern e-commerce website. The goal was to bridge generational preferences by modernizing the brand\'s visual identity and digital presence while preserving its rich Hakka cultural heritage.'}
+                {t('project.goodLuckPeanut.overview.desc')}
               </p>
             </div>
 
@@ -114,10 +116,10 @@ export default function GoodLuckPeanut() {
                   <Package size={32} />
                 </div>
                 <h3 className="part-title">
-                  {'Part 1: Brand & Packaging'}
+                  {t('project.goodLuckPeanut.overview.part1title')}
                 </h3>
                 <p className="part-desc">
-                  {'Cultural storytelling through modern packaging design inspired by Hakka traditions'}
+                  {t('project.goodLuckPeanut.overview.part1desc')}
                 </p>
               </div>
               <div className="part-card">
@@ -125,10 +127,10 @@ export default function GoodLuckPeanut() {
                   <Globe size={32} />
                 </div>
                 <h3 className="part-title">
-                  {'Part 2: Website Redesign'}
+                  {t('project.goodLuckPeanut.overview.part2title')}
                 </h3>
                 <p className="part-desc">
-                  {'User-centered e-commerce experience with improved navigation and conversion flow'}
+                  {t('project.goodLuckPeanut.overview.part2desc')}
                 </p>
               </div>
             </div>
@@ -150,10 +152,10 @@ export default function GoodLuckPeanut() {
               <div className="part-number">01</div>
               <div>
                 <h2 className="section-heading">
-                  {'Brand & Packaging Redesign'}
+                  {t('project.goodLuckPeanut.brand.heading')}
                 </h2>
                 <p className="section-subheading">
-                  {'Revitalizing Traditional Taiwanese Peanut Brittle for Modern Consumers'}
+                  {t('project.goodLuckPeanut.brand.subtitle')}
                 </p>
               </div>
             </div>
@@ -163,28 +165,28 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Lightbulb size={24} color="hsl(var(--g1))" />
                 <h3 className="subsection-title">
-                  {'The Challenge'}
+                  {t('project.goodLuckPeanut.brand.challengeHeading')}
                 </h3>
               </div>
               
               <div className="two-column-layout">
                 <div className="column-content">
                   <p className="body-text">
-                    {'Fuhshyuan Foods (福瑄食品) faced declining engagement with younger demographics. The traditional packaging design failed to communicate the product\'s cultural value and quality, positioning it as outdated rather than heritage-rich.'}
+                    {t('project.goodLuckPeanut.brand.challengeDesc')}
                   </p>
 
                   <div className="challenge-list">
                     <div className="challenge-item">
                       <div className="challenge-bullet"></div>
-                      <span>{'Old packaging was sticky and inconvenient for modern consumption'}</span>
+                      <span>{t('project.goodLuckPeanut.brand.pain1')}</span>
                     </div>
                     <div className="challenge-item">
                       <div className="challenge-bullet"></div>
-                      <span>{'Visual identity failed to attract 18-35 age demographic'}</span>
+                      <span>{t('project.goodLuckPeanut.brand.pain2')}</span>
                     </div>
                     <div className="challenge-item">
                       <div className="challenge-bullet"></div>
-                      <span>{'Cultural heritage story was not effectively communicated'}</span>
+                      <span>{t('project.goodLuckPeanut.brand.pain3')}</span>
                     </div>
                   </div>
                 </div>
@@ -192,7 +194,7 @@ export default function GoodLuckPeanut() {
                 <div className="column-media">
                   <div className="image-placeholder old-packaging">
                     <p className="placeholder-label">
-                      {'[Image: Old Traditional Packaging]'}
+                      {t('project.goodLuckPeanut.brand.oldPackImg')}
                     </p>
                   </div>
                 </div>
@@ -204,17 +206,17 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <TrendingUp size={24} color="hsl(var(--g2))" />
                 <h3 className="subsection-title">
-                  {'The Strategy'}
+                  {t('project.goodLuckPeanut.strategy.heading')}
                 </h3>
               </div>
 
               <div className="strategy-highlight">
                 <div className="highlight-content">
                   <h4 className="highlight-title">
-                    {'Cultural Narrative: "Good Luck" (好韻)'}
+                    {t('project.goodLuckPeanut.strategy.narrativeTitle')}
                   </h4>
                   <p className="body-text">
-                    {'The rebranding centered around the Hakka festival "Tian Chuan Ri" (天穿日 - Heaven\'s Birthday). The word "Yun" (韻) in Chinese means "rhyme" or "rhythm," but phonetically it also implies "good luck" and "fortune." This dual meaning transformed the peanut brittle from a simple snack into a culturally meaningful gift symbolizing blessings and prosperity.'}
+                    {t('project.goodLuckPeanut.strategy.narrativeDesc')}
                   </p>
                 </div>
               </div>
@@ -223,30 +225,30 @@ export default function GoodLuckPeanut() {
                 <div className="strategy-card">
                   <div className="strategy-number">01</div>
                   <h4 className="strategy-card-title">
-                    {'Cultural Connection'}
+                    {t('project.goodLuckPeanut.strategy.pillar1title')}
                   </h4>
                   <p className="strategy-card-text">
-                    {'Anchored in Hakka "Tian Chuan Ri" festival traditions, making the product culturally significant'}
+                    {t('project.goodLuckPeanut.strategy.pillar1desc')}
                   </p>
                 </div>
 
                 <div className="strategy-card">
                   <div className="strategy-number">02</div>
                   <h4 className="strategy-card-title">
-                    {'Visual Modernization'}
+                    {t('project.goodLuckPeanut.strategy.pillar2title')}
                   </h4>
                   <p className="strategy-card-text">
-                    {'Woodblock printing aesthetics combined with contemporary design principles'}
+                    {t('project.goodLuckPeanut.strategy.pillar2desc')}
                   </p>
                 </div>
 
                 <div className="strategy-card">
                   <div className="strategy-number">03</div>
                   <h4 className="strategy-card-title">
-                    {'Format Innovation'}
+                    {t('project.goodLuckPeanut.strategy.pillar3title')}
                   </h4>
                   <p className="strategy-card-text">
-                    {'Single-serve instant packs solving stickiness while creating gift-ready format'}
+                    {t('project.goodLuckPeanut.strategy.pillar3desc')}
                   </p>
                 </div>
               </div>
@@ -257,7 +259,7 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Package size={24} color="hsl(var(--g3))" />
                 <h3 className="subsection-title">
-                  {'Design Solution'}
+                  {t('project.goodLuckPeanut.design.heading')}
                 </h3>
               </div>
 
@@ -266,7 +268,7 @@ export default function GoodLuckPeanut() {
                 <div className="showcase-main">
                   <div className="image-placeholder packaging-hero">
                     <p className="placeholder-label">
-                      {'[Image: Final Packaging Design - Hero Shot]'}
+                      {t('project.goodLuckPeanut.design.img1')}
                     </p>
                   </div>
                 </div>
@@ -276,22 +278,22 @@ export default function GoodLuckPeanut() {
               <div className="design-details-grid">
                 <div className="image-placeholder">
                   <p className="placeholder-label">
-                    {'[Image: Woodblock Printing Style Graphics]'}
+                    {t('project.goodLuckPeanut.design.img2')}
                   </p>
                 </div>
                 <div className="image-placeholder">
                   <p className="placeholder-label">
-                    {'[Image: Brand Characters & Mascot]'}
+                    {t('project.goodLuckPeanut.design.img3')}
                   </p>
                 </div>
                 <div className="image-placeholder">
                   <p className="placeholder-label">
-                    {'[Image: Single-Serve Pack Design]'}
+                    {t('project.goodLuckPeanut.design.img4')}
                   </p>
                 </div>
                 <div className="image-placeholder">
                   <p className="placeholder-label">
-                    {'[Image: Gift Box Set]'}
+                    {t('project.goodLuckPeanut.design.img5')}
                   </p>
                 </div>
               </div>
@@ -301,22 +303,22 @@ export default function GoodLuckPeanut() {
                 <div className="feature-row">
                   <ArrowRight size={20} color="hsl(var(--g1))" />
                   <div>
-                    <strong>{'Woodblock Printing Visuals:'}</strong>
-                    {' Traditional Hakka art style modernized with vibrant colors and clean typography'}
+                    <strong>{t('project.goodLuckPeanut.design.f1label')}</strong>
+                    {t('project.goodLuckPeanut.design.f1desc')}
                   </div>
                 </div>
                 <div className="feature-row">
                   <ArrowRight size={20} color="hsl(var(--g2))" />
                   <div>
-                    <strong>{'Single-Serve Innovation:'}</strong>
-                    {' Individual instant packs eliminate stickiness and improve portability'}
+                    <strong>{t('project.goodLuckPeanut.design.f2label')}</strong>
+                    {t('project.goodLuckPeanut.design.f2desc')}
                   </div>
                 </div>
                 <div className="feature-row">
                   <ArrowRight size={20} color="hsl(var(--g3))" />
                   <div>
-                    <strong>{'Gift-Ready Format:'}</strong>
-                    {' Premium packaging suitable for festivals and cultural celebrations'}
+                    <strong>{t('project.goodLuckPeanut.design.f3label')}</strong>
+                    {t('project.goodLuckPeanut.design.f3desc')}
                   </div>
                 </div>
               </div>
@@ -339,10 +341,10 @@ export default function GoodLuckPeanut() {
               <div className="part-number">02</div>
               <div>
                 <h2 className="section-heading">
-                  {'Website Redesign'}
+                  {t('project.goodLuckPeanut.hero.badge2')}
                 </h2>
                 <p className="section-subheading">
-                  {'Modernizing the E-Commerce Experience'}
+                  {t('project.goodLuckPeanut.web.subtitle')}
                 </p>
               </div>
             </div>
@@ -352,12 +354,12 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Globe size={24} color="hsl(var(--g1))" />
                 <h3 className="subsection-title">
-                  {'Project Context'}
+                  {t('project.goodLuckPeanut.web.contextHeading')}
                 </h3>
               </div>
 
               <p className="body-text">
-                {'Following the successful brand redesign, the official website needed a complete overhaul to match the new brand identity and improve the user experience. The old website suffered from poor navigation, unclear product information, and low conversion rates.'}
+                {t('project.goodLuckPeanut.web.contextDesc')}
               </p>
             </div>
 
@@ -366,25 +368,25 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Users size={24} color="hsl(var(--g2))" />
                 <h3 className="subsection-title">
-                  {'Before vs. After'}
+                  {t('project.goodLuckPeanut.web.compareHeading')}
                 </h3>
               </div>
 
               <div className="comparison-container">
                 <div className="comparison-side old">
                   <div className="comparison-label">
-                    {'Old Website'}
+                    {t('project.goodLuckPeanut.web.oldTitle')}
                   </div>
                   <div className="image-placeholder old-website">
                     <p className="placeholder-label">
-                      {'[Image: Old Website Screenshot]'}
+                      {t('project.goodLuckPeanut.web.oldImg')}
                     </p>
                   </div>
                   <ul className="comparison-list">
-                    <li>{'Cluttered navigation'}</li>
-                    <li>{'Outdated visual design'}</li>
-                    <li>{'Poor mobile experience'}</li>
-                    <li>{'Unclear product info'}</li>
+                    <li>{t('project.goodLuckPeanut.web.old1')}</li>
+                    <li>{t('project.goodLuckPeanut.web.old2')}</li>
+                    <li>{t('project.goodLuckPeanut.web.old3')}</li>
+                    <li>{t('project.goodLuckPeanut.web.old4')}</li>
                   </ul>
                 </div>
 
@@ -394,18 +396,18 @@ export default function GoodLuckPeanut() {
 
                 <div className="comparison-side new">
                   <div className="comparison-label new-label">
-                    {'New Website'}
+                    {t('project.goodLuckPeanut.web.newTitle')}
                   </div>
                   <div className="image-placeholder new-website">
                     <p className="placeholder-label">
-                      {'[Image: New Website Screenshot]'}
+                      {t('project.goodLuckPeanut.web.newImg')}
                     </p>
                   </div>
                   <ul className="comparison-list">
-                    <li>{'Clean, intuitive navigation'}</li>
-                    <li>{'Modern brand-aligned design'}</li>
-                    <li>{'Mobile-first responsive'}</li>
-                    <li>{'Clear product presentation'}</li>
+                    <li>{t('project.goodLuckPeanut.web.new1')}</li>
+                    <li>{t('project.goodLuckPeanut.web.new2')}</li>
+                    <li>{t('project.goodLuckPeanut.web.new3')}</li>
+                    <li>{t('project.goodLuckPeanut.web.new4')}</li>
                   </ul>
                 </div>
               </div>
@@ -416,18 +418,18 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Lightbulb size={24} color="hsl(var(--g3))" />
                 <h3 className="subsection-title">
-                  {'UX Process: Functional Map'}
+                  {t('project.goodLuckPeanut.web.mapHeading')}
                 </h3>
               </div>
 
               <p className="body-text">
-                {'I created a comprehensive functional map to reorganize the website\'s information architecture. This process helped identify user pain points and streamline the navigation structure for better discoverability and conversion.'}
+                {t('project.goodLuckPeanut.web.mapDesc')}
               </p>
 
               <div className="visual-showcase">
                 <div className="image-placeholder functional-map">
                   <p className="placeholder-label">
-                    {'[Image: Functional Map / Site Architecture]'}
+                    {t('project.goodLuckPeanut.web.mapImg')}
                   </p>
                 </div>
               </div>
@@ -438,12 +440,12 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Globe size={24} color="hsl(var(--g4))" />
                 <h3 className="subsection-title">
-                  {'UI Design: High-Fidelity Screens'}
+                  {t('project.goodLuckPeanut.web.uiHeading')}
                 </h3>
               </div>
 
               <p className="body-text">
-                {'The final UI design focused on three key pages: Homepage (brand story and featured products), About Brand (Hakka culture and company values), and Product Listing (intuitive browsing and filtering).'}
+                {t('project.goodLuckPeanut.web.uiDesc')}
               </p>
 
               {/* UI Screens Grid */}
@@ -451,33 +453,33 @@ export default function GoodLuckPeanut() {
                 <div className="ui-screen-item">
                   <div className="image-placeholder ui-screen">
                     <p className="placeholder-label">
-                      {'[Image: Homepage Design]'}
+                      {t('project.goodLuckPeanut.web.screen1img')}
                     </p>
                   </div>
                   <h4 className="ui-screen-label">
-                    {'Homepage'}
+                    {t('project.goodLuckPeanut.web.screen1')}
                   </h4>
                 </div>
 
                 <div className="ui-screen-item">
                   <div className="image-placeholder ui-screen">
                     <p className="placeholder-label">
-                      {'[Image: About Brand Page]'}
+                      {t('project.goodLuckPeanut.web.screen2img')}
                     </p>
                   </div>
                   <h4 className="ui-screen-label">
-                    {'About Brand'}
+                    {t('project.goodLuckPeanut.web.screen2')}
                   </h4>
                 </div>
 
                 <div className="ui-screen-item">
                   <div className="image-placeholder ui-screen">
                     <p className="placeholder-label">
-                      {'[Image: Product Listing Page]'}
+                      {t('project.goodLuckPeanut.web.screen3img')}
                     </p>
                   </div>
                   <h4 className="ui-screen-label">
-                    {'Product Listing'}
+                    {t('project.goodLuckPeanut.web.screen3')}
                   </h4>
                 </div>
               </div>
@@ -486,28 +488,28 @@ export default function GoodLuckPeanut() {
               <div className="highlights-grid">
                 <div className="highlight-card">
                   <h4 className="highlight-card-title">
-                    {'Brand Storytelling'}
+                    {t('project.goodLuckPeanut.web.h1title')}
                   </h4>
                   <p className="highlight-card-text">
-                    {'Homepage hero section showcases Hakka culture and "Good Luck" concept'}
+                    {t('project.goodLuckPeanut.web.h1desc')}
                   </p>
                 </div>
 
                 <div className="highlight-card">
                   <h4 className="highlight-card-title">
-                    {'Intuitive Navigation'}
+                    {t('project.goodLuckPeanut.web.h2title')}
                   </h4>
                   <p className="highlight-card-text">
-                    {'Simplified menu structure with clear product categories and filters'}
+                    {t('project.goodLuckPeanut.web.h2desc')}
                   </p>
                 </div>
 
                 <div className="highlight-card">
                   <h4 className="highlight-card-title">
-                    {'Mobile-First Design'}
+                    {t('project.goodLuckPeanut.web.h3title')}
                   </h4>
                   <p className="highlight-card-text">
-                    {'Responsive layouts optimized for smartphone shopping experience'}
+                    {t('project.goodLuckPeanut.web.h3desc')}
                   </p>
                 </div>
               </div>
@@ -522,10 +524,10 @@ export default function GoodLuckPeanut() {
               <div className="outcome-header">
                 <Award size={48} color="hsl(var(--g1))" />
                 <h2 className="section-heading" style={{ marginBottom: '16px' }}>
-                  {'Outcome & Impact'}
+                  {t('project.goodLuckPeanut.outcome.heading')}
                 </h2>
                 <p className="section-subheading">
-                  {'Recognition and Results'}
+                  {t('project.goodLuckPeanut.outcome.subtitle')}
                 </p>
               </div>
 
@@ -535,10 +537,10 @@ export default function GoodLuckPeanut() {
                     <Award size={40} />
                   </div>
                   <h3 className="outcome-title">
-                    {'2nd Place Award'}
+                    {t('project.goodLuckPeanut.outcome.r1title')}
                   </h3>
                   <p className="outcome-text">
-                    {'Won 2nd Place in the Creative Culture Graduate Exhibition, recognizing excellence in cultural brand design and digital innovation.'}
+                    {t('project.goodLuckPeanut.outcome.r1desc')}
                   </p>
                 </div>
 
@@ -547,10 +549,10 @@ export default function GoodLuckPeanut() {
                     <Package size={36} />
                   </div>
                   <h3 className="outcome-title">
-                    {'Brand Repositioning'}
+                    {t('project.goodLuckPeanut.outcome.r2title')}
                   </h3>
                   <p className="outcome-text">
-                    {'Successfully repositioned a traditional product for younger demographics while preserving cultural authenticity.'}
+                    {t('project.goodLuckPeanut.outcome.r2desc')}
                   </p>
                 </div>
 
@@ -559,10 +561,10 @@ export default function GoodLuckPeanut() {
                     <Globe size={36} />
                   </div>
                   <h3 className="outcome-title">
-                    {'Digital Transformation'}
+                    {t('project.goodLuckPeanut.outcome.r3title')}
                   </h3>
                   <p className="outcome-text">
-                    {'Created a modern e-commerce platform that improved user experience and sales conversion.'}
+                    {t('project.goodLuckPeanut.outcome.r3desc')}
                   </p>
                 </div>
               </div>
@@ -636,7 +638,7 @@ export default function GoodLuckPeanut() {
             gap: 32px;
             margin-top: 48px;
             padding-top: 48px;
-            border-top: 1px solid rgba(0,0,0,0.06);
+            border-top: 1px solid var(--border);
           }
 
           .detail-item {
@@ -716,8 +718,8 @@ export default function GoodLuckPeanut() {
 
           .part-card {
             padding: 40px 32px;
-            background: rgba(255,255,255,0.95);
-            border: 1px solid rgba(0,0,0,0.06);
+            background: var(--card-glass);
+            border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             text-align: center;
             transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -863,8 +865,8 @@ export default function GoodLuckPeanut() {
 
           .strategy-card {
             padding: 24px;
-            background: rgba(255,255,255,0.95);
-            border: 1px solid rgba(0,0,0,0.06);
+            background: var(--card-glass);
+            border: 1px solid var(--border);
             border-radius: var(--radius-lg);
           }
 
@@ -914,33 +916,33 @@ export default function GoodLuckPeanut() {
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
           }
 
           .image-placeholder.old-packaging {
-            background: linear-gradient(135deg, #e0e0e0, #bdbdbd);
+            background: linear-gradient(135deg, var(--surface-muted), color-mix(in srgb, var(--text-tertiary) 45%, var(--surface)));
           }
 
           .image-placeholder.packaging-hero {
-            background: linear-gradient(135deg, #fff8e1, #ffe4b3);
+            background: linear-gradient(135deg, color-mix(in srgb, #FFC107 8%, var(--surface)), color-mix(in srgb, #FFC107 20%, var(--surface)));
             aspect-ratio: 21 / 9;
           }
 
           .image-placeholder.functional-map {
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            background: linear-gradient(135deg, color-mix(in srgb, #2196F3 10%, var(--surface)), color-mix(in srgb, #2196F3 22%, var(--surface)));
             aspect-ratio: 16 / 9;
           }
 
           .image-placeholder.old-website {
-            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            background: linear-gradient(135deg, var(--surface), var(--surface-muted));
           }
 
           .image-placeholder.new-website {
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            background: linear-gradient(135deg, color-mix(in srgb, #4CAF50 10%, var(--surface)), color-mix(in srgb, #4CAF50 22%, var(--surface)));
           }
 
           .image-placeholder.ui-screen {
-            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            background: linear-gradient(135deg, color-mix(in srgb, #9C27B0 10%, var(--surface)), color-mix(in srgb, #9C27B0 22%, var(--surface)));
             aspect-ratio: 3 / 4;
           }
 
@@ -965,8 +967,8 @@ export default function GoodLuckPeanut() {
             align-items: flex-start;
             gap: 12px;
             padding: 16px;
-            background: rgba(255,255,255,0.95);
-            border: 1px solid rgba(0,0,0,0.06);
+            background: var(--card-glass);
+            border: 1px solid var(--border);
             border-radius: var(--radius-md);
           }
 
@@ -1073,8 +1075,8 @@ export default function GoodLuckPeanut() {
 
           .highlight-card {
             padding: 24px;
-            background: rgba(255,255,255,0.95);
-            border: 1px solid rgba(0,0,0,0.06);
+            background: var(--card-glass);
+            border: 1px solid var(--border);
             border-radius: var(--radius-lg);
           }
 
@@ -1109,8 +1111,8 @@ export default function GoodLuckPeanut() {
 
           .outcome-card {
             padding: 40px 24px;
-            background: rgba(255,255,255,0.95);
-            border: 1px solid rgba(0,0,0,0.06);
+            background: var(--card-glass);
+            border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             text-align: center;
           }
@@ -1237,11 +1239,11 @@ export default function GoodLuckPeanut() {
         style={{
           position: 'fixed', top: '76px', left: '24px',
           width: '36px', height: '36px', borderRadius: '50%',
-          background: 'rgba(238,234,224,0.95)',
+          background: 'color-mix(in srgb, var(--background) 95%, transparent)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
           border: '1.5px solid rgba(12,12,12,0.25)',
-          color: '#0C0C0C', cursor: 'pointer',
+          color: 'var(--text-primary)', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: '16px', lineHeight: 1,
           boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
@@ -1249,11 +1251,11 @@ export default function GoodLuckPeanut() {
           transition: 'background .2s, box-shadow .2s',
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#EEEAE0';
+          (e.currentTarget as HTMLButtonElement).style.background = 'var(--background)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.13)';
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = 'rgba(238,234,224,0.95)';
+          (e.currentTarget as HTMLButtonElement).style.background = 'color-mix(in srgb, var(--background) 95%, transparent)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
         }}
       >←</button>

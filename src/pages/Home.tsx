@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../components/Layout';
+import { useLanguage } from '../contexts/LanguageContext';
 // 💡 加入了 FileText Icon 用於證書按鈕
 import { Briefcase, Award, Mail, Sparkles, BookOpen, FileText } from 'lucide-react';
 import { Separator } from '../components/ui/separator';
@@ -31,6 +32,7 @@ import bigDataCert from '../assets/images/home/big-data-cup.jpg';
 import ssimCert from '../assets/images/home/ssim-award.jpg';
 
 export default function Home() {
+  const { t } = useLanguage();
   const heroRef = useRef<HTMLDivElement>(null);
   const projectRef = useRef<HTMLDivElement>(null);
   const tileRefs = useRef<HTMLElement[]>([]);
@@ -93,27 +95,27 @@ export default function Home() {
   const playgroundItems = [
     {
       image: photographyCover,
-      title: 'Photography',
-      desc: 'Capturing everyday moments, textures, and light. Photography sharpens my eye for composition and detail in design work.',
+      title: t('home.playground.photography.title'),
+      desc: t('home.playground.photography.desc'),
       link: '/photography',
       linkType: 'internal' as const,
-      label: 'Explore →',
+      label: t('common.explore'),
     },
     {
       image: concertImg,
-      title: 'Musical composition',
-      desc: 'Composing ambient and experimental pieces as a creative outlet—music as another form of interaction design.',
+      title: t('home.playground.music.title'),
+      desc: t('home.playground.music.desc'),
       link: 'https://rose-musical-works.framer.website/',
       linkType: 'external' as const,
-      label: 'Listen ↗',
+      label: t('home.playground.music.label'),
     },
     {
       image: vibeCodingImg,
-      title: 'Vibe Coding & AI Tools',
-      desc: 'Experimenting with generative AI, creative coding, and building side projects that blend code with design curiosity.',
+      title: t('home.playground.vibeCoding.title'),
+      desc: t('home.playground.vibeCoding.desc'),
       link: '/how-i-built-this',
       linkType: 'internal' as const,
-      label: 'Read More →',
+      label: t('home.playground.vibeCoding.label'),
     },
   ];
 
@@ -147,7 +149,7 @@ export default function Home() {
   // Count-up animation
   useEffect(() => {
     if (!statsAnimated) return;
-    const targets = [48, 4, 3];
+    const targets = [48, 3, 3];
     const duration = 1400;
     const start = Date.now();
     const tick = () => {
@@ -177,26 +179,22 @@ export default function Home() {
             <div className="hero-text reveal" ref={addToRefs}>
               <div className="avail-badge">
                 <span className="avail-dot"></span>
-                <span className="avail-label">Open to full-time roles · Jul 2026</span>
+                <span className="avail-label">{t('home.hero.badge')}</span>
               </div>
               <h1 className="name interactive-name">
-                {"Rose Chang".split("").map((char, index) => (
+                {t('home.hero.name').split("").map((char, index) => (
                   <span key={index} className="char" style={{ animationDelay: `${index * 0.05}s` }}>
                     {char === " " ? "\u00A0" : char}
                   </span>
                 ))}
               </h1>
-              <h2 className="head">Interaction & UX/UI Designer</h2>
-              <h3 className="sub-head text-primary">Interaction Design for Digital & Physical Products</h3>
-              <p className="body muted hero-desc">
-                I blend Human-Computer Interaction, AI literacy, and strategic design thinking to solve complex business challenges. Proven track record in leading end-to-end digital interventions and cross-functional collaborations. From competitor analysis and user research planning to wireframe proposals and prototype validation—I bring structured design thinking to every stage of the process.
-              </p>
+              <h2 className="head">{t('home.hero.title')}</h2>
+              <h3 className="sub-head text-primary">{t('home.hero.subtitle')}</h3>
+              <p className="body muted hero-desc">{t('home.hero.desc')}</p>
               <div className="hero-buttons">
-                <Link className="btn-pill btn--primary" to="/about">
-                  About Me <span className="dot">→</span>
+                <Link className="btn-pill btn--primary" to="/about">{t('home.hero.aboutBtn')}{' '}<span className="dot">→</span>
                 </Link>
-                <a className="btn-pill btn--secondary" href="#selected-works">
-                  View Work <span className="dot">↓</span>
+                <a className="btn-pill btn--secondary" href="#selected-works">{t('home.hero.viewWorkBtn')}{' '}<span className="dot">↓</span>
                 </a>
               </div>
             </div>
@@ -205,7 +203,7 @@ export default function Home() {
             <div className="hero-photo">
               <motion.img
                 src={openHciMe}
-                alt="Rose Chang at OpenHCI"
+                alt={t('home.hero.photoAlt')}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
@@ -215,7 +213,7 @@ export default function Home() {
                   height: 'auto',
                   objectFit: 'contain',
                   objectPosition: 'bottom',
-                  filter: 'drop-shadow(0 8px 32px rgba(12,12,12,0.12))',
+                  filter: 'drop-shadow(0 8px 32px var(--border))',
                 }}
               />
             </div>
@@ -230,41 +228,35 @@ export default function Home() {
         <div className="container" ref={projectRef} style={{ maxWidth: '1200px' }}>
           <div className="section-header-flex">
             <h2 className="section-head">
-              <Briefcase size={32} color="hsl(var(--g2))" />
-              Selected Works
-            </h2>
-            <Link to="/projects" className="view-all-link">
-              View all projects →
-            </Link>
+              <Briefcase size={32} color="var(--accent-text)" />{t('home.works.heading')}</h2>
+            <Link to="/projects" className="view-all-link">{t('home.works.viewAll')}</Link>
           </div>
 
           {/* Work-row list */}
-          <div style={{ borderTop: '1px solid var(--ink,#0C0C0C)', borderBottom: '1px solid var(--ink,#0C0C0C)', marginTop: '32px' }}>
+          <div style={{ borderTop: '1px solid var(--text-primary)', borderBottom: '1px solid var(--text-primary)', marginTop: '32px' }}>
 
             {/* 01 — Sleep Guardian */}
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0, ease: [0.2, 0.8, 0.2, 1] }}>
               <Link to="/projects/sleep-guardian" className="reveal" ref={addToRefs}
-                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
+                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid var(--border)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'var(--surface)'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--surface-inverse)'; a.style.color = 'var(--accent-on-inverse)'; a.style.transform = 'rotate(-45deg)'; } }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
-                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 01</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-tertiary)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 01</div>
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
-                    Sleep Guardian /{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>interrupting</em>{' '}the scroll before it becomes sleep debt.
-                  </h3>
-                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Planned and executed a controlled EMA user research study, designed interaction flows and prototypes for a React Native intervention app to study in-bed smartphone procrastination.</p>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>{t('home.works.sleepGuardian.titlePre')}{' '}<em style={{ fontStyle: 'normal', background: 'var(--accent)', color: 'var(--on-accent)', padding: '0 .1em' }}>{t('home.works.sleepGuardian.titleHighlight')}</em>{' '}{t('home.works.sleepGuardian.titlePost')}</h3>
+                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--text-secondary)', margin: 0, maxWidth: '56ch' }}>{t('home.works.sleepGuardian.desc')}</p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                    {['M.S. Thesis', 'User Research', 'EMA'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+                    {[t('home.works.sleepGuardian.tag1'), t('home.works.sleepGuardian.tag2'), t('home.works.sleepGuardian.tag3')].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--text-primary)', borderRadius: '999px' }}>{t}</span>)}
                   </div>
                 </div>
-                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
-                  <img src={sleepGuardianCover} alt="Sleep Guardian" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
+                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--text-primary)', background: 'var(--bone-2,var(--surface-muted))' }}>
+                  <img src={sleepGuardianCover} alt={t('home.works.sleepGuardian.imgAlt')} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
                 </div>
-                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
-                  <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2026</span>
-                  <span style={{ color: '#E23A1C', fontWeight: 500 }}>M.S. Thesis</span>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 500, color: 'var(--text-primary)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2026</span>
+                  <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{t('home.works.sleepGuardian.tag1')}</span>
                 </div>
-                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
+                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--text-primary)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
               </Link>
 
             </motion.div>
@@ -272,55 +264,51 @@ export default function Home() {
             {/* 02 — Oblivilight */}
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.08, ease: [0.2, 0.8, 0.2, 1] }}>
               <Link to="/projects/oblivilight" className="reveal" ref={addToRefs}
-                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
+                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid var(--border)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'var(--surface)'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--surface-inverse)'; a.style.color = 'var(--accent-on-inverse)'; a.style.transform = 'rotate(-45deg)'; } }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
-                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 02</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-tertiary)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 02</div>
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
-                    Oblivilight —{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>teaching</em>{' '}AI to forget.
-                  </h3>
-                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Built a tangible interaction device in a 6-day sprint, exploring how AI systems handle "forgetting" mechanisms. Best Demo Award at OpenHCI '25.</p>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>{t('home.works.oblivilight.titlePre')}{' '}<em style={{ fontStyle: 'normal', background: 'var(--accent)', color: 'var(--on-accent)', padding: '0 .1em' }}>{t('home.works.oblivilight.titleHighlight')}</em>{' '}{t('home.works.oblivilight.titlePost')}</h3>
+                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--text-secondary)', margin: 0, maxWidth: '56ch' }}>{t('home.works.oblivilight.desc')}</p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                    {["OpenHCI'25", 'Tangible UX', 'HCI'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+                    {[t('home.works.oblivilight.tag1'), t('home.works.oblivilight.tag2'), t('home.works.oblivilight.tag3')].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--text-primary)', borderRadius: '999px' }}>{t}</span>)}
                   </div>
                 </div>
-                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
-                  <img src={oblivilightCover} alt="Oblivilight" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
+                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--text-primary)', background: 'var(--bone-2,var(--surface-muted))' }}>
+                  <img src={oblivilightCover} alt={t('home.works.oblivilight.imgAlt')} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
                 </div>
-                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
-                  <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2025</span>
-                  <span style={{ color: '#E23A1C', fontWeight: 500 }}>Best Demo Award</span>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 500, color: 'var(--text-primary)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2025</span>
+                  <span style={{ color: 'var(--text-primary)', fontWeight: 500, whiteSpace: 'pre-line' }}>{t('home.works.oblivilight.status')}</span>
                 </div>
-                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
+                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--text-primary)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
               </Link>
 
             </motion.div>
 
-            {/* 03 — Mú */}
+            {/* 03 — Mù */}
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.16, ease: [0.2, 0.8, 0.2, 1] }}>
               <Link to="/projects/mu" className="reveal" ref={addToRefs}
-                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
+                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid var(--border)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'var(--surface)'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--surface-inverse)'; a.style.color = 'var(--accent-on-inverse)'; a.style.transform = 'rotate(-45deg)'; } }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
-                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 03</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-tertiary)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 03</div>
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
-                    Mú —{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>listening</em>{' '}to wood before it disappears.
-                  </h3>
-                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Created a multisensory interactive guide for Taiwan's endangered woods, leveraging emotional design and mixed-method research to preserve cultural memory.</p>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>{t('home.works.mu.titlePre')}{' '}<em style={{ fontStyle: 'normal', background: 'var(--accent)', color: 'var(--on-accent)', padding: '0 .1em' }}>{t('home.works.mu.titleHighlight')}</em>{' '}{t('home.works.mu.titlePost')}</h3>
+                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--text-secondary)', margin: 0, maxWidth: '56ch' }}>{t('home.works.mu.desc')}</p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                    {['UX Design Awards', 'Multisensory', 'Nominated'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+                    {[t('home.awards.uxda.title'), t('home.works.mu.tag2'), t('home.works.mu.tag3')].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--text-primary)', borderRadius: '999px' }}>{t}</span>)}
                   </div>
                 </div>
-                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
-                  <img src={muCover} alt="Mú" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
+                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--text-primary)', background: 'var(--bone-2,var(--surface-muted))' }}>
+                  <img src={muCover} alt={t('home.works.mu.imgAlt')} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
                 </div>
-                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
-                  <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
-                  <span style={{ color: '#E23A1C', fontWeight: 500 }}>Nominated</span>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 500, color: 'var(--text-primary)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
+                  <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{t('home.works.mu.status')}</span>
                 </div>
-                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
+                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--text-primary)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
               </Link>
 
             </motion.div>
@@ -328,27 +316,25 @@ export default function Home() {
             {/* 04 — Innoconnect */}
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.24, ease: [0.2, 0.8, 0.2, 1] }}>
               <Link to="/projects/innoconnect" className="reveal" ref={addToRefs}
-                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid rgba(12,12,12,.12)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
+                style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid var(--border)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'var(--surface)'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--surface-inverse)'; a.style.color = 'var(--accent-on-inverse)'; a.style.transform = 'rotate(-45deg)'; } }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
-                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 04</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-tertiary)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 04</div>
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
-                    Innoconnect+ / gifting, as a{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>game</em>{' '}people finish.
-                  </h3>
-                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>Competitor analysis, service blueprint, and prototype validation for Hi-Life O2O gifting. Optimized via gamification, solving complex flow issues. Gold Award winner.</p>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>{t('home.works.innoconnect.titlePre')}{' '}<em style={{ fontStyle: 'normal', background: 'var(--accent)', color: 'var(--on-accent)', padding: '0 .1em' }}>{t('home.works.innoconnect.titleHighlight')}</em>{' '}{t('home.works.innoconnect.titlePost')}</h3>
+                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--text-secondary)', margin: 0, maxWidth: '56ch' }}>{t('home.works.innoconnect.desc')}</p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                    {['Service Design', 'Competitor Analysis', 'Gold Award'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+                    {[t('home.works.innoconnect.tag1'), t('home.works.innoconnect.tag2'), t('home.works.innoconnect.tag3')].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--text-primary)', borderRadius: '999px' }}>{t}</span>)}
                   </div>
                 </div>
-                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
-                  <img src={innoconnectCover} alt="Innoconnect" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
+                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--text-primary)', background: 'var(--bone-2,var(--surface-muted))' }}>
+                  <img src={innoconnectCover} alt={t('home.works.innoconnect.imgAlt')} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
                 </div>
-                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
-                  <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
-                  <span style={{ color: '#E23A1C', fontWeight: 500 }}>Gold Award</span>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 500, color: 'var(--text-primary)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
+                  <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{t('home.works.innoconnect.tag3')}</span>
                 </div>
-                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
+                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--text-primary)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
               </Link>
 
             </motion.div>
@@ -357,26 +343,24 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.32, ease: [0.2, 0.8, 0.2, 1] }}>
               <Link to="/projects/hci-publications" className="reveal" ref={addToRefs}
                 style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#F6F2E7'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--ink,#0C0C0C)'; a.style.color = 'var(--acid,#FFE699)'; a.style.transform = 'rotate(-45deg)'; } }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'var(--surface)'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--surface-inverse)'; a.style.color = 'var(--accent-on-inverse)'; a.style.transform = 'rotate(-45deg)'; } }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
-                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '12px', color: 'var(--muted,#6B6A62)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 05</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-tertiary)', letterSpacing: '.1em', paddingTop: '6px' }}>/ 05</div>
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>
-                    Voice of Machines —{' '}<em style={{ fontStyle: 'normal', background: 'var(--acid,#FFE699)', color: 'var(--acid-ink,#7A5C00)', padding: '0 .1em' }}>two</em>{' '}IEEE papers.
-                  </h3>
-                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--ink-2,#1A1A1A)', margin: 0, maxWidth: '56ch' }}>First-author research on Human-AI music collaboration and voice emotion analysis. Accepted at IEEE GCCE, TAICHI, and SSIM — recognized with Best Paper Award.</p>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(18px,2.2vw,30px)', lineHeight: 1.05, letterSpacing: '-.02em', margin: '0 0 10px', textTransform: 'uppercase' }}>{t('home.works.publications.titlePre')}{' '}<em style={{ fontStyle: 'normal', background: 'var(--accent)', color: 'var(--on-accent)', padding: '0 .1em' }}>{t('home.works.publications.titleHighlight')}</em>{' '}{t('home.works.publications.titlePost')}</h3>
+                  <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'var(--text-secondary)', margin: 0, maxWidth: '56ch' }}>{t('home.works.publications.desc')}</p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                    {['IEEE', 'HCI Research', 'Best Paper'].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '999px' }}>{t}</span>)}
+                    {[t('home.works.publications.tag1'), t('home.works.publications.tag2'), t('home.works.publications.tag3')].map(t => <span key={t} style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', padding: '4px 8px', border: '1px solid var(--text-primary)', borderRadius: '999px' }}>{t}</span>)}
                   </div>
                 </div>
-                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--ink,#0C0C0C)', background: 'var(--bone-2,#E3DED1)' }}>
-                  <img src={gcceCover} alt="Research Papers" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
+                <div style={{ aspectRatio: '16/10', overflow: 'hidden', border: '1px solid var(--text-primary)', background: 'var(--bone-2,var(--surface-muted))' }}>
+                  <img src={gcceCover} alt={t('home.works.publications.imgAlt')} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(20%) contrast(1.05)' }} />
                 </div>
-                <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--muted,#6B6A62)' }}>
-                  <span style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--ink,#0C0C0C)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
-                  <span style={{ color: '#E23A1C', fontWeight: 500 }}>Best Paper</span>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 500, color: 'var(--text-primary)', letterSpacing: '-.02em', display: 'block', marginBottom: '4px' }}>2024</span>
+                  <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{t('home.works.publications.tag3')}</span>
                 </div>
-                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--ink,#0C0C0C)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
+                <div className="work-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', border: '1px solid var(--text-primary)', borderRadius: '50%', alignSelf: 'center', transition: 'background .25s, color .25s, transform .35s', fontSize: '18px' }}>↗</div>
               </Link>
             </motion.div>
 
@@ -385,13 +369,11 @@ export default function Home() {
       </section>
 
       {/* 3. Research / Thesis Section */}
-      <section style={{ background: 'var(--ink,#0C0C0C)', color: 'var(--bone,#EEEAE0)', borderTop: '2px solid var(--ink,#0C0C0C)', borderBottom: '2px solid var(--ink,#0C0C0C)', padding: '96px 0', position: 'relative', zIndex: 1 }}>
+      <section style={{ background: 'var(--ink-2)', color: 'var(--bone)', borderTop: '2px solid color-mix(in srgb, var(--bone) 25%, transparent)', borderBottom: '2px solid color-mix(in srgb, var(--bone) 25%, transparent)', padding: '96px 0', position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 clamp(16px,2.2vw,32px)' }}>
           {/* Section header */}
-          <h2 className="section-head" style={{ marginBottom: '48px', color: 'var(--bone,#EEEAE0)', borderBottom: '1px solid rgba(238,234,224,.2)', paddingBottom: '18px' }}>
-            <BookOpen size={32} color="var(--bone,#EEEAE0)" />
-            Research / Thesis
-          </h2>
+          <h2 className="section-head" style={{ marginBottom: '48px', color: 'var(--bone)', borderBottom: '1px solid rgba(238,234,224,.2)', paddingBottom: '18px' }}>
+            <BookOpen size={32} color="var(--bone)" />{t('home.research.heading')}</h2>
           {/* Two-column content */}
           <div className="research-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'start' }}>
             {/* Left */}
@@ -401,80 +383,72 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, margin: '-40px' }}
                 variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
-                style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: 'clamp(32px,4.5vw,64px)', lineHeight: 1.02, letterSpacing: '-.03em', textTransform: 'uppercase', margin: '0 0 28px', color: 'var(--bone,#EEEAE0)' }}
+                style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(32px,4.5vw,64px)', lineHeight: 1.02, letterSpacing: '-.03em', textTransform: 'uppercase', margin: '0 0 28px', color: 'var(--bone)' }}
               >
-                {['Why we', 'stay up', '/', 'when we'].map((word, i) => (
-                  <motion.span key={i} variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] } } }} style={{ display: 'inline-block', marginRight: word === '/' ? '0' : '.25em', color: word === '/' ? '#FF5A36' : 'inherit', fontStyle: word === '/' ? 'italic' : 'normal', fontWeight: word === '/' ? 400 : 500 }}>
+                {[t('home.research.headline.w1'), t('home.research.headline.w2'), '/', t('home.research.headline.w3')].map((word, i) => (
+                  <motion.span key={i} variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] } } }} style={{ display: 'inline-block', marginRight: word === '/' ? '0' : '.25em', color: word === '/' ? 'var(--acid)' : 'inherit', fontStyle: word === '/' ? 'italic' : 'normal', fontWeight: word === '/' ? 400 : 500 }}>
                     {word}
                   </motion.span>
                 ))}{' '}
-                <motion.em variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] } } }} style={{ fontStyle: 'normal', color: 'var(--acid-ink,#7A5C00)', background: 'var(--acid,#FFE699)', padding: '0 .1em', display: 'inline-block' }}>
-                  already
-                </motion.em>{' '}
-                <motion.span variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] } } }} style={{ display: 'inline-block' }}>
-                  know better.
-                </motion.span>
+                <motion.em variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] } } }} style={{ fontStyle: 'normal', color: 'var(--on-accent)', background: 'var(--accent)', padding: '0 .1em', display: 'inline-block' }}>{t('home.research.headline.highlight')}</motion.em>{' '}
+                <motion.span variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] } } }} style={{ display: 'inline-block' }}>{t('home.research.headline.tail')}</motion.span>
               </motion.h3>
-              <p style={{ fontSize: '16px', lineHeight: 1.65, color: 'rgba(238,234,224,.78)', margin: '0 0 16px', maxWidth: '52ch' }}>
-                My thesis investigates <strong style={{ color: 'var(--bone,#EEEAE0)', fontWeight: 500 }}>bedtime procrastination</strong> — the gap between the sleep we intend and the sleep we actually get. HCI × behavioural science × self-regulation theory.
-              </p>
-              <p style={{ fontSize: '16px', lineHeight: 1.65, color: 'rgba(238,234,224,.78)', margin: 0, maxWidth: '52ch' }}>
-                Mixed-method: diary study, SPSS analysis, semi-structured interviews. Goal is to prototype interventions that respect autonomy instead of shaming it.
-              </p>
+              <p style={{ fontSize: '16px', lineHeight: 1.65, color: 'rgba(238,234,224,.78)', margin: '0 0 16px', maxWidth: '52ch' }}>{t('home.research.p1a')}{' '}<strong style={{ color: 'var(--bone)', fontWeight: 500 }}>{t('home.research.p1strong')}</strong>{' '}{t('home.research.p1b')}</p>
+              <p style={{ fontSize: '16px', lineHeight: 1.65, color: 'rgba(238,234,224,.78)', margin: 0, maxWidth: '52ch' }}>{t('home.research.p2')}</p>
               {/* Stats row — count-up */}
               <div ref={statsRef} className="research-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '24px', marginTop: '40px', borderTop: '1px solid rgba(238,234,224,.25)', paddingTop: '24px' }}>
                 {[
-                  { n: visibleStats[0].toString().padStart(2, '0'), u: 'N', l: 'Participants · EMA' },
-                  { n: visibleStats[1].toString().padStart(2, '0'), u: 'CONDITIONS', l: 'Notification Types' },
-                  { n: visibleStats[2].toString().padStart(2, '0'), u: 'WEEKS', l: 'Diary Study Duration' },
-                  { n: '06/30', u: '', l: 'Defence · June' },
+                  { n: visibleStats[0].toString().padStart(2, '0'), u: t('home.research.stat1.unit'), l: t('home.research.stat1.label') },
+                  { n: visibleStats[1].toString().padStart(2, '0'), u: t('home.research.stat2.unit'), l: t('home.research.stat2.label') },
+                  { n: visibleStats[2].toString().padStart(2, '0'), u: t('home.research.stat3.unit'), l: t('home.research.stat3.label') },
+                  { n: '06/26', u: '', l: t('home.research.stat4.label') },
                 ].map(({ n, u, l }) => (
                   <div key={l}>
-                    <div style={{ fontFamily: 'var(--font-head,"Space Grotesk",sans-serif)', fontWeight: 500, fontSize: '36px', lineHeight: 1, letterSpacing: '-.02em', color: 'var(--bone,#EEEAE0)' }}>
-                      {n}{u && <span style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', fontWeight: 400, color: 'rgba(238,234,224,.5)', marginLeft: '4px', letterSpacing: '.08em' }}>{u}</span>}
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: '36px', lineHeight: 1, letterSpacing: '-.02em', color: 'var(--bone)' }}>
+                      {n}{u && <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 400, color: 'rgba(238,234,224,.6)', marginLeft: '4px', letterSpacing: '.08em' }}>{u}</span>}
                     </div>
-                    <div style={{ fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(238,234,224,.5)', marginTop: '8px' }}>{l}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(238,234,224,.7)', marginTop: '8px', lineHeight: 1.5 }}>{l}</div>
                   </div>
                 ))}
               </div>
             </div>
             {/* Right — 2×2 Notification Conditions Matrix */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', height: '100%' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-mono,"IBM Plex Mono",monospace)', fontSize: '10px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(238,234,224,.5)', marginBottom: '4px' }}>
-                <span>Notification Conditions · N=48</span>
-                <span>3×4 Mixed Factorial</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(238,234,224,.5)', marginBottom: '4px' }}>
+                <span>{t('home.research.matrix.caption1')}</span>
+                <span>{t('home.research.matrix.caption2')}</span>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '10px', flex: 1 }}>
                 {/* 左上：威脅訴求 */}
                 <div style={{ border: '1px solid rgba(238,234,224,.2)', background: 'rgba(238,234,224,.03)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '16px 12px', gap: '12px' }}>
-                  <img src={threatAppeal} alt="Threat Appeal notification" loading="lazy" style={{ width: '100%', maxWidth: '200px', height: 'auto', objectFit: 'contain', borderRadius: '8px' }} />
+                  <img src={threatAppeal} alt={t('home.research.matrix.threat.imgAlt')} loading="lazy" style={{ width: '100%', maxWidth: '200px', height: 'auto', objectFit: 'contain', borderRadius: '8px' }} />
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 600, fontSize: '13px', color: 'rgba(238,234,224,.9)', letterSpacing: '-.01em', marginBottom: '2px' }}>威脅訴求</div>
-                    <div style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(238,234,224,.45)' }}>Threat Appeal</div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', color: 'rgba(238,234,224,.9)', letterSpacing: '-.01em', marginBottom: '2px' }}>{t('home.research.matrix.threat.labelZh')}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(238,234,224,.45)' }}>{t('home.research.matrix.threat.labelEn')}</div>
                   </div>
                 </div>
                 {/* 右上：共情訴求 */}
                 <div style={{ border: '1px solid rgba(238,234,224,.2)', background: 'rgba(238,234,224,.03)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '16px 12px', gap: '12px' }}>
-                  <img src={empathyAppeal} alt="Empathy Appeal notification" loading="lazy" style={{ width: '100%', maxWidth: '200px', height: 'auto', objectFit: 'contain', borderRadius: '8px' }} />
+                  <img src={empathyAppeal} alt={t('home.research.matrix.empathy.imgAlt')} loading="lazy" style={{ width: '100%', maxWidth: '200px', height: 'auto', objectFit: 'contain', borderRadius: '8px' }} />
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 600, fontSize: '13px', color: 'rgba(238,234,224,.9)', letterSpacing: '-.01em', marginBottom: '2px' }}>共情訴求</div>
-                    <div style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(238,234,224,.45)' }}>Empathy Appeal</div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', color: 'rgba(238,234,224,.9)', letterSpacing: '-.01em', marginBottom: '2px' }}>{t('home.research.matrix.empathy.labelZh')}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(238,234,224,.45)' }}>{t('home.research.matrix.empathy.labelEn')}</div>
                   </div>
                 </div>
                 {/* 左下：設計摩擦 */}
                 <div style={{ border: '1px solid rgba(238,234,224,.2)', background: 'rgba(238,234,224,.03)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '16px 12px', gap: '12px' }}>
-                  <img src={designFriction} alt="Design Friction notification" loading="lazy" style={{ width: '100%', maxWidth: '200px', height: 'auto', objectFit: 'contain', borderRadius: '8px' }} />
+                  <img src={designFriction} alt={t('home.research.matrix.friction.imgAlt')} loading="lazy" style={{ width: '100%', maxWidth: '200px', height: 'auto', objectFit: 'contain', borderRadius: '8px' }} />
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 600, fontSize: '13px', color: 'rgba(238,234,224,.9)', letterSpacing: '-.01em', marginBottom: '2px' }}>設計摩擦</div>
-                    <div style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(238,234,224,.45)' }}>Friction Design</div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', color: 'rgba(238,234,224,.9)', letterSpacing: '-.01em', marginBottom: '2px' }}>{t('home.research.matrix.friction.labelZh')}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(238,234,224,.45)' }}>{t('home.research.matrix.friction.labelEn')}</div>
                   </div>
                 </div>
                 {/* 右下：一般通知 */}
                 <div style={{ border: '1px solid rgba(238,234,224,.2)', background: 'rgba(238,234,224,.03)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '16px 12px', gap: '12px' }}>
-                  <img src={controlNotif} alt="Control notification" loading="lazy" style={{ width: '100%', maxWidth: '200px', height: 'auto', objectFit: 'contain', borderRadius: '8px' }} />
+                  <img src={controlNotif} alt={t('home.research.matrix.control.imgAlt')} loading="lazy" style={{ width: '100%', maxWidth: '200px', height: 'auto', objectFit: 'contain', borderRadius: '8px' }} />
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 600, fontSize: '13px', color: 'rgba(238,234,224,.9)', letterSpacing: '-.01em', marginBottom: '2px' }}>一般通知</div>
-                    <div style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(238,234,224,.45)' }}>Control</div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', color: 'rgba(238,234,224,.9)', letterSpacing: '-.01em', marginBottom: '2px' }}>{t('home.research.matrix.control.labelZh')}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(238,234,224,.45)' }}>{t('home.research.matrix.control.labelEn')}</div>
                   </div>
                 </div>
               </div>
@@ -488,9 +462,7 @@ export default function Home() {
       <section className="section bg-light-gray" id="awards" style={{ padding: '80px 0' }}>
         <div className="container">
           <h2 className="section-head">
-            <Award size={32} color="hsl(var(--g3))" />
-            Select Honors & Awards
-          </h2>
+            <Award size={32} color="var(--accent-text)" />{t('home.awards.heading')}</h2>
           <div className="awards-grid reveal" ref={addToRefs}>
 
             {/* Award 1 */}
@@ -498,12 +470,12 @@ export default function Home() {
               <span className="award-year">2025</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <h4 style={{ margin: 0, marginBottom: '6px' }}>Outstanding Graduate Research Award</h4>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>{t('home.awards.tuition.title')}</h4>
                   <button onClick={() => setLightbox(tuitionCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={12} /> <span>Certificate</span>
+                    <FileText size={12} /> <span>{t('common.certificate')}</span>
                   </button>
                 </div>
-                <p>Full Tuition Waiver for publishing two high-impact HCI academic papers.</p>
+                <p>{t('home.awards.tuition.desc')}</p>
               </div>
             </div>
 
@@ -512,12 +484,12 @@ export default function Home() {
               <span className="award-year">2025</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <h4 style={{ margin: 0, marginBottom: '6px' }}>UX Design Awards</h4>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>{t('home.awards.uxda.title')}</h4>
                   <button onClick={() => setLightbox(uxdaCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={12} /> <span>Certificate</span>
+                    <FileText size={12} /> <span>{t('common.certificate')}</span>
                   </button>
                 </div>
-                <p>Nominated for the global UX Design Awards for the multisensory interactive guide, Mú.</p>
+                <p>{t('home.awards.uxda.desc')}</p>
               </div>
             </div>
 
@@ -526,12 +498,12 @@ export default function Home() {
               <span className="award-year">2025</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <h4 style={{ margin: 0, marginBottom: '6px' }}>Times Young Creative Awards (National 3rd)</h4>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>{t('home.awards.timesYoung.title')}</h4>
                   <button onClick={() => setLightbox(timesYoungCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={12} /> <span>Certificate</span>
+                    <FileText size={12} /> <span>{t('common.certificate')}</span>
                   </button>
                 </div>
-                <p>Led marketing strategy and interactive design for YungChing Realty.</p>
+                <p>{t('home.awards.timesYoung.desc')}</p>
               </div>
             </div>
 
@@ -540,12 +512,12 @@ export default function Home() {
               <span className="award-year">2025</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <h4 style={{ margin: 0, marginBottom: '6px' }}>IEEE GCCE (Paper Accepted)</h4>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>{t('home.awards.gcce.title')}</h4>
                   <button onClick={() => setLightbox(ieeeGcceCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={12} /> <span>Certificate</span>
+                    <FileText size={12} /> <span>{t('common.certificate')}</span>
                   </button>
                 </div>
-                <p>First Author. Explored AI voice subjectivity and interactive product design.</p>
+                <p>{t('home.awards.gcce.desc')}</p>
               </div>
             </div>
 
@@ -554,12 +526,12 @@ export default function Home() {
               <span className="award-year">2025</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <h4 style={{ margin: 0, marginBottom: '6px' }}>NTU OpenHCI'25 | Best Demo Award & off to TAICHI '25</h4>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>{t('home.awards.openhci.title')}</h4>
                   <button onClick={() => setLightbox(openhciCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={12} /> <span>Certificate</span>
+                    <FileText size={12} /> <span>{t('common.certificate')}</span>
                   </button>
                 </div>
-                <p>Led UX research and product design. Tangible AI interaction device exploring emotional memory — awarded Best Demo at OpenHCI 2025.</p>
+                <p>{t('home.awards.openhci.desc')}</p>
               </div>
             </div>
 
@@ -568,12 +540,12 @@ export default function Home() {
               <span className="award-year">2024</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <h4 style={{ margin: 0, marginBottom: '6px' }}>InnoConnect+ Service Innovation (Gold)</h4>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>{t('home.awards.innoconnect.title')}</h4>
                   <button onClick={() => setLightbox(innoconnectCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={12} /> <span>Certificate</span>
+                    <FileText size={12} /> <span>{t('common.certificate')}</span>
                   </button>
                 </div>
-                <p>End-to-end UX/UI design for Hi-Life O2O gifting service (Ranked 1/186).</p>
+                <p>{t('home.awards.innoconnect.desc')}</p>
               </div>
             </div>
 
@@ -582,12 +554,12 @@ export default function Home() {
               <span className="award-year">2024</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <h4 style={{ margin: 0, marginBottom: '6px' }}>Big Data Marketing Cup (3rd Place)</h4>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>{t('home.awards.bigData.title')}</h4>
                   <button onClick={() => setLightbox(bigDataCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={12} /> <span>Certificate</span>
+                    <FileText size={12} /> <span>{t('common.certificate')}</span>
                   </button>
                 </div>
-                <p>Market research and app prototyping for Taiwan Livestock.</p>
+                <p>{t('home.awards.bigData.desc')}</p>
               </div>
             </div>
 
@@ -596,12 +568,12 @@ export default function Home() {
               <span className="award-year">2024</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <h4 style={{ margin: 0, marginBottom: '6px' }}>SSIM Best Paper Award</h4>
+                  <h4 style={{ margin: 0, marginBottom: '6px' }}>{t('home.awards.ssim.title')}</h4>
                   <button onClick={() => setLightbox(ssimCert)} className="cert-btn" aria-label="View Certificate">
-                    <FileText size={12} /> <span>Certificate</span>
+                    <FileText size={12} /> <span>{t('common.certificate')}</span>
                   </button>
                 </div>
-                <p>First Author. Focused on Human-AI music collaboration interfaces.</p>
+                <p>{t('home.awards.ssim.desc')}</p>
               </div>
             </div>
 
@@ -614,18 +586,14 @@ export default function Home() {
         <div className="noise-overlay"></div>
         <div className="container relative z-10">
           <h2 className="section-head" style={{ justifyContent: 'center' }}>
-            <Sparkles size={32} color="var(--md-primary)" />
-            Playground & Life
-          </h2>
-          <p className="contact-sub text-center mb-8">
-            When I'm not designing interfaces, I'm exploring new mediums.
-          </p>
+            <Sparkles size={32} color="var(--accent-text)" />{t('home.playground.heading')}</h2>
+          <p className="contact-sub text-center mb-8">{t('home.playground.sub')}</p>
           <div className="reveal" ref={addToRefs} style={{ maxWidth: '720px', margin: '0 auto' }}>
             <div style={{
               borderRadius: '20px',
               overflow: 'hidden',
               border: '1px solid var(--border, rgba(26,26,24,0.09))',
-              background: 'var(--bg, #FAFAF8)',
+              background: 'var(--surface)',
             }}>
               {/* Image area */}
               <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
@@ -648,7 +616,7 @@ export default function Home() {
                   style={{
                     position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)',
                     width: '40px', height: '40px', borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.85)', border: '1px solid rgba(0,0,0,0.08)',
+                    background: 'var(--card-glass)', border: '1px solid var(--border)',
                     cursor: 'pointer', fontSize: '20px',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     backdropFilter: 'blur(8px)',
@@ -661,7 +629,7 @@ export default function Home() {
                   style={{
                     position: 'absolute', right: '16px', top: '50%', transform: 'translateY(-50%)',
                     width: '40px', height: '40px', borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.85)', border: '1px solid rgba(0,0,0,0.08)',
+                    background: 'var(--card-glass)', border: '1px solid var(--border)',
                     cursor: 'pointer', fontSize: '20px',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     backdropFilter: 'blur(8px)',
@@ -671,19 +639,19 @@ export default function Home() {
 
               {/* Text area */}
               <div style={{ padding: '20px 24px 16px' }}>
-                <p style={{ fontSize: '17px', fontWeight: 600, color: 'var(--ink, #1A1A18)', margin: '0 0 6px' }}>
+                <p style={{ fontSize: '17px', fontWeight: 600, color: 'var(--text-primary)', margin: '0 0 6px' }}>
                   {playgroundItems[carouselIndex].title}
                 </p>
-                <p style={{ fontSize: '14px', color: 'var(--ink, #1A1A18)', lineHeight: '1.6', margin: 0 }}>
+                <p style={{ fontSize: '14px', color: 'var(--text-primary)', lineHeight: '1.6', margin: 0 }}>
                   {playgroundItems[carouselIndex].desc}
                 </p>
                 {(() => {
                   const item = playgroundItems[carouselIndex];
                   const linkStyle: React.CSSProperties = {
                     display: 'inline-flex', alignItems: 'center', gap: '6px',
-                    fontFamily: '"IBM Plex Mono", monospace',
+                    fontFamily: 'var(--font-mono)',
                     fontSize: '11px', letterSpacing: '.1em',
-                    textTransform: 'uppercase', color: 'var(--ink, #0C0C0C)',
+                    textTransform: 'uppercase', color: 'var(--text-primary)',
                     textDecoration: 'none',
                     borderBottom: '1px solid currentColor',
                     paddingBottom: '1px',
@@ -711,7 +679,7 @@ export default function Home() {
                     style={{
                       width: i === carouselIndex ? '20px' : '8px',
                       height: '8px', borderRadius: '999px',
-                      background: i === carouselIndex ? 'var(--accent, #3B5BDB)' : 'rgba(26,26,24,0.18)',
+                      background: i === carouselIndex ? 'var(--accent-text)' : 'color-mix(in srgb, var(--text-primary) 18%, transparent)',
                       border: 'none', cursor: 'pointer',
                       transition: 'all 0.25s ease', padding: 0,
                     }}
@@ -729,18 +697,14 @@ export default function Home() {
       <section className="section" id="contact" style={{ paddingTop: '60px', paddingBottom: '96px' }}>
         <div className="container contact-wrap">
           <h2 className="section-head" style={{ justifyContent: 'center' }}>
-            <Mail size={32} color="hsl(var(--g4))" />
-            Let's Build Together
-          </h2>
-          <p className="contact-sub">
-            Open for full-time opportunities, collaborations, and coffee chats.
-          </p>
+            <Mail size={32} color="var(--accent-text)" />{t('home.contact.heading')}</h2>
+          <p className="contact-sub">{t('home.contact.sub')}</p>
           <div className="contact-pills">
             <a className="contact-pill" href="https://www.linkedin.com/in/rose-chang0708" target="_blank" rel="noreferrer noopener">
               <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
                 <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zm7 0h3.84v1.98h.06c.53-1 1.84-2.06 3.79-2.06 4.06 0 4.81 2.67 4.81 6.14V23h-4v-6.43c0-1.53-.03-3.5-2.13-3.5-2.13 0-2.46 1.66-2.46 3.39V23h-4V8.5z" />
               </svg>
-              <span>Connect on LinkedIn</span>
+              <span>{t('home.contact.linkedin')}</span>
             </a>
             <a className="contact-pill contact-pill-lg" href="mailto:yuu07798@gmail.com">
               <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
@@ -754,10 +718,10 @@ export default function Home() {
 
       <style>{`
         /* ── Global & Typography ── */
-        .section-head { font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--md-primary); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+        .section-head { font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--accent-text); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
         .section-header-flex { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
-        .view-all-link { font-size: 15px; font-weight: 600; color: var(--md-primary); text-decoration: none; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: border-color 0.3s; }
-        .view-all-link:hover { border-color: var(--md-primary); }
+        .view-all-link { font-size: 15px; font-weight: 600; color: var(--accent-text); text-decoration: none; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: border-color 0.3s; }
+        .view-all-link:hover { border-color: var(--accent-text); }
         .bg-light-gray { background-color: rgba(0,0,0,0.02); }
         .dark .bg-light-gray { background-color: rgba(255,255,255,0.02); }
 
@@ -786,14 +750,14 @@ export default function Home() {
           width: 7px;
           height: 7px;
           border-radius: 50%;
-          background: #2A9D6E;
+          background: var(--accent-text);
           flex-shrink: 0;
           animation: availPing 2s ease-in-out infinite;
         }
         .avail-label {
           font-size: 12px;
           font-weight: 500;
-          color: #1A6B4A;
+          color: var(--accent-text);
           letter-spacing: 0.02em;
         }
         @keyframes ping { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.4)} }
@@ -808,14 +772,14 @@ export default function Home() {
           font-weight: 700 !important;
           letter-spacing: -0.04em !important;
           line-height: 0.92 !important;
-          color: var(--ink, #1A1A18);
+          color: var(--text-primary);
         }
 
         /* h2 head */
         .head {
           font-size: 22px !important;
           font-weight: 600 !important;
-          color: #3B5BDB !important;
+          color: var(--text-primary) !important;
           margin-top: 16px !important;
         }
 
@@ -823,7 +787,7 @@ export default function Home() {
         .sub-head {
           font-size: 15px !important;
           font-weight: 400 !important;
-          color: #52524E !important;
+          color: var(--text-secondary) !important;
           margin-top: 6px !important;
           letter-spacing: 0.01em !important;
         }
@@ -844,18 +808,18 @@ export default function Home() {
           transition: all 0.3s ease;
         }
         .btn--primary {
-          background: #3B5BDB;
-          color: white;
+          background: var(--accent);
+          color: var(--on-accent);
           border: none;
         }
         .btn--primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(59,91,219,0.35);
+          box-shadow: 0 8px 24px color-mix(in srgb, var(--acid) 45%, transparent);
         }
         .btn--secondary {
           background: transparent;
-          color: #1A1A18;
-          border: 1.5px solid rgba(26,26,24,0.18);
+          color: var(--text-primary);
+          border: 1.5px solid color-mix(in srgb, var(--text-primary) 18%, transparent);
         }
         .btn--secondary:hover {
           background: rgba(26,26,24,0.04);
@@ -865,9 +829,9 @@ export default function Home() {
         /* Venn */
         .venn-container { width: 100%; max-width: 350px; margin: 0 auto; }
         .venn circle { stroke: none; mix-blend-mode: multiply; filter: url(#softGlass); }
-        .venn .c1 { fill: hsl(var(--g4)/.45); }
-        .venn .c2 { fill: hsl(var(--g3)/.45); }
-        .venn .c3 { fill: hsl(var(--g1)/.40); }
+        .venn .c1 { fill: color-mix(in srgb, var(--acid) 35%, transparent); }
+        .venn .c2 { fill: color-mix(in srgb, var(--acid) 35%, transparent); }
+        .venn .c3 { fill: color-mix(in srgb, var(--acid) 35%, transparent); }
 
         @media (max-width: 768px) {
           .hero-main-grid { grid-template-columns: 1fr !important; min-height: auto !important; padding: 60px 0 24px !important; }
@@ -878,7 +842,7 @@ export default function Home() {
 
         /* Interactive Text */
         .interactive-name .char { display: inline-block; transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.2s ease; cursor: default; animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; }
-        .interactive-name:hover .char:hover { transform: translateY(-8px) scale(1.1); color: var(--md-primary); }
+        .interactive-name:hover .char:hover { transform: translateY(-8px) scale(1.1); color: var(--accent-text); }
         @keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* ── Selected Works Layout ── */
@@ -893,8 +857,8 @@ export default function Home() {
           min-height: 280px;
           border-radius: 20px;
           overflow: hidden;
-          border: 1.5px solid rgba(59,91,219,0.2);
-          background: rgba(255,255,255,0.95);
+          border: 1.5px solid color-mix(in srgb, var(--acid-ink) 25%, transparent);
+          background: var(--card-glass);
           text-decoration: none;
           color: inherit;
           transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -902,11 +866,11 @@ export default function Home() {
         .featured-card:hover {
           transform: translateY(-4px);
           box-shadow: 0 16px 40px rgba(59,91,219,0.12);
-          border-color: rgba(59,91,219,0.4);
+          border-color: color-mix(in srgb, var(--accent-text) 40%, transparent);
         }
         .featured-img {
           overflow: hidden;
-          background: #f0f0ee;
+          background: var(--surface-muted);
         }
         .featured-img img {
           width: 100%;
@@ -936,30 +900,30 @@ export default function Home() {
           letter-spacing: 0.02em;
         }
         .ftag--blue {
-          background: rgba(59,91,219,0.08);
-          color: #3B5BDB;
+          background: color-mix(in srgb, var(--acid) 25%, var(--background));
+          color: var(--accent-text);
         }
         .ftag--solid {
-          background: #3B5BDB;
-          color: white;
+          background: var(--accent);
+          color: var(--on-accent);
           font-size: 11px;
         }
         .featured-title {
           font-size: 24px;
           font-weight: 700;
           line-height: 1.25;
-          color: var(--md-on-surface, #1A1A18);
+          color: var(--text-primary);
           margin: 0 0 10px;
           transition: color 0.3s ease;
         }
-        .featured-card:hover .featured-title { color: #3B5BDB; }
+        .featured-card:hover .featured-title { color: var(--accent-text); }
         .featured-desc {
           font-size: 15px;
           line-height: 1.7;
-          color: var(--color-text-muted);
+          color: var(--text-tertiary);
           margin: 0;
         }
-        .featured-desc strong { color: var(--md-on-surface, #1A1A18); }
+        .featured-desc strong { color: var(--text-primary); }
         .featured-cta {
           display: inline-flex;
           align-items: center;
@@ -967,7 +931,7 @@ export default function Home() {
           margin-top: 16px;
           font-size: 14px;
           font-weight: 600;
-          color: #3B5BDB;
+          color: var(--accent-text);
         }
         .featured-arrow { transition: transform 0.3s ease; }
         .featured-card:hover .featured-arrow { transform: translateX(4px); }
@@ -980,7 +944,7 @@ export default function Home() {
           .works-row-half { grid-template-columns: 1fr; }
         }
 
-        /* ── Vertical Cards (Oblivilight, Mú, Innoconnect, IEEE) ── */
+        /* ── Vertical Cards (Oblivilight, Mù, Innoconnect, IEEE) ── */
         .vcard {
           display: flex;
           flex-direction: column;
@@ -988,21 +952,21 @@ export default function Home() {
           text-decoration: none;
           color: inherit;
           border-radius: 16px;
-          border: 1px solid rgba(0,0,0,0.07);
-          background: rgba(255,255,255,0.95);
+          border: 1px solid var(--border);
+          background: var(--card-glass);
           overflow: hidden;
           transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .vcard:hover {
           transform: translateY(-5px);
           box-shadow: 0 12px 32px rgba(0,0,0,0.09);
-          border-color: rgba(26,26,24,0.18);
+          border-color: color-mix(in srgb, var(--text-primary) 18%, transparent);
         }
         .vcard-thumb {
           position: relative;
           aspect-ratio: 16/10;
           overflow: hidden;
-          background: #f5f5f5;
+          background: var(--surface-muted);
         }
         .vcard-thumb--wide { aspect-ratio: 16/9; }
         .vcard-thumb img {
@@ -1021,9 +985,9 @@ export default function Home() {
           backdrop-filter: blur(8px);
           white-space: nowrap;
         }
-        .vcard-tag--green { background: rgba(198,242,74,0.85); color: #3A5010; }
-        .vcard-tag--blue { background: rgba(255,255,255,0.92); color: #3B5BDB; border: 1px solid rgba(59,91,219,0.2); }
-        .vcard-tag--gold { background: #FFDD33; color: #3A2D00; }
+        .vcard-tag--green { background: var(--acid); color: var(--acid-ink); }
+        .vcard-tag--blue { background: rgba(255,255,255,0.92); color: var(--acid-ink); border: 1px solid color-mix(in srgb, var(--acid-ink) 25%, transparent); }
+        .vcard-tag--gold { background: var(--acid); color: var(--acid-ink); }
 
         .vcard-tags-row {
           position: absolute;
@@ -1051,30 +1015,30 @@ export default function Home() {
           transition: color 0.3s ease;
         }
         .vcard--sm .vcard-info h3 { font-size: 17px; font-weight: 600; }
-        .vcard:hover h3 { color: #3B5BDB; }
+        .vcard:hover h3 { color: var(--accent-text); }
         .vcard-info p {
           font-size: 14px;
           line-height: 1.65;
-          color: var(--color-text-muted);
+          color: var(--text-tertiary);
           margin: 0;
           flex-grow: 1;
         }
         .vcard--sm .vcard-info p { font-size: 13px; line-height: 1.6; }
-        .vcard-info strong { color: var(--md-on-surface, #1A1A18); }
+        .vcard-info strong { color: var(--text-primary); }
 
         /* ── Shared explore-btn ── */
-        .explore-btn { margin-top: 12px; font-size: 14px; font-weight: 600; color: var(--md-primary); display: flex; align-items: center; gap: 6px; }
+        .explore-btn { margin-top: 12px; font-size: 14px; font-weight: 600; color: var(--accent-text); display: flex; align-items: center; gap: 6px; }
         .explore-btn .arrow { transition: transform 0.3s ease; }
         .vcard:hover .explore-btn .arrow { transform: translateX(4px); }
 
         /* ── Awards Grid ── */
         .awards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        .award-item-clean { display: flex; gap: 20px; padding: 24px; background: var(--surface); border: 1px solid rgba(0,0,0,0.05); border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .award-item-clean { display: flex; gap: 20px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .dark .award-item-clean { border-color: rgba(255,255,255,0.05); }
         .award-item-clean:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
-        .award-year { font-family: monospace; font-size: 18px; font-weight: 700; color: hsl(var(--g3)); opacity: 0.8; padding-top: 2px; }
+        .award-year { font-family: monospace; font-size: 18px; font-weight: 700; color: var(--accent-text); opacity: 0.8; padding-top: 2px; }
         .award-item-clean h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
-        .award-item-clean p { font-size: 14px; color: var(--color-text-muted); line-height: 1.5; margin: 0; }
+        .award-item-clean p { font-size: 14px; color: var(--text-tertiary); line-height: 1.5; margin: 0; }
         @media (max-width: 768px) { .awards-grid { grid-template-columns: 1fr; } }
         
         /* ── Certificate Button CSS ── */
@@ -1085,7 +1049,7 @@ export default function Home() {
           padding: 6px 12px;
           border-radius: 100px;
           background: rgba(0,0,0,0.04);
-          border: 1px solid rgba(0,0,0,0.06);
+          border: 1px solid var(--border);
           color: var(--text);
           font-size: 12px;
           font-weight: 600;
@@ -1124,11 +1088,11 @@ export default function Home() {
 
         /* ── Contact ── */
         .contact-wrap { text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .contact-sub { font-size: 16px; color: var(--color-text-muted); margin-bottom: 32px; }
+        .contact-sub { font-size: 16px; color: var(--text-tertiary); margin-bottom: 32px; }
         .contact-pills { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; }
-        .contact-pill { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 12px 28px; background: var(--surface); border: 1px solid rgba(0,0,0,0.1); border-radius: 999px; color: var(--text); text-decoration: none; font-weight: 500; transition: all 0.3s ease; }
+        .contact-pill { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 12px 28px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; color: var(--text); text-decoration: none; font-weight: 500; transition: all 0.3s ease; }
         .dark .contact-pill { border-color: rgba(255,255,255,0.1); }
-        .contact-pill:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--md-primary); color: var(--md-primary); }
+        .contact-pill:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--accent-text); color: var(--accent-text); }
 
         /* ── Reduced motion ── */
         @media (prefers-reduced-motion: reduce) {
@@ -1149,8 +1113,8 @@ export default function Home() {
           width: '48px',
           height: '48px',
           borderRadius: '50%',
-          background: '#1A1A18',
-          color: '#FFE699',
+          background: 'var(--surface-inverse)',
+          color: 'var(--accent-on-inverse)',
           border: 'none',
           cursor: 'pointer',
           display: 'flex',
@@ -1184,7 +1148,7 @@ export default function Home() {
         >
           <img
             src={lightbox}
-            alt="Enlarged view"
+            alt={t('common.enlargedView')}
             onClick={e => e.stopPropagation()}
             style={{
               maxWidth: '90vw', maxHeight: '88vh',

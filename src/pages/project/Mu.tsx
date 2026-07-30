@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
+import { useLanguage } from '../../contexts/LanguageContext';
 import {
   Award, Leaf, Wind, Map, BookOpen,
   Target, Compass, Sparkles, CheckCircle2,
@@ -24,6 +25,7 @@ const getAsset = (fileName: string) => {
 };
 
 export default function MuProject() {
+  const { t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
   // Lightbox state
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
@@ -81,7 +83,7 @@ export default function MuProject() {
                 <X size={32} />
               </button>
               <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-                <img src={lightboxImage} alt="Enlarged view" />
+                <img src={lightboxImage} alt={t('common.enlargedView')} />
               </div>
             </motion.div>
           )}
@@ -103,36 +105,36 @@ export default function MuProject() {
                     <Award size={24} />
                   </div>
                   <div className="badge-content">
-                    <div className="badge-title">{'UX Design Award'}</div>
-                    <div className="badge-subtitle">{'Nominated Concept'}</div>
+                    <div className="badge-title">{t('project.mu.hero.badge')}</div>
+                    <div className="badge-subtitle">{t('project.mu.hero.badgeSub')}</div>
                   </div>
                 </div>
               </div>
 
-              <h1 className="hero-title">{'Mù – A Multisensory Guide'}</h1>
+              <h1 className="hero-title">{t('project.mu.hero.title')}</h1>
               <p className="hero-subtitle">
-                {'Rebuilding the sensory relationship between people and Taiwan\'s endangered woods'}
+                {t('project.mu.hero.subtitle')}
               </p>
 
               <div className="hero-details">
                 <div className="detail-item">
-                  <span className="detail-label">{'Timeline'}</span>
-                  <span className="detail-value">{'Aug - Dec 2025'}</span>
+                  <span className="detail-label">{t('project.mu.hero.timelineLabel')}</span>
+                  <span className="detail-value">{t('project.mu.hero.timelineValue')}</span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{'My Role'}</span>
-                  <span className="detail-value">{'Creative Ideation, Video Production'}</span>
-                  <span className="detail-sub">{'Desk Research'}</span>
+                  <span className="detail-label">{t('project.mu.hero.roleLabel')}</span>
+                  <span className="detail-value">{t('project.mu.hero.roleValue')}</span>
+                  <span className="detail-sub">{t('project.mu.hero.roleSub')}</span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{'Team'}</span>
-                  <span className="detail-value">{'2 Members'}</span>
-                  <span className="detail-sub">{'Collaborative Concept Design'}</span>
+                  <span className="detail-label">{t('project.mu.hero.teamLabel')}</span>
+                  <span className="detail-value">{t('project.mu.hero.teamValue')}</span>
+                  <span className="detail-sub">{t('project.mu.hero.teamSub')}</span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{'Recognition'}</span>
+                  <span className="detail-label">{t('project.mu.hero.recognitionLabel')}</span>
                   <span className="detail-value achievement-highlight">
-                    ✨ {'UX Design Award Nominee'}
+                    ✨ {t('project.mu.hero.recognitionValue')}
                   </span>
                 </div>
               </div>
@@ -145,12 +147,12 @@ export default function MuProject() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="overview-intro flex-center-wrapper">
               <div className="logo-container">
-                <img src={getAsset('logo')} alt="Mù Logo" className="project-logo" />
+                <img src={getAsset('logo')} alt={t('project.mu.hero.logoAlt')} className="project-logo" />
               </div>
               <div className="overview-text-container">
-                <h2 className="section-heading">{'Project Overview'}</h2>
+                <h2 className="section-heading">{t('project.mu.overview.heading')}</h2>
                 <p className="body-text-large">
-                  {'While twelve native tree species in Taiwan are legally defined as precious woods, most urban visitors only encounter them as commodities. Mù is a multisensory guidance app and exhibition concept that turns abstract ecological loss into a rediscoverable experience. Using scent, sound, touch, and visual storytelling, it lets visitors feel endangered woods as living beings.'}
+                  {t('project.mu.overview.desc')}
                 </p>
               </div>
             </div>
@@ -158,18 +160,18 @@ export default function MuProject() {
             <div className="metrics-grid">
               <div className="metric-card">
                 <div className="metric-icon"><Wind size={40} /></div>
-                <div className="metric-label">{'Multisensory Immersion'}</div>
-                <p className="body-text-sm">{'Engaging users beyond screens through curated soundscapes and localized scents.'}</p>
+                <div className="metric-label">{t('project.mu.overview.card1title')}</div>
+                <p className="body-text-sm">{t('project.mu.overview.card1desc')}</p>
               </div>
               <div className="metric-card">
                 <div className="metric-icon"><Map size={40} /></div>
-                <div className="metric-label">{'4 Themed Zones'}</div>
-                <p className="body-text-sm">{'Orchestrating a cohesive journey across the Domain of Sacred Trees to the Forest of Memories.'}</p>
+                <div className="metric-label">{t('project.mu.overview.card2title')}</div>
+                <p className="body-text-sm">{t('project.mu.overview.card2desc')}</p>
               </div>
               <div className="metric-card">
                 <div className="metric-icon"><BookOpen size={40} /></div>
-                <div className="metric-label">{'Micro-learning'}</div>
-                <p className="body-text-sm">{'Translating complex conservation data into digestible, card-based tree profiles.'}</p>
+                <div className="metric-label">{t('project.mu.overview.card3title')}</div>
+                <p className="body-text-sm">{t('project.mu.overview.card3desc')}</p>
               </div>
             </div>
           </div>
@@ -181,29 +183,29 @@ export default function MuProject() {
             <div className="subsection">
               <div className="subsection-header">
                 <Target size={24} color="hsl(var(--g1))" />
-                <h3 className="subsection-title">{'The Challenge: Bridging the Awareness Gap'}</h3>
+                <h3 className="subsection-title">{t('project.mu.challenge.heading')}</h3>
               </div>
 
               <div className="two-column-layout">
                 <div className="column-content">
-                  <h4 className="highlight-title">{'Why is conservation so hard to communicate?'}</h4>
+                  <h4 className="highlight-title">{t('project.mu.challenge.title')}</h4>
                   <p className="body-text">
-                    {'Illegal logging heavily affects Taiwan\'s first-grade timber species. However, for the general public, this issue feels distant. How do we make urban populations care about something they rarely see or interact with?'}
+                    {t('project.mu.challenge.desc')}
                   </p>
 
                   <div className="challenge-list">
                     <div className="challenge-item">
                       <div className="challenge-bullet problem"></div>
                       <div>
-                        <strong>{'Abstract Ecological Loss:'}</strong>
-                        <span>{' People know trees are disappearing, but it remains a headline rather than an emotional connection.'}</span>
+                        <strong>{t('project.mu.challenge.item1label')}</strong>
+                        <span>{t('project.mu.challenge.item1desc')}</span>
                       </div>
                     </div>
                     <div className="challenge-item">
                       <div className="challenge-bullet problem"></div>
                       <div>
-                        <strong>{'Information Overload:'}</strong>
-                        <span>{' Traditional museum text panels cause fatigue and fail to evoke empathy for the environment.'}</span>
+                        <strong>{t('project.mu.challenge.item2label')}</strong>
+                        <span>{t('project.mu.challenge.item2desc')}</span>
                       </div>
                     </div>
                   </div>
@@ -211,9 +213,9 @@ export default function MuProject() {
 
                 <div className="column-media">
                   <div className="insight-card">
-                    <h4 className="insight-title">{'Core Question'}</h4>
+                    <h4 className="insight-title">{t('project.mu.challenge.coreLabel')}</h4>
                     <p className="insight-text">
-                      {'"How can a multisensory, research-driven guide turn \'I know trees are disappearing\' into \'I feel connected and want to protect them\'?"'}
+                      {t('project.mu.challenge.coreQuote')}
                     </p>
                   </div>
                 </div>
@@ -228,18 +230,18 @@ export default function MuProject() {
             <div className="subsection">
               <div className="subsection-header">
                 <Compass size={24} color="hsl(var(--g2))" />
-                <h3 className="subsection-title">{'Research & Insights Synthesis'}</h3>
+                <h3 className="subsection-title">{t('project.mu.research.heading')}</h3>
               </div>
 
               <p className="body-text mb-8">
-                {'To ensure our solution was grounded in reality, we conducted a mixed-methods research approach, including desk research and a quantitative survey (n=23) focused on wood fragrance experiences.'}
+                {t('project.mu.research.intro')}
               </p>
 
               {/* Precious Woods Showcase */}
               <div className="woods-showcase-container shadow-box mb-12">
-                <h4 className="text-center font-bold mb-4" style={{ color: 'hsl(var(--g1))' }}>Taiwan's Precious Woods</h4>
+                <h4 className="text-center font-bold mb-4" style={{ color: 'hsl(var(--g1))' }}>{t('project.mu.research.woodsTitle')}</h4>
                 <div className="image-wrapper bg-white p-4" style={{ height: '200px' }}>
-                  <img src={getAsset('woods')} alt="Precious Woods of Taiwan" className="full-contain-img" />
+                  <img src={getAsset('woods')} alt={t('project.mu.research.woodsAlt')} className="full-contain-img" />
                 </div>
               </div>
 
@@ -247,62 +249,62 @@ export default function MuProject() {
               <div className="data-viz-grid mb-12">
                 {/* Chart 1: Interest vs Knowledge */}
                 <div className="chart-card shadow-box">
-                  <h4 className="chart-title">{'Interest vs. Knowledge Gap'}</h4>
-                  <p className="chart-desc">{'91.3% of respondents showed high interest in sustainability, but lacked basic knowledge of native woods.'}</p>
+                  <h4 className="chart-title">{t('project.mu.research.f1title')}</h4>
+                  <p className="chart-desc">{t('project.mu.research.f1desc')}</p>
                   <div className="bar-chart-container">
                     <div className="bar-row">
-                      <div className="bar-label">{'High Interest'}</div>
+                      <div className="bar-label">{t('project.mu.research.f1bar1')}</div>
                       <div className="bar-track">
                         <div className="bar-fill" style={{ width: '91.3%', background: 'hsl(var(--g1))' }}></div>
                         <span className="bar-value">91.3%</span>
                       </div>
                     </div>
                     <div className="bar-row">
-                      <div className="bar-label">{'High Knowledge'}</div>
+                      <div className="bar-label">{t('project.mu.research.f1bar2')}</div>
                       <div className="bar-track">
-                        <div className="bar-fill" style={{ width: '15%', background: '#CBD5E1' }}></div>
+                        <div className="bar-fill" style={{ width: '15%', background: 'color-mix(in srgb, var(--text-tertiary) 40%, var(--surface))' }}></div>
                         <span className="bar-value">15%</span>
                       </div>
                     </div>
                   </div>
-                  <div className="chart-insight">{'Insight: A micro-learning approach is essential.'}</div>
+                  <div className="chart-insight">{t('project.mu.research.f1insight')}</div>
                 </div>
 
                 {/* Chart 2: Scent Delivery Preference */}
                 <div className="chart-card shadow-box">
-                  <h4 className="chart-title">{'Scent Delivery Preference'}</h4>
-                  <p className="chart-desc">{'Survey revealed a strong preference for localized, point-based sniffing to avoid sensory overload.'}</p>
+                  <h4 className="chart-title">{t('project.mu.research.f2title')}</h4>
+                  <p className="chart-desc">{t('project.mu.research.f2desc')}</p>
                   <div className="pie-chart-container">
-                    <div className="pie-chart" style={{ background: 'conic-gradient(hsl(var(--g2)) 0% 78.3%, #E2E8F0 78.3% 100%)' }}></div>
+                    <div className="pie-chart" style={{ background: 'conic-gradient(hsl(var(--g2)) 0% 78.3%, var(--surface-muted) 78.3% 100%)' }}></div>
                     <div className="pie-legend">
-                      <div className="legend-item"><span className="dot" style={{ background: 'hsl(var(--g2))' }}></span>{'78.3% Point-based (Cards/Jars)'}</div>
-                      <div className="legend-item"><span className="dot" style={{ background: '#E2E8F0' }}></span>{'21.7% Full-room diffusion'}</div>
+                      <div className="legend-item"><span className="dot" style={{ background: 'hsl(var(--g2))' }}></span>{t('project.mu.research.f2bar1')}</div>
+                      <div className="legend-item"><span className="dot" style={{ background: 'var(--surface-muted)' }}></span>{t('project.mu.research.f2bar2')}</div>
                     </div>
                   </div>
-                  <div className="chart-insight">{'Insight: Scent must be controlled and localized.'}</div>
+                  <div className="chart-insight">{t('project.mu.research.f2insight')}</div>
                 </div>
 
                 {/* Chart 3: Navigation Style */}
                 <div className="chart-card shadow-box">
-                  <h4 className="chart-title">{'Navigation Style Preference'}</h4>
-                  <p className="chart-desc">{'Feedback was perfectly split, dictating the need for a flexible UX architecture.'}</p>
+                  <h4 className="chart-title">{t('project.mu.research.f3title')}</h4>
+                  <p className="chart-desc">{t('project.mu.research.f3desc')}</p>
                   <div className="bar-chart-container">
                     <div className="bar-row">
-                      <div className="bar-label">{'Guided Tour'}</div>
+                      <div className="bar-label">{t('project.mu.research.f3bar1')}</div>
                       <div className="bar-track">
                         <div className="bar-fill" style={{ width: '50%', background: 'hsl(var(--g3))' }}></div>
                         <span className="bar-value">50%</span>
                       </div>
                     </div>
                     <div className="bar-row">
-                      <div className="bar-label">{'Free Exploration'}</div>
+                      <div className="bar-label">{t('project.mu.research.f3bar2')}</div>
                       <div className="bar-track">
                         <div className="bar-fill" style={{ width: '50%', background: 'hsl(var(--g4))' }}></div>
                         <span className="bar-value">50%</span>
                       </div>
                     </div>
                   </div>
-                  <div className="chart-insight">{'Insight: App must offer Dual-Pathways.'}</div>
+                  <div className="chart-insight">{t('project.mu.research.f3insight')}</div>
                 </div>
               </div>
             </div>
@@ -315,7 +317,7 @@ export default function MuProject() {
             <div className="subsection">
               <div className="subsection-header justify-center mb-12">
                 <Sparkles size={28} color="hsl(var(--g3))" />
-                <h3 className="subsection-title">{'Design Solutions & Interactions'}</h3>
+                <h3 className="subsection-title">{t('project.mu.solutions.heading')}</h3>
               </div>
 
               <div className="ui-grid">
@@ -323,11 +325,11 @@ export default function MuProject() {
                 <div className="ui-card shadow-box">
                   <div className="ui-text-area">
                     <div className="feature-icon-sm"><Map size={20} /></div>
-                    <h4 className="ui-title">{'Dual Navigation Pathways'}</h4>
-                    <p className="ui-desc">{'Accommodating different visitor mindsets. The home screen provides a structured narrative path across four themed "forest islands".'}</p>
+                    <h4 className="ui-title">{t('project.mu.solutions.s1title')}</h4>
+                    <p className="ui-desc">{t('project.mu.solutions.s1desc')}</p>
                   </div>
                   <div className="ui-image-area" onClick={() => openLightbox('home-page')}>
-                    <img src={getAsset('home-page')} alt="Home Navigation" />
+                    <img src={getAsset('home-page')} alt={t('project.mu.solutions.s1alt')} />
                     <div className="expand-overlay"><Maximize2 size={24} /></div>
                   </div>
                 </div>
@@ -336,11 +338,11 @@ export default function MuProject() {
                 <div className="ui-card shadow-box">
                   <div className="ui-text-area">
                     <div className="feature-icon-sm"><Compass size={20} /></div>
-                    <h4 className="ui-title">{'Spatial Pathfinding'}</h4>
-                    <p className="ui-desc">{'Clear visual cues showing the distance to specific trees or zones, allowing spontaneous exploration based on user location.'}</p>
+                    <h4 className="ui-title">{t('project.mu.solutions.s2title')}</h4>
+                    <p className="ui-desc">{t('project.mu.solutions.s2desc')}</p>
                   </div>
                   <div className="ui-image-area" onClick={() => openLightbox('guide-app')}>
-                    <img src={getAsset('guide-app')} alt="Guide App" />
+                    <img src={getAsset('guide-app')} alt={t('project.mu.solutions.s2alt')} />
                     <div className="expand-overlay"><Maximize2 size={24} /></div>
                   </div>
                 </div>
@@ -349,11 +351,11 @@ export default function MuProject() {
                 <div className="ui-card shadow-box">
                   <div className="ui-text-area">
                     <div className="feature-icon-sm"><Volume2 size={20} /></div>
-                    <h4 className="ui-title">{'Auditory Orchestration'}</h4>
-                    <p className="ui-desc">{'Syncing with physical installations. Prompting users to pause and listen to breathing soundscapes, rebuilding the "forest rhythm".'}</p>
+                    <h4 className="ui-title">{t('project.mu.solutions.s3title')}</h4>
+                    <p className="ui-desc">{t('project.mu.solutions.s3desc')}</p>
                   </div>
                   <div className="ui-image-area" onClick={() => openLightbox('multisensory-app-1')}>
-                    <img src={getAsset('multisensory-app-1')} alt="Auditory Guide" />
+                    <img src={getAsset('multisensory-app-1')} alt={t('project.mu.solutions.s3alt')} />
                     <div className="expand-overlay"><Maximize2 size={24} /></div>
                   </div>
                 </div>
@@ -362,11 +364,11 @@ export default function MuProject() {
                 <div className="ui-card shadow-box">
                   <div className="ui-text-area">
                     <div className="feature-icon-sm"><Leaf size={20} /></div>
-                    <h4 className="ui-title">{'Micro-learning Profiles'}</h4>
-                    <p className="ui-desc">{'Replacing long text panels with digestible, card-based UI communicating habitat altitude and conservation threats.'}</p>
+                    <h4 className="ui-title">{t('project.mu.solutions.s4title')}</h4>
+                    <p className="ui-desc">{t('project.mu.solutions.s4desc')}</p>
                   </div>
                   <div className="ui-image-area" onClick={() => openLightbox('trees-introduce')}>
-                    <img src={getAsset('trees-introduce')} alt="Tree Profiles" />
+                    <img src={getAsset('trees-introduce')} alt={t('project.mu.solutions.s4alt')} />
                     <div className="expand-overlay"><Maximize2 size={24} /></div>
                   </div>
                 </div>
@@ -382,19 +384,19 @@ export default function MuProject() {
               <div className="outcome-header">
                 <ShieldCheck size={48} color="hsl(var(--g1))" />
                 <h2 className="section-heading" style={{ marginBottom: '16px' }}>
-                  {'Impact & Recognition'}
+                  {t('project.mu.impact.heading')}
                 </h2>
                 <p className="section-subheading">
-                  {'A scalable, ethical exhibition framework'}
+                  {t('project.mu.impact.title')}
                 </p>
               </div>
 
               <div className="outcome-grid">
                 <div className="outcome-card featured green-theme">
                   <div className="outcome-icon green-icon"><Award size={50} /></div>
-                  <h3 className="outcome-title">✨ {'UX Design Award Nominee'}</h3>
+                  <h3 className="outcome-title">✨ {t('project.mu.hero.recognitionValue')}</h3>
                   <p className="outcome-text text-center">
-                    {'The concept was officially nominated for the UX Design Awards, validating the project\'s rigorous research methodology and innovative approach to solving complex environmental communication challenges.'}
+                    {t('project.mu.impact.nomineeDesc')}
                   </p>
                   {/* PDF Embed for Certificate */}
                   <div className="pdf-container shadow-box mt-8" style={{ height: '400px', width: '100%', maxWidth: '600px', margin: '32px auto 0' }}>
@@ -403,7 +405,7 @@ export default function MuProject() {
                       width="100%"
                       height="100%"
                       style={{ border: 'none', borderRadius: '8px', background: '#fff' }}
-                      title="UXDA Certificate"
+                      title={t('project.mu.impact.certTitle')}
                     />
                   </div>
                 </div>
@@ -411,7 +413,7 @@ export default function MuProject() {
 
               {/* Final App Image */}
               <div className="image-wrapper shadow-box mt-12 bg-white p-4" style={{ height: '500px' }}>
-                <img src={getAsset('app')} alt="Mù App Overview" className="full-contain-img" />
+                <img src={getAsset('app')} alt={t('project.mu.impact.appAlt')} className="full-contain-img" />
               </div>
             </div>
           </div>
@@ -428,8 +430,8 @@ export default function MuProject() {
 
           .full-contain-img { width: 100%; height: 100%; object-fit: contain; display: block; }
           .image-wrapper { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--radius-lg); }
-          .shadow-box { box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.05); }
-          .bg-white { background: #ffffff; }
+          .shadow-box { box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid var(--border); }
+          .bg-white { background: var(--card); }
           .p-4 { padding: 16px; }
           .mb-4 { margin-bottom: 16px; }
           .mb-8 { margin-bottom: 32px; }
@@ -459,7 +461,7 @@ export default function MuProject() {
           .badge-subtitle { font-size: 14px; font-weight: 500; opacity: 0.9; margin-top: 4px; }
           .hero-title { font-size: clamp(36px, 5vw, 56px); font-weight: 800; color: var(--md-on-surface); margin-bottom: 24px; }
           .hero-subtitle { font-size: clamp(18px, 2vw, 22px); line-height: 1.6; color: var(--color-text-muted); margin-bottom: 48px; }
-          .hero-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 48px; padding-top: 48px; border-top: 1px solid rgba(0,0,0,0.06); }
+          .hero-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--border); }
           .detail-item { text-align: center; display: flex; flex-direction: column; gap: 6px; }
           .detail-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-muted); }
           .detail-value { font-size: 15px; font-weight: 600; color: var(--md-on-surface); }
@@ -481,7 +483,7 @@ export default function MuProject() {
           .overview-text-container { flex-grow: 1; }
 
           .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-          .metric-card { padding: 32px 24px; background: rgba(255,255,255,0.95); border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius-lg); text-align: center; transition: transform 0.3s ease; }
+          .metric-card { padding: 32px 24px; background: var(--card-glass); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; transition: transform 0.3s ease; }
           .metric-card:hover { transform: translateY(-5px); }
           .metric-icon { display: inline-flex; width: 64px; height: 64px; background: linear-gradient(135deg, hsl(var(--g1)/.1), hsl(var(--g2)/.1)); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 16px; color: hsl(var(--g1)); }
           .metric-label { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--md-on-surface); }
@@ -502,36 +504,36 @@ export default function MuProject() {
           .insight-text { font-size: 18px; font-style: italic; font-weight: 500; color: var(--md-on-surface); }
 
           /* Data Viz */
-          .woods-showcase-container { background: #f8fafc; padding: 24px; border-radius: var(--radius-lg); }
+          .woods-showcase-container { background: var(--surface); padding: 24px; border-radius: var(--radius-lg); }
           .data-viz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-          .chart-card { background: white; padding: 24px; border-radius: var(--radius-lg); display: flex; flex-direction: column; }
+          .chart-card { background: var(--card); padding: 24px; border-radius: var(--radius-lg); display: flex; flex-direction: column; }
           .chart-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
           .chart-desc { font-size: 14px; color: var(--color-text-muted); margin-bottom: 24px; flex-grow: 1; }
-          .chart-insight { margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; font-size: 14px; font-weight: 600; color: hsl(var(--g2)); }
+          .chart-insight { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 14px; font-weight: 600; color: hsl(var(--g2)); }
           
           /* Bar Chart CSS */
           .bar-chart-container { display: flex; flex-direction: column; gap: 16px; }
           .bar-row { display: flex; flex-direction: column; gap: 4px; }
-          .bar-label { font-size: 13px; font-weight: 600; color: #475569; }
-          .bar-track { width: 100%; height: 24px; background: #f1f5f9; border-radius: 12px; overflow: hidden; position: relative; }
+          .bar-label { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+          .bar-track { width: 100%; height: 24px; background: var(--surface-muted); border-radius: 12px; overflow: hidden; position: relative; }
           .bar-fill { height: 100%; border-radius: 12px; }
-          .bar-value { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 12px; font-weight: 700; color: #334155; }
+          .bar-value { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 12px; font-weight: 700; color: var(--text-secondary); }
 
           /* Pie Chart CSS */
           .pie-chart-container { display: flex; flex-direction: column; align-items: center; gap: 16px; }
           .pie-chart { width: 120px; height: 120px; border-radius: 50%; }
           .pie-legend { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-          .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #475569; font-weight: 500; }
+          .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); font-weight: 500; }
           .dot { width: 12px; height: 12px; border-radius: 50%; }
 
           /* Uniform UI Grid */
           .ui-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-          .ui-card { background: white; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
-          .ui-text-area { padding: 24px; border-bottom: 1px solid #f1f5f9; display: flex; flex-direction: column; gap: 8px; }
+          .ui-card { background: var(--card); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
+          .ui-text-area { padding: 24px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
           .feature-icon-sm { width: 40px; height: 40px; background: hsl(var(--g3)/.1); color: hsl(var(--g3)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
           .ui-title { font-size: 20px; font-weight: 700; color: var(--md-on-surface); }
           .ui-desc { font-size: 15px; line-height: 1.6; color: var(--color-text-muted); }
-          .ui-image-area { width: 100%; height: 400px; background: #f8fafc; padding: 16px; cursor: pointer; position: relative; }
+          .ui-image-area { width: 100%; height: 400px; background: var(--surface); padding: 16px; cursor: pointer; position: relative; }
           .ui-image-area img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.3s ease; }
           .expand-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; opacity: 0; transition: opacity 0.2s; backdrop-filter: blur(2px); }
           .ui-image-area:hover .expand-overlay { opacity: 1; }
@@ -541,7 +543,7 @@ export default function MuProject() {
           .outcome-section { text-align: center; }
           .outcome-header { max-width: 700px; margin: 0 auto 48px; }
           .outcome-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
-          .outcome-card { padding: 40px 24px; background: rgba(255,255,255,0.95); border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius-lg); text-align: center; }
+          .outcome-card { padding: 40px 24px; background: var(--card-glass); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; }
           .outcome-card.featured.green-theme { background: linear-gradient(135deg, hsl(var(--g1)/.08), hsl(var(--g2)/.08)); border: 2px solid hsl(var(--g1)/.3); padding: 56px 32px; }
           .outcome-icon { display: inline-flex; width: 64px; height: 64px; background: linear-gradient(135deg, hsl(var(--g2)/.1), hsl(var(--g3)/.1)); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 24px; color: hsl(var(--g2)); }
           .outcome-icon.green-icon { width: 80px; height: 80px; background: linear-gradient(135deg, hsl(var(--g1)), hsl(var(--g2))); color: #fff; }
@@ -573,11 +575,11 @@ export default function MuProject() {
         style={{
           position: 'fixed', top: '76px', left: '24px',
           width: '36px', height: '36px', borderRadius: '50%',
-          background: 'rgba(238,234,224,0.95)',
+          background: 'color-mix(in srgb, var(--background) 95%, transparent)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
           border: '1.5px solid rgba(12,12,12,0.25)',
-          color: '#0C0C0C', cursor: 'pointer',
+          color: 'var(--text-primary)', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: '16px', lineHeight: 1,
           boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
@@ -585,11 +587,11 @@ export default function MuProject() {
           transition: 'background .2s, box-shadow .2s',
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#EEEAE0';
+          (e.currentTarget as HTMLButtonElement).style.background = 'var(--background)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.13)';
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = 'rgba(238,234,224,0.95)';
+          (e.currentTarget as HTMLButtonElement).style.background = 'color-mix(in srgb, var(--background) 95%, transparent)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
         }}
       >←</button>

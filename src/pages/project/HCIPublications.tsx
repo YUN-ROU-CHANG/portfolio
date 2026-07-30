@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { 
   BookOpen, Mic, Activity, BarChart3, 
   Music, Users, BrainCircuit, Lightbulb,
@@ -15,6 +16,7 @@ const hciPhotos = import.meta.glob(
 const hp = Object.values(hciPhotos) as string[];
 
 export default function HCIPublications() {
+  const { t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
@@ -62,18 +64,18 @@ export default function HCIPublications() {
                     <BookOpen size={24} />
                   </div>
                   <div className="badge-content">
-                    <div className="badge-title">{'HCI Research Publications'}</div>
-                    <div className="badge-subtitle">{'Data-Driven UX & Academic Inquiry'}</div>
+                    <div className="badge-title">{t('project.hciPublications.header.title')}</div>
+                    <div className="badge-subtitle">{t('project.hciPublications.header.subtitle')}</div>
                   </div>
                 </div>
               </div>
               
               <h1 className="hero-title">
-                {'Advancing User Experience Through Rigorous Research'}
+                {t('project.hciPublications.header.tagline')}
               </h1>
               
               <p className="hero-subtitle">
-                {'Bridging the gap between empirical academic research and practical product design implications. Showcasing peer-reviewed studies on AI interaction, user emotion, and personalized tech workflows.'}
+                {t('project.hciPublications.header.desc')}
               </p>
             </motion.div>
           </div>
@@ -81,7 +83,7 @@ export default function HCIPublications() {
 
 
         <div style={{maxWidth:'1200px',margin:'0 auto',padding:'0 var(--space-4)'}}>
-          <img src={hp[2]} alt="GCCE Oral Presentation"
+          <img src={hp[2]} alt={t('project.hciPublications.gcce.photoAlt')}
             loading="lazy"
             style={{width:'100%',height:'auto',borderRadius:'8px',border:'1px solid rgba(12,12,12,.08)',display:'block',marginTop:'24px',marginBottom:'32px'}} />
         </div>
@@ -91,41 +93,41 @@ export default function HCIPublications() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="paper-container">
               <div className="paper-header">
-                <div className="venue-tag ieee">{'Accepted and Presented at 2025 IEEE GCCE, Osaka'}</div>
+                <div className="venue-tag ieee">{t('project.hciPublications.gcce.venue')}</div>
                 <h2 className="paper-title">
-                  {'An Experimental Study on the Effect of AI Voice Prominence on Users\' Emotional Responses '}
+                  {t('project.hciPublications.gcce.title')}
                 </h2>
-                <p className="paper-authors">{'Yun-Rou Chang, Chien-Wen Cheng'}</p>
+                <p className="paper-authors">{t('project.hciPublications.labels.authors')}</p>
               </div>
 
               <div className="paper-grid">
                 {/* Left Column: Summary & Methods */}
                 <div className="paper-main">
-                  <h3 className="section-heading-sm">{'The Challenge & Motivation'}</h3>
+                  <h3 className="section-heading-sm">{t('project.hciPublications.labels.challenge')}</h3>
                   <p className="body-text">
-                    {'As AI-generated speech becomes increasingly natural and pervasive in digital content, its emotional impact remains underexplored. This study investigates how the "prominence" of an AI voice (how foregrounded it is) affects user emotions across different media contexts.'}
+                    {t('project.hciPublications.gcce.challenge')}
                   </p>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{'Methodology'}</h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{t('project.hciPublications.labels.methodology')}</h3>
                   <ul className="method-list">
                     <li>
                       <Activity size={20} />
-                      <span><strong>{'Mixed-Methods Approach:'}</strong> {'Evaluated 39 university students using both the quantitative Self-Assessment Manikin (SAM) scale and qualitative semi-structured interviews.'}</span>
+                      <span><strong>{t('project.hciPublications.gcce.m1label')}</strong> {t('project.hciPublications.gcce.m1desc')}</span>
                     </li>
                     <li>
                       <Target size={20} />
-                      <span><strong>{'Experimental Design:'}</strong> {'Tested three levels of AI voice prominence: High (Podcasts), Medium (Travel Vlogs), and Low (Instagram background music).'}</span>
+                      <span><strong>{t('project.hciPublications.gcce.m2label')}</strong> {t('project.hciPublications.gcce.m2desc')}</span>
                     </li>
                     <li>
                       <BarChart3 size={20} />
-                      <span><strong>{'Statistical Analysis:'}</strong> {'Employed descriptive statistics and one-way ANOVA to test the significance of emotional differences (Pleasure, Arousal, Dominance) across conditions.'}</span>
+                      <span><strong>{t('project.hciPublications.gcce.m3label')}</strong> {t('project.hciPublications.gcce.m3desc')}</span>
                     </li>
                   </ul>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{'Key Findings'}</h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{t('project.hciPublications.labels.findings')}</h3>
                   <div className="findings-box">
                     <p className="body-text" style={{ marginBottom: 0 }}>
-                      {'Quantitative results revealed that lower AI voice prominence significantly increases user pleasure and arousal. Specifically, low prominence (Instagram background) yielded the highest pleasure (M=3.59) and arousal (M=2.88). Interviews indicated that AI voices are more acceptable in humorous or informational content, but less preferred in emotionally expressive formats.'}
+                      {t('project.hciPublications.gcce.findings')}
                     </p>
                   </div>
                 </div>
@@ -141,9 +143,9 @@ export default function HCIPublications() {
                       <span style={{color:'white',fontSize:'20px'}}>📄</span>
                     </div>
                     <div>
-                      <div style={{fontFamily:'"IBM Plex Mono",monospace',fontSize:'10px',letterSpacing:'.1em',textTransform:'uppercase',color:'#6B6A62',marginBottom:'4px'}}>IEEE Xplore · GCCE 2025</div>
-                      <div style={{fontFamily:'"Space Grotesk",sans-serif',fontWeight:600,fontSize:'15px',lineHeight:1.3,color:'#0C0C0C',marginBottom:'4px'}}>AI Voice Subjectivity and Interactive Product Design</div>
-                      <div style={{fontFamily:'"IBM Plex Mono",monospace',fontSize:'11px',color:'#6B6A62'}}>ieeexplore.ieee.org/document/11275196 ↗</div>
+                      <div style={{fontFamily:'var(--font-mono)',fontSize:'10px',letterSpacing:'.1em',textTransform:'uppercase',color:'var(--text-tertiary)',marginBottom:'4px'}}>{t('project.hciPublications.gcce.pubLabel')}</div>
+                      <div style={{fontFamily:'var(--font-display)',fontWeight:600,fontSize:'15px',lineHeight:1.3,color:'var(--text-primary)',marginBottom:'4px'}}>{t('project.hciPublications.gcce.pubTitle')}</div>
+                      <div style={{fontFamily:'var(--font-mono)',fontSize:'11px',color:'var(--text-tertiary)'}}>{t('project.hciPublications.gcce.pubLink')}</div>
                     </div>
                   </a>
 
@@ -151,15 +153,15 @@ export default function HCIPublications() {
                 <div className="paper-sidebar">
                   <div className="visual-asset">
                     {/* Placeholder for "flow chart.jpg" (Fig 2 in PDF) */}
-                    <img src={hp[1]} alt="GCCE Flow Chart" loading="lazy" style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}} />
-                    <p className="image-caption">{'Fig 1. AI Voice Acceptance Framework detailing cognitive-emotional dynamics.'}</p>
+                    <img src={hp[1]} alt={t('project.hciPublications.gcce.figAlt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}} />
+                    <p className="image-caption">{t('project.hciPublications.gcce.figCaption')}</p>
                   </div>
 
                   <div className="implication-card">
                     <div className="card-icon"><Lightbulb size={24} /></div>
-                    <h4 className="card-title">{'Design Implications for Tech'}</h4>
+                    <h4 className="card-title">{t('project.hciPublications.labels.implications')}</h4>
                     <p className="card-text">
-                      {'Product designers must calibrate AI vocal prominence to content goals. Highlights the need for context-aware design: use human-like prosody for affective formats, neutral delivery for informational clips, and stylized/robotic speech for comedic effect.'}
+                      {t('project.hciPublications.gcce.implications')}
                     </p>
                   </div>
                 </div>
@@ -173,41 +175,41 @@ export default function HCIPublications() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="paper-container">
               <div className="paper-header">
-                <div className="venue-tag ssim">{'Presented at SSIM 2024, Taiwan '}</div>
+                <div className="venue-tag ssim">{t('project.hciPublications.ssim.venue')}</div>
                 <h2 className="paper-title">
-                  {'AI-Assisted Music & Interactive Design for University Students: Exploring Needs & Skill-Based Variations'}
+                  {t('project.hciPublications.ssim.title')}
                 </h2>
-                <p className="paper-authors">{'Yun-Rou Chang, Chien-Wen Cheng'}</p>
+                <p className="paper-authors">{t('project.hciPublications.labels.authors')}</p>
               </div>
 
               <div className="paper-grid reverse-layout">
                 {/* Left Column: Methods & Findings */}
                 <div className="paper-main">
-                  <h3 className="section-heading-sm">{'The Challenge & Motivation'}</h3>
+                  <h3 className="section-heading-sm">{t('project.hciPublications.labels.challenge')}</h3>
                   <p className="body-text">
-                    {'While AI tools for music composition are proliferating, there is limited research focusing on AI-assisted education tailored to the specific needs of users with varying levels of prior domain experience.'}
+                    {t('project.hciPublications.ssim.challenge')}
                   </p>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{'Methodology'}</h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{t('project.hciPublications.labels.methodology')}</h3>
                   <ul className="method-list">
                     <li>
                       <Users size={20} />
-                      <span><strong>{'User Segmentation:'}</strong> {'Conducted focus group interviews with two distinct groups of university students (aged 19-21): those with and without prior music composition experience.'}</span>
+                      <span><strong>{t('project.hciPublications.ssim.m1label')}</strong> {t('project.hciPublications.ssim.m1desc')}</span>
                     </li>
                     <li>
                       <BrainCircuit size={20} />
-                      <span><strong>{'Technical Workflow:'}</strong> {'Implemented a modular end-to-end AI workflow utilizing source separation, AI vocal synthesis (Synthesizer V, ACE Studio), and rule-based auto-arrangement.'}</span>
+                      <span><strong>{t('project.hciPublications.ssim.m2label')}</strong> {t('project.hciPublications.ssim.m2desc')}</span>
                     </li>
                     <li>
                       <BarChart3 size={20} />
-                      <span><strong>{'Performance Metrics:'}</strong> {'Collected quantitative pre-post data across six dimensions: Fluency, Ideational, Flow, Originality, Quality, and Sociality.'}</span>
+                      <span><strong>{t('project.hciPublications.ssim.m3label')}</strong> {t('project.hciPublications.ssim.m3desc')}</span>
                     </li>
                   </ul>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{'Key Findings'}</h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{t('project.hciPublications.labels.findings')}</h3>
                   <div className="findings-box">
                     <p className="body-text" style={{ marginBottom: 0 }}>
-                      {'Both groups exhibited positive attitudes but vastly different needs. Novices showed the largest gains in ideation, flow, and originality. Experienced learners prioritized building personalized AI models and desired minimal instructor interference, favoring prompt-based keyword guidance. Novices relied heavily on pre-designed models and required more basic scaffolding.'}
+                      {t('project.hciPublications.ssim.findings')}
                     </p>
                   </div>
                 </div>
@@ -216,15 +218,15 @@ export default function HCIPublications() {
                 <div className="paper-sidebar">
                   <div className="visual-asset">
                     {/* Placeholder for Workflow Image */}
-                    <img src={hp[0]} alt="SSIM Paper" loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
-                    <p className="image-caption">{'Fig 2. Modular AI workflow separating analysis, conditioning, and resynthesis.'}</p>
+                    <img src={hp[0]} alt={t('project.hciPublications.ssim.figAlt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
+                    <p className="image-caption">{t('project.hciPublications.ssim.figCaption')}</p>
                   </div>
 
                   <div className="implication-card">
                     <div className="card-icon"><Music size={24} /></div>
-                    <h4 className="card-title">{'Design Implications for Tech'}</h4>
+                    <h4 className="card-title">{t('project.hciPublications.labels.implications')}</h4>
                     <p className="card-text">
-                      {'Proves the necessity of adaptive UI/UX in AI tools. Products must offer progressive disclosure: providing advanced model-building features and creative freedom for experts, while offering simplified, pre-designed templates for novices.'}
+                      {t('project.hciPublications.ssim.implications')}
                     </p>
                   </div>
                 </div>
@@ -295,7 +297,7 @@ export default function HCIPublications() {
 
           .badge-subtitle {
             font-size: 14px;
-            color: #94A3B8;
+            color: var(--text-tertiary);
             margin-top: 4px;
           }
 
@@ -303,14 +305,14 @@ export default function HCIPublications() {
             font-size: clamp(36px, 5vw, 52px);
             font-weight: 800;
             line-height: 1.2;
-            color: rgb(var(--brand-dark));
+            color: var(--text-primary);
             margin-bottom: 24px;
           }
 
           .hero-subtitle {
             font-size: clamp(16px, 2vw, 20px);
             line-height: 1.6;
-            color: rgb(var(--brand-gray));
+            color: var(--text-secondary);
             max-width: 800px;
             margin: 0 auto;
           }
@@ -321,8 +323,8 @@ export default function HCIPublications() {
           }
 
           .paper-container {
-            background: #ffffff;
-            border: 1px solid rgba(0,0,0,0.08);
+            background: var(--card);
+            border: 1px solid var(--border);
             border-radius: 24px;
             padding: 56px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.02);
@@ -330,7 +332,7 @@ export default function HCIPublications() {
 
           .paper-header {
             margin-bottom: 48px;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid var(--border);
             padding-bottom: 32px;
           }
 
@@ -346,26 +348,26 @@ export default function HCIPublications() {
           }
 
           .venue-tag.ieee {
-            background: rgba(var(--ieee-color), 0.1);
-            color: rgb(var(--ieee-color));
+            background: color-mix(in srgb, #0EA5E9 15%, var(--surface));
+            color: color-mix(in srgb, #0EA5E9 55%, var(--text-primary));
           }
 
           .venue-tag.ssim {
-            background: rgba(var(--ssim-color), 0.1);
-            color: rgb(var(--ssim-color));
+            background: color-mix(in srgb, #10B981 15%, var(--surface));
+            color: color-mix(in srgb, #10B981 55%, var(--text-primary));
           }
 
           .paper-title {
             font-size: clamp(24px, 3vw, 32px);
             font-weight: 700;
-            color: rgb(var(--brand-dark));
+            color: var(--text-primary);
             line-height: 1.3;
             margin-bottom: 16px;
           }
 
           .paper-authors {
             font-size: 16px;
-            color: rgb(var(--brand-gray));
+            color: var(--text-secondary);
             font-weight: 500;
           }
 
@@ -391,7 +393,7 @@ export default function HCIPublications() {
           .section-heading-sm {
             font-size: 20px;
             font-weight: 700;
-            color: rgb(var(--brand-dark));
+            color: var(--text-primary);
             margin-bottom: 16px;
             display: flex;
             align-items: center;
@@ -401,7 +403,7 @@ export default function HCIPublications() {
           .body-text {
             font-size: 16px;
             line-height: 1.8;
-            color: #475569;
+            color: var(--text-secondary);
           }
 
           /* Method List */
@@ -420,18 +422,18 @@ export default function HCIPublications() {
             gap: 16px;
             font-size: 15px;
             line-height: 1.6;
-            color: #475569;
+            color: var(--text-secondary);
           }
 
           .method-list li svg {
             flex-shrink: 0;
-            color: rgb(var(--brand-primary));
+            color: color-mix(in srgb, #3B82F6 60%, var(--text-primary));
             margin-top: 2px;
           }
 
           /* Findings Box */
           .findings-box {
-            background: #F8FAFC;
+            background: var(--surface);
             border-left: 4px solid rgb(var(--brand-primary));
             padding: 24px;
             border-radius: 0 12px 12px 0;
@@ -448,9 +450,9 @@ export default function HCIPublications() {
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
             overflow: hidden;
-            background: #F1F5F9;
+            background: var(--surface-muted);
           }
 
           .image-placeholder.mock-chart {
@@ -463,7 +465,7 @@ export default function HCIPublications() {
 
           .placeholder-label {
             font-size: 13px;
-            color: #94A3B8;
+            color: var(--text-tertiary);
             font-weight: 500;
             text-align: center;
             padding: 20px;
@@ -471,7 +473,7 @@ export default function HCIPublications() {
 
           .image-caption {
             font-size: 13px;
-            color: #64748B;
+            color: var(--text-tertiary);
             margin-top: 12px;
             text-align: center;
             font-style: italic;
@@ -568,11 +570,11 @@ export default function HCIPublications() {
         style={{
           position: 'fixed', top: '76px', left: '24px',
           width: '36px', height: '36px', borderRadius: '50%',
-          background: 'rgba(238,234,224,0.95)',
+          background: 'color-mix(in srgb, var(--background) 95%, transparent)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
           border: '1.5px solid rgba(12,12,12,0.25)',
-          color: '#0C0C0C', cursor: 'pointer',
+          color: 'var(--text-primary)', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: '16px', lineHeight: 1,
           boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
@@ -580,11 +582,11 @@ export default function HCIPublications() {
           transition: 'background .2s, box-shadow .2s',
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#EEEAE0';
+          (e.currentTarget as HTMLButtonElement).style.background = 'var(--background)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.13)';
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = 'rgba(238,234,224,0.95)';
+          (e.currentTarget as HTMLButtonElement).style.background = 'color-mix(in srgb, var(--background) 95%, transparent)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
         }}
       >←</button>

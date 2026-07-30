@@ -1,5 +1,40 @@
 import { useState, useEffect, ReactNode } from 'react';
 import { Link, NavLink } from 'react-router';
+import { Sun, Moon } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+
+function ThemeToggle() {
+  const [dark, setDark] = useState(
+    () => typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+  );
+  const toggle = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle('dark', next);
+    try { localStorage.setItem('theme', next ? 'dark' : 'light'); } catch { /* noop */ }
+  };
+  return (
+    <button type="button" className="theme-toggle" onClick={toggle} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}>
+      {dark ? <Sun size={13} aria-hidden="true" /> : <Moon size={13} aria-hidden="true" />}
+    </button>
+  );
+}
+
+function LanguageToggle() {
+  const { locale, setLocale } = useLanguage();
+  const next = locale === 'en' ? 'zh' : 'en';
+  return (
+    <button
+      type="button"
+      className="theme-toggle"
+      onClick={() => setLocale(next)}
+      aria-label={locale === 'en' ? '切換至中文' : 'Switch to English'}
+      style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: 0 }}
+    >
+      {locale === 'en' ? '中' : 'EN'}
+    </button>
+  );
+}
 
 function Clock() {
   const [time, setTime] = useState('');
@@ -15,7 +50,7 @@ function Clock() {
     return () => clearInterval(id);
   }, []);
   return (
-    <span style={{ color: '#6B6A62', fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', letterSpacing: '.08em' }}>
+    <span style={{ color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.08em' }}>
       {time}
     </span>
   );
@@ -26,6 +61,7 @@ type LayoutProps = {
 };
 
 export default function Layout({ children }: LayoutProps) {
+  const { t } = useLanguage();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrolled, setScrolled] = useState(false);
 
@@ -61,15 +97,15 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="page-root" id="home">
-      <a className="skip-link" href="#main">Skip to content</a>
+      <a className="skip-link" href="#main">{t('nav.skipLink')}</a>
 
       {/* Mouse blob */}
       <div
         className="blob"
         style={{
           background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px,
-            hsl(var(--g1)/.12) 0%, hsl(var(--g2)/.12) 25%, hsl(var(--g3)/.12) 55%,
-            hsl(var(--g4)/.12) 85%, transparent 100%)`
+            color-mix(in srgb, var(--acid) 14%, transparent) 0%,
+            color-mix(in srgb, var(--acid) 7%, transparent) 55%, transparent 100%)`
         }}
       />
 
@@ -77,28 +113,26 @@ export default function Layout({ children }: LayoutProps) {
       <header className={`top-bar ${scrolled ? 'scrolled' : ''}`} role="banner">
         {/* Left: name + clock */}
         <div className="top-left">
-          <Link to="/" style={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 600, fontSize: '13px', letterSpacing: '-.01em', textTransform: 'none', color: '#0C0C0C', textDecoration: 'none' }}>
-            Yun-Rou Chang
-          </Link>
-          <span style={{ color: '#6B6A62', fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', letterSpacing: '.08em' }}>— ROSE</span>
+          <Link to="/" style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', letterSpacing: '-.01em', textTransform: 'none', color: 'var(--text-primary)', textDecoration: 'none' }}>{t('nav.brand')}</Link>
+          <span style={{ color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.08em' }}>{t('nav.brandSub')}</span>
           <Clock />
         </div>
 
         {/* Mid: capsule nav */}
         <nav className="top-mid" aria-label="Primary">
-          <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink>
-          <NavLink to="/about" className={({ isActive }) => isActive ? 'active' : ''}>About</NavLink>
-          <NavLink to="/projects" className={({ isActive }) => isActive ? 'active' : ''}>Projects</NavLink>
-          <NavLink to="/resume" className={({ isActive }) => isActive ? 'active' : ''}>Resume</NavLink>
+          <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>{t('nav.home')}</NavLink>
+          <NavLink to="/about" className={({ isActive }) => isActive ? 'active' : ''}>{t('nav.about')}</NavLink>
+          <NavLink to="/projects" className={({ isActive }) => isActive ? 'active' : ''}>{t('nav.projects')}</NavLink>
+          <NavLink to="/resume" className={({ isActive }) => isActive ? 'active' : ''}>{t('nav.resume')}</NavLink>
+          <ThemeToggle />
+          <LanguageToggle />
         </nav>
 
         {/* Right: chip + CTA (hidden on mobile) */}
         <div className="top-right">
           <span className="top-chip">
-            <span className="dot" />
-            Open to '26 Roles
-          </span>
-          <a href="mailto:yuu07798@gmail.com" className="top-cta">Contact →</a>
+            <span className="dot" />{t('nav.chip')}</span>
+          <a href="mailto:yuu07798@gmail.com" className="top-cta">{t('nav.contact')}</a>
         </div>
       </header>
 
@@ -106,7 +140,7 @@ export default function Layout({ children }: LayoutProps) {
         {children}
       </main>
 
-      <footer>© Yun-Rou Chang 2025</footer>
+      <footer>{t('nav.footer')}</footer>
 
       <style>{`
         /* Global Variables & Reset */
@@ -119,8 +153,8 @@ export default function Layout({ children }: LayoutProps) {
 
         .page-root {
           min-height: 100vh;
-          background: var(--md-background);
-          color: var(--text);
+          background: var(--background);
+          color: var(--text-primary);
           overflow-x: hidden;
         }
 
@@ -134,11 +168,15 @@ export default function Layout({ children }: LayoutProps) {
         /* Typography Defaults */
         body {
           margin: 0;
-          font-family: ui-sans-serif, system-ui, sans-serif;
-          color: var(--text);
+          font-family: var(--font-body);
+          color: var(--text-primary);
         }
-        h1, h2, h3 { color: var(--md-on-surface); }
-        .muted { color: var(--color-text-muted); }
+        /* Chinese reads cramped at 0 tracking; add gentle letter-spacing only in 中文 mode.
+           0.05em is the comfortable CJK range (0.02–0.05em); more than ~0.08em hurts reading flow.
+           Scoped to body so it lifts paragraph/label text but leaves designed heading tracking intact. */
+        html[lang="zh-Hant"] body { letter-spacing: 0.05em; }
+        h1, h2, h3 { color: var(--text-primary); }
+        .muted { color: var(--text-tertiary); }
 
         /* ── Top Bar (Responsive Fixed) ── */
         .top-bar {
@@ -150,11 +188,11 @@ export default function Layout({ children }: LayoutProps) {
           gap: 24px; 
           align-items: center;
           padding: 14px clamp(16px, 2.2vw, 32px);
-          background: rgba(238,234,224,0.82);
+          background: color-mix(in srgb, var(--background) 82%, transparent);
           backdrop-filter: blur(10px);
           -webkit-backdrop-filter: blur(10px);
-          border-bottom: 1px solid #0C0C0C;
-          font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+          border-bottom: 1px solid var(--border-strong);
+          font-family: var(--font-mono);
           font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
           transition: padding 0.3s ease, box-shadow 0.3s ease;
         }
@@ -170,8 +208,8 @@ export default function Layout({ children }: LayoutProps) {
           display: flex; gap: 4px; align-items: center;
           justify-content: center;
           padding: 4px;
-          border: 1px solid #0C0C0C; border-radius: 999px;
-          background: #F6F2E7;
+          border: 1px solid var(--border-strong); border-radius: 999px;
+          background: var(--surface);
           overflow-x: auto;
           scrollbar-width: none; /* Firefox */
         }
@@ -180,14 +218,26 @@ export default function Layout({ children }: LayoutProps) {
         .top-mid a {
           padding: 7px 14px; border-radius: 999px;
           transition: background .25s cubic-bezier(.2,.8,.2,1), color .25s cubic-bezier(.2,.8,.2,1);
-          font-family: "IBM Plex Mono", monospace;
+          font-family: var(--font-mono);
           font-size: 11px; letter-spacing: .08em;
           text-transform: uppercase; text-decoration: none;
-          color: #6B6A62;
+          color: var(--text-tertiary);
           white-space: nowrap;
+          box-sizing: border-box;
+          text-align: center;
+          min-width: 88px; /* every nav item shares one width (widest = Projects) so buttons look uniform and never shift on 中文/EN toggle */
         }
-        .top-mid a:hover { background: #0C0C0C; color: #EEEAE0; }
-        .top-mid a.active { background: #0C0C0C; color: #FFE699; }
+        .top-mid a:hover { background: var(--surface-inverse); color: var(--text-on-inverse); }
+        .top-mid a.active { background: var(--surface-inverse); color: var(--accent-on-inverse); }
+        .theme-toggle {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 28px; height: 28px; margin-left: 2px;
+          border: none; border-radius: 999px;
+          background: transparent; color: var(--text-tertiary);
+          cursor: pointer;
+          transition: background .25s cubic-bezier(.2,.8,.2,1), color .25s cubic-bezier(.2,.8,.2,1);
+        }
+        .theme-toggle:hover { background: var(--surface-inverse); color: var(--text-on-inverse); }
         
         .top-right {
           display: flex; gap: 14px; align-items: center;
@@ -196,27 +246,27 @@ export default function Layout({ children }: LayoutProps) {
         .top-chip {
           display: inline-flex; align-items: center; gap: 6px;
           padding: 6px 10px;
-          border: 1px solid #0C0C0C; border-radius: 999px;
-          font-family: "IBM Plex Mono", monospace;
+          border: 1px solid var(--border-strong); border-radius: 999px;
+          font-family: var(--font-mono);
           font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
-          color: #0C0C0C;
+          color: var(--text-primary);
         }
         .top-chip .dot {
           width: 6px; height: 6px; border-radius: 50%;
-          background: #E23A1C;
+          background: var(--text-primary);
           animation: chipBlink 1.6s steps(2) infinite;
         }
         @keyframes chipBlink { 50% { opacity: .3; } }
         .top-cta {
           padding: 8px 14px;
-          background: #0C0C0C; color: #FFE699;
+          background: var(--surface-inverse); color: var(--accent-on-inverse);
           border-radius: 999px; border: none; cursor: pointer;
-          font-family: "IBM Plex Mono", monospace;
+          font-family: var(--font-mono);
           font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
           text-decoration: none;
           transition: transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s cubic-bezier(.2,.8,.2,1);
         }
-        .top-cta:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 #0C0C0C; }
+        .top-cta:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--border-strong); }
 
         /* Buttons */
         .interactive-button-base {
@@ -233,15 +283,15 @@ export default function Layout({ children }: LayoutProps) {
 
         .btn-pill { padding: 12px 28px; font-size: 13px; font-weight: 500; }
         .btn--primary {
-          background: #4570ff;
-          color: #fff;
+          background: var(--accent);
+          color: var(--on-accent);
         }
 
         .interactive-button-base::after {
           content: '';
           position: absolute;
           inset: 0;
-          background: hsl(var(--g2));
+          background: var(--surface-inverse);
           opacity: 0;
           transition: opacity 0.3s ease;
           z-index: 0;
@@ -256,13 +306,13 @@ export default function Layout({ children }: LayoutProps) {
         main#main { padding-top: 72px; }
         
         /* Typography Scale */
-        h1.name { font-size: clamp(40px, 5vw, 64px); font-weight: 800; margin-bottom: 16px; color: #4570ff; }
+        h1.name { font-size: clamp(40px, 5vw, 64px); font-weight: 800; margin-bottom: 16px; color: var(--text-primary); }
         h2.head { font-size: clamp(28px, 4vw, 48px); font-weight: 700; margin-bottom: 24px; }
         .body { font-size: 1.125rem; line-height: 1.75; }
 
         /* Glass Frame & Cards */
-        .gframe { padding: 2px; border-radius: var(--radius-lg); background: linear-gradient(135deg, hsl(var(--g1)/.4), hsl(var(--g2)/.4), hsl(var(--g3)/.4)); }
-        .card { background: rgba(255,255,255,0.9); border-radius: calc(var(--radius-lg) - 2px); overflow: hidden; }
+        .gframe { padding: 2px; border-radius: var(--radius-lg); background: linear-gradient(135deg, color-mix(in srgb, var(--acid) 55%, transparent), color-mix(in srgb, var(--acid) 15%, transparent)); }
+        .card { background: var(--card-glass); border-radius: calc(var(--radius-lg) - 2px); overflow: hidden; }
 
         /* Responsive Top Bar */
         @media (max-width: 900px) {
@@ -308,7 +358,7 @@ export default function Layout({ children }: LayoutProps) {
             height: 44px !important;
             z-index: 9999 !important;
             box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
-            background: rgba(238,234,224,0.95) !important;
+            background: color-mix(in srgb, var(--background) 95%, transparent) !important;
           }
           button[aria-label="Back to top"] {
             bottom: calc(24px + env(safe-area-inset-bottom)) !important; /* 避開 Safari 底部控制列 */
@@ -320,15 +370,55 @@ export default function Layout({ children }: LayoutProps) {
           }
         }
 
+        /* ── Floating Back / Back-to-top buttons: one consistent design site-wide ── */
+        /* Match the nav's selected pill (inverse surface + accent text); visible in light AND dark. */
+        button[aria-label="Go back"],
+        button[aria-label="Back to top"] {
+          background: var(--surface-inverse) !important;
+          color: var(--accent-on-inverse) !important;
+          border: none !important;
+          width: 48px !important;
+          height: 48px !important;
+          font-size: 18px !important;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.18) !important;
+        }
+        /* Desktop: drop the Go back button below the fixed top bar + hover tooltip */
+        @media (min-width: 641px) {
+          button[aria-label="Go back"] {
+            top: 104px !important;
+            left: 24px !important;
+          }
+          button[aria-label="Go back"]::after {
+            content: "Back";
+            position: absolute;
+            left: calc(100% + 10px);
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: var(--surface-inverse);
+            color: var(--accent-on-inverse);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: .06em;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .2s ease;
+          }
+          html[lang="zh-Hant"] button[aria-label="Go back"]::after { content: "返回"; }
+          button[aria-label="Go back"]:hover::after { opacity: 1; }
+        }
+
         /* Skip Link */
-        .skip-link { position: absolute; left: -9999px; top: auto; background: #000; color: #fff; padding: 12px; z-index: 100; }
+        .skip-link { position: absolute; left: -9999px; top: auto; background: var(--surface-inverse); color: var(--text-on-inverse); padding: 12px; z-index: 100; }
         .skip-link:focus { left: 20px; top: 20px; }
 
         /* Blob */
         .blob { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
 
         /* Footer */
-        footer { border-top: 1px solid rgba(0, 0, 0, .12); padding: 32px 0; text-align: center; font-size: 12px; color: #666; }
+        footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; font-size: 12px; color: var(--text-tertiary); }
       `}</style>
     </div>
   );

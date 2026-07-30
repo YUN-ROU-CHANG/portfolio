@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const photoModules = import.meta.glob(
   '../assets/images/photography/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG}',
@@ -10,18 +11,20 @@ const photoSrcs = Object.values(photoModules) as string[];
 // Glob sorts alphabetically:
 // [0] cat1.png  [1] cat2.png  [2] cat3.png  [3] house.JPG
 // [4] marry.png [5] sea.JPG   [6] train-station.JPG  [7] wood.JPG
-const photos = [
-  { src: photoSrcs[5], alt: 'Sea', caption: 'Somewhere by the sea' },
-  { src: photoSrcs[0], alt: 'Cat sleeping', caption: '' },
-  { src: photoSrcs[1], alt: 'Cat in flowers', caption: '' },
-  { src: photoSrcs[6], alt: 'Train station', caption: 'Train station, Taiwan' },
-  { src: photoSrcs[3], alt: 'House and sky', caption: '' },
-  { src: photoSrcs[2], alt: 'Cat in garden', caption: '' },
-  { src: photoSrcs[7], alt: 'Wood texture', caption: '' },
-  { src: photoSrcs[4], alt: 'Exhibition', caption: '' },
+const getPhotos = (t: (key: string) => string) => [
+  { src: photoSrcs[5], alt: t('photography.photos.sea.alt'), caption: t('photography.photos.sea.caption') },
+  { src: photoSrcs[0], alt: t('photography.photos.catSleeping.alt'), caption: '' },
+  { src: photoSrcs[1], alt: t('photography.photos.catFlowers.alt'), caption: '' },
+  { src: photoSrcs[6], alt: t('photography.photos.trainStation.alt'), caption: t('photography.photos.trainStation.caption') },
+  { src: photoSrcs[3], alt: t('photography.photos.house.alt'), caption: '' },
+  { src: photoSrcs[2], alt: t('photography.photos.catGarden.alt'), caption: '' },
+  { src: photoSrcs[7], alt: t('photography.photos.wood.alt'), caption: '' },
+  { src: photoSrcs[4], alt: t('photography.photos.exhibition.alt'), caption: '' },
 ];
 
 export default function Photography() {
+  const { t } = useLanguage();
+  const photos = getPhotos(t);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [showTop, setShowTop] = useState(false);
 
@@ -43,28 +46,24 @@ export default function Photography() {
 
   return (
     <Layout>
-      <div style={{ paddingTop: '88px', minHeight: '100vh', background: 'var(--bone, #EEEAE0)' }}>
+      <div style={{ paddingTop: '88px', minHeight: '100vh', background: 'var(--background)' }}>
 
         {/* Page header */}
         <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '48px clamp(16px, 2.2vw, 32px) 32px' }}>
           <h1 style={{
-            fontFamily: '"Space Grotesk", sans-serif',
+            fontFamily: 'var(--font-display)',
             fontWeight: 500, fontSize: 'clamp(48px, 8vw, 96px)',
             lineHeight: .9, letterSpacing: '-.04em',
             textTransform: 'uppercase', margin: '0 0 16px',
-            color: '#0C0C0C',
-          }}>
-            Photography
-          </h1>
+            color: 'var(--text-primary)',
+          }}>{t('photography.title')}</h1>
           <p style={{
-            fontFamily: '"IBM Plex Mono", monospace',
+            fontFamily: 'var(--font-mono)',
             fontSize: '12px', letterSpacing: '.1em',
-            textTransform: 'uppercase', color: '#6B6A62',
+            textTransform: 'uppercase', color: 'var(--text-tertiary)',
             margin: 0,
-          }}>
-            35mm · Taiwan · 2023–2025 · {photos.length} frames
-          </p>
-          <div style={{ borderBottom: '2px solid #0C0C0C', marginTop: '24px' }} />
+          }}>{t('photography.meta')}{' '}{photos.length}{' '}{t('photography.frames')}</p>
+          <div style={{ borderBottom: '2px solid var(--border-strong)', marginTop: '24px' }} />
         </div>
 
         {/* Masonry Grid (CSS columns) */}
@@ -80,7 +79,7 @@ export default function Photography() {
                   cursor: 'zoom-in',
                   position: 'relative',
                   overflow: 'hidden',
-                  border: '1px solid rgba(12,12,12,.12)',
+                  border: '1px solid var(--border)',
                 }}
               >
                 <img
@@ -107,7 +106,7 @@ export default function Photography() {
                     position: 'absolute', bottom: 0, left: 0, right: 0,
                     padding: '32px 12px 10px',
                     background: 'linear-gradient(to top, rgba(0,0,0,.55), transparent)',
-                    fontFamily: '"IBM Plex Mono", monospace',
+                    fontFamily: 'var(--font-mono)',
                     fontSize: '10px', letterSpacing: '.1em',
                     textTransform: 'uppercase', color: 'rgba(255,255,255,.85)',
                   }}>
@@ -193,7 +192,7 @@ export default function Photography() {
             {/* Counter */}
             <div style={{
               position: 'fixed', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
-              fontFamily: '"IBM Plex Mono", monospace',
+              fontFamily: 'var(--font-mono)',
               fontSize: '11px', letterSpacing: '.14em',
               textTransform: 'uppercase', color: 'rgba(255,255,255,.5)',
             }}>
@@ -210,11 +209,11 @@ export default function Photography() {
         style={{
           position: 'fixed', top: '76px', left: '24px',
           width: '36px', height: '36px', borderRadius: '50%',
-          background: 'rgba(238,234,224,0.95)',
+          background: 'color-mix(in srgb, var(--background) 95%, transparent)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
-          border: '1.5px solid rgba(12,12,12,0.25)',
-          color: '#0C0C0C', cursor: 'pointer',
+          border: '1.5px solid color-mix(in srgb, var(--text-primary) 25%, transparent)',
+          color: 'var(--text-primary)', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: '16px', lineHeight: 1,
           boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
@@ -222,11 +221,11 @@ export default function Photography() {
           transition: 'background .2s, box-shadow .2s',
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#EEEAE0';
+          (e.currentTarget as HTMLButtonElement).style.background = 'var(--background)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.13)';
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = 'rgba(238,234,224,0.95)';
+          (e.currentTarget as HTMLButtonElement).style.background = 'color-mix(in srgb, var(--background) 95%, transparent)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
         }}
       >←</button>
@@ -237,7 +236,7 @@ export default function Photography() {
           style={{
             position: 'fixed', bottom: '32px', right: '32px',
             width: '48px', height: '48px', borderRadius: '50%',
-            background: '#1A1A18', color: '#FFE699', border: 'none',
+            background: 'var(--surface-inverse)', color: 'var(--accent-on-inverse)', border: 'none',
             cursor: 'pointer', display: 'flex',
             alignItems: 'center', justifyContent: 'center',
             fontSize: '18px', lineHeight: 1,

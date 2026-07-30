@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import sleepGuardianCover from '../../assets/images/home/sleep-guardian-cover.png';
 import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
+import { useLanguage } from '../../contexts/LanguageContext';
 import {
   Moon, Brain, Smartphone, FlaskConical, BarChart3,
   ChevronRight, Shield, Heart, Zap, Clock, Activity,
@@ -20,6 +21,7 @@ import appStatistic from '../../assets/images/project/sleep-guardian/statistic.p
 import appSurvey from '../../assets/images/project/sleep-guardian/survey.png';
 
 export default function SleepGuardian() {
+  const { t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
   useEffect(() => {
     const handleScroll = () => setShowTop(window.scrollY > 300);
@@ -46,13 +48,13 @@ export default function SleepGuardian() {
 
   // App screens 陣列，方便 map 渲染
   const appScreens = [
-    { src: appIntro, alt: 'App Intro' },
-    { src: appIntro2, alt: 'App Setup' },
-    { src: appEmpathy, alt: 'Empathy Appeal' },
-    { src: appAudio, alt: 'Audio Modality' },
-    { src: appSurvey, alt: 'WebView Survey' },
-    { src: appStatistic, alt: 'Session Statistics' },
-    { src: appFinish, alt: 'Session Finish' },
+    { src: appIntro, alt: t('project.sleepGuardian.appAlts.intro') },
+    { src: appIntro2, alt: t('project.sleepGuardian.appAlts.setup') },
+    { src: appEmpathy, alt: t('project.sleepGuardian.framework.empathy.title') },
+    { src: appAudio, alt: t('project.sleepGuardian.appAlts.audio') },
+    { src: appSurvey, alt: t('project.sleepGuardian.appAlts.survey') },
+    { src: appStatistic, alt: t('project.sleepGuardian.appAlts.stats') },
+    { src: appFinish, alt: t('project.sleepGuardian.appAlts.finish') },
   ];
 
   return (
@@ -70,44 +72,32 @@ export default function SleepGuardian() {
             >
               <div className="sg-badge-row">
                 <span className="sg-badge sg-badge--thesis">
-                  <BookOpen size={14} />
-                  M.S. Thesis Research
-                </span>
+                  <BookOpen size={14} />{t('project.sleepGuardian.hero.badge')}</span>
                 <span className="sg-badge sg-badge--status">
-                  <Activity size={14} />
-                  Experiment in Progress · 2025–2026
-                </span>
+                  <Activity size={14} />{t('project.sleepGuardian.hero.status')}</span>
               </div>
 
-              <h1 className="sg-hero-title">Sleep Guardian</h1>
-              <p className="sg-hero-sub">
-                Notification Intervention Design for<br />
-                Smartphone-Induced In-Bed Procrastination
-              </p>
+              <h1 className="sg-hero-title">{t('project.sleepGuardian.hero.title')}</h1>
+              <p className="sg-hero-sub">{t('project.sleepGuardian.hero.subtitle1')}<br />{t('project.sleepGuardian.hero.subtitle2')}</p>
 
-              <p className="sg-hero-hook">
-                Young adults know they should put their phone down — yet they don't.
-                I designed a custom research app and a controlled EMA experiment to find
-                out <em>which notification design actually works</em> when willpower has
-                already run out.
-              </p>
+              <p className="sg-hero-hook">{t('project.sleepGuardian.hero.introA')}{' '}<em>{t('project.sleepGuardian.hero.introHighlight')}</em>{' '}{t('project.sleepGuardian.hero.introB')}</p>
 
               <div className="sg-meta-grid">
                 <div className="sg-meta-item">
-                  <span className="sg-meta-label">Role</span>
-                  <span className="sg-meta-value">Lead Researcher · App Developer · Interaction Designer</span>
+                  <span className="sg-meta-label">{t('project.sleepGuardian.hero.roleLabel')}</span>
+                  <span className="sg-meta-value">{t('project.sleepGuardian.hero.roleValue')}</span>
                 </div>
                 <div className="sg-meta-item">
-                  <span className="sg-meta-label">Framework</span>
-                  <span className="sg-meta-value">Dual-Process Theory (System 1 & 2)</span>
+                  <span className="sg-meta-label">{t('project.sleepGuardian.hero.frameworkLabel')}</span>
+                  <span className="sg-meta-value">{t('project.sleepGuardian.hero.frameworkValue')}</span>
                 </div>
                 <div className="sg-meta-item">
-                  <span className="sg-meta-label">Method</span>
-                  <span className="sg-meta-value">EMA · 3×4 Mixed Factorial Design</span>
+                  <span className="sg-meta-label">{t('project.sleepGuardian.hero.methodLabel')}</span>
+                  <span className="sg-meta-value">{t('project.sleepGuardian.hero.methodValue')}</span>
                 </div>
                 <div className="sg-meta-item">
-                  <span className="sg-meta-label">Venue</span>
-                  <span className="sg-meta-value">NTUT Interaction Design, M.S. Thesis</span>
+                  <span className="sg-meta-label">{t('project.sleepGuardian.hero.venueLabel')}</span>
+                  <span className="sg-meta-value">{t('project.sleepGuardian.hero.venueValue')}</span>
                 </div>
               </div>
             </motion.div>
@@ -118,45 +108,29 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <Brain size={18} />
-              The Problem
-            </div>
-            <h2 className="sg-section-title">
-              A brain at war with itself — every night
-            </h2>
+              <Brain size={18} />{t('project.sleepGuardian.problem.heading')}</div>
+            <h2 className="sg-section-title">{t('project.sleepGuardian.problem.title')}</h2>
             <div className="sg-two-col">
               <div>
                 <p className="sg-body">
-                  <strong>While-in-bed procrastination</strong> is distinct from simply going
-                  to bed late. It describes users who are <em>already lying in bed</em> yet
-                  keep scrolling — a state where cognitive resources are depleted and
-                  System 1 (fast, automatic, habit-driven) completely dominates System 2
-                  (slow, rational, self-controlling).
-                </p>
-                <p className="sg-body">
-                  Existing interventions — screen-time limits, hard locks, blunt warnings —
-                  trigger psychological reactance. Users dismiss them reflexively, because
-                  the intervention itself is operating at the wrong cognitive level.
-                </p>
+                  <strong>{t('project.sleepGuardian.problem.p1a')}</strong>{' '}{t('project.sleepGuardian.problem.p1b')}{' '}<em>{t('project.sleepGuardian.problem.p1em')}</em>{' '}{t('project.sleepGuardian.problem.p1c')}</p>
+                <p className="sg-body">{t('project.sleepGuardian.problem.p2')}</p>
                 <div className="sg-quote-block">
-                  <p className="sg-quote">
-                    "How can a notification design interrupt mindless scrolling
-                    without triggering the same automatic dismissal it's trying to prevent?"
-                  </p>
+                  <p className="sg-quote">{t('project.sleepGuardian.problem.quote')}</p>
                 </div>
               </div>
               <div className="sg-stat-stack">
                 <div className="sg-stat-card">
                   <span className="sg-stat-num">30%</span>
-                  <span className="sg-stat-desc">of university students report habitually sleeping fewer than 7 hours</span>
+                  <span className="sg-stat-desc">{t('project.sleepGuardian.problem.stat1desc')}</span>
                 </div>
                 <div className="sg-stat-card">
-                  <span className="sg-stat-num">~1.5 hr</span>
-                  <span className="sg-stat-desc">average delay between intended and actual sleep time among participants in pilot interviews</span>
+                  <span className="sg-stat-num">{t('project.sleepGuardian.problem.stat2num')}</span>
+                  <span className="sg-stat-desc">{t('project.sleepGuardian.problem.stat2desc')}</span>
                 </div>
                 <div className="sg-stat-card">
-                  <span className="sg-stat-num">N=6</span>
-                  <span className="sg-stat-desc">pilot semi-structured interviews (ORID method) confirmed that existing tools are bypassed or ignored</span>
+                  <span className="sg-stat-num">{t('project.sleepGuardian.problem.stat3num')}</span>
+                  <span className="sg-stat-desc">{t('project.sleepGuardian.problem.stat3desc')}</span>
                 </div>
               </div>
             </div>
@@ -167,34 +141,21 @@ export default function SleepGuardian() {
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <Layers size={18} />
-              Theoretical Framework
-            </div>
-            <h2 className="sg-section-title">Dual-Process Theory as design logic</h2>
-            <p className="sg-body sg-body--wide">
-              The core design claim: to interrupt in-bed procrastination, interventions must
-              operate on <strong>three complementary pathways</strong> that correspond to
-              different cognitive mechanisms — not just repeat the same blunt warning.
-            </p>
+              <Layers size={18} />{t('project.sleepGuardian.framework.heading')}</div>
+            <h2 className="sg-section-title">{t('project.sleepGuardian.framework.title')}</h2>
+            <p className="sg-body sg-body--wide">{t('project.sleepGuardian.framework.introA')}{' '}<strong>{t('project.sleepGuardian.framework.introEm')}</strong>{' '}{t('project.sleepGuardian.framework.introB')}</p>
             <div className="sg-pathway-grid">
               <div className="sg-pathway-card sg-pathway-card--threat">
                 <div className="sg-pathway-icon">
                   <AlertTriangle size={28} />
                 </div>
                 <div className="sg-pathway-num">01</div>
-                <h3 className="sg-pathway-title">Threat Appeal</h3>
-                <p className="sg-pathway-mech">Cognitive pathway → activates System 2</p>
-                <p className="sg-pathway-desc">
-                  Presents health-risk information (e.g. cardiovascular load from sleep
-                  deprivation) to trigger rational risk assessment and protective motivation.
-                  Based on Witte's Extended Parallel Process Model (1992).
-                </p>
+                <h3 className="sg-pathway-title">{t('project.sleepGuardian.framework.threat.title')}</h3>
+                <p className="sg-pathway-mech">{t('project.sleepGuardian.framework.threat.pathway')}</p>
+                <p className="sg-pathway-desc">{t('project.sleepGuardian.framework.threat.desc')}</p>
                 <div className="sg-pathway-example">
-                  <span className="sg-example-label">Notification example</span>
-                  <p className="sg-example-text">
-                    "Warning: abnormal resting heart rate detected — continued sleep
-                    deprivation significantly increases cardiovascular risk."
-                  </p>
+                  <span className="sg-example-label">{t('project.sleepGuardian.framework.exampleLabel')}</span>
+                  <p className="sg-example-text">{t('project.sleepGuardian.framework.threat.example')}</p>
                 </div>
               </div>
 
@@ -203,19 +164,12 @@ export default function SleepGuardian() {
                   <Heart size={28} />
                 </div>
                 <div className="sg-pathway-num">02</div>
-                <h3 className="sg-pathway-title">Empathy Appeal</h3>
-                <p className="sg-pathway-mech">Affective pathway → reduces reactance</p>
-                <p className="sg-pathway-desc">
-                  Uses warm, non-judgmental language rooted in self-compassion theory
-                  (Neff, 2003) to reduce anxiety, lower psychological reactance, and
-                  gently invite rest rather than demand it.
-                </p>
+                <h3 className="sg-pathway-title">{t('project.sleepGuardian.framework.empathy.title')}</h3>
+                <p className="sg-pathway-mech">{t('project.sleepGuardian.framework.empathy.pathway')}</p>
+                <p className="sg-pathway-desc">{t('project.sleepGuardian.framework.empathy.desc')}</p>
                 <div className="sg-pathway-example">
-                  <span className="sg-example-label">Notification example</span>
-                  <p className="sg-example-text">
-                    "You made it through a tough day — this time belongs to you.
-                    Let yourself rest."
-                  </p>
+                  <span className="sg-example-label">{t('project.sleepGuardian.framework.exampleLabel')}</span>
+                  <p className="sg-example-text">{t('project.sleepGuardian.framework.empathy.example')}</p>
                 </div>
               </div>
 
@@ -224,20 +178,12 @@ export default function SleepGuardian() {
                   <Zap size={28} />
                 </div>
                 <div className="sg-pathway-num">03</div>
-                <h3 className="sg-pathway-title">Design Friction</h3>
-                <p className="sg-pathway-mech">Behavioral pathway → forces System 2</p>
-                <p className="sg-pathway-desc">
-                  Embeds a simple math problem (e.g. "Enter 3+4 to dismiss") directly in
-                  the notification UI. Does not rely on persuasion — it <em>forces</em>
-                  a cognitive mode switch, interrupting the automatic scrolling loop.
-                  Based on Cox et al. (2016).
-                </p>
+                <h3 className="sg-pathway-title">{t('project.sleepGuardian.framework.friction.title')}</h3>
+                <p className="sg-pathway-mech">{t('project.sleepGuardian.framework.friction.pathway')}</p>
+                <p className="sg-pathway-desc">{t('project.sleepGuardian.framework.friction.descA')}{' '}<em>{t('project.sleepGuardian.framework.friction.descEm')}</em>{t('project.sleepGuardian.framework.friction.descB')}</p>
                 <div className="sg-pathway-example">
-                  <span className="sg-example-label">Interaction design</span>
-                  <p className="sg-example-text">
-                    User must solve a math equation and type the correct answer before
-                    the notification can be dismissed.
-                  </p>
+                  <span className="sg-example-label">{t('project.sleepGuardian.framework.friction.interactionLabel')}</span>
+                  <p className="sg-example-text">{t('project.sleepGuardian.framework.friction.interactionDesc')}</p>
                 </div>
               </div>
             </div>
@@ -248,40 +194,31 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <FlaskConical size={18} />
-              Experiment Design
-            </div>
-            <h2 className="sg-section-title">
-              A 3×4 mixed factorial design in real bedrooms
-            </h2>
-            <p className="sg-body sg-body--wide">
-              Rather than running a controlled lab study (which would destroy ecological
-              validity for a bedtime behavior), I used <strong>Ecological Momentary
-              Assessment (EMA)</strong> — collecting data remotely and asynchronously
-              in participants' actual sleep environments.
-            </p>
+              <FlaskConical size={18} />{t('project.sleepGuardian.experiment.heading')}</div>
+            <h2 className="sg-section-title">{t('project.sleepGuardian.experiment.title')}</h2>
+            <p className="sg-body sg-body--wide">{t('project.sleepGuardian.experiment.introA')}{' '}<strong>{t('project.sleepGuardian.experiment.introEm')}</strong>{' '}{t('project.sleepGuardian.experiment.introB')}</p>
 
             <div className="sg-design-matrix">
               <div className="sg-matrix-axis sg-matrix-axis--between">
-                <div className="sg-axis-label">Between-subjects factor</div>
-                <div className="sg-axis-title">Notification Type (3 groups)</div>
+                <div className="sg-axis-label">{t('project.sleepGuardian.experiment.betweenLabel')}</div>
+                <div className="sg-axis-title">{t('project.sleepGuardian.experiment.betweenTitle')}</div>
                 <div className="sg-axis-items">
-                  <span className="sg-axis-item sg-axis-item--threat">Threat Appeal</span>
-                  <span className="sg-axis-item sg-axis-item--empathy">Empathy Appeal</span>
-                  <span className="sg-axis-item sg-axis-item--friction">Design Friction</span>
+                  <span className="sg-axis-item sg-axis-item--threat">{t('project.sleepGuardian.framework.threat.title')}</span>
+                  <span className="sg-axis-item sg-axis-item--empathy">{t('project.sleepGuardian.framework.empathy.title')}</span>
+                  <span className="sg-axis-item sg-axis-item--friction">{t('project.sleepGuardian.framework.friction.title')}</span>
                 </div>
               </div>
 
               <div className="sg-matrix-cross">×</div>
 
               <div className="sg-matrix-axis sg-matrix-axis--within">
-                <div className="sg-axis-label">Within-subjects factor</div>
-                <div className="sg-axis-title">Audiovisual Modality (4 conditions)</div>
+                <div className="sg-axis-label">{t('project.sleepGuardian.experiment.withinLabel')}</div>
+                <div className="sg-axis-title">{t('project.sleepGuardian.experiment.withinTitle')}</div>
                 <div className="sg-axis-items">
-                  <span className="sg-axis-item">Visual only</span>
-                  <span className="sg-axis-item">Audio only</span>
-                  <span className="sg-axis-item">Visual + Audio</span>
-                  <span className="sg-axis-item sg-axis-item--baseline">Baseline</span>
+                  <span className="sg-axis-item">{t('project.sleepGuardian.experiment.modality1')}</span>
+                  <span className="sg-axis-item">{t('project.sleepGuardian.experiment.modality2')}</span>
+                  <span className="sg-axis-item">{t('project.sleepGuardian.experiment.modality3')}</span>
+                  <span className="sg-axis-item sg-axis-item--baseline">{t('project.sleepGuardian.experiment.modality4')}</span>
                 </div>
               </div>
             </div>
@@ -289,32 +226,29 @@ export default function SleepGuardian() {
             <div className="sg-info-box">
               <Shield size={18} />
               <p>
-                <strong>Counterbalancing via 4×4 Latin Square</strong> — each participant
-                experiences all 4 modality conditions in a balanced order (R1–R4), controlling
-                for order effects and carryover effects across the within-subjects factor.
-              </p>
+                <strong>{t('project.sleepGuardian.experiment.counterA')}</strong>{' '}{t('project.sleepGuardian.experiment.counterB')}</p>
             </div>
 
             <div className="sg-decision-row">
               <div className="sg-decision-card">
                 <Clock size={20} />
-                <h4>Time window</h4>
-                <p>21:00–03:00 only. App is time-locked — participants can only open it in their actual bedtime window.</p>
+                <h4>{t('project.sleepGuardian.experiment.proto1title')}</h4>
+                <p>{t('project.sleepGuardian.experiment.proto1desc')}</p>
               </div>
               <div className="sg-decision-card">
                 <Activity size={20} />
-                <h4>3-min intervals</h4>
-                <p>Each notification is separated by a 3-minute re-immersion period, allowing participants to re-enter mindless scrolling before the next interruption.</p>
+                <h4>{t('project.sleepGuardian.experiment.proto2title')}</h4>
+                <p>{t('project.sleepGuardian.experiment.proto2desc')}</p>
               </div>
               <div className="sg-decision-card">
                 <Brain size={20} />
-                <h4>Immersion phase</h4>
-                <p>First 3 minutes: no notification delivered. Allows System 1 to fully engage before any intervention — maximizing ecological validity.</p>
+                <h4>{t('project.sleepGuardian.experiment.proto3title')}</h4>
+                <p>{t('project.sleepGuardian.experiment.proto3desc')}</p>
               </div>
               <div className="sg-decision-card">
                 <BarChart3 size={20} />
-                <h4>Target N=60</h4>
-                <p>20 per group. Power analysis via G*Power (Faul et al., 2007) for detecting medium interaction effect in 3×4 mixed ANOVA.</p>
+                <h4>{t('project.sleepGuardian.experiment.proto4title')}</h4>
+                <p>{t('project.sleepGuardian.experiment.proto4desc')}</p>
               </div>
             </div>
           </div>
@@ -324,58 +258,30 @@ export default function SleepGuardian() {
         <section className="sg-section sg-section--dark sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label sg-section-label--light">
-              <Smartphone size={18} />
-              The Research Instrument
-            </div>
-            <h2 className="sg-section-title sg-title--light">
-              Sleep Guardian — built from scratch with AI-assisted development
-            </h2>
-            <p className="sg-body sg-body--light sg-body--wide">
-              Standard off-the-shelf apps can't run a controlled 3×4 EMA experiment.
-              I built Sleep Guardian using React Native / Expo — a custom experimental
-              platform with four core modules.
-            </p>
+              <Smartphone size={18} />{t('project.sleepGuardian.instrument.heading')}</div>
+            <h2 className="sg-section-title sg-title--light">{t('project.sleepGuardian.instrument.title')}</h2>
+            <p className="sg-body sg-body--light sg-body--wide">{t('project.sleepGuardian.instrument.intro')}</p>
 
             <div className="sg-app-features">
               <div className="sg-app-feature">
                 <div className="sg-app-feature-num">01</div>
-                <h4 className="sg-app-feature-title">Instagram Feed Simulation</h4>
-                <p className="sg-app-feature-desc">
-                  Participants log into their own Instagram accounts inside the app, then
-                  scroll a real feed. This is the experimental "stimulus" — genuine,
-                  naturalistic mindless scrolling, not a fake interface.
-                </p>
+                <h4 className="sg-app-feature-title">{t('project.sleepGuardian.instrument.mod1title')}</h4>
+                <p className="sg-app-feature-desc">{t('project.sleepGuardian.instrument.mod1desc')}</p>
               </div>
               <div className="sg-app-feature">
                 <div className="sg-app-feature-num">02</div>
-                <h4 className="sg-app-feature-title">Experience Code + Latin Square Dispatcher</h4>
-                <p className="sg-app-feature-desc">
-                  Each participant receives a unique experience code that maps to their
-                  assigned notification type group (T/E/F) and their specific modality
-                  order (R1–R4). The system loads the correct counterbalanced sequence
-                  automatically.
-                </p>
+                <h4 className="sg-app-feature-title">{t('project.sleepGuardian.instrument.mod2title')}</h4>
+                <p className="sg-app-feature-desc">{t('project.sleepGuardian.instrument.mod2desc')}</p>
               </div>
               <div className="sg-app-feature">
                 <div className="sg-app-feature-num">03</div>
-                <h4 className="sg-app-feature-title">Automated Behavior Logging</h4>
-                <p className="sg-app-feature-desc">
-                  Two objective behavioral metrics recorded automatically in background:
-                  <br /><strong>Notification Dismissal Latency</strong> — time from notification
-                  appearance to dismissal (ms).
-                  <br /><strong>Post-notification Scroll Count</strong> — number of swipes
-                  after each notification, measuring residual mindless scrolling.
-                </p>
+                <h4 className="sg-app-feature-title">{t('project.sleepGuardian.instrument.mod3title')}</h4>
+                <p className="sg-app-feature-desc">{t('project.sleepGuardian.instrument.mod3desc')}<br /><strong>{t('project.sleepGuardian.instrument.ndlName')}</strong>{' '}{t('project.sleepGuardian.instrument.ndlDesc')}<br /><strong>{t('project.sleepGuardian.instrument.pscName')}</strong>{' '}{t('project.sleepGuardian.instrument.pscDesc')}</p>
               </div>
               <div className="sg-app-feature">
                 <div className="sg-app-feature-num">04</div>
-                <h4 className="sg-app-feature-title">Session Summary + WebView Survey</h4>
-                <p className="sg-app-feature-desc">
-                  After all 4 notifications, the app displays a session summary screen
-                  (Session ID + behavioral data). Participants screenshot this for
-                  triangulation, then complete the post-test questionnaire (PAD, TAM,
-                  UEQ-S) via embedded WebView with notification screenshots as recall cues.
-                </p>
+                <h4 className="sg-app-feature-title">{t('project.sleepGuardian.instrument.mod4title')}</h4>
+                <p className="sg-app-feature-desc">{t('project.sleepGuardian.instrument.mod4desc')}</p>
               </div>
             </div>
 
@@ -385,7 +291,7 @@ export default function SleepGuardian() {
               
               {/* 1. App 介面展示 (7張圖網格) */}
               <div className="sg-visual-block">
-                <h3 className="sg-visual-title">App User Interface</h3>
+                <h3 className="sg-visual-title">{t('project.sleepGuardian.instrument.uiHeading')}</h3>
                 <div className="sg-app-screens-grid">
                   {appScreens.map((screen, idx) => (
                     <div key={idx} className="sg-app-screen-wrap">
@@ -397,17 +303,17 @@ export default function SleepGuardian() {
 
               {/* 2. 實驗時程管理圖 (Notion) */}
               <div className="sg-visual-block">
-                <h3 className="sg-visual-title">Experiment Management Timeline</h3>
+                <h3 className="sg-visual-title">{t('project.sleepGuardian.instrument.timelineHeading')}</h3>
                 <div className="sg-notion-img-wrap">
-                  <img src={notionImg} alt="Experiment Schedule Notion" loading="lazy" className="sg-featured-img" />
+                  <img src={notionImg} alt={t('project.sleepGuardian.instrument.timelineAlt')} loading="lazy" className="sg-featured-img" />
                 </div>
               </div>
 
               {/* 3. Code (放在最下面) */}
               <div className="sg-visual-block">
-                <h3 className="sg-visual-title">Development & Code Architecture</h3>
+                <h3 className="sg-visual-title">{t('project.sleepGuardian.instrument.devHeading')}</h3>
                 <div className="sg-code-img-wrap">
-                  <img src={codeImg} alt="Sleep Guardian Source Code" loading="lazy" className="sg-featured-img" />
+                  <img src={codeImg} alt={t('project.sleepGuardian.instrument.devAlt')} loading="lazy" className="sg-featured-img" />
                 </div>
               </div>
 
@@ -421,72 +327,70 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <BarChart3 size={18} />
-              Measurement Battery
-            </div>
-            <h2 className="sg-section-title">Six validated instruments + two objective metrics</h2>
+              <BarChart3 size={18} />{t('project.sleepGuardian.measures.heading')}</div>
+            <h2 className="sg-section-title">{t('project.sleepGuardian.measures.title')}</h2>
 
             <div className="sg-measure-timeline">
               <div className="sg-measure-phase">
-                <div className="sg-phase-label">Screening (2 months prior)</div>
+                <div className="sg-phase-label">{t('project.sleepGuardian.measures.group1')}</div>
                 <div className="sg-measure-cards">
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">BPS</div>
-                    <div className="sg-measure-name">Bedtime Procrastination Scale</div>
-                    <div className="sg-measure-purpose">Confirms participant has moderate-to-severe in-bed procrastination tendency (Kroese et al., 2014; α=0.92)</div>
+                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.bpsAbbr')}</div>
+                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.bpsName')}</div>
+                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.bpsDesc')}</div>
                   </div>
                 </div>
               </div>
 
               <div className="sg-measure-phase">
-                <div className="sg-phase-label">Pre-test (day of experiment)</div>
+                <div className="sg-phase-label">{t('project.sleepGuardian.measures.group2')}</div>
                 <div className="sg-measure-cards">
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">BSCS</div>
-                    <div className="sg-measure-name">Brief Self-Control Scale</div>
-                    <div className="sg-measure-purpose">Individual differences in self-regulation as covariate (Tangney et al., 2004)</div>
+                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.bscsAbbr')}</div>
+                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.bscsName')}</div>
+                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.bscsDesc')}</div>
                   </div>
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">REI-10</div>
-                    <div className="sg-measure-name">Rational-Experiential Inventory</div>
-                    <div className="sg-measure-purpose">Baseline cognitive style — System 1 vs System 2 preference (Epstein et al., 1996)</div>
+                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.reiAbbr')}</div>
+                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.reiName')}</div>
+                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.reiDesc')}</div>
                   </div>
                 </div>
               </div>
 
               <div className="sg-measure-phase">
-                <div className="sg-phase-label">During experiment (auto-logged)</div>
+                <div className="sg-phase-label">{t('project.sleepGuardian.measures.group3')}</div>
                 <div className="sg-measure-cards sg-measure-cards--objective">
                   <div className="sg-measure-card sg-measure-card--objective">
-                    <div className="sg-measure-abbr">NDL</div>
-                    <div className="sg-measure-name">Notification Dismissal Latency</div>
-                    <div className="sg-measure-purpose">Milliseconds from notification appearance to user dismissal — objective measure of interruption effectiveness</div>
+                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.ndlAbbr')}</div>
+                    <div className="sg-measure-name">{t('project.sleepGuardian.instrument.ndlName')}</div>
+                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.ndlDesc')}</div>
                   </div>
                   <div className="sg-measure-card sg-measure-card--objective">
-                    <div className="sg-measure-abbr">PSC</div>
-                    <div className="sg-measure-name">Post-notification Scroll Count</div>
-                    <div className="sg-measure-purpose">Number of swipes after each notification — measures residual mindless scrolling behavior</div>
+                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.pscAbbr')}</div>
+                    <div className="sg-measure-name">{t('project.sleepGuardian.instrument.pscName')}</div>
+                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.pscDesc')}</div>
                   </div>
                 </div>
               </div>
 
               <div className="sg-measure-phase">
-                <div className="sg-phase-label">Post-test (after all 4 notifications)</div>
+                <div className="sg-phase-label">{t('project.sleepGuardian.measures.group4')}</div>
                 <div className="sg-measure-cards">
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">PAD</div>
-                    <div className="sg-measure-name">PAD Emotion Scale</div>
-                    <div className="sg-measure-purpose">Pleasure / Arousal / Dominance — measures emotional response to each notification type × modality (Mehrabian & Russell, 1974)</div>
+                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.padAbbr')}</div>
+                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.padName')}</div>
+                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.padDesc')}</div>
                   </div>
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">TAM</div>
-                    <div className="sg-measure-name">Technology Acceptance Model</div>
-                    <div className="sg-measure-purpose">Perceived Usefulness (PU) + Behavioral Intention (BI) — ease-of-use excluded due to design friction's intentional cognitive cost (Davis, 1989)</div>
+                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.tamAbbr')}</div>
+                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.tamName')}</div>
+                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.tamDesc')}</div>
                   </div>
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">UEQ-S</div>
-                    <div className="sg-measure-name">User Experience Questionnaire (Short)</div>
-                    <div className="sg-measure-purpose">Pragmatic + Hedonic quality — overall app experience assessment with minimal cognitive load (Laugwitz et al., 2008)</div>
+                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.ueqsAbbr')}</div>
+                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.ueqsName')}</div>
+                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.ueqsDesc')}</div>
                   </div>
                 </div>
               </div>
@@ -498,38 +402,36 @@ export default function SleepGuardian() {
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <FlaskConical size={18} />
-              Research Questions & Hypotheses
-            </div>
-            <h2 className="sg-section-title">What we're testing</h2>
+              <FlaskConical size={18} />{t('project.sleepGuardian.rq.heading')}</div>
+            <h2 className="sg-section-title">{t('project.sleepGuardian.rq.title')}</h2>
 
             <div className="sg-rq-list">
               <div className="sg-rq-item">
-                <div className="sg-rq-tag">RQ1 / H1</div>
+                <div className="sg-rq-tag">{t('project.sleepGuardian.rq.rq1label')}</div>
                 <div className="sg-rq-content">
-                  <p className="sg-rq-q">Do the three notification types differ in their ability to interrupt in-bed procrastination?</p>
-                  <p className="sg-rq-h">Predicted: Design Friction will produce the lowest Post-notification Scroll Count, as it forces behavioral interruption independent of user motivation.</p>
+                  <p className="sg-rq-q">{t('project.sleepGuardian.rq.rq1q')}</p>
+                  <p className="sg-rq-h">{t('project.sleepGuardian.rq.rq1pred')}</p>
                 </div>
               </div>
               <div className="sg-rq-item">
-                <div className="sg-rq-tag">RQ2 / H2</div>
+                <div className="sg-rq-tag">{t('project.sleepGuardian.rq.rq2label')}</div>
                 <div className="sg-rq-content">
-                  <p className="sg-rq-q">Do audiovisual modalities differ in Notification Dismissal Latency and emotional arousal?</p>
-                  <p className="sg-rq-h">Predicted: Visual+Audio combined will produce the shortest dismissal latency due to highest sensory salience.</p>
+                  <p className="sg-rq-q">{t('project.sleepGuardian.rq.rq2q')}</p>
+                  <p className="sg-rq-h">{t('project.sleepGuardian.rq.rq2pred')}</p>
                 </div>
               </div>
               <div className="sg-rq-item">
-                <div className="sg-rq-tag">RQ3 / H3</div>
+                <div className="sg-rq-tag">{t('project.sleepGuardian.rq.rq3label')}</div>
                 <div className="sg-rq-content">
-                  <p className="sg-rq-q">Is there a significant interaction between notification type and audiovisual modality?</p>
-                  <p className="sg-rq-h">Predicted: Specific combinations (e.g. Threat Appeal × Visual+Audio; Design Friction × Audio only) will produce amplified interruption effects beyond main effects alone.</p>
+                  <p className="sg-rq-q">{t('project.sleepGuardian.rq.rq3q')}</p>
+                  <p className="sg-rq-h">{t('project.sleepGuardian.rq.rq3pred')}</p>
                 </div>
               </div>
               <div className="sg-rq-item">
-                <div className="sg-rq-tag">RQ4 / H4</div>
+                <div className="sg-rq-tag">{t('project.sleepGuardian.rq.rq4label')}</div>
                 <div className="sg-rq-content">
-                  <p className="sg-rq-q">Do individual traits (BPS severity, prior app experience) moderate intervention effectiveness?</p>
-                  <p className="sg-rq-h">Predicted: Heavy procrastinators and those with prior tool experience will show greater reactance to Threat Appeal, and better compliance with Empathy Appeal or Design Friction.</p>
+                  <p className="sg-rq-q">{t('project.sleepGuardian.rq.rq4q')}</p>
+                  <p className="sg-rq-h">{t('project.sleepGuardian.rq.rq4pred')}</p>
                 </div>
               </div>
             </div>
@@ -537,8 +439,7 @@ export default function SleepGuardian() {
             <div className="sg-analysis-note">
               <BarChart3 size={16} />
               <p>
-                <strong>Statistical analysis plan:</strong> Primary analysis via 3×4 Mixed ANOVA with Bonferroni post-hoc comparisons. If individual traits show significant moderation, elevated to Mixed ANCOVA with BSCS and BPS as covariates. All analyses in IBM SPSS 22.0, α = .05.
-              </p>
+                <strong>{t('project.sleepGuardian.rq.statsA')}</strong>{' '}{t('project.sleepGuardian.rq.statsB')}</p>
             </div>
           </div>
         </section>
@@ -547,41 +448,39 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal" style={{ paddingBottom: '120px' }}>
           <div className="sg-container">
             <div className="sg-section-label">
-              <CheckCircle2 size={18} />
-              My Contribution & Current Status
-            </div>
-            <h2 className="sg-section-title">What I've built so far</h2>
+              <CheckCircle2 size={18} />{t('project.sleepGuardian.status.heading')}</div>
+            <h2 className="sg-section-title">{t('project.sleepGuardian.status.title')}</h2>
 
             <div className="sg-contribution-grid">
               <div className="sg-contribution-card sg-contribution-card--done">
-                <div className="sg-contribution-status">✓ Completed</div>
-                <h4>Theoretical framework & literature review</h4>
-                <p>50+ peer-reviewed sources across sleep science, HCI, persuasive design, and dual-process theory. Identified the research gap: no prior EMA study has compared threat, empathy, and friction interventions within a controlled audiovisual modality design.</p>
+                <div className="sg-contribution-status">{t('project.sleepGuardian.status.done')}</div>
+                <h4>{t('project.sleepGuardian.status.item1title')}</h4>
+                <p>{t('project.sleepGuardian.status.item1desc')}</p>
               </div>
               <div className="sg-contribution-card sg-contribution-card--done">
-                <div className="sg-contribution-status">✓ Completed</div>
-                <h4>Pilot study (N=6, qualitative)</h4>
-                <p>Semi-structured interviews using the ORID framework. Surfaced three design implications: (1) soft vs. forced control preference split → validates all three intervention types; (2) audio cues effective at night → validates modality factor; (3) mindless scrolling as flow state → validates Instagram-feed simulation approach.</p>
+                <div className="sg-contribution-status">{t('project.sleepGuardian.status.done')}</div>
+                <h4>{t('project.sleepGuardian.status.item2title')}</h4>
+                <p>{t('project.sleepGuardian.status.item2desc')}</p>
               </div>
               <div className="sg-contribution-card sg-contribution-card--done">
-                <div className="sg-contribution-status">✓ Completed</div>
-                <h4>Sleep Guardian app development</h4>
-                <p>Full experimental platform built in React Native / Expo. Implements Instagram-feed simulation, experience code dispatch, Latin Square counterbalancing (R1–R4), time-locked session window (21:00–03:00), automated behavioral data logging, and WebView survey integration.</p>
+                <div className="sg-contribution-status">{t('project.sleepGuardian.status.done')}</div>
+                <h4>{t('project.sleepGuardian.status.item3title')}</h4>
+                <p>{t('project.sleepGuardian.status.item3desc')}</p>
               </div>
               <div className="sg-contribution-card sg-contribution-card--done">
-                <div className="sg-contribution-status">✓ Completed</div>
-                <h4>Full stimulus design (3×4 matrix)</h4>
-                <p>Designed all 12 notification stimuli — text, visual assets, audio recordings, and the design friction math-input interface — with equivalence controls for duration and visual complexity across conditions.</p>
+                <div className="sg-contribution-status">{t('project.sleepGuardian.status.done')}</div>
+                <h4>{t('project.sleepGuardian.status.item4title')}</h4>
+                <p>{t('project.sleepGuardian.status.item4desc')}</p>
               </div>
               <div className="sg-contribution-card sg-contribution-card--inprogress">
-                <div className="sg-contribution-status">✓ Completed</div>
-                <h4>Main experiment (N=48)</h4>
-                <p>Participant recruitment and data collection ongoing. Target completion before M.S. thesis submission — June 2026.</p>
+                <div className="sg-contribution-status">{t('project.sleepGuardian.status.done')}</div>
+                <h4>{t('project.sleepGuardian.status.item5title')}</h4>
+                <p>{t('project.sleepGuardian.status.item5desc')}</p>
               </div>
               <div className="sg-contribution-card sg-contribution-card--pending">
-                <div className="sg-contribution-status sg-status--progress">↻ In Progress</div>
-                <h4>Results, analysis & design recommendations</h4>
-                <p>Mixed ANOVA analysis and evidence-based notification design guidelines to be delivered upon experiment completion.</p>
+                <div className="sg-contribution-status sg-status--progress">{t('project.sleepGuardian.status.done')}</div>
+                <h4>{t('project.sleepGuardian.status.item6title')}</h4>
+                <p>{t('project.sleepGuardian.status.item6desc')}</p>
               </div>
             </div>
           </div>
@@ -592,15 +491,15 @@ export default function SleepGuardian() {
           #sleep-guardian-page {
             --sg-night: #0d1117;
             --sg-deep: #161b22;
-            --sg-surface: #f8f9fa;
-            --sg-text: #1a1a2e;
-            --sg-muted: #6b7280;
+            --sg-surface: var(--surface);
+            --sg-text: var(--text-primary);
+            --sg-muted: var(--text-tertiary);
             --sg-threat: #e53e3e;
             --sg-empathy: #7c3aed;
             --sg-friction: #d97706;
             --sg-accent: #2563eb;
             --sg-green: #16a34a;
-            --sg-border: rgba(0,0,0,0.07);
+            --sg-border: var(--border);
             
             --font-display: 'Futura', 'Tw Cen MT', 'Century Gothic', sans-serif;
             --font-body: 'DM Sans', system-ui, sans-serif;
@@ -709,7 +608,7 @@ export default function SleepGuardian() {
             line-height: 1.4;
           }
 
-          .sg-section { padding: 88px 0; background: #fff; }
+          .sg-section { padding: 88px 0; background: var(--card); }
           .sg-section--tinted { background: var(--sg-surface); }
           .sg-section--dark { background: var(--sg-night); }
           .sg-section-label {
@@ -784,7 +683,7 @@ export default function SleepGuardian() {
             padding: 32px 28px;
             border-radius: 16px;
             border: 1px solid var(--sg-border);
-            background: #fff;
+            background: var(--card);
           }
           .sg-pathway-card--threat { border-top: 4px solid var(--sg-threat); }
           .sg-pathway-card--empathy { border-top: 4px solid var(--sg-empathy); }
@@ -1033,7 +932,7 @@ export default function SleepGuardian() {
             padding: 18px 20px;
             border: 1px solid var(--sg-border);
             border-radius: 10px;
-            background: #fff;
+            background: var(--card);
             flex: 1;
             min-width: 200px;
           }
@@ -1060,7 +959,7 @@ export default function SleepGuardian() {
             padding: 24px;
             border: 1px solid var(--sg-border);
             border-radius: 12px;
-            background: #fff;
+            background: var(--card);
             align-items: flex-start; /* 確保文字與標籤頂部對齊 */
           }
           .sg-rq-tag {
@@ -1152,11 +1051,11 @@ export default function SleepGuardian() {
         style={{
           position: 'fixed', top: '76px', left: '24px',
           width: '36px', height: '36px', borderRadius: '50%',
-          background: 'rgba(238,234,224,0.95)',
+          background: 'color-mix(in srgb, var(--background) 95%, transparent)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
           border: '1.5px solid rgba(12,12,12,0.25)',
-          color: '#0C0C0C', cursor: 'pointer',
+          color: 'var(--text-primary)', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: '16px', lineHeight: 1,
           boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
@@ -1164,11 +1063,11 @@ export default function SleepGuardian() {
           transition: 'background .2s, box-shadow .2s',
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#EEEAE0';
+          (e.currentTarget as HTMLButtonElement).style.background = 'var(--background)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.13)';
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = 'rgba(238,234,224,0.95)';
+          (e.currentTarget as HTMLButtonElement).style.background = 'color-mix(in srgb, var(--background) 95%, transparent)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
         }}
       >←</button>

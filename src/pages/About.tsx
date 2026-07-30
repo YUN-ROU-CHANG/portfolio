@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import mePng from '../assets/images/Me.png';
 import Layout from '../components/Layout';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Lightbulb, Target, Heart, Rocket, Monitor } from 'lucide-react';
 
 // ─── 引入 My Strengths 會用到的 5 張背景圖片 ───
@@ -11,6 +12,7 @@ import codingImg from '../assets/images/coding.png';
 import crossFunctional from '../assets/images/cross-functional.jpeg';
 
 export default function About() {
+  const { t } = useLanguage();
   const heroRef = useRef<HTMLDivElement>(null);
   const strengthsRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
@@ -54,61 +56,53 @@ export default function About() {
             <div className="about-two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '64px', alignItems: 'start' }}>
 
               {/* ── Left: Portrait Tile ── */}
-              <div style={{ position: 'relative', border: '1px solid #0C0C0C', background: '#F6F2E7', padding: '20px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontFamily: '"IBM Plex Mono", monospace', fontSize: '10px', letterSpacing: '.14em', textTransform: 'uppercase', color: '#6B6A62', marginBottom: '14px' }}>
-                  <span>SUBJECT · RC-26</span>
-                  <span>FILE 03.01</span>
+              <div style={{ position: 'relative', border: '1px solid var(--border-strong)', background: 'var(--surface)', padding: '20px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--text-tertiary)', marginBottom: '14px' }}>
+                  <span>{t('about.dossier.subject')}</span>
+                  <span>{t('about.dossier.file')}</span>
                 </div>
-                <div style={{ aspectRatio: '4/5', overflow: 'hidden', background: '#E3DED1', position: 'relative' }}>
+                <div style={{ aspectRatio: '4/5', overflow: 'hidden', background: 'var(--surface-muted)', position: 'relative' }}>
                   <img
                     src={mePng}
-                    alt="Rose Chang"
+                    alt={t('about.dossier.photoAlt')}
                     loading="eager"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(15%)' }}
                   />
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginTop: '14px', paddingTop: '14px', borderTop: '1px solid rgba(12,12,12,.12)', fontFamily: '"IBM Plex Mono", monospace', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', color: '#6B6A62' }}>
-                  <div><span style={{ color: '#0C0C0C', marginRight: '4px' }}>BASED</span>Taipei</div>
-                  <div><span style={{ color: '#0C0C0C', marginRight: '4px' }}>PROGRAM</span>M.Des '26</div>
-                  <div><span style={{ color: '#0C0C0C', marginRight: '4px' }}>LANG.</span>中 / EN</div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginTop: '14px', paddingTop: '14px', borderTop: '1px solid var(--border)', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>
+                  <div><span style={{ color: 'var(--text-primary)', marginRight: '4px' }}>{t('about.dossier.basedLabel')}</span>{t('about.dossier.basedValue')}</div>
+                  <div><span style={{ color: 'var(--text-primary)', marginRight: '4px' }}>{t('about.dossier.programLabel')}</span>{t('about.dossier.programValue')}</div>
+                  <div><span style={{ color: 'var(--text-primary)', marginRight: '4px' }}>{t('about.dossier.langLabel')}</span>{t('about.dossier.langValue')}</div>
                 </div>
               </div>
 
               {/* ── Right: Bio + Skill Matrix ── */}
               <div>
-                <h3 style={{ fontFamily: '"Space Grotesk", sans-serif', fontWeight: 500, fontSize: 'clamp(30px,4vw,52px)', lineHeight: 1.02, letterSpacing: '-.02em', margin: '0 0 28px', textTransform: 'uppercase', color: 'var(--md-primary)' }}>
-                  A researcher who codes.{' '}
-                  <span style={{ color: '#E23A1C', fontStyle: 'italic', fontWeight: 400, margin: '0 .06em' }}>/</span>{' '}
-                  A designer who{' '}
-                  <em style={{ fontStyle: 'normal', color: '#7A5C00', background: '#FFE699', padding: '0 .1em', display: 'inline-block', transform: 'translateY(-.04em)' }}>asks why.</em>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(30px,4vw,52px)', lineHeight: 1.02, letterSpacing: '-.02em', margin: '0 0 28px', textTransform: 'uppercase', color: 'var(--accent-text)' }}>{t('about.intro.line1')}{' '}
+                  <span style={{ color: 'var(--text-primary)', fontStyle: 'italic', fontWeight: 400, margin: '0 .06em' }}>/</span>{' '}{t('about.intro.line2')}{' '}
+                  <em style={{ fontStyle: 'normal', color: 'var(--on-accent)', background: 'var(--accent)', padding: '0 .1em', display: 'inline-block', transform: 'translateY(-.04em)' }}>{t('about.intro.line2Em')}</em>
                 </h3>
 
-                <p style={{ fontSize: '16px', lineHeight: 1.65, color: '#1A1A1A', margin: '0 0 16px', maxWidth: '56ch' }}>
-                  I'm a detail-oriented and insightful UI/UX designer passionate about crafting intuitive and user-centered digital experiences. My experience spans both UI design and UX research, and I had the honor of contributing to a team project that won the <strong style={{ color: '#0C0C0C', fontWeight: 600 }}>Gold Award at the 2024 InnoConnect+</strong> competition for Hi-Life.
-                </p>
-                <p style={{ fontSize: '16px', lineHeight: 1.65, color: '#1A1A1A', margin: '0 0 16px', maxWidth: '56ch' }}>
-                  Previously, I worked as a <strong style={{ color: '#0C0C0C', fontWeight: 600 }}>marketing intern at KDAN</strong>, where I created visual content for social media and produced analytical reports on influencer and advertising performance. I'm especially interested in emerging technologies such as AI and interactive design, with a current research focus on AI-generated music and voice synthesis.
-                </p>
-                <p style={{ fontSize: '16px', lineHeight: 1.65, color: '#1A1A1A', margin: 0, maxWidth: '56ch' }}>
-                  Beyond pixels and prototypes, I'm driven by collaboration — working with cross-functional teams to transform ideas into user-centered solutions. When I'm not designing: new music, creative coding, or the latest design trends.
-                </p>
+                <p style={{ fontSize: '16px', lineHeight: 1.65, color: 'var(--text-primary)', margin: '0 0 16px', maxWidth: '56ch' }}>{t('about.intro.p1a')}{' '}<strong style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{t('about.intro.p1strong')}</strong>{' '}{t('about.intro.p1b')}</p>
+                <p style={{ fontSize: '16px', lineHeight: 1.65, color: 'var(--text-primary)', margin: '0 0 16px', maxWidth: '56ch' }}>{t('about.intro.p2a')}{' '}<strong style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{t('about.intro.p2strong')}</strong>{t('about.intro.p2b')}</p>
+                <p style={{ fontSize: '16px', lineHeight: 1.65, color: 'var(--text-primary)', margin: 0, maxWidth: '56ch' }}>{t('about.intro.p3')}</p>
 
                 {/* Skill Matrix */}
-                <div style={{ marginTop: '40px', border: '1px solid #0C0C0C' }}>
+                <div style={{ marginTop: '40px', border: '1px solid var(--border-strong)' }}>
                   {[
-                    { cat: 'Research', skills: [{ label: 'Usability Testing', hot: true }, { label: 'Diary Studies', hot: true }, { label: 'SPSS / Quant', lvl: 'ADV' }, { label: 'Interviews' }, { label: 'Survey Design' }, { label: 'Mixed Methods' }] },
-                    { cat: 'Craft', skills: [{ label: 'Figma · Auto-layout', hot: true }, { label: 'Prototype / React' }, { label: 'Gen-AI Workflows' }] },
-                    { cat: 'Strategy', skills: [{ label: 'Service Design' }, { label: 'Product Strategy' }, { label: 'Facilitation' }, { label: 'Marketing Ops' }] },
+                    { cat: t('about.skills.catResearch'), skills: [{ label: t('about.skills.usability'), hot: true }, { label: t('about.skills.diary'), hot: true }, { label: t('about.skills.spss'), lvl: t('about.skills.lvlAdv') }, { label: t('about.skills.interviews') }, { label: t('about.skills.survey') }, { label: t('about.skills.mixed') }] },
+                    { cat: t('about.skills.catCraft'), skills: [{ label: t('about.skills.figma'), hot: true }, { label: t('about.skills.prototype') }, { label: t('about.skills.genai') }] },
+                    { cat: t('about.skills.catStrategy'), skills: [{ label: t('about.skills.serviceDesign') }, { label: t('about.skills.productStrategy') }, { label: t('about.skills.facilitation') }, { label: t('about.skills.marketingOps') }] },
                   ].map(({ cat, skills }, gi, arr) => (
-                    <div key={cat} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', borderBottom: gi < arr.length - 1 ? '1px solid rgba(12,12,12,.12)' : 'none' }}>
-                      <div style={{ padding: '18px 16px', borderRight: '1px solid rgba(12,12,12,.12)', background: '#F6F2E7', fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', letterSpacing: '.14em', textTransform: 'uppercase', color: '#0C0C0C' }}>
+                    <div key={cat} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', borderBottom: gi < arr.length - 1 ? '1px solid var(--border)' : 'none' }}>
+                      <div style={{ padding: '18px 16px', borderRight: '1px solid var(--border)', background: 'var(--surface)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>
                         {cat}
                       </div>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', padding: '14px 16px', alignItems: 'center' }}>
                         {skills.map(({ label, hot, lvl }: { label: string; hot?: boolean; lvl?: string }) => (
                           <span key={label}
-                            style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', letterSpacing: '.06em', textTransform: 'uppercase', padding: '6px 10px', border: '1px solid #0C0C0C', borderRadius: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px', background: hot ? '#FFE699' : 'transparent', cursor: 'default', transition: 'background .2s, color .2s' }}
-                            onMouseEnter={e => { if (!hot) { (e.currentTarget as HTMLElement).style.background = '#0C0C0C'; (e.currentTarget as HTMLElement).style.color = '#FFE699'; } }}
+                            style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.06em', textTransform: 'uppercase', padding: '6px 10px', border: '1px solid var(--border-strong)', borderRadius: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px', background: hot ? 'var(--accent)' : 'transparent', color: hot ? 'var(--on-accent)' : 'inherit', cursor: 'default', transition: 'background .2s, color .2s' }}
+                            onMouseEnter={e => { if (!hot) { (e.currentTarget as HTMLElement).style.background = 'var(--surface-inverse)'; (e.currentTarget as HTMLElement).style.color = 'var(--accent-on-inverse)'; } }}
                             onMouseLeave={e => { if (!hot) { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.color = 'inherit'; } }}
                           >
                             {label}{lvl && <span style={{ fontSize: '9px', opacity: .6 }}>{lvl}</span>}
@@ -127,34 +121,32 @@ export default function About() {
         <section className="section" id="about-strengths" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
-              <Lightbulb size={32} color="hsl(var(--g1))" />
-              My Strengths
-            </h2>
+              <Lightbulb size={32} color="var(--accent-text)" />{t('about.strengths.heading')}</h2>
 
             <div className="bento-grid" ref={strengthsRef}>
 
               {/* Card 1: Rigorous Research (Dark Theme) */}
               <div className="bento-card bento-dark reveal">
                 <div className="bento-bg">
-                  <img src={experimentNotion} alt="Research Notion" loading="lazy" />
+                  <img src={experimentNotion} alt={t('about.strengths.research.imgAlt')} loading="lazy" />
                   <div className="bento-overlay overlay-dark"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-dark">Research at Scale</span>
-                  <h3 className="bento-title">Rigorous Research,<br />Real Numbers</h3>
-                  <p className="bento-sub">Full-cycle mixed-methods study on bedtime procrastination — from recruitment to validated analysis.</p>
+                  <span className="bento-tag tag-dark">{t('about.strengths.research.tag')}</span>
+                  <h3 className="bento-title">{t('about.strengths.research.titleLine1')}<br />{t('about.strengths.research.titleLine2')}</h3>
+                  <p className="bento-sub">{t('about.strengths.research.desc')}</p>
                   <div className="bento-stats-row mt-auto">
                     <div className="bento-stat">
                       <span className="bento-stat-num highlight-acid">48</span>
-                      <span className="bento-stat-label">participants<br />recruited</span>
+                      <span className="bento-stat-label">{t('about.strengths.research.stat1a')}<br />{t('about.strengths.research.stat1b')}</span>
                     </div>
                     <div className="bento-stat">
                       <span className="bento-stat-num highlight-acid">×5</span>
-                      <span className="bento-stat-label">validated<br />scales</span>
+                      <span className="bento-stat-label">{t('about.strengths.research.stat2a')}<br />{t('about.strengths.research.stat2b')}</span>
                     </div>
                     <div className="bento-stat">
                       <span className="bento-stat-num highlight-acid">×2</span>
-                      <span className="bento-stat-label">methods:<br />quant + qual</span>
+                      <span className="bento-stat-label">{t('about.strengths.research.stat3a')}<br />{t('about.strengths.research.stat3b')}</span>
                     </div>
                   </div>
                 </div>
@@ -163,17 +155,17 @@ export default function About() {
               {/* Card 2: Insight to Gold */}
               <div className="bento-card bento-light reveal">
                 <div className="bento-bg">
-                  <img src={awardsReport} alt="Awards Report" loading="lazy" />
+                  <img src={awardsReport} alt={t('about.strengths.awards.imgAlt')} loading="lazy" />
                   <div className="bento-overlay overlay-light"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-amber">Research → Product</span>
-                  <h3 className="bento-title">From Insight<br />to Gold</h3>
-                  <p className="bento-sub">Turning user research into winning strategy — nationally recognized in both academic and commercial arenas.</p>
+                  <span className="bento-tag tag-amber">{t('about.strengths.awards.tag')}</span>
+                  <h3 className="bento-title">{t('about.strengths.awards.titleLine1')}<br />{t('about.strengths.awards.titleLine2')}</h3>
+                  <p className="bento-sub">{t('about.strengths.awards.desc')}</p>
                   <div className="bento-badge-row mt-auto">
-                    <span className="bento-badge badge-award">InnoConnect+ Gold</span>
-                    <span className="bento-badge badge-award">IEEE Best Paper</span>
-                    <span className="bento-badge badge-award">時報金犢獎 3rd</span>
+                    <span className="bento-badge badge-award">{t('about.strengths.awards.badge1')}</span>
+                    <span className="bento-badge badge-award">{t('about.strengths.awards.badge2')}</span>
+                    <span className="bento-badge badge-award">{t('about.strengths.awards.badge3')}</span>
                   </div>
                 </div>
               </div>
@@ -181,18 +173,18 @@ export default function About() {
               {/* Card 3: UI Design */}
               <div className="bento-card bento-light reveal">
                 <div className="bento-bg">
-                  <img src={figmaImg} alt="Figma UI Design" loading="lazy" />
+                  <img src={figmaImg} alt={t('about.strengths.uiDesign.imgAlt')} loading="lazy" />
                   <div className="bento-overlay overlay-light-blur"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-teal">Full-Cycle UI Design</span>
-                  <h3 className="bento-title">Design Systems,<br />Not Just Screens</h3>
-                  <p className="bento-sub">Full Figma stack — wireframes through to component libraries and interactive prototypes.</p>
+                  <span className="bento-tag tag-teal">{t('about.strengths.uiDesign.tag')}</span>
+                  <h3 className="bento-title">{t('about.strengths.uiDesign.titleLine1')}<br />{t('about.strengths.uiDesign.titleLine2')}</h3>
+                  <p className="bento-sub">{t('about.strengths.uiDesign.desc')}</p>
                   <div className="bento-pill-stack mt-auto">
-                    <span className="bento-pill">Wireframing</span>
-                    <span className="bento-pill">Design System</span>
-                    <span className="bento-pill">Component Library</span>
-                    <span className="bento-pill">Interactive Prototype</span>
+                    <span className="bento-pill">{t('about.strengths.uiDesign.pill1')}</span>
+                    <span className="bento-pill">{t('about.strengths.uiDesign.pill2')}</span>
+                    <span className="bento-pill">{t('about.strengths.uiDesign.pill3')}</span>
+                    <span className="bento-pill">{t('about.strengths.uiDesign.pill4')}</span>
                   </div>
                 </div>
               </div>
@@ -200,41 +192,41 @@ export default function About() {
               {/* Card 4: AI-Augmented */}
               <div className="bento-card bento-light reveal">
                 <div className="bento-bg">
-                  <img src={codingImg} alt="AI Coding" loading="lazy" />
+                  <img src={codingImg} alt={t('about.strengths.ai.imgAlt')} loading="lazy" />
                   <div className="bento-overlay overlay-light"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-blue">AI-Augmented</span>
-                  <h3 className="bento-title">Designing With AI,<br />Not Just About It</h3>
-                  <p className="bento-sub">Built this portfolio with AI-assisted development. Trained a 10-person team on AI creative tools. Researching AI vocal agency at IEEE GCCE 2025.</p>
+                  <span className="bento-tag tag-blue">{t('about.strengths.ai.tag')}</span>
+                  <h3 className="bento-title">{t('about.strengths.ai.titleLine1')}<br />{t('about.strengths.ai.titleLine2')}</h3>
+                  <p className="bento-sub">{t('about.strengths.ai.desc')}</p>
                 </div>
               </div>
 
               {/* Card 5: Cross-Functional (Wide) */}
               <div className="bento-card bento-light bento-card--wide reveal">
                 <div className="bento-bg">
-                  <img src={crossFunctional} alt="Cross Functional Collaboration" loading="lazy" />
+                  <img src={crossFunctional} alt={t('about.strengths.crossFunc.imgAlt')} loading="lazy" />
                   <div className="bento-overlay overlay-wide"></div>
                 </div>
                 <div className="bento-content bento-content--row">
                   <div className="content-left">
-                    <span className="bento-tag tag-gray">Cross-Functional</span>
-                    <h3 className="bento-title">One Person,<br />Many Languages</h3>
-                    <p className="bento-sub" style={{ maxWidth: '400px' }}>Speaking fluently across research, design, business, and stakeholder contexts.</p>
+                    <span className="bento-tag tag-gray">{t('about.strengths.crossFunc.tag')}</span>
+                    <h3 className="bento-title">{t('about.strengths.crossFunc.titleLine1')}<br />{t('about.strengths.crossFunc.titleLine2')}</h3>
+                    <p className="bento-sub" style={{ maxWidth: '400px' }}>{t('about.strengths.crossFunc.desc')}</p>
                   </div>
                   <div className="content-right mt-auto">
                     <div className="bento-mini-grid">
                       <div className="bento-mini-stat">
                         <div className="mini-stat-num">110+</div>
-                        <div className="mini-stat-label">KOL relationships<br />managed</div>
+                        <div className="mini-stat-label">{t('about.strengths.crossFunc.stat1a')}<br />{t('about.strengths.crossFunc.statManaged')}</div>
                       </div>
                       <div className="bento-mini-stat">
                         <div className="mini-stat-num">60</div>
-                        <div className="mini-stat-label">participants per<br />Fulbright workshop</div>
+                        <div className="mini-stat-label">{t('about.strengths.crossFunc.stat2a')}<br />{t('about.strengths.crossFunc.stat2b')}</div>
                       </div>
                       <div className="bento-mini-stat">
                         <div className="mini-stat-num">3</div>
-                        <div className="mini-stat-label">enterprise clients<br />managed</div>
+                        <div className="mini-stat-label">{t('about.strengths.crossFunc.stat3a')}<br />{t('about.strengths.crossFunc.statManaged')}</div>
                       </div>
                     </div>
                   </div>
@@ -249,56 +241,50 @@ export default function About() {
         <section className="section" id="about-values" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
-              <Heart size={32} color="hsl(var(--g3))" />
-              My Values
-            </h2>
+              <Heart size={32} color="var(--accent-text)" />{t('about.values.heading')}</h2>
 
             <div className="about-values-grid" ref={valuesRef}>
               <div className="gframe reveal" style={{ height: '100%' }}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, hsl(var(--g1)/.15), hsl(var(--g2)/.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
-                    <Target size={24} color="hsl(var(--g1))" aria-hidden="true" />
+                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
+                    <Target size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>Clarity in Chaos</h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.clarity.title')}</h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>I turn complex information into actionable plans.</strong> I meticulously document processes to ensure no insight is lost, keeping stakeholders aligned with a clear vision.
-                  </p>
+                    <strong>{t('about.values.clarity.lead')}</strong>{' '}{t('about.values.clarity.desc')}</p>
                 </div>
               </div>
 
               <div className="gframe reveal" style={{ height: '100%' }}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, hsl(var(--g3)/.15), hsl(var(--g4)/.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
-                    <Rocket size={24} color="hsl(var(--g3))" aria-hidden="true" />
+                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
+                    <Rocket size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>Curiosity as a Driver</h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.curiosity.title')}</h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>I embrace the new to optimize the now.</strong> I actively bridge cutting-edge tech with practical workflows, empowering teams to work smarter.
-                  </p>
+                    <strong>{t('about.values.curiosity.lead')}</strong>{' '}{t('about.values.curiosity.desc')}</p>
                 </div>
               </div>
 
               <div className="gframe reveal" style={{ height: '100%' }}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, hsl(var(--g2)/.15), hsl(var(--g3)/.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
-                    <Heart size={24} color="hsl(var(--g2))" aria-hidden="true" />
+                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
+                    <Heart size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>Resilience &amp; Empathy</h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.resilience.title')}</h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>I foster a positive and collaborative environment.</strong> I bring resilience and warmth to collaboration—ensuring user needs are heard and team morale stays high.
-                  </p>
+                    <strong>{t('about.values.resilience.lead')}</strong>{' '}{t('about.values.resilience.desc')}</p>
                 </div>
               </div>
 
               <div className="gframe reveal" style={{ height: '100%' }}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, hsl(var(--g4)/.15), hsl(var(--g1)/.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
-                    <Monitor size={24} color="hsl(var(--g4))" aria-hidden="true" />
+                  <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
+                    <Monitor size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--md-on-surface)' }}>Hardware Meets Interface</h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.hardware.title')}</h3>
                   <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>I'm drawn to the intersection of physical products and digital experiences.</strong> From automotive UX to wearable interfaces, I'm eager to design for embedded systems where constraints spark the most creative solutions.
-                  </p>
+                    <strong>{t('about.values.hardware.lead')}</strong>{' '}{t('about.values.hardware.desc')}</p>
                 </div>
               </div>
             </div>
@@ -316,7 +302,7 @@ export default function About() {
           .section-head {
             font-size: clamp(28px, 4vw, 48px);
             font-weight: 700;
-            color: var(--md-primary);
+            color: var(--accent-text);
             margin-bottom: 32px;
           }
 
@@ -332,7 +318,7 @@ export default function About() {
             position: relative;
             border-radius: var(--radius-lg);
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
             min-height: 380px;
             display: flex;
             flex-direction: column;
@@ -389,31 +375,31 @@ export default function About() {
 
           /* Light Card Overlay (Standard) - 左上重，右下輕 */
           .overlay-light {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.1) 100%);
+            background: linear-gradient(135deg, color-mix(in srgb, var(--background) 98%, transparent) 0%, color-mix(in srgb, var(--background) 85%, transparent) 45%, color-mix(in srgb, var(--background) 15%, transparent) 100%);
             backdrop-filter: blur(3px);
           }
           .bento-card:hover .overlay-light {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.65) 50%, transparent 100%);
+            background: linear-gradient(135deg, color-mix(in srgb, var(--background) 95%, transparent) 0%, color-mix(in srgb, var(--background) 68%, transparent) 50%, transparent 100%);
             backdrop-filter: blur(0px);
           }
 
           /* Light Card Blurrier (For complex Figma BG) */
           .overlay-light-blur {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 55%, rgba(255, 255, 255, 0.2) 100%);
+            background: linear-gradient(135deg, color-mix(in srgb, var(--background) 98%, transparent) 0%, color-mix(in srgb, var(--background) 85%, transparent) 55%, color-mix(in srgb, var(--background) 15%, transparent) 100%);
             backdrop-filter: blur(4px);
           }
           .bento-card:hover .overlay-light-blur {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.65) 50%, transparent 100%);
+            background: linear-gradient(135deg, color-mix(in srgb, var(--background) 95%, transparent) 0%, color-mix(in srgb, var(--background) 68%, transparent) 50%, transparent 100%);
             backdrop-filter: blur(0px);
           }
 
           /* Wide Card Overlay (Cross Functional) - 左重，右輕 */
           .overlay-wide {
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.1) 100%);
+            background: linear-gradient(90deg, color-mix(in srgb, var(--background) 98%, transparent) 0%, color-mix(in srgb, var(--background) 85%, transparent) 45%, color-mix(in srgb, var(--background) 15%, transparent) 100%);
             backdrop-filter: blur(3px);
           }
           .bento-card:hover .overlay-wide {
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 45%, transparent 100%);
+            background: linear-gradient(90deg, color-mix(in srgb, var(--background) 95%, transparent) 0%, color-mix(in srgb, var(--background) 68%, transparent) 45%, transparent 100%);
             backdrop-filter: blur(0px);
           }
 
@@ -435,11 +421,11 @@ export default function About() {
           }
 
           /* Typography & Colors inside Bento */
-          .bento-light { color: var(--md-on-surface); }
+          .bento-light { color: var(--text-primary); }
           
           /* 增強 Dark Card 的文字陰影，保證純白與易讀性 */
           .bento-dark .bento-title {
-            color: #ffffff;
+            color: var(--bone);
             text-shadow: 0 2px 8px rgba(0,0,0,0.6);
           }
           .bento-dark .bento-sub {
@@ -452,7 +438,7 @@ export default function About() {
           }
 
           .bento-title {
-            font-family: "Space Grotesk", sans-serif;
+            font-family: var(--font-display);
             font-size: 28px;
             font-weight: 700;
             line-height: 1.2;
@@ -462,7 +448,7 @@ export default function About() {
           .bento-sub {
             font-size: 15px;
             line-height: 1.6;
-            color: var(--color-text-muted);
+            color: var(--text-tertiary);
             margin: 0;
             font-weight: 500;
           }
@@ -471,7 +457,7 @@ export default function About() {
           .bento-tag {
             display: inline-flex;
             align-items: center;
-            font-family: "IBM Plex Mono", monospace;
+            font-family: var(--font-mono);
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -481,11 +467,11 @@ export default function About() {
             align-self: flex-start;
           }
 
-          .tag-dark { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(4px); }
-          .tag-amber { background: #FAEEDA; color: #633806; }
-          .tag-teal { background: rgba(42,157,110,0.15); color: #1A6B4A; }
-          .tag-blue { background: #E6F1FB; color: #0C447C; }
-          .tag-gray { background: #F3F3F5; color: #475569; border: 1px solid rgba(0,0,0,0.06); }
+          .tag-dark { background: rgba(255,255,255,0.15); color: var(--bone); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(4px); }
+          .tag-amber { background: color-mix(in srgb, var(--acid) 45%, var(--surface)); color: var(--accent-text); }
+          .tag-teal { background: var(--surface-subtle); color: var(--text-secondary); }
+          .tag-blue { background: color-mix(in srgb, var(--acid) 22%, var(--surface)); color: var(--accent-text); }
+          .tag-gray { background: var(--surface); color: var(--text-secondary); border: 1px solid var(--border); }
 
           /* Stats Row (Card 1) */
           .bento-stats-row {
@@ -494,7 +480,7 @@ export default function About() {
           }
           .bento-stat { display: flex; flex-direction: column; }
           .bento-stat-num {
-            font-family: "Space Grotesk", sans-serif;
+            font-family: var(--font-display);
             font-size: 40px;
             font-weight: 700;
             line-height: 1;
@@ -518,9 +504,9 @@ export default function About() {
             font-weight: 600;
             padding: 6px 12px;
             border-radius: 100px;
-            border: 1px solid rgba(0,0,0,0.08);
-            background: rgba(255,255,255,0.7);
-            color: var(--md-on-surface);
+            border: 1px solid var(--border);
+            background: color-mix(in srgb, var(--background) 72%, transparent);
+            color: var(--text-primary);
             backdrop-filter: blur(4px);
           }
 
@@ -531,15 +517,15 @@ export default function About() {
             flex-wrap: wrap;
           }
           .bento-pill {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: var(--font-mono);
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.04em;
             padding: 6px 12px;
             border-radius: 4px;
-            background: rgba(255,255,255,0.6);
-            border: 1px solid rgba(0,0,0,0.1);
-            color: var(--md-on-surface);
+            background: color-mix(in srgb, var(--background) 62%, transparent);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
             backdrop-filter: blur(4px);
           }
 
@@ -548,24 +534,24 @@ export default function About() {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 16px;
-            background: rgba(255,255,255,0.65);
+            background: color-mix(in srgb, var(--background) 66%, transparent);
             padding: 24px;
             border-radius: 16px;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
             backdrop-filter: blur(4px);
           }
           .bento-mini-stat { text-align: center; }
           .mini-stat-num {
-            font-family: "Space Grotesk", sans-serif;
+            font-family: var(--font-display);
             font-size: 36px;
             font-weight: 700;
-            color: var(--md-primary);
+            color: var(--accent-text);
             line-height: 1;
             margin-bottom: 6px;
           }
           .mini-stat-label {
             font-size: 12px;
-            color: var(--color-text-muted);
+            color: var(--text-tertiary);
             line-height: 1.4;
             font-weight: 500;
           }
@@ -577,10 +563,10 @@ export default function About() {
             gap: 24px;
           }
           .card.glass {
-            background: rgba(255, 255, 255, 0.75);
+            background: color-mix(in srgb, var(--background) 75%, transparent);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border);
             border-radius: var(--radius-lg);
           }
 
@@ -615,8 +601,8 @@ export default function About() {
           width: '48px',
           height: '48px',
           borderRadius: '50%',
-          background: '#1A1A18',
-          color: '#FFE699',
+          background: 'var(--surface-inverse)',
+          color: 'var(--accent-on-inverse)',
           border: 'none',
           cursor: 'pointer',
           display: 'flex',

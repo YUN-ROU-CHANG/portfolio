@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { 
   Award, PlayCircle, Palette, Lightbulb, 
   ChevronRight, ExternalLink, Globe, Smartphone
@@ -15,16 +16,16 @@ const archiveList = Object.values(archivePhotos) as string[];
 // [0]=Yun-peanut-packaging.png [1]=Yun-peanut-web.png [2]=bass-spirit-video.png
 // [3]=bilingual-center-cover.png [4]=palette.png [5]=penn-state-uni-cover.jpeg
 
-const projects = [
+const getProjects = (t: (key: string) => string) => [
   {
     id: 1,
-    title: 'Good-Rhythm Peanut (好韻花生)',
+    title: t('project.archive.peanut.title'),
     category: 'Brand & Visual',
-    type: 'Brand Identity & Packaging Campaign',
-    role: 'Brand Visual, Web Design | Team of 4',
-    pitch: 'Drawing on Hakka Tianchuan Day culture, we developed a youth-oriented rebrand for a long-established Miaoli food producer, elevating local specialty value through innovative packaging and visual identity.',
-    awards: ['🥉 Miaoli Rural Youth Innovation Award — Bronze', '🥈 School Project Competition — 2nd Place'],
-    tags: ['Brand Identity', 'Packaging', 'Web Design'],
+    type: t('project.archive.peanut.type'),
+    role: t('project.archive.peanut.role'),
+    pitch: t('project.archive.peanut.pitch'),
+    awards: [t('project.archive.peanut.award1'), t('project.archive.peanut.award2')],
+    tags: [t('project.archive.peanut.tag1'), t('project.archive.peanut.tag2'), t('project.archive.peanut.tag3')],
     icon: <Palette size={20} />,
     imageClass: 'mock-peanut',
     image: archiveList[0],
@@ -32,13 +33,13 @@ const projects = [
   },
   {
     id: 2,
-    title: 'The Birth of Bass Spirit (鱸魚精の誕生)',
+    title: t('project.archive.bass.title'),
     category: 'Competitions',
-    type: 'Creative Short-Video Marketing',
-    role: 'Concept, Editing, Voice-over | Team of 2',
-    pitch: 'Blending the "God created all things" internet meme with product features, we produced a humorous animated short that resonated with fatigued office workers, promoting a sea bass supplement brand.',
-    awards: ['🥈 2023 The 8th TSC Marketing Symposium — Silver'],
-    tags: ['Video Editing', 'Creative Strategy', 'Marketing'],
+    type: t('project.archive.bass.type'),
+    role: t('project.archive.bass.role'),
+    pitch: t('project.archive.bass.pitch'),
+    awards: [t('project.archive.bass.award1')],
+    tags: [t('project.archive.bass.tag1'), t('project.archive.bass.tag2'), t('project.archive.bass.tag3')],
     icon: <PlayCircle size={20} />,
     imageClass: 'mock-video',
     image: archiveList[2],
@@ -46,13 +47,13 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Financial Literacy App',
+    title: t('project.archive.finlit.title'),
     category: 'Workshops',
-    type: 'Innovation, Entrepreneurship & Design Thinking Proposal',
-    role: 'UI/UX Designer | Cross-national Workshop',
-    pitch: 'In the NTUT × PSU (Penn State Univ.) cross-national workshop, we combined Generative AI and Game-based Learning to design an innovative app proposal for improving financial literacy among young people.',
-    awards: ['🏆 NTUT x Penn State Univ. Workshop Demo'],
-    tags: ['UI/UX', 'GenAI', 'Design Thinking'],
+    type: t('project.archive.finlit.type'),
+    role: t('project.archive.finlit.role'),
+    pitch: t('project.archive.finlit.pitch'),
+    awards: [t('project.archive.finlit.award1')],
+    tags: [t('project.archive.finlit.tag1'), t('project.archive.finlit.tag2'), t('project.archive.finlit.tag3')],
     icon: <Smartphone size={20} />,
     imageClass: 'mock-psu',
     image: archiveList[5],
@@ -61,15 +62,22 @@ const projects = [
 ];
 
 export default function ProjectArchive() {
+  const { t } = useLanguage();
+  const projects = getProjects(t);
   const [showTop, setShowTop] = useState(false);
   const [activeFilter, setActiveFilter] = useState('All');
 
-  // 篩選分類項目
-  const filters = ['All', 'Competitions', 'Brand & Visual', 'Workshops'];
+  // 篩選分類項目（value 為邏輯值，label 為顯示文字）
+  const filters = [
+    { value: 'All', label: t('project.archive.filters.all') },
+    { value: 'Competitions', label: t('project.archive.filters.competitions') },
+    { value: 'Brand & Visual', label: t('project.archive.filters.brand') },
+    { value: 'Workshops', label: t('project.archive.filters.workshops') },
+  ];
 
   // 根據選擇的標籤過濾專案
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(p => p.category === activeFilter);
 
   useEffect(() => {
@@ -93,12 +101,10 @@ export default function ProjectArchive() {
             >
               <div className="eyebrow-tag">
                 <Lightbulb size={16} />
-                <span>Explorations & Archive</span>
+                <span>{t('project.archive.header.eyebrow')}</span>
               </div>
-              <h1 className="hero-title">Selected Works & Experiments</h1>
-              <p className="hero-subtitle">
-                A collection of award-winning marketing campaigns, brand identity designs, and cross-cultural workshop prototypes that highlight my interdisciplinary approach to problem-solving.
-              </p>
+              <h1 className="hero-title">{t('project.archive.header.title')}</h1>
+              <p className="hero-subtitle">{t('project.archive.header.subtitle')}</p>
             </motion.div>
 
             {/* Filter Tabs */}
@@ -110,11 +116,11 @@ export default function ProjectArchive() {
             >
               {filters.map(filter => (
                 <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`filter-btn ${activeFilter === filter ? 'active' : ''}`}
+                  key={filter.value}
+                  onClick={() => setActiveFilter(filter.value)}
+                  className={`filter-btn ${activeFilter === filter.value ? 'active' : ''}`}
                 >
-                  {filter}
+                  {filter.label}
                 </button>
               ))}
             </motion.div>
@@ -190,13 +196,13 @@ export default function ProjectArchive() {
         {/* Styles */}
         <style>{`
           :root {
-            --bg-color: #FAFAFA;
-            --card-bg: #FFFFFF;
-            --text-main: #111827;
-            --text-muted: #6B7280;
-            --border-color: #F3F4F6;
-            --accent-color: #0F172A;
-            --accent-hover: #374151;
+            --bg-color: var(--background);
+            --card-bg: var(--card);
+            --text-main: var(--text-primary);
+            --text-muted: var(--text-tertiary);
+            --border-color: var(--border);
+            --accent-color: var(--text-primary);
+            --accent-hover: var(--text-secondary);
           }
 
           #project-archive-page {
@@ -221,8 +227,8 @@ export default function ProjectArchive() {
             align-items: center;
             gap: 8px;
             padding: 8px 16px;
-            background: #F3F4F6;
-            color: #4B5563;
+            background: var(--surface-muted);
+            color: var(--text-secondary);
             border-radius: 100px;
             font-size: 14px;
             font-weight: 600;
@@ -256,7 +262,7 @@ export default function ProjectArchive() {
           .filter-btn {
             padding: 10px 24px;
             background: var(--card-bg);
-            border: 1px solid #E5E7EB;
+            border: 1px solid var(--border);
             border-radius: 100px;
             font-size: 15px;
             font-weight: 600;
@@ -266,13 +272,13 @@ export default function ProjectArchive() {
           }
 
           .filter-btn:hover {
-            border-color: #D1D5DB;
+            border-color: var(--border);
             color: var(--text-main);
           }
 
           .filter-btn.active {
             background: var(--text-main);
-            color: white;
+            color: var(--background);
             border-color: var(--text-main);
           }
 
@@ -309,7 +315,7 @@ export default function ProjectArchive() {
             position: relative;
             width: 100%;
             aspect-ratio: 4/3;
-            background-color: #F1F5F9;
+            background-color: var(--surface-muted);
             overflow: hidden;
           }
 
@@ -350,9 +356,9 @@ export default function ProjectArchive() {
           }
 
           .award-tag-sm {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--card-glass);
             backdrop-filter: blur(8px);
-            color: #111827;
+            color: var(--text-primary);
             padding: 6px 12px;
             border-radius: 8px;
             font-size: 12px;
@@ -393,12 +399,12 @@ export default function ProjectArchive() {
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: #F3F4F6;
+            background: var(--surface-muted);
           }
 
           .external-link-btn:hover {
             color: var(--text-main);
-            background: #E5E7EB;
+            background: var(--surface-muted);
           }
 
           .project-title {
@@ -433,8 +439,8 @@ export default function ProjectArchive() {
 
           .skill-tag {
             padding: 4px 12px;
-            background: #F3F4F6;
-            color: #4B5563;
+            background: var(--surface-muted);
+            color: var(--text-secondary);
             border-radius: 6px;
             font-size: 13px;
             font-weight: 600;
@@ -457,11 +463,11 @@ export default function ProjectArchive() {
         style={{
           position: 'fixed', top: '76px', left: '24px',
           width: '36px', height: '36px', borderRadius: '50%',
-          background: 'rgba(238,234,224,0.95)',
+          background: 'color-mix(in srgb, var(--background) 95%, transparent)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
           border: '1.5px solid rgba(12,12,12,0.25)',
-          color: '#0C0C0C', cursor: 'pointer',
+          color: 'var(--text-primary)', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: '16px', lineHeight: 1,
           boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
@@ -469,11 +475,11 @@ export default function ProjectArchive() {
           transition: 'background .2s, box-shadow .2s',
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#EEEAE0';
+          (e.currentTarget as HTMLButtonElement).style.background = 'var(--background)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.13)';
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = 'rgba(238,234,224,0.95)';
+          (e.currentTarget as HTMLButtonElement).style.background = 'color-mix(in srgb, var(--background) 95%, transparent)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
         }}
       >←</button>

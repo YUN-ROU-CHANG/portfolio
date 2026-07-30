@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
+import { useLanguage } from '../../contexts/LanguageContext';
 import {
   TrendingUp, Users, Bot, FileSpreadsheet,
   Megaphone, Target, BarChart3, Presentation,
@@ -15,6 +16,7 @@ const adnexPhotos = import.meta.glob(
 const ap = Object.values(adnexPhotos) as string[];
 
 export default function AdnexInternship() {
+  const { t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
@@ -62,7 +64,7 @@ export default function AdnexInternship() {
                 <X size={32} />
               </button>
               <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-                <img src={lightboxImage} alt="Enlarged view" />
+                <img src={lightboxImage} alt={t('common.enlargedView')} />
               </div>
             </motion.div>
           )}
@@ -83,40 +85,34 @@ export default function AdnexInternship() {
                     <Briefcase size={24} />
                   </div>
                   <div className="badge-content">
-                    <div className="badge-title">{'KDAN | ADNEX'}</div>
-                    <div className="badge-subtitle">{'Data-Driven Marketing & Strategy'}</div>
+                    <div className="badge-title">{t('project.adnex.hero.badge')}</div>
+                    <div className="badge-subtitle">{t('project.adnex.hero.badgeSub')}</div>
                   </div>
                 </div>
               </div>
 
               <h1 className="hero-title">
-                {'Scaling Brand Impact Through Data & Workflow Optimization'}
+                {t('project.adnex.hero.title')}
               </h1>
 
               <p className="hero-subtitle">
-                {'A 9-month internship at KDAN\'s data strategy brand, ADNEX. Bridging the gap between creative content, KOL relationship management, and data-backed market research to drive measurable growth.'}
+                {t('project.adnex.hero.desc')}
               </p>
 
               <div className="hero-details">
                 <div className="detail-item">
-                  <span className="detail-label">{'Timeline'}</span>
-                  <span className="detail-value">{'Mar - Nov 2024'}</span>
+                  <span className="detail-label">{t('project.adnex.hero.timelineLabel')}</span>
+                  <span className="detail-value">{t('project.adnex.hero.timelineValue')}</span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{'Role'}</span>
-                  <span className="detail-value">{'Marketing Intern'}</span>
-                  <span className="detail-sub">{'Marketing & Planning Dept. (10+ people)'}</span>
+                  <span className="detail-label">{t('project.adnex.hero.roleLabel')}</span>
+                  <span className="detail-value">{t('project.adnex.hero.roleValue')}</span>
+                  <span className="detail-sub">{t('project.adnex.hero.roleSub')}</span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{'Core Focus'}</span>
-                  <span className="detail-value">{'Social Strategy, KOL Mgt.'}</span>
-                  <span className="detail-sub">{'Market Research, AI Enablement'}</span>
-                </div>
-                <div className="detail-item">
-                  <span className="detail-label">{'Key Impact'}</span>
-                  <span className="detail-value highlight-blue">
-                    {'101% IG Target Achieved'}
-                  </span>
+                  <span className="detail-label">{t('project.adnex.hero.focusLabel')}</span>
+                  <span className="detail-value">{t('project.adnex.hero.focusValue')}</span>
+                  <span className="detail-sub">{t('project.adnex.hero.focusSub')}</span>
                 </div>
               </div>
             </motion.div>
@@ -129,24 +125,24 @@ export default function AdnexInternship() {
             <div className="two-column-layout">
               <div className="column-content">
                 <div className="section-header-sm">
-                  <Target size={24} color="var(--blue-primary)" />
-                  <h2 className="section-heading-sm">{'The Challenge'}</h2>
+                  <Target size={24} color="var(--blue-ink)" />
+                  <h2 className="section-heading-sm">{t('project.adnex.challenge.heading')}</h2>
                 </div>
                 <p className="body-text">
-                  {'As a newly established data strategy brand under KDAN, ADNEX faced initial hurdles in brand awareness. The social media channels suffered from low organic reach and engagement. Simultaneously, the internal workflow for KOL (Key Opinion Leader) outreach and collaboration was highly manual, leading to inefficiencies in tracking and communication across the 10-person marketing team.'}
+                  {t('project.adnex.challenge.desc')}
                 </p>
               </div>
 
               <div className="column-content gray-box">
                 <div className="section-header-sm">
-                  <Megaphone size={24} color="var(--blue-primary)" />
-                  <h2 className="section-heading-sm">{'My Objectives'}</h2>
+                  <Megaphone size={24} color="var(--blue-ink)" />
+                  <h2 className="section-heading-sm">{t('project.adnex.objectives.heading')}</h2>
                 </div>
                 <ul className="objective-list">
-                  <li><strong>{'Content Strategy:'}</strong> {'Revamp social media presence to boost engagement.'}</li>
-                  <li><strong>{'Process Optimization:'}</strong> {'Systematize the KOL outreach pipeline and create internal SOPs.'}</li>
-                  <li><strong>{'Market Insights:'}</strong> {'Conduct competitive analysis using OpView & Nielsen tools.'}</li>
-                  <li><strong>{'Tech Integration:'}</strong> {'Implement AI tools to accelerate internal creative workflows.'}</li>
+                  <li><strong>{t('project.adnex.objectives.o1label')}</strong> {t('project.adnex.objectives.o1desc')}</li>
+                  <li><strong>{t('project.adnex.objectives.o2label')}</strong> {t('project.adnex.objectives.o2desc')}</li>
+                  <li><strong>{t('project.adnex.objectives.o3label')}</strong> {t('project.adnex.objectives.o3desc')}</li>
+                  <li><strong>{t('project.adnex.objectives.o4label')}</strong> {t('project.adnex.objectives.o4desc')}</li>
                 </ul>
               </div>
             </div>
@@ -154,51 +150,51 @@ export default function AdnexInternship() {
         </section>
 
         {/* Key Initiatives & Actions */}
-        <section className="content-section reveal" style={{ background: '#F8FAFC' }}>
+        <section className="content-section reveal" style={{ background: 'var(--surface)' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-heading text-center" style={{ marginBottom: '64px' }}>
-              {'Strategic Execution & Initiatives'}
+              {t('project.adnex.execution.heading')}
             </h2>
 
             <div className="initiatives-grid">
               {/* Initiative 1 */}
               <div className="initiative-card">
                 <div className="card-icon-wrapper"><TrendingUp size={28} /></div>
-                <h3 className="card-title">{'Data-Driven Social Strategy'}</h3>
+                <h3 className="card-title">{t('project.adnex.execution.e1title')}</h3>
                 <p className="card-text">
-                  {'Designed and produced 15 high-quality social posts. By diagnosing the root causes of low reach and analyzing competitor benchmarks, I tailored distinct operational strategies for Facebook and Instagram. Implemented strict tracking metrics to monitor growth.'}
+                  {t('project.adnex.execution.e1desc')}
                 </p>
-                <div className="impact-tag">{'Result: Peak single-post engagement reached 10%'}</div>
+                <div className="impact-tag">{t('project.adnex.execution.e1result')}</div>
               </div>
 
               {/* Initiative 2 */}
               <div className="initiative-card">
                 <div className="card-icon-wrapper"><Users size={28} /></div>
-                <h3 className="card-title">{'KOL Workflow Optimization'}</h3>
+                <h3 className="card-title">{t('project.adnex.execution.e2title')}</h3>
                 <p className="card-text">
-                  {'Restructured the KOL outreach process. Executed cold outreach to over 120 potential influencers and successfully assisted in coordinating 15 collaborations. Created comprehensive SOP documentation and standardized closing reports to streamline handoffs between full-time staff and interns.'}
+                  {t('project.adnex.execution.e2desc')}
                 </p>
-                <div className="impact-tag">{'Result: Dramatically improved cross-team efficiency'}</div>
+                <div className="impact-tag">{t('project.adnex.execution.e2result')}</div>
               </div>
 
               {/* Initiative 3 */}
               <div className="initiative-card">
                 <div className="card-icon-wrapper"><Bot size={28} /></div>
-                <h3 className="card-title">{'AI Implementation & Training'}</h3>
+                <h3 className="card-title">{t('project.adnex.execution.e3title')}</h3>
                 <p className="card-text">
-                  {'Pioneered the use of AI image generation tools within the department. After rigorous personal testing, I developed a standardized prompt-engineering SOP and conducted two educational training sessions for 10 full-time marketing planners, empowering the team to generate ideal visual assets independently.'}
+                  {t('project.adnex.execution.e3desc')}
                 </p>
-                <div className="impact-tag">{'Result: Accelerated internal design workflows'}</div>
+                <div className="impact-tag">{t('project.adnex.execution.e3result')}</div>
               </div>
 
               {/* Initiative 4 */}
               <div className="initiative-card">
                 <div className="card-icon-wrapper"><FileSpreadsheet size={28} /></div>
-                <h3 className="card-title">{'Market Research & Annual Reports'}</h3>
+                <h3 className="card-title">{t('project.adnex.execution.e4title')}</h3>
                 <p className="card-text">
-                  {'Leveraged OpView (social listening) and Nielsen tools to analyze marketing insights. Produced comprehensive industry annual reports for the Online English Education and Fitness sectors, detailing voice volume analysis, ad exposure, and strategic content recommendations.'}
+                  {t('project.adnex.execution.e4desc')}
                 </p>
-                <div className="impact-tag">{'Result: Provided actionable B2B client insights'}</div>
+                <div className="impact-tag">{t('project.adnex.execution.e4result')}</div>
               </div>
             </div>
           </div>
@@ -208,33 +204,33 @@ export default function AdnexInternship() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-heading text-center" style={{ marginBottom: '48px' }}>
-              {'Visual Execution & Documentation'}
+              {t('project.adnex.visuals.heading')}
             </h2>
 
             {/* Top 3 main images */}
             <div className="visual-grid">
               <div className="visual-item">
                 <div className="interactive-image-container" onClick={() => setLightboxImage(ap[7])}>
-                  <img src={ap[7]} alt="Social Post" loading="lazy" className="visual-img-contain" />
+                  <img src={ap[7]} alt={t('project.adnex.visuals.socialAlt')} loading="lazy" className="visual-img-contain" />
                   <div className="expand-hint"><Maximize2 size={20} /></div>
                 </div>
-                <p className="image-caption">{'Social Media Content'}</p>
+                <p className="image-caption">{t('project.adnex.visuals.socialLabel')}</p>
               </div>
 
               <div className="visual-item">
                 <div className="interactive-image-container" onClick={() => setLightboxImage(ap[4])}>
-                  <img src={ap[4]} alt="KOL Workflow" loading="lazy" className="visual-img-contain" />
+                  <img src={ap[4]} alt={t('project.adnex.visuals.kolLabel')} loading="lazy" className="visual-img-contain" />
                   <div className="expand-hint"><Maximize2 size={20} /></div>
                 </div>
-                <p className="image-caption">{'KOL Workflow'}</p>
+                <p className="image-caption">{t('project.adnex.visuals.kolLabel')}</p>
               </div>
 
               <div className="visual-item">
                 <div className="interactive-image-container" onClick={() => setLightboxImage(ap[1])}>
-                  <img src={ap[1]} alt="AI Training" loading="lazy" className="visual-img-contain" />
+                  <img src={ap[1]} alt={t('project.adnex.visuals.aiAlt')} loading="lazy" className="visual-img-contain" />
                   <div className="expand-hint"><Maximize2 size={20} /></div>
                 </div>
-                <p className="image-caption">{'AI Educational Deck'}</p>
+                <p className="image-caption">{t('project.adnex.visuals.aiLabel')}</p>
               </div>
             </div>
 
@@ -259,23 +255,19 @@ export default function AdnexInternship() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="impact-banner">
               <div className="banner-content">
-                <h2 className="banner-title">{'Quantifiable Impact'}</h2>
+                <h2 className="banner-title">{t('project.adnex.impact.heading')}</h2>
                 <div className="metrics-row">
                   <div className="metric-box">
                     <div className="metric-number">{'750+'}</div>
-                    <div className="metric-label">{'Follower Growth'}</div>
+                    <div className="metric-label">{t('project.adnex.impact.m1label')}</div>
                   </div>
                   <div className="metric-box">
                     <div className="metric-number">{'5%↑'}</div>
-                    <div className="metric-label">{'Avg. Engagement Rate Increase'}</div>
-                  </div>
-                  <div className="metric-box">
-                    <div className="metric-number">{'101%'}</div>
-                    <div className="metric-label">{'IG Target Achievement'}</div>
+                    <div className="metric-label">{t('project.adnex.impact.m2label')}</div>
                   </div>
                   <div className="metric-box">
                     <div className="metric-number">{'120+'}</div>
-                    <div className="metric-label">{'KOLs Evaluated & Outreach'}</div>
+                    <div className="metric-label">{t('project.adnex.impact.m3label')}</div>
                   </div>
                 </div>
               </div>
@@ -286,11 +278,17 @@ export default function AdnexInternship() {
         {/* Project Page Styles */}
         <style>{`
           :root {
-            --blue-primary: #1D4ED8;     /* ADNEX/Tech Blue */
-            --blue-light: #EFF6FF;
-            --text-dark: #0F172A;
-            --text-gray: #475569;
-            --border-color: #E2E8F0;
+            --blue-primary: #1D4ED8;     /* ADNEX/Tech Blue（實色底＋白字用） */
+            --blue-ink: #1D4ED8;         /* 淺底上的藍字，暗色模式覆寫變亮 */
+            --blue-light: color-mix(in srgb, #1D4ED8 10%, var(--surface));
+            --text-dark: var(--text-primary);
+            --text-gray: var(--text-secondary);
+            --border-color: var(--border);
+          }
+
+          .dark {
+            --blue-ink: #A9C2F7;
+            --blue-light: color-mix(in srgb, #1D4ED8 22%, var(--surface));
           }
 
           /* Lightbox */
@@ -304,7 +302,7 @@ export default function AdnexInternship() {
           .interactive-image-container {
             width: 100%;
             height: 280px; 
-            background: #ffffff;
+            background: var(--card);
             border: 1px solid rgba(12,12,12,.08);
             border-radius: 12px;
             overflow: hidden;
@@ -330,13 +328,13 @@ export default function AdnexInternship() {
             position: absolute;
             top: 16px;
             right: 16px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: var(--card-glass);
             border-radius: 50%;
             padding: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--blue-primary);
+            color: var(--blue-ink);
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             opacity: 0;
             transition: opacity 0.2s ease;
@@ -376,14 +374,14 @@ export default function AdnexInternship() {
             align-items: center;
             gap: 16px;
             padding: 12px 24px;
-            background: #ffffff;
+            background: var(--card);
             border: 1px solid var(--border-color);
             border-radius: 100px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
           }
 
           .badge-icon {
-            color: var(--blue-primary);
+            color: var(--blue-ink);
             display: flex;
             align-items: center;
           }
@@ -450,13 +448,13 @@ export default function AdnexInternship() {
           }
 
           .detail-value.highlight-blue {
-            color: var(--blue-primary);
+            color: var(--blue-ink);
             font-size: 18px;
           }
 
           .detail-sub {
             font-size: 13px;
-            color: #64748B;
+            color: var(--text-tertiary);
           }
 
           /* Content Sections */
@@ -501,7 +499,7 @@ export default function AdnexInternship() {
           }
 
           .gray-box {
-            background: #F8FAFC;
+            background: var(--surface);
             padding: 40px;
             border-radius: 20px;
             border: 1px solid var(--border-color);
@@ -527,7 +525,7 @@ export default function AdnexInternship() {
             content: '→';
             position: absolute;
             left: 0;
-            color: var(--blue-primary);
+            color: var(--blue-ink);
             font-weight: bold;
           }
 
@@ -539,7 +537,7 @@ export default function AdnexInternship() {
           }
 
           .initiative-card {
-            background: #ffffff;
+            background: var(--card);
             padding: 40px;
             border-radius: 20px;
             border: 1px solid var(--border-color);
@@ -560,7 +558,7 @@ export default function AdnexInternship() {
             width: 56px;
             height: 56px;
             background: var(--blue-light);
-            color: var(--blue-primary);
+            color: var(--blue-ink);
             border-radius: 16px;
             margin-bottom: 24px;
           }
@@ -581,13 +579,13 @@ export default function AdnexInternship() {
           }
 
           .impact-tag {
-            background: #F1F5F9;
+            background: var(--surface-muted);
             padding: 12px 16px;
             border-radius: 8px;
             font-size: 14px;
             font-weight: 600;
-            color: var(--blue-primary);
-            border-left: 3px solid var(--blue-primary);
+            color: var(--blue-ink);
+            border-left: 3px solid var(--blue-ink);
           }
 
           /* Visual Grid Placeholders */
@@ -696,11 +694,11 @@ export default function AdnexInternship() {
         style={{
           position: 'fixed', top: '76px', left: '24px',
           width: '36px', height: '36px', borderRadius: '50%',
-          background: 'rgba(238,234,224,0.95)',
+          background: 'color-mix(in srgb, var(--background) 95%, transparent)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
           border: '1.5px solid rgba(12,12,12,0.25)',
-          color: '#0C0C0C', cursor: 'pointer',
+          color: 'var(--text-primary)', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: '16px', lineHeight: 1,
           boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
@@ -708,11 +706,11 @@ export default function AdnexInternship() {
           transition: 'background .2s, box-shadow .2s',
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#EEEAE0';
+          (e.currentTarget as HTMLButtonElement).style.background = 'var(--background)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.13)';
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = 'rgba(238,234,224,0.95)';
+          (e.currentTarget as HTMLButtonElement).style.background = 'color-mix(in srgb, var(--background) 95%, transparent)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
         }}
       >←</button>

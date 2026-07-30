@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router';
 import { AnimatePresence, motion } from 'motion/react';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -56,8 +57,10 @@ import HowIBuiltThis from './pages/HowIBuiltThis';
 
 export default function App() {
   return (
-    <HashRouter>
-      <AnimatedRoutes />
-    </HashRouter>
+    <LanguageProvider>
+      <HashRouter>
+        <AnimatedRoutes />
+      </HashRouter>
+    </LanguageProvider>
   );
 }

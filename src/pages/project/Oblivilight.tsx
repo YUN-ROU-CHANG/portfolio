@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
+import { useLanguage } from '../../contexts/LanguageContext';
 import {
   Award, Zap, Users, Lightbulb, Cpu,
   Printer, Trash2, BookOpen, Star, Maximize2, X
@@ -23,6 +24,7 @@ const getAsset = (fileName: string) => {
 };
 
 export default function Oblivilight() {
+  const { t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
   // 新增：用於控制 Lightbox 的狀態
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
@@ -71,7 +73,7 @@ export default function Oblivilight() {
                 <X size={32} />
               </button>
               <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-                <img src={lightboxImage} alt="Enlarged view" />
+                <img src={lightboxImage} alt={t('common.enlargedView')} />
               </div>
             </motion.div>
           )}
@@ -89,32 +91,32 @@ export default function Oblivilight() {
               <div className="award-badges">
                 <div className="award-badge primary">
                   <Award size={20} />
-                  <span>Best Demo Award</span>
+                  <span>{t('project.oblivilight.hero.badge')}</span>
                 </div>
                 <div className="award-badge secondary">
                   <Star size={20} />
-                  <span>Selected for TAICHI Demo</span>
+                  <span>{t('project.oblivilight.hero.badge2')}</span>
                 </div>
               </div>
 
-              <h1 className="hero-title">{'OpenHCI\'25 | Oblivilight'}</h1>
-              <p className="hero-subtitle">{'Exploring AI Forgetting Mechanisms Through Tangible Interaction'}</p>
+              <h1 className="hero-title">{t('project.oblivilight.hero.title')}</h1>
+              <p className="hero-subtitle">{t('project.oblivilight.hero.subtitle')}</p>
 
               <div className="hero-details">
                 <div className="detail-item">
-                  <span className="detail-label">{'Timeline'}</span>
-                  <span className="detail-value">{'July 2025'}</span>
-                  <span className="detail-sub">{'OpenHCI Workshop'}</span>
+                  <span className="detail-label">{t('project.oblivilight.hero.timelineLabel')}</span>
+                  <span className="detail-value">{t('project.oblivilight.hero.timelineValue')}</span>
+                  <span className="detail-sub">{t('project.oblivilight.hero.timelineSub')}</span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{'My Role'}</span>
-                  <span className="detail-value">{'Interaction Designer'}</span>
-                  <span className="detail-sub">{'Team of 7 Members'}</span>
+                  <span className="detail-label">{t('project.oblivilight.hero.roleLabel')}</span>
+                  <span className="detail-value">{t('project.oblivilight.hero.roleValue')}</span>
+                  <span className="detail-sub">{t('project.oblivilight.hero.teamValue')}</span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{'Recognition'}</span>
-                  <span className="detail-value highlight">🏆 {'Best Demo Award'}</span>
-                  <span className="detail-sub">{'TAICHI Demo Selected'}</span>
+                  <span className="detail-label">{t('project.oblivilight.hero.recognitionLabel')}</span>
+                  <span className="detail-value highlight">🏆 {t('project.oblivilight.hero.badge')}</span>
+                  <span className="detail-sub">{t('project.oblivilight.hero.recognitionSub')}</span>
                 </div>
               </div>
             </motion.div>
@@ -128,32 +130,32 @@ export default function Oblivilight() {
               <div className="column-content">
                 <div className="section-header-sm">
                   <Zap size={24} color="hsl(var(--g1))" />
-                  <h2 className="section-heading-sm">{'Rapid Prototyping Challenge'}</h2>
+                  <h2 className="section-heading-sm">{t('project.oblivilight.challenge.title')}</h2>
                 </div>
                 <p className="body-text">
-                  {'This fully functional physical prototype was conceived, designed, and built within an intensive OpenHCI workshop—demonstrating exceptional teamwork, rapid iteration, and innovative problem-solving under pressure.'}
+                  {t('project.oblivilight.challenge.desc')}
                 </p>
                 <div className="metrics-grid-mini">
                   <div className="metric-item">
-                    <strong>{'AI Forgetting'}</strong>
-                    <span>{'Selective memory deletion'}</span>
+                    <strong>{t('project.oblivilight.challenge.card1title')}</strong>
+                    <span>{t('project.oblivilight.challenge.card1desc')}</span>
                   </div>
                   <div className="metric-item">
-                    <strong>{'Tangible Output'}</strong>
-                    <span>{'Receipt printer makes memories physical'}</span>
+                    <strong>{t('project.oblivilight.challenge.card2title')}</strong>
+                    <span>{t('project.oblivilight.challenge.card2desc')}</span>
                   </div>
                   <div className="metric-item">
-                    <strong>{'Ritual Interaction'}</strong>
-                    <span>{'Shredding creates a deletion ceremony'}</span>
+                    <strong>{t('project.oblivilight.challenge.card3title')}</strong>
+                    <span>{t('project.oblivilight.challenge.card3desc')}</span>
                   </div>
                 </div>
               </div>
 
               <div className="column-media">
                 <div className="insight-card">
-                  <h4 className="insight-title">{'The Core Concept'}</h4>
+                  <h4 className="insight-title">{t('project.oblivilight.concept.heading')}</h4>
                   <p className="insight-text">
-                    {'Oblivilight is a tangible interaction device that explores how AI systems can "forget" information. In an era of digital hoarding and privacy concerns, this project reimagines data deletion as a meaningful, ritual-like experience through physical interaction.'}
+                    {t('project.oblivilight.concept.desc')}
                   </p>
                 </div>
               </div>
@@ -161,7 +163,7 @@ export default function Oblivilight() {
 
             {/* The Concept Exhibition Image */}
             <div className="image-wrapper shadow-box bg-white mt-12">
-              <img src={getAsset('exhibition-pictures')} alt="Exhibition Pictures" className="full-contain-img" />
+              <img src={getAsset('exhibition-pictures')} alt={t('project.oblivilight.concept.exhibitionAlt')} className="full-contain-img" />
             </div>
           </div>
         </section>
@@ -172,28 +174,28 @@ export default function Oblivilight() {
             <div className="text-center mb-12">
               <div className="section-header-sm justify-center">
                 <BookOpen size={28} color="hsl(var(--g2))" />
-                <h2 className="section-heading-sm ml-3">{'User Research & Insights'}</h2>
+                <h2 className="section-heading-sm ml-3">{t('project.oblivilight.research.heading')}</h2>
               </div>
               <p className="body-text mt-4">
-                {'Understanding the emotional weight of digital memory and the anxiety around AI data retention.'}
+                {t('project.oblivilight.research.desc')}
               </p>
             </div>
 
             <div className="flex-col-gap-large">
               <div className="image-wrapper shadow-box bg-white p-4">
-                <img src={getAsset('user-concern')} alt="User Concern" className="full-contain-img" />
+                <img src={getAsset('user-concern')} alt={t('project.oblivilight.research.alt1')} className="full-contain-img" />
               </div>
               <div className="image-wrapper shadow-box bg-white p-4">
-                <img src={getAsset('after-interview')} alt="After Interview" className="full-contain-img" />
+                <img src={getAsset('after-interview')} alt={t('project.oblivilight.research.alt2')} className="full-contain-img" />
               </div>
               <div className="image-wrapper shadow-box bg-white p-4">
-                <img src={getAsset('interview-results')} alt="Interview Results" className="full-contain-img" />
+                <img src={getAsset('interview-results')} alt={t('project.oblivilight.research.alt3')} className="full-contain-img" />
               </div>
               <div className="image-wrapper shadow-box bg-white p-4">
-                <img src={getAsset('persona')} alt="Persona" className="full-contain-img" />
+                <img src={getAsset('persona')} alt={t('project.oblivilight.research.alt4')} className="full-contain-img" />
               </div>
               <div className="image-wrapper shadow-box bg-white p-4">
-                <img src={getAsset('pov-and-hmw')} alt="POV and HMW" className="full-contain-img" />
+                <img src={getAsset('pov-and-hmw')} alt={t('project.oblivilight.research.alt5')} className="full-contain-img" />
               </div>
             </div>
           </div>
@@ -203,53 +205,53 @@ export default function Oblivilight() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="text-center mb-12">
-              <h2 className="section-heading">{'Interaction Flow: Print → Review → Decide'}</h2>
-              <p className="section-subheading">{'A 3-step physical ritual to process and curate digital memories.'}</p>
+              <h2 className="section-heading">{t('project.oblivilight.flow.heading')}</h2>
+              <p className="section-subheading">{t('project.oblivilight.flow.desc')}</p>
             </div>
 
             {/* Remember Demo Image */}
             <div className="image-wrapper shadow-box bg-white p-4 mb-12">
-              <img src={getAsset('remember-demo')} alt="Remember Demo" className="full-contain-img" />
+              <img src={getAsset('remember-demo')} alt={t('project.oblivilight.flow.demoAlt')} className="full-contain-img" />
             </div>
 
             <div className="concept-grid">
               <div className="concept-card">
                 <div className="card-icon"><Printer size={32} /></div>
-                <h3>{'01. Print (Materialize)'}</h3>
-                <p>{'At the end of the day, Oblivilight synthesizes the user\'s interactions and prints a physical "memory receipt", bringing ephemeral digital data into the physical world.'}</p>
+                <h3>{t('project.oblivilight.flow.step1title')}</h3>
+                <p>{t('project.oblivilight.flow.step1desc')}</p>
               </div>
 
               <div className="concept-card">
                 <div className="card-icon"><Lightbulb size={32} /></div>
-                <h3>{'02. Review (Reflect)'}</h3>
-                <p>{'The user holds the physical paper, reviewing the AI\'s interpretation of their day. This tangible format forces a slower, more deliberate reflection compared to scrolling on a screen.'}</p>
+                <h3>{t('project.oblivilight.flow.step2title')}</h3>
+                <p>{t('project.oblivilight.flow.step2desc')}</p>
               </div>
 
               <div className="concept-card">
                 <div className="card-icon"><Trash2 size={32} /></div>
-                <h3>{'03. Decide (Keep or Forget)'}</h3>
-                <p>{'The user makes a physical choice: keep the receipt in a journal (Save), or feed it back into the top of Oblivilight, where a built-in shredder destroys it—signaling the AI to permanently "forget" that data.'}</p>
+                <h3>{t('project.oblivilight.flow.step3title')}</h3>
+                <p>{t('project.oblivilight.flow.step3desc')}</p>
               </div>
             </div>
 
             {/* Use Way GIFs (2x2 Grid) */}
             <div className="mt-12">
-              <h3 className="highlight-title text-center mb-6">{'How to Interact'}</h3>
+              <h3 className="highlight-title text-center mb-6">{t('project.oblivilight.interact.heading')}</h3>
               <div className="gif-grid-2x2">
-                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-1')} alt="Interaction Step 1" className="full-contain-img" /></div>
-                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-2')} alt="Interaction Step 2" className="full-contain-img" /></div>
-                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-3')} alt="Interaction Step 3" className="full-contain-img" /></div>
-                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-4')} alt="Interaction Step 4" className="full-contain-img" /></div>
+                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-1')} alt={t('project.oblivilight.interact.alt1')} className="full-contain-img" /></div>
+                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-2')} alt={t('project.oblivilight.interact.alt2')} className="full-contain-img" /></div>
+                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-3')} alt={t('project.oblivilight.interact.alt3')} className="full-contain-img" /></div>
+                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-4')} alt={t('project.oblivilight.interact.alt4')} className="full-contain-img" /></div>
               </div>
             </div>
 
             {/* Forgetting Mechanism GIFs (3 Columns) */}
             <div className="mt-12">
-              <h3 className="highlight-title text-center mb-6">{'The Forgetting Mechanism'}</h3>
+              <h3 className="highlight-title text-center mb-6">{t('project.oblivilight.forgetting.heading')}</h3>
               <div className="gif-grid-3">
-                <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_1')} alt="Forget Step 1" className="full-contain-img" /></div>
-                <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_2')} alt="Forget Step 2" className="full-contain-img" /></div>
-                <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_3')} alt="Forget Step 3" className="full-contain-img" /></div>
+                <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_1')} alt={t('project.oblivilight.forgetting.alt1')} className="full-contain-img" /></div>
+                <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_2')} alt={t('project.oblivilight.forgetting.alt2')} className="full-contain-img" /></div>
+                <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_3')} alt={t('project.oblivilight.forgetting.alt3')} className="full-contain-img" /></div>
               </div>
             </div>
           </div>
@@ -263,16 +265,16 @@ export default function Oblivilight() {
                 <div className="section-header-sm">
                   <Cpu size={24} color="hsl(var(--g4))" />
                   {/* 修改：將標題改為粗體小標風格 */}
-                  <h3 className="highlight-title mb-0" style={{ fontSize: '24px' }}>{'Technical Implementation'}</h3>
+                  <h3 className="highlight-title mb-0" style={{ fontSize: '24px' }}>{t('project.oblivilight.tech.heading')}</h3>
                 </div>
                 <p className="body-text">
-                  {'Building Oblivilight required integrating custom hardware with software logic within a 6-day sprint. The system relies on an Arduino microcontroller to orchestrate the interactions.'}
+                  {t('project.oblivilight.tech.intro')}
                 </p>
                 <ul className="feature-list">
-                  <li><strong>{'Arduino Core:'}</strong> {'Handles input/output logic and component synchronization.'}</li>
-                  <li><strong>{'Printer Driver:'}</strong> {'Custom integration to format and print thermal receipts dynamically.'}</li>
-                  <li><strong>{'Shredder Retrofit:'}</strong> {'Hacked a commercial shredder to trigger via Arduino relay.'}</li>
-                  <li><strong>{'Fabrication:'}</strong> {'Laser-cut acrylic enclosure and 3D-printed internal mounts.'}</li>
+                  <li><strong>{t('project.oblivilight.tech.item1label')}</strong> {t('project.oblivilight.tech.item1desc')}</li>
+                  <li><strong>{t('project.oblivilight.tech.item2label')}</strong> {t('project.oblivilight.tech.item2desc')}</li>
+                  <li><strong>{t('project.oblivilight.tech.item3label')}</strong> {t('project.oblivilight.tech.item3desc')}</li>
+                  <li><strong>{t('project.oblivilight.tech.item4label')}</strong> {t('project.oblivilight.tech.item4desc')}</li>
                 </ul>
               </div>
 
@@ -283,7 +285,7 @@ export default function Oblivilight() {
                   style={{ minHeight: '300px' }}
                   onClick={() => setLightboxImage(getAsset('tech'))}
                 >
-                  <img src={getAsset('tech')} alt="Technical Diagram" className="full-contain-img" />
+                  <img src={getAsset('tech')} alt={t('project.oblivilight.tech.diagramAlt')} className="full-contain-img" />
                   <div className="expand-hint">
                     <Maximize2 size={20} />
                   </div>
@@ -298,32 +300,32 @@ export default function Oblivilight() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="text-center mb-12">
               <Award size={48} color="hsl(var(--g1))" className="mx-auto mb-4" />
-              <h2 className="section-heading">{'Recognition & Team Impact'}</h2>
-              <p className="section-subheading">{'Award-Winning Demo & Exhibition Selection'}</p>
+              <h2 className="section-heading">{t('project.oblivilight.impact.heading')}</h2>
+              <p className="section-subheading">{t('project.oblivilight.impact.title')}</p>
             </div>
 
             <div className="outcome-grid-2">
               {/* TAICHI Demo */}
               <div className="outcome-card text-center">
                 <div className="outcome-icon mx-auto"><Star size={36} /></div>
-                <h3 className="outcome-title">{'Selected for TAICHI Demo'}</h3>
+                <h3 className="outcome-title">{t('project.oblivilight.hero.badge2')}</h3>
                 <p className="outcome-text text-center">
-                  {'Chosen to be showcased at the prestigious TAICHI Demo exhibition, highlighting innovative HCI research and prototypes.'}
+                  {t('project.oblivilight.impact.taichiDesc')}
                 </p>
                 <div className="image-wrapper shadow-box mt-6" style={{ height: '200px' }}>
-                  <img src={getAsset('awards-photo')} alt="Awards Photo" className="full-contain-img" />
+                  <img src={getAsset('awards-photo')} alt={t('project.oblivilight.impact.awardsAlt')} className="full-contain-img" />
                 </div>
               </div>
 
               {/* Team Collaboration */}
               <div className="outcome-card text-center">
                 <div className="outcome-icon mx-auto"><Users size={36} /></div>
-                <h3 className="outcome-title">{'Team Collaboration'}</h3>
+                <h3 className="outcome-title">{t('project.oblivilight.impact.teamTitle')}</h3>
                 <p className="outcome-text text-center">
-                  {'Successfully collaborated in a 5-person team under extreme time pressure, demonstrating effective communication, rapid prototyping, and shared ownership.'}
+                  {t('project.oblivilight.impact.teamDesc')}
                 </p>
                 <div className="image-wrapper shadow-box mt-6" style={{ height: '200px' }}>
-                  <img src={getAsset('our-team')} alt="Our Team" className="full-contain-img" />
+                  <img src={getAsset('our-team')} alt={t('project.oblivilight.impact.teamAlt')} className="full-contain-img" />
                 </div>
               </div>
             </div>
@@ -337,8 +339,8 @@ export default function Oblivilight() {
             --g2: 15, 85%, 65%; /* Soft Pink-Orange */
             --g3: 45, 95%, 60%; /* Golden Yellow */
             --g4: 10, 70%, 50%; /* Sunset Pink-Red Accent */
-            --bg-color: #FFFAF8; /* Very Light Peach Background */
-            --card-bg: #FFFFFF;
+            --bg-color: color-mix(in srgb, #FB923C 4%, var(--background));
+            --card-bg: var(--card);
           }
 
           /* Lightbox 新增樣式 */
@@ -355,7 +357,7 @@ export default function Oblivilight() {
             position: absolute;
             top: 16px;
             right: 16px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: var(--card-glass);
             border-radius: 50%;
             padding: 8px;
             display: flex;
@@ -372,7 +374,7 @@ export default function Oblivilight() {
           .full-contain-img { width: 100%; height: 100%; object-fit: contain; display: block; }
           .image-wrapper { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--radius-lg); }
           .shadow-box { box-shadow: 0 4px 20px rgba(251, 146, 60, 0.15); border: 1px solid rgba(251, 146, 60, 0.08); }
-          .bg-white { background: #ffffff; }
+          .bg-white { background: var(--card); }
           .p-4 { padding: 16px; }
           .mb-0 { margin-bottom: 0px !important; }
           .mb-6 { margin-bottom: 24px; }
@@ -397,24 +399,24 @@ export default function Oblivilight() {
           .award-badges { display: flex; justify-content: center; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
           .award-badge { display: flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 100px; font-size: 14px; font-weight: 700; box-shadow: 0 4px 12px rgba(251, 146, 60, 0.1); }
           .award-badge.primary { background: linear-gradient(135deg, hsl(var(--g1)), hsl(var(--g2))); color: white; }
-          .award-badge.secondary { background: #fff; color: hsl(var(--g1)); border: 1px solid rgba(251, 146, 60, 0.2); }
+          .award-badge.secondary { background: var(--card); color: hsl(var(--g1)); border: 1px solid rgba(251, 146, 60, 0.2); }
 
-          .hero-title { font-size: clamp(36px, 5vw, 56px); font-weight: 800; line-height: 1.1; color: #431407; margin-bottom: 24px; }
-          .hero-subtitle { font-size: clamp(18px, 2vw, 22px); line-height: 1.6; color: #78350f; margin-bottom: 48px; }
+          .hero-title { font-size: clamp(36px, 5vw, 56px); font-weight: 800; line-height: 1.1; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); margin-bottom: 24px; }
+          .hero-subtitle { font-size: clamp(18px, 2vw, 22px); line-height: 1.6; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); margin-bottom: 48px; }
           .hero-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-top: 48px; padding-top: 48px; border-top: 1px solid rgba(251, 146, 60, 0.1); }
           .detail-item { text-align: center; display: flex; flex-direction: column; gap: 6px; }
-          .detail-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #9a3412; }
-          .detail-value { font-size: 16px; font-weight: 700; color: #431407; }
+          .detail-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: color-mix(in srgb, #EA580C 55%, var(--text-primary)); }
+          .detail-value { font-size: 16px; font-weight: 700; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
           .detail-value.highlight { color: hsl(var(--g1)); font-size: 18px; }
-          .detail-sub { font-size: 13px; color: #7c2d12; opacity: 0.8; }
+          .detail-sub { font-size: 13px; color: color-mix(in srgb, #EA580C 55%, var(--text-primary)); opacity: 0.8; }
 
           /* Content Sections */
           .content-section { padding: 80px 0; }
-          .section-heading { font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: #431407; margin-bottom: 16px; }
-          .section-heading-sm { font-size: 28px; font-weight: 700; color: #431407; }
-          .section-subheading { font-size: 18px; color: #78350f; }
-          .body-text { font-size: 16px; line-height: 1.8; color: #78350f; }
-          .highlight-title { font-size: 22px; font-weight: 700; color: #431407; }
+          .section-heading { font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); margin-bottom: 16px; }
+          .section-heading-sm { font-size: 28px; font-weight: 700; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
+          .section-subheading { font-size: 18px; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); }
+          .body-text { font-size: 16px; line-height: 1.8; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); }
+          .highlight-title { font-size: 22px; font-weight: 700; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
           .section-header-sm { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
           
           /* Ensures perfect vertical alignment in the two-column grid */
@@ -426,27 +428,27 @@ export default function Oblivilight() {
 
           .insight-card { padding: 40px; background: linear-gradient(135deg, hsl(var(--g1)/.08), hsl(var(--g2)/.08)); border-left: 4px solid hsl(var(--g1)); border-radius: var(--radius-lg); }
           .insight-title { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: hsl(var(--g1)); margin-bottom: 16px; }
-          .insight-text { font-size: 18px; line-height: 1.6; font-weight: 500; color: #431407; }
+          .insight-text { font-size: 18px; line-height: 1.6; font-weight: 500; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
 
           /* Concept Grid */
           .concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-          .concept-card { padding: 40px 24px; background: #ffffff; border: 1px solid rgba(251, 146, 60, 0.1); border-radius: 24px; text-align: center; transition: transform 0.3s ease; }
+          .concept-card { padding: 40px 24px; background: var(--card); border: 1px solid rgba(251, 146, 60, 0.1); border-radius: 24px; text-align: center; transition: transform 0.3s ease; }
           .concept-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(251, 146, 60, 0.12); }
           .card-icon { display: inline-flex; width: 72px; height: 72px; background: linear-gradient(135deg, hsl(var(--g1)/.1), hsl(var(--g2)/.1)); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 24px; color: hsl(var(--g1)); }
-          .concept-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #431407; }
-          .concept-card p { font-size: 15px; line-height: 1.6; color: #78350f; }
+          .concept-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
+          .concept-card p { font-size: 15px; line-height: 1.6; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); }
 
           /* Feature List */
           .feature-list { list-style: none; padding: 0; margin: 24px 0 0 0; display: flex; flex-direction: column; gap: 16px; }
-          .feature-list li { position: relative; padding-left: 24px; font-size: 15px; line-height: 1.6; color: #78350f; }
+          .feature-list li { position: relative; padding-left: 24px; font-size: 15px; line-height: 1.6; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); }
           .feature-list li::before { content: '→'; position: absolute; left: 0; color: hsl(var(--g4)); font-weight: bold; }
-          .feature-list strong { color: #431407; }
+          .feature-list strong { color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
 
           /* Outcome Cards 2 Cols */
           .outcome-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; }
-          .outcome-card { padding: 40px; background: #ffffff; border: 1px solid rgba(251, 146, 60, 0.1); border-radius: 24px; display: flex; flex-direction: column; align-items: center; }
+          .outcome-card { padding: 40px; background: var(--card); border: 1px solid rgba(251, 146, 60, 0.1); border-radius: 24px; display: flex; flex-direction: column; align-items: center; }
           .outcome-icon { display: inline-flex; width: 80px; height: 80px; background: linear-gradient(135deg, hsl(var(--g1)/.1), hsl(var(--g2)/.1)); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 24px; color: hsl(var(--g1)); }
-          .outcome-title { font-size: 22px; font-weight: 700; color: #431407; margin-bottom: 16px; }
+          .outcome-title { font-size: 22px; font-weight: 700; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); margin-bottom: 16px; }
 
           /* Animations */
           .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
@@ -474,11 +476,11 @@ export default function Oblivilight() {
         style={{
           position: 'fixed', top: '76px', left: '24px',
           width: '36px', height: '36px', borderRadius: '50%',
-          background: 'rgba(238,234,224,0.95)',
+          background: 'color-mix(in srgb, var(--background) 95%, transparent)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
           border: '1.5px solid rgba(12,12,12,0.25)',
-          color: '#0C0C0C', cursor: 'pointer',
+          color: 'var(--text-primary)', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: '16px', lineHeight: 1,
           boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
@@ -486,16 +488,16 @@ export default function Oblivilight() {
           transition: 'background .2s, box-shadow .2s',
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#EEEAE0';
+          (e.currentTarget as HTMLButtonElement).style.background = 'var(--background)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.13)';
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLButtonElement).style.background = 'rgba(238,234,224,0.95)';
+          (e.currentTarget as HTMLButtonElement).style.background = 'color-mix(in srgb, var(--background) 95%, transparent)';
           (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
         }}
       >←</button>
 
-      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top" style={{ position: 'fixed', bottom: '32px', right: '32px', width: '48px', height: '48px', borderRadius: '50%', background: '#431407', color: '#FFE699', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', lineHeight: 1, boxShadow: '0 4px 20px rgba(0,0,0,0.18)', transition: 'opacity 0.25s ease, transform 0.2s ease', zIndex: 999, opacity: showTop ? 1 : 0, pointerEvents: showTop ? 'auto' : 'none', transform: showTop ? 'translateY(0)' : 'translateY(8px)' }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-3px)'; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = showTop ? 'translateY(0)' : 'translateY(8px)'; }}>↑</button>
+      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top" style={{ position: 'fixed', bottom: '32px', right: '32px', width: '48px', height: '48px', borderRadius: '50%', background: 'color-mix(in srgb, #CD853F 60%, var(--text-primary))', color: '#FFE699', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', lineHeight: 1, boxShadow: '0 4px 20px rgba(0,0,0,0.18)', transition: 'opacity 0.25s ease, transform 0.2s ease', zIndex: 999, opacity: showTop ? 1 : 0, pointerEvents: showTop ? 'auto' : 'none', transform: showTop ? 'translateY(0)' : 'translateY(8px)' }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-3px)'; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = showTop ? 'translateY(0)' : 'translateY(8px)'; }}>↑</button>
     </Layout>
   );
 }
