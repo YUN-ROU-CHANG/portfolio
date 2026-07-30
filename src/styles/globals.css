@@ -1,82 +1,99 @@
 @custom-variant dark (&:is(.dark *));
 
+/* ────────────────────────────────────────────────
+   Layer 1 — Primitive tokens（唯一色相來源：ink / bone / acid）
+   ──────────────────────────────────────────────── */
 :root {
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+
+  --ink: #0C0C0C;
+  --ink-2: #1A1A18;
+  --bone: #EEEAE0;
+  --bone-2: #E3DED1;
+  --bone-3: #F6F2E7;
+  --acid: #FFE699;
+  --acid-ink: #7A5C00;
+
+  /* ink 派生：暗色模式的亮階（規格書 3.1） */
+  --ink-bright: #E6E1D6;
+}
+
+/* ────────────────────────────────────────────────
+   Layer 2 — Semantic tokens（亮色模式，規格書 3.1 中性階）
+   ──────────────────────────────────────────────── */
+:root {
+  --background: var(--bone);
+  --surface: var(--bone-3);
+  --surface-muted: var(--bone-2);
+  --surface-subtle: rgba(12, 12, 12, 0.04);
+  --surface-inverse: var(--ink-2);
+  --card-glass: rgba(255, 255, 255, 0.92);
+
+  --text-primary: #0C0C0C;
+  --text-secondary: #4A4A4A;
+  --text-tertiary: #616161;
+  --text-on-inverse: var(--bone);
+
+  --border: rgba(12, 12, 12, 0.12);
+  --border-strong: var(--ink);
+
+  --accent: var(--acid);
+  --on-accent: var(--acid-ink);          /* acid 底上的文字，兩模式固定 */
+  --accent-text: var(--acid-ink);        /* 底色上的 acid 系強調文字 */
+  --accent-on-inverse: var(--acid);      /* 深底（inverse surface）上的強調文字 */
+
+  /* shadcn 相容映射 */
+  --foreground: var(--text-primary);
+  --card: var(--surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--ink);
+  --primary-foreground: var(--bone);
+  --secondary: var(--surface-muted);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--text-tertiary);
+  --accent-foreground: var(--on-accent);
+  --destructive: var(--ink);
+  --destructive-foreground: var(--bone);
   --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
+  --input-background: var(--surface);
+  --switch-background: var(--surface-muted);
+  --ring: rgba(12, 12, 12, 0.4);
+  --radius: 0.625rem;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-  
-  /* Brand HSL accents (for blob/gframe/SVG gradients) */
+  --chart-1: var(--text-primary);
+  --chart-2: var(--accent);
+  --chart-3: var(--text-tertiary);
+  --chart-4: var(--text-secondary);
+  --chart-5: var(--accent-text);
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--text-primary);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--bone);
+  --sidebar-accent: var(--surface-muted);
+  --sidebar-accent-foreground: var(--text-primary);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* 舊別名：project 案例頁（mockup 配色本次保留）仍引用 */
+  --text: var(--text-primary);
+  --color-text-muted: var(--text-secondary);
+  --md-background: var(--background);
+  --md-surface: var(--background);
+  --md-on-surface: var(--text-primary);
+  --md-on-background: var(--text-primary);
+  --md-primary: var(--accent-text);
+  --md-on-primary: var(--background);
+
+  /* 舊漸層色相：僅供 project 案例頁 mockup 使用，站台 chrome 禁用 */
   --g1: 24 95% 55%;
   --g2: 335 90% 70%;
   --g3: 265 85% 70%;
   --g4: 210 90% 65%;
-  --focus: hsl(var(--g4)/.55);
-  
-  /* Editorial design tokens */
-  --ink: #0C0C0C;
-  --ink-2: #1A1A1A;
-  --bone: #EEEAE0;
-  --bone-2: #E3DED1;
-  --acid: #FFE699;
-  --acid-ink: #7A5C00;
-  --font-mono: 'IBM Plex Mono', monospace;
 
-  /* Project colors */
-  --text: #0a0a0a;
-  --color-text-muted: #666;
-  --card-glass: rgba(255, 255, 255, .95);
-  --blur: 16px;
-  --r-in: 22px;
-  --r-out: 24px;
-  --frame: 2px;
-  
-  /* Material Design role tokens */
-  --md-primary: #5B8CFF;
-  --md-on-primary: #ffffff;
-  --md-secondary: #00A3A3;
-  --md-on-secondary: #ffffff;
-  --md-surface: #ffffff;
-  --md-on-surface: #111111;
-  --md-background: #ffffff;
-  --md-on-background: #111111;
-  --md-error: #E53935;
-  --md-on-error: #ffffff;
-  
   /* Spacing (8/4 scale) */
   --space-1: 4px;
   --space-2: 8px;
@@ -86,58 +103,94 @@
   --space-6: 24px;
   --space-8: 32px;
   --space-10: 40px;
-  
+
   /* Radius & Shadow */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --shadow-1: 0 4px 12px rgba(0,0,0,0.25);
-  
+  --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --blur: 16px;
+  --r-in: 22px;
+  --r-out: 24px;
+  --frame: 2px;
+
   /* Button behavior */
   --btn-hover-scale: 1.06;
   --btn-active-scale: 0.97;
 }
 
+/* ────────────────────────────────────────────────
+   Layer 2 — Semantic tokens（暗色模式，規格書 3.1 中性階）
+   ──────────────────────────────────────────────── */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: var(--ink);
+  --surface: #161613;
+  --surface-muted: #26251F;
+  --surface-subtle: rgba(230, 225, 214, 0.06);
+  --surface-inverse: var(--ink-bright);
+  --card-glass: rgba(26, 26, 24, 0.92);
+
+  --text-primary: var(--ink-bright);
+  --text-secondary: #B5B0A6;
+  --text-tertiary: #A6A199;
+  --text-on-inverse: var(--ink);
+
+  --border: rgba(230, 225, 214, 0.14);
+  --border-strong: var(--ink-bright);
+
+  --accent: var(--acid);
+  --on-accent: var(--acid-ink);
+  --accent-text: var(--acid);
+  --accent-on-inverse: var(--acid-ink);
+
+  --foreground: var(--text-primary);
+  --card: var(--surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--ink-bright);
+  --primary-foreground: var(--ink);
+  --secondary: var(--surface-muted);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--text-tertiary);
+  --accent-foreground: var(--on-accent);
+  --destructive: var(--ink-bright);
+  --destructive-foreground: var(--ink);
+  --input-background: var(--surface);
+  --switch-background: var(--surface-muted);
+  --ring: rgba(230, 225, 214, 0.4);
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--text-primary);
+  --sidebar-primary: var(--ink-bright);
+  --sidebar-primary-foreground: var(--ink);
+  --sidebar-accent: var(--surface-muted);
+  --sidebar-accent-foreground: var(--text-primary);
+  --sidebar-border: var(--border);
 }
 
+/* ────────────────────────────────────────────────
+   Layer 3 — Tailwind utility 映射
+   ──────────────────────────────────────────────── */
 @theme inline {
+  --color-ink: var(--ink);
+  --color-bone: var(--bone);
+  --color-acid: var(--acid);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-inverse: var(--surface-inverse);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-on-inverse: var(--text-on-inverse);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-accent-text: var(--accent-text);
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -148,7 +201,6 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
@@ -176,71 +228,86 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* 字體與字級 token（規格書 3.1 type scale） */
+@theme {
+  --font-display: 'Space Grotesk', 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Noto Sans TC', ui-monospace, SFMono-Regular, monospace;
+  --font-sans: var(--font-body);
+
+  --text-display: clamp(3.5rem, 8vw, 6.5rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.03em;
+  --text-h1: clamp(2.5rem, 5vw, 4rem);
+  --text-h1--line-height: 1.05;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: 2rem;
+  --text-h2--line-height: 1.2;
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.3;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.7;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.5;
+  --text-meta: 0.75rem;
+  --text-meta--letter-spacing: 0.08em;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
 
+  html {
+    font-size: var(--font-size);
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: 1.7;
+    font-variant-numeric: tabular-nums;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--text-primary);
+  }
+
+  h1 {
+    font-size: var(--text-h1);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: var(--text-h2);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: var(--text-h3);
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  small, figcaption {
+    font-size: var(--text-caption);
+    line-height: 1.5;
+  }
+
+  code, pre, kbd {
+    font-family: var(--font-mono);
   }
 }
 
-/**
- * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
- */
-@layer base {
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
-    h1 {
-      font-size: var(--text-2xl);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    h2 {
-      font-size: var(--text-xl);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    h3 {
-      font-size: var(--text-lg);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    h4 {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    p {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-normal);
-      line-height: 1.5;
-    }
-
-    label {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    button {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    input {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-normal);
-      line-height: 1.5;
-    }
-  }
-}
-
-html {
-  font-size: var(--font-size);
+/* metadata 樣式（mono 0.75rem / 0.08em / uppercase） */
+.text-meta-style {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
