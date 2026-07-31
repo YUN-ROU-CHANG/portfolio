@@ -33,57 +33,11 @@ import ssimCert from '../assets/images/home/ssim-award.jpg';
 
 export default function Home() {
   const { t } = useLanguage();
-  const heroRef = useRef<HTMLDivElement>(null);
-  const projectRef = useRef<HTMLDivElement>(null);
   const tileRefs = useRef<HTMLElement[]>([]);
 
-  useEffect(() => {
-    const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm.matches) return;
-
-    let ticking = false;
-
-    const updatePositions = () => {
-      const y = window.scrollY;
-      if (heroRef.current) heroRef.current.style.transform = `translateY(${-(y / 15)}px)`;
-      if (projectRef.current) projectRef.current.style.transform = `translateY(${-(y / 30)}px)`;
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updatePositions);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    updatePositions();
-
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm.matches) return;
-
-    const reveals = document.querySelectorAll('.reveal');
-
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-        }
-      });
-    }, {
-      rootMargin: '-5% 0px -5% 0px',
-      threshold: 0
-    });
-
-    reveals.forEach(el => io.observe(el));
-
-    return () => io.disconnect();
-  }, []);
+  // Graduation is Aug 2026, so the badge states a start date until then and
+  // switches to an open-ended one after. Nothing to update by hand either way.
+  const availableFromAug2026 = Date.now() < new Date('2026-08-01T00:00:00').getTime();
 
   const [showTop, setShowTop] = useState(false);
   const [lightbox, setLightbox] = useState<string | null>(null);
@@ -172,25 +126,41 @@ export default function Home() {
     <Layout>
       {/* 1. Hero Section */}
       <section className="hero" id="about">
-        <div className="container hero-inner" ref={heroRef}>
+        <div className="container hero-inner">
 
           {/* Upper: text + photo */}
           <div className="hero-main-grid">
             <div className="hero-text reveal" ref={addToRefs}>
               <div className="avail-badge">
                 <span className="avail-dot"></span>
-                <span className="avail-label">{t('home.hero.badge')}</span>
+                <span className="avail-label">{t(availableFromAug2026 ? 'home.hero.badgeBefore' : 'home.hero.badgeAfter')}</span>
               </div>
-              <h1 className="name interactive-name">
+              <p className="hero-eyebrow interactive-name">
                 {t('home.hero.name').split("").map((char, index) => (
                   <span key={index} className="char" style={{ animationDelay: `${index * 0.05}s` }}>
                     {char === " " ? "\u00A0" : char}
                   </span>
                 ))}
-              </h1>
-              <h2 className="head">{t('home.hero.title')}</h2>
-              <h3 className="sub-head text-primary">{t('home.hero.subtitle')}</h3>
-              <p className="body muted hero-desc">{t('home.hero.desc')}</p>
+              </p>
+              <h1 className="hero-display">{t('home.hero.headline')}</h1>
+              <h2 className="hero-role">{t('home.hero.title')}</h2>
+              <p className="hero-sub">{t('home.hero.subtitle')}</p>
+              <p className="hero-capabilities">{t('home.hero.capabilities')}</p>
+              <p className="hero-statement">{t('home.hero.statement')}</p>
+              <ul className="hero-evidence">
+                <li>
+                  <span className="ev-num ev-num--accent">{t('home.hero.ev1num')}</span>
+                  <span className="ev-label">{t('home.hero.ev1label')}</span>
+                </li>
+                <li>
+                  <span className="ev-num">{t('home.hero.ev2num')}</span>
+                  <span className="ev-label">{t('home.hero.ev2label')}</span>
+                </li>
+                <li>
+                  <span className="ev-num">{t('home.hero.ev3num')}</span>
+                  <span className="ev-label">{t('home.hero.ev3label')}</span>
+                </li>
+              </ul>
               <div className="hero-buttons">
                 <Link className="btn-pill btn--primary" to="/about">{t('home.hero.aboutBtn')}{' '}<span className="dot">→</span>
                 </Link>
@@ -204,9 +174,9 @@ export default function Home() {
               <motion.img
                 src={openHciMe}
                 alt={t('home.hero.photoAlt')}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
+                transition={{ duration: 0.45, ease: [0.2, 0.8, 0.2, 1] }}
                 style={{
                   width: '100%',
                   maxWidth: '420px',
@@ -225,7 +195,7 @@ export default function Home() {
       {/* Chartreuse Marquee Banner */}
       {/* 2. Selected Works */}
       <section className="section" id="selected-works" style={{ paddingTop: '40px', paddingBottom: '60px' }}>
-        <div className="container" ref={projectRef} style={{ maxWidth: '1200px' }}>
+        <div className="container" style={{ maxWidth: '1200px' }}>
           <div className="section-header-flex">
             <h2 className="section-head">
               <Briefcase size={32} color="var(--accent-text)" />{t('home.works.heading')}</h2>
@@ -728,11 +698,13 @@ export default function Home() {
         /* ── Hero ── */
         .hero { padding: 0 0 0; }
         .hero-inner { display: flex; flex-direction: column; gap: 0; }
-        .hero-main-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(32px,5vw,80px); align-items: center; min-height: 85vh; padding: 80px 0 40px; }
+        /* start, not center: the text block is now tall enough that centring
+           it against the portrait pushed the evidence row below the fold. */
+        .hero-main-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(32px,5vw,80px); align-items: start; padding: 48px 0 40px; }
         .hero-text { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
-        .hero-photo { display: flex; align-items: flex-end; justify-content: center; height: 100%; min-height: 480px; }
+        .hero-photo { display: flex; align-items: flex-end; justify-content: center; }
+        .hero-photo img { max-height: min(72vh, 620px); width: auto; }
         .hero-data-sheet { width: 100%; }
-        .hero-desc { margin-top: 16px; line-height: 1.75; font-size: clamp(16px,1.2vw,20px); }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Availability badge */
@@ -742,8 +714,8 @@ export default function Home() {
           gap: 8px;
           padding: 5px 14px;
           border-radius: 999px;
-          background: rgba(42,157,110,0.08);
-          border: 1px solid rgba(42,157,110,0.22);
+          background: color-mix(in srgb, var(--accent) 22%, transparent);
+          border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
           margin-bottom: 20px;
         }
         .avail-dot {
@@ -762,34 +734,95 @@ export default function Home() {
         }
         @keyframes ping { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.4)} }
         @keyframes availPing {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(42,157,110,0.4); }
-          50% { box-shadow: 0 0 0 6px rgba(42,157,110,0); }
+          0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-text) 40%, transparent); }
+          50% { box-shadow: 0 0 0 6px transparent; }
         }
 
-        /* Name */
-        .name {
-          font-size: clamp(72px, 12vw, 108px) !important;
+        /* Name, demoted to an eyebrow above the headline */
+        .hero-eyebrow {
+          font-family: var(--font-mono);
+          font-size: 13px;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--text-tertiary);
+          margin: 0 0 14px;
+        }
+
+        /* h1 — the value proposition carries the display size, not the name */
+        .hero-display {
+          font-size: clamp(38px, 5.2vw, 68px) !important;
           font-weight: 700 !important;
-          letter-spacing: -0.04em !important;
-          line-height: 0.92 !important;
+          letter-spacing: -0.03em !important;
+          line-height: 1.02 !important;
           color: var(--text-primary);
+          max-width: 20ch;
+          margin: 0;
         }
 
-        /* h2 head */
-        .head {
+        .hero-role {
           font-size: 22px !important;
           font-weight: 600 !important;
           color: var(--text-primary) !important;
-          margin-top: 16px !important;
+          margin-top: 20px !important;
         }
 
-        /* h3 sub-head */
-        .sub-head {
-          font-size: 15px !important;
-          font-weight: 400 !important;
-          color: var(--text-secondary) !important;
-          margin-top: 6px !important;
-          letter-spacing: 0.01em !important;
+        .hero-sub {
+          font-size: 15px;
+          font-weight: 400;
+          color: var(--text-secondary);
+          margin-top: 6px;
+          letter-spacing: 0.01em;
+        }
+
+        .hero-capabilities {
+          font-family: var(--font-mono);
+          font-size: 12px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--text-tertiary);
+          margin-top: 18px;
+          max-width: 52ch;
+          line-height: 1.7;
+        }
+
+        .hero-statement {
+          font-size: clamp(16px, 1.2vw, 19px);
+          line-height: 1.7;
+          color: var(--text-secondary);
+          max-width: 62ch;
+          margin-top: 18px;
+        }
+
+        /* Evidence row — one acid mark only, per the accent discipline */
+        .hero-evidence {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px 28px;
+          list-style: none;
+          padding: 18px 0 0;
+          margin: 18px 0 0;
+          border-top: 1px solid var(--border);
+        }
+        .hero-evidence li { display: flex; flex-direction: column; gap: 2px; }
+        .ev-num {
+          font-family: var(--font-mono);
+          font-size: 17px;
+          font-weight: 600;
+          color: var(--text-primary);
+          letter-spacing: 0.01em;
+        }
+        .ev-num--accent {
+          background: var(--accent);
+          color: var(--on-accent);
+          padding: 0 6px;
+          align-self: flex-start;
+        }
+        .ev-label {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          letter-spacing: 0.09em;
+          text-transform: uppercase;
+          color: var(--text-tertiary);
         }
 
         /* Buttons */

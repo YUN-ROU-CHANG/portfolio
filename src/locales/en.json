@@ -18,14 +18,24 @@
   },
   "home": {
     "hero": {
-      "badge": "Open to full-time roles · Aug 2026",
       "name": "Rose Chang",
       "title": "UX Researcher & Product Designer",
       "subtitle": "From user research to digital and physical product design",
       "desc": "I'm a designer driven by research and insight, carrying it all the way through to the product. My master's thesis used a controlled experiment and mixed methods to study bedtime procrastination (N=48, 45 interviews), and I've turned research into award-winning strategy (InnoConnect+ Gold, OpenHCI '25). From research planning and service blueprints to UI prototyping and validation, I keep every design decision grounded in evidence, and I enjoy working with cross-functional teams to shape rough ideas into products people genuinely need.",
       "aboutBtn": "About Me",
       "viewWorkBtn": "View Work",
-      "photoAlt": "Rose Chang at OpenHCI"
+      "photoAlt": "Rose Chang at OpenHCI",
+      "badgeBefore": "Available from Aug 2026",
+      "badgeAfter": "Open to full-time roles",
+      "headline": "Turning behavioral evidence into product decisions.",
+      "capabilities": "Controlled experiments · Interaction design · Growth & marketing analytics",
+      "statement": "I design the intervention, run the experiment, analyze the data in SPSS, and build the interface myself.",
+      "ev1num": "N=48",
+      "ev1label": "Controlled experiment",
+      "ev2num": "r=.516",
+      "ev2label": "Intent to action",
+      "ev3num": "Gold Award",
+      "ev3label": "Hi-Life track"
     },
     "works": {
       "heading": "Selected Works",
