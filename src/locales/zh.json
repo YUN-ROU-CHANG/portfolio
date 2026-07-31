@@ -18,24 +18,14 @@
   },
   "home": {
     "hero": {
+      "badge": "求職中 · 2026 年 8 月可到職",
       "name": "",
       "title": "使用者研究與產品設計",
       "subtitle": "從使用者研究到數位與實體產品設計",
       "desc": "我是以研究與洞察驅動的設計師，把使用者洞察一路帶到產品面。碩士論文用受控實驗與混合方法研究睡眠拖延（N=48、45 場訪談），也曾把研究轉成得獎策略（InnoConnect+ 金獎、OpenHCI'25）。從研究規劃、服務藍圖到 UI 原型與驗證，我讓每個設計決策都站在證據上，也樂於和跨職能團隊一起把粗糙的想法磨成使用者真正需要的產品。",
       "aboutBtn": "認識我",
       "viewWorkBtn": "看作品",
-      "photoAlt": "Rose Chang 於 OpenHCI 活動現場",
-      "badgeBefore": "2026 年 8 月起可到職",
-      "badgeAfter": "開放全職機會",
-      "headline": "把行為證據轉譯成產品決策。",
-      "capabilities": "受控實驗 · 互動設計 · 成長與行銷分析",
-      "statement": "我設計介入方案、執行實驗、用 SPSS 分析資料，然後自己把介面做出來。",
-      "ev1num": "N=48",
-      "ev1label": "受控實驗",
-      "ev2num": "r=.516",
-      "ev2label": "意圖轉行為",
-      "ev3num": "金獎",
-      "ev3label": "萊爾富題"
+      "photoAlt": "Rose Chang 於 OpenHCI 活動現場"
     },
     "works": {
       "heading": "精選作品",

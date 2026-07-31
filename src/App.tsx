@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router';
-import { AnimatePresence, motion, MotionConfig } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function AnimatedRoutes() {
@@ -58,14 +58,9 @@ import HowIBuiltThis from './pages/HowIBuiltThis';
 export default function App() {
   return (
     <LanguageProvider>
-      {/* Framer Motion writes inline styles, so the CSS reduced-motion media
-          queries never reached it. This makes every motion.* element obey the
-          user's system preference. */}
-      <MotionConfig reducedMotion="user">
-        <HashRouter>
-          <AnimatedRoutes />
-        </HashRouter>
-      </MotionConfig>
+      <HashRouter>
+        <AnimatedRoutes />
+      </HashRouter>
     </LanguageProvider>
   );
 }
