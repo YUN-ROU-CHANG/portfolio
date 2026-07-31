@@ -33,6 +33,9 @@ import ssimCert from '../assets/images/home/ssim-award.jpg';
 
 export default function Home() {
   const { t } = useLanguage();
+  // Graduation is Aug 2026, so the badge states a start date until then and
+  // switches to an open-ended one after. Nothing to update by hand either way.
+  const availableFromAug2026 = Date.now() < new Date('2026-08-01T00:00:00').getTime();
   const heroRef = useRef<HTMLDivElement>(null);
   const projectRef = useRef<HTMLDivElement>(null);
   const tileRefs = useRef<HTMLElement[]>([]);
@@ -179,7 +182,7 @@ export default function Home() {
             <div className="hero-text reveal" ref={addToRefs}>
               <div className="avail-badge">
                 <span className="avail-dot"></span>
-                <span className="avail-label">{t('home.hero.badge')}</span>
+                <span className="avail-label">{t(availableFromAug2026 ? 'home.hero.badgeBefore' : 'home.hero.badgeAfter')}</span>
               </div>
               <h1 className="name interactive-name">
                 {t('home.hero.name').split("").map((char, index) => (
