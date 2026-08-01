@@ -1,5 +1,6 @@
 import { useState, useEffect, ReactNode } from 'react';
 import { Link, NavLink } from 'react-router';
+import { motion } from 'motion/react';
 import { Sun, Moon } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -53,6 +54,27 @@ function Clock() {
     <span style={{ color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.08em' }}>
       {time}
     </span>
+  );
+}
+
+// The active pill is a shared layoutId element, so switching routes slides it
+// to the new item instead of snapping the background across.
+function NavItem({ to, label, end }: { to: string; label: string; end?: boolean }) {
+  return (
+    <NavLink to={to} end={end} className={({ isActive }) => isActive ? 'active' : ''}>
+      {({ isActive }) => (
+        <>
+          {isActive && (
+            <motion.span
+              layoutId="nav-pill"
+              className="nav-pill-bg"
+              transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+            />
+          )}
+          <span className="nav-pill-label">{label}</span>
+        </>
+      )}
+    </NavLink>
   );
 }
 
@@ -120,10 +142,10 @@ export default function Layout({ children }: LayoutProps) {
 
         {/* Mid: capsule nav */}
         <nav className="top-mid" aria-label="Primary">
-          <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>{t('nav.home')}</NavLink>
-          <NavLink to="/about" className={({ isActive }) => isActive ? 'active' : ''}>{t('nav.about')}</NavLink>
-          <NavLink to="/projects" className={({ isActive }) => isActive ? 'active' : ''}>{t('nav.projects')}</NavLink>
-          <NavLink to="/resume" className={({ isActive }) => isActive ? 'active' : ''}>{t('nav.resume')}</NavLink>
+          <NavItem to="/" end label={t('nav.home')} />
+          <NavItem to="/about" label={t('nav.about')} />
+          <NavItem to="/projects" label={t('nav.projects')} />
+          <NavItem to="/resume" label={t('nav.resume')} />
           <ThemeToggle />
           <LanguageToggle />
         </nav>
@@ -216,6 +238,7 @@ export default function Layout({ children }: LayoutProps) {
         .top-mid::-webkit-scrollbar { display: none; } /* Chrome/Safari */
         
         .top-mid a {
+          position: relative;
           padding: 7px 14px; border-radius: 999px;
           transition: background .25s cubic-bezier(.2,.8,.2,1), color .25s cubic-bezier(.2,.8,.2,1);
           font-family: var(--font-mono);
@@ -228,7 +251,16 @@ export default function Layout({ children }: LayoutProps) {
           min-width: 88px; /* every nav item shares one width (widest = Projects) so buttons look uniform and never shift on 中文/EN toggle */
         }
         .top-mid a:hover { background: var(--surface-inverse); color: var(--text-on-inverse); }
-        .top-mid a.active { background: var(--surface-inverse); color: var(--accent-on-inverse); }
+        /* Background comes from the sliding .nav-pill-bg, so the link itself stays transparent. */
+        .top-mid a.active { background: transparent; color: var(--accent-on-inverse); }
+        .top-mid a.active:hover { background: transparent; color: var(--accent-on-inverse); }
+        .nav-pill-bg {
+          position: absolute; inset: 0;
+          border-radius: 999px;
+          background: var(--surface-inverse);
+          z-index: 0;
+        }
+        .nav-pill-label { position: relative; z-index: 1; }
         .theme-toggle {
           display: inline-flex; align-items: center; justify-content: center;
           width: 28px; height: 28px; margin-left: 2px;
