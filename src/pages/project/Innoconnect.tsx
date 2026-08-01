@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import {
   Award, Target, Users, Sparkles, TrendingUp, Gift,
   Heart, BarChart3, CheckCircle2, ExternalLink, Activity, Box, Maximize2, X
@@ -35,26 +36,7 @@ export default function Innoconnect() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Scroll-triggered reveal animations
-  useEffect(() => {
-    const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm.matches) return;
-
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    reveals.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+  useRevealOnScroll();
 
   return (
     <Layout>
@@ -819,8 +801,6 @@ export default function Innoconnect() {
           .outcome-icon { display: inline-flex; width: 80px; height: 80px; background: linear-gradient(135deg, hsl(var(--g1)/.1), hsl(var(--g2)/.1)); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 24px; color: hsl(var(--g1)); }
           .outcome-icon.gold-icon { width: 100px; height: 100px; background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; }
           
-          .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
-          .reveal.in { opacity: 1; transform: translateY(0); }
 
           /* Responsive */
           @media (max-width: 959px) {
@@ -836,7 +816,7 @@ export default function Innoconnect() {
             .result-card { padding: 24px; }
           }
           @media (prefers-reduced-motion: reduce) {
-            .reveal, .gold-award-badge { transition: none !important; transform: none !important; animation: none !important; opacity: 1; }
+            .gold-award-badge { transition: none !important; transform: none !important; animation: none !important; opacity: 1; }
           }
         `}</style>
       </div>

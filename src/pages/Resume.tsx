@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll } from 'motion/react';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
@@ -167,6 +168,8 @@ export default function Resume() {
   const resumeData = getResumeData(t);
   const [showTop, setShowTop] = useState(false);
 
+  useRevealOnScroll();
+
   useEffect(() => {
     const handleScroll = () => setShowTop(window.scrollY > 300);
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -178,7 +181,7 @@ export default function Resume() {
       <div id="resume-page">
         <section className="section header-section">
           <div className="container">
-            <div className="resume-header-content">
+            <div className="resume-header-content reveal">
               <div>
                 <h1 className="name">{t('resume.header.title')}</h1>
                 <p className="body muted">{t('resume.header.lastUpdated')}{' '}{resumeData.lastUpdated}</p>
@@ -202,7 +205,7 @@ export default function Resume() {
         {/* PDF Embed Section */}
         <section className="section" style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-10)' }}>
           <div className="container" style={{ maxWidth: '1400px' }}>
-            <div className="resume-pdf-container">
+            <div className="resume-pdf-container reveal">
               <object
                 data={`${resumePdf}#view=FitH`}
                 type="application/pdf"
@@ -268,7 +271,7 @@ export default function Resume() {
         {/* Experience Timeline */}
         <section className="section">
           <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="reveal" style={{ textAlign: 'center', marginBottom: '48px' }}>
               <h2 className="section-head">{t('resume.experience.heading')}</h2>
               <p className="body muted" style={{ maxWidth: '600px', margin: '0 auto' }}>{t('resume.experience.sub')}</p>
             </div>
@@ -285,7 +288,7 @@ export default function Resume() {
         {/* Skills Section */}
         <section className="section" style={{ paddingTop: 'var(--space-10)', paddingBottom: 'var(--space-10)' }}>
           <div className="container" style={{ maxWidth: '1400px' }}>
-            <div style={{ marginBottom: 'var(--space-10)' }}>
+            <div className="reveal" style={{ marginBottom: 'var(--space-10)' }}>
               <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <Code size={32} color="var(--accent-text)" />{' '}{t('resume.skills.heading')}</h2>
             </div>
@@ -343,7 +346,7 @@ export default function Resume() {
         {/* Education & Certifications */}
         <section className="section">
           <div className="container">
-            <div className="education-cert-grid">
+            <div className="education-cert-grid reveal">
               {/* Education */}
               <div>
                 <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>

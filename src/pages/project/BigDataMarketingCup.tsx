@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import { 
   Trophy, Database, Target, TrendingUp, 
   Smartphone, Activity, Lightbulb, Users, 
@@ -25,26 +26,7 @@ export default function BigDataMarketingCup() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm.matches) return;
-
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    reveals.forEach((el) => io.observe(el));
-
-    return () => io.disconnect();
-  }, []);
+  useRevealOnScroll();
 
   return (
     <Layout>
@@ -708,19 +690,6 @@ export default function BigDataMarketingCup() {
             font-style: italic;
             position: relative;
             z-index: 1;
-          }
-
-          /* Animations */
-          .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
-                        transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-          }
-
-          .reveal.in {
-            opacity: 1;
-            transform: translateY(0);
           }
 
           /* Responsive */

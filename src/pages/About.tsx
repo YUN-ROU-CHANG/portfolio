@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import mePng from '../assets/images/Me.png';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { Lightbulb, Target, Heart, Rocket, Monitor } from 'lucide-react';
 
 // ─── 引入 My Strengths 會用到的 5 張背景圖片 ───
@@ -17,27 +18,7 @@ export default function About() {
   const strengthsRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
 
-  // Scroll-triggered reveal animations with Reduced Motion guard
-  useEffect(() => {
-    const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm.matches) return;
-
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    reveals.forEach((el) => io.observe(el));
-
-    return () => io.disconnect();
-  }, []);
+  useRevealOnScroll();
 
   const [showTop, setShowTop] = useState(false);
 
@@ -126,7 +107,7 @@ export default function About() {
             <div className="bento-grid" ref={strengthsRef}>
 
               {/* Card 1: Rigorous Research (Dark Theme) */}
-              <div className="bento-card bento-dark reveal">
+              <div className="bento-card bento-dark reveal" style={{ '--reveal-delay': '0ms' } as CSSProperties}>
                 <div className="bento-bg">
                   <img src={experimentNotion} alt={t('about.strengths.research.imgAlt')} loading="lazy" />
                   <div className="bento-overlay overlay-dark"></div>
@@ -153,7 +134,7 @@ export default function About() {
               </div>
 
               {/* Card 2: Insight to Gold */}
-              <div className="bento-card bento-light reveal">
+              <div className="bento-card bento-light reveal" style={{ '--reveal-delay': '80ms' } as CSSProperties}>
                 <div className="bento-bg">
                   <img src={awardsReport} alt={t('about.strengths.awards.imgAlt')} loading="lazy" />
                   <div className="bento-overlay overlay-light"></div>
@@ -171,7 +152,7 @@ export default function About() {
               </div>
 
               {/* Card 3: UI Design */}
-              <div className="bento-card bento-light reveal">
+              <div className="bento-card bento-light reveal" style={{ '--reveal-delay': '160ms' } as CSSProperties}>
                 <div className="bento-bg">
                   <img src={figmaImg} alt={t('about.strengths.uiDesign.imgAlt')} loading="lazy" />
                   <div className="bento-overlay overlay-light-blur"></div>
@@ -190,7 +171,7 @@ export default function About() {
               </div>
 
               {/* Card 4: AI-Augmented */}
-              <div className="bento-card bento-light reveal">
+              <div className="bento-card bento-light reveal" style={{ '--reveal-delay': '240ms' } as CSSProperties}>
                 <div className="bento-bg">
                   <img src={codingImg} alt={t('about.strengths.ai.imgAlt')} loading="lazy" />
                   <div className="bento-overlay overlay-light"></div>
@@ -203,7 +184,7 @@ export default function About() {
               </div>
 
               {/* Card 5: Cross-Functional (Wide) */}
-              <div className="bento-card bento-light bento-card--wide reveal">
+              <div className="bento-card bento-light bento-card--wide reveal" style={{ '--reveal-delay': '320ms' } as CSSProperties}>
                 <div className="bento-bg">
                   <img src={crossFunctional} alt={t('about.strengths.crossFunc.imgAlt')} loading="lazy" />
                   <div className="bento-overlay overlay-wide"></div>
@@ -244,7 +225,7 @@ export default function About() {
               <Heart size={32} color="var(--accent-text)" />{t('about.values.heading')}</h2>
 
             <div className="about-values-grid" ref={valuesRef}>
-              <div className="gframe reveal" style={{ height: '100%' }}>
+              <div className="gframe reveal" style={{ height: '100%', '--reveal-delay': '0ms' } as CSSProperties}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Target size={24} color="var(--accent-text)" aria-hidden="true" />
@@ -255,7 +236,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="gframe reveal" style={{ height: '100%' }}>
+              <div className="gframe reveal" style={{ height: '100%', '--reveal-delay': '80ms' } as CSSProperties}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Rocket size={24} color="var(--accent-text)" aria-hidden="true" />
@@ -266,7 +247,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="gframe reveal" style={{ height: '100%' }}>
+              <div className="gframe reveal" style={{ height: '100%', '--reveal-delay': '160ms' } as CSSProperties}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Heart size={24} color="var(--accent-text)" aria-hidden="true" />
@@ -277,7 +258,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="gframe reveal" style={{ height: '100%' }}>
+              <div className="gframe reveal" style={{ height: '100%', '--reveal-delay': '240ms' } as CSSProperties}>
                 <div className="card glass" style={{ height: '100%', padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Monitor size={24} color="var(--accent-text)" aria-hidden="true" />

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import {
   Award, Leaf, Wind, Map, BookOpen,
   Target, Compass, Sparkles, CheckCircle2,
@@ -36,26 +37,7 @@ export default function MuProject() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Scroll-triggered reveal animations
-  useEffect(() => {
-    const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm.matches) return;
-
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    reveals.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+  useRevealOnScroll();
 
   // Lightbox handler
   const openLightbox = (imageName: string) => {
@@ -550,8 +532,6 @@ export default function MuProject() {
           .outcome-title { font-size: 20px; font-weight: 600; color: var(--md-on-surface); margin-bottom: 12px; }
 
           /* Reveal Animation */
-          .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
-          .reveal.in { opacity: 1; transform: translateY(0); }
 
           /* Responsive Design */
           @media (max-width: 959px) {
@@ -563,8 +543,7 @@ export default function MuProject() {
             .content-section { padding: 60px 0; }
           }
           @media (prefers-reduced-motion: reduce) {
-            .reveal, .nomination-badge { transition: none !important; transform: none !important; animation: none !important; }
-            .reveal { opacity: 1; }
+            .nomination-badge { transition: none !important; transform: none !important; animation: none !important; }
           }
         `}</style>
       </div>

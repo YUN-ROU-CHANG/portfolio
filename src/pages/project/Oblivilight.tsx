@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import {
   Award, Zap, Users, Lightbulb, Cpu,
   Printer, Trash2, BookOpen, Star, Maximize2, X
@@ -35,26 +36,7 @@ export default function Oblivilight() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Scroll-triggered reveal animations
-  useEffect(() => {
-    const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm.matches) return;
-
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    reveals.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+  useRevealOnScroll();
 
   return (
     <Layout>
@@ -451,8 +433,6 @@ export default function Oblivilight() {
           .outcome-title { font-size: 22px; font-weight: 700; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); margin-bottom: 16px; }
 
           /* Animations */
-          .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
-          .reveal.in { opacity: 1; transform: translateY(0); }
 
           /* Responsive */
           @media (max-width: 959px) {
@@ -463,9 +443,6 @@ export default function Oblivilight() {
             .hero-section { padding: 100px 0 60px; }
             .content-section { padding: 60px 0; }
             .award-badges { flex-direction: column; align-items: center; }
-          }
-          @media (prefers-reduced-motion: reduce) {
-            .reveal { transition: none !important; transform: none !important; opacity: 1; }
           }
         `}</style>
       </div>

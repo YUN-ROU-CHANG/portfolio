@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type CSSProperties } from 'react';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 
 const getSteps = (t: (key: string) => string) => [
   {
@@ -38,6 +39,8 @@ export default function HowIBuiltThis() {
   const steps = getSteps(t);
   const [showTop, setShowTop] = useState(false);
 
+  useRevealOnScroll();
+
   useEffect(() => {
     const handleScroll = () => setShowTop(window.scrollY > 300);
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -49,7 +52,7 @@ export default function HowIBuiltThis() {
       <div style={{ paddingTop: '88px', minHeight: '100vh', background: 'var(--background)' }}>
 
         {/* Page header */}
-        <div style={{
+        <div className="reveal" style={{
           maxWidth: '1440px', margin: '0 auto',
           padding: '48px clamp(16px,2.2vw,32px) 32px',
           borderBottom: '2px solid var(--border-strong)',
@@ -73,14 +76,15 @@ export default function HowIBuiltThis() {
         {/* Steps */}
         <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 clamp(16px,2.2vw,32px) 96px' }}>
           {steps.map((step, i) => (
-            <div key={i} style={{
+            <div key={i} className="reveal" style={{
+              '--reveal-delay': `${i * 80}ms`,
               display: 'grid',
               gridTemplateColumns: '80px 1fr',
               gap: '40px',
               padding: '48px 0',
               borderBottom: '1px solid var(--border)',
               alignItems: 'start',
-            }}>
+            } as CSSProperties}>
               {/* Number */}
               <div style={{
                 fontFamily: 'var(--font-display)',

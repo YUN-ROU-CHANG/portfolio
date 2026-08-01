@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 // 💡 加入了 FileText Icon 用於證書按鈕
 import { Briefcase, Award, Mail, Sparkles, BookOpen, FileText } from 'lucide-react';
 import { Separator } from '../components/ui/separator';
@@ -36,57 +37,8 @@ export default function Home() {
   // Graduation is Aug 2026, so the badge states a start date until then and
   // switches to an open-ended one after. Nothing to update by hand either way.
   const availableFromAug2026 = Date.now() < new Date('2026-08-01T00:00:00').getTime();
-  const heroRef = useRef<HTMLDivElement>(null);
-  const projectRef = useRef<HTMLDivElement>(null);
-  const tileRefs = useRef<HTMLElement[]>([]);
 
-  useEffect(() => {
-    const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm.matches) return;
-
-    let ticking = false;
-
-    const updatePositions = () => {
-      const y = window.scrollY;
-      if (heroRef.current) heroRef.current.style.transform = `translateY(${-(y / 15)}px)`;
-      if (projectRef.current) projectRef.current.style.transform = `translateY(${-(y / 30)}px)`;
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updatePositions);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    updatePositions();
-
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm.matches) return;
-
-    const reveals = document.querySelectorAll('.reveal');
-
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-        }
-      });
-    }, {
-      rootMargin: '-5% 0px -5% 0px',
-      threshold: 0
-    });
-
-    reveals.forEach(el => io.observe(el));
-
-    return () => io.disconnect();
-  }, []);
+  useRevealOnScroll();
 
   const [showTop, setShowTop] = useState(false);
   const [lightbox, setLightbox] = useState<string | null>(null);
@@ -165,21 +117,15 @@ export default function Home() {
     requestAnimationFrame(tick);
   }, [statsAnimated]);
 
-  const addToRefs = (el: HTMLElement | null) => {
-    if (el && !tileRefs.current.includes(el)) {
-      tileRefs.current.push(el);
-    }
-  };
-
   return (
     <Layout>
       {/* 1. Hero Section */}
       <section className="hero" id="about">
-        <div className="container hero-inner" ref={heroRef}>
+        <div className="container hero-inner">
 
           {/* Upper: text + photo */}
           <div className="hero-main-grid">
-            <div className="hero-text reveal" ref={addToRefs}>
+            <div className="hero-text reveal">
               <div className="avail-badge">
                 <span className="avail-dot"></span>
                 <span className="avail-label">{t(availableFromAug2026 ? 'home.hero.badgeBefore' : 'home.hero.badgeAfter')}</span>
@@ -207,9 +153,9 @@ export default function Home() {
               <motion.img
                 src={openHciMe}
                 alt={t('home.hero.photoAlt')}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
+                transition={{ duration: 0.45, ease: [0.2, 0.8, 0.2, 1] }}
                 style={{
                   width: '100%',
                   maxWidth: '420px',
@@ -228,7 +174,7 @@ export default function Home() {
       {/* Chartreuse Marquee Banner */}
       {/* 2. Selected Works */}
       <section className="section" id="selected-works" style={{ paddingTop: '40px', paddingBottom: '60px' }}>
-        <div className="container" ref={projectRef} style={{ maxWidth: '1200px' }}>
+        <div className="container" style={{ maxWidth: '1200px' }}>
           <div className="section-header-flex">
             <h2 className="section-head">
               <Briefcase size={32} color="var(--accent-text)" />{t('home.works.heading')}</h2>
@@ -240,7 +186,7 @@ export default function Home() {
 
             {/* 01 — Sleep Guardian */}
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0, ease: [0.2, 0.8, 0.2, 1] }}>
-              <Link to="/projects/sleep-guardian" className="reveal" ref={addToRefs}
+              <Link to="/projects/sleep-guardian"
                 style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid var(--border)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'var(--surface)'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--surface-inverse)'; a.style.color = 'var(--accent-on-inverse)'; a.style.transform = 'rotate(-45deg)'; } }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
@@ -266,7 +212,7 @@ export default function Home() {
 
             {/* 02 — Oblivilight */}
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.08, ease: [0.2, 0.8, 0.2, 1] }}>
-              <Link to="/projects/oblivilight" className="reveal" ref={addToRefs}
+              <Link to="/projects/oblivilight"
                 style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid var(--border)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'var(--surface)'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--surface-inverse)'; a.style.color = 'var(--accent-on-inverse)'; a.style.transform = 'rotate(-45deg)'; } }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
@@ -292,7 +238,7 @@ export default function Home() {
 
             {/* 03 — Mù */}
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.16, ease: [0.2, 0.8, 0.2, 1] }}>
-              <Link to="/projects/mu" className="reveal" ref={addToRefs}
+              <Link to="/projects/mu"
                 style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid var(--border)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'var(--surface)'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--surface-inverse)'; a.style.color = 'var(--accent-on-inverse)'; a.style.transform = 'rotate(-45deg)'; } }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
@@ -318,7 +264,7 @@ export default function Home() {
 
             {/* 04 — Innoconnect */}
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.24, ease: [0.2, 0.8, 0.2, 1] }}>
-              <Link to="/projects/innoconnect" className="reveal" ref={addToRefs}
+              <Link to="/projects/innoconnect"
                 style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', borderBottom: '1px solid var(--border)', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'var(--surface)'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--surface-inverse)'; a.style.color = 'var(--accent-on-inverse)'; a.style.transform = 'rotate(-45deg)'; } }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
@@ -344,7 +290,7 @@ export default function Home() {
 
             {/* 05 — IEEE Research */}
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5, delay: 0.32, ease: [0.2, 0.8, 0.2, 1] }}>
-              <Link to="/projects/hci-publications" className="reveal" ref={addToRefs}
+              <Link to="/projects/hci-publications"
                 style={{ display: 'grid', gridTemplateColumns: '70px 1fr 260px 140px 60px', gap: '24px', padding: '28px 4px', alignItems: 'start', textDecoration: 'none', color: 'inherit', cursor: 'pointer', position: 'relative', transition: 'background .3s, padding .3s' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'var(--surface)'; el.style.paddingLeft = '16px'; el.style.paddingRight = '16px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'var(--surface-inverse)'; a.style.color = 'var(--accent-on-inverse)'; a.style.transform = 'rotate(-45deg)'; } }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.paddingLeft = '4px'; el.style.paddingRight = '4px'; const a = el.querySelector('.work-arrow') as HTMLElement; if (a) { a.style.background = 'transparent'; a.style.color = 'inherit'; a.style.transform = 'rotate(0deg)'; } }}>
@@ -466,7 +412,7 @@ export default function Home() {
         <div className="container">
           <h2 className="section-head">
             <Award size={32} color="var(--accent-text)" />{t('home.awards.heading')}</h2>
-          <div className="awards-grid reveal" ref={addToRefs}>
+          <div className="awards-grid reveal">
 
             {/* Award 1 */}
             <div className="award-item-clean">
@@ -591,7 +537,7 @@ export default function Home() {
           <h2 className="section-head" style={{ justifyContent: 'center' }}>
             <Sparkles size={32} color="var(--accent-text)" />{t('home.playground.heading')}</h2>
           <p className="contact-sub text-center mb-8">{t('home.playground.sub')}</p>
-          <div className="reveal" ref={addToRefs} style={{ maxWidth: '720px', margin: '0 auto' }}>
+          <div className="reveal" style={{ maxWidth: '720px', margin: '0 auto' }}>
             <div style={{
               borderRadius: '20px',
               overflow: 'hidden',
@@ -745,8 +691,8 @@ export default function Home() {
           gap: 8px;
           padding: 5px 14px;
           border-radius: 999px;
-          background: rgba(42,157,110,0.08);
-          border: 1px solid rgba(42,157,110,0.22);
+          background: color-mix(in srgb, var(--accent) 22%, transparent);
+          border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
           margin-bottom: 20px;
         }
         .avail-dot {
@@ -765,8 +711,8 @@ export default function Home() {
         }
         @keyframes ping { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.4)} }
         @keyframes availPing {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(42,157,110,0.4); }
-          50% { box-shadow: 0 0 0 6px rgba(42,157,110,0); }
+          0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-text) 40%, transparent); }
+          50% { box-shadow: 0 0 0 6px transparent; }
         }
 
         /* Name */

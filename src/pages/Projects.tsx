@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type CSSProperties } from 'react';
 import { Link } from 'react-router';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import sleepGuardianCoverP from '../assets/images/home/sleep-guardian-cover.png';
 import oblivilightCoverP from '../assets/images/home/Oblivilight-cover.jpg';
 import muCoverP from '../assets/images/home/mu-cover.jpg';
@@ -133,21 +134,24 @@ export default function Projects() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const filteredProjects = activeCategory === 'all' 
-    ? projectsData 
+  const filteredProjects = activeCategory === 'all'
+    ? projectsData
     : projectsData.filter(project => project.category === activeCategory);
+
+  // Re-observe when the filter swaps the grid out for a fresh set of cards.
+  useRevealOnScroll([activeCategory]);
 
   return (
     <Layout>
       <div id="projects-page">
         <section className="section" style={{ paddingTop: '80px', paddingBottom: '40px' }}>
           <div className="container" style={{ maxWidth: '1400px' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="reveal" style={{ textAlign: 'center', marginBottom: '48px' }}>
               <h1 className="name" style={{ fontSize: '48px', lineHeight: '1.2', marginBottom: '16px' }}>{t('projects.header.title')}</h1>
               <p className="body muted" style={{ fontSize: '18px', maxWidth: '600px', margin: '0 auto' }}>{t('projects.header.sub')}</p>
             </div>
 
-            <div className="tabs-container">
+            <div className="tabs-container reveal" style={{ '--reveal-delay': '80ms' } as CSSProperties}>
               <div className="tabs" role="tablist" aria-label="Project Categories">
                 <button
                   role="tab"
@@ -177,8 +181,12 @@ export default function Projects() {
             </div>
 
             <div className="projects-grid">
-              {filteredProjects.map((project) => (
-                <div key={project.slug} className="project-card-wrapper">
+              {filteredProjects.map((project, i) => (
+                <div
+                  key={project.slug}
+                  className="project-card-wrapper reveal"
+                  style={{ '--reveal-delay': `${Math.min(i, 5) * 80}ms` } as CSSProperties}
+                >
                   <div className="project-card">
                     <div className="project-image">
                       <img 

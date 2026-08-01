@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 
 const photoModules = import.meta.glob(
   '../assets/images/photography/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG}',
@@ -28,6 +29,8 @@ export default function Photography() {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [showTop, setShowTop] = useState(false);
 
+  useRevealOnScroll();
+
   useEffect(() => {
     const handleScroll = () => setShowTop(window.scrollY > 300);
     const handleKey = (e: KeyboardEvent) => {
@@ -49,7 +52,7 @@ export default function Photography() {
       <div style={{ paddingTop: '88px', minHeight: '100vh', background: 'var(--background)' }}>
 
         {/* Page header */}
-        <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '48px clamp(16px, 2.2vw, 32px) 32px' }}>
+        <div className="reveal" style={{ maxWidth: '1440px', margin: '0 auto', padding: '48px clamp(16px, 2.2vw, 32px) 32px' }}>
           <h1 style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 500, fontSize: 'clamp(48px, 8vw, 96px)',
@@ -73,6 +76,7 @@ export default function Photography() {
               <div
                 key={i}
                 onClick={() => setLightbox(i)}
+                className="reveal"
                 style={{
                   breakInside: 'avoid',
                   marginBottom: '16px',
