@@ -699,7 +699,9 @@ export default function Innoconnect() {
             height: 36px;
             font-size: 16px;
             font-weight: 800;
-            color: #fff;
+            /* 橘底維持飽和不動；白字在這個橘上只有 2.75:1，改深墨字後為 6.7:1。
+               底色不隨模式翻轉，所以文字這裡刻意鎖死 primitive。 */
+            color: var(--ink);
             background: hsl(var(--g1));
             border-radius: 8px;
           }
@@ -797,7 +799,15 @@ export default function Innoconnect() {
           .feature-icon { display: inline-flex; width: 64px; height: 64px; background: linear-gradient(135deg, hsl(var(--g4)/.1), hsl(var(--g1)/.1)); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 16px; color: hsl(var(--g4)); }
           .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 64px; }
           .outcome-card { padding: 40px 24px; background: var(--card-glass); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; }
-          .outcome-card.featured { grid-column: span 3; background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,165,0,0.08)); border: 2px solid rgba(255,215,0,0.3); padding: 56px 32px; }
+          /* 金橘色調保留，但混進 --surface 才會跟著亮暗模式走 */
+          .outcome-card.featured {
+            grid-column: span 3;
+            background: linear-gradient(135deg,
+              color-mix(in srgb, #FFD700 14%, var(--surface)),
+              color-mix(in srgb, #FFA500 14%, var(--surface)));
+            border: 2px solid color-mix(in srgb, #FFA500 42%, transparent);
+            padding: 56px 32px;
+          }
           .outcome-icon { display: inline-flex; width: 80px; height: 80px; background: linear-gradient(135deg, hsl(var(--g1)/.1), hsl(var(--g2)/.1)); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 24px; color: hsl(var(--g1)); }
           .outcome-icon.gold-icon { width: 100px; height: 100px; background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; }
           

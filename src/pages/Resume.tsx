@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
 import { motion, useScroll } from 'motion/react';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -7,10 +8,20 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../co
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { Separator } from '../components/ui/separator';
-import { Download, Linkedin, Github, Briefcase, GraduationCap, Award, Code } from 'lucide-react';
+import { Download, Linkedin, Github, Briefcase, GraduationCap, Award, Code, FileText } from 'lucide-react';
 
 // 引入你指定的 PDF 檔案
 import resumePdf from '../assets/images/Yun-Rou_Chang_Resume.pdf';
+
+// 獎狀與證明圖片（2026/08 從首頁搬過來，首頁只留一行摘要）
+import tuitionCert from '../assets/images/home/tuition.jpg';
+import timesYoungCert from '../assets/images/home/times-young-creative-awards.jpg';
+import ieeeGcceCert from '../assets/images/home/ieeegcce-presentation.jpg';
+import openhciCert from '../assets/images/home/best-demo.jpeg';
+import uxdaCert from '../assets/images/home/uxda-nominated.jpg';
+import innoconnectCert from '../assets/images/home/innoconnect-certificate.jpg';
+import bigDataCert from '../assets/images/home/big-data-cup.jpg';
+import ssimCert from '../assets/images/home/ssim-award.jpg';
 
 // Types
 type Experience = {
@@ -163,10 +174,25 @@ function ExperienceItem({ experience }: { experience: Experience }) {
   );
 }
 
+// 獎項清單。原本在首頁是八段複製貼上的 JSX，搬過來時收成一個陣列。
+const getAwards = (t: (key: string) => string) => [
+  { year: '2025', key: 'tuition', cert: tuitionCert },
+  { year: '2025', key: 'uxda', cert: uxdaCert },
+  { year: '2025', key: 'timesYoung', cert: timesYoungCert },
+  { year: '2025', key: 'gcce', cert: ieeeGcceCert },
+  { year: '2025', key: 'openhci', cert: openhciCert },
+  { year: '2024', key: 'innoconnect', cert: innoconnectCert },
+  { year: '2024', key: 'bigData', cert: bigDataCert },
+  { year: '2024', key: 'ssim', cert: ssimCert },
+].map(a => ({ ...a, title: t(`home.awards.${a.key}.title`), desc: t(`home.awards.${a.key}.desc`) }));
+
 export default function Resume() {
   const { t } = useLanguage();
   const resumeData = getResumeData(t);
+  const awards = getAwards(t);
   const [showTop, setShowTop] = useState(false);
+  const [lightbox, setLightbox] = useState<string | null>(null);
+  const { hash } = useLocation();
 
   useRevealOnScroll();
 
@@ -175,6 +201,27 @@ export default function Resume() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightbox(null); };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, []);
+
+  // HashRouter 已經吃掉一個 #，所以 /resume#awards 的錨點要自己捲。
+  // Awards 在頁面最底，上面的 PDF <object> 要一段時間才撐開高度，所以固定式的
+  // setTimeout 會捲到錯的位置。改成每幀重新對位，直到目標位置連續數幀不再變動。
+  useEffect(() => {
+    if (hash !== '#awards') return;
+    // 重新對位幾次，蓋過 PDF 撐開高度造成的位移。用 timeout 而非 rAF，
+    // 背景分頁不會執行 rAF，但仍要能正確落在錨點上。
+    const timers = [0, 150, 400, 900].map(delay =>
+      window.setTimeout(() => {
+        document.getElementById('awards')?.scrollIntoView({ block: 'start' });
+      }, delay),
+    );
+    return () => timers.forEach(window.clearTimeout);
+  }, [hash]);
 
   return (
     <Layout>
@@ -382,9 +429,102 @@ export default function Resume() {
             </div>
           </div>
         </section>
+
+        <Separator className="container-sep" />
+
+        {/* Awards — 首頁只留一行摘要，完整清單與證書在這裡 */}
+        <section className="section" id="awards" style={{ paddingBottom: 'var(--space-10)' }}>
+          <div className="container">
+            <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <Award size={32} color="var(--accent-text)" />{' '}{t('resume.awards.heading')}</h2>
+            <div className="awards-grid reveal">
+              {awards.map(award => (
+                <div className="award-item-clean" key={award.key}>
+                  <span className="award-year">{award.year}</span>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                      <h4 style={{ margin: 0, marginBottom: '6px' }}>{award.title}</h4>
+                      <button onClick={() => setLightbox(award.cert)} className="cert-btn" aria-label="View Certificate">
+                        <FileText size={12} /> <span>{t('common.certificate')}</span>
+                      </button>
+                    </div>
+                    <p>{award.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
 
+      {lightbox && (
+        <div
+          onClick={() => setLightbox(null)}
+          style={{
+            position: 'fixed', inset: 0,
+            background: 'rgba(0,0,0,0.88)',
+            zIndex: 1000,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: 'zoom-out', padding: '24px',
+          }}
+        >
+          <img
+            src={lightbox}
+            alt={t('common.enlargedView')}
+            onClick={e => e.stopPropagation()}
+            style={{
+              maxWidth: '90vw', maxHeight: '88vh',
+              objectFit: 'contain', borderRadius: '12px',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
+            }}
+          />
+          <button
+            onClick={() => setLightbox(null)}
+            aria-label="Close"
+            style={{
+              position: 'fixed', top: '24px', right: '24px',
+              width: '44px', height: '44px', borderRadius: '50%',
+              background: 'rgba(255,255,255,0.15)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              color: 'white', fontSize: '20px', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              backdropFilter: 'blur(8px)',
+            }}
+          >✕</button>
+        </div>
+      )}
+
       <style>{`
+        /* ── Awards (2026/08 從首頁搬過來) ── */
+        .awards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .award-item-clean { display: flex; gap: 20px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .award-item-clean:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
+        .award-year { font-family: var(--font-mono); font-size: 18px; font-weight: 700; color: var(--accent-text); opacity: 0.8; padding-top: 2px; }
+        .award-item-clean h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
+        .award-item-clean p { font-size: 14px; color: var(--text-tertiary); line-height: 1.5; margin: 0; }
+        @media (max-width: 768px) { .awards-grid { grid-template-columns: 1fr; } }
+
+        .cert-btn {
+          display: inline-flex; align-items: center; gap: 6px;
+          padding: 6px 12px; border-radius: 100px;
+          background: color-mix(in srgb, var(--text-primary) 4%, transparent);
+          border: 1px solid var(--border);
+          color: var(--text-primary);
+          font-size: 12px; font-weight: 600; cursor: pointer;
+          transition: all 0.25s ease; white-space: nowrap; flex-shrink: 0;
+        }
+        .cert-btn:hover {
+          background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+          border-color: var(--border-strong);
+          transform: translateY(-1px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .award-item-clean { transition: none !important; }
+          .award-item-clean:hover { transform: none !important; }
+          .cert-btn:hover { transform: none !important; }
+        }
+
         /* ==================================================
            PDF Embed Styles (新增的重點修復)
            ================================================== */

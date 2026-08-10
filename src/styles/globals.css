@@ -123,12 +123,14 @@
    Layer 2 — Semantic tokens（暗色模式，規格書 3.1 中性階）
    ──────────────────────────────────────────────── */
 .dark {
-  --background: var(--ink);
-  --surface: #161613;
-  --surface-muted: #26251F;
+  /* 2026/08：底色從 --ink #0C0C0C 提亮到 --ink-2，純黑長時間閱讀太刺眼。
+     三層 surface 一併上移以保留層次，未引入新色相。 */
+  --background: var(--ink-2);
+  --surface: #232320;
+  --surface-muted: #2E2D27;
   --surface-subtle: rgba(230, 225, 214, 0.06);
   --surface-inverse: var(--ink-bright);
-  --card-glass: rgba(26, 26, 24, 0.92);
+  --card-glass: rgba(35, 35, 32, 0.92);
 
   --text-primary: var(--ink-bright);
   --text-secondary: #B5B0A6;

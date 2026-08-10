@@ -28,6 +28,7 @@ function AnimatedRoutes() {
           <Route path="/projects/big-data-cup" element={<BigDataMarketingCup />} />
           <Route path="/projects/project-archive" element={<ProjectArchive />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/play" element={<Play />} />
           <Route path="/photography" element={<Photography />} />
           <Route path="/how-i-built-this" element={<HowIBuiltThis />} />
           <Route path="*" element={<Navigate to="/" replace />} />
@@ -52,6 +53,7 @@ import HCIPublications from './pages/project/HCIPublications';
 import AdnexInternship from './pages/project/AdnexInternship';
 import BigDataMarketingCup from './pages/project/BigDataMarketingCup';
 import ProjectArchive from './pages/project/ProjectArchive';
+import Play from './pages/Play';
 import Photography from './pages/Photography';
 import HowIBuiltThis from './pages/HowIBuiltThis';
 
