@@ -562,6 +562,10 @@ export default function Innoconnect() {
 
         {/* CSS Styles */}
         <style>{`
+          /* delta：本頁段落沿用較大的下留白 */
+          .body-text { margin-bottom: 24px; }
+          .body-text-large { margin-bottom: 48px; }
+
           /* === Basic Setup === */
           .full-contain-img {
             width: 100%;
@@ -578,10 +582,6 @@ export default function Innoconnect() {
             overflow: hidden;
             border-radius: var(--radius-lg);
             position: relative;
-          }
-          .shadow-box {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid var(--border);
           }
           .bg-white { background: var(--card); }
           .p-4 { padding: 16px; }
@@ -764,18 +764,10 @@ export default function Innoconnect() {
           .hero-title { font-size: clamp(36px, 5vw, 56px); font-weight: 800; line-height: 1.1; color: var(--md-on-surface); margin-bottom: 24px; }
           .hero-subtitle { font-size: clamp(18px, 2vw, 22px); line-height: 1.6; color: var(--color-text-muted); margin-bottom: 48px; }
           .hero-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--border); }
-          .detail-item { text-align: center; display: flex; flex-direction: column; gap: 6px; }
-          .detail-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-muted); }
-          .detail-value { font-size: 15px; font-weight: 600; color: var(--md-on-surface); }
           .detail-value.achievement-gold { color: color-mix(in srgb, #FFA500 48%, var(--text-primary)); font-size: 16px; }
-          .detail-sub { font-size: 13px; color: var(--color-text-muted); }
           .competition-context { display: flex; align-items: flex-start; gap: 24px; padding: 32px; margin-top: 48px; background: linear-gradient(135deg, hsl(var(--g1)/.08), hsl(var(--g2)/.08)); border-left: 4px solid hsl(var(--g1)); border-radius: var(--radius-lg); text-align: left; }
           .context-icon { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: linear-gradient(135deg, hsl(var(--g1)), hsl(var(--g2))); border-radius: 50%; color: #fff; flex-shrink: 0; }
           .context-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
-          .content-section { padding: 80px 0; }
-          .section-heading { font-size: clamp(32px, 4vw, 48px); font-weight: 700; margin-bottom: 16px; }
-          .body-text { font-size: 16px; line-height: 1.8; color: var(--color-text-muted); margin-bottom: 24px; }
-          .body-text-large { font-size: 20px; line-height: 1.7; font-weight: 500; margin-bottom: 48px; }
           .overview-intro { text-align: center; max-width: 900px; margin: 0 auto 64px; }
           .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
           .metric-card { padding: 32px 24px; background: var(--card-glass); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; }
@@ -783,14 +775,12 @@ export default function Innoconnect() {
           .metric-number { font-size: 36px; font-weight: 800; background: linear-gradient(135deg, hsl(var(--g1)), hsl(var(--g2))); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
           .subsection { margin-bottom: 64px; }
           .subsection-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
-          .subsection-title { font-size: 28px; font-weight: 600; }
           .two-column-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
           .challenge-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
           .challenge-item { display: flex; align-items: flex-start; gap: 12px; }
           .challenge-bullet { width: 8px; height: 8px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; background: hsl(var(--g3)); }
           .challenge-bullet.problem { background: #ef4444; }
           .challenge-item div { font-size: 15px; line-height: 1.6; color: var(--color-text-muted); }
-          .highlight-title { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
           .feature-highlights { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
           .feature-item { display: flex; align-items: flex-start; gap: 12px; }
           .feature-item span { font-size: 15px; line-height: 1.6; color: var(--color-text-muted); }
@@ -821,7 +811,6 @@ export default function Innoconnect() {
           }
           @media (max-width: 640px) {
             .hero-section { padding: 100px 0 60px; }
-            .content-section { padding: 60px 0; }
             .gold-award-badge { flex-direction: column; text-align: center; }
             .result-card { padding: 24px; }
           }

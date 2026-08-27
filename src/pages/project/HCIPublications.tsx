@@ -219,6 +219,9 @@ export default function HCIPublications() {
 
         {/* Project Page Styles */}
         <style>{`
+          /* delta */
+          .section-heading-sm { font-size: 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
           :root {
             --brand-primary: 37, 99, 235;   /* Tech Blue */
             --brand-dark: 15, 23, 42;       /* Slate 900 */
@@ -300,9 +303,6 @@ export default function HCIPublications() {
           }
 
           /* Content Sections & Paper Container */
-          .content-section {
-            padding: 80px 0;
-          }
 
           .paper-container {
             background: var(--card);
@@ -321,7 +321,7 @@ export default function HCIPublications() {
           .venue-tag {
             display: inline-block;
             padding: 6px 16px;
-            border-radius: 20px;
+            border-radius: var(--radius-pill);
             font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
@@ -372,21 +372,7 @@ export default function HCIPublications() {
           }
 
           /* Typography inside papers */
-          .section-heading-sm {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-          }
 
-          .body-text {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-secondary);
-          }
 
           /* Method List */
           .method-list {

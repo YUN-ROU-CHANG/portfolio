@@ -554,6 +554,11 @@ export default function TimesAwards() {
 
         {/* Project Page Styles */}
         <style>{`
+          /* delta */
+          .body-text { margin-bottom: 24px; }
+          .subsection-title { font-size: 20px; margin-bottom: 12px; }
+          .detail-label, .detail-value, .detail-sub { display: block; }
+
           /* Hero Section */
           .hero-section {
             padding: 120px 0 80px;
@@ -666,27 +671,8 @@ export default function TimesAwards() {
             border-top: 1px solid var(--border);
           }
 
-          .detail-item {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-          }
 
-          .detail-label {
-            display: block;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--color-text-muted);
-          }
 
-          .detail-value {
-            display: block;
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--md-on-surface);
-          }
 
           .detail-value.bronze-highlight {
             font-size: 16px;
@@ -694,11 +680,6 @@ export default function TimesAwards() {
             font-weight: 700;
           }
 
-          .detail-sub {
-            display: block;
-            font-size: 13px;
-            color: var(--color-text-muted);
-          }
 
           /* Campaign Context */
           .campaign-context {
@@ -743,29 +724,9 @@ export default function TimesAwards() {
           }
 
           /* Content Sections */
-          .content-section {
-            padding: 80px 0;
-          }
 
-          .section-heading {
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: 700;
-            color: var(--md-on-surface);
-            margin-bottom: 16px;
-          }
 
-          .section-subheading {
-            font-size: clamp(16px, 2vw, 20px);
-            color: var(--color-text-muted);
-            margin-bottom: 32px;
-          }
 
-          .body-text {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--color-text-muted);
-            margin-bottom: 24px;
-          }
 
           /* Overview */
           .overview-intro {
@@ -937,12 +898,6 @@ export default function TimesAwards() {
             gap: 24px;
           }
 
-          .subsection-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--md-on-surface);
-            margin-bottom: 12px;
-          }
 
           /* Key Message Box */
           .key-message-box {
@@ -1214,9 +1169,6 @@ export default function TimesAwards() {
               padding: 100px 0 60px;
             }
 
-            .content-section {
-              padding: 60px 0;
-            }
 
             .award-badges-container {
               width: 100%;

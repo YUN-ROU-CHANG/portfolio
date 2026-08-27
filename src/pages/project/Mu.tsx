@@ -412,7 +412,6 @@ export default function MuProject() {
 
           .full-contain-img { width: 100%; height: 100%; object-fit: contain; display: block; }
           .image-wrapper { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--radius-lg); }
-          .shadow-box { box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid var(--border); }
           .bg-white { background: var(--card); }
           .p-4 { padding: 16px; }
           .mb-4 { margin-bottom: 16px; }
@@ -444,19 +443,9 @@ export default function MuProject() {
           .hero-title { font-size: clamp(36px, 5vw, 56px); font-weight: 800; color: var(--md-on-surface); margin-bottom: 24px; }
           .hero-subtitle { font-size: clamp(18px, 2vw, 22px); line-height: 1.6; color: var(--color-text-muted); margin-bottom: 48px; }
           .hero-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--border); }
-          .detail-item { text-align: center; display: flex; flex-direction: column; gap: 6px; }
-          .detail-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-muted); }
-          .detail-value { font-size: 15px; font-weight: 600; color: var(--md-on-surface); }
           .detail-value.achievement-highlight { font-size: 16px; color: hsl(var(--g2)); font-weight: 700; }
-          .detail-sub { font-size: 13px; color: var(--color-text-muted); }
 
           /* Content Sections */
-          .content-section { padding: 80px 0; }
-          .section-heading { font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: var(--md-on-surface); margin-bottom: 16px; }
-          .section-subheading { font-size: clamp(16px, 2vw, 20px); color: var(--color-text-muted); margin-bottom: 32px; }
-          .body-text { font-size: 16px; line-height: 1.8; color: var(--color-text-muted); }
-          .body-text-sm { font-size: 14px; line-height: 1.6; color: var(--color-text-muted); margin: 0; }
-          .body-text-large { font-size: 20px; line-height: 1.7; color: var(--md-on-surface); font-weight: 500; }
 
           /* Overview with Logo */
           .flex-center-wrapper { display: flex; flex-direction: column; align-items: center; gap: 32px; margin: 0 auto 64px; max-width: 900px; text-align: center; }
@@ -472,14 +461,12 @@ export default function MuProject() {
 
           .subsection { margin-bottom: 64px; }
           .subsection-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
-          .subsection-title { font-size: 28px; font-weight: 600; color: var(--md-on-surface); }
 
           .two-column-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
           .challenge-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
           .challenge-item { display: flex; align-items: flex-start; gap: 12px; }
           .challenge-bullet { width: 8px; height: 8px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; background: hsl(var(--g4)); }
           .challenge-item div { font-size: 15px; line-height: 1.6; color: var(--color-text-muted); }
-          .highlight-title { font-size: 20px; font-weight: 600; color: var(--md-on-surface); margin-bottom: 12px; }
 
           .insight-card { padding: 32px; background: linear-gradient(135deg, hsl(var(--g1)/.05), hsl(var(--g2)/.05)); border-left: 4px solid hsl(var(--g1)); border-radius: var(--radius-lg); }
           .insight-title { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: hsl(var(--g1)); margin-bottom: 12px; }
@@ -510,7 +497,7 @@ export default function MuProject() {
 
           /* Uniform UI Grid */
           .ui-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-          .ui-card { background: var(--card); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
+          .ui-card { background: var(--card); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
           .ui-text-area { padding: 24px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
           .feature-icon-sm { width: 40px; height: 40px; background: hsl(var(--g3)/.1); color: hsl(var(--g3)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
           .ui-title { font-size: 20px; font-weight: 700; color: var(--md-on-surface); }
@@ -540,7 +527,6 @@ export default function MuProject() {
           }
           @media (max-width: 640px) {
             .hero-section { padding: 100px 0 60px; }
-            .content-section { padding: 60px 0; }
           }
           @media (prefers-reduced-motion: reduce) {
             .nomination-badge { transition: none !important; transform: none !important; animation: none !important; }

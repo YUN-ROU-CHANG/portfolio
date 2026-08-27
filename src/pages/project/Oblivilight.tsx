@@ -40,7 +40,7 @@ export default function Oblivilight() {
 
   return (
     <Layout>
-      <div id="oblivilight-page">
+      <div id="oblivilight-page" data-theme="oblivilight">
         {/* 新增：Lightbox 燈箱元件 */}
         <AnimatePresence>
           {lightboxImage && (
@@ -316,6 +316,15 @@ export default function Oblivilight() {
 
         {/* CSS Styles */}
         <style>{`
+          /* delta：暖琥珀主題。色彩由 [data-theme='oblivilight'] 供給，此處只留尺寸與本頁專屬色 */
+          .section-subheading { font-size: 18px; color: var(--theme-accent); margin-bottom: 0; }
+          .body-text { color: var(--theme-accent); }
+          .highlight-title { font-size: 22px; font-weight: 700; }
+          .detail-label { color: color-mix(in srgb, #EA580C 55%, var(--text-primary)); }
+          .detail-value { font-size: 16px; font-weight: 700; color: var(--theme-heading); }
+          .detail-sub { color: color-mix(in srgb, #EA580C 55%, var(--text-primary)); opacity: .8; }
+          .shadow-box { box-shadow: 0 4px 20px rgba(251, 146, 60, .15); border-color: rgba(251, 146, 60, .08); }
+
           :root {
             --g1: 30, 90%, 45%; /* Warm Sunshine Orange */
             --g2: 15, 85%, 65%; /* Soft Pink-Orange */
@@ -355,7 +364,6 @@ export default function Oblivilight() {
           /* 保留原本的所有樣式 */
           .full-contain-img { width: 100%; height: 100%; object-fit: contain; display: block; }
           .image-wrapper { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--radius-lg); }
-          .shadow-box { box-shadow: 0 4px 20px rgba(251, 146, 60, 0.15); border: 1px solid rgba(251, 146, 60, 0.08); }
           .bg-white { background: var(--card); }
           .p-4 { padding: 16px; }
           .mb-0 { margin-bottom: 0px !important; }
@@ -386,20 +394,9 @@ export default function Oblivilight() {
           .hero-title { font-size: clamp(36px, 5vw, 56px); font-weight: 800; line-height: 1.1; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); margin-bottom: 24px; }
           .hero-subtitle { font-size: clamp(18px, 2vw, 22px); line-height: 1.6; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); margin-bottom: 48px; }
           .hero-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-top: 48px; padding-top: 48px; border-top: 1px solid rgba(251, 146, 60, 0.1); }
-          .detail-item { text-align: center; display: flex; flex-direction: column; gap: 6px; }
-          .detail-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: color-mix(in srgb, #EA580C 55%, var(--text-primary)); }
-          .detail-value { font-size: 16px; font-weight: 700; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
           .detail-value.highlight { color: hsl(var(--g1)); font-size: 18px; }
-          .detail-sub { font-size: 13px; color: color-mix(in srgb, #EA580C 55%, var(--text-primary)); opacity: 0.8; }
 
           /* Content Sections */
-          .content-section { padding: 80px 0; }
-          .section-heading { font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); margin-bottom: 16px; }
-          .section-heading-sm { font-size: 28px; font-weight: 700; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
-          .section-subheading { font-size: 18px; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); }
-          .body-text { font-size: 16px; line-height: 1.8; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); }
-          .highlight-title { font-size: 22px; font-weight: 700; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
-          .section-header-sm { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
           
           /* Ensures perfect vertical alignment in the two-column grid */
           .two-column-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
@@ -441,7 +438,6 @@ export default function Oblivilight() {
           }
           @media (max-width: 640px) {
             .hero-section { padding: 100px 0 60px; }
-            .content-section { padding: 60px 0; }
             .award-badges { flex-direction: column; align-items: center; }
           }
         `}</style>

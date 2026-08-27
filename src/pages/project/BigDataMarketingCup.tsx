@@ -266,6 +266,13 @@ export default function BigDataMarketingCup() {
 
         {/* Project Page Styles */}
         <style>{`
+          /* delta：標題已於 2026/08 統一為 32-48px / 700，此處只留副標與規格列差異 */
+          .section-subheading { font-size: 18px; line-height: 1.6; margin-bottom: 0; }
+          .section-header-sm { margin-bottom: 20px; }
+          .detail-label { font-weight: 600; }
+          .detail-value { font-size: 16px; font-weight: 700; }
+          .detail-sub { color: var(--text-tertiary); }
+
           :root {
             --red-primary: #E11D48;      /* Energetic Red（實色底＋白字用） */
             --red-ink: #C81E45;          /* 淺底上的紅字，暗色模式覆寫變亮 */
@@ -356,54 +363,18 @@ export default function BigDataMarketingCup() {
             border-top: 1px solid var(--border-color);
           }
 
-          .detail-item {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-          }
 
-          .detail-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-gray);
-            font-weight: 600;
-          }
 
-          .detail-value {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-dark);
-          }
 
           .detail-value.highlight-red {
             color: var(--red-ink);
             font-size: 18px;
           }
 
-          .detail-sub {
-            font-size: 13px;
-            color: var(--text-tertiary);
-          }
 
           /* Content Sections */
-          .content-section {
-            padding: 80px 0;
-          }
 
-          .section-heading {
-            font-size: clamp(28px, 4vw, 40px);
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 16px;
-          }
 
-          .section-subheading {
-            font-size: 18px;
-            line-height: 1.6;
-            color: var(--text-gray);
-          }
 
           .text-center {
             text-align: center;
@@ -416,29 +387,13 @@ export default function BigDataMarketingCup() {
             align-items: stretch;
           }
 
-          .section-header-sm {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-          }
 
-          .section-heading-sm {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-          }
 
-          .body-text {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-gray);
-          }
 
           .gray-box {
             background: var(--surface);
             padding: 40px;
-            border-radius: 20px;
+            border-radius: var(--radius-lg);
             border: 1px solid var(--border-color);
           }
 
@@ -487,7 +442,7 @@ export default function BigDataMarketingCup() {
           .strategy-card {
             background: var(--card);
             padding: 40px;
-            border-radius: 20px;
+            border-radius: var(--radius-lg);
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 20px rgba(0,0,0,0.02);
             position: relative;
@@ -554,7 +509,7 @@ export default function BigDataMarketingCup() {
             padding: 6px 16px;
             background: var(--red-light);
             color: var(--red-dark);
-            border-radius: 20px;
+            border-radius: var(--radius-pill);
             font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
@@ -709,7 +664,6 @@ export default function BigDataMarketingCup() {
 
           @media (max-width: 640px) {
             .hero-section { padding: 100px 0 60px; }
-            .content-section { padding: 60px 0; }
             .app-mockup-grid { grid-template-columns: 1fr 1fr; }
             .impact-banner { padding: 48px 24px; }
             .metric-number { font-size: 36px; }
