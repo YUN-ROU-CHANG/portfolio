@@ -209,12 +209,11 @@ export default function Resume() {
   }, []);
 
   // HashRouter 已經吃掉一個 #，所以 /resume#awards 的錨點要自己捲。
-  // Awards 在頁面最底，上面的 PDF <object> 要一段時間才撐開高度，所以固定式的
-  // setTimeout 會捲到錯的位置。改成每幀重新對位，直到目標位置連續數幀不再變動。
+  // 多次重試原本是為了蓋過內嵌 PDF 撐開高度造成的位移；PDF 檢視器已移除，
+  // 但圖片與字型載入仍會微幅推動版面，所以保留幾次重新對位。
   useEffect(() => {
     if (hash !== '#awards') return;
-    // 重新對位幾次，蓋過 PDF 撐開高度造成的位移。用 timeout 而非 rAF，
-    // 背景分頁不會執行 rAF，但仍要能正確落在錨點上。
+    // 用 timeout 而非 rAF：背景分頁不會執行 rAF，但仍要能正確落在錨點上。
     const timers = [0, 150, 400, 900].map(delay =>
       window.setTimeout(() => {
         document.getElementById('awards')?.scrollIntoView({ block: 'start' });
@@ -249,71 +248,10 @@ export default function Resume() {
 
         <Separator className="container-sep" />
 
-        {/* PDF Embed Section */}
-        <section className="section" style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-10)' }}>
-          <div className="container" style={{ maxWidth: '1400px' }}>
-            <div className="resume-pdf-container reveal">
-              <object
-                data={`${resumePdf}#view=FitH`}
-                type="application/pdf"
-                className="resume-pdf-object"
-                aria-label="Resume PDF viewer"
-              >
-                {/* Fallback: Image + Download Button */}
-                <div className="resume-pdf-fallback">
-                  <div style={{
-                    padding: 'var(--space-10)',
-                    textAlign: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: 'var(--space-6)'
-                  }}>
-                    <div style={{
-                      width: '80px',
-                      height: '80px',
-                      borderRadius: 'var(--radius-lg)',
-                      background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}>
-                      <Download size={40} style={{ color: 'var(--accent-text)' }} aria-hidden="true" />
-                    </div>
-                    <div>
-                      <h3 style={{ marginBottom: 'var(--space-2)', color: 'var(--text-primary)' }}>{t('resume.viewer.notAvailable')}</h3>
-                      <p className="body muted" style={{ maxWidth: '400px', margin: '0 auto var(--space-4)' }}>{t('resume.viewer.fallbackDesc')}</p>
-                    </div>
-                    <Button
-                      className="interactive-button-base btn--primary"
-                      style={{
-                        gap: 'var(--space-2)',
-                        padding: 'var(--space-3) var(--space-5)',
-                        background: 'var(--accent-text)',
-                        color: 'var(--background)',
-                        border: 'none'
-                      }}
-                      asChild
-                    >
-                      <a href={resumePdf} download>
-                        <Download size={18} />{t('resume.viewer.downloadBtn')}</a>
-                    </Button>
-                  </div>
-                </div>
-              </object>
-            </div>
-            <p className="body muted" style={{
-              textAlign: 'center',
-              marginTop: 'var(--space-4)'
-            }}>{t('resume.viewer.cantView')}{' '}<a
-                href={resumePdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: 'var(--accent-text)', textDecoration: 'underline' }}
-              >{t('resume.viewer.openNewWindow')}</a>
-            </p>
-          </div>
-        </section>
+        {/* 2026/08：原本這裡是內嵌 PDF 檢視器（object type="application/pdf"）。
+            移除三個理由：iOS Safari 不支援內嵌 PDF（一律掉到 fallback）、
+            桌機載入慢、而且它顯示的內容跟下面的 HTML 履歷完全重複。
+            PDF 仍保留在頁首的下載按鈕，招募方要丟進 ATS 的檔案沒有少。 */}
 
         {/* Experience Timeline */}
         <section className="section">
@@ -526,35 +464,6 @@ export default function Resume() {
         }
 
         /* ==================================================
-           PDF Embed Styles (新增的重點修復)
-           ================================================== */
-        .resume-pdf-container {
-          width: 100%;
-          height: 85vh;          /* 使用畫面高度比例，確保在大螢幕也能看得清楚 */
-          min-height: 600px;     /* 設定最小高度，避免在縮放時變得太小 */
-          border-radius: 16px;
-          overflow: hidden;
-          border: 1px solid rgba(0,0,0,0.08);
-          box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-          background: var(--surface);
-        }
-        
-        .resume-pdf-object {
-          width: 100%;
-          height: 100%;
-          display: block;
-          border: none;
-        }
-
-        /* 針對手機裝置的優化 */
-        @media (max-width: 768px) {
-          .resume-pdf-container {
-            height: 70vh;
-            min-height: 500px;
-          }
-        }
-
-        /* ==================================================
            原本的樣式 (完全不更動)
            ================================================== */
         .header-section { padding-top: 40px; padding-bottom: 40px; }
@@ -566,7 +475,8 @@ export default function Resume() {
         .section-head {
           font-size: clamp(28px, 4vw, 48px);
           font-weight: 700;
-          color: var(--accent-text); /* Blue */
+          /* 2026/08：同 Home / About，章節標題改用 ink。 */
+          color: var(--text-primary);
           margin-bottom: 32px;
         }
 

@@ -21,21 +21,29 @@
     "hero": {
       "name": "",
       "title": "使用者研究與產品設計",
+      "lede": "我把行為研究變成能上線的產品。",
+      "proof": "我做了一場 48 人的受控實驗，研究在床拖延的手機通知介入，實驗用的 React Native App 也是我寫的。北科大互動設計碩士，2026 年 8 月畢業。",
+      "chip1": "北科大 互動設計碩士",
+      "chip2": "2 篇第一作者論文，1 篇最佳論文",
+      "chip3": "OpenHCI '25 Best Demo",
+      "chip4": "服務創新大賽 萊爾富題金獎",
+      "chip5": "UX Design Awards 提名",
       "subtitle": "從使用者研究到數位與實體產品設計",
       "desc": "用研究做決策 / 訪談與實驗告訴我哪個問題值得解，原型與可用性測試告訴我答案站不站得住腳。我從問題定義做到上線，交付能跑也能測的產品。",
       "aboutBtn": "認識我",
       "viewWorkBtn": "看作品",
       "photoAlt": "Rose Chang 於 OpenHCI 活動現場",
       "badgeBefore": "2026 年 8 月起可到職",
-      "badgeAfter": "開放全職機會"
+      "badgeAfter": "開放全職機會",
+      "resumeBtn": "履歷"
     },
     "works": {
       "heading": "精選作品",
       "viewAll": "看所有專案 →",
       "sleepGuardian": {
-        "titlePre": "Sleep Guardian /",
-        "titleHighlight": "打斷",
-        "titlePost": "累積成睡眠負債前的在床拖延",
+        "titlePre": "Sleep Guardian／",
+        "titleHighlight": "48 人",
+        "titlePost": "受控實驗，跑在我自己寫的 App 上。",
         "desc": "規劃並執行遠端非同步實驗，設計互動流程與原型，打造 React Native 介入實驗 App，研究睡前躺床滑手機的在床拖延行為。",
         "caption": "碩士論文。自建 React Native 實驗 app，執行 3×3 受控實驗（N=48）。訴求類型大幅改變主觀感受（η²p .18 到 .29），對滑手機的行為幾乎沒有影響。",
         "tag1": "碩士論文",
@@ -44,9 +52,9 @@
         "imgAlt": "Sleep Guardian 專案封面"
       },
       "oblivilight": {
-        "titlePre": "Oblivilight /",
-        "titleHighlight": "遺忘",
-        "titlePost": "不想讓 AI 記得的事。",
+        "titlePre": "Oblivilight／",
+        "titleHighlight": "Best Demo",
+        "titlePost": "於 OpenHCI '25，從 11 場訪談長出來。",
         "desc": "在 6 天工作坊做出可運作的實體互動裝置，探索 AI 如何「遺忘」。獲 OpenHCI '25 Best Demo Award。",
         "caption": "OpenHCI '25 Best Demo。11 場訪談發現使用者想向 AI 傾訴、卻怕被永久記住，據此設計 10 種情緒光效系統。",
         "tag1": "OpenHCI'25",
@@ -56,9 +64,9 @@
         "status": "Best Demo Award\nTAICHI '25 Demo"
       },
       "mu": {
-        "titlePre": "Mù /",
-        "titleHighlight": "聽見",
-        "titlePost": "木材消失之前的聲音。",
+        "titlePre": "Mù／",
+        "titleHighlight": "UX Design Awards",
+        "titlePost": "提名。N=23 研究把整個概念轉了向。",
         "desc": "為台灣瀕危珍貴木打造多感官互動導覽，用情感設計與混合研究方法保存文化記憶。",
         "caption": "UX Design Awards 提名。N=23 的問卷與訪談推翻原本的睡眠艙構想，把專案轉向台灣 12 種珍貴木。",
         "tag2": "多感官互動",
@@ -67,27 +75,28 @@
         "imgAlt": "Mù 專案封面"
       },
       "innoconnect": {
-        "titlePre": "Innoconnect+ /",
-        "titleHighlight": "送禮",
-        "titlePost": "也是需要被設計的體驗。",
+        "titlePre": "Innoconnect+／",
+        "titleHighlight": "萊爾富題金獎",
+        "titlePost": "決賽 10 隊中唯一金獎，SUS 90% 正面（N=19）。",
         "desc": "為萊爾富來送禮 O2O 服務做服務藍圖、使用者旅程設計與原型易用性驗證，用心理測驗與使用流程優化解決行銷與使用痛點，獲金獎。",
-        "caption": "萊爾富來送禮服務再設計。全賽事 186 組中拿下萊爾富題金獎，並獲邀進行企業內部提案。SUS 90% 正面（N=19）。",
+        "caption": "萊爾富來送禮服務再設計。決賽 10 隊中拿下萊爾富題金獎，並獲邀進行企業內部提案。SUS 90% 正面（N=19）。",
         "tag1": "服務設計",
         "tag2": "使用者旅程設計",
         "tag3": "金獎",
         "imgAlt": "Innoconnect 專案封面"
       },
       "publications": {
-        "titlePre": "研究發表 /",
+        "titlePre": "研究發表／",
         "titleHighlight": "兩篇",
-        "titlePost": "第一作者研討會論文。",
+        "titlePost": "第一作者研討會論文，其中一篇最佳論文。",
         "desc": "第一作者研究，主題涵蓋人與 AI 的音樂共創和 AI 語音情緒，發表於 IEEE GCCE 2025 與 SSIM 2024，SSIM 論文獲最佳論文獎。",
         "caption": "兩篇第一作者會議論文。SSIM 2024 最佳論文；IEEE GCCE 2025 日本大阪口頭發表。",
         "tag1": "IEEE GCCE",
         "tag2": "HCI 研究",
         "tag3": "最佳論文",
         "imgAlt": "研討會論文封面"
-      }
+      },
+      "explore": "看專案"
     },
     "research": {
       "heading": "研究與論文",
@@ -200,6 +209,13 @@
       "heading": "一起做點什麼吧！",
       "sub": "歡迎聊正職機會、合作提案，或約喝杯咖啡聊聊。",
       "linkedin": "到 LinkedIn 找我"
+    },
+    "howIWork": {
+      "label": "我怎麼工作",
+      "title": "這個網站背後的系統",
+      "desc": "這份作品集本身也是一個案例。我在程式碼裡建起它的設計系統，稽核了一輪，並把結果寫成文件。",
+      "ds": "設計系統 →",
+      "built": "我怎麼做出這個站 →"
     }
   },
   "about": {
@@ -216,31 +232,48 @@
     },
     "intro": {
       "line1": "會寫程式的研究者。",
-      "line2": "也是個懂得問",
-      "line2Em": "為什麼的設計師。",
-      "p1a": "我是重視細節的 UI/UX 設計師，也喜歡追問每個細節背後的原因。工作橫跨 UI 設計與 UX 研究，曾和團隊一起拿下",
-      "p1strong": "2024 InnoConnect+ 金獎",
-      "p1b": "，題目來自萊爾富。",
-      "p2a": "先前我在",
-      "p2strong": "凱鈿 KDAN 擔任行銷實習生",
-      "p2b": "，負責社群內容製作，並產出網紅與廣告成效的分析報告。最近的研究重心是 AI 生成音樂與語音合成。",
+      "line2": "也是個懂得",
+      "line2Em": "問為什麼的設計師。",
+      "p1": "你好，我是 Rose。2026 年 8 月從國立臺北科技大學互動設計研究所畢業。",
+      "p2": "我把使用者研究變成可以被衡量、也站得住腳的產品決策。",
       "p3": "喜歡和跨領域的夥伴一起，把粗糙的想法做成使用者真正需要的東西。不做設計的時候：聽新音樂、寫點創意程式、追最新的設計趨勢。"
+    },
+    "highlights": {
+      "label": "重點與成果",
+      "h1label": "研究與論文發表",
+      "h1text": "碩士論文做了 3×3 混合設計受控實驗（訴求類型 × 感官模態，N=48），主題是在床拖延；訴求類型大幅改變主觀感受（η²p .18 到 .29），卻幾乎沒有改變滑動行為。另外，兩篇國際研討會論文第一作者，題目是 AI 輔助音樂創作與 AI 語音的情緒回饋，其中一篇獲最佳論文。",
+      "h2label": "競賽與驗證",
+      "h2text": "全國服務創新跨界共創大賽萊爾富題金獎，決賽 10 隊中唯一金獎，並以可用性測試驗證設計成效（SUS 90% 正面，N=19）。OpenHCI '25 Best Demo。",
+      "h3label": "執行與流程",
+      "h3text": "科技業行銷實習期間開發 110 位以上 KOL，全程執行約 15 檔合作，從洽談、合約到結案，並主動建立合作交接 SOP。"
     },
     "skills": {
       "catResearch": "研究",
-      "catCraft": "製作",
+      "catSystem": "設計系統",
+      "catBuild": "實作與交付",
       "catStrategy": "策略",
       "usability": "易用性測試",
-      "counterbalancing": "拉丁方格平衡",
+      "abtest": "受控實驗 / A-B 測試",
       "spss": "SPSS / 量化",
-      "interviews": "訪談",
+      "interviews": "使用者訪談",
       "survey": "問卷設計",
+      "counterbalancing": "拉丁方格平衡",
       "mixed": "混合研究方法",
+      "designSystem": "",
       "figma": "",
-      "prototype": "原型 / React",
-      "genai": "生成式 AI 工作流",
+      "tokens": "",
+      "ia": "資訊架構 / 流程 / 線稿",
+      "rwd": "響應式設計 (RWD)",
+      "a11y": "",
+      "react": "",
+      "reactNative": "",
+      "htmlcss": "",
+      "spec": "設計規格與交付",
+      "motion": "動效 / 微互動",
+      "prototype": "原型製作",
       "serviceDesign": "服務設計",
       "productStrategy": "產品策略",
+      "genai": "生成式 AI 工作流",
       "facilitation": "工作坊引導",
       "marketingOps": "行銷營運",
       "lvlAdv": "進階"
@@ -1727,6 +1760,85 @@
         "brand": "品牌與視覺",
         "workshops": "工作坊"
       }
+    }
+  },
+  "designSystem": {
+    "title1": "Design",
+    "title2": "System.",
+    "meta": "作品集設計系統 · 三層 token · 亮暗雙模式 · WCAG 2.1 AA",
+    "lede": "我先在程式碼裡把這套系統建起來，再回推成 Figma 元件庫。這頁的每一個數值都從執行中的樣式表即時讀取，所以文件不會和實作脫節。",
+    "layers": {
+      "title": "三層 token",
+      "sub": "Primitive 收全站僅有的三個色相。Semantic 為它們命名角色，並承載亮暗兩組值。第三層相容層把 shadcn 的變數對映回 semantic，讓任何元件都不自帶顏色。",
+      "l1": "第一層 · Primitive",
+      "l2": "第二層 · Semantic",
+      "l3": "第三層 · shadcn 相容層",
+      "l3desc": "card、primary、muted、chart-1 等 34 個別名全部指向第二層。這一層刻意不進 Figma 元件庫，因為它的用途是讓第三方元件繼承系統，搬進去只會多出 34 個沒人拿來畫圖的變數。知道什麼該留在外面，也是這份工作的一部分。"
+    },
+    "flip": {
+      "title": "哪些翻轉，哪些不翻",
+      "sub": "暗色模式是一組判斷，不等於整套反相。這四個強調色 token 就是判斷發生的地方，做錯這裡是最快讓對比失效的方式。",
+      "colToken": "Token",
+      "colNow": "目前值",
+      "colRule": "規則",
+      "accent": "兩個模式相同。acid 是品牌訊號，維持不變。",
+      "onaccent": "兩個模式相同。acid 底上的文字永遠是 acid-ink，翻轉會讓對比掉到 AA 以下。",
+      "accenttext": "翻轉。亮色底用 acid-ink，暗色底用 acid，讓強調色文字兩邊都讀得到。",
+      "accentoninverse": "與 accent-text 反向翻轉，因為反轉底色在亮色模式是深的，在暗色模式是亮的。",
+      "demoAcid": "acid 底 · 文字鎖在 on-accent",
+      "demoInverse": "反轉底 · 隨模式翻轉"
+    },
+    "scale": {
+      "title": "間距與圓角",
+      "sub": "間距走 4 與 8 的倍數。圓角在這次稽核中收斂，先前站上同名並存兩套尺度，另有兩個硬編碼值。",
+      "spacing": "間距",
+      "radius": "圓角"
+    },
+    "type": {
+      "title": "字級",
+      "sub": "標題用 Space Grotesk，內文用 Inter，metadata 用 IBM Plex Mono。中文全部使用 Noto Sans TC，靠字重而非字體家族拉開層次。",
+      "specimen": "研究決定我怎麼做設計"
+    },
+    "states": {
+      "title": "元件狀態",
+      "sub": "每個可互動元件定義五種狀態。焦點狀態是指定的，沒有交給瀏覽器預設，因為最需要它的正是鍵盤使用者。",
+      "primary": "主要",
+      "secondary": "次要",
+      "note": "hover 放大到 1.06，active 縮到 0.97，focus 畫 2px 的 accent-text 外框並外推 3px，disabled 降到 40% 不透明度。所有動態在 prefers-reduced-motion 下一律取消。"
+    },
+    "breakpoints": {
+      "title": "斷點",
+      "sub": "四個寬度，行動優先。下面的卡片會標出你現在視窗所在的斷點，縮放瀏覽器就看得到它反應。",
+      "live": "目前視窗："
+    },
+    "audit": {
+      "title": "稽核發現",
+      "sub": "建 Figma 元件庫的過程等於把系統從程式碼裡讀回來，也因此翻出四個肉眼沒抓到的問題。三個已修，第四個已經界定範圍，等方案確認。",
+      "dup": {
+        "title": "15 個共用 class，45 份定義",
+        "desc": "同一組排版 class 在八個案例頁各自重寫。光是 section-heading 就有五種寫法，body-text 五種，detail-label、detail-value、detail-sub 各四種。現在樣式表裡只有一套 canonical 定義，剩下的 25 條頁面差異都是單一屬性覆寫，每一條都註明理由；另有兩頁的標題曾漂移成較小較粗的尺度，已經拉回一致。"
+      },
+      "radius": {
+        "title": "四種卡片圓角",
+        "desc": "同樣是卡片，在不同頁面分別渲染成 10px、16px、18px、20px。現在全部指向同一個 token。"
+      },
+      "scales": {
+        "title": "兩套圓角尺度共用同一組名字",
+        "desc": "var(--radius-lg) 解析成 16px，rounded-lg 卻解析成 10px，因為 Tailwind v4 的 @theme inline 會把值直接寫進 utility，不會發布成 CSS 變數。兩套同時生效。現已對齊。"
+      },
+      "legacy": {
+        "title": "舊色系殘留 120 處",
+        "desc": "上一版調色盤的四個色相（橘、粉、紫、藍）仍貫穿五個案例頁，出現在圖表、圖示、漸層底、邊框與獎項徽章。移除它們等於把這幾頁重新配色，不是換個 token 就好，所以在替代方案確認前先保留。"
+      },
+      "tag": {
+        "fixed": "已修",
+        "open": "待處理"
+      }
+    },
+    "figma": {
+      "title": "Figma 元件庫",
+      "sub": "同樣三層，改用 Figma Variables 重建，Light 與 Dark 是 collection 的兩個 mode，每個 semantic 變數都 alias 到 primitive，不直接填色碼。",
+      "status": "進行中 · 連結稍後補上"
     }
   }
 }

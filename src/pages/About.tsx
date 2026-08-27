@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import mePng from '../assets/images/Me.webp';
 import Layout from '../components/Layout';
+import TypeIn from '../components/TypeIn';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { Lightbulb, Target, Heart, Rocket, Monitor } from 'lucide-react';
@@ -13,7 +14,7 @@ import codingImg from '../assets/images/coding.webp';
 import crossFunctional from '../assets/images/cross-functional.webp';
 
 export default function About() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const heroRef = useRef<HTMLDivElement>(null);
   const strengthsRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
@@ -34,15 +35,15 @@ export default function About() {
         {/* Section 1: Hero Intro — Portrait Tile + Skill Matrix */}
         <section style={{ padding: '120px 0', position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 clamp(16px, 2.2vw, 32px)' }}>
-            <div className="about-two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '64px', alignItems: 'start' }}>
+            <div className="about-two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '64px', alignItems: 'stretch' }}>
 
               {/* ── Left: Portrait Tile ── */}
-              <div style={{ position: 'relative', border: '1px solid var(--border-strong)', background: 'var(--surface)', padding: '20px' }}>
+              <div style={{ position: 'relative', border: '1px solid var(--border-strong)', background: 'var(--surface)', padding: '20px', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--text-tertiary)', marginBottom: '14px' }}>
                   <span>{t('about.dossier.subject')}</span>
                   <span>{t('about.dossier.file')}</span>
                 </div>
-                <div style={{ aspectRatio: '4/5', overflow: 'hidden', background: 'var(--surface-muted)', position: 'relative' }}>
+                <div style={{ flex: '1 1 auto', minHeight: '320px', overflow: 'hidden', background: 'var(--surface-muted)', position: 'relative' }}>
                   <img
                     src={mePng}
                     alt={t('about.dossier.photoAlt')}
@@ -59,21 +60,51 @@ export default function About() {
 
               {/* ── Right: Bio + Skill Matrix ── */}
               <div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(30px,4vw,52px)', lineHeight: 1.02, letterSpacing: '-.02em', margin: '0 0 28px', textTransform: 'uppercase', color: 'var(--accent-text)' }}>{t('about.intro.line1')}{' '}
-                  <span style={{ color: 'var(--text-primary)', fontStyle: 'italic', fontWeight: 400, margin: '0 .06em' }}>/</span>{' '}{t('about.intro.line2')}{' '}
-                  <em style={{ fontStyle: 'normal', color: 'var(--on-accent)', background: 'var(--accent)', padding: '0 .1em', display: 'inline-block', transform: 'translateY(-.04em)' }}>{t('about.intro.line2Em')}</em>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(30px,4vw,52px)', lineHeight: 1.02, letterSpacing: '-.02em', margin: '0 0 28px', textTransform: 'uppercase', color: 'var(--accent-text)' }}>
+                  <TypeIn
+                    key={locale}
+                    charMs={locale === 'zh' ? 80 : 40}
+                    segments={[
+                      { text: `${t('about.intro.line1')} ` },
+                      { text: '/', style: { color: 'var(--text-primary)', fontStyle: 'italic', fontWeight: 400, margin: '0 .06em' } },
+                      { text: locale === 'zh' ? ` ${t('about.intro.line2')}` : ` ${t('about.intro.line2')} ` },
+                      { text: t('about.intro.line2Em'), highlight: true },
+                    ]}
+                  />
                 </h3>
 
-                <p style={{ fontSize: '16px', lineHeight: 1.65, color: 'var(--text-primary)', margin: '0 0 16px', maxWidth: '56ch' }}>{t('about.intro.p1a')}{' '}<strong style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{t('about.intro.p1strong')}</strong>{' '}{t('about.intro.p1b')}</p>
-                <p style={{ fontSize: '16px', lineHeight: 1.65, color: 'var(--text-primary)', margin: '0 0 16px', maxWidth: '56ch' }}>{t('about.intro.p2a')}{' '}<strong style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{t('about.intro.p2strong')}</strong>{t('about.intro.p2b')}</p>
-                <p style={{ fontSize: '16px', lineHeight: 1.65, color: 'var(--text-primary)', margin: 0, maxWidth: '56ch' }}>{t('about.intro.p3')}</p>
+                {/* 行寬不設 max-width，換行點交給欄位邊界，跟 Home hero 同一套處理 */}
+                <p className="about-intro-p">{t('about.intro.p1')}</p>
+                <p className="about-intro-p about-intro-p--lede">{t('about.intro.p2')}</p>
 
-                {/* Skill Matrix */}
-                <div style={{ marginTop: '40px', border: '1px solid var(--border-strong)' }}>
+                {/* Highlights：不用 emoji，改用全站既有的 mono 標籤語彙；
+                    項目符號是 CSS 畫的 acid 直條，不用 ❙ 這種跨字型會歪掉的字元。 */}
+                <p className="text-meta-style about-hl-label">{t('about.highlights.label')}</p>
+                <ul className="about-hl">
+                  {[1, 2, 3].map(i => (
+                    <li key={i}>
+                      <strong>{t(`about.highlights.h${i}label`)}</strong>
+                      {t(`about.highlights.h${i}text`)}
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="about-intro-p about-intro-p--last">{t('about.intro.p3')}</p>
+              </div>
+
+              {/* Skill Matrix — 橫跨兩欄。原本擠在右欄裡，左欄照片下方因此空一大塊，
+                  而技能表只拿得到 ~700px，標籤被迫換成很多行。攤成整排之後
+                  左欄的空洞消失，表格也少掉幾行，整頁變短。 */}
+              <div style={{ gridColumn: '1 / -1', marginTop: '8px', border: '1px solid var(--border-strong)' }}>
                   {[
-                    { cat: t('about.skills.catResearch'), skills: [{ label: t('about.skills.usability'), hot: true }, { label: t('about.skills.counterbalancing'), hot: true }, { label: t('about.skills.spss'), lvl: t('about.skills.lvlAdv') }, { label: t('about.skills.interviews') }, { label: t('about.skills.survey') }, { label: t('about.skills.mixed') }] },
-                    { cat: t('about.skills.catCraft'), skills: [{ label: t('about.skills.figma'), hot: true }, { label: t('about.skills.prototype') }, { label: t('about.skills.genai') }] },
-                    { cat: t('about.skills.catStrategy'), skills: [{ label: t('about.skills.serviceDesign') }, { label: t('about.skills.productStrategy') }, { label: t('about.skills.facilitation') }, { label: t('about.skills.marketingOps') }] },
+                    // 分類與標籤對照 15 份 JD 的高頻關鍵字重排。hot（acid 底）留給
+                    // JD 出現次數最高、而 Rose 又真的有實績的四項：
+                    // Design System（7 份 JD 提到，最高頻）、Figma 的 Auto Layout/Variables、
+                    // 易用性測試、生成式 AI 工作流。
+                    { cat: t('about.skills.catResearch'), skills: [{ label: t('about.skills.usability'), hot: true }, { label: t('about.skills.abtest') }, { label: t('about.skills.spss'), lvl: t('about.skills.lvlAdv') }, { label: t('about.skills.interviews') }, { label: t('about.skills.survey') }, { label: t('about.skills.counterbalancing') }, { label: t('about.skills.mixed') }] },
+                    { cat: t('about.skills.catSystem'), skills: [{ label: t('about.skills.designSystem'), hot: true }, { label: t('about.skills.figma'), hot: true }, { label: t('about.skills.tokens') }, { label: t('about.skills.ia') }, { label: t('about.skills.rwd') }, { label: t('about.skills.a11y') }] },
+                    { cat: t('about.skills.catBuild'), skills: [{ label: t('about.skills.react') }, { label: t('about.skills.reactNative') }, { label: t('about.skills.htmlcss') }, { label: t('about.skills.prototype') }, { label: t('about.skills.spec') }, { label: t('about.skills.motion') }] },
+                    { cat: t('about.skills.catStrategy'), skills: [{ label: t('about.skills.genai'), hot: true }, { label: t('about.skills.serviceDesign') }, { label: t('about.skills.productStrategy') }, { label: t('about.skills.facilitation') }, { label: t('about.skills.marketingOps') }] },
                   ].map(({ cat, skills }, gi, arr) => (
                     <div key={cat} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', borderBottom: gi < arr.length - 1 ? '1px solid var(--border)' : 'none' }}>
                       <div style={{ padding: '18px 16px', borderRight: '1px solid var(--border)', background: 'var(--surface)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>
@@ -92,7 +123,6 @@ export default function About() {
                       </div>
                     </div>
                   ))}
-                </div>
               </div>
             </div>
           </div>
@@ -276,6 +306,48 @@ export default function About() {
         <style>{`
           /* === Base === */
           .mt-auto { margin-top: auto; }
+
+          /* === Intro 文字 ===
+             刻意不設 max-width：換行點交給右欄的邊界，跟 Home hero 同一套做法。
+             右欄約 700px，16px 內文一行約 85 字元，仍在可讀範圍。 */
+          .about-intro-p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin: 0 0 16px;
+          }
+          .about-intro-p--lede {
+            font-size: clamp(17px, 1.3vw, 19px);
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 32px;
+          }
+          .about-intro-p--last { margin: 28px 0 0; color: var(--text-secondary); }
+
+          .about-hl-label { color: var(--text-tertiary); margin: 0 0 14px; }
+
+          .about-hl { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+          .about-hl li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 15.5px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+          }
+          /* acid 直條取代 ❙ 字元：跨字型不會歪，螢幕閱讀器也不會念出奇怪的符號 */
+          .about-hl li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: .45em; bottom: .3em;
+            width: 3px; border-radius: 2px;
+            background: var(--accent);
+          }
+          .about-hl li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+          }
           
           /* Hero Section Animations */
           @keyframes spinSlow { to { transform: rotate(360deg); } }
@@ -283,7 +355,9 @@ export default function About() {
           .section-head {
             font-size: clamp(28px, 4vw, 48px);
             font-weight: 700;
-            color: var(--accent-text);
+            /* 2026/08：章節標題從 acid-ink 芥末褐改為 ink。
+               acid 只留在標題左側的圖示上，符合「acid 只當強調、不當文字色」。 */
+            color: var(--text-primary);
             margin-bottom: 32px;
           }
 

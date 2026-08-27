@@ -21,22 +21,30 @@
     "hero": {
       "name": "Rose Chang",
       "title": "UX Researcher & Product Designer",
+      "lede": "I turn behavioural research into products that ship.",
+      "proof": "I ran a 48-participant controlled experiment on notification design for while-in-bed procrastination, then built the React Native app it ran on. M.S. Interaction Design at Taipei Tech, graduating August 2026.",
+      "chip1": "M.S. Interaction Design, Taipei Tech",
+      "chip2": "2 first-author papers, 1 Best Paper",
+      "chip3": "OpenHCI '25 Best Demo",
+      "chip4": "Gold, Hi-Life service innovation",
+      "chip5": "UX Design Awards nominee",
       "subtitle": "From user research to digital and physical product design",
       "desc": "Research drives my decisions / Interviews and experiments tell me which problem is worth solving; prototypes and usability tests tell me whether the answer holds up. I work from problem definition through to launch, and I deliver something that runs and can be tested.",
       "aboutBtn": "About Me",
       "viewWorkBtn": "View Work",
       "photoAlt": "Rose Chang at OpenHCI",
       "badgeBefore": "Available from Aug 2026",
-      "badgeAfter": "Open to full-time roles"
+      "badgeAfter": "Open to full-time roles",
+      "resumeBtn": "Résumé"
     },
     "works": {
       "heading": "Selected Works",
       "viewAll": "View all projects →",
       "sleepGuardian": {
-        "titlePre": "Sleep Guardian /",
-        "titleHighlight": "interrupting",
-        "titlePost": "in-bed procrastination before it becomes sleep debt.",
-        "desc": "Planned and ran a remote, asynchronous experiment; designed the interaction flows and prototypes for a React Native intervention app studying in-bed smartphone procrastination.",
+        "titlePre": "Sleep Guardian,",
+        "titleHighlight": "48-participant",
+        "titlePost": "controlled experiment, running on an app I built.",
+        "desc": "Planned and ran a remote, asynchronous experiment; designed the interaction flows and prototypes for a React Native intervention app studying while-in-bed smartphone procrastination.",
         "caption": "M.S. thesis. Built the React Native test app and ran a 3×3 controlled experiment (N=48). Appeal type moved how people felt (η²p .18–.29) but barely moved how they scrolled.",
         "tag1": "M.S. Thesis",
         "tag2": "User Research",
@@ -44,9 +52,9 @@
         "imgAlt": "Sleep Guardian"
       },
       "oblivilight": {
-        "titlePre": "Oblivilight —",
-        "titleHighlight": "forgetting",
-        "titlePost": "what you don't want AI to remember.",
+        "titlePre": "Oblivilight,",
+        "titleHighlight": "Best Demo",
+        "titlePost": "at OpenHCI '25, built from 11 interviews.",
         "desc": "Built a tangible interaction device in a 6-day sprint, exploring how AI systems handle \"forgetting\" mechanisms. Best Demo Award at OpenHCI '25.",
         "caption": "OpenHCI '25 Best Demo. 11 interviews found people want to confide in AI but fear being remembered; I turned that into a 10-state emotional light system.",
         "tag1": "OpenHCI'25",
@@ -56,9 +64,9 @@
         "status": "Best Demo Award\nTAICHI '25 Demo"
       },
       "mu": {
-        "titlePre": "Mù —",
-        "titleHighlight": "listening",
-        "titlePost": "to wood before it disappears.",
+        "titlePre": "Mù,",
+        "titleHighlight": "UX Design Awards",
+        "titlePost": "nominee. N=23 research redirected the whole concept.",
         "desc": "Created a multisensory interactive guide for Taiwan's endangered woods, using emotional design and mixed-method research to preserve cultural memory.",
         "caption": "UX Design Awards nominee. N=23 research killed the original sleep-pod concept and redirected the project to Taiwan's 12 endangered woods.",
         "tag2": "Multisensory",
@@ -67,27 +75,28 @@
         "imgAlt": "Mù"
       },
       "innoconnect": {
-        "titlePre": "Innoconnect+ /",
-        "titleHighlight": "gifting",
-        "titlePost": "is an experience worth designing.",
+        "titlePre": "Innoconnect+,",
+        "titleHighlight": "Hi-Life track gold",
+        "titlePost": "from 10 finalists, with SUS 90% positive (N=19).",
         "desc": "Service blueprint, user journey design, and prototype usability testing for Hi-Life's Send-a-Gift O2O service. Tackled marketing and usability pain points with a personality quiz and flow optimization. Gold Award winner.",
-        "caption": "Hi-Life gifting redesign. Gold award among 186 teams, plus an invitation to pitch inside the company. SUS 90% positive (N=19).",
+        "caption": "Hi-Life gifting redesign. Gold in the Hi-Life track, one of 10 finalists, plus an invitation to pitch inside the company. SUS 90% positive (N=19).",
         "tag1": "Service Design",
         "tag2": "User Journey",
         "tag3": "Gold Award",
         "imgAlt": "Innoconnect"
       },
       "publications": {
-        "titlePre": "Publications —",
-        "titleHighlight": "two",
-        "titlePost": "first-author conference papers.",
+        "titlePre": "Publications,",
+        "titleHighlight": "two first-author",
+        "titlePost": "conference papers, one of them a Best Paper.",
         "desc": "First-author research on Human-AI music collaboration and AI voice emotion, presented at IEEE GCCE 2025 and SSIM 2024. The SSIM paper won the Best Paper Award.",
         "caption": "Two first-author conference papers. Best Paper at SSIM 2024; oral presentation at IEEE GCCE 2025, Osaka.",
         "tag1": "IEEE GCCE",
         "tag2": "HCI Research",
         "tag3": "Best Paper",
         "imgAlt": "Research Papers"
-      }
+      },
+      "explore": "Explore"
     },
     "research": {
       "heading": "Research / Thesis",
@@ -200,6 +209,13 @@
       "heading": "Let's Build Together",
       "sub": "Open for full-time opportunities, collaborations, and coffee chats.",
       "linkedin": "Connect on LinkedIn"
+    },
+    "howIWork": {
+      "label": "How I work",
+      "title": "The system behind this site",
+      "desc": "This portfolio is also a case study. I built its design system in code, audited it, and documented the result.",
+      "ds": "Design system →",
+      "built": "How I built this →"
     }
   },
   "about": {
@@ -218,29 +234,46 @@
       "line1": "A researcher who codes.",
       "line2": "A designer who",
       "line2Em": "asks why.",
-      "p1a": "I'm a UI/UX designer who sweats the details and asks why they matter. My work spans UI design and UX research, including a team project that won the",
-      "p1strong": "Gold Award at the 2024 InnoConnect+",
-      "p1b": "competition for Hi-Life.",
-      "p2a": "Previously, I worked as a",
-      "p2strong": "marketing intern at KDAN",
-      "p2b": ", where I created social media content and wrote analytical reports on influencer and ad performance. These days my research focus is AI-generated music and voice synthesis.",
+      "p1": "Hi, I'm Rose. I finish an M.S. in Interaction Design at National Taipei University of Technology in August 2026.",
+      "p2": "I turn user research into product decisions that can be measured and defended.",
       "p3": "I like building things with people — cross-functional teams turning rough ideas into something users actually want. When I'm not designing: new music, creative coding, or the latest design trends."
+    },
+    "highlights": {
+      "label": "Highlights & impact",
+      "h1label": "Research & publications",
+      "h1text": "For my thesis I ran a 3×3 mixed-design controlled experiment (appeal type × sensory modality, N=48) on while-in-bed procrastination: appeal type moved how people felt (η²p .18–.29) and barely moved how they scrolled. Separately, first author on two international conference papers, on AI-assisted music creation and on emotional response to AI voice, one of which won Best Paper.",
+      "h2label": "Award-winning design",
+      "h2text": "Gold in the Hi-Life track of a national service innovation competition, one of 10 finalists, with the design validated by usability testing (SUS 90% positive, N=19). Best Demo at OpenHCI '25.",
+      "h3label": "Execution & process",
+      "h3text": "Sourced 110+ creators and ran about 15 collaborations end to end, from pitch through contract to wrap, during a tech marketing internship. Wrote the handover SOP for it."
     },
     "skills": {
       "catResearch": "Research",
-      "catCraft": "Craft",
+      "catSystem": "Design system",
+      "catBuild": "Build & handoff",
       "catStrategy": "Strategy",
       "usability": "Usability Testing",
-      "counterbalancing": "Latin Square Counterbalancing",
+      "abtest": "Controlled Experiment / A-B",
       "spss": "SPSS / Quant",
-      "interviews": "Interviews",
+      "interviews": "User Interviews",
       "survey": "Survey Design",
+      "counterbalancing": "Latin Square Counterbalancing",
       "mixed": "Mixed Methods",
-      "figma": "Figma · Auto-layout",
-      "prototype": "Prototype / React",
-      "genai": "Gen-AI Workflows",
+      "designSystem": "Design System",
+      "figma": "Figma · Auto Layout / Variables",
+      "tokens": "Design Tokens",
+      "ia": "IA / User Flow / Wireframe",
+      "rwd": "Responsive (RWD)",
+      "a11y": "WCAG 2.1 AA",
+      "react": "React / TypeScript",
+      "reactNative": "React Native",
+      "htmlcss": "HTML / CSS",
+      "spec": "Design Spec & Handoff",
+      "motion": "Motion / Micro-interaction",
+      "prototype": "Prototyping",
       "serviceDesign": "Service Design",
       "productStrategy": "Product Strategy",
+      "genai": "Gen-AI Workflows",
       "facilitation": "Facilitation",
       "marketingOps": "Marketing Ops",
       "lvlAdv": "ADV"
@@ -341,7 +374,7 @@
         "period": "2025 - 2026",
         "type": "HCI Research & App Design",
         "title": "Sleep Guardian | Notification Intervention Design",
-        "desc": "Lead researcher & designer: planned and executed a controlled experiment, and designed interaction flows and prototypes for a React Native intervention app to study in-bed smartphone procrastination.",
+        "desc": "Lead researcher & designer: planned and executed a controlled experiment, and designed interaction flows and prototypes for a React Native intervention app to study while-in-bed smartphone procrastination.",
         "tag1": "M.S. Thesis",
         "tag2": "User Research Planning",
         "tag3": "Controlled Experiment"
@@ -683,7 +716,7 @@
       "framework": {
         "heading": "Theoretical Framework",
         "title": "Dual-Process Theory as design logic",
-        "introA": "The core design claim: to interrupt in-bed procrastination, interventions must operate on",
+        "introA": "The core design claim: to interrupt while-in-bed procrastination, interventions must operate on",
         "introEm": "three complementary pathways",
         "introB": "that correspond to different cognitive mechanisms — not just repeat the same blunt warning.",
         "exampleLabel": "Notification example",
@@ -777,7 +810,7 @@
         "group1": "Screening (2 months prior)",
         "bpsAbbr": "BPS",
         "bpsName": "Bedtime Procrastination Scale",
-        "bpsDesc": "Confirms participant has moderate-to-severe in-bed procrastination tendency (Kroese et al., 2014; α=0.92)",
+        "bpsDesc": "Confirms participant has moderate-to-severe while-in-bed procrastination tendency (Kroese et al., 2014; α=0.92)",
         "group2": "Pre-test (day of experiment)",
         "bscsAbbr": "BSCS",
         "bscsName": "Brief Self-Control Scale",
@@ -810,7 +843,7 @@
         "colQuestion": "Research question",
         "colVerdict": "Verdict",
         "rq1label": "RQ1 / H1",
-        "rq1q": "Do the three appeal types (threat / empathy / friction) differ in how well they interrupt in-bed procrastination?",
+        "rq1q": "Do the three appeal types (threat / empathy / friction) differ in how well they interrupt while-in-bed procrastination?",
         "rq1pred": "Appeal type will show a significant main effect on dismissal time and post-notification scrolling.",
         "rq1actual": "Dismissal time did differ (p = .016), but that reflects processing time rather than persuasion. Post-notification scrolling showed no effect, and friction did not beat the other groups on it.",
         "rq1verdict": "Partly supported",
@@ -1727,6 +1760,85 @@
         "brand": "Brand & Visual",
         "workshops": "Workshops"
       }
+    }
+  },
+  "designSystem": {
+    "title1": "Design",
+    "title2": "System.",
+    "meta": "Portfolio design system · 3-layer tokens · Light & dark · WCAG 2.1 AA",
+    "lede": "I built this system in code first, then reverse-engineered it into a Figma library. Every value on this page is read live from the running stylesheet, so the documentation cannot drift from the implementation.",
+    "layers": {
+      "title": "Three-layer tokens",
+      "sub": "Primitives hold the only three hues in the system. Semantic tokens name their roles and carry the light and dark values. A third compatibility layer maps shadcn's variables onto the semantic layer so no component ships its own colour.",
+      "l1": "Layer 1 · Primitive",
+      "l2": "Layer 2 · Semantic",
+      "l3": "Layer 3 · shadcn compatibility",
+      "l3desc": "34 aliases such as card, primary, muted and chart-1 all point at layer 2. This layer stays out of the Figma library on purpose: it exists to let third-party components inherit the system, and porting it would add 34 variables nobody draws with. Knowing what to leave out is part of the job."
+    },
+    "flip": {
+      "title": "What flips, what does not",
+      "sub": "Dark mode is a set of decisions, not an inversion. These four accent tokens are where the decisions live, and getting them wrong is the fastest way to break contrast.",
+      "colToken": "Token",
+      "colNow": "Current value",
+      "colRule": "Rule",
+      "accent": "Identical in both modes. Acid is the brand signal and stays constant.",
+      "onaccent": "Identical in both modes. Text on an acid surface is always acid-ink; flipping it would drop contrast below AA.",
+      "accenttext": "Flips. Acid-ink on light backgrounds, acid on dark, so accent-coloured text stays readable either way.",
+      "accentoninverse": "Flips opposite to accent-text, because inverse surfaces are dark in light mode and light in dark mode.",
+      "demoAcid": "Acid surface · locked to on-accent",
+      "demoInverse": "Inverse surface · flips with the mode"
+    },
+    "scale": {
+      "title": "Spacing and radius",
+      "sub": "Spacing runs on a 4 and 8 scale. Radius was consolidated during the audit: the site previously ran two scales under the same names plus two hardcoded values.",
+      "spacing": "Spacing",
+      "radius": "Radius"
+    },
+    "type": {
+      "title": "Type scale",
+      "sub": "Space Grotesk for display, Inter for body, IBM Plex Mono for metadata. Chinese uses Noto Sans TC throughout and separates hierarchy by weight instead of family.",
+      "specimen": "Research drives my decisions"
+    },
+    "states": {
+      "title": "Component states",
+      "sub": "Every interactive component defines five states. Focus is specified, not left to the browser default, because keyboard users are the ones who need it most.",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "note": "Hover scales to 1.06, active to 0.97, focus draws a 2px accent-text ring at 3px offset, disabled drops to 40% opacity. All motion is cancelled under prefers-reduced-motion."
+    },
+    "breakpoints": {
+      "title": "Breakpoints",
+      "sub": "Four widths, mobile first. The card below highlights the breakpoint your window is in right now, so resize the browser to watch it respond.",
+      "live": "Current viewport:"
+    },
+    "audit": {
+      "title": "What the audit found",
+      "sub": "Building the Figma library meant reading the system back out of the code. That surfaced four problems the eye had not caught. Three are fixed; the fourth is scoped and waiting.",
+      "dup": {
+        "title": "45 definitions of 15 shared classes",
+        "desc": "The same layout classes were redeclared across eight case-study pages. section-heading alone had five different definitions, body-text had five, and detail-label, detail-value and detail-sub had four each. There is now one canonical definition in the stylesheet. The 25 genuine per-page differences that remain are single-property overrides, each commented with its reason, and two pages that had drifted to a smaller, heavier heading scale were brought back in line."
+      },
+      "radius": {
+        "title": "Four card radii",
+        "desc": "Cards rendered at 10px, 16px, 18px and 20px depending on which page you were on. All now resolve to a single token."
+      },
+      "scales": {
+        "title": "Two radius scales sharing one set of names",
+        "desc": "var(--radius-lg) resolved to 16px while the rounded-lg utility resolved to 10px, because Tailwind v4's @theme inline substitutes values into utilities instead of publishing them as custom properties. Both were live at once. Now aligned."
+      },
+      "legacy": {
+        "title": "120 uses of a retired colour system",
+        "desc": "Four hues from an earlier palette (orange, pink, purple, blue) still run through five case-study pages across charts, icons, gradients, borders and award badges. Removing them is a visual redesign of those pages rather than a token swap, so they stay until the replacement is agreed."
+      },
+      "tag": {
+        "fixed": "Fixed",
+        "open": "Open"
+      }
+    },
+    "figma": {
+      "title": "Figma library",
+      "sub": "The same three layers rebuilt as Figma Variables, with Light and Dark as collection modes and every semantic variable aliased to a primitive rather than typed as a hex value.",
+      "status": "In progress · link coming"
     }
   }
 }

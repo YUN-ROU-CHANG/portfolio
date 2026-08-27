@@ -31,6 +31,7 @@ function AnimatedRoutes() {
           <Route path="/play" element={<Play />} />
           <Route path="/photography" element={<Photography />} />
           <Route path="/how-i-built-this" element={<HowIBuiltThis />} />
+          <Route path="/design-system" element={<DesignSystem />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </motion.div>
@@ -56,6 +57,7 @@ import ProjectArchive from './pages/project/ProjectArchive';
 import Play from './pages/Play';
 import Photography from './pages/Photography';
 import HowIBuiltThis from './pages/HowIBuiltThis';
+import DesignSystem from './pages/DesignSystem';
 
 export default function App() {
   return (
