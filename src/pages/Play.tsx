@@ -3,9 +3,9 @@ import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 
-import photographyCover from '../assets/images/photography/photography-cover.png';
-import concertImg from '../assets/images/home/concert.png';
-import vibeCodingImg from '../assets/images/home/vibe-coding.png';
+import photographyCover from '../assets/images/photography/photography-cover.webp';
+import concertImg from '../assets/images/home/concert.webp';
+import vibeCodingImg from '../assets/images/home/vibe-coding.webp';
 
 export default function Play() {
   const { t } = useLanguage();

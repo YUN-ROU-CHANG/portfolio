@@ -1,16 +1,16 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import mePng from '../assets/images/Me.png';
+import mePng from '../assets/images/Me.webp';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { Lightbulb, Target, Heart, Rocket, Monitor } from 'lucide-react';
 
 // ─── 引入 My Strengths 會用到的 5 張背景圖片 ───
-import experimentNotion from '../assets/images/experiment-notion.png';
-import awardsReport from '../assets/images/awards-report.jpg';
-import figmaImg from '../assets/images/figma.png';
-import codingImg from '../assets/images/coding.png';
-import crossFunctional from '../assets/images/cross-functional.jpeg';
+import experimentNotion from '../assets/images/experiment-notion.webp';
+import awardsReport from '../assets/images/awards-report.webp';
+import figmaImg from '../assets/images/figma.webp';
+import codingImg from '../assets/images/coding.webp';
+import crossFunctional from '../assets/images/cross-functional.webp';
 
 export default function About() {
   const { t } = useLanguage();

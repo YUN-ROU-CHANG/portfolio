@@ -14,14 +14,14 @@ import { Download, Linkedin, Github, Briefcase, GraduationCap, Award, Code, File
 import resumePdf from '../assets/images/Yun-Rou_Chang_Resume.pdf';
 
 // 獎狀與證明圖片（2026/08 從首頁搬過來，首頁只留一行摘要）
-import tuitionCert from '../assets/images/home/tuition.jpg';
-import timesYoungCert from '../assets/images/home/times-young-creative-awards.jpg';
-import ieeeGcceCert from '../assets/images/home/ieeegcce-presentation.jpg';
-import openhciCert from '../assets/images/home/best-demo.jpeg';
-import uxdaCert from '../assets/images/home/uxda-nominated.jpg';
-import innoconnectCert from '../assets/images/home/innoconnect-certificate.jpg';
-import bigDataCert from '../assets/images/home/big-data-cup.jpg';
-import ssimCert from '../assets/images/home/ssim-award.jpg';
+import tuitionCert from '../assets/images/home/tuition.webp';
+import timesYoungCert from '../assets/images/home/times-young-creative-awards.webp';
+import ieeeGcceCert from '../assets/images/home/ieeegcce-presentation.webp';
+import openhciCert from '../assets/images/home/best-demo.webp';
+import uxdaCert from '../assets/images/home/uxda-nominated.webp';
+import innoconnectCert from '../assets/images/home/innoconnect-certificate.webp';
+import bigDataCert from '../assets/images/home/big-data-cup.webp';
+import ssimCert from '../assets/images/home/ssim-award.webp';
 
 // Types
 type Experience = {

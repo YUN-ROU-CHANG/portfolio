@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import sleepGuardianCover from '../../assets/images/home/sleep-guardian-cover.png';
+import sleepGuardianCover from '../../assets/images/home/sleep-guardian-cover.webp';
 import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -10,21 +10,21 @@ import {
 } from 'lucide-react';
 
 // 引入你指定的新圖片
-import codeImg from '../../assets/images/project/sleep-guardian/sleep-guardian-code.png';
-import notionImg from '../../assets/images/project/sleep-guardian/experiment-notion.png';
-import appAudio from '../../assets/images/project/sleep-guardian/audio.png';
-import appEmpathy from '../../assets/images/project/sleep-guardian/empathy.png';
-import appFinish from '../../assets/images/project/sleep-guardian/finish.png';
-import appIntro2 from '../../assets/images/project/sleep-guardian/intro-2.png';
-import appIntro from '../../assets/images/project/sleep-guardian/intro.png';
-import appStatistic from '../../assets/images/project/sleep-guardian/statistic.png';
-import appSurvey from '../../assets/images/project/sleep-guardian/survey.png';
+import codeImg from '../../assets/images/project/sleep-guardian/sleep-guardian-code.webp';
+import notionImg from '../../assets/images/project/sleep-guardian/experiment-notion.webp';
+import appAudio from '../../assets/images/project/sleep-guardian/audio.webp';
+import appEmpathy from '../../assets/images/project/sleep-guardian/empathy.webp';
+import appFinish from '../../assets/images/project/sleep-guardian/finish.webp';
+import appIntro2 from '../../assets/images/project/sleep-guardian/intro-2.webp';
+import appIntro from '../../assets/images/project/sleep-guardian/intro.webp';
+import appStatistic from '../../assets/images/project/sleep-guardian/statistic.webp';
+import appSurvey from '../../assets/images/project/sleep-guardian/survey.webp';
 // 實際的通知刺激物（受測者看到的樣子）
-import stimThreat from '../../assets/images/project/sleep-guardian/stim-threat.png';
-import stimEmpathy from '../../assets/images/project/sleep-guardian/stim-empathy.png';
-import stimFriction from '../../assets/images/project/sleep-guardian/stim-friction.png';
-import stimAudio from '../../assets/images/project/sleep-guardian/stim-audio.png';
-import stimBaseline from '../../assets/images/project/sleep-guardian/stim-baseline.png';
+import stimThreat from '../../assets/images/project/sleep-guardian/stim-threat.webp';
+import stimEmpathy from '../../assets/images/project/sleep-guardian/stim-empathy.webp';
+import stimFriction from '../../assets/images/project/sleep-guardian/stim-friction.webp';
+import stimAudio from '../../assets/images/project/sleep-guardian/stim-audio.webp';
+import stimBaseline from '../../assets/images/project/sleep-guardian/stim-baseline.webp';
 
 type T = (key: string) => string;
 

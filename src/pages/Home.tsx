@@ -7,18 +7,18 @@ import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { Briefcase, Mail } from 'lucide-react';
 import { Separator } from '../components/ui/separator';
 
-import sleepGuardianCover from '../assets/images/home/sleep-guardian-cover.png';
-import oblivilightCover from '../assets/images/home/Oblivilight-cover.jpg';
-import muCover from '../assets/images/home/mu-cover.jpg';
-import innoconnectCover from '../assets/images/home/innoconnect-cover.jpg';
-import gcceCover from '../assets/images/home/gcce-cover.jpg';
+import sleepGuardianCover from '../assets/images/home/sleep-guardian-cover.webp';
+import oblivilightCover from '../assets/images/home/Oblivilight-cover.webp';
+import muCover from '../assets/images/home/mu-cover.webp';
+import innoconnectCover from '../assets/images/home/innoconnect-cover.webp';
+import gcceCover from '../assets/images/home/gcce-cover.webp';
 
-import logoSsim from '../assets/images/awards/ssim.png';
-import logoOpenhci from '../assets/images/awards/openhci.png';
-import logoUxda from '../assets/images/awards/uxda.png';
-import logoGcce from '../assets/images/awards/ieee-gcce.png';
-import logoTimes from '../assets/images/awards/times-awards.jpg';
-import logoInnoconnect from '../assets/images/awards/innoconnect_logo.png';
+import logoSsim from '../assets/images/awards/ssim.webp';
+import logoOpenhci from '../assets/images/awards/openhci.webp';
+import logoUxda from '../assets/images/awards/uxda.webp';
+import logoGcce from '../assets/images/awards/ieee-gcce.webp';
+import logoTimes from '../assets/images/awards/times-awards.webp';
+import logoInnoconnect from '../assets/images/awards/innoconnect_logo.webp';
 
 // 有 logo 的六項。大數據行銷競賽與傑出研究獎沒有可用 logo，靠 view-all 連結涵蓋。
 const AWARD_LOGOS = [

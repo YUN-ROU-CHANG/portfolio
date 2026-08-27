@@ -3,15 +3,15 @@ import { Link } from 'react-router';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
-import sleepGuardianCoverP from '../assets/images/home/sleep-guardian-cover.png';
-import oblivilightCoverP from '../assets/images/home/Oblivilight-cover.jpg';
-import muCoverP from '../assets/images/home/mu-cover.jpg';
-import innoconnectCoverP from '../assets/images/home/innoconnect-cover.jpg';
-import gcceCoverP from '../assets/images/home/gcce-cover.jpg';
-import timesYoungCover from '../assets/images/project/TimesYoungCreativeAwards/timesyoungcreativeawards-cover.png';
-import bigDataCupCover from '../assets/images/project/BigDataMarketingCup/big-data-cup-cover.png';
-import kdanCover from '../assets/images/project/AdnexInternship/ADNEX-social-cover.png';
-import pennStateCover from '../assets/images/project/ProjectArchive/penn-state-uni-cover.jpeg';
+import sleepGuardianCoverP from '../assets/images/home/sleep-guardian-cover.webp';
+import oblivilightCoverP from '../assets/images/home/Oblivilight-cover.webp';
+import muCoverP from '../assets/images/home/mu-cover.webp';
+import innoconnectCoverP from '../assets/images/home/innoconnect-cover.webp';
+import gcceCoverP from '../assets/images/home/gcce-cover.webp';
+import timesYoungCover from '../assets/images/project/TimesYoungCreativeAwards/timesyoungcreativeawards-cover.webp';
+import bigDataCupCover from '../assets/images/project/BigDataMarketingCup/big-data-cup-cover.webp';
+import kdanCover from '../assets/images/project/AdnexInternship/ADNEX-social-cover.webp';
+import pennStateCover from '../assets/images/project/ProjectArchive/penn-state-uni-cover.webp';
 
 type ProjectCategory = 'award' | 'research-exp' | 'design';
 
