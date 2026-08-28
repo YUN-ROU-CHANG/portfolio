@@ -6,7 +6,6 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "play": "Playground",
     "resume": "Resume",
     "chip": "Open to '26 Roles",
     "contact": "Contact →",
@@ -187,24 +186,6 @@
         "desc": "First Author. Focused on Human-AI music collaboration interfaces."
       }
     },
-    "playground": {
-      "heading": "Playground & Life",
-      "sub": "When I'm not designing interfaces, I'm exploring new mediums.",
-      "photography": {
-        "title": "Photography",
-        "desc": "Capturing everyday moments, textures, and light. Photography sharpens my eye for composition and detail in design work."
-      },
-      "music": {
-        "title": "Musical composition",
-        "desc": "Composing ambient and experimental pieces as a creative outlet—music as another form of interaction design.",
-        "label": "Listen ↗"
-      },
-      "vibeCoding": {
-        "title": "Vibe Coding & AI Tools",
-        "desc": "Experimenting with generative AI, creative coding, and building side projects that blend code with design curiosity.",
-        "label": "Read More →"
-      }
-    },
     "contact": {
       "heading": "Let's Build Together",
       "sub": "Open for full-time opportunities, collaborations, and coffee chats.",
@@ -355,6 +336,24 @@
         "title": "Hardware Meets Interface",
         "lead": "I'm drawn to the intersection of physical products and digital experiences.",
         "desc": "From automotive UX to wearable interfaces, I'm eager to design for embedded systems where constraints spark the most creative solutions."
+      }
+    },
+    "offClock": {
+      "heading": "Off the clock",
+      "sub": "When I'm not designing interfaces, I'm exploring new mediums.",
+      "photography": {
+        "title": "Photography",
+        "desc": "Capturing everyday moments, textures, and light. Photography sharpens my eye for composition and detail in design work.",
+        "label": "Explore →"
+      },
+      "piano": {
+        "title": "Piano",
+        "desc": "Started as a kid and never stopped. Playing is how I reset after a long week, with no audience and no deliverable."
+      },
+      "vibeCoding": {
+        "title": "Vibe Coding & AI Tools",
+        "desc": "Experimenting with generative AI, creative coding, and building side projects that blend code with design curiosity.",
+        "label": "Read More →"
       }
     }
   },

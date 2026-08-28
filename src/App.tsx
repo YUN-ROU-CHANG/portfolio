@@ -28,7 +28,8 @@ function AnimatedRoutes() {
           <Route path="/projects/big-data-cup" element={<BigDataMarketingCup />} />
           <Route path="/projects/project-archive" element={<ProjectArchive />} />
           <Route path="/resume" element={<Resume />} />
-          <Route path="/play" element={<Play />} />
+          {/* 2026/08：Playground 頁併入 About 底部的 Off the clock，舊連結轉址 */}
+          <Route path="/play" element={<Navigate to="/about" replace />} />
           <Route path="/photography" element={<Photography />} />
           <Route path="/how-i-built-this" element={<HowIBuiltThis />} />
           <Route path="/design-system" element={<DesignSystem />} />
@@ -54,7 +55,6 @@ import HCIPublications from './pages/project/HCIPublications';
 import AdnexInternship from './pages/project/AdnexInternship';
 import BigDataMarketingCup from './pages/project/BigDataMarketingCup';
 import ProjectArchive from './pages/project/ProjectArchive';
-import Play from './pages/Play';
 import Photography from './pages/Photography';
 import HowIBuiltThis from './pages/HowIBuiltThis';
 import DesignSystem from './pages/DesignSystem';

@@ -4,7 +4,8 @@ import Layout from '../components/Layout';
 import TypeIn from '../components/TypeIn';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
-import { Lightbulb, Target, Heart, Rocket, Monitor } from 'lucide-react';
+import { Lightbulb, Target, Heart, Rocket, Monitor, Bike } from 'lucide-react';
+import { Link } from 'react-router';
 
 // ─── 引入 My Strengths 會用到的 5 張背景圖片 ───
 import experimentNotion from '../assets/images/experiment-notion.webp';
@@ -13,13 +14,20 @@ import figmaImg from '../assets/images/figma.webp';
 import codingImg from '../assets/images/coding.webp';
 import crossFunctional from '../assets/images/cross-functional.webp';
 
+// ─── Off the clock 三列用圖 ───
+import photographyCover from '../assets/images/photography/photography-cover.webp';
+import concertImg from '../assets/images/home/concert.webp';
+import vibeCodingImg from '../assets/images/home/vibe-coding.webp';
+
 export default function About() {
   const { t, locale } = useLanguage();
   const heroRef = useRef<HTMLDivElement>(null);
   const strengthsRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
 
-  useRevealOnScroll();
+  // 帶 locale：切語言若讓任何 .reveal 節點重建，observer 會跟著重新掛上去，
+  // 不會留下永遠看不見的區塊。
+  useRevealOnScroll([locale]);
 
   const [showTop, setShowTop] = useState(false);
 
@@ -28,6 +36,38 @@ export default function About() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // 2026/08：原 /play 頁的三張卡搬進 About 收尾，改成橫向編輯式列表。
+  // link 為 null 的列不可點（純生活註記，不邀請點擊）。
+  // id 必須是與語言無關的固定值：拿 t() 當 React key 的話，切語言會讓整組 li
+  // 重新掛載成新節點，而 reveal 的 observer 只認得 mount 當下的節點，
+  // 新節點永遠拿不到 .in，整段會停在 opacity 0（就是之前中文全白的原因）。
+  const offClockItems = [
+    {
+      id: 'photography',
+      image: photographyCover,
+      title: t('about.offClock.photography.title'),
+      desc: t('about.offClock.photography.desc'),
+      label: t('about.offClock.photography.label'),
+      link: '/photography',
+    },
+    {
+      id: 'piano',
+      image: concertImg,
+      title: t('about.offClock.piano.title'),
+      desc: t('about.offClock.piano.desc'),
+      label: null,
+      link: null,
+    },
+    {
+      id: 'vibeCoding',
+      image: vibeCodingImg,
+      title: t('about.offClock.vibeCoding.title'),
+      desc: t('about.offClock.vibeCoding.desc'),
+      label: t('about.offClock.vibeCoding.label'),
+      link: '/how-i-built-this',
+    },
+  ];
 
   return (
     <Layout>
@@ -299,6 +339,39 @@ export default function About() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Section 4: Off the clock — 橫向編輯式列表，收尾註腳的層級，字級刻意比 Values 小一階 */}
+        <section className="section" id="about-offclock" style={{ paddingTop: '80px', paddingBottom: '96px' }}>
+          <div className="container" style={{ maxWidth: '1200px' }}>
+            <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+              <Bike size={32} color="var(--accent-text)" aria-hidden="true" />{t('about.offClock.heading')}</h2>
+            <p className="offclock-sub reveal">{t('about.offClock.sub')}</p>
+
+            <ul className="offclock-list">
+              {offClockItems.map((item, i) => {
+                const inner = (
+                  <>
+                    <div className="offclock-thumb">
+                      <img src={item.image} alt={item.title} loading="lazy" />
+                    </div>
+                    <div className="offclock-body">
+                      <h3>{item.title}</h3>
+                      <p>{item.desc}</p>
+                      {item.label && <span className="offclock-label">{item.label}</span>}
+                    </div>
+                  </>
+                );
+                return (
+                  <li key={item.id} className="reveal" style={{ '--reveal-delay': `${i * 80}ms` } as CSSProperties}>
+                    {item.link
+                      ? <Link className="offclock-row offclock-row--link" to={item.link}>{inner}</Link>
+                      : <div className="offclock-row">{inner}</div>}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </section>
 
@@ -625,6 +698,75 @@ export default function About() {
             border-radius: var(--radius-lg);
           }
 
+          /* === 🚲 Off the clock: 橫向編輯式列表 ===
+             刻意比 Values 輕一階：無卡片、無陰影，只有 hairline 分隔線。
+             有連結的列才有 hover 態；鋼琴那列是純生活註記，不邀請點擊。 */
+          .offclock-sub {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0 0 40px;
+            max-width: 52ch;
+          }
+
+          /* 列表收在 880px：分隔線跟著文字一起結束，右邊不會空掉三分之一，
+             內文行長也自然落在 65 到 75 字元，不必再用 max-width 硬切段落。 */
+          .offclock-list { list-style: none; margin: 0; padding: 0; max-width: 880px; }
+          .offclock-list > li { border-top: 1px solid var(--border); }
+          .offclock-list > li:last-child { border-bottom: 1px solid var(--border); }
+
+          .offclock-row {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr);
+            gap: 28px;
+            align-items: center;
+            padding: 24px 0;
+            color: inherit;
+            text-decoration: none;
+          }
+          .offclock-thumb {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: var(--surface-muted);
+            border: 1px solid var(--border);
+          }
+          .offclock-thumb img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .6s cubic-bezier(.2,.8,.2,1);
+          }
+          .offclock-body { display: flex; flex-direction: column; gap: 8px; }
+          .offclock-body h3 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.35;
+            margin: 0;
+            color: var(--text-primary);
+          }
+          .offclock-body p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+          }
+          .offclock-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--accent-text);
+            margin-top: 4px;
+          }
+          .offclock-row--link:hover .offclock-thumb img { transform: scale(1.04); }
+          .offclock-row--link:hover .offclock-body h3 { text-decoration: underline; text-underline-offset: 4px; }
+          .offclock-row--link:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 4px; }
+
+          @media (max-width: 720px) {
+            .offclock-row { grid-template-columns: 1fr; gap: 16px; padding: 20px 0; }
+            .offclock-thumb { aspect-ratio: 16 / 9; }
+          }
+
           /* === Responsive === */
           @media (max-width: 959px) {
             .about-two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
@@ -642,6 +784,8 @@ export default function About() {
           @media (prefers-reduced-motion: reduce) {
             .bento-card, .bento-bg img, .bento-overlay { transition: none !important; }
             .bento-card:hover { transform: none !important; }
+            .offclock-thumb img { transition: none !important; }
+            .offclock-row--link:hover .offclock-thumb img { transform: none !important; }
           }
         `}</style>
       </div>

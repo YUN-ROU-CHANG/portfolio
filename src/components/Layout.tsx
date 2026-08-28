@@ -145,7 +145,6 @@ export default function Layout({ children }: LayoutProps) {
           <NavItem to="/" end label={t('nav.home')} />
           <NavItem to="/about" label={t('nav.about')} />
           <NavItem to="/projects" label={t('nav.projects')} />
-          <NavItem to="/play" label={t('nav.play')} />
           <NavItem to="/resume" label={t('nav.resume')} />
           <ThemeToggle />
           <LanguageToggle />
