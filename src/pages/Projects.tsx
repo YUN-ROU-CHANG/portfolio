@@ -1,6 +1,7 @@
 import { useState, useEffect, type CSSProperties } from 'react';
 import { Link } from 'react-router';
 import Layout from '../components/Layout';
+import CjkText from '../components/CjkText';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import sleepGuardianCoverP from '../assets/images/home/sleep-guardian-cover.webp';
@@ -200,10 +201,10 @@ export default function Projects() {
                         {project.period} · {project.type}
                       </p>
                       <h3 className="project-title">
-                        {project.title}
+                        <CjkText>{project.title}</CjkText>
                       </h3>
                       <p className="project-description">
-                        {project.description}
+                        <CjkText>{project.description}</CjkText>
                       </p>
                       <div className="project-tags">
                         {project.tags.map((tag, index) => (

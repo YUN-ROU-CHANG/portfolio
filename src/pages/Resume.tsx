@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { motion, useScroll } from 'motion/react';
 import Layout from '../components/Layout';
+import CjkText from '../components/CjkText';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
@@ -157,7 +158,7 @@ function ExperienceItem({ experience }: { experience: Experience }) {
           <CardContent className="resume-card-content">
             <ul className="exp-desc-list">
               {experience.description.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li key={index}><CjkText>{item}</CjkText></li>
               ))}
             </ul>
             <div className="exp-badges">
@@ -258,7 +259,7 @@ export default function Resume() {
           <div className="container">
             <div className="reveal" style={{ textAlign: 'center', marginBottom: '48px' }}>
               <h2 className="section-head">{t('resume.experience.heading')}</h2>
-              <p className="body muted" style={{ maxWidth: '600px', margin: '0 auto' }}>{t('resume.experience.sub')}</p>
+              <p className="body muted" style={{ maxWidth: '600px', margin: '0 auto' }}><CjkText>{t('resume.experience.sub')}</CjkText></p>
             </div>
             <ol className="timeline-list">
               {resumeData.experience.map((exp) => (
@@ -342,7 +343,7 @@ export default function Resume() {
                       <CardHeader style={{ padding: '24px' }}>
                         <CardTitle className="exp-title">{edu.degree}</CardTitle>
                         <CardDescription>{edu.institution} · {edu.year}</CardDescription>
-                        {edu.description && <p style={{ fontSize: '14px', marginTop: '8px', color: 'var(--text-tertiary)' }}>{edu.description}</p>}
+                        {edu.description && <p className="edu-desc" style={{ fontSize: '14px', marginTop: '8px', color: 'var(--text-tertiary)' }}><CjkText>{edu.description}</CjkText></p>}
                       </CardHeader>
                     </Card>
                   ))}

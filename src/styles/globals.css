@@ -417,6 +417,46 @@
 }
 
 /* ────────────────────────────────────────────────
+   中文斷行
+   CjkText 用 Intl.Segmenter 斷詞後，把每個多字詞包成 .cjk-w，
+   換行點就只會落在詞與詞之間，不會出現「程式／碼」這種斷法。
+   英文本來就以空白斷行，只補 text-wrap: pretty 避免末行落單一個字。
+   ──────────────────────────────────────────────── */
+.cjk-w {
+  white-space: nowrap;
+}
+
+html:lang(en) p,
+html:lang(en) li,
+html:lang(en) dd,
+html:lang(en) blockquote,
+html:lang(en) figcaption {
+  text-wrap: pretty;
+}
+
+/* 中文正文左右對齊，每一行的右緣切齊同一條線。
+   逐一列出要對齊的段落，不用 p/li 這種通吃的選擇器：全站有 60 處
+   text-align: center，其中不少段落是「繼承」自容器，通吃的規則會把
+   它們一起改掉。英文不對齊，沒有連字符的英文拉伸會拉出很大的字間空隙。 */
+html:lang(zh-Hant) :is(
+  .work-caption,
+  .hiw-desc,
+  .hero-lede,
+  .hero-proof,
+  .about-intro-p,
+  .about-hl li,
+  .bento-sub,
+  .offclock-sub,
+  .offclock-body p,
+  .value-desc,
+  .project-description,
+  .exp-desc-list li,
+  .edu-desc
+) {
+  text-align: justify;
+}
+
+/* ────────────────────────────────────────────────
    TypeIn 打字進場（About intro）
    高亮塊用 clip-path 抹入，acid 底與 on-accent 字同時被揭開，
    所以字色跟底色永遠同步，不會有半透明過渡的中間態。
