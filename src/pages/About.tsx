@@ -14,10 +14,14 @@ import figmaImg from '../assets/images/figma.webp';
 import codingImg from '../assets/images/coding.webp';
 import crossFunctional from '../assets/images/cross-functional.webp';
 
-// ─── Off the clock 三列用圖 ───
+// ─── Off the clock 用圖 ───
 import photographyCover from '../assets/images/photography/photography-cover.webp';
 import concertImg from '../assets/images/home/concert.webp';
 import vibeCodingImg from '../assets/images/home/vibe-coding.webp';
+// 運動三連拍。兩張騎車的構圖幾乎一樣，所以把獨木舟排中間隔開重複感。
+import cycling1 from '../assets/images/off-clock/cycling-1.webp';
+import kayakImg from '../assets/images/off-clock/kayak.webp';
+import cycling2 from '../assets/images/off-clock/cycling-2.webp';
 
 export default function About() {
   const { t, locale } = useLanguage();
@@ -67,6 +71,12 @@ export default function About() {
       label: t('about.offClock.vibeCoding.label'),
       link: '/how-i-built-this',
     },
+  ];
+
+  const sportsPhotos = [
+    { src: cycling1, alt: t('about.offClock.sports.alt1') },
+    { src: kayakImg, alt: t('about.offClock.sports.alt2') },
+    { src: cycling2, alt: t('about.offClock.sports.alt3') },
   ];
 
   return (
@@ -371,6 +381,21 @@ export default function About() {
                   </li>
                 );
               })}
+
+              {/* 運動列：三張直式照片橫排，沒有 h3。段落大標已經交代過情境，
+                  再給一個同級標題會變成第二個章節，所以只留一行 mono 圖說。 */}
+              <li className="reveal" style={{ '--reveal-delay': '240ms' } as CSSProperties}>
+                <div className="offclock-row offclock-row--photos">
+                  <div className="offclock-photos">
+                    {sportsPhotos.map(photo => (
+                      <div key={photo.src} className="offclock-photo">
+                        <img src={photo.src} alt={photo.alt} loading="lazy" />
+                      </div>
+                    ))}
+                  </div>
+                  <span className="offclock-caption">{t('about.offClock.sports.caption')}</span>
+                </div>
+              </li>
             </ul>
           </div>
         </section>
@@ -758,6 +783,33 @@ export default function About() {
             color: var(--accent-text);
             margin-top: 4px;
           }
+          /* 運動列：跨滿整個列表寬度的三連拍，跟前三列的左圖右文形成節奏變化。
+             用 1:1 而非 3:4，因為三張裡有橫有直：橫式那張裁成 3:4 會切掉半張臉，
+             且可用區域只剩 499×666，在 2 倍螢幕上會糊。方形對兩種方向都成立。 */
+          .offclock-row--photos { display: block; }
+          .offclock-photos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+          }
+          .offclock-photo {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: var(--surface-muted);
+            border: 1px solid var(--border);
+          }
+          .offclock-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+          /* 圖說用 tertiary 不用 accent：acid 在這頁代表「可以點」，這列不能點。 */
+          .offclock-caption {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-top: 12px;
+          }
+
           .offclock-row--link:hover .offclock-thumb img { transform: scale(1.04); }
           .offclock-row--link:hover .offclock-body h3 { text-decoration: underline; text-underline-offset: 4px; }
           .offclock-row--link:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 4px; }
@@ -765,6 +817,9 @@ export default function About() {
           @media (max-width: 720px) {
             .offclock-row { grid-template-columns: 1fr; gap: 16px; padding: 20px 0; }
             .offclock-thumb { aspect-ratio: 16 / 9; }
+            /* 三連拍在手機維持橫排：方形各約 109px 仍看得出內容，
+               改成直向堆疊會讓這列長到三個螢幕高。 */
+            .offclock-photos { gap: 8px; }
           }
 
           /* === Responsive === */

@@ -354,6 +354,12 @@
         "title": "Vibe Coding & AI Tools",
         "desc": "Experimenting with generative AI, creative coding, and building side projects that blend code with design curiosity.",
         "label": "Read More →"
+      },
+      "sports": {
+        "caption": "Cycling · Kayaking",
+        "alt1": "Mid-ride selfie on a riverside bike path",
+        "alt2": "Kayaking below a sea cliff",
+        "alt3": "With my road bike at a trailhead visitor centre"
       }
     }
   },
