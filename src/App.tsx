@@ -1,9 +1,16 @@
+import { useEffect } from 'react';
 import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router';
 import { AnimatePresence, motion } from 'motion/react';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function AnimatedRoutes() {
   const location = useLocation();
+
+  // HashRouter 換頁不會重置捲動位置，會停在上一頁的高度上。
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <AnimatePresence mode="wait">
       <motion.div

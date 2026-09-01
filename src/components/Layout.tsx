@@ -216,10 +216,11 @@ export default function Layout({ children }: LayoutProps) {
           border-bottom: 1px solid var(--border-strong);
           font-family: var(--font-mono);
           font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
-          transition: padding 0.3s ease, box-shadow 0.3s ease;
+          transition: box-shadow 0.3s ease;
         }
+        /* 捲動時只加陰影，不動 padding：改 padding 會讓整條列矮 10px，
+           膠囊跟著上下跳，也會對不上 main 的 padding-top 72px。 */
         .top-bar.scrolled {
-          padding: 9px clamp(16px, 2.2vw, 32px);
           box-shadow: 0 2px 12px rgba(12,12,12,0.08);
         }
         
@@ -227,7 +228,7 @@ export default function Layout({ children }: LayoutProps) {
         
         /* Navigation Capsule */
         .top-mid {
-          display: flex; gap: 4px; align-items: center;
+          display: flex; gap: 8px; align-items: center;
           justify-content: center;
           padding: 4px;
           border: 1px solid var(--border-strong); border-radius: 999px;
@@ -248,7 +249,12 @@ export default function Layout({ children }: LayoutProps) {
           white-space: nowrap;
           box-sizing: border-box;
           text-align: center;
-          min-width: 88px; /* every nav item shares one width (widest = Projects) so buttons look uniform and never shift on 中文/EN toggle */
+          flex: 0 0 auto;
+          /* Every nav item shares one width so the capsule never resizes on the 中文/EN toggle.
+             96px, not 88px: "Projects" needs 87.8px here, and with only 0.2px of slack a mono
+             fallback (or a font that hasn't loaded yet) pushes it past the floor and the English
+             capsule ends up wider than the Chinese one. */
+          min-width: 96px;
         }
         .top-mid a:hover { background: var(--surface-inverse); color: var(--text-on-inverse); }
         /* Background comes from the sliding .nav-pill-bg, so the link itself stays transparent. */
@@ -263,6 +269,7 @@ export default function Layout({ children }: LayoutProps) {
         .nav-pill-label { position: relative; z-index: 1; }
         .theme-toggle {
           display: inline-flex; align-items: center; justify-content: center;
+          flex: 0 0 28px;
           width: 28px; height: 28px; margin-left: 2px;
           border: none; border-radius: 999px;
           background: transparent; color: var(--text-tertiary);
@@ -363,7 +370,6 @@ export default function Layout({ children }: LayoutProps) {
             justify-content: center !important;
             padding: 12px 16px !important;
           }
-          .top-bar.scrolled { padding: 10px 16px !important; }
           .top-left { display: none !important; } /* 隱藏名字與時間 */
           .top-right { display: none !important; }
           
