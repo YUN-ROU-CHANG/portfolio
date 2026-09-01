@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { Link } from 'react-router';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import Layout from '../components/Layout';
 import TypeIn from '../components/TypeIn';
+import CjkText from '../components/CjkText';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { Briefcase, Mail } from 'lucide-react';
@@ -61,17 +62,22 @@ function WorkCard({ work, feature, index }: { work: Work; feature?: boolean; ind
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.2, 0.8, 0.2, 1] }}
     >
       <Link className={`work-card${feature ? ' work-card--feature' : ''}`} to={`/projects/${work.slug}`}>
-        <div className="work-cover">
+        {/* feature 卡把封面圖網址傳進 CSS，讓 ::before 拿同一張圖當模糊底填滿留白。
+            其餘四張是 cover 滿版，不需要這層。 */}
+        <div
+          className="work-cover"
+          style={feature ? ({ '--cover-img': `url(${work.cover})` } as CSSProperties) : undefined}
+        >
           <img src={work.cover} alt={work.imgAlt} loading={feature ? 'eager' : 'lazy'} />
         </div>
         <div className="work-body">
           <div className="work-meta">{work.year} · {work.kindLabel}</div>
           <h3 className="work-title">
-            {work.titlePre}{' '}
-            <em>{work.titleHighlight}</em>{' '}
-            {work.titlePost}
+            <CjkText>{work.titlePre}</CjkText>{' '}
+            <em><CjkText>{work.titleHighlight}</CjkText></em>{' '}
+            <CjkText>{work.titlePost}</CjkText>
           </h3>
-          <p className="work-caption">{work.caption}</p>
+          <p className="work-caption"><CjkText>{work.caption}</CjkText></p>
           {/* 常駐的可點擊提示。整張卡本身就是 <a>，所以這裡只能是 span，
               不能再包一層連結，否則是不合法的巢狀連結。 */}
           <span className="work-cta">
@@ -86,9 +92,6 @@ function WorkCard({ work, feature, index }: { work: Work; feature?: boolean; ind
 
 export default function Home() {
   const { t, locale } = useLanguage();
-  // Graduation is Aug 2026, so the badge states a start date until then and
-  // switches to an open-ended one after. Nothing to update by hand either way.
-  const availableFromAug2026 = Date.now() < new Date('2026-08-01T00:00:00').getTime();
 
   useRevealOnScroll();
 
@@ -129,7 +132,7 @@ export default function Home() {
         >
           <div className="avail-badge">
             <span className="avail-dot"></span>
-            <span className="avail-label">{t(availableFromAug2026 ? 'home.hero.badgeBefore' : 'home.hero.badgeAfter')}</span>
+            <span className="avail-label">{t('home.hero.badgeAfter')}</span>
           </div>
           <h1 className="name interactive-name">
             {t('home.hero.name').split('').map((char, index) => (
@@ -139,8 +142,8 @@ export default function Home() {
             ))}
           </h1>
           <h2 className="head">{t('home.hero.title')}</h2>
-          <p className="hero-lede">{t('home.hero.lede')}</p>
-          <p className="hero-proof">{t('home.hero.proof')}</p>
+          <p className="hero-lede"><CjkText>{t('home.hero.lede')}</CjkText></p>
+          <p className="hero-proof"><CjkText>{t('home.hero.proof')}</CjkText></p>
           {/* 學經歷晶片：首屏唯一的「憑證」區塊，依序浮上來。
               內容全部對得上 Resume，不放任何無法查證的形容詞。 */}
           <ul className="hero-creds">
@@ -195,7 +198,6 @@ export default function Home() {
                   segments={[{ text: t('home.howIWork.title') }]}
                 />
               </h2>
-              <p className="hiw-desc">{t('home.howIWork.desc')}</p>
             </div>
             <div className="hiw-links">
               <Link to="/design-system" className="hiw-link">{t('home.howIWork.ds')}</Link>
@@ -236,7 +238,7 @@ export default function Home() {
           <h2 className="section-head reveal" style={{ justifyContent: 'center' }}>
             <Mail size={32} color="var(--accent-text)" />{t('home.contact.heading')}
           </h2>
-          <p className="contact-sub">{t('home.contact.sub')}</p>
+          <p className="contact-sub"><CjkText>{t('home.contact.sub')}</CjkText></p>
           <div className="contact-pills">
             <a className="contact-pill" href="https://www.linkedin.com/in/rose-chang0708" target="_blank" rel="noreferrer noopener">
               <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
@@ -502,12 +504,13 @@ export default function Home() {
           color: var(--on-accent);
           padding: 0 .12em;
         }
+        /* 不另外設 max-width：行長已經由卡片本身決定。多加一道 62ch（約 567px）
+           會比同一張卡的標題窄兩百多 px，單欄時右邊就留下一塊很明顯的空白。 */
         .work-caption {
           font-size: 14.5px;
           line-height: 1.65;
           color: var(--text-secondary);
           margin: 0;
-          max-width: 62ch;
         }
 
         /* 常駐的「可點擊」提示。原本只有 hover 放大當線索，
@@ -543,7 +546,25 @@ export default function Home() {
 
         /* Feature card: cover left, copy right */
         .work-card--feature { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
-        .work-card--feature .work-cover { aspect-ratio: auto; height: 100%; min-height: 340px; }
+        /* 封面內容（白字＋手機）的實際範圍是 1574×808，比例 1.95:1，
+           但這個圖框被右側文字欄撐成約 1.4:1。cover 一定會裁掉字或手機，
+           contain 又會留下兩條死板的空白帶。
+           解法：真圖用 contain 完整顯示，底下鋪一層同一張圖的模糊放大版填滿邊緣。
+           這張封面的底色本來就是平滑藍色漸層，模糊層會自然接續，看起來仍是滿版。 */
+        .work-card--feature .work-cover { aspect-ratio: auto; height: 100%; min-height: 340px; position: relative; }
+        .work-card--feature .work-cover::before {
+          content: ''; position: absolute; inset: 0;
+          background-image: var(--cover-img);
+          background-size: cover; background-position: center;
+          /* 放大 1.15 倍是為了把 blur 在邊緣造成的透明羽化推出視野外。 */
+          filter: blur(28px); transform: scale(1.15);
+        }
+        .work-card--feature .work-cover img { object-fit: contain; position: relative; z-index: 1; }
+        /* hover 放大跟其他四張一致。contain 下縮放比 624/1800，放大 1.04 倍左右各溢出 35 原圖 px，
+           而這張圖左右空白邊有 104 與 121px，所以吃掉的全是空白，字與手機不會被切。
+           模糊底同步放大，避免只有前景動、背景不動的分層感。 */
+        .work-card--feature:hover .work-cover::before { transform: scale(1.19); }
+        .work-card--feature .work-cover::before { transition: transform .7s cubic-bezier(.2,.8,.2,1); }
         .work-card--feature .work-body { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 3.2vw, 48px); }
         .work-card--feature .work-title { font-size: clamp(24px, 2.6vw, 36px); }
         .work-card--feature .work-caption { font-size: clamp(15px, 1.1vw, 16.5px); }
@@ -580,22 +601,22 @@ export default function Home() {
         .how-i-work-band {
           display: flex; align-items: center; justify-content: space-between;
           flex-wrap: wrap; gap: 28px;
-          padding: 32px clamp(20px, 3vw, 40px);
+          padding: 26px clamp(20px, 3vw, 40px);
           border: 1px solid var(--border);
           border-left: 3px solid var(--accent);
           border-radius: var(--radius-lg);
           background: var(--surface);
         }
-        .hiw-copy { flex: 1 1 420px; min-width: 0; }
-        .hiw-label { color: var(--text-tertiary); margin: 0 0 10px; }
+        /* 拿掉 desc 之後這一欄只剩 label + title，兩行就到底。
+           basis 從 420px 收到 340px：標題單行放得下，links 也能晚一點才換行。 */
+        .hiw-copy { flex: 1 1 340px; min-width: 0; }
+        .hiw-label { color: var(--text-tertiary); margin: 0 0 8px; }
+        /* margin-bottom 原本是用來隔開下方的 desc，desc 已移除，這裡收回 0，
+           否則 copy 欄底部會多出一段對不到任何內容的空白。 */
         .hiw-title {
           font-family: var(--font-display); font-weight: 700;
           font-size: clamp(20px, 2.4vw, 28px); line-height: 1.25;
-          letter-spacing: -.01em; margin: 0 0 8px; color: var(--text-primary);
-        }
-        .hiw-desc {
-          font-size: 15px; line-height: 1.7; margin: 0;
-          color: var(--text-secondary); max-width: 62ch;
+          letter-spacing: -.01em; margin: 0; color: var(--text-primary);
         }
         .hiw-links { display: flex; flex-wrap: wrap; gap: 12px; flex-shrink: 0; }
         .hiw-link {

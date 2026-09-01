@@ -26,7 +26,6 @@ Token 分三層，全部定義在 src/styles/globals.css：
 * --on-accent 在兩個模式固定為 --acid-ink。acid 底元素一律鎖 color: var(--on-accent)。
 * --accent-text 亮色為 #7A5C00，暗色為 #FFE699。
 * 深底元素（.top-cta、頁尾深色按鈕）用 --surface-inverse 加 --accent-on-inverse，暗色模式會反轉為亮底。
-* Home 的 Research／Thesis 面板兩模式固定深色（底 --ink-2、字 --bone、斜線 --acid），不要改用會翻轉的 token 當底色。
 * project 案例頁（src/pages/project/*.tsx）的 mockup 採「色相保留、明度自適應」： 粉彩底用 color-mix(色相 10~22%, var(--surface))， 深色相文字用 color-mix(色相 55%, var(--text-primary))， 白玻璃卡一律 var(--card-glass)。 自帶深底的手機畫面 mockup（--sg-night 等）維持靜態。
 * 動 mockup 配色前要先問使用者。
 
@@ -141,7 +140,7 @@ Token 分三層，全部定義在 src/styles/globals.css：
 * Oblivilight：OpenHCI 工作坊作品，7 人團隊，獲 Best Demo， 受邀於 TAICHI 展示。
 
 * 獎項：OpenHCI '25 Best Demo，受邀 TAICHI 展出
-* 我負責：主導 11 場使用者訪談與痛點釐清，將色彩心理學轉譯為 10 種情緒光效系統；硬體與 AI 模型由組員負責
+* 我負責：主導 12 場使用者訪談與痛點釐清，將色彩心理學轉譯為 10 種情緒光效系統；硬體與 AI 模型由組員負責
 * 研究驅動決策：訪談發現使用者「想向 AI 傾訴、卻怕被永久記住」的矛盾，據此推翻原本的 AI 日記方向，改以「主動遺忘」為核心體驗
 * 產品切點：回應 AI 產品的核心焦慮，當記憶變成資料，如何把掌控感還給使用者
    * OpenHCI 由多校共同舉辦，禁止加上 NTU 或台大前綴。

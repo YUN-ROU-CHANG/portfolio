@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import mePng from '../assets/images/Me.webp';
 import Layout from '../components/Layout';
+import CjkText from '../components/CjkText';
 import TypeIn from '../components/TypeIn';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
@@ -124,8 +125,8 @@ export default function About() {
                 </h3>
 
                 {/* 行寬不設 max-width，換行點交給欄位邊界，跟 Home hero 同一套處理 */}
-                <p className="about-intro-p">{t('about.intro.p1')}</p>
-                <p className="about-intro-p about-intro-p--lede">{t('about.intro.p2')}</p>
+                <p className="about-intro-p"><CjkText>{t('about.intro.p1')}</CjkText></p>
+                <p className="about-intro-p about-intro-p--lede"><CjkText>{t('about.intro.p2')}</CjkText></p>
 
                 {/* Highlights：不用 emoji，改用全站既有的 mono 標籤語彙；
                     項目符號是 CSS 畫的 acid 直條，不用 ❙ 這種跨字型會歪掉的字元。 */}
@@ -134,12 +135,12 @@ export default function About() {
                   {[1, 2, 3].map(i => (
                     <li key={i}>
                       <strong>{t(`about.highlights.h${i}label`)}</strong>
-                      {t(`about.highlights.h${i}text`)}
+                      <CjkText>{t(`about.highlights.h${i}text`)}</CjkText>
                     </li>
                   ))}
                 </ul>
 
-                <p className="about-intro-p about-intro-p--last">{t('about.intro.p3')}</p>
+                <p className="about-intro-p about-intro-p--last"><CjkText>{t('about.intro.p3')}</CjkText></p>
               </div>
 
               {/* Skill Matrix — 橫跨兩欄。原本擠在右欄裡，左欄照片下方因此空一大塊，
@@ -151,7 +152,7 @@ export default function About() {
                     // JD 出現次數最高、而 Rose 又真的有實績的四項：
                     // Design System（7 份 JD 提到，最高頻）、Figma 的 Auto Layout/Variables、
                     // 易用性測試、生成式 AI 工作流。
-                    { cat: t('about.skills.catResearch'), skills: [{ label: t('about.skills.usability'), hot: true }, { label: t('about.skills.abtest') }, { label: t('about.skills.spss'), lvl: t('about.skills.lvlAdv') }, { label: t('about.skills.interviews') }, { label: t('about.skills.survey') }, { label: t('about.skills.counterbalancing') }, { label: t('about.skills.mixed') }] },
+                    { cat: t('about.skills.catResearch'), skills: [{ label: t('about.skills.usability'), hot: true }, { label: t('about.skills.abtest') }, { label: t('about.skills.spss') }, { label: t('about.skills.interviews') }, { label: t('about.skills.survey') }, { label: t('about.skills.counterbalancing') }, { label: t('about.skills.mixed') }] },
                     { cat: t('about.skills.catSystem'), skills: [{ label: t('about.skills.designSystem'), hot: true }, { label: t('about.skills.figma'), hot: true }, { label: t('about.skills.tokens') }, { label: t('about.skills.ia') }, { label: t('about.skills.rwd') }, { label: t('about.skills.a11y') }] },
                     { cat: t('about.skills.catBuild'), skills: [{ label: t('about.skills.react') }, { label: t('about.skills.reactNative') }, { label: t('about.skills.htmlcss') }, { label: t('about.skills.prototype') }, { label: t('about.skills.spec') }, { label: t('about.skills.motion') }] },
                     { cat: t('about.skills.catStrategy'), skills: [{ label: t('about.skills.genai'), hot: true }, { label: t('about.skills.serviceDesign') }, { label: t('about.skills.productStrategy') }, { label: t('about.skills.facilitation') }, { label: t('about.skills.marketingOps') }] },
@@ -195,7 +196,7 @@ export default function About() {
                 <div className="bento-content">
                   <span className="bento-tag tag-dark">{t('about.strengths.research.tag')}</span>
                   <h3 className="bento-title">{t('about.strengths.research.titleLine1')}<br />{t('about.strengths.research.titleLine2')}</h3>
-                  <p className="bento-sub">{t('about.strengths.research.desc')}</p>
+                  <p className="bento-sub"><CjkText>{t('about.strengths.research.desc')}</CjkText></p>
                   <div className="bento-stats-row mt-auto">
                     <div className="bento-stat">
                       <span className="bento-stat-num highlight-acid">48</span>
@@ -222,7 +223,7 @@ export default function About() {
                 <div className="bento-content">
                   <span className="bento-tag tag-amber">{t('about.strengths.awards.tag')}</span>
                   <h3 className="bento-title">{t('about.strengths.awards.titleLine1')}<br />{t('about.strengths.awards.titleLine2')}</h3>
-                  <p className="bento-sub">{t('about.strengths.awards.desc')}</p>
+                  <p className="bento-sub"><CjkText>{t('about.strengths.awards.desc')}</CjkText></p>
                   <div className="bento-badge-row mt-auto">
                     <span className="bento-badge badge-award">{t('about.strengths.awards.badge1')}</span>
                     <span className="bento-badge badge-award">{t('about.strengths.awards.badge2')}</span>
@@ -240,7 +241,7 @@ export default function About() {
                 <div className="bento-content">
                   <span className="bento-tag tag-teal">{t('about.strengths.uiDesign.tag')}</span>
                   <h3 className="bento-title">{t('about.strengths.uiDesign.titleLine1')}<br />{t('about.strengths.uiDesign.titleLine2')}</h3>
-                  <p className="bento-sub">{t('about.strengths.uiDesign.desc')}</p>
+                  <p className="bento-sub"><CjkText>{t('about.strengths.uiDesign.desc')}</CjkText></p>
                   <div className="bento-pill-stack mt-auto">
                     <span className="bento-pill">{t('about.strengths.uiDesign.pill1')}</span>
                     <span className="bento-pill">{t('about.strengths.uiDesign.pill2')}</span>
@@ -259,7 +260,7 @@ export default function About() {
                 <div className="bento-content">
                   <span className="bento-tag tag-blue">{t('about.strengths.ai.tag')}</span>
                   <h3 className="bento-title">{t('about.strengths.ai.titleLine1')}<br />{t('about.strengths.ai.titleLine2')}</h3>
-                  <p className="bento-sub">{t('about.strengths.ai.desc')}</p>
+                  <p className="bento-sub"><CjkText>{t('about.strengths.ai.desc')}</CjkText></p>
                 </div>
               </div>
 
@@ -273,7 +274,7 @@ export default function About() {
                   <div className="content-left">
                     <span className="bento-tag tag-gray">{t('about.strengths.crossFunc.tag')}</span>
                     <h3 className="bento-title">{t('about.strengths.crossFunc.titleLine1')}<br />{t('about.strengths.crossFunc.titleLine2')}</h3>
-                    <p className="bento-sub" style={{ maxWidth: '400px' }}>{t('about.strengths.crossFunc.desc')}</p>
+                    <p className="bento-sub" style={{ maxWidth: '400px' }}><CjkText>{t('about.strengths.crossFunc.desc')}</CjkText></p>
                   </div>
                   <div className="content-right mt-auto">
                     <div className="bento-mini-grid">
@@ -311,8 +312,8 @@ export default function About() {
                     <Target size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
                   <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.clarity.title')}</h3>
-                  <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>{t('about.values.clarity.lead')}</strong>{' '}{t('about.values.clarity.desc')}</p>
+                  <p className="body muted value-desc" style={{ fontSize: '15px', lineHeight: '1.6' }}>
+                    <strong><CjkText>{t('about.values.clarity.lead')}</CjkText></strong>{' '}<CjkText>{t('about.values.clarity.desc')}</CjkText></p>
                 </div>
               </div>
 
@@ -322,8 +323,8 @@ export default function About() {
                     <Rocket size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
                   <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.curiosity.title')}</h3>
-                  <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>{t('about.values.curiosity.lead')}</strong>{' '}{t('about.values.curiosity.desc')}</p>
+                  <p className="body muted value-desc" style={{ fontSize: '15px', lineHeight: '1.6' }}>
+                    <strong><CjkText>{t('about.values.curiosity.lead')}</CjkText></strong>{' '}<CjkText>{t('about.values.curiosity.desc')}</CjkText></p>
                 </div>
               </div>
 
@@ -333,8 +334,8 @@ export default function About() {
                     <Heart size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
                   <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.resilience.title')}</h3>
-                  <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>{t('about.values.resilience.lead')}</strong>{' '}{t('about.values.resilience.desc')}</p>
+                  <p className="body muted value-desc" style={{ fontSize: '15px', lineHeight: '1.6' }}>
+                    <strong><CjkText>{t('about.values.resilience.lead')}</CjkText></strong>{' '}<CjkText>{t('about.values.resilience.desc')}</CjkText></p>
                 </div>
               </div>
 
@@ -344,8 +345,8 @@ export default function About() {
                     <Monitor size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
                   <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.hardware.title')}</h3>
-                  <p className="body muted" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong>{t('about.values.hardware.lead')}</strong>{' '}{t('about.values.hardware.desc')}</p>
+                  <p className="body muted value-desc" style={{ fontSize: '15px', lineHeight: '1.6' }}>
+                    <strong><CjkText>{t('about.values.hardware.lead')}</CjkText></strong>{' '}<CjkText>{t('about.values.hardware.desc')}</CjkText></p>
                 </div>
               </div>
             </div>

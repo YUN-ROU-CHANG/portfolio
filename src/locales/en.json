@@ -20,19 +20,14 @@
     "hero": {
       "name": "Rose Chang",
       "title": "UX Researcher & Product Designer",
-      "lede": "I turn behavioural research into products that ship.",
-      "proof": "I ran a 48-participant controlled experiment on notification design for while-in-bed procrastination, then built the React Native app it ran on. M.S. Interaction Design at Taipei Tech, graduating August 2026.",
+      "lede": "I make sense of ambiguous problems and turn user research into solutions.",
+      "proof": "I study UI/UX design and human-computer interaction. I define the problem while the brief is still vague, take it through information architecture, user flows, and high-fidelity Figma prototypes, then verify the design actually works with usability testing and statistical analysis.",
       "chip1": "M.S. Interaction Design, Taipei Tech",
       "chip2": "2 first-author papers, 1 Best Paper",
       "chip3": "OpenHCI '25 Best Demo",
       "chip4": "Gold, Hi-Life service innovation",
       "chip5": "UX Design Awards nominee",
-      "subtitle": "From user research to digital and physical product design",
-      "desc": "Research drives my decisions / Interviews and experiments tell me which problem is worth solving; prototypes and usability tests tell me whether the answer holds up. I work from problem definition through to launch, and I deliver something that runs and can be tested.",
       "aboutBtn": "About Me",
-      "viewWorkBtn": "View Work",
-      "photoAlt": "Rose Chang at OpenHCI",
-      "badgeBefore": "Available from Aug 2026",
       "badgeAfter": "Open to full-time roles",
       "resumeBtn": "Résumé"
     },
@@ -42,9 +37,8 @@
       "sleepGuardian": {
         "titlePre": "Sleep Guardian,",
         "titleHighlight": "48-participant",
-        "titlePost": "controlled experiment, running on an app I built.",
-        "desc": "Planned and ran a remote, asynchronous experiment; designed the interaction flows and prototypes for a React Native intervention app studying while-in-bed smartphone procrastination.",
-        "caption": "M.S. thesis. Built the React Native test app and ran a 3×3 controlled experiment (N=48). Appeal type moved how people felt (η²p .18–.29) but barely moved how they scrolled.",
+        "titlePost": "controlled experiment, run on participants' own phones through the app I built.",
+        "caption": "M.S. thesis. Planned and ran a remote, asynchronous experiment (N=48) on while-in-bed procrastination, building a React Native intervention app to keep the study ecologically valid.",
         "tag1": "M.S. Thesis",
         "tag2": "User Research",
         "tag3": "Controlled Experiment",
@@ -52,10 +46,9 @@
       },
       "oblivilight": {
         "titlePre": "Oblivilight,",
-        "titleHighlight": "Best Demo",
-        "titlePost": "at OpenHCI '25, built from 11 interviews.",
-        "desc": "Built a tangible interaction device in a 6-day sprint, exploring how AI systems handle \"forgetting\" mechanisms. Best Demo Award at OpenHCI '25.",
-        "caption": "OpenHCI '25 Best Demo. 11 interviews found people want to confide in AI but fear being remembered; I turned that into a 10-state emotional light system.",
+        "titleHighlight": "OpenHCI '25 Best Demo",
+        "titlePost": "built on 12 in-depth interviews.",
+        "caption": "A working tangible device built in a 6-day workshop. 12 in-depth interviews found that people want to confide in AI but fear being remembered forever, and I turned that into a 10-state emotional light system.",
         "tag1": "OpenHCI'25",
         "tag2": "Tangible UX",
         "tag3": "HCI",
@@ -65,9 +58,8 @@
       "mu": {
         "titlePre": "Mù,",
         "titleHighlight": "UX Design Awards",
-        "titlePost": "nominee. N=23 research redirected the whole concept.",
-        "desc": "Created a multisensory interactive guide for Taiwan's endangered woods, using emotional design and mixed-method research to preserve cultural memory.",
-        "caption": "UX Design Awards nominee. N=23 research killed the original sleep-pod concept and redirected the project to Taiwan's 12 endangered woods.",
+        "titlePost": "nominee. A multisensory guide to Taiwan's endangered woods.",
+        "caption": "N=23 surveys and interviews overturned the original sleep-pod concept and moved the project to Taiwan's 12 precious woods, using emotional design and mixed methods to preserve cultural memory.",
         "tag2": "Multisensory",
         "tag3": "Emotional Design",
         "status": "Nominated",
@@ -77,8 +69,7 @@
         "titlePre": "Innoconnect+,",
         "titleHighlight": "Hi-Life track gold",
         "titlePost": "from 10 finalists, with SUS 90% positive (N=19).",
-        "desc": "Service blueprint, user journey design, and prototype usability testing for Hi-Life's Send-a-Gift O2O service. Tackled marketing and usability pain points with a personality quiz and flow optimization. Gold Award winner.",
-        "caption": "Hi-Life gifting redesign. Gold in the Hi-Life track, one of 10 finalists, plus an invitation to pitch inside the company. SUS 90% positive (N=19).",
+        "caption": "Redesigned Hi-Life's Send-a-Gift service. Service blueprint, user journey design, and prototype usability testing smoothed the flow and tackled the marketing and usability pain points. Gold in the Hi-Life track, one of 10 finalists.",
         "tag1": "Service Design",
         "tag2": "User Journey",
         "tag3": "Gold Award",
@@ -87,68 +78,14 @@
       "publications": {
         "titlePre": "Publications,",
         "titleHighlight": "two first-author",
-        "titlePost": "conference papers, one of them a Best Paper.",
-        "desc": "First-author research on Human-AI music collaboration and AI voice emotion, presented at IEEE GCCE 2025 and SSIM 2024. The SSIM paper won the Best Paper Award.",
-        "caption": "Two first-author conference papers. Best Paper at SSIM 2024; oral presentation at IEEE GCCE 2025, Osaka.",
+        "titlePost": "international conference papers.",
+        "caption": "Best Paper at SSIM 2024, on how university students' needs and skill levels shape AI-assisted music creation; oral presentation at IEEE GCCE 2025 in Osaka, on how the prominence of an AI voice affects users' emotional responses.",
         "tag1": "IEEE GCCE",
         "tag2": "HCI Research",
         "tag3": "Best Paper",
         "imgAlt": "Research Papers"
       },
       "explore": "Explore"
-    },
-    "research": {
-      "heading": "Research / Thesis",
-      "headline": {
-        "w1": "Why we",
-        "w2": "stay up",
-        "w3": "when we",
-        "highlight": "already",
-        "tail": "know better."
-      },
-      "p1a": "My thesis investigates",
-      "p1strong": "bedtime procrastination",
-      "p1b": "— the gap between the sleep we intend and the sleep we actually get. HCI × behavioural science × self-regulation and dual-process theory.",
-      "p2": "Mixed methods: a controlled experiment, SPSS analysis, and semi-structured interviews. The goal is to design notification interventions that respect autonomy instead of shaming users.",
-      "stat1": {
-        "unit": "N",
-        "label": "Participants · Experiment"
-      },
-      "stat2": {
-        "unit": "TYPES",
-        "label": "Threat · Empathy · Friction"
-      },
-      "stat3": {
-        "unit": "MODALITIES",
-        "label": "Visual · Audio · Audiovisual"
-      },
-      "stat4": {
-        "label": "Defended · Jun 2026"
-      },
-      "matrix": {
-        "caption1": "Notification Conditions · N=48",
-        "caption2": "3×3 Mixed Design + Baseline",
-        "threat": {
-          "labelZh": "威脅訴求",
-          "labelEn": "Threat Appeal",
-          "imgAlt": "Threat Appeal notification"
-        },
-        "empathy": {
-          "labelZh": "共情訴求",
-          "labelEn": "Empathy Appeal",
-          "imgAlt": "Empathy Appeal notification"
-        },
-        "friction": {
-          "labelZh": "設計摩擦",
-          "labelEn": "Friction Design",
-          "imgAlt": "Design Friction notification"
-        },
-        "control": {
-          "labelZh": "一般通知",
-          "labelEn": "Control",
-          "imgAlt": "Control notification"
-        }
-      }
     },
     "awards": {
       "heading": "Select Honors & Awards",
@@ -163,7 +100,7 @@
       },
       "timesYoung": {
         "title": "Times Young Creative Awards (National 3rd)",
-        "desc": "Led marketing strategy and interactive design for Yung Ching Realty."
+        "desc": "Handled marketing strategy and interactive design for Yung Ching Realty's employer-brand campaign."
       },
       "gcce": {
         "title": "IEEE GCCE 2025 (Oral Presentation)",
@@ -171,7 +108,7 @@
       },
       "openhci": {
         "title": "OpenHCI '25 | Best Demo Award · Invited to TAICHI '25",
-        "desc": "Led UX research and product design. Tangible AI interaction device exploring emotional memory — awarded Best Demo at OpenHCI 2025."
+        "desc": "Handled UX research and product design for a tangible AI device exploring emotional memory. Best Demo at OpenHCI 2025."
       },
       "innoconnect": {
         "title": "InnoConnect+ Service Innovation (Gold)",
@@ -187,14 +124,13 @@
       }
     },
     "contact": {
-      "heading": "Let's Build Together",
-      "sub": "Open for full-time opportunities, collaborations, and coffee chats.",
-      "linkedin": "Connect on LinkedIn"
+      "heading": "Let's build something together",
+      "sub": "Always up for a coffee and a chat.",
+      "linkedin": "Let's connect →"
     },
     "howIWork": {
       "label": "How I work",
-      "title": "The system behind this site",
-      "desc": "This portfolio is also a case study. I built its design system in code, audited it, and documented the result.",
+      "title": "How this site was designed and built",
       "ds": "Design system →",
       "built": "How I built this →"
     }
@@ -256,8 +192,7 @@
       "productStrategy": "Product Strategy",
       "genai": "Gen-AI Workflows",
       "facilitation": "Facilitation",
-      "marketingOps": "Marketing Ops",
-      "lvlAdv": "ADV"
+      "marketingOps": "Marketing Ops"
     },
     "strengths": {
       "heading": "My Strengths",
@@ -1056,7 +991,7 @@
       },
       "research": {
         "heading": "User Research & Insights",
-        "desc": "I led 11 user interviews on the emotional weight of digital memory. They surfaced one contradiction that reset the project: people want to confide in AI but fear being remembered permanently. That finding pushed us off the original AI-diary concept and onto active forgetting as the core experience, and I translated colour psychology into a system of 10 emotional light states.",
+        "desc": "I led 12 user interviews on the emotional weight of digital memory. They surfaced one contradiction that reset the project: people want to confide in AI but fear being remembered permanently. That finding pushed us off the original AI-diary concept and onto active forgetting as the core experience, and I translated colour psychology into a system of 10 emotional light states.",
         "alt1": "User Concern",
         "alt2": "After Interview",
         "alt3": "Interview Results",
