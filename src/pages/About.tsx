@@ -361,6 +361,8 @@ export default function About() {
 
             <ul className="offclock-list">
               {offClockItems.map((item, i) => {
+                {/* label 是第三欄不是 body 的子元素：靠右對齊撐到容器右緣，
+                    整列才會跟上面的 Values 卡片切齊同一條邊界。 */}
                 const inner = (
                   <>
                     <div className="offclock-thumb">
@@ -369,8 +371,10 @@ export default function About() {
                     <div className="offclock-body">
                       <h3>{item.title}</h3>
                       <p>{item.desc}</p>
-                      {item.label && <span className="offclock-label">{item.label}</span>}
                     </div>
+                    {item.label
+                      ? <span className="offclock-label">{item.label}</span>
+                      : <span aria-hidden="true" />}
                   </>
                 );
                 return (
@@ -382,10 +386,12 @@ export default function About() {
                 );
               })}
 
-              {/* 運動列：三張直式照片橫排，沒有 h3。段落大標已經交代過情境，
-                  再給一個同級標題會變成第二個章節，所以只留一行 mono 圖說。 */}
+              {/* 運動列：三張照片橫排，沒有 h3。段落大標已經交代過情境，
+                  再給一個同級標題會變成第二個章節，所以只留一行 mono 圖說。
+                  圖說放在縮圖那一欄，照片吃掉文字欄的寬度，右緣跟其他列一致。 */}
               <li className="reveal" style={{ '--reveal-delay': '240ms' } as CSSProperties}>
                 <div className="offclock-row offclock-row--photos">
+                  <span className="offclock-caption">{t('about.offClock.sports.caption')}</span>
                   <div className="offclock-photos">
                     {sportsPhotos.map(photo => (
                       <div key={photo.src} className="offclock-photo">
@@ -393,7 +399,6 @@ export default function About() {
                       </div>
                     ))}
                   </div>
-                  <span className="offclock-caption">{t('about.offClock.sports.caption')}</span>
                 </div>
               </li>
             </ul>
@@ -731,18 +736,18 @@ export default function About() {
             line-height: 1.7;
             color: var(--text-secondary);
             margin: 0 0 40px;
-            max-width: 52ch;
+            max-width: 640px;
           }
 
-          /* 列表收在 880px：分隔線跟著文字一起結束，右邊不會空掉三分之一，
-             內文行長也自然落在 65 到 75 字元，不必再用 max-width 硬切段落。 */
-          .offclock-list { list-style: none; margin: 0; padding: 0; max-width: 880px; }
+          /* 列表跟上面的 Values 卡片同寬（滿 1200px 容器），右緣切齊同一條線。
+             多出來的寬度交給第三欄的 label，不是留白，所以行長仍受控。 */
+          .offclock-list { list-style: none; margin: 0; padding: 0; }
           .offclock-list > li { border-top: 1px solid var(--border); }
           .offclock-list > li:last-child { border-bottom: 1px solid var(--border); }
 
           .offclock-row {
             display: grid;
-            grid-template-columns: 220px minmax(0, 1fr);
+            grid-template-columns: 220px minmax(0, 1fr) auto;
             gap: 28px;
             align-items: center;
             padding: 24px 0;
@@ -774,19 +779,26 @@ export default function About() {
             line-height: 1.7;
             color: var(--text-secondary);
             margin: 0;
+            /* 用 px 不用 ch：ch 依 "0" 的字寬計算，中文字寬約兩倍，
+               52ch 在中文只剩 26 個字，會斷在很怪的地方。 */
+            max-width: 640px;
           }
           .offclock-label {
+            justify-self: end;
+            align-self: center;
+            white-space: nowrap;
             font-family: var(--font-mono);
             font-size: 11px;
             letter-spacing: .1em;
             text-transform: uppercase;
             color: var(--accent-text);
-            margin-top: 4px;
           }
-          /* 運動列：跨滿整個列表寬度的三連拍，跟前三列的左圖右文形成節奏變化。
+          /* 運動列沿用同一組欄位：圖說佔縮圖那欄，三連拍吃掉文字與 label 兩欄，
+             右緣因此跟其他列切在同一條線上。
              用 1:1 而非 3:4，因為三張裡有橫有直：橫式那張裁成 3:4 會切掉半張臉，
              且可用區域只剩 499×666，在 2 倍螢幕上會糊。方形對兩種方向都成立。 */
-          .offclock-row--photos { display: block; }
+          .offclock-row--photos { grid-template-columns: 220px minmax(0, 1fr); }
+          .offclock-row--photos .offclock-caption { align-self: start; padding-top: 2px; }
           .offclock-photos {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -807,7 +819,6 @@ export default function About() {
             letter-spacing: .1em;
             text-transform: uppercase;
             color: var(--text-tertiary);
-            margin-top: 12px;
           }
 
           .offclock-row--link:hover .offclock-thumb img { transform: scale(1.04); }
@@ -815,11 +826,13 @@ export default function About() {
           .offclock-row--link:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 4px; }
 
           @media (max-width: 720px) {
-            .offclock-row { grid-template-columns: 1fr; gap: 16px; padding: 20px 0; }
+            .offclock-row,
+            .offclock-row--photos { grid-template-columns: 1fr; gap: 16px; padding: 20px 0; }
             .offclock-thumb { aspect-ratio: 16 / 9; }
+            .offclock-label { justify-self: start; }
             /* 三連拍在手機維持橫排：方形各約 109px 仍看得出內容，
                改成直向堆疊會讓這列長到三個螢幕高。 */
-            .offclock-photos { gap: 8px; }
+            .offclock-photos { gap: 8px; order: -1; }
           }
 
           /* === Responsive === */
