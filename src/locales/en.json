@@ -991,7 +991,7 @@
       },
       "research": {
         "heading": "User Research & Insights",
-        "desc": "I led 12 user interviews on the emotional weight of digital memory. They surfaced one contradiction that reset the project: people want to confide in AI but fear being remembered permanently. That finding pushed us off the original AI-diary concept and onto active forgetting as the core experience, and I translated colour psychology into a system of 10 emotional light states.",
+        "desc": "I ran three of the team's 12 user interviews, exploring interaction design for how smart systems \"forget\". They surfaced one contradiction that reset the project: people want to confide in AI but fear being remembered permanently. That finding pushed us off the original AI-diary concept and onto active forgetting as the core experience, and I translated colour psychology into a system of 10 emotional light states.",
         "alt1": "User Concern",
         "alt2": "After Interview",
         "alt3": "Interview Results",
@@ -1687,8 +1687,8 @@
       "finlit": {
         "title": "Financial Literacy App",
         "type": "Innovation, Entrepreneurship & Design Thinking Proposal",
-        "role": "UI/UX Designer | Cross-national Workshop",
-        "pitch": "In the NTUT × PSU (Penn State Univ.) cross-national workshop, we combined Generative AI and Game-based Learning to design an innovative app proposal for improving financial literacy among young people.",
+        "role": "UI/UX Designer & Team Liaison | Cross-national Workshop",
+        "pitch": "Penn State faculty and students came to Taipei Tech, and we worked side by side in mixed NTUT/PSU teams, entirely in English. We combined generative AI with game-based learning into an app proposal for improving financial literacy among young people. I designed the UI and the prototype, delivered the pitch, and kept both sides aligned as the team's point of contact.",
         "award1": "🏆 NTUT x Penn State Univ. Workshop Demo",
         "tag1": "UI/UX",
         "tag2": "GenAI",
