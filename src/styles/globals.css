@@ -440,7 +440,6 @@ html:lang(en) figcaption {
    它們一起改掉。英文不對齊，沒有連字符的英文拉伸會拉出很大的字間空隙。 */
 html:lang(zh-Hant) :is(
   .work-caption,
-  .hiw-desc,
   .hero-lede,
   .hero-proof,
   .about-intro-p,

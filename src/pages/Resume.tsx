@@ -116,6 +116,7 @@ const getResumeData = (t: (key: string) => string) => ({
     { degree: t('resume.education.bachelor.degree'), institution: t('resume.education.bachelor.institution'), year: t('resume.education.bachelor.year'), description: t('resume.education.bachelor.desc') }
   ],
   certifications: [
+    { name: t('resume.certs.toeic.name'), issuer: t('resume.certs.toeic.issuer'), year: t('resume.certs.toeic.year') },
     { name: t('resume.certs.python.name'), issuer: t('resume.certs.python.issuer'), year: t('resume.certs.python.year') },
   ]
 });

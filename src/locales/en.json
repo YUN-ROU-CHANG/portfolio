@@ -520,6 +520,11 @@
     },
     "certs": {
       "heading": "Certifications",
+      "toeic": {
+        "name": "TOEIC Listening & Reading: 760",
+        "issuer": "ETS (Educational Testing Service)",
+        "year": "2026 Aug"
+      },
       "python": {
         "name": "Information Technology Specialist - Python",
         "issuer": "Certiport - A Pearson VUE Business",
@@ -1263,7 +1268,7 @@
       },
       "gcce": {
         "photoAlt": "GCCE Oral Presentation",
-        "venue": "Accepted and Presented at 2025 IEEE GCCE, Osaka",
+        "venue": "Oral presentation at 2025 IEEE GCCE, Osaka",
         "title": "An Experimental Study on the Effect of AI Voice Prominence on Users' Emotional Responses",
         "challenge": "As AI-generated speech becomes increasingly natural and pervasive in digital content, its emotional impact remains underexplored. This study investigates how the \"prominence\" of an AI voice (how foregrounded it is) affects user emotions across different media contexts.",
         "m1label": "Mixed-Methods Approach:",
