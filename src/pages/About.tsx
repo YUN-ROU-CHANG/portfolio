@@ -94,12 +94,13 @@ export default function About() {
                   <span>{t('about.dossier.subject')}</span>
                   <span>{t('about.dossier.file')}</span>
                 </div>
-                <div style={{ flex: '1 1 auto', minHeight: '320px', overflow: 'hidden', background: 'var(--surface-muted)', position: 'relative' }}>
+                {/* 照片絕對定位，不參與撐高：卡片高度跟右欄文字對齊，多出來的從照片下方裁掉 */}
+                <div className="about-portrait-photo" style={{ flex: '1 1 auto', minHeight: '320px', overflow: 'hidden', background: 'var(--surface-muted)', position: 'relative' }}>
                   <img
                     src={mePng}
                     alt={t('about.dossier.photoAlt')}
                     loading="eager"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(15%)' }}
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', filter: 'grayscale(15%)' }}
                   />
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginTop: '14px', paddingTop: '14px', borderTop: '1px solid var(--border)', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>
@@ -839,6 +840,7 @@ export default function About() {
           /* === Responsive === */
           @media (max-width: 959px) {
             .about-two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
+            .about-portrait-photo { aspect-ratio: 2 / 3; }
             .bento-grid { grid-template-columns: 1fr; }
             .bento-card--wide { grid-column: auto; }
             .bento-content--row { flex-direction: column; align-items: flex-start; }
