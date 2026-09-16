@@ -148,7 +148,10 @@ function ExperienceItem({ experience }: { experience: Experience }) {
             </div>
             <div>
               <CardTitle className="exp-title"><CjkText>{experience.title}</CjkText></CardTitle>
-              <CardDescription className="exp-meta">{experience.company} · {experience.period}</CardDescription>
+              <CardDescription className="exp-meta">
+                <span className="exp-company"><CjkText>{experience.company}</CjkText></span>
+                <span className="exp-period">{experience.period}</span>
+              </CardDescription>
             </div>
           </CardHeader>
           <CardContent className="resume-card-content">
@@ -555,7 +558,10 @@ export default function Resume() {
           flex-shrink: 0;
         }
         .exp-title { font-size: 18px; margin-bottom: 4px; font-weight: 600; }
+        /* 單位與日期各佔一行：單位可能很長，接在同一行時斷點會落在奇怪的地方 */
         .exp-meta { font-size: 14px; color: var(--text-tertiary); }
+        .exp-company { display: block; }
+        .exp-period { display: block; margin-top: 4px; font-variant-numeric: tabular-nums; }
         .resume-card-content { padding: 0 20px 20px 76px; }
         .exp-desc-list { 
           font-size: 15px; 

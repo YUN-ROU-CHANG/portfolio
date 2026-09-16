@@ -317,7 +317,7 @@
         "tag3": "受控實驗"
       },
       "innoconnect": {
-        "period": "2024/10 - 2025/03",
+        "period": "2024/10 – 2025/03",
         "type": "服務設計與 UX",
         "title": "Innoconnect｜禮物服務優化",
         "desc": "🏆 萊爾富題金獎。用許願系統、心理測驗等功能，優化萊爾富的 O2O 送禮體驗。",
@@ -326,7 +326,7 @@
         "tag3": "使用者旅程設計"
       },
       "oblivilight": {
-        "period": "2025/06 - 08",
+        "period": "2025/06 – 08",
         "type": "互動設計",
         "title": "",
         "desc": "🏆 Best Demo Award。6 天工作坊做出的實體互動裝置，探索 AI 如何「遺忘」。",
@@ -335,7 +335,7 @@
         "tag3": "實體原型"
       },
       "mu": {
-        "period": "2025/08 - 12",
+        "period": "2025/08 – 12",
         "type": "UX 設計與研究",
         "title": "",
         "desc": "入圍 UX Design Awards。為台灣瀕危珍貴木打造的多感官導覽，探索情感設計。",
@@ -343,14 +343,14 @@
         "tag2": "多感官"
       },
       "publications": {
-        "period": "2025/04 - 09",
+        "period": "2025/04 – 09",
         "type": "HCI 研究",
         "title": "HCI 研究發表",
         "desc": "🏆 SSIM 2024 最佳論文與 IEEE GCCE 2025。研究 AI 音樂與語音情緒。",
         "tag2": ""
       },
       "kdan": {
-        "period": "2024/03 - 11",
+        "period": "2024/03 – 11",
         "type": "行銷與數據分析",
         "title": "凱鈿 KDAN｜行銷實習",
         "desc": "優化社群工作流，主講 AI 工具內訓。",
@@ -358,7 +358,7 @@
         "tag2": "實習"
       },
       "timesAwards": {
-        "period": "2025/04 - 05",
+        "period": "2025/03 – 05",
         "type": "廣告與創意",
         "title": "2025 第 34 屆時報金犢獎",
         "desc": "🥉 全國第三名。以「扭蛋」比喻求職的多媒體廣告企劃，橫跨影片、網頁與聲音。",
@@ -367,7 +367,7 @@
         "tag3": "整合企劃"
       },
       "bigDataCup": {
-        "period": "2024/09 - 11",
+        "period": "2024/09 – 11",
         "type": "UI/UX 設計與研究",
         "title": "大數據精準行銷競賽",
         "desc": "🥉 第三名。為台畜設計健身 App 的 UI/UX。",
@@ -422,7 +422,7 @@
         "year": "2024/03",
         "title": "行銷實習生",
         "company": "凱鈿行動科技股份有限公司",
-        "period": "2024/03 – 2024/11",
+        "period": "2024/03 – 11",
         "d1": "負責子品牌 ADNEX 社群與 KOL 合作專案的執行與管理。",
         "d2": "開發 110+ 位 KOL、全程執行約 15 檔合作（洽談、合約到結案），推動品牌知名度。",
         "d3": "經營品牌 FB／IG，發現主管專訪型短影音互動最佳，策略化後單篇互動率達 10.26%，為經營期間平均 5.09% 的兩倍。",
@@ -434,7 +434,7 @@
         "year": "2022/07",
         "title": "企業培訓專案實習生",
         "company": "盟亞企業管理顧問股份有限公司",
-        "period": "2022/07 – 2022/09",
+        "period": "2022/07 – 09",
         "d1": "擔任 3 家企業客戶與講師之溝通窗口，協調並支援 17+ 堂培訓課程之課前對接與現場執行，另製作 3 隻企業培訓影片。",
         "d2": "於企業培訓現場觀察學員潛在需求，協助業務開發與結案報告撰寫。"
       },
@@ -442,7 +442,7 @@
         "year": "2022/01",
         "title": "兼職人員",
         "company": "譽方媽媽_旺來旺食品股份有限公司",
-        "period": "2022/01 – 2022/02",
+        "period": "2022/01 – 02",
         "d1": "負責產品拍攝、去背、照片處理及上架；協助撰寫產品文案。"
       }
     },
@@ -499,13 +499,13 @@
       "master": {
         "degree": "互動設計碩士",
         "institution": "國立臺北科技大學",
-        "year": "2024 - 2026",
+        "year": "2024 – 2026",
         "desc": "論文：基於雙重歷程理論之在床拖延手機通知介入設計：通知類型與視聽覺元素之探討。"
       },
       "bachelor": {
         "degree": "文化創意與數位行銷學士",
         "institution": "國立聯合大學",
-        "year": "2020 - 2024",
+        "year": "2020 – 2024",
         "desc": "主修包裝設計、數位設計、字體設計與使用者體驗基礎。"
       }
     },
@@ -528,7 +528,7 @@
   },
   "photography": {
     "title": "攝影",
-    "meta": "35mm · 台灣 · 2023–2025 ·",
+    "meta": "35mm · 台灣 · 2023 – 2025 ·",
     "frames": "張",
     "photos": {
       "sea": {
@@ -562,7 +562,7 @@
   "howIBuilt": {
     "title1": "我如何做出",
     "title2": "這個網站。",
-    "meta": "作品集 v6 · Rose Chang · 2025–2026 · React + Claude Code",
+    "meta": "作品集 v6 · Rose Chang · 2025 – 2026 · React + Claude Code",
     "design": {
       "title": "設計方向",
       "subtitle": "",
@@ -603,7 +603,7 @@
     "sleepGuardian": {
       "hero": {
         "badge": "碩士論文研究",
-        "status": "已完成 · 2025/9 – 2026/6",
+        "status": "已完成 · 2025/09 – 2026/06",
         "title": "",
         "subtitle1": "基於雙重歷程理論之在床拖延手機通知介入設計：通知類型與視聽覺元素之探討",
         "subtitle2": "Smartphone Notification Intervention Design for While-in-Bed Procrastination Based on Dual-Process Theory: Exploring Notification Types and Audiovisual Elements",
@@ -962,7 +962,7 @@
         "title": "",
         "subtitle": "用實體互動探索 AI 的遺忘機制",
         "timelineLabel": "時程",
-        "timelineValue": "2025 年 6-8 月",
+        "timelineValue": "2025/06 – 08",
         "timelineSub": "OpenHCI 工作坊",
         "roleLabel": "我的角色",
         "roleValue": "互動設計師",
@@ -1048,7 +1048,7 @@
         "title": "Mù 多感官導覽",
         "subtitle": "重建人與台灣瀕危珍貴木的感官連結",
         "timelineLabel": "時程",
-        "timelineValue": "2025/08 - 12",
+        "timelineValue": "2025/08 – 12",
         "roleLabel": "我的角色",
         "roleValue": "提案發想、使用者研究、user journey、persona、pitch 影片、展覽概念、UX 設計",
         "roleSub": "桌面研究、AI 輔助展場空間建模（概念發想）",
@@ -1131,7 +1131,7 @@
         "title": "Innoconnect｜萊爾富禮物服務優化",
         "subtitle": "為台灣大型零售通路重塑數位送禮體驗",
         "timelineLabel": "時程",
-        "timelineValue": "2024/10 - 2025/03",
+        "timelineValue": "2024/10 – 2025/03",
         "timelineSub": "InnoConnect+ 競賽",
         "roleLabel": "我的角色",
         "roleValue": "UI/UX 設計師與研究員",
@@ -1299,7 +1299,7 @@
         "title": "以數據與流程優化放大品牌影響力",
         "desc": "在凱鈿 KDAN 的數據策略品牌 ADNEX 進行 9 個月實習，串接創意內容、KOL 關係經營與數據市場研究，帶動可量化的成長。",
         "timelineLabel": "時程",
-        "timelineValue": "2024/03 - 11",
+        "timelineValue": "2024/03 – 11",
         "roleLabel": "角色",
         "roleValue": "行銷實習生",
         "roleSub": "行銷企劃部（10+ 人）",
@@ -1439,7 +1439,7 @@
         "title": "好韻花生",
         "subtitle": "完整品牌識別與電商改版",
         "timelineLabel": "時程",
-        "timelineValue": "品牌：2022 | 網站：2023/07-09",
+        "timelineValue": "品牌：2022 | 網站：2023/07 – 09",
         "roleLabel": "我的角色",
         "roleValue": "品牌視覺規劃、UI/UX 設計",
         "recognitionLabel": "獲獎",
@@ -1548,7 +1548,7 @@
         "title": "2025 第 34 屆時報金犢獎",
         "subtitle": "永慶房屋雇主品牌廣告",
         "timelineLabel": "時程",
-        "timelineValue": "2025/03 - 05",
+        "timelineValue": "2025/03 – 05",
         "timelineSub": "時報金犢獎",
         "roleLabel": "我的角色",
         "roleValue": "創意策略、文案",

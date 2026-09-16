@@ -308,7 +308,7 @@
     },
     "cards": {
       "sleepGuardian": {
-        "period": "2025 - 2026",
+        "period": "2025 – 2026",
         "type": "HCI Research & App Design",
         "title": "Sleep Guardian | Notification Intervention Design",
         "desc": "Lead researcher & designer: planned and executed a controlled experiment, and designed interaction flows and prototypes for a React Native intervention app to study while-in-bed smartphone procrastination.",
@@ -317,7 +317,7 @@
         "tag3": "Controlled Experiment"
       },
       "innoconnect": {
-        "period": "2024 Oct - 2025 Mar",
+        "period": "Oct 2024 – Mar 2025",
         "type": "Service Design & UX",
         "title": "Innoconnect | Gift Service Optimization",
         "desc": "🏆 Gold Award, Hi-Life track. Optimizing the O2O gifting experience for Hi-Life via gamification and social features.",
@@ -326,7 +326,7 @@
         "tag3": "Gamification"
       },
       "oblivilight": {
-        "period": "2025 Jun - Aug",
+        "period": "Jun – Aug 2025",
         "type": "Interaction Design",
         "title": "OpenHCI'25 | Oblivilight",
         "desc": "🏆 Best Demo Award Winner. A tangible interaction device built in a 6-day workshop exploring how AI \"forgets\".",
@@ -335,7 +335,7 @@
         "tag3": "Tangible Prototype"
       },
       "mu": {
-        "period": "2025 Aug - Dec",
+        "period": "Aug – Dec 2025",
         "type": "UX Design & Research",
         "title": "UX Design Awards｜Mù",
         "desc": "Nominated for UX Design Awards. A multisensory guide to Taiwan's endangered woods exploring emotional design.",
@@ -343,14 +343,14 @@
         "tag2": "Multisensory"
       },
       "publications": {
-        "period": "2025 Apr - Sep",
+        "period": "Apr – Sep 2025",
         "type": "HCI Research",
         "title": "HCI Research Publications",
         "desc": "🏆 SSIM 2024 Best Paper & IEEE GCCE 2025. Research on AI music & voice emotion.",
         "tag2": "IEEE"
       },
       "kdan": {
-        "period": "2024 Mar - Nov",
+        "period": "Mar – Nov 2024",
         "type": "Marketing & Data Analytics",
         "title": "KDAN | Marketing Intern",
         "desc": "Optimized social workflow. Led AI training.",
@@ -358,7 +358,7 @@
         "tag2": "Internship"
       },
       "timesAwards": {
-        "period": "2025 Apr - May",
+        "period": "Mar – May 2025",
         "type": "Advertising & Creative",
         "title": "2025 34th Times Young Creative Awards",
         "desc": "🥉 National 3rd Place Winner. A multi-channel campaign (Video, Web, Audio) using \"Gashapon\" as a metaphor for job hunting.",
@@ -367,7 +367,7 @@
         "tag3": "Campaign"
       },
       "bigDataCup": {
-        "period": "2024 Sep - Nov",
+        "period": "Sep – Nov 2024",
         "type": "UI/UX Design & Research",
         "title": "Big Data Marketing Cup",
         "desc": "🥉 3rd Place Winner. Designed the UI/UX for \"Taiwan Livestock\" fitness app.",
@@ -375,7 +375,7 @@
         "tag2": "3rd Place"
       },
       "archive": {
-        "period": "2022 - 2024",
+        "period": "2022 – 2024",
         "title": "Academic Collaborations",
         "desc": "Includes the \"Good Luck Peanut\" branding project and the \"Taipei Tech x Penn State GenAI Workshop\".",
         "tag1": "GenAI",
@@ -400,7 +400,7 @@
     "experience": {
       "heading": "Experience",
       "bilingual": {
-        "year": "2025 Sep",
+        "year": "Sep 2025",
         "title": "Part-Time Project Assistant",
         "company": "NTUT; Center for Bilingual Learning",
         "period": "Sep 2025 – Feb 2026",
@@ -408,7 +408,7 @@
         "d2": "Supported about 12 international workshops, working with 2 foreign instructors and around 70 international students, and handled on-site facilitation and run-of-show."
       },
       "ra": {
-        "year": "2024 Sep",
+        "year": "Sep 2024",
         "title": "Research Assistant",
         "company": "NTUT",
         "period": "Sep 2024 – Jul 2025",
@@ -419,10 +419,10 @@
         "d5": "Provided administrative support for project documentation and coordination."
       },
       "kdan": {
-        "year": "2024 Mar",
+        "year": "Mar 2024",
         "title": "Marketing Intern",
         "company": "KDAN｜ADNEX",
-        "period": "Mar 2024 – Nov 2024",
+        "period": "Mar – Nov 2024",
         "d1": "Ran social media and KOL partnership projects for the sub-brand ADNEX, covering both execution and management.",
         "d2": "Sourced 110+ KOLs and ran about 15 partnerships end to end, from outreach and contracts through to wrap-up, to build brand awareness.",
         "d3": "Managed the brand’s Facebook and Instagram. Found that short interview videos with executives drove the most engagement; after building a strategy around them, one post reached 10.26% engagement, twice the 5.09% average over my time there.",
@@ -431,18 +431,18 @@
         "d6": "Analyzed monthly influencer data and submitted 15 reports for client and manager review."
       },
       "mengya": {
-        "year": "2022 Jul",
+        "year": "Jul 2022",
         "title": "Corporate Training Project Intern",
         "company": "Meng Ya Management Consulting Co., Ltd.",
-        "period": "Jul 2022 – Sep 2022",
+        "period": "Jul – Sep 2022",
         "d1": "Acted as the point of contact between 3 corporate clients and instructors, coordinating and supporting pre-session preparation and on-site delivery for 17+ training sessions, and produced 3 corporate training videos.",
         "d2": "Observed participants’ unspoken needs during on-site training sessions, supporting business development and writing project closing reports."
       },
       "wonlaiwon": {
-        "year": "2022 Jan",
+        "year": "Jan 2022",
         "title": "Part-Time Worker",
         "company": "Won-Lai-Won Enterprise Group",
-        "period": "Jan 2022 – Feb 2022",
+        "period": "Jan – Feb 2022",
         "d1": "Handled product photography, background removal, photo editing, and product listings; helped write product copy."
       }
     },
@@ -499,13 +499,13 @@
       "master": {
         "degree": "Master of Interaction Design",
         "institution": "National Taipei University of Technology",
-        "year": "2024 - 2026",
+        "year": "2024 – 2026",
         "desc": "Specialized in Human-Computer Interaction and Interactive Design. Thesis: “Smartphone Notification Intervention Design for While-in-Bed Procrastination Based on Dual-Process Theory: Exploring Notification Types and Audiovisual Elements.”"
       },
       "bachelor": {
         "degree": "Bachelor of Culture Creativity and Digital Marketing",
         "institution": "National United University",
-        "year": "2020 - 2024",
+        "year": "2020 – 2024",
         "desc": "Focus on package design, digital design, typography, and user experience fundamentals."
       }
     },
@@ -514,12 +514,12 @@
       "toeic": {
         "name": "TOEIC Listening & Reading: 760",
         "issuer": "ETS (Educational Testing Service)",
-        "year": "2026 Aug"
+        "year": "Aug 2026"
       },
       "python": {
         "name": "Information Technology Specialist - Python",
         "issuer": "Certiport - A Pearson VUE Business",
-        "year": "2023 Jan"
+        "year": "Jan 2023"
       }
     },
     "awards": {
@@ -528,7 +528,7 @@
   },
   "photography": {
     "title": "Photography",
-    "meta": "35mm · Taiwan · 2023–2025 ·",
+    "meta": "35mm · Taiwan · 2023 – 2025 ·",
     "frames": "frames",
     "photos": {
       "sea": {
@@ -562,7 +562,7 @@
   "howIBuilt": {
     "title1": "How I Built",
     "title2": "This.",
-    "meta": "Portfolio v6 · Rose Chang · 2025–2026 · React + Claude Code",
+    "meta": "Portfolio v6 · Rose Chang · 2025 – 2026 · React + Claude Code",
     "design": {
       "title": "Design Direction",
       "subtitle": "index_v2 × brutalist research-notebook",
@@ -962,7 +962,7 @@
         "title": "OpenHCI'25 | Oblivilight",
         "subtitle": "Exploring AI Forgetting Mechanisms Through Tangible Interaction",
         "timelineLabel": "Timeline",
-        "timelineValue": "Jun - Aug 2025",
+        "timelineValue": "Jun – Aug 2025",
         "timelineSub": "OpenHCI Workshop",
         "roleLabel": "My Role",
         "roleValue": "Interaction Designer",
@@ -1048,7 +1048,7 @@
         "title": "Mù – A Multisensory Guide",
         "subtitle": "Rebuilding the sensory relationship between people and Taiwan's endangered woods",
         "timelineLabel": "Timeline",
-        "timelineValue": "Aug - Dec 2025",
+        "timelineValue": "Aug – Dec 2025",
         "roleLabel": "My Role",
         "roleValue": "Creative Ideation, Video Production",
         "roleSub": "Desk Research",
@@ -1131,7 +1131,7 @@
         "title": "Innoconnect | Hi-Life Gift Service Optimization",
         "subtitle": "Revitalizing the Digital Gifting Experience for a Major Taiwanese Retail Chain",
         "timelineLabel": "Timeline",
-        "timelineValue": "Oct 2024 - Mar 2025",
+        "timelineValue": "Oct 2024 – Mar 2025",
         "timelineSub": "InnoConnect+ Competition",
         "roleLabel": "My Role",
         "roleValue": "UI/UX Designer & Researcher",
@@ -1299,7 +1299,7 @@
         "title": "Scaling Brand Impact Through Data & Workflow Optimization",
         "desc": "A 9-month internship at KDAN's data strategy brand, ADNEX, connecting creative content, KOL relationship management, and data-backed market research to drive measurable growth.",
         "timelineLabel": "Timeline",
-        "timelineValue": "Mar - Nov 2024",
+        "timelineValue": "Mar – Nov 2024",
         "roleLabel": "Role",
         "roleValue": "Marketing Intern",
         "roleSub": "Marketing & Planning Dept. (10+ people)",
@@ -1439,7 +1439,7 @@
         "title": "Good Luck Peanut",
         "subtitle": "Complete Brand Identity & E-Commerce Redesign",
         "timelineLabel": "Timeline",
-        "timelineValue": "Branding: 2022 | Web: Jul-Sep 2023",
+        "timelineValue": "Branding: 2022 | Web: Jul – Sep 2023",
         "roleLabel": "My Role",
         "roleValue": "Brand Visual Planning, UI/UX Design",
         "recognitionLabel": "Recognition",
@@ -1548,7 +1548,7 @@
         "title": "2025 34th Times Young Creative Awards",
         "subtitle": "Yung Ching Housing Employer Branding Campaign",
         "timelineLabel": "Timeline",
-        "timelineValue": "Mar - May 2025",
+        "timelineValue": "Mar – May 2025",
         "timelineSub": "Times Young Creative Awards",
         "roleLabel": "My Role",
         "roleValue": "Creative Strategy, Copywriting",
