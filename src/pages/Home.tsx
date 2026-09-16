@@ -132,7 +132,7 @@ export default function Home() {
         >
           <div className="avail-badge">
             <span className="avail-dot"></span>
-            <span className="avail-label">{t('home.hero.badgeAfter')}</span>
+            <span className="avail-label"><CjkText>{t('home.hero.badgeAfter')}</CjkText></span>
           </div>
           <h1 className="name interactive-name">
             {t('home.hero.name').split('').map((char, index) => (
@@ -141,7 +141,7 @@ export default function Home() {
               </span>
             ))}
           </h1>
-          <h2 className="head">{t('home.hero.title')}</h2>
+          <h2 className="head"><CjkText>{t('home.hero.title')}</CjkText></h2>
           <p className="hero-lede"><CjkText>{t('home.hero.lede')}</CjkText></p>
           <p className="hero-proof"><CjkText>{t('home.hero.proof')}</CjkText></p>
           {/* 學經歷晶片：首屏唯一的「憑證」區塊，依序浮上來。
@@ -149,7 +149,7 @@ export default function Home() {
           <ul className="hero-creds">
             {['chip1', 'chip2', 'chip3', 'chip4', 'chip5'].map((k, i) => (
               <li key={k} style={{ animationDelay: `${0.62 + i * 0.07}s` }}>
-                {t(`home.hero.${k}`)}
+                <CjkText>{t(`home.hero.${k}`)}</CjkText>
               </li>
             ))}
           </ul>
@@ -157,8 +157,8 @@ export default function Home() {
             {/* 舊的第二顆是 href="#selected-works"。全站走 HashRouter，網址列的 hash
                 已經被路由佔用，錨點連結會被當成路由 /selected-works 而導不到任何地方。
                 Selected Works 本來就在首屏正下方，不需要按鈕帶路，改指向履歷。 */}
-            <Link className="btn-pill btn--primary" to="/about">{t('home.hero.aboutBtn')}{' '}<span className="dot">→</span></Link>
-            <Link className="btn-pill btn--secondary" to="/resume">{t('home.hero.resumeBtn')}{' '}<span className="dot">→</span></Link>
+            <Link className="btn-pill btn--primary" to="/about"><CjkText>{t('home.hero.aboutBtn')}</CjkText>{' '}<span className="dot">→</span></Link>
+            <Link className="btn-pill btn--secondary" to="/resume"><CjkText>{t('home.hero.resumeBtn')}</CjkText>{' '}<span className="dot">→</span></Link>
           </div>
         </motion.div>
       </section>
@@ -168,9 +168,9 @@ export default function Home() {
         <div className="container">
           <div className="section-header-flex">
             <h2 className="section-head">
-              <Briefcase size={32} color="var(--accent-text)" />{t('home.works.heading')}
+              <Briefcase size={32} color="var(--accent-text)" /><CjkText>{t('home.works.heading')}</CjkText>
             </h2>
-            <Link to="/projects" className="view-all-link">{t('home.works.viewAll')}</Link>
+            <Link to="/projects" className="view-all-link"><CjkText>{t('home.works.viewAll')}</CjkText></Link>
           </div>
 
           <WorkCard work={feature} feature index={0} />
@@ -188,7 +188,7 @@ export default function Home() {
         <div className="container">
           <div className="how-i-work-band reveal">
             <div className="hiw-copy">
-              <p className="text-meta-style hiw-label">{t('home.howIWork.label')}</p>
+              <p className="text-meta-style hiw-label"><CjkText>{t('home.howIWork.label')}</CjkText></p>
               <h2 className="hiw-title">
                 <TypeIn
                   key={locale}
@@ -200,8 +200,8 @@ export default function Home() {
               </h2>
             </div>
             <div className="hiw-links">
-              <Link to="/design-system" className="hiw-link">{t('home.howIWork.ds')}</Link>
-              <Link to="/how-i-built-this" className="hiw-link">{t('home.howIWork.built')}</Link>
+              <Link to="/design-system" className="hiw-link"><CjkText>{t('home.howIWork.ds')}</CjkText></Link>
+              <Link to="/how-i-built-this" className="hiw-link"><CjkText>{t('home.howIWork.built')}</CjkText></Link>
             </div>
           </div>
         </div>
@@ -225,7 +225,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <Link to="/resume#awards" className="awards-link">{t('home.awards.viewAll')}</Link>
+            <Link to="/resume#awards" className="awards-link"><CjkText>{t('home.awards.viewAll')}</CjkText></Link>
           </div>
         </div>
       </section>
@@ -236,7 +236,7 @@ export default function Home() {
       <section className="section" id="contact" style={{ paddingTop: '64px', paddingBottom: '96px' }}>
         <div className="container contact-wrap">
           <h2 className="section-head reveal" style={{ justifyContent: 'center' }}>
-            <Mail size={32} color="var(--accent-text)" />{t('home.contact.heading')}
+            <Mail size={32} color="var(--accent-text)" /><CjkText>{t('home.contact.heading')}</CjkText>
           </h2>
           <p className="contact-sub"><CjkText>{t('home.contact.sub')}</CjkText></p>
           <div className="contact-pills">
@@ -244,7 +244,7 @@ export default function Home() {
               <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
                 <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zm7 0h3.84v1.98h.06c.53-1 1.84-2.06 3.79-2.06 4.06 0 4.81 2.67 4.81 6.14V23h-4v-6.43c0-1.53-.03-3.5-2.13-3.5-2.13 0-2.46 1.66-2.46 3.39V23h-4V8.5z" />
               </svg>
-              <span>{t('home.contact.linkedin')}</span>
+              <span><CjkText>{t('home.contact.linkedin')}</CjkText></span>
             </a>
             <a className="contact-pill" href="mailto:yuu07798@gmail.com">
               <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">

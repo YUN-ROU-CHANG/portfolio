@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
+import CjkText from '../../components/CjkText';
 import {
   Award, Leaf, Wind, Map, BookOpen,
   Target, Compass, Sparkles, CheckCircle2,
@@ -87,36 +88,36 @@ export default function MuProject() {
                     <Award size={24} />
                   </div>
                   <div className="badge-content">
-                    <div className="badge-title">{t('project.mu.hero.badge')}</div>
-                    <div className="badge-subtitle">{t('project.mu.hero.badgeSub')}</div>
+                    <div className="badge-title"><CjkText>{t('project.mu.hero.badge')}</CjkText></div>
+                    <div className="badge-subtitle"><CjkText>{t('project.mu.hero.badgeSub')}</CjkText></div>
                   </div>
                 </div>
               </div>
 
-              <h1 className="hero-title">{t('project.mu.hero.title')}</h1>
+              <h1 className="hero-title"><CjkText>{t('project.mu.hero.title')}</CjkText></h1>
               <p className="hero-subtitle">
-                {t('project.mu.hero.subtitle')}
+                <CjkText>{t('project.mu.hero.subtitle')}</CjkText>
               </p>
 
               <div className="hero-details">
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.mu.hero.timelineLabel')}</span>
-                  <span className="detail-value">{t('project.mu.hero.timelineValue')}</span>
+                  <span className="detail-label"><CjkText>{t('project.mu.hero.timelineLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.mu.hero.timelineValue')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.mu.hero.roleLabel')}</span>
-                  <span className="detail-value">{t('project.mu.hero.roleValue')}</span>
-                  <span className="detail-sub">{t('project.mu.hero.roleSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.mu.hero.roleLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.mu.hero.roleValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.mu.hero.roleSub')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.mu.hero.teamLabel')}</span>
-                  <span className="detail-value">{t('project.mu.hero.teamValue')}</span>
-                  <span className="detail-sub">{t('project.mu.hero.teamSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.mu.hero.teamLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.mu.hero.teamValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.mu.hero.teamSub')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.mu.hero.recognitionLabel')}</span>
+                  <span className="detail-label"><CjkText>{t('project.mu.hero.recognitionLabel')}</CjkText></span>
                   <span className="detail-value achievement-highlight">
-                    ✨ {t('project.mu.hero.recognitionValue')}
+                    ✨ <CjkText>{t('project.mu.hero.recognitionValue')}</CjkText>
                   </span>
                 </div>
               </div>
@@ -132,9 +133,9 @@ export default function MuProject() {
                 <img src={getAsset('logo')} alt={t('project.mu.hero.logoAlt')} className="project-logo" />
               </div>
               <div className="overview-text-container">
-                <h2 className="section-heading">{t('project.mu.overview.heading')}</h2>
+                <h2 className="section-heading"><CjkText>{t('project.mu.overview.heading')}</CjkText></h2>
                 <p className="body-text-large">
-                  {t('project.mu.overview.desc')}
+                  <CjkText>{t('project.mu.overview.desc')}</CjkText>
                 </p>
               </div>
             </div>
@@ -142,18 +143,18 @@ export default function MuProject() {
             <div className="metrics-grid">
               <div className="metric-card">
                 <div className="metric-icon"><Wind size={40} /></div>
-                <div className="metric-label">{t('project.mu.overview.card1title')}</div>
-                <p className="body-text-sm">{t('project.mu.overview.card1desc')}</p>
+                <div className="metric-label"><CjkText>{t('project.mu.overview.card1title')}</CjkText></div>
+                <p className="body-text-sm"><CjkText>{t('project.mu.overview.card1desc')}</CjkText></p>
               </div>
               <div className="metric-card">
                 <div className="metric-icon"><Map size={40} /></div>
-                <div className="metric-label">{t('project.mu.overview.card2title')}</div>
-                <p className="body-text-sm">{t('project.mu.overview.card2desc')}</p>
+                <div className="metric-label"><CjkText>{t('project.mu.overview.card2title')}</CjkText></div>
+                <p className="body-text-sm"><CjkText>{t('project.mu.overview.card2desc')}</CjkText></p>
               </div>
               <div className="metric-card">
                 <div className="metric-icon"><BookOpen size={40} /></div>
-                <div className="metric-label">{t('project.mu.overview.card3title')}</div>
-                <p className="body-text-sm">{t('project.mu.overview.card3desc')}</p>
+                <div className="metric-label"><CjkText>{t('project.mu.overview.card3title')}</CjkText></div>
+                <p className="body-text-sm"><CjkText>{t('project.mu.overview.card3desc')}</CjkText></p>
               </div>
             </div>
           </div>
@@ -165,29 +166,29 @@ export default function MuProject() {
             <div className="subsection">
               <div className="subsection-header">
                 <Target size={24} color="hsl(var(--g1))" />
-                <h3 className="subsection-title">{t('project.mu.challenge.heading')}</h3>
+                <h3 className="subsection-title"><CjkText>{t('project.mu.challenge.heading')}</CjkText></h3>
               </div>
 
               <div className="two-column-layout">
                 <div className="column-content">
-                  <h4 className="highlight-title">{t('project.mu.challenge.title')}</h4>
+                  <h4 className="highlight-title"><CjkText>{t('project.mu.challenge.title')}</CjkText></h4>
                   <p className="body-text">
-                    {t('project.mu.challenge.desc')}
+                    <CjkText>{t('project.mu.challenge.desc')}</CjkText>
                   </p>
 
                   <div className="challenge-list">
                     <div className="challenge-item">
                       <div className="challenge-bullet problem"></div>
                       <div>
-                        <strong>{t('project.mu.challenge.item1label')}</strong>
-                        <span>{t('project.mu.challenge.item1desc')}</span>
+                        <strong><CjkText>{t('project.mu.challenge.item1label')}</CjkText></strong>
+                        <span><CjkText>{t('project.mu.challenge.item1desc')}</CjkText></span>
                       </div>
                     </div>
                     <div className="challenge-item">
                       <div className="challenge-bullet problem"></div>
                       <div>
-                        <strong>{t('project.mu.challenge.item2label')}</strong>
-                        <span>{t('project.mu.challenge.item2desc')}</span>
+                        <strong><CjkText>{t('project.mu.challenge.item2label')}</CjkText></strong>
+                        <span><CjkText>{t('project.mu.challenge.item2desc')}</CjkText></span>
                       </div>
                     </div>
                   </div>
@@ -195,9 +196,9 @@ export default function MuProject() {
 
                 <div className="column-media">
                   <div className="insight-card">
-                    <h4 className="insight-title">{t('project.mu.challenge.coreLabel')}</h4>
+                    <h4 className="insight-title"><CjkText>{t('project.mu.challenge.coreLabel')}</CjkText></h4>
                     <p className="insight-text">
-                      {t('project.mu.challenge.coreQuote')}
+                      <CjkText>{t('project.mu.challenge.coreQuote')}</CjkText>
                     </p>
                   </div>
                 </div>
@@ -212,16 +213,16 @@ export default function MuProject() {
             <div className="subsection">
               <div className="subsection-header">
                 <Compass size={24} color="hsl(var(--g2))" />
-                <h3 className="subsection-title">{t('project.mu.research.heading')}</h3>
+                <h3 className="subsection-title"><CjkText>{t('project.mu.research.heading')}</CjkText></h3>
               </div>
 
               <p className="body-text mb-8">
-                {t('project.mu.research.intro')}
+                <CjkText>{t('project.mu.research.intro')}</CjkText>
               </p>
 
               {/* Precious Woods Showcase */}
               <div className="woods-showcase-container shadow-box mb-12">
-                <h4 className="text-center font-bold mb-4" style={{ color: 'hsl(var(--g1))' }}>{t('project.mu.research.woodsTitle')}</h4>
+                <h4 className="text-center font-bold mb-4" style={{ color: 'hsl(var(--g1))' }}><CjkText>{t('project.mu.research.woodsTitle')}</CjkText></h4>
                 <div className="image-wrapper bg-white p-4" style={{ height: '200px' }}>
                   <img src={getAsset('woods')} alt={t('project.mu.research.woodsAlt')} className="full-contain-img" />
                 </div>
@@ -231,62 +232,62 @@ export default function MuProject() {
               <div className="data-viz-grid mb-12">
                 {/* Chart 1: Interest vs Knowledge */}
                 <div className="chart-card shadow-box">
-                  <h4 className="chart-title">{t('project.mu.research.f1title')}</h4>
-                  <p className="chart-desc">{t('project.mu.research.f1desc')}</p>
+                  <h4 className="chart-title"><CjkText>{t('project.mu.research.f1title')}</CjkText></h4>
+                  <p className="chart-desc"><CjkText>{t('project.mu.research.f1desc')}</CjkText></p>
                   <div className="bar-chart-container">
                     <div className="bar-row">
-                      <div className="bar-label">{t('project.mu.research.f1bar1')}</div>
+                      <div className="bar-label"><CjkText>{t('project.mu.research.f1bar1')}</CjkText></div>
                       <div className="bar-track">
                         <div className="bar-fill" style={{ width: '91.3%', background: 'hsl(var(--g1))' }}></div>
                         <span className="bar-value">91.3%</span>
                       </div>
                     </div>
                     <div className="bar-row">
-                      <div className="bar-label">{t('project.mu.research.f1bar2')}</div>
+                      <div className="bar-label"><CjkText>{t('project.mu.research.f1bar2')}</CjkText></div>
                       <div className="bar-track">
                         <div className="bar-fill" style={{ width: '15%', background: 'color-mix(in srgb, var(--text-tertiary) 40%, var(--surface))' }}></div>
                         <span className="bar-value">15%</span>
                       </div>
                     </div>
                   </div>
-                  <div className="chart-insight">{t('project.mu.research.f1insight')}</div>
+                  <div className="chart-insight"><CjkText>{t('project.mu.research.f1insight')}</CjkText></div>
                 </div>
 
                 {/* Chart 2: Scent Delivery Preference */}
                 <div className="chart-card shadow-box">
-                  <h4 className="chart-title">{t('project.mu.research.f2title')}</h4>
-                  <p className="chart-desc">{t('project.mu.research.f2desc')}</p>
+                  <h4 className="chart-title"><CjkText>{t('project.mu.research.f2title')}</CjkText></h4>
+                  <p className="chart-desc"><CjkText>{t('project.mu.research.f2desc')}</CjkText></p>
                   <div className="pie-chart-container">
                     <div className="pie-chart" style={{ background: 'conic-gradient(hsl(var(--g2)) 0% 78.3%, var(--surface-muted) 78.3% 100%)' }}></div>
                     <div className="pie-legend">
-                      <div className="legend-item"><span className="dot" style={{ background: 'hsl(var(--g2))' }}></span>{t('project.mu.research.f2bar1')}</div>
-                      <div className="legend-item"><span className="dot" style={{ background: 'var(--surface-muted)' }}></span>{t('project.mu.research.f2bar2')}</div>
+                      <div className="legend-item"><span className="dot" style={{ background: 'hsl(var(--g2))' }}></span><CjkText>{t('project.mu.research.f2bar1')}</CjkText></div>
+                      <div className="legend-item"><span className="dot" style={{ background: 'var(--surface-muted)' }}></span><CjkText>{t('project.mu.research.f2bar2')}</CjkText></div>
                     </div>
                   </div>
-                  <div className="chart-insight">{t('project.mu.research.f2insight')}</div>
+                  <div className="chart-insight"><CjkText>{t('project.mu.research.f2insight')}</CjkText></div>
                 </div>
 
                 {/* Chart 3: Navigation Style */}
                 <div className="chart-card shadow-box">
-                  <h4 className="chart-title">{t('project.mu.research.f3title')}</h4>
-                  <p className="chart-desc">{t('project.mu.research.f3desc')}</p>
+                  <h4 className="chart-title"><CjkText>{t('project.mu.research.f3title')}</CjkText></h4>
+                  <p className="chart-desc"><CjkText>{t('project.mu.research.f3desc')}</CjkText></p>
                   <div className="bar-chart-container">
                     <div className="bar-row">
-                      <div className="bar-label">{t('project.mu.research.f3bar1')}</div>
+                      <div className="bar-label"><CjkText>{t('project.mu.research.f3bar1')}</CjkText></div>
                       <div className="bar-track">
                         <div className="bar-fill" style={{ width: '50%', background: 'hsl(var(--g3))' }}></div>
                         <span className="bar-value">50%</span>
                       </div>
                     </div>
                     <div className="bar-row">
-                      <div className="bar-label">{t('project.mu.research.f3bar2')}</div>
+                      <div className="bar-label"><CjkText>{t('project.mu.research.f3bar2')}</CjkText></div>
                       <div className="bar-track">
                         <div className="bar-fill" style={{ width: '50%', background: 'hsl(var(--g4))' }}></div>
                         <span className="bar-value">50%</span>
                       </div>
                     </div>
                   </div>
-                  <div className="chart-insight">{t('project.mu.research.f3insight')}</div>
+                  <div className="chart-insight"><CjkText>{t('project.mu.research.f3insight')}</CjkText></div>
                 </div>
               </div>
             </div>
@@ -299,7 +300,7 @@ export default function MuProject() {
             <div className="subsection">
               <div className="subsection-header justify-center mb-12">
                 <Sparkles size={28} color="hsl(var(--g3))" />
-                <h3 className="subsection-title">{t('project.mu.solutions.heading')}</h3>
+                <h3 className="subsection-title"><CjkText>{t('project.mu.solutions.heading')}</CjkText></h3>
               </div>
 
               <div className="ui-grid">
@@ -307,8 +308,8 @@ export default function MuProject() {
                 <div className="ui-card shadow-box">
                   <div className="ui-text-area">
                     <div className="feature-icon-sm"><Map size={20} /></div>
-                    <h4 className="ui-title">{t('project.mu.solutions.s1title')}</h4>
-                    <p className="ui-desc">{t('project.mu.solutions.s1desc')}</p>
+                    <h4 className="ui-title"><CjkText>{t('project.mu.solutions.s1title')}</CjkText></h4>
+                    <p className="ui-desc"><CjkText>{t('project.mu.solutions.s1desc')}</CjkText></p>
                   </div>
                   <div className="ui-image-area" onClick={() => openLightbox('home-page')}>
                     <img src={getAsset('home-page')} alt={t('project.mu.solutions.s1alt')} />
@@ -320,8 +321,8 @@ export default function MuProject() {
                 <div className="ui-card shadow-box">
                   <div className="ui-text-area">
                     <div className="feature-icon-sm"><Compass size={20} /></div>
-                    <h4 className="ui-title">{t('project.mu.solutions.s2title')}</h4>
-                    <p className="ui-desc">{t('project.mu.solutions.s2desc')}</p>
+                    <h4 className="ui-title"><CjkText>{t('project.mu.solutions.s2title')}</CjkText></h4>
+                    <p className="ui-desc"><CjkText>{t('project.mu.solutions.s2desc')}</CjkText></p>
                   </div>
                   <div className="ui-image-area" onClick={() => openLightbox('guide-app')}>
                     <img src={getAsset('guide-app')} alt={t('project.mu.solutions.s2alt')} />
@@ -333,8 +334,8 @@ export default function MuProject() {
                 <div className="ui-card shadow-box">
                   <div className="ui-text-area">
                     <div className="feature-icon-sm"><Volume2 size={20} /></div>
-                    <h4 className="ui-title">{t('project.mu.solutions.s3title')}</h4>
-                    <p className="ui-desc">{t('project.mu.solutions.s3desc')}</p>
+                    <h4 className="ui-title"><CjkText>{t('project.mu.solutions.s3title')}</CjkText></h4>
+                    <p className="ui-desc"><CjkText>{t('project.mu.solutions.s3desc')}</CjkText></p>
                   </div>
                   <div className="ui-image-area" onClick={() => openLightbox('multisensory-app-1')}>
                     <img src={getAsset('multisensory-app-1')} alt={t('project.mu.solutions.s3alt')} />
@@ -346,8 +347,8 @@ export default function MuProject() {
                 <div className="ui-card shadow-box">
                   <div className="ui-text-area">
                     <div className="feature-icon-sm"><Leaf size={20} /></div>
-                    <h4 className="ui-title">{t('project.mu.solutions.s4title')}</h4>
-                    <p className="ui-desc">{t('project.mu.solutions.s4desc')}</p>
+                    <h4 className="ui-title"><CjkText>{t('project.mu.solutions.s4title')}</CjkText></h4>
+                    <p className="ui-desc"><CjkText>{t('project.mu.solutions.s4desc')}</CjkText></p>
                   </div>
                   <div className="ui-image-area" onClick={() => openLightbox('trees-introduce')}>
                     <img src={getAsset('trees-introduce')} alt={t('project.mu.solutions.s4alt')} />
@@ -366,19 +367,19 @@ export default function MuProject() {
               <div className="outcome-header">
                 <ShieldCheck size={48} color="hsl(var(--g1))" />
                 <h2 className="section-heading" style={{ marginBottom: '16px' }}>
-                  {t('project.mu.impact.heading')}
+                  <CjkText>{t('project.mu.impact.heading')}</CjkText>
                 </h2>
                 <p className="section-subheading">
-                  {t('project.mu.impact.title')}
+                  <CjkText>{t('project.mu.impact.title')}</CjkText>
                 </p>
               </div>
 
               <div className="outcome-grid">
                 <div className="outcome-card featured green-theme">
                   <div className="outcome-icon green-icon"><Award size={50} /></div>
-                  <h3 className="outcome-title">✨ {t('project.mu.hero.recognitionValue')}</h3>
+                  <h3 className="outcome-title">✨ <CjkText>{t('project.mu.hero.recognitionValue')}</CjkText></h3>
                   <p className="outcome-text text-center">
-                    {t('project.mu.impact.nomineeDesc')}
+                    <CjkText>{t('project.mu.impact.nomineeDesc')}</CjkText>
                   </p>
                   {/* PDF Embed for Certificate */}
                   <div className="pdf-container shadow-box mt-8" style={{ height: '400px', width: '100%', maxWidth: '600px', margin: '32px auto 0' }}>

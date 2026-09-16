@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import { Award, Video, Globe, Headphones, Lightbulb, Target, Sparkles, Star } from 'lucide-react';
+import CjkText from '../../components/CjkText';
 
 const timesPhotos = import.meta.glob(
   '../../assets/images/project/TimesYoungCreativeAwards/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
@@ -61,64 +62,64 @@ export default function TimesAwards() {
                   </div>
                   <div className="badge-content">
                     <div className="badge-title">
-                      {t('project.timesAwards.labels.thirdPlace')}
+                      <CjkText>{t('project.timesAwards.labels.thirdPlace')}</CjkText>
                     </div>
                     <div className="badge-subtitle">
-                      {t('project.timesAwards.hero.badgeSub')}
+                      <CjkText>{t('project.timesAwards.hero.badgeSub')}</CjkText>
                     </div>
                   </div>
                 </div>
 
                 <div className="shortlist-badge">
                   <Star size={20} />
-                  <span>{t('project.timesAwards.hero.badge2')}</span>
+                  <span><CjkText>{t('project.timesAwards.hero.badge2')}</CjkText></span>
                 </div>
               </div>
 
               {/* Project Title */}
               <h1 className="hero-title">
-                {t('project.timesAwards.hero.title')}
+                <CjkText>{t('project.timesAwards.hero.title')}</CjkText>
               </h1>
 
               {/* Subtitle */}
               <p className="hero-subtitle">
-                {t('project.timesAwards.hero.subtitle')}
+                <CjkText>{t('project.timesAwards.hero.subtitle')}</CjkText>
               </p>
 
               {/* Project Details Grid - 修改為強制同一橫列 */}
               <div className="hero-details" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '32px' }}>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.timesAwards.hero.timelineLabel')}</span>
+                  <span className="detail-label"><CjkText>{t('project.timesAwards.hero.timelineLabel')}</CjkText></span>
                   <span className="detail-value">
-                    {t('project.timesAwards.hero.timelineValue')}
+                    <CjkText>{t('project.timesAwards.hero.timelineValue')}</CjkText>
                   </span>
                   <span className="detail-sub">
-                    {t('project.timesAwards.hero.timelineSub')}
+                    <CjkText>{t('project.timesAwards.hero.timelineSub')}</CjkText>
                   </span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.timesAwards.hero.roleLabel')}</span>
+                  <span className="detail-label"><CjkText>{t('project.timesAwards.hero.roleLabel')}</CjkText></span>
                   <span className="detail-value">
-                    {t('project.timesAwards.hero.roleValue')}
+                    <CjkText>{t('project.timesAwards.hero.roleValue')}</CjkText>
                   </span>
                   <span className="detail-sub">
-                    {t('project.timesAwards.hero.roleSub')}
+                    <CjkText>{t('project.timesAwards.hero.roleSub')}</CjkText>
                   </span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.timesAwards.hero.teamLabel')}</span>
+                  <span className="detail-label"><CjkText>{t('project.timesAwards.hero.teamLabel')}</CjkText></span>
                   <span className="detail-value">
-                    {t('project.timesAwards.hero.teamValue')}
+                    <CjkText>{t('project.timesAwards.hero.teamValue')}</CjkText>
                   </span>
-                  <span className="detail-sub">{t('project.timesAwards.hero.teamNames')}</span>
+                  <span className="detail-sub"><CjkText>{t('project.timesAwards.hero.teamNames')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.timesAwards.hero.recognitionLabel')}</span>
+                  <span className="detail-label"><CjkText>{t('project.timesAwards.hero.recognitionLabel')}</CjkText></span>
                   <span className="detail-value bronze-highlight">
-                    🥉 {t('project.timesAwards.hero.recognitionValue')}
+                    🥉 <CjkText>{t('project.timesAwards.hero.recognitionValue')}</CjkText>
                   </span>
                   <span className="detail-sub">
-                    + {t('project.timesAwards.hero.recognitionSub')}
+                    + <CjkText>{t('project.timesAwards.hero.recognitionSub')}</CjkText>
                   </span>
                 </div>
               </div>
@@ -130,10 +131,10 @@ export default function TimesAwards() {
                 </div>
                 <div className="context-content">
                   <h3 className="context-title">
-                    {t('project.timesAwards.overview.title')}
+                    <CjkText>{t('project.timesAwards.overview.title')}</CjkText>
                   </h3>
                   <p className="context-text">
-                    {t('project.timesAwards.overview.desc')}
+                    <CjkText>{t('project.timesAwards.overview.desc')}</CjkText>
                   </p>
                 </div>
               </div>
@@ -146,7 +147,7 @@ export default function TimesAwards() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="overview-intro">
               <h2 className="section-heading">
-                {t('project.timesAwards.concept.heading')}
+                <CjkText>{t('project.timesAwards.concept.heading')}</CjkText>
               </h2>
               <div className="concept-highlight-box">
                 <div className="concept-icon-large">
@@ -154,14 +155,14 @@ export default function TimesAwards() {
                 </div>
                 <div className="concept-text-content">
                   <h3 className="concept-quote">
-                    {t('project.timesAwards.concept.quote')}
+                    <CjkText>{t('project.timesAwards.concept.quote')}</CjkText>
                   </h3>
                   <p className="concept-explanation">
-                    {t('project.timesAwards.concept.desc')}
+                    <CjkText>{t('project.timesAwards.concept.desc')}</CjkText>
                   </p>
                   <div className="concept-tagline">
-                    <strong>{t('project.timesAwards.concept.keyMessageLabel')}</strong>
-                    {t('project.timesAwards.concept.keyMessage')}
+                    <strong><CjkText>{t('project.timesAwards.concept.keyMessageLabel')}</CjkText></strong>
+                    <CjkText>{t('project.timesAwards.concept.keyMessage')}</CjkText>
                   </div>
                 </div>
               </div>
@@ -171,17 +172,17 @@ export default function TimesAwards() {
             <div className="campaign-stats">
               <div className="stat-card">
                 <div className="stat-number">4</div>
-                <div className="stat-label">{t('project.timesAwards.works.heading')}</div>
+                <div className="stat-label"><CjkText>{t('project.timesAwards.works.heading')}</CjkText></div>
               </div>
               <div className="stat-card">
                 <div className="stat-number">3</div>
-                <div className="stat-label">{t('project.timesAwards.works.formatsLabel')}</div>
-                <div className="stat-sub">{t('project.timesAwards.works.formatsValue')}</div>
+                <div className="stat-label"><CjkText>{t('project.timesAwards.works.formatsLabel')}</CjkText></div>
+                <div className="stat-sub"><CjkText>{t('project.timesAwards.works.formatsValue')}</CjkText></div>
               </div>
               <div className="stat-card highlight">
                 <div className="stat-number">1</div>
-                <div className="stat-label">{t('project.timesAwards.works.resultValue')}</div>
-                <div className="stat-sub">{t('project.timesAwards.works.resultSub')}</div>
+                <div className="stat-label"><CjkText>{t('project.timesAwards.works.resultValue')}</CjkText></div>
+                <div className="stat-sub"><CjkText>{t('project.timesAwards.works.resultSub')}</CjkText></div>
               </div>
             </div>
           </div>
@@ -193,14 +194,14 @@ export default function TimesAwards() {
             <div className="work-header">
               <div className="work-badge winner">
                 <Award size={20} />
-                <span>{t('project.timesAwards.labels.thirdPlace')}</span>
+                <span><CjkText>{t('project.timesAwards.labels.thirdPlace')}</CjkText></span>
               </div>
               <h2 className="work-title">
-                {t('project.timesAwards.work1.title')}
+                <CjkText>{t('project.timesAwards.work1.title')}</CjkText>
               </h2>
               <div className="work-meta">
                 <Video size={18} />
-                <span>{t('project.timesAwards.work1.format')}</span>
+                <span><CjkText>{t('project.timesAwards.work1.format')}</CjkText></span>
               </div>
             </div>
 
@@ -208,29 +209,29 @@ export default function TimesAwards() {
             <div className="work-content" style={{ display: 'block' }}>
               <div className="work-description">
                 <h3 className="subsection-title">
-                  {t('project.timesAwards.labels.concept')}
+                  <CjkText>{t('project.timesAwards.labels.concept')}</CjkText>
                 </h3>
                 <p className="body-text">
-                  {t('project.timesAwards.work1.concept')}
+                  <CjkText>{t('project.timesAwards.work1.concept')}</CjkText>
                 </p>
 
                 {/* 修改：上下互換並設定全寬 */}
                 <div className="features-list">
-                  <h4 className="features-title">{t('project.timesAwards.labels.creativeElements')}</h4>
+                  <h4 className="features-title"><CjkText>{t('project.timesAwards.labels.creativeElements')}</CjkText></h4>
                   <ul>
-                    <li>{t('project.timesAwards.work1.el1')}</li>
-                    <li>{t('project.timesAwards.work1.el2')}</li>
-                    <li>{t('project.timesAwards.work1.el3')}</li>
-                    <li>{t('project.timesAwards.work1.el4')}</li>
+                    <li><CjkText>{t('project.timesAwards.work1.el1')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work1.el2')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work1.el3')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work1.el4')}</CjkText></li>
                   </ul>
                 </div>
 
                 <div className="key-message-box" style={{ width: '100%', marginTop: '32px' }}>
                   <h4 className="key-message-title">
-                    {t('project.timesAwards.labels.keyCopy')}
+                    <CjkText>{t('project.timesAwards.labels.keyCopy')}</CjkText>
                   </h4>
                   <blockquote className="key-copy">
-                    {t('project.timesAwards.concept.keyMessage')}
+                    <CjkText>{t('project.timesAwards.concept.keyMessage')}</CjkText>
                   </blockquote>
                 </div>
               </div>
@@ -242,8 +243,8 @@ export default function TimesAwards() {
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', gap: '24px', border: '1px solid rgba(12,12,12,.12)', borderRadius: '12px', background: 'rgba(12,12,12,.02)', textDecoration: 'none', color: 'inherit', padding: '24px' }}>
                   <span style={{ fontSize: '48px' }}>🎬</span>
                   <div>
-                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '18px', color: 'var(--text-primary)', marginBottom: '4px' }}>{t('project.timesAwards.work1.linkTitle')}</div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>{t('project.timesAwards.work1.linkLabel')}</div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '18px', color: 'var(--text-primary)', marginBottom: '4px' }}><CjkText>{t('project.timesAwards.work1.linkTitle')}</CjkText></div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}><CjkText>{t('project.timesAwards.work1.linkLabel')}</CjkText></div>
                   </div>
                 </a>
               </div>
@@ -257,42 +258,42 @@ export default function TimesAwards() {
             <div className="work-header">
               <div className="work-badge shortlisted">
                 <Star size={20} />
-                <span>{t('project.timesAwards.labels.shortlisted')}</span>
+                <span><CjkText>{t('project.timesAwards.labels.shortlisted')}</CjkText></span>
               </div>
               <h2 className="work-title">
-                {t('project.timesAwards.work2.title')}
+                <CjkText>{t('project.timesAwards.work2.title')}</CjkText>
               </h2>
               <div className="work-meta">
                 <Globe size={18} />
-                <span>{t('project.timesAwards.work2.format')}</span>
+                <span><CjkText>{t('project.timesAwards.work2.format')}</CjkText></span>
               </div>
             </div>
 
             <div className="work-content">
               <div className="work-description">
                 <h3 className="subsection-title">
-                  {t('project.timesAwards.labels.concept')}
+                  <CjkText>{t('project.timesAwards.labels.concept')}</CjkText>
                 </h3>
                 <p className="body-text">
-                  {t('project.timesAwards.work2.concept')}
+                  <CjkText>{t('project.timesAwards.work2.concept')}</CjkText>
                 </p>
 
                 <div className="key-message-box">
                   <h4 className="key-message-title">
-                    {t('project.timesAwards.labels.keyCopy')}
+                    <CjkText>{t('project.timesAwards.labels.keyCopy')}</CjkText>
                   </h4>
                   <blockquote className="key-copy">
-                    {t('project.timesAwards.work2.keyCopy')}
+                    <CjkText>{t('project.timesAwards.work2.keyCopy')}</CjkText>
                   </blockquote>
                 </div>
 
                 <div className="features-list">
-                  <h4 className="features-title">{t('project.timesAwards.labels.creativeElements')}</h4>
+                  <h4 className="features-title"><CjkText>{t('project.timesAwards.labels.creativeElements')}</CjkText></h4>
                   <ul>
-                    <li>{t('project.timesAwards.work2.el1')}</li>
-                    <li>{t('project.timesAwards.work2.el2')}</li>
-                    <li>{t('project.timesAwards.work2.el3')}</li>
-                    <li>{t('project.timesAwards.work2.el4')}</li>
+                    <li><CjkText>{t('project.timesAwards.work2.el1')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work2.el2')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work2.el3')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work2.el4')}</CjkText></li>
                   </ul>
                 </div>
               </div>
@@ -310,8 +311,8 @@ export default function TimesAwards() {
                     style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', gap: '24px', border: '1px solid rgba(12,12,12,.12)', borderRadius: '12px', background: 'rgba(12,12,12,.02)', textDecoration: 'none', color: 'inherit', padding: '24px' }}>
                     <span style={{ fontSize: '48px' }}>🌐</span>
                     <div>
-                      <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '18px', color: 'var(--text-primary)', marginBottom: '6px' }}>{t('project.timesAwards.work1.linkTitle')}</div>
-                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>{t('project.timesAwards.work2.linkLabel')}</div>
+                      <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '18px', color: 'var(--text-primary)', marginBottom: '6px' }}><CjkText>{t('project.timesAwards.work1.linkTitle')}</CjkText></div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}><CjkText>{t('project.timesAwards.work2.linkLabel')}</CjkText></div>
                     </div>
                   </a>
                 </div>
@@ -325,14 +326,14 @@ export default function TimesAwards() {
             <div className="work-header">
               <div className="work-badge shortlisted">
                 <Star size={20} />
-                <span>{t('project.timesAwards.labels.shortlisted')}</span>
+                <span><CjkText>{t('project.timesAwards.labels.shortlisted')}</CjkText></span>
               </div>
               <h2 className="work-title">
-                {t('project.timesAwards.work3.title')}
+                <CjkText>{t('project.timesAwards.work3.title')}</CjkText>
               </h2>
               <div className="work-meta">
                 <Globe size={18} />
-                <span>{t('project.timesAwards.work3.format')}</span>
+                <span><CjkText>{t('project.timesAwards.work3.format')}</CjkText></span>
               </div>
             </div>
 
@@ -340,28 +341,28 @@ export default function TimesAwards() {
             <div className="work-content" style={{ display: 'block' }}>
               <div className="work-description">
                 <h3 className="subsection-title">
-                  {t('project.timesAwards.labels.concept')}
+                  <CjkText>{t('project.timesAwards.labels.concept')}</CjkText>
                 </h3>
                 <p className="body-text">
-                  {t('project.timesAwards.work3.concept')}
+                  <CjkText>{t('project.timesAwards.work3.concept')}</CjkText>
                 </p>
 
                 <div className="key-message-box">
                   <h4 className="key-message-title">
-                    {t('project.timesAwards.labels.keyCopy')}
+                    <CjkText>{t('project.timesAwards.labels.keyCopy')}</CjkText>
                   </h4>
                   <blockquote className="key-copy">
-                    {t('project.timesAwards.work3.keyCopy')}
+                    <CjkText>{t('project.timesAwards.work3.keyCopy')}</CjkText>
                   </blockquote>
                 </div>
 
                 <div className="features-list">
-                  <h4 className="features-title">{t('project.timesAwards.labels.creativeElements')}</h4>
+                  <h4 className="features-title"><CjkText>{t('project.timesAwards.labels.creativeElements')}</CjkText></h4>
                   <ul>
-                    <li>{t('project.timesAwards.work3.el1')}</li>
-                    <li>{t('project.timesAwards.work3.el2')}</li>
-                    <li>{t('project.timesAwards.work3.el3')}</li>
-                    <li>{t('project.timesAwards.work3.el4')}</li>
+                    <li><CjkText>{t('project.timesAwards.work3.el1')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work3.el2')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work3.el3')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work3.el4')}</CjkText></li>
                   </ul>
                 </div>
               </div>
@@ -373,8 +374,8 @@ export default function TimesAwards() {
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', gap: '24px', border: '1px solid rgba(12,12,12,.12)', borderRadius: '12px', background: 'rgba(12,12,12,.02)', textDecoration: 'none', color: 'inherit', padding: '24px' }}>
                   <span style={{ fontSize: '48px' }}>🌐</span>
                   <div>
-                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '18px', color: 'var(--text-primary)', marginBottom: '6px' }}>{t('project.timesAwards.work3.linkTitle')}</div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>{t('project.timesAwards.work2.linkLabel')}</div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '18px', color: 'var(--text-primary)', marginBottom: '6px' }}><CjkText>{t('project.timesAwards.work3.linkTitle')}</CjkText></div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}><CjkText>{t('project.timesAwards.work2.linkLabel')}</CjkText></div>
                   </div>
                 </a>
               </div>
@@ -388,14 +389,14 @@ export default function TimesAwards() {
             <div className="work-header">
               <div className="work-badge shortlisted">
                 <Star size={20} />
-                <span>{t('project.timesAwards.labels.shortlisted')}</span>
+                <span><CjkText>{t('project.timesAwards.labels.shortlisted')}</CjkText></span>
               </div>
               <h2 className="work-title">
-                {t('project.timesAwards.work4.title')}
+                <CjkText>{t('project.timesAwards.work4.title')}</CjkText>
               </h2>
               <div className="work-meta">
                 <Headphones size={18} />
-                <span>{t('project.timesAwards.work4.format')}</span>
+                <span><CjkText>{t('project.timesAwards.work4.format')}</CjkText></span>
               </div>
             </div>
 
@@ -403,29 +404,29 @@ export default function TimesAwards() {
             <div className="work-content" style={{ display: 'block' }}>
               <div className="work-description">
                 <h3 className="subsection-title">
-                  {t('project.timesAwards.labels.concept')}
+                  <CjkText>{t('project.timesAwards.labels.concept')}</CjkText>
                 </h3>
                 <p className="body-text">
-                  {t('project.timesAwards.work4.concept')}
+                  <CjkText>{t('project.timesAwards.work4.concept')}</CjkText>
                 </p>
 
                 <div className="features-list">
-                  <h4 className="features-title">{t('project.timesAwards.labels.creativeElements')}</h4>
+                  <h4 className="features-title"><CjkText>{t('project.timesAwards.labels.creativeElements')}</CjkText></h4>
                   <ul>
-                    <li>{t('project.timesAwards.work4.el1')}</li>
-                    <li>{t('project.timesAwards.work4.el2')}</li>
-                    <li>{t('project.timesAwards.work4.el3')}</li>
-                    <li>{t('project.timesAwards.work4.el4')}</li>
+                    <li><CjkText>{t('project.timesAwards.work4.el1')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work4.el2')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work4.el3')}</CjkText></li>
+                    <li><CjkText>{t('project.timesAwards.work4.el4')}</CjkText></li>
                   </ul>
                 </div>
 
                 {/* Key Sound Design 設為全寬，放置於 Elements 下方 */}
                 <div className="key-message-box" style={{ width: '100%', marginTop: '32px' }}>
                   <h4 className="key-message-title">
-                    {t('project.timesAwards.work4.soundLabel')}
+                    <CjkText>{t('project.timesAwards.work4.soundLabel')}</CjkText>
                   </h4>
                   <blockquote className="key-copy">
-                    {t('project.timesAwards.work4.sound')}
+                    <CjkText>{t('project.timesAwards.work4.sound')}</CjkText>
                   </blockquote>
                 </div>
               </div>
@@ -436,8 +437,8 @@ export default function TimesAwards() {
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', width: '100%', border: '1px solid rgba(12,12,12,.12)', borderRadius: '12px', background: 'rgba(12,12,12,.02)', textDecoration: 'none', color: 'inherit', padding: '24px' }}>
                   <span style={{ fontSize: '48px' }}>🎵</span>
                   <div>
-                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '18px', color: 'var(--text-primary)', marginBottom: '6px' }}>{t('project.timesAwards.work4.linkTitle')}</div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>{t('project.timesAwards.work4.linkLabel')}</div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '18px', color: 'var(--text-primary)', marginBottom: '6px' }}><CjkText>{t('project.timesAwards.work4.linkTitle')}</CjkText></div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}><CjkText>{t('project.timesAwards.work4.linkLabel')}</CjkText></div>
                   </div>
                 </a>
               </div>
@@ -452,8 +453,8 @@ export default function TimesAwards() {
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', width: '100%', border: '1px solid rgba(12,12,12,.12)', borderRadius: '12px', background: 'rgba(12,12,12,.02)', textDecoration: 'none', color: 'inherit', padding: '24px', transition: 'background 0.2s ease' }}>
               <span style={{ fontSize: '48px' }}>▶️</span>
               <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '18px', color: 'var(--text-primary)', marginBottom: '6px' }}>{t('project.timesAwards.playlist.title')}</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>{t('project.timesAwards.playlist.linkLabel')}</div>
+                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '18px', color: 'var(--text-primary)', marginBottom: '6px' }}><CjkText>{t('project.timesAwards.playlist.title')}</CjkText></div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}><CjkText>{t('project.timesAwards.playlist.linkLabel')}</CjkText></div>
               </div>
             </a>
           </div>
@@ -468,11 +469,11 @@ export default function TimesAwards() {
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '16px' }}>
                   <Award size={48} color="#CD853F" />
                   <h2 className="section-heading" style={{ margin: 0 }}>
-                    {t('project.timesAwards.impact.heading')}
+                    <CjkText>{t('project.timesAwards.impact.heading')}</CjkText>
                   </h2>
                 </div>
                 <p className="section-subheading">
-                  {t('project.timesAwards.impact.title')}
+                  <CjkText>{t('project.timesAwards.impact.title')}</CjkText>
                 </p>
               </div>
 
@@ -482,10 +483,10 @@ export default function TimesAwards() {
                     <Award size={50} />
                   </div>
                   <h3 className="outcome-title">
-                    🥉 {t('project.timesAwards.impact.r1title')}
+                    🥉 <CjkText>{t('project.timesAwards.impact.r1title')}</CjkText>
                   </h3>
                   <p className="outcome-text">
-                    {t('project.timesAwards.impact.r1desc')}
+                    <CjkText>{t('project.timesAwards.impact.r1desc')}</CjkText>
                   </p>
                 </div>
 
@@ -494,10 +495,10 @@ export default function TimesAwards() {
                     <Star size={40} />
                   </div>
                   <h3 className="outcome-title">
-                    {t('project.timesAwards.impact.r2title')}
+                    <CjkText>{t('project.timesAwards.impact.r2title')}</CjkText>
                   </h3>
                   <p className="outcome-text">
-                    {t('project.timesAwards.impact.r2desc')}
+                    <CjkText>{t('project.timesAwards.impact.r2desc')}</CjkText>
                   </p>
                 </div>
 
@@ -506,10 +507,10 @@ export default function TimesAwards() {
                     <Target size={40} />
                   </div>
                   <h3 className="outcome-title">
-                    {t('project.timesAwards.impact.r3title')}
+                    <CjkText>{t('project.timesAwards.impact.r3title')}</CjkText>
                   </h3>
                   <p className="outcome-text">
-                    {t('project.timesAwards.impact.r3desc')}
+                    <CjkText>{t('project.timesAwards.impact.r3desc')}</CjkText>
                   </p>
                 </div>
               </div>
@@ -517,33 +518,33 @@ export default function TimesAwards() {
               {/* Key Takeaways */}
               <div className="takeaways-section">
                 <h3 className="takeaways-title">
-                  {t('project.timesAwards.insights.heading')}
+                  <CjkText>{t('project.timesAwards.insights.heading')}</CjkText>
                 </h3>
                 <div className="takeaways-grid">
                   <div className="takeaway-card">
                     <h4 className="takeaway-card-title">
-                      {t('project.timesAwards.insights.i1title')}
+                      <CjkText>{t('project.timesAwards.insights.i1title')}</CjkText>
                     </h4>
                     <p className="takeaway-card-text">
-                      {t('project.timesAwards.insights.i1desc')}
+                      <CjkText>{t('project.timesAwards.insights.i1desc')}</CjkText>
                     </p>
                   </div>
 
                   <div className="takeaway-card">
                     <h4 className="takeaway-card-title">
-                      {t('project.timesAwards.insights.i2title')}
+                      <CjkText>{t('project.timesAwards.insights.i2title')}</CjkText>
                     </h4>
                     <p className="takeaway-card-text">
-                      {t('project.timesAwards.insights.i2desc')}
+                      <CjkText>{t('project.timesAwards.insights.i2desc')}</CjkText>
                     </p>
                   </div>
 
                   <div className="takeaway-card">
                     <h4 className="takeaway-card-title">
-                      {t('project.timesAwards.insights.i3title')}
+                      <CjkText>{t('project.timesAwards.insights.i3title')}</CjkText>
                     </h4>
                     <p className="takeaway-card-text">
-                      {t('project.timesAwards.insights.i3desc')}
+                      <CjkText>{t('project.timesAwards.insights.i3desc')}</CjkText>
                     </p>
                   </div>
                 </div>

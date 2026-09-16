@@ -450,7 +450,13 @@ html:lang(zh-Hant) :is(
   .value-desc,
   .project-description,
   .exp-desc-list li,
-  .edu-desc
+  .edu-desc,
+  .sg-hero-hook,
+  .sg-body,
+  .sg-results-intro,
+  .sg-result-card p,
+  .sg-chart-head p,
+  .sg-decision p
 ) {
   text-align: justify;
 }

@@ -148,8 +148,8 @@ export default function Projects() {
         <section className="section" style={{ paddingTop: '80px', paddingBottom: '40px' }}>
           <div className="container" style={{ maxWidth: '1400px' }}>
             <div className="reveal" style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <h1 className="name" style={{ fontSize: '48px', lineHeight: '1.2', marginBottom: '16px' }}>{t('projects.header.title')}</h1>
-              <p className="body muted" style={{ fontSize: '18px', maxWidth: '600px', margin: '0 auto' }}>{t('projects.header.sub')}</p>
+              <h1 className="name" style={{ fontSize: '48px', lineHeight: '1.2', marginBottom: '16px' }}><CjkText>{t('projects.header.title')}</CjkText></h1>
+              <p className="body muted" style={{ fontSize: '18px', maxWidth: '600px', margin: '0 auto' }}><CjkText>{t('projects.header.sub')}</CjkText></p>
             </div>
 
             <div className="tabs-container reveal" style={{ '--reveal-delay': '80ms' } as CSSProperties}>
@@ -159,25 +159,25 @@ export default function Projects() {
                   aria-selected={activeCategory === 'all'}
                   onClick={() => setActiveCategory('all')}
                   className={`tab ${activeCategory === 'all' ? 'active' : ''}`}
-                >{t('projects.filters.all')}</button>
+                ><CjkText>{t('projects.filters.all')}</CjkText></button>
                 <button
                   role="tab"
                   aria-selected={activeCategory === 'award'}
                   onClick={() => setActiveCategory('award')}
                   className={`tab ${activeCategory === 'award' ? 'active' : ''}`}
-                >{t('projects.filters.awards')}</button>
+                ><CjkText>{t('projects.filters.awards')}</CjkText></button>
                 <button
                   role="tab"
                   aria-selected={activeCategory === 'research-exp'}
                   onClick={() => setActiveCategory('research-exp')}
                   className={`tab ${activeCategory === 'research-exp' ? 'active' : ''}`}
-                >{t('projects.filters.research')}</button>
+                ><CjkText>{t('projects.filters.research')}</CjkText></button>
                 <button
                   role="tab"
                   aria-selected={activeCategory === 'design'}
                   onClick={() => setActiveCategory('design')}
                   className={`tab ${activeCategory === 'design' ? 'active' : ''}`}
-                >{t('projects.filters.design')}</button>
+                ><CjkText>{t('projects.filters.design')}</CjkText></button>
               </div>
             </div>
 
@@ -216,7 +216,7 @@ export default function Projects() {
                       <Link 
                         to={`/projects/${project.slug}`} 
                         className="project-explore-btn"
-                      >{t('common.explore')}</Link>
+                      ><CjkText>{t('common.explore')}</CjkText></Link>
                     </div>
                   </div>
                 </div>

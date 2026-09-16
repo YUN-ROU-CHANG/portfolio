@@ -25,6 +25,7 @@ import stimEmpathy from '../../assets/images/project/sleep-guardian/stim-empathy
 import stimFriction from '../../assets/images/project/sleep-guardian/stim-friction.webp';
 import stimAudio from '../../assets/images/project/sleep-guardian/stim-audio.webp';
 import stimBaseline from '../../assets/images/project/sleep-guardian/stim-baseline.webp';
+import CjkText from '../../components/CjkText';
 
 type T = (key: string) => string;
 
@@ -57,7 +58,7 @@ function ChartFrame({ note, children }: { title?: string; note: string; children
   return (
     <figure className="sg-chart">
       <figcaption className="sg-chart-head">
-        <p>{note}</p>
+        <p><CjkText>{note}</CjkText></p>
       </figcaption>
       {children}
     </figure>
@@ -72,21 +73,21 @@ function GoldenChannelHeatmap({ t }: { t: T }) {
       <div className="sg-heat" role="table">
         <div className="sg-heat-row sg-heat-row--head" role="row">
           <span className="sg-heat-rowlabel" role="columnheader" />
-          <span role="columnheader">{c('colVisual')}</span>
+          <span role="columnheader"><CjkText>{c('colVisual')}</CjkText></span>
           <span className="sg-heat-golden" role="columnheader">
-            {c('colAudio')}<em>{c('heatGolden')}</em>
+            <CjkText>{c('colAudio')}</CjkText><em><CjkText>{c('heatGolden')}</CjkText></em>
           </span>
-          <span role="columnheader">{c('colAV')}</span>
+          <span role="columnheader"><CjkText>{c('colAV')}</CjkText></span>
         </div>
         {HEAT_ROWS.map(row => (
           <div className="sg-heat-row" role="row" key={row.k}>
-            <span className="sg-heat-rowlabel" role="rowheader">{c(row.k)}</span>
+            <span className="sg-heat-rowlabel" role="rowheader"><CjkText>{c(row.k)}</CjkText></span>
             {/* 值用長條編碼而非底色填滿：把 acid 混進暗色底會讓文字對比在中間段失效。 */}
             {row.cells.map((cell, i) => (
               <span className={`sg-heat-cell${i === 1 ? ' sg-heat-cell--audio' : ''}`} role="cell" key={i}>
                 <b>{cell.v.toFixed(3)}</b>
                 {'hi' in cell && cell.hi && (
-                  <i>{c(cell.hi)} &gt; {c(cell.lo!)}{cell.s}</i>
+                  <i><CjkText>{c(cell.hi)}</CjkText> &gt; {c(cell.lo!)}{cell.s}</i>
                 )}
                 <span className="sg-heat-bar">
                   <span style={{ width: `${Math.round((cell.v / 0.35) * 100)}%` }} />
@@ -96,7 +97,7 @@ function GoldenChannelHeatmap({ t }: { t: T }) {
           </div>
         ))}
       </div>
-      <p className="sg-chart-foot">{c('sigNote')}</p>
+      <p className="sg-chart-foot"><CjkText>{c('sigNote')}</CjkText></p>
     </ChartFrame>
   );
 }
@@ -114,7 +115,7 @@ function IntentionBehaviourChart({ t }: { t: T }) {
           const w = (Math.abs(b.r) / span) * 100;
           return (
             <div className="sg-link-row" key={b.k}>
-              <span className="sg-link-label">{c(b.k)}<em>N={b.n}</em></span>
+              <span className="sg-link-label"><CjkText>{c(b.k)}</CjkText><em>N={b.n}</em></span>
               <div className="sg-link-track">
                 <span className="sg-link-axis" style={{ left: `${zero}%` }} />
                 <span
@@ -133,7 +134,7 @@ function IntentionBehaviourChart({ t }: { t: T }) {
           );
         })}
       </div>
-      <p className="sg-chart-foot">{c('sigNote')}</p>
+      <p className="sg-chart-foot"><CjkText>{c('sigNote')}</CjkText></p>
     </ChartFrame>
   );
 }
@@ -179,7 +180,7 @@ function EffectSizeChart({ t }: { t: T }) {
           </div>
         ))}
       </div>
-      <p className="sg-chart-foot">{c('sigNote')}</p>
+      <p className="sg-chart-foot"><CjkText>{c('sigNote')}</CjkText></p>
     </ChartFrame>
   );
 }
@@ -192,10 +193,10 @@ function ChartLegend({ t }: { t: T }) {
       {(['threat', 'empathy', 'friction'] as const).map(h => (
         <span key={h}>
           <i style={{ background: `var(--sg-${h})` }} />
-          {c(`group${h[0].toUpperCase()}${h.slice(1)}`)}
+          <CjkText>{c(`group${h[0].toUpperCase()}${h.slice(1)}`)}</CjkText>
         </span>
       ))}
-      <em>{c('dLegend')}</em>
+      <em><CjkText>{c('dLegend')}</CjkText></em>
     </div>
   );
 }
@@ -228,14 +229,14 @@ function EtaSquaredChart({ t }: { t: T }) {
     <ChartFrame title={c('etaTitle')} note={c('etaNote')}>
       <div className="sg-legend">
         {ETA_SERIES.map(s => (
-          <span key={s.key}><i className={`sg-fill--${s.fill}`} />{c(s.key)}</span>
+          <span key={s.key}><i className={`sg-fill--${s.fill}`} /><CjkText>{c(s.key)}</CjkText></span>
         ))}
       </div>
       <div className="sg-eta">
         <div className="sg-eta-plot">
           {[0.14, 0.06].map(r => (
             <div className="sg-eta-ref" key={r} style={{ bottom: `${pct(r)}%` }}>
-              <span>{c(r === 0.14 ? 'refLarge' : 'refMedium')}</span>
+              <span><CjkText>{c(r === 0.14 ? 'refLarge' : 'refMedium')}</CjkText></span>
             </div>
           ))}
           {ETA_GROUPS.map(g => (
@@ -252,10 +253,10 @@ function EtaSquaredChart({ t }: { t: T }) {
           ))}
         </div>
         <div className="sg-eta-axis">
-          {ETA_GROUPS.map(g => <span key={g.k}>{c(g.k)}</span>)}
+          {ETA_GROUPS.map(g => <span key={g.k}><CjkText>{c(g.k)}</CjkText></span>)}
         </div>
       </div>
-      <p className="sg-chart-foot">{c('sigNote')}</p>
+      <p className="sg-chart-foot"><CjkText>{c('sigNote')}</CjkText></p>
     </ChartFrame>
   );
 }
@@ -321,43 +322,43 @@ export default function SleepGuardian() {
             >
               <div className="sg-badge-row">
                 <span className="sg-badge sg-badge--thesis">
-                  <BookOpen size={14} />{t('project.sleepGuardian.hero.badge')}</span>
+                  <BookOpen size={14} /><CjkText>{t('project.sleepGuardian.hero.badge')}</CjkText></span>
                 <span className="sg-badge sg-badge--status">
-                  <Activity size={14} />{t('project.sleepGuardian.hero.status')}</span>
+                  <Activity size={14} /><CjkText>{t('project.sleepGuardian.hero.status')}</CjkText></span>
               </div>
 
-              <h1 className="sg-hero-title">{t('project.sleepGuardian.hero.title')}</h1>
-              <p className="sg-hero-sub">{t('project.sleepGuardian.hero.subtitle1')}<br />{t('project.sleepGuardian.hero.subtitle2')}</p>
+              <h1 className="sg-hero-title"><CjkText>{t('project.sleepGuardian.hero.title')}</CjkText></h1>
+              <p className="sg-hero-sub"><CjkText>{t('project.sleepGuardian.hero.subtitle1')}</CjkText><br /><CjkText>{t('project.sleepGuardian.hero.subtitle2')}</CjkText></p>
 
-              <p className="sg-hero-hook">{t('project.sleepGuardian.hero.introA')}{' '}<em>{t('project.sleepGuardian.hero.introHighlight')}</em>{' '}{t('project.sleepGuardian.hero.introB')}</p>
+              <p className="sg-hero-hook"><CjkText>{t('project.sleepGuardian.hero.introA')}</CjkText>{' '}<em><CjkText>{t('project.sleepGuardian.hero.introHighlight')}</CjkText></em>{' '}<CjkText>{t('project.sleepGuardian.hero.introB')}</CjkText></p>
 
               <div className="sg-meta-grid">
                 <div className="sg-meta-item">
-                  <span className="sg-meta-label">{t('project.sleepGuardian.hero.roleLabel')}</span>
-                  <span className="sg-meta-value">{t('project.sleepGuardian.hero.roleValue')}</span>
+                  <span className="sg-meta-label"><CjkText>{t('project.sleepGuardian.hero.roleLabel')}</CjkText></span>
+                  <span className="sg-meta-value"><CjkText>{t('project.sleepGuardian.hero.roleValue')}</CjkText></span>
                 </div>
                 <div className="sg-meta-item">
-                  <span className="sg-meta-label">{t('project.sleepGuardian.hero.frameworkLabel')}</span>
-                  <span className="sg-meta-value">{t('project.sleepGuardian.hero.frameworkValue')}</span>
+                  <span className="sg-meta-label"><CjkText>{t('project.sleepGuardian.hero.frameworkLabel')}</CjkText></span>
+                  <span className="sg-meta-value"><CjkText>{t('project.sleepGuardian.hero.frameworkValue')}</CjkText></span>
                 </div>
                 <div className="sg-meta-item">
-                  <span className="sg-meta-label">{t('project.sleepGuardian.hero.methodLabel')}</span>
-                  <span className="sg-meta-value">{t('project.sleepGuardian.hero.methodValue')}</span>
+                  <span className="sg-meta-label"><CjkText>{t('project.sleepGuardian.hero.methodLabel')}</CjkText></span>
+                  <span className="sg-meta-value"><CjkText>{t('project.sleepGuardian.hero.methodValue')}</CjkText></span>
                 </div>
                 <div className="sg-meta-item">
-                  <span className="sg-meta-label">{t('project.sleepGuardian.hero.venueLabel')}</span>
-                  <span className="sg-meta-value">{t('project.sleepGuardian.hero.venueValue')}</span>
+                  <span className="sg-meta-label"><CjkText>{t('project.sleepGuardian.hero.venueLabel')}</CjkText></span>
+                  <span className="sg-meta-value"><CjkText>{t('project.sleepGuardian.hero.venueValue')}</CjkText></span>
                 </div>
               </div>
 
               {/* 研究結論放在第一屏，不要讓 skim 的人讀到 95% 才看到數字。 */}
               <div className="sg-hero-findings">
-                <span className="sg-hero-findings-label">{t('project.sleepGuardian.hero.findingsLabel')}</span>
+                <span className="sg-hero-findings-label"><CjkText>{t('project.sleepGuardian.hero.findingsLabel')}</CjkText></span>
                 <div className="sg-hero-findings-row">
                   {['stat1', 'stat2', 'stat3'].map(k => (
                     <div className="sg-hero-finding" key={k}>
-                      <span className="sg-hero-finding-num">{t(`project.sleepGuardian.hero.${k}num`)}</span>
-                      <span className="sg-hero-finding-desc">{t(`project.sleepGuardian.hero.${k}desc`)}</span>
+                      <span className="sg-hero-finding-num"><CjkText>{t(`project.sleepGuardian.hero.${k}num`)}</CjkText></span>
+                      <span className="sg-hero-finding-desc"><CjkText>{t(`project.sleepGuardian.hero.${k}desc`)}</CjkText></span>
                     </div>
                   ))}
                 </div>
@@ -371,18 +372,18 @@ export default function SleepGuardian() {
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <BarChart3 size={18} />{t('project.sleepGuardian.results.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.results.title')}</h2>
-            <p className="sg-results-intro">{t('project.sleepGuardian.results.intro')}</p>
+              <BarChart3 size={18} /><CjkText>{t('project.sleepGuardian.results.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.results.title')}</CjkText></h2>
+            <p className="sg-results-intro"><CjkText>{t('project.sleepGuardian.results.intro')}</CjkText></p>
 
             {/* 統計量白話版：非研究背景的讀者（PM／HM）不必先懂 η²p 才看得懂圖表。 */}
             <div className="sg-gloss">
-              <span className="sg-gloss-heading">{t('project.sleepGuardian.charts.glossHeading')}</span>
+              <span className="sg-gloss-heading"><CjkText>{t('project.sleepGuardian.charts.glossHeading')}</CjkText></span>
               <dl>
                 {['gloss1', 'gloss2', 'gloss3', 'gloss4'].map(k => (
                   <div key={k}>
-                    <dt>{t(`project.sleepGuardian.charts.${k}term`)}</dt>
-                    <dd>{t(`project.sleepGuardian.charts.${k}desc`)}</dd>
+                    <dt><CjkText>{t(`project.sleepGuardian.charts.${k}term`)}</CjkText></dt>
+                    <dd><CjkText>{t(`project.sleepGuardian.charts.${k}desc`)}</CjkText></dd>
                   </div>
                 ))}
               </dl>
@@ -400,8 +401,8 @@ export default function SleepGuardian() {
               ].map(({ k, Chart }, i) => (
                 <div className="sg-result-card" key={k}>
                   <span className="sg-result-num">{String(i + 1).padStart(2, '0')}</span>
-                  <h4>{t(`project.sleepGuardian.results.${k}title`)}</h4>
-                  <p>{t(`project.sleepGuardian.results.${k}desc`)}</p>
+                  <h4><CjkText>{t(`project.sleepGuardian.results.${k}title`)}</CjkText></h4>
+                  <p><CjkText>{t(`project.sleepGuardian.results.${k}desc`)}</CjkText></p>
                   {Chart && <Chart t={t} />}
                 </div>
               ))}
@@ -413,16 +414,16 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <Zap size={18} />{t('project.sleepGuardian.implications.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.implications.title')}</h2>
-            <p className="sg-results-intro">{t('project.sleepGuardian.implications.intro')}</p>
+              <Zap size={18} /><CjkText>{t('project.sleepGuardian.implications.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.implications.title')}</CjkText></h2>
+            <p className="sg-results-intro"><CjkText>{t('project.sleepGuardian.implications.intro')}</CjkText></p>
 
             <div className="sg-impl-grid">
               {['i1', 'i2', 'i3', 'i4'].map((k, i) => (
                 <div className="sg-impl-card" key={k}>
                   <span className="sg-impl-num">{String(i + 1).padStart(2, '0')}</span>
-                  <h4>{t(`project.sleepGuardian.implications.${k}title`)}</h4>
-                  <p>{t(`project.sleepGuardian.implications.${k}desc`)}</p>
+                  <h4><CjkText>{t(`project.sleepGuardian.implications.${k}title`)}</CjkText></h4>
+                  <p><CjkText>{t(`project.sleepGuardian.implications.${k}desc`)}</CjkText></p>
                 </div>
               ))}
             </div>
@@ -433,29 +434,29 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <Brain size={18} />{t('project.sleepGuardian.problem.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.problem.title')}</h2>
+              <Brain size={18} /><CjkText>{t('project.sleepGuardian.problem.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.problem.title')}</CjkText></h2>
             <div className="sg-two-col">
               <div>
                 <p className="sg-body">
-                  <strong>{t('project.sleepGuardian.problem.p1a')}</strong>{' '}{t('project.sleepGuardian.problem.p1b')}{' '}<em>{t('project.sleepGuardian.problem.p1em')}</em>{' '}{t('project.sleepGuardian.problem.p1c')}</p>
-                <p className="sg-body">{t('project.sleepGuardian.problem.p2')}</p>
+                  <strong><CjkText>{t('project.sleepGuardian.problem.p1a')}</CjkText></strong>{' '}<CjkText>{t('project.sleepGuardian.problem.p1b')}</CjkText>{' '}<em><CjkText>{t('project.sleepGuardian.problem.p1em')}</CjkText></em>{' '}<CjkText>{t('project.sleepGuardian.problem.p1c')}</CjkText></p>
+                <p className="sg-body"><CjkText>{t('project.sleepGuardian.problem.p2')}</CjkText></p>
                 <div className="sg-quote-block">
-                  <p className="sg-quote">{t('project.sleepGuardian.problem.quote')}</p>
+                  <p className="sg-quote"><CjkText>{t('project.sleepGuardian.problem.quote')}</CjkText></p>
                 </div>
               </div>
               <div className="sg-stat-stack">
                 <div className="sg-stat-card">
                   <span className="sg-stat-num">30%</span>
-                  <span className="sg-stat-desc">{t('project.sleepGuardian.problem.stat1desc')}</span>
+                  <span className="sg-stat-desc"><CjkText>{t('project.sleepGuardian.problem.stat1desc')}</CjkText></span>
                 </div>
                 <div className="sg-stat-card">
-                  <span className="sg-stat-num">{t('project.sleepGuardian.problem.stat2num')}</span>
-                  <span className="sg-stat-desc">{t('project.sleepGuardian.problem.stat2desc')}</span>
+                  <span className="sg-stat-num"><CjkText>{t('project.sleepGuardian.problem.stat2num')}</CjkText></span>
+                  <span className="sg-stat-desc"><CjkText>{t('project.sleepGuardian.problem.stat2desc')}</CjkText></span>
                 </div>
                 <div className="sg-stat-card">
-                  <span className="sg-stat-num">{t('project.sleepGuardian.problem.stat3num')}</span>
-                  <span className="sg-stat-desc">{t('project.sleepGuardian.problem.stat3desc')}</span>
+                  <span className="sg-stat-num"><CjkText>{t('project.sleepGuardian.problem.stat3num')}</CjkText></span>
+                  <span className="sg-stat-desc"><CjkText>{t('project.sleepGuardian.problem.stat3desc')}</CjkText></span>
                 </div>
               </div>
             </div>
@@ -467,44 +468,44 @@ export default function SleepGuardian() {
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <Layers size={18} />{t('project.sleepGuardian.pilot.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.pilot.title')}</h2>
-            <p className="sg-results-intro">{t('project.sleepGuardian.pilot.intro')}</p>
+              <Layers size={18} /><CjkText>{t('project.sleepGuardian.pilot.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.pilot.title')}</CjkText></h2>
+            <p className="sg-results-intro"><CjkText>{t('project.sleepGuardian.pilot.intro')}</CjkText></p>
 
             <div className="sg-pivot">
               <div className="sg-pivot-col sg-pivot-col--before">
-                <span className="sg-pivot-label">{t('project.sleepGuardian.pilot.beforeLabel')}</span>
-                <p>{t('project.sleepGuardian.pilot.beforeItems')}</p>
+                <span className="sg-pivot-label"><CjkText>{t('project.sleepGuardian.pilot.beforeLabel')}</CjkText></span>
+                <p><CjkText>{t('project.sleepGuardian.pilot.beforeItems')}</CjkText></p>
               </div>
               <div className="sg-pivot-col sg-pivot-col--kill">
-                <span className="sg-pivot-label">{t('project.sleepGuardian.pilot.killLabel')}</span>
+                <span className="sg-pivot-label"><CjkText>{t('project.sleepGuardian.pilot.killLabel')}</CjkText></span>
                 <dl>
                   {['kill1', 'kill2', 'kill3'].map(k => (
                     <div key={k}>
-                      <dt>{t(`project.sleepGuardian.pilot.${k}title`)}</dt>
-                      <dd>{t(`project.sleepGuardian.pilot.${k}desc`)}</dd>
+                      <dt><CjkText>{t(`project.sleepGuardian.pilot.${k}title`)}</CjkText></dt>
+                      <dd><CjkText>{t(`project.sleepGuardian.pilot.${k}desc`)}</CjkText></dd>
                     </div>
                   ))}
                 </dl>
               </div>
               <div className="sg-pivot-col sg-pivot-col--after">
-                <span className="sg-pivot-label">{t('project.sleepGuardian.pilot.afterLabel')}</span>
-                <p>{t('project.sleepGuardian.pilot.afterDesc')}</p>
+                <span className="sg-pivot-label"><CjkText>{t('project.sleepGuardian.pilot.afterLabel')}</CjkText></span>
+                <p><CjkText>{t('project.sleepGuardian.pilot.afterDesc')}</CjkText></p>
               </div>
             </div>
 
-            <span className="sg-turn-label">{t('project.sleepGuardian.pilot.turnLabel')}</span>
+            <span className="sg-turn-label"><CjkText>{t('project.sleepGuardian.pilot.turnLabel')}</CjkText></span>
             <div className="sg-turn-grid">
               {['f1', 'f2', 'f3'].map(k => (
                 <div className="sg-turn-card" key={k}>
-                  <h4>{t(`project.sleepGuardian.pilot.${k}title`)}</h4>
-                  <p>{t(`project.sleepGuardian.pilot.${k}desc`)}</p>
-                  <p className="sg-turn-decision">{t(`project.sleepGuardian.pilot.${k}decision`)}</p>
+                  <h4><CjkText>{t(`project.sleepGuardian.pilot.${k}title`)}</CjkText></h4>
+                  <p><CjkText>{t(`project.sleepGuardian.pilot.${k}desc`)}</CjkText></p>
+                  <p className="sg-turn-decision"><CjkText>{t(`project.sleepGuardian.pilot.${k}decision`)}</CjkText></p>
                 </div>
               ))}
             </div>
 
-            <p className="sg-method-line">{t('project.sleepGuardian.pilot.method')}</p>
+            <p className="sg-method-line"><CjkText>{t('project.sleepGuardian.pilot.method')}</CjkText></p>
           </div>
         </section>
 
@@ -512,21 +513,21 @@ export default function SleepGuardian() {
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <Layers size={18} />{t('project.sleepGuardian.framework.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.framework.title')}</h2>
-            <p className="sg-body sg-body--wide">{t('project.sleepGuardian.framework.introA')}{' '}<strong>{t('project.sleepGuardian.framework.introEm')}</strong>{' '}{t('project.sleepGuardian.framework.introB')}</p>
+              <Layers size={18} /><CjkText>{t('project.sleepGuardian.framework.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.framework.title')}</CjkText></h2>
+            <p className="sg-body"><CjkText>{t('project.sleepGuardian.framework.introA')}</CjkText>{' '}<strong><CjkText>{t('project.sleepGuardian.framework.introEm')}</CjkText></strong>{' '}<CjkText>{t('project.sleepGuardian.framework.introB')}</CjkText></p>
             <div className="sg-pathway-grid">
               <div className="sg-pathway-card sg-pathway-card--threat">
                 <div className="sg-pathway-icon">
                   <AlertTriangle size={28} />
                 </div>
                 <div className="sg-pathway-num">01</div>
-                <h3 className="sg-pathway-title">{t('project.sleepGuardian.framework.threat.title')}</h3>
-                <p className="sg-pathway-mech">{t('project.sleepGuardian.framework.threat.pathway')}</p>
-                <p className="sg-pathway-desc">{t('project.sleepGuardian.framework.threat.desc')}</p>
+                <h3 className="sg-pathway-title"><CjkText>{t('project.sleepGuardian.framework.threat.title')}</CjkText></h3>
+                <p className="sg-pathway-mech"><CjkText>{t('project.sleepGuardian.framework.threat.pathway')}</CjkText></p>
+                <p className="sg-pathway-desc"><CjkText>{t('project.sleepGuardian.framework.threat.desc')}</CjkText></p>
                 <div className="sg-pathway-example">
-                  <span className="sg-example-label">{t('project.sleepGuardian.framework.exampleLabel')}</span>
-                  <p className="sg-example-text">{t('project.sleepGuardian.framework.threat.example')}</p>
+                  <span className="sg-example-label"><CjkText>{t('project.sleepGuardian.framework.exampleLabel')}</CjkText></span>
+                  <p className="sg-example-text"><CjkText>{t('project.sleepGuardian.framework.threat.example')}</CjkText></p>
                 </div>
               </div>
 
@@ -535,12 +536,12 @@ export default function SleepGuardian() {
                   <Heart size={28} />
                 </div>
                 <div className="sg-pathway-num">02</div>
-                <h3 className="sg-pathway-title">{t('project.sleepGuardian.framework.empathy.title')}</h3>
-                <p className="sg-pathway-mech">{t('project.sleepGuardian.framework.empathy.pathway')}</p>
-                <p className="sg-pathway-desc">{t('project.sleepGuardian.framework.empathy.desc')}</p>
+                <h3 className="sg-pathway-title"><CjkText>{t('project.sleepGuardian.framework.empathy.title')}</CjkText></h3>
+                <p className="sg-pathway-mech"><CjkText>{t('project.sleepGuardian.framework.empathy.pathway')}</CjkText></p>
+                <p className="sg-pathway-desc"><CjkText>{t('project.sleepGuardian.framework.empathy.desc')}</CjkText></p>
                 <div className="sg-pathway-example">
-                  <span className="sg-example-label">{t('project.sleepGuardian.framework.exampleLabel')}</span>
-                  <p className="sg-example-text">{t('project.sleepGuardian.framework.empathy.example')}</p>
+                  <span className="sg-example-label"><CjkText>{t('project.sleepGuardian.framework.exampleLabel')}</CjkText></span>
+                  <p className="sg-example-text"><CjkText>{t('project.sleepGuardian.framework.empathy.example')}</CjkText></p>
                 </div>
               </div>
 
@@ -549,12 +550,12 @@ export default function SleepGuardian() {
                   <Zap size={28} />
                 </div>
                 <div className="sg-pathway-num">03</div>
-                <h3 className="sg-pathway-title">{t('project.sleepGuardian.framework.friction.title')}</h3>
-                <p className="sg-pathway-mech">{t('project.sleepGuardian.framework.friction.pathway')}</p>
-                <p className="sg-pathway-desc">{t('project.sleepGuardian.framework.friction.descA')}{' '}<em>{t('project.sleepGuardian.framework.friction.descEm')}</em>{t('project.sleepGuardian.framework.friction.descB')}</p>
+                <h3 className="sg-pathway-title"><CjkText>{t('project.sleepGuardian.framework.friction.title')}</CjkText></h3>
+                <p className="sg-pathway-mech"><CjkText>{t('project.sleepGuardian.framework.friction.pathway')}</CjkText></p>
+                <p className="sg-pathway-desc"><CjkText>{t('project.sleepGuardian.framework.friction.descA')}</CjkText>{' '}<em><CjkText>{t('project.sleepGuardian.framework.friction.descEm')}</CjkText></em><CjkText>{t('project.sleepGuardian.framework.friction.descB')}</CjkText></p>
                 <div className="sg-pathway-example">
-                  <span className="sg-example-label">{t('project.sleepGuardian.framework.friction.interactionLabel')}</span>
-                  <p className="sg-example-text">{t('project.sleepGuardian.framework.friction.interactionDesc')}</p>
+                  <span className="sg-example-label"><CjkText>{t('project.sleepGuardian.framework.friction.interactionLabel')}</CjkText></span>
+                  <p className="sg-example-text"><CjkText>{t('project.sleepGuardian.framework.friction.interactionDesc')}</CjkText></p>
                 </div>
               </div>
             </div>
@@ -565,31 +566,31 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <FlaskConical size={18} />{t('project.sleepGuardian.experiment.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.experiment.title')}</h2>
-            <p className="sg-body sg-body--wide">{t('project.sleepGuardian.experiment.introA')}{' '}<strong>{t('project.sleepGuardian.experiment.introEm')}</strong>{' '}{t('project.sleepGuardian.experiment.introB')}</p>
+              <FlaskConical size={18} /><CjkText>{t('project.sleepGuardian.experiment.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.experiment.title')}</CjkText></h2>
+            <p className="sg-body"><CjkText>{t('project.sleepGuardian.experiment.introA')}</CjkText>{' '}<strong><CjkText>{t('project.sleepGuardian.experiment.introEm')}</CjkText></strong>{' '}<CjkText>{t('project.sleepGuardian.experiment.introB')}</CjkText></p>
 
             <div className="sg-design-matrix">
               <div className="sg-matrix-axis sg-matrix-axis--between">
-                <div className="sg-axis-label">{t('project.sleepGuardian.experiment.betweenLabel')}</div>
-                <div className="sg-axis-title">{t('project.sleepGuardian.experiment.betweenTitle')}</div>
+                <div className="sg-axis-label"><CjkText>{t('project.sleepGuardian.experiment.betweenLabel')}</CjkText></div>
+                <div className="sg-axis-title"><CjkText>{t('project.sleepGuardian.experiment.betweenTitle')}</CjkText></div>
                 <div className="sg-axis-items">
-                  <span className="sg-axis-item sg-axis-item--threat">{t('project.sleepGuardian.framework.threat.title')}</span>
-                  <span className="sg-axis-item sg-axis-item--empathy">{t('project.sleepGuardian.framework.empathy.title')}</span>
-                  <span className="sg-axis-item sg-axis-item--friction">{t('project.sleepGuardian.framework.friction.title')}</span>
+                  <span className="sg-axis-item sg-axis-item--threat"><CjkText>{t('project.sleepGuardian.framework.threat.title')}</CjkText></span>
+                  <span className="sg-axis-item sg-axis-item--empathy"><CjkText>{t('project.sleepGuardian.framework.empathy.title')}</CjkText></span>
+                  <span className="sg-axis-item sg-axis-item--friction"><CjkText>{t('project.sleepGuardian.framework.friction.title')}</CjkText></span>
                 </div>
               </div>
 
               <div className="sg-matrix-cross">×</div>
 
               <div className="sg-matrix-axis sg-matrix-axis--within">
-                <div className="sg-axis-label">{t('project.sleepGuardian.experiment.withinLabel')}</div>
-                <div className="sg-axis-title">{t('project.sleepGuardian.experiment.withinTitle')}</div>
+                <div className="sg-axis-label"><CjkText>{t('project.sleepGuardian.experiment.withinLabel')}</CjkText></div>
+                <div className="sg-axis-title"><CjkText>{t('project.sleepGuardian.experiment.withinTitle')}</CjkText></div>
                 <div className="sg-axis-items">
-                  <span className="sg-axis-item">{t('project.sleepGuardian.experiment.modality1')}</span>
-                  <span className="sg-axis-item">{t('project.sleepGuardian.experiment.modality2')}</span>
-                  <span className="sg-axis-item">{t('project.sleepGuardian.experiment.modality3')}</span>
-                  <span className="sg-axis-item sg-axis-item--baseline">{t('project.sleepGuardian.experiment.modality4')}</span>
+                  <span className="sg-axis-item"><CjkText>{t('project.sleepGuardian.experiment.modality1')}</CjkText></span>
+                  <span className="sg-axis-item"><CjkText>{t('project.sleepGuardian.experiment.modality2')}</CjkText></span>
+                  <span className="sg-axis-item"><CjkText>{t('project.sleepGuardian.experiment.modality3')}</CjkText></span>
+                  <span className="sg-axis-item sg-axis-item--baseline"><CjkText>{t('project.sleepGuardian.experiment.modality4')}</CjkText></span>
                 </div>
               </div>
             </div>
@@ -597,29 +598,29 @@ export default function SleepGuardian() {
             <div className="sg-info-box">
               <Shield size={18} />
               <p>
-                <strong>{t('project.sleepGuardian.experiment.counterA')}</strong>{' '}{t('project.sleepGuardian.experiment.counterB')}</p>
+                <strong><CjkText>{t('project.sleepGuardian.experiment.counterA')}</CjkText></strong>{' '}<CjkText>{t('project.sleepGuardian.experiment.counterB')}</CjkText></p>
             </div>
 
             <div className="sg-decision-row">
               <div className="sg-decision-card">
                 <Clock size={20} />
-                <h4>{t('project.sleepGuardian.experiment.proto1title')}</h4>
-                <p>{t('project.sleepGuardian.experiment.proto1desc')}</p>
+                <h4><CjkText>{t('project.sleepGuardian.experiment.proto1title')}</CjkText></h4>
+                <p><CjkText>{t('project.sleepGuardian.experiment.proto1desc')}</CjkText></p>
               </div>
               <div className="sg-decision-card">
                 <Activity size={20} />
-                <h4>{t('project.sleepGuardian.experiment.proto2title')}</h4>
-                <p>{t('project.sleepGuardian.experiment.proto2desc')}</p>
+                <h4><CjkText>{t('project.sleepGuardian.experiment.proto2title')}</CjkText></h4>
+                <p><CjkText>{t('project.sleepGuardian.experiment.proto2desc')}</CjkText></p>
               </div>
               <div className="sg-decision-card">
                 <Brain size={20} />
-                <h4>{t('project.sleepGuardian.experiment.proto3title')}</h4>
-                <p>{t('project.sleepGuardian.experiment.proto3desc')}</p>
+                <h4><CjkText>{t('project.sleepGuardian.experiment.proto3title')}</CjkText></h4>
+                <p><CjkText>{t('project.sleepGuardian.experiment.proto3desc')}</CjkText></p>
               </div>
               <div className="sg-decision-card">
                 <BarChart3 size={20} />
-                <h4>{t('project.sleepGuardian.experiment.proto4title')}</h4>
-                <p>{t('project.sleepGuardian.experiment.proto4desc')}</p>
+                <h4><CjkText>{t('project.sleepGuardian.experiment.proto4title')}</CjkText></h4>
+                <p><CjkText>{t('project.sleepGuardian.experiment.proto4desc')}</CjkText></p>
               </div>
             </div>
           </div>
@@ -629,11 +630,11 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <AlertTriangle size={18} />{t('project.sleepGuardian.stim.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.stim.title')}</h2>
+              <AlertTriangle size={18} /><CjkText>{t('project.sleepGuardian.stim.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.stim.title')}</CjkText></h2>
 
             {/* 先讓讀者看到刺激物本身，再談我為什麼那樣設計 */}
-            <span className="sg-turn-label">{t('project.sleepGuardian.stim.galleryLabel')}</span>
+            <span className="sg-turn-label"><CjkText>{t('project.sleepGuardian.stim.galleryLabel')}</CjkText></span>
             <div className="sg-stim-grid">
               {[
                 { src: stimThreat, k: 'gThreat', hue: 'threat' },
@@ -658,7 +659,7 @@ export default function SleepGuardian() {
                         {s.hue && <i style={{ background: `var(--sg-${s.hue})` }} />}
                         {caption}
                       </span>
-                      <span className="sg-stim-sub">{t(`project.sleepGuardian.stim.${s.k}Sub`)}</span>
+                      <span className="sg-stim-sub"><CjkText>{t(`project.sleepGuardian.stim.${s.k}Sub`)}</CjkText></span>
                     </figcaption>
                   </figure>
                 );
@@ -670,8 +671,8 @@ export default function SleepGuardian() {
                 <div className="sg-decision" key={k}>
                   <span className="sg-decision-num">{String(i + 1).padStart(2, '0')}</span>
                   <div>
-                    <h4>{t(`project.sleepGuardian.stim.${k}title`)}</h4>
-                    <p>{t(`project.sleepGuardian.stim.${k}desc`)}</p>
+                    <h4><CjkText>{t(`project.sleepGuardian.stim.${k}title`)}</CjkText></h4>
+                    <p><CjkText>{t(`project.sleepGuardian.stim.${k}desc`)}</CjkText></p>
                   </div>
                 </div>
               ))}
@@ -683,30 +684,30 @@ export default function SleepGuardian() {
         <section className="sg-section sg-section--dark sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label sg-section-label--light">
-              <Smartphone size={18} />{t('project.sleepGuardian.instrument.heading')}</div>
-            <h2 className="sg-section-title sg-title--light">{t('project.sleepGuardian.instrument.title')}</h2>
-            <p className="sg-body sg-body--light sg-body--wide">{t('project.sleepGuardian.instrument.intro')}</p>
+              <Smartphone size={18} /><CjkText>{t('project.sleepGuardian.instrument.heading')}</CjkText></div>
+            <h2 className="sg-section-title sg-title--light"><CjkText>{t('project.sleepGuardian.instrument.title')}</CjkText></h2>
+            <p className="sg-body sg-body--light"><CjkText>{t('project.sleepGuardian.instrument.intro')}</CjkText></p>
 
             <div className="sg-app-features">
               <div className="sg-app-feature">
                 <div className="sg-app-feature-num">01</div>
-                <h4 className="sg-app-feature-title">{t('project.sleepGuardian.instrument.mod1title')}</h4>
-                <p className="sg-app-feature-desc">{t('project.sleepGuardian.instrument.mod1desc')}</p>
+                <h4 className="sg-app-feature-title"><CjkText>{t('project.sleepGuardian.instrument.mod1title')}</CjkText></h4>
+                <p className="sg-app-feature-desc"><CjkText>{t('project.sleepGuardian.instrument.mod1desc')}</CjkText></p>
               </div>
               <div className="sg-app-feature">
                 <div className="sg-app-feature-num">02</div>
-                <h4 className="sg-app-feature-title">{t('project.sleepGuardian.instrument.mod2title')}</h4>
-                <p className="sg-app-feature-desc">{t('project.sleepGuardian.instrument.mod2desc')}</p>
+                <h4 className="sg-app-feature-title"><CjkText>{t('project.sleepGuardian.instrument.mod2title')}</CjkText></h4>
+                <p className="sg-app-feature-desc"><CjkText>{t('project.sleepGuardian.instrument.mod2desc')}</CjkText></p>
               </div>
               <div className="sg-app-feature">
                 <div className="sg-app-feature-num">03</div>
-                <h4 className="sg-app-feature-title">{t('project.sleepGuardian.instrument.mod3title')}</h4>
-                <p className="sg-app-feature-desc">{t('project.sleepGuardian.instrument.mod3desc')}<br /><strong>{t('project.sleepGuardian.instrument.ndlName')}</strong>{' '}{t('project.sleepGuardian.instrument.ndlDesc')}<br /><strong>{t('project.sleepGuardian.instrument.pscName')}</strong>{' '}{t('project.sleepGuardian.instrument.pscDesc')}</p>
+                <h4 className="sg-app-feature-title"><CjkText>{t('project.sleepGuardian.instrument.mod3title')}</CjkText></h4>
+                <p className="sg-app-feature-desc"><CjkText>{t('project.sleepGuardian.instrument.mod3desc')}</CjkText><br /><strong><CjkText>{t('project.sleepGuardian.instrument.ndlName')}</CjkText></strong>{' '}<CjkText>{t('project.sleepGuardian.instrument.ndlDesc')}</CjkText><br /><strong><CjkText>{t('project.sleepGuardian.instrument.pscName')}</CjkText></strong>{' '}<CjkText>{t('project.sleepGuardian.instrument.pscDesc')}</CjkText></p>
               </div>
               <div className="sg-app-feature">
                 <div className="sg-app-feature-num">04</div>
-                <h4 className="sg-app-feature-title">{t('project.sleepGuardian.instrument.mod4title')}</h4>
-                <p className="sg-app-feature-desc">{t('project.sleepGuardian.instrument.mod4desc')}</p>
+                <h4 className="sg-app-feature-title"><CjkText>{t('project.sleepGuardian.instrument.mod4title')}</CjkText></h4>
+                <p className="sg-app-feature-desc"><CjkText>{t('project.sleepGuardian.instrument.mod4desc')}</CjkText></p>
               </div>
             </div>
 
@@ -716,8 +717,8 @@ export default function SleepGuardian() {
               
               {/* 1. App 介面展示 (7張圖網格) */}
               <div className="sg-visual-block">
-                <h3 className="sg-visual-title">{t('project.sleepGuardian.instrument.uiHeading')}</h3>
-                <p className="sg-zoom-hint">{t('project.sleepGuardian.screens.zoomHint')}</p>
+                <h3 className="sg-visual-title"><CjkText>{t('project.sleepGuardian.instrument.uiHeading')}</CjkText></h3>
+                <p className="sg-zoom-hint"><CjkText>{t('project.sleepGuardian.screens.zoomHint')}</CjkText></p>
                 <div className="sg-app-screens-grid">
                   {appScreens.map((screen, idx) => (
                     <figure key={idx} className="sg-app-screen-item">
@@ -729,7 +730,7 @@ export default function SleepGuardian() {
                       >
                         <img src={screen.src} alt={screen.alt} loading="lazy" className="sg-app-screen-img" />
                       </button>
-                      <figcaption className="sg-app-screen-cap">{screen.caption}</figcaption>
+                      <figcaption className="sg-app-screen-cap"><CjkText>{screen.caption}</CjkText></figcaption>
                     </figure>
                   ))}
                 </div>
@@ -737,7 +738,7 @@ export default function SleepGuardian() {
 
               {/* 2. 實驗時程管理圖 (Notion) */}
               <div className="sg-visual-block">
-                <h3 className="sg-visual-title">{t('project.sleepGuardian.instrument.timelineHeading')}</h3>
+                <h3 className="sg-visual-title"><CjkText>{t('project.sleepGuardian.instrument.timelineHeading')}</CjkText></h3>
                 <div className="sg-notion-img-wrap">
                   <img src={notionImg} alt={t('project.sleepGuardian.instrument.timelineAlt')} loading="lazy" className="sg-featured-img" />
                 </div>
@@ -755,70 +756,70 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <BarChart3 size={18} />{t('project.sleepGuardian.measures.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.measures.title')}</h2>
+              <BarChart3 size={18} /><CjkText>{t('project.sleepGuardian.measures.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.measures.title')}</CjkText></h2>
 
             <div className="sg-measure-timeline">
               <div className="sg-measure-phase">
-                <div className="sg-phase-label">{t('project.sleepGuardian.measures.group1')}</div>
+                <div className="sg-phase-label"><CjkText>{t('project.sleepGuardian.measures.group1')}</CjkText></div>
                 <div className="sg-measure-cards">
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.bpsAbbr')}</div>
-                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.bpsName')}</div>
-                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.bpsDesc')}</div>
+                    <div className="sg-measure-abbr"><CjkText>{t('project.sleepGuardian.measures.bpsAbbr')}</CjkText></div>
+                    <div className="sg-measure-name"><CjkText>{t('project.sleepGuardian.measures.bpsName')}</CjkText></div>
+                    <div className="sg-measure-purpose"><CjkText>{t('project.sleepGuardian.measures.bpsDesc')}</CjkText></div>
                   </div>
                 </div>
               </div>
 
               <div className="sg-measure-phase">
-                <div className="sg-phase-label">{t('project.sleepGuardian.measures.group2')}</div>
+                <div className="sg-phase-label"><CjkText>{t('project.sleepGuardian.measures.group2')}</CjkText></div>
                 <div className="sg-measure-cards">
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.bscsAbbr')}</div>
-                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.bscsName')}</div>
-                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.bscsDesc')}</div>
+                    <div className="sg-measure-abbr"><CjkText>{t('project.sleepGuardian.measures.bscsAbbr')}</CjkText></div>
+                    <div className="sg-measure-name"><CjkText>{t('project.sleepGuardian.measures.bscsName')}</CjkText></div>
+                    <div className="sg-measure-purpose"><CjkText>{t('project.sleepGuardian.measures.bscsDesc')}</CjkText></div>
                   </div>
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.reiAbbr')}</div>
-                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.reiName')}</div>
-                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.reiDesc')}</div>
+                    <div className="sg-measure-abbr"><CjkText>{t('project.sleepGuardian.measures.reiAbbr')}</CjkText></div>
+                    <div className="sg-measure-name"><CjkText>{t('project.sleepGuardian.measures.reiName')}</CjkText></div>
+                    <div className="sg-measure-purpose"><CjkText>{t('project.sleepGuardian.measures.reiDesc')}</CjkText></div>
                   </div>
                 </div>
               </div>
 
               <div className="sg-measure-phase">
-                <div className="sg-phase-label">{t('project.sleepGuardian.measures.group3')}</div>
+                <div className="sg-phase-label"><CjkText>{t('project.sleepGuardian.measures.group3')}</CjkText></div>
                 <div className="sg-measure-cards sg-measure-cards--objective">
                   <div className="sg-measure-card sg-measure-card--objective">
-                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.ndlAbbr')}</div>
-                    <div className="sg-measure-name">{t('project.sleepGuardian.instrument.ndlName')}</div>
-                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.ndlDesc')}</div>
+                    <div className="sg-measure-abbr"><CjkText>{t('project.sleepGuardian.measures.ndlAbbr')}</CjkText></div>
+                    <div className="sg-measure-name"><CjkText>{t('project.sleepGuardian.instrument.ndlName')}</CjkText></div>
+                    <div className="sg-measure-purpose"><CjkText>{t('project.sleepGuardian.measures.ndlDesc')}</CjkText></div>
                   </div>
                   <div className="sg-measure-card sg-measure-card--objective">
-                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.pscAbbr')}</div>
-                    <div className="sg-measure-name">{t('project.sleepGuardian.instrument.pscName')}</div>
-                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.pscDesc')}</div>
+                    <div className="sg-measure-abbr"><CjkText>{t('project.sleepGuardian.measures.pscAbbr')}</CjkText></div>
+                    <div className="sg-measure-name"><CjkText>{t('project.sleepGuardian.instrument.pscName')}</CjkText></div>
+                    <div className="sg-measure-purpose"><CjkText>{t('project.sleepGuardian.measures.pscDesc')}</CjkText></div>
                   </div>
                 </div>
               </div>
 
               <div className="sg-measure-phase">
-                <div className="sg-phase-label">{t('project.sleepGuardian.measures.group4')}</div>
+                <div className="sg-phase-label"><CjkText>{t('project.sleepGuardian.measures.group4')}</CjkText></div>
                 <div className="sg-measure-cards">
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.padAbbr')}</div>
-                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.padName')}</div>
-                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.padDesc')}</div>
+                    <div className="sg-measure-abbr"><CjkText>{t('project.sleepGuardian.measures.padAbbr')}</CjkText></div>
+                    <div className="sg-measure-name"><CjkText>{t('project.sleepGuardian.measures.padName')}</CjkText></div>
+                    <div className="sg-measure-purpose"><CjkText>{t('project.sleepGuardian.measures.padDesc')}</CjkText></div>
                   </div>
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.tamAbbr')}</div>
-                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.tamName')}</div>
-                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.tamDesc')}</div>
+                    <div className="sg-measure-abbr"><CjkText>{t('project.sleepGuardian.measures.tamAbbr')}</CjkText></div>
+                    <div className="sg-measure-name"><CjkText>{t('project.sleepGuardian.measures.tamName')}</CjkText></div>
+                    <div className="sg-measure-purpose"><CjkText>{t('project.sleepGuardian.measures.tamDesc')}</CjkText></div>
                   </div>
                   <div className="sg-measure-card">
-                    <div className="sg-measure-abbr">{t('project.sleepGuardian.measures.ueqsAbbr')}</div>
-                    <div className="sg-measure-name">{t('project.sleepGuardian.measures.ueqsName')}</div>
-                    <div className="sg-measure-purpose">{t('project.sleepGuardian.measures.ueqsDesc')}</div>
+                    <div className="sg-measure-abbr"><CjkText>{t('project.sleepGuardian.measures.ueqsAbbr')}</CjkText></div>
+                    <div className="sg-measure-name"><CjkText>{t('project.sleepGuardian.measures.ueqsName')}</CjkText></div>
+                    <div className="sg-measure-purpose"><CjkText>{t('project.sleepGuardian.measures.ueqsDesc')}</CjkText></div>
                   </div>
                 </div>
               </div>
@@ -830,8 +831,8 @@ export default function SleepGuardian() {
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <FlaskConical size={18} />{t('project.sleepGuardian.rq.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.rq.title')}</h2>
+              <FlaskConical size={18} /><CjkText>{t('project.sleepGuardian.rq.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.rq.title')}</CjkText></h2>
 
             {/* 論文共 5 個 RQ 加一項探索性分析。
                 原本是六張大卡，改成表格後高度砍掉約一半，資訊一項不減。 */}
@@ -839,22 +840,22 @@ export default function SleepGuardian() {
               <table className="sg-rq-table">
                 <thead>
                   <tr>
-                    <th scope="col">{t('project.sleepGuardian.rq.colQuestion')}</th>
-                    <th scope="col">{t('project.sleepGuardian.rq.predictedLabel')}</th>
-                    <th scope="col">{t('project.sleepGuardian.rq.actualLabel')}</th>
-                    <th scope="col">{t('project.sleepGuardian.rq.colVerdict')}</th>
+                    <th scope="col"><CjkText>{t('project.sleepGuardian.rq.colQuestion')}</CjkText></th>
+                    <th scope="col"><CjkText>{t('project.sleepGuardian.rq.predictedLabel')}</CjkText></th>
+                    <th scope="col"><CjkText>{t('project.sleepGuardian.rq.actualLabel')}</CjkText></th>
+                    <th scope="col"><CjkText>{t('project.sleepGuardian.rq.colVerdict')}</CjkText></th>
                   </tr>
                 </thead>
                 <tbody>
                   {['rq1', 'rq2', 'rq3', 'rq4', 'rq5', 'rq6'].map(k => (
                     <tr key={k}>
                       <th scope="row">
-                        <span className="sg-rq-tag">{t(`project.sleepGuardian.rq.${k}label`)}</span>
-                        <span className="sg-rq-q">{t(`project.sleepGuardian.rq.${k}q`)}</span>
+                        <span className="sg-rq-tag"><CjkText>{t(`project.sleepGuardian.rq.${k}label`)}</CjkText></span>
+                        <span className="sg-rq-q"><CjkText>{t(`project.sleepGuardian.rq.${k}q`)}</CjkText></span>
                       </th>
-                      <td className="sg-rq-pred">{t(`project.sleepGuardian.rq.${k}pred`)}</td>
-                      <td className="sg-rq-actual">{t(`project.sleepGuardian.rq.${k}actual`)}</td>
-                      <td><span className="sg-rq-verdict">{t(`project.sleepGuardian.rq.${k}verdict`)}</span></td>
+                      <td className="sg-rq-pred"><CjkText>{t(`project.sleepGuardian.rq.${k}pred`)}</CjkText></td>
+                      <td className="sg-rq-actual"><CjkText>{t(`project.sleepGuardian.rq.${k}actual`)}</CjkText></td>
+                      <td><span className="sg-rq-verdict"><CjkText>{t(`project.sleepGuardian.rq.${k}verdict`)}</CjkText></span></td>
                     </tr>
                   ))}
                 </tbody>
@@ -863,7 +864,7 @@ export default function SleepGuardian() {
 
             <div className="sg-analysis-note">
               <BarChart3 size={16} />
-              <p>{t('project.sleepGuardian.rq.note')}</p>
+              <p><CjkText>{t('project.sleepGuardian.rq.note')}</CjkText></p>
             </div>
           </div>
         </section>
@@ -872,14 +873,14 @@ export default function SleepGuardian() {
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <AlertTriangle size={18} />{t('project.sleepGuardian.limits.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.limits.title')}</h2>
+              <AlertTriangle size={18} /><CjkText>{t('project.sleepGuardian.limits.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.limits.title')}</CjkText></h2>
 
             <div className="sg-limits-grid">
               {['l1', 'l2', 'l3', 'l4'].map(k => (
                 <div className="sg-limit-card" key={k}>
-                  <h4>{t(`project.sleepGuardian.limits.${k}title`)}</h4>
-                  <p>{t(`project.sleepGuardian.limits.${k}desc`)}</p>
+                  <h4><CjkText>{t(`project.sleepGuardian.limits.${k}title`)}</CjkText></h4>
+                  <p><CjkText>{t(`project.sleepGuardian.limits.${k}desc`)}</CjkText></p>
                 </div>
               ))}
             </div>
@@ -890,19 +891,19 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal" style={{ paddingBottom: '120px' }}>
           <div className="sg-container">
             <div className="sg-section-label">
-              <CheckCircle2 size={18} />{t('project.sleepGuardian.status.heading')}</div>
-            <h2 className="sg-section-title">{t('project.sleepGuardian.status.title')}</h2>
+              <CheckCircle2 size={18} /><CjkText>{t('project.sleepGuardian.status.heading')}</CjkText></div>
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.status.title')}</CjkText></h2>
 
             <div className="sg-contribution-grid">
               <div className="sg-contribution-card">
-                <h4>{t('project.sleepGuardian.status.item1title')}</h4>
-                <p>{t('project.sleepGuardian.status.item1desc')}</p>
+                <h4><CjkText>{t('project.sleepGuardian.status.item1title')}</CjkText></h4>
+                <p><CjkText>{t('project.sleepGuardian.status.item1desc')}</CjkText></p>
               </div>
               {/* item2（前導）、item3（app 開發）、item4（刺激物）、item6（結果）
                   已各自獨立成段，這裡只留沒有專屬區塊的兩項。 */}
               <div className="sg-contribution-card">
-                <h4>{t('project.sleepGuardian.status.item5title')}</h4>
-                <p>{t('project.sleepGuardian.status.item5desc')}</p>
+                <h4><CjkText>{t('project.sleepGuardian.status.item5title')}</CjkText></h4>
+                <p><CjkText>{t('project.sleepGuardian.status.item5desc')}</CjkText></p>
               </div>
             </div>
           </div>
@@ -952,7 +953,7 @@ export default function SleepGuardian() {
             position: relative;
             overflow: hidden;
           }
-          .sg-hero-inner { max-width: 820px; }
+          /* hero 不設寬度上限：左右緣要跟下方的圖表、卡片切在同一條線上 */
           .sg-badge-row {
             display: flex;
             gap: 12px;
@@ -1004,13 +1005,15 @@ export default function SleepGuardian() {
             line-height: 1.8;
             color: rgba(255,255,255,0.72);
             margin-bottom: 48px;
-            max-width: 680px;
           }
           .sg-hero-hook em { color: #fde68a; font-style: italic; }
+          /* 欄寬跟著內容走，最後一欄右緣貼齊容器，每一格都不會被擠到斷行。
+             960px 以下改兩欄，見下方 media query。 */
           .sg-meta-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(4, auto);
+            justify-content: space-between;
+            gap: 24px 32px;
             padding-top: 40px;
             border-top: 1px solid rgba(255,255,255,0.1);
           }
@@ -1061,7 +1064,6 @@ export default function SleepGuardian() {
           .sg-title--light { color: #fff; }
 
           .sg-body { font-size: 17px; line-height: 1.82; color: var(--sg-muted); margin-bottom: 20px; }
-          .sg-body--wide { max-width: 760px; }
           .sg-body--light { color: rgba(255,255,255,0.65); }
 
           .sg-two-col {
@@ -1613,7 +1615,7 @@ export default function SleepGuardian() {
             font-family: var(--font-display); font-size: 18px; font-weight: 700;
             color: var(--sg-text); margin-bottom: 10px; line-height: 1.35;
           }
-          .sg-decision p { font-size: 14px; line-height: 1.8; color: var(--sg-muted); margin: 0; max-width: 76ch; }
+          .sg-decision p { font-size: 14px; line-height: 1.8; color: var(--sg-muted); margin: 0; }
 
           @media (max-width: 900px) {
             .sg-pivot, .sg-turn-grid { grid-template-columns: 1fr; }
@@ -1653,13 +1655,13 @@ export default function SleepGuardian() {
           .sg-charts { display: flex; flex-direction: column; gap: 34px; margin-top: 38px; }
           .sg-chart { margin: 0; }
           .sg-chart-head h4 { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
-          .sg-chart-head p { font-size: 13.5px; line-height: 1.65; color: var(--sg-muted); margin: 0 0 16px; max-width: 74ch; }
+          .sg-chart-head p { font-size: 13.5px; line-height: 1.65; color: var(--sg-muted); margin: 0 0 16px; }
           .sg-chart-foot { font-family: var(--font-mono); font-size: 11px; color: var(--sg-muted); margin: 12px 0 0; }
 
           /* Heatmap */
           .sg-heat { display: flex; flex-direction: column; gap: 6px; min-width: 560px; }
           .sg-heat-row { display: grid; grid-template-columns: 190px repeat(3, 1fr); gap: 6px; align-items: stretch; }
-          .sg-heat-row--head span {
+          .sg-heat-row--head > span {
             font-family: var(--font-mono); font-size: 11px; letter-spacing: 1px;
             text-transform: uppercase; color: var(--sg-muted); text-align: center; padding-bottom: 4px;
           }
@@ -1695,7 +1697,7 @@ export default function SleepGuardian() {
 
           /* 共用：圖例、參考線、數值欄 */
           .sg-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; margin-bottom: 22px; }
-          .sg-legend span { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--sg-text); }
+          .sg-legend > span { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--sg-text); }
           .sg-legend i { width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0; }
           .sg-legend em { font-style: normal; font-family: var(--font-mono); font-size: 11.5px; color: var(--sg-muted); }
           .sg-ref { position: absolute; top: 0; bottom: 0; width: 1px; background: color-mix(in srgb, var(--sg-text) 9%, transparent); }
@@ -1758,7 +1760,7 @@ export default function SleepGuardian() {
             position: absolute; left: 0; right: 0; height: 0;
             border-top: 1px dashed color-mix(in srgb, var(--sg-text) 26%, transparent);
           }
-          .sg-eta-ref span {
+          .sg-eta-ref > span {
             position: absolute; right: 0; top: -8px;
             font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .5px;
             color: var(--sg-muted); background: var(--sg-surface); padding: 0 6px;
@@ -1786,7 +1788,7 @@ export default function SleepGuardian() {
             display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px;
             padding: 10px 8px 0;
           }
-          .sg-eta-axis span {
+          .sg-eta-axis > span {
             text-align: center; font-size: 12px; line-height: 1.35;
             color: var(--sg-text); white-space: pre-line;
           }
@@ -1872,7 +1874,6 @@ export default function SleepGuardian() {
             font-size: 16px;
             line-height: 1.7;
             color: var(--sg-muted);
-            max-width: 62ch;
             margin: 0 0 40px;
           }
           /* 圖表併進卡片後一律單欄：圖表本身需要橫向空間 */
@@ -1913,7 +1914,6 @@ export default function SleepGuardian() {
             line-height: 1.75;
             color: var(--sg-muted);
             margin: 0;
-            max-width: 74ch;
           }
           /* 卡片內嵌圖表 */
           .sg-result-card .sg-chart {
@@ -1941,6 +1941,11 @@ export default function SleepGuardian() {
           /* 研究已於 2026/06/26 口試完成，六張卡不再掛狀態徽章（全部一樣就沒有資訊量）。 */
           .sg-contribution-card h4 { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--sg-text); margin-bottom: 10px; line-height: 1.4; }
           .sg-contribution-card p { font-size: 13px; line-height: 1.7; color: var(--sg-muted); }
+
+          /* 中文四欄自然寬度加總約 1090px，1100 以下改兩欄，每格才不會被擠成兩行 */
+          @media (max-width: 1100px) {
+            .sg-meta-grid { grid-template-columns: 1fr 1fr; justify-content: stretch; }
+          }
 
           @media (max-width: 960px) {
             .sg-two-col,
@@ -2001,7 +2006,7 @@ export default function SleepGuardian() {
         <div className="sg-lightbox" onClick={() => setLightbox(null)}>
           <figure onClick={e => e.stopPropagation()}>
             <img src={lightbox.src} alt={lightbox.caption} />
-            <figcaption>{lightbox.caption}</figcaption>
+            <figcaption><CjkText>{lightbox.caption}</CjkText></figcaption>
           </figure>
           <button type="button" className="sg-lightbox-close" onClick={() => setLightbox(null)} aria-label="Close">✕</button>
         </div>

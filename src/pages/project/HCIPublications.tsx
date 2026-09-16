@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
+import CjkText from '../../components/CjkText';
 import { 
   BookOpen, Mic, Activity, BarChart3, 
   Music, Users, BrainCircuit, Lightbulb,
@@ -46,18 +47,18 @@ export default function HCIPublications() {
                     <BookOpen size={24} />
                   </div>
                   <div className="badge-content">
-                    <div className="badge-title">{t('project.hciPublications.header.title')}</div>
-                    <div className="badge-subtitle">{t('project.hciPublications.header.subtitle')}</div>
+                    <div className="badge-title"><CjkText>{t('project.hciPublications.header.title')}</CjkText></div>
+                    <div className="badge-subtitle"><CjkText>{t('project.hciPublications.header.subtitle')}</CjkText></div>
                   </div>
                 </div>
               </div>
               
               <h1 className="hero-title">
-                {t('project.hciPublications.header.tagline')}
+                <CjkText>{t('project.hciPublications.header.tagline')}</CjkText>
               </h1>
               
               <p className="hero-subtitle">
-                {t('project.hciPublications.header.desc')}
+                <CjkText>{t('project.hciPublications.header.desc')}</CjkText>
               </p>
             </motion.div>
           </div>
@@ -75,41 +76,41 @@ export default function HCIPublications() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="paper-container">
               <div className="paper-header">
-                <div className="venue-tag ieee">{t('project.hciPublications.gcce.venue')}</div>
+                <div className="venue-tag ieee"><CjkText>{t('project.hciPublications.gcce.venue')}</CjkText></div>
                 <h2 className="paper-title">
-                  {t('project.hciPublications.gcce.title')}
+                  <CjkText>{t('project.hciPublications.gcce.title')}</CjkText>
                 </h2>
-                <p className="paper-authors">{t('project.hciPublications.labels.authors')}</p>
+                <p className="paper-authors"><CjkText>{t('project.hciPublications.labels.authors')}</CjkText></p>
               </div>
 
               <div className="paper-grid">
                 {/* Left Column: Summary & Methods */}
                 <div className="paper-main">
-                  <h3 className="section-heading-sm">{t('project.hciPublications.labels.challenge')}</h3>
+                  <h3 className="section-heading-sm"><CjkText>{t('project.hciPublications.labels.challenge')}</CjkText></h3>
                   <p className="body-text">
-                    {t('project.hciPublications.gcce.challenge')}
+                    <CjkText>{t('project.hciPublications.gcce.challenge')}</CjkText>
                   </p>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{t('project.hciPublications.labels.methodology')}</h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><CjkText>{t('project.hciPublications.labels.methodology')}</CjkText></h3>
                   <ul className="method-list">
                     <li>
                       <Activity size={20} />
-                      <span><strong>{t('project.hciPublications.gcce.m1label')}</strong> {t('project.hciPublications.gcce.m1desc')}</span>
+                      <span><strong><CjkText>{t('project.hciPublications.gcce.m1label')}</CjkText></strong> <CjkText>{t('project.hciPublications.gcce.m1desc')}</CjkText></span>
                     </li>
                     <li>
                       <Target size={20} />
-                      <span><strong>{t('project.hciPublications.gcce.m2label')}</strong> {t('project.hciPublications.gcce.m2desc')}</span>
+                      <span><strong><CjkText>{t('project.hciPublications.gcce.m2label')}</CjkText></strong> <CjkText>{t('project.hciPublications.gcce.m2desc')}</CjkText></span>
                     </li>
                     <li>
                       <BarChart3 size={20} />
-                      <span><strong>{t('project.hciPublications.gcce.m3label')}</strong> {t('project.hciPublications.gcce.m3desc')}</span>
+                      <span><strong><CjkText>{t('project.hciPublications.gcce.m3label')}</CjkText></strong> <CjkText>{t('project.hciPublications.gcce.m3desc')}</CjkText></span>
                     </li>
                   </ul>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{t('project.hciPublications.labels.findings')}</h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><CjkText>{t('project.hciPublications.labels.findings')}</CjkText></h3>
                   <div className="findings-box">
                     <p className="body-text" style={{ marginBottom: 0 }}>
-                      {t('project.hciPublications.gcce.findings')}
+                      <CjkText>{t('project.hciPublications.gcce.findings')}</CjkText>
                     </p>
                   </div>
                 </div>
@@ -125,9 +126,9 @@ export default function HCIPublications() {
                       <span style={{color:'white',fontSize:'20px'}}>📄</span>
                     </div>
                     <div>
-                      <div style={{fontFamily:'var(--font-mono)',fontSize:'10px',letterSpacing:'.1em',textTransform:'uppercase',color:'var(--text-tertiary)',marginBottom:'4px'}}>{t('project.hciPublications.gcce.pubLabel')}</div>
-                      <div style={{fontFamily:'var(--font-display)',fontWeight:600,fontSize:'15px',lineHeight:1.3,color:'var(--text-primary)',marginBottom:'4px'}}>{t('project.hciPublications.gcce.pubTitle')}</div>
-                      <div style={{fontFamily:'var(--font-mono)',fontSize:'11px',color:'var(--text-tertiary)'}}>{t('project.hciPublications.gcce.pubLink')}</div>
+                      <div style={{fontFamily:'var(--font-mono)',fontSize:'10px',letterSpacing:'.1em',textTransform:'uppercase',color:'var(--text-tertiary)',marginBottom:'4px'}}><CjkText>{t('project.hciPublications.gcce.pubLabel')}</CjkText></div>
+                      <div style={{fontFamily:'var(--font-display)',fontWeight:600,fontSize:'15px',lineHeight:1.3,color:'var(--text-primary)',marginBottom:'4px'}}><CjkText>{t('project.hciPublications.gcce.pubTitle')}</CjkText></div>
+                      <div style={{fontFamily:'var(--font-mono)',fontSize:'11px',color:'var(--text-tertiary)'}}><CjkText>{t('project.hciPublications.gcce.pubLink')}</CjkText></div>
                     </div>
                   </a>
 
@@ -136,14 +137,14 @@ export default function HCIPublications() {
                   <div className="visual-asset">
                     {/* Placeholder for "flow chart.jpg" (Fig 2 in PDF) */}
                     <img src={hp[1]} alt={t('project.hciPublications.gcce.figAlt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}} />
-                    <p className="image-caption">{t('project.hciPublications.gcce.figCaption')}</p>
+                    <p className="image-caption"><CjkText>{t('project.hciPublications.gcce.figCaption')}</CjkText></p>
                   </div>
 
                   <div className="implication-card">
                     <div className="card-icon"><Lightbulb size={24} /></div>
-                    <h4 className="card-title">{t('project.hciPublications.labels.implications')}</h4>
+                    <h4 className="card-title"><CjkText>{t('project.hciPublications.labels.implications')}</CjkText></h4>
                     <p className="card-text">
-                      {t('project.hciPublications.gcce.implications')}
+                      <CjkText>{t('project.hciPublications.gcce.implications')}</CjkText>
                     </p>
                   </div>
                 </div>
@@ -157,41 +158,41 @@ export default function HCIPublications() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="paper-container">
               <div className="paper-header">
-                <div className="venue-tag ssim">{t('project.hciPublications.ssim.venue')}</div>
+                <div className="venue-tag ssim"><CjkText>{t('project.hciPublications.ssim.venue')}</CjkText></div>
                 <h2 className="paper-title">
-                  {t('project.hciPublications.ssim.title')}
+                  <CjkText>{t('project.hciPublications.ssim.title')}</CjkText>
                 </h2>
-                <p className="paper-authors">{t('project.hciPublications.labels.authors')}</p>
+                <p className="paper-authors"><CjkText>{t('project.hciPublications.labels.authors')}</CjkText></p>
               </div>
 
               <div className="paper-grid reverse-layout">
                 {/* Left Column: Methods & Findings */}
                 <div className="paper-main">
-                  <h3 className="section-heading-sm">{t('project.hciPublications.labels.challenge')}</h3>
+                  <h3 className="section-heading-sm"><CjkText>{t('project.hciPublications.labels.challenge')}</CjkText></h3>
                   <p className="body-text">
-                    {t('project.hciPublications.ssim.challenge')}
+                    <CjkText>{t('project.hciPublications.ssim.challenge')}</CjkText>
                   </p>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{t('project.hciPublications.labels.methodology')}</h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><CjkText>{t('project.hciPublications.labels.methodology')}</CjkText></h3>
                   <ul className="method-list">
                     <li>
                       <Users size={20} />
-                      <span><strong>{t('project.hciPublications.ssim.m1label')}</strong> {t('project.hciPublications.ssim.m1desc')}</span>
+                      <span><strong><CjkText>{t('project.hciPublications.ssim.m1label')}</CjkText></strong> <CjkText>{t('project.hciPublications.ssim.m1desc')}</CjkText></span>
                     </li>
                     <li>
                       <BrainCircuit size={20} />
-                      <span><strong>{t('project.hciPublications.ssim.m2label')}</strong> {t('project.hciPublications.ssim.m2desc')}</span>
+                      <span><strong><CjkText>{t('project.hciPublications.ssim.m2label')}</CjkText></strong> <CjkText>{t('project.hciPublications.ssim.m2desc')}</CjkText></span>
                     </li>
                     <li>
                       <BarChart3 size={20} />
-                      <span><strong>{t('project.hciPublications.ssim.m3label')}</strong> {t('project.hciPublications.ssim.m3desc')}</span>
+                      <span><strong><CjkText>{t('project.hciPublications.ssim.m3label')}</CjkText></strong> <CjkText>{t('project.hciPublications.ssim.m3desc')}</CjkText></span>
                     </li>
                   </ul>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}>{t('project.hciPublications.labels.findings')}</h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><CjkText>{t('project.hciPublications.labels.findings')}</CjkText></h3>
                   <div className="findings-box">
                     <p className="body-text" style={{ marginBottom: 0 }}>
-                      {t('project.hciPublications.ssim.findings')}
+                      <CjkText>{t('project.hciPublications.ssim.findings')}</CjkText>
                     </p>
                   </div>
                 </div>
@@ -201,14 +202,14 @@ export default function HCIPublications() {
                   <div className="visual-asset">
                     {/* Placeholder for Workflow Image */}
                     <img src={hp[0]} alt={t('project.hciPublications.ssim.figAlt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
-                    <p className="image-caption">{t('project.hciPublications.ssim.figCaption')}</p>
+                    <p className="image-caption"><CjkText>{t('project.hciPublications.ssim.figCaption')}</CjkText></p>
                   </div>
 
                   <div className="implication-card">
                     <div className="card-icon"><Music size={24} /></div>
-                    <h4 className="card-title">{t('project.hciPublications.labels.implications')}</h4>
+                    <h4 className="card-title"><CjkText>{t('project.hciPublications.labels.implications')}</CjkText></h4>
                     <p className="card-text">
-                      {t('project.hciPublications.ssim.implications')}
+                      <CjkText>{t('project.hciPublications.ssim.implications')}</CjkText>
                     </p>
                   </div>
                 </div>

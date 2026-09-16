@@ -49,7 +49,7 @@
         "titleHighlight": "OpenHCI '25 Best Demo",
         "titlePost": "built on 12 in-depth interviews.",
         "caption": "A working tangible device built in a 6-day workshop. 12 in-depth interviews found that people want to confide in AI but fear being remembered forever, and I turned that into a 10-state emotional light system.",
-        "tag1": "OpenHCI'25",
+        "tag1": "Product Design",
         "tag2": "Tangible UX",
         "tag3": "HCI",
         "imgAlt": "Oblivilight",
@@ -119,7 +119,7 @@
         "desc": "Market research and app prototyping for Taiwan Livestock."
       },
       "ssim": {
-        "title": "SSIM Best Paper Award",
+        "title": "SSIM 2024 Best Paper Award",
         "desc": "First Author. Focused on Human-AI music collaboration interfaces."
       }
     },
@@ -151,7 +151,7 @@
       "line1": "A researcher who codes.",
       "line2": "A designer who",
       "line2Em": "asks why.",
-      "p1": "Hi, I'm Rose. I finish an M.S. in Interaction Design at National Taipei University of Technology in August 2026.",
+      "p1": "Hi, I’m Rose. I’ll complete my M.S. in Interaction Design at National Taipei University of Technology in August 2026.",
       "p2": "I turn user research into product decisions that can be measured and defended.",
       "p3": "I like building things with people — cross-functional teams turning rough ideas into something users actually want. When I'm not designing: new music, creative coding, or the latest design trends."
     },
@@ -200,24 +200,21 @@
         "tag": "Research at Scale",
         "titleLine1": "Rigorous Research,",
         "titleLine2": "Real Numbers",
-        "desc": "Full-cycle mixed-methods study on bedtime procrastination — from recruitment to validated analysis.",
+        "desc": "Mixed-methods study on bedtime procrastination, from the pilot study and participant recruitment to building the experiment app, collecting in-app behavioral data and survey responses, and validating the results statistically.",
         "imgAlt": "Research Notion",
         "stat1a": "participants",
-        "stat1b": "recruited",
         "stat2a": "validated",
-        "stat2b": "scales",
-        "stat3a": "methods:",
-        "stat3b": "quant + qual"
+        "stat3a": "methods:"
       },
       "awards": {
         "tag": "Research → Product",
         "titleLine1": "From Insight",
         "titleLine2": "to Gold",
-        "desc": "Turning user research into winning strategy — nationally recognized in both academic and commercial arenas.",
+        "desc": "Turning user research into award-winning strategy, and presenting the work to the client company that set the brief.",
         "imgAlt": "Awards Report",
         "badge1": "InnoConnect+ Gold",
-        "badge2": "SSIM Best Paper",
-        "badge3": "時報金犢獎 3rd"
+        "badge2": "User Research",
+        "badge3": "Business Thinking"
       },
       "uiDesign": {
         "tag": "Full-Cycle UI Design",
@@ -338,7 +335,7 @@
         "tag3": "Tangible Prototype"
       },
       "mu": {
-        "period": "2025 Jul - Dec",
+        "period": "2025 Aug - Dec",
         "type": "UX Design & Research",
         "title": "UX Design Awards｜Mù",
         "desc": "Nominated for UX Design Awards. A multisensory guide to Taiwan's endangered woods exploring emotional design.",
@@ -402,15 +399,13 @@
     },
     "experience": {
       "heading": "Experience",
-      "sub": "A chronological overview of my professional journey in Marketing and design.",
       "bilingual": {
         "year": "2025 Sep",
         "title": "Part-Time Project Assistant",
         "company": "NTUT; Center for Bilingual Learning",
         "period": "Sep 2025 – Feb 2026",
-        "d1": "Assisted the Center for Bilingual Learning at NTUT with social media management across Facebook, LINE, and the center’s website.",
-        "d2": "Supported the execution of workshops, including venue setup, assisting international instructors, and coordinating students.",
-        "d3": "Handled administrative tasks related to the Center for Bilingual Learning."
+        "d1": "Managed content for the Center for Bilingual Learning across Facebook, LINE, and its website, building a consistent tone of voice across all three.",
+        "d2": "Supported about 12 international workshops, working with 2 foreign instructors and around 70 international students, and handled on-site facilitation and run-of-show."
       },
       "ra": {
         "year": "2024 Sep",
@@ -428,31 +423,27 @@
         "title": "Marketing Intern",
         "company": "KDAN｜ADNEX",
         "period": "Mar 2024 – Nov 2024",
-        "d1": "Communicated with over 110 Key Opinion Leaders (KOLs).",
-        "d2": "Created over 15 promotional posts for Instagram and Facebook accounts.",
-        "d3": "Increased official account followers by over 750.",
-        "d4": "Analyzed monthly influencer data and submitted 15 reports for client and manager review.",
-        "d5": "Trained 10 marketing staff on AI advertising picture generation.",
-        "d6": "Designed over 5 website graphics of company product."
+        "d1": "Ran social media and KOL partnership projects for the sub-brand ADNEX, covering both execution and management.",
+        "d2": "Sourced 110+ KOLs and ran about 15 partnerships end to end, from outreach and contracts through to wrap-up, to build brand awareness.",
+        "d3": "Managed the brand’s Facebook and Instagram. Found that short interview videos with executives drove the most engagement; after building a strategy around them, one post reached 10.26% engagement, twice the 5.09% average over my time there.",
+        "d4": "Used Nielsen and OpView for market and social listening analysis to support marketing decisions.",
+        "d5": "Created a handover SOP for KOL partnerships on my own initiative, and was asked to lead an internal training session on generative AI tools for the planning department.",
+        "d6": "Analyzed monthly influencer data and submitted 15 reports for client and manager review."
       },
       "mengya": {
         "year": "2022 Jul",
         "title": "Corporate Training Project Intern",
         "company": "Meng Ya Management Consulting Co., Ltd.",
         "period": "Jul 2022 – Sep 2022",
-        "d1": "Served as the PM (project partner) for three companies, responsible for coordinating client requirements and acting as a bridge between the company and instructors; supported the preparation of over 17 corporate training sessions.",
-        "d2": "Worked as a teaching assistant for corporate training programs, identifying clients’ potential needs during sessions and supporting client development and relationship maintenance.",
-        "d3": "Assisted the sales team with pre-training preparations, including coordination between instructors and corporate clients, as well as handling related administrative tasks.",
-        "d4": "Executed on-site corporate training services and supported post-training wrap-up and project closure."
+        "d1": "Acted as the point of contact between 3 corporate clients and instructors, coordinating and supporting pre-session preparation and on-site delivery for 17+ training sessions, and produced 3 corporate training videos.",
+        "d2": "Observed participants’ unspoken needs during on-site training sessions, supporting business development and writing project closing reports."
       },
       "wonlaiwon": {
         "year": "2022 Jan",
         "title": "Part-Time Worker",
         "company": "Won-Lai-Won Enterprise Group",
         "period": "Jan 2022 – Feb 2022",
-        "d1": "Responsible for product photography, background removal, photo editing, and uploading product listings.",
-        "d2": "Assisted in writing product descriptions and promotional copy.",
-        "d3": "Assisted with document filing and record management for the company."
+        "d1": "Handled product photography, background removal, photo editing, and product listings; helped write product copy."
       }
     },
     "chips": {
@@ -508,8 +499,8 @@
       "master": {
         "degree": "Master of Interaction Design",
         "institution": "National Taipei University of Technology",
-        "year": "2024 - Present",
-        "desc": "Specialized in Human-Computer Interaction and Interactive Design. Thesis: \"Smartphone Notification Intervention Design for While-in-Bed Procrastination\""
+        "year": "2024 - 2026",
+        "desc": "Specialized in Human-Computer Interaction and Interactive Design. Thesis: “Smartphone Notification Intervention Design for While-in-Bed Procrastination Based on Dual-Process Theory: Exploring Notification Types and Audiovisual Elements.”"
       },
       "bachelor": {
         "degree": "Bachelor of Culture Creativity and Digital Marketing",
@@ -575,7 +566,7 @@
     "design": {
       "title": "Design Direction",
       "subtitle": "index_v2 × brutalist research-notebook",
-      "body": "I started from a Claude Design prototype — a brutalist, lab-notebook aesthetic using bone paper (#EEEAE0), chartreuse accent (#FFE699), and IBM Plex Mono for data labels. The design language reflects how I think: systematic, evidence-based, with a bit of personality.",
+      "body": "Started from a Claude Design prototype: bone paper (#EEEAE0) for the ground, chartreuse (#FFE699) as the accent, and IBM Plex Mono for data labels.",
       "tag1": "Claude Design",
       "tag2": "Figma",
       "tag3": "Brutalist UI"
@@ -583,7 +574,7 @@
     "stack": {
       "title": "Tech Stack",
       "subtitle": "React + Vite + React Router",
-      "body": "Built with React 18 + TypeScript, bundled with Vite for fast local development. Routing via React Router v6. No UI library — everything is hand-coded inline styles or CSS modules to keep the bundle small.",
+      "body": "Built with React 18 + TypeScript, bundled with Vite. Routing via React Router v6.",
       "tag1": "React 18",
       "tag2": "TypeScript",
       "tag3": "Vite",
@@ -612,7 +603,7 @@
     "sleepGuardian": {
       "hero": {
         "badge": "M.S. Thesis Research",
-        "status": "Completed · 2025–2026",
+        "status": "Completed · Sep 2025 – Jun 2026",
         "title": "Sleep Guardian",
         "subtitle1": "Notification Intervention Design for",
         "subtitle2": "Smartphone-Induced In-Bed Procrastination",
@@ -971,7 +962,7 @@
         "title": "OpenHCI'25 | Oblivilight",
         "subtitle": "Exploring AI Forgetting Mechanisms Through Tangible Interaction",
         "timelineLabel": "Timeline",
-        "timelineValue": "July 2025",
+        "timelineValue": "Jun - Aug 2025",
         "timelineSub": "OpenHCI Workshop",
         "roleLabel": "My Role",
         "roleValue": "Interaction Designer",

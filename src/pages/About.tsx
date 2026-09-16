@@ -91,8 +91,8 @@ export default function About() {
               {/* ── Left: Portrait Tile ── */}
               <div style={{ position: 'relative', border: '1px solid var(--border-strong)', background: 'var(--surface)', padding: '20px', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--text-tertiary)', marginBottom: '14px' }}>
-                  <span>{t('about.dossier.subject')}</span>
-                  <span>{t('about.dossier.file')}</span>
+                  <span><CjkText>{t('about.dossier.subject')}</CjkText></span>
+                  <span><CjkText>{t('about.dossier.file')}</CjkText></span>
                 </div>
                 {/* 照片絕對定位，不參與撐高：卡片高度跟右欄文字對齊，多出來的從照片下方裁掉 */}
                 <div className="about-portrait-photo" style={{ flex: '1 1 auto', minHeight: '320px', overflow: 'hidden', background: 'var(--surface-muted)', position: 'relative' }}>
@@ -104,9 +104,9 @@ export default function About() {
                   />
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginTop: '14px', paddingTop: '14px', borderTop: '1px solid var(--border)', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>
-                  <div><span style={{ color: 'var(--text-primary)', marginRight: '4px' }}>{t('about.dossier.basedLabel')}</span>{t('about.dossier.basedValue')}</div>
-                  <div><span style={{ color: 'var(--text-primary)', marginRight: '4px' }}>{t('about.dossier.programLabel')}</span>{t('about.dossier.programValue')}</div>
-                  <div><span style={{ color: 'var(--text-primary)', marginRight: '4px' }}>{t('about.dossier.langLabel')}</span>{t('about.dossier.langValue')}</div>
+                  <div><span style={{ color: 'var(--text-primary)', marginRight: '4px' }}><CjkText>{t('about.dossier.basedLabel')}</CjkText></span><CjkText>{t('about.dossier.basedValue')}</CjkText></div>
+                  <div><span style={{ color: 'var(--text-primary)', marginRight: '4px' }}><CjkText>{t('about.dossier.programLabel')}</CjkText></span><CjkText>{t('about.dossier.programValue')}</CjkText></div>
+                  <div><span style={{ color: 'var(--text-primary)', marginRight: '4px' }}><CjkText>{t('about.dossier.langLabel')}</CjkText></span><CjkText>{t('about.dossier.langValue')}</CjkText></div>
                 </div>
               </div>
 
@@ -131,11 +131,11 @@ export default function About() {
 
                 {/* Highlights：不用 emoji，改用全站既有的 mono 標籤語彙；
                     項目符號是 CSS 畫的 acid 直條，不用 ❙ 這種跨字型會歪掉的字元。 */}
-                <p className="text-meta-style about-hl-label">{t('about.highlights.label')}</p>
+                <p className="text-meta-style about-hl-label"><CjkText>{t('about.highlights.label')}</CjkText></p>
                 <ul className="about-hl">
                   {[1, 2, 3].map(i => (
                     <li key={i}>
-                      <strong>{t(`about.highlights.h${i}label`)}</strong>
+                      <strong><CjkText>{t(`about.highlights.h${i}label`)}</CjkText></strong>
                       <CjkText>{t(`about.highlights.h${i}text`)}</CjkText>
                     </li>
                   ))}
@@ -184,7 +184,7 @@ export default function About() {
         <section className="section" id="about-strengths" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
-              <Lightbulb size={32} color="var(--accent-text)" />{t('about.strengths.heading')}</h2>
+              <Lightbulb size={32} color="var(--accent-text)" /><CjkText>{t('about.strengths.heading')}</CjkText></h2>
 
             <div className="bento-grid" ref={strengthsRef}>
 
@@ -195,21 +195,21 @@ export default function About() {
                   <div className="bento-overlay overlay-dark"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-dark">{t('about.strengths.research.tag')}</span>
-                  <h3 className="bento-title">{t('about.strengths.research.titleLine1')}<br />{t('about.strengths.research.titleLine2')}</h3>
+                  <span className="bento-tag tag-dark"><CjkText>{t('about.strengths.research.tag')}</CjkText></span>
+                  <h3 className="bento-title"><CjkText>{t('about.strengths.research.titleLine1')}</CjkText><br /><CjkText>{t('about.strengths.research.titleLine2')}</CjkText></h3>
                   <p className="bento-sub"><CjkText>{t('about.strengths.research.desc')}</CjkText></p>
                   <div className="bento-stats-row mt-auto">
                     <div className="bento-stat">
                       <span className="bento-stat-num highlight-acid">48</span>
-                      <span className="bento-stat-label">{t('about.strengths.research.stat1a')}<br />{t('about.strengths.research.stat1b')}</span>
+                      <span className="bento-stat-label"><CjkText>{t('about.strengths.research.stat1a')}</CjkText></span>
                     </div>
                     <div className="bento-stat">
                       <span className="bento-stat-num highlight-acid">×5</span>
-                      <span className="bento-stat-label">{t('about.strengths.research.stat2a')}<br />{t('about.strengths.research.stat2b')}</span>
+                      <span className="bento-stat-label"><CjkText>{t('about.strengths.research.stat2a')}</CjkText></span>
                     </div>
                     <div className="bento-stat">
                       <span className="bento-stat-num highlight-acid">×2</span>
-                      <span className="bento-stat-label">{t('about.strengths.research.stat3a')}<br />{t('about.strengths.research.stat3b')}</span>
+                      <span className="bento-stat-label"><CjkText>{t('about.strengths.research.stat3a')}</CjkText></span>
                     </div>
                   </div>
                 </div>
@@ -222,13 +222,13 @@ export default function About() {
                   <div className="bento-overlay overlay-light"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-amber">{t('about.strengths.awards.tag')}</span>
-                  <h3 className="bento-title">{t('about.strengths.awards.titleLine1')}<br />{t('about.strengths.awards.titleLine2')}</h3>
+                  <span className="bento-tag tag-amber"><CjkText>{t('about.strengths.awards.tag')}</CjkText></span>
+                  <h3 className="bento-title"><CjkText>{t('about.strengths.awards.titleLine1')}</CjkText><br /><CjkText>{t('about.strengths.awards.titleLine2')}</CjkText></h3>
                   <p className="bento-sub"><CjkText>{t('about.strengths.awards.desc')}</CjkText></p>
                   <div className="bento-badge-row mt-auto">
-                    <span className="bento-badge badge-award">{t('about.strengths.awards.badge1')}</span>
-                    <span className="bento-badge badge-award">{t('about.strengths.awards.badge2')}</span>
-                    <span className="bento-badge badge-award">{t('about.strengths.awards.badge3')}</span>
+                    <span className="bento-badge badge-award"><CjkText>{t('about.strengths.awards.badge1')}</CjkText></span>
+                    <span className="bento-badge badge-award"><CjkText>{t('about.strengths.awards.badge2')}</CjkText></span>
+                    <span className="bento-badge badge-award"><CjkText>{t('about.strengths.awards.badge3')}</CjkText></span>
                   </div>
                 </div>
               </div>
@@ -240,14 +240,14 @@ export default function About() {
                   <div className="bento-overlay overlay-light-blur"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-teal">{t('about.strengths.uiDesign.tag')}</span>
-                  <h3 className="bento-title">{t('about.strengths.uiDesign.titleLine1')}<br />{t('about.strengths.uiDesign.titleLine2')}</h3>
+                  <span className="bento-tag tag-teal"><CjkText>{t('about.strengths.uiDesign.tag')}</CjkText></span>
+                  <h3 className="bento-title"><CjkText>{t('about.strengths.uiDesign.titleLine1')}</CjkText><br /><CjkText>{t('about.strengths.uiDesign.titleLine2')}</CjkText></h3>
                   <p className="bento-sub"><CjkText>{t('about.strengths.uiDesign.desc')}</CjkText></p>
                   <div className="bento-pill-stack mt-auto">
-                    <span className="bento-pill">{t('about.strengths.uiDesign.pill1')}</span>
-                    <span className="bento-pill">{t('about.strengths.uiDesign.pill2')}</span>
-                    <span className="bento-pill">{t('about.strengths.uiDesign.pill3')}</span>
-                    <span className="bento-pill">{t('about.strengths.uiDesign.pill4')}</span>
+                    <span className="bento-pill"><CjkText>{t('about.strengths.uiDesign.pill1')}</CjkText></span>
+                    <span className="bento-pill"><CjkText>{t('about.strengths.uiDesign.pill2')}</CjkText></span>
+                    <span className="bento-pill"><CjkText>{t('about.strengths.uiDesign.pill3')}</CjkText></span>
+                    <span className="bento-pill"><CjkText>{t('about.strengths.uiDesign.pill4')}</CjkText></span>
                   </div>
                 </div>
               </div>
@@ -259,8 +259,8 @@ export default function About() {
                   <div className="bento-overlay overlay-light"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-blue">{t('about.strengths.ai.tag')}</span>
-                  <h3 className="bento-title">{t('about.strengths.ai.titleLine1')}<br />{t('about.strengths.ai.titleLine2')}</h3>
+                  <span className="bento-tag tag-blue"><CjkText>{t('about.strengths.ai.tag')}</CjkText></span>
+                  <h3 className="bento-title"><CjkText>{t('about.strengths.ai.titleLine1')}</CjkText><br /><CjkText>{t('about.strengths.ai.titleLine2')}</CjkText></h3>
                   <p className="bento-sub"><CjkText>{t('about.strengths.ai.desc')}</CjkText></p>
                 </div>
               </div>
@@ -273,23 +273,23 @@ export default function About() {
                 </div>
                 <div className="bento-content bento-content--row">
                   <div className="content-left">
-                    <span className="bento-tag tag-gray">{t('about.strengths.crossFunc.tag')}</span>
-                    <h3 className="bento-title">{t('about.strengths.crossFunc.titleLine1')}<br />{t('about.strengths.crossFunc.titleLine2')}</h3>
+                    <span className="bento-tag tag-gray"><CjkText>{t('about.strengths.crossFunc.tag')}</CjkText></span>
+                    <h3 className="bento-title"><CjkText>{t('about.strengths.crossFunc.titleLine1')}</CjkText><br /><CjkText>{t('about.strengths.crossFunc.titleLine2')}</CjkText></h3>
                     <p className="bento-sub" style={{ maxWidth: '400px' }}><CjkText>{t('about.strengths.crossFunc.desc')}</CjkText></p>
                   </div>
                   <div className="content-right mt-auto">
                     <div className="bento-mini-grid">
                       <div className="bento-mini-stat">
                         <div className="mini-stat-num">110+</div>
-                        <div className="mini-stat-label">{t('about.strengths.crossFunc.stat1a')}<br />{t('about.strengths.crossFunc.statManaged')}</div>
+                        <div className="mini-stat-label"><CjkText>{t('about.strengths.crossFunc.stat1a')}</CjkText><br /><CjkText>{t('about.strengths.crossFunc.statManaged')}</CjkText></div>
                       </div>
                       <div className="bento-mini-stat">
                         <div className="mini-stat-num">60</div>
-                        <div className="mini-stat-label">{t('about.strengths.crossFunc.stat2a')}<br />{t('about.strengths.crossFunc.stat2b')}</div>
+                        <div className="mini-stat-label"><CjkText>{t('about.strengths.crossFunc.stat2a')}</CjkText><br /><CjkText>{t('about.strengths.crossFunc.stat2b')}</CjkText></div>
                       </div>
                       <div className="bento-mini-stat">
                         <div className="mini-stat-num">3</div>
-                        <div className="mini-stat-label">{t('about.strengths.crossFunc.stat3a')}<br />{t('about.strengths.crossFunc.statManaged')}</div>
+                        <div className="mini-stat-label"><CjkText>{t('about.strengths.crossFunc.stat3a')}</CjkText><br /><CjkText>{t('about.strengths.crossFunc.statManaged')}</CjkText></div>
                       </div>
                     </div>
                   </div>
@@ -304,7 +304,7 @@ export default function About() {
         <section className="section" id="about-values" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
-              <Heart size={32} color="var(--accent-text)" />{t('about.values.heading')}</h2>
+              <Heart size={32} color="var(--accent-text)" /><CjkText>{t('about.values.heading')}</CjkText></h2>
 
             <div className="about-values-grid" ref={valuesRef}>
               <div className="gframe reveal" style={{ height: '100%', '--reveal-delay': '0ms' } as CSSProperties}>
@@ -312,7 +312,7 @@ export default function About() {
                   <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Target size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.clarity.title')}</h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}><CjkText>{t('about.values.clarity.title')}</CjkText></h3>
                   <p className="body muted value-desc" style={{ fontSize: '15px', lineHeight: '1.6' }}>
                     <strong><CjkText>{t('about.values.clarity.lead')}</CjkText></strong>{' '}<CjkText>{t('about.values.clarity.desc')}</CjkText></p>
                 </div>
@@ -323,7 +323,7 @@ export default function About() {
                   <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Rocket size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.curiosity.title')}</h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}><CjkText>{t('about.values.curiosity.title')}</CjkText></h3>
                   <p className="body muted value-desc" style={{ fontSize: '15px', lineHeight: '1.6' }}>
                     <strong><CjkText>{t('about.values.curiosity.lead')}</CjkText></strong>{' '}<CjkText>{t('about.values.curiosity.desc')}</CjkText></p>
                 </div>
@@ -334,7 +334,7 @@ export default function About() {
                   <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Heart size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.resilience.title')}</h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}><CjkText>{t('about.values.resilience.title')}</CjkText></h3>
                   <p className="body muted value-desc" style={{ fontSize: '15px', lineHeight: '1.6' }}>
                     <strong><CjkText>{t('about.values.resilience.lead')}</CjkText></strong>{' '}<CjkText>{t('about.values.resilience.desc')}</CjkText></p>
                 </div>
@@ -345,7 +345,7 @@ export default function About() {
                   <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Monitor size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}>{t('about.values.hardware.title')}</h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}><CjkText>{t('about.values.hardware.title')}</CjkText></h3>
                   <p className="body muted value-desc" style={{ fontSize: '15px', lineHeight: '1.6' }}>
                     <strong><CjkText>{t('about.values.hardware.lead')}</CjkText></strong>{' '}<CjkText>{t('about.values.hardware.desc')}</CjkText></p>
                 </div>
@@ -358,8 +358,8 @@ export default function About() {
         <section className="section" id="about-offclock" style={{ paddingTop: '80px', paddingBottom: '96px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <Bike size={32} color="var(--accent-text)" aria-hidden="true" />{t('about.offClock.heading')}</h2>
-            <p className="offclock-sub reveal">{t('about.offClock.sub')}</p>
+              <Bike size={32} color="var(--accent-text)" aria-hidden="true" /><CjkText>{t('about.offClock.heading')}</CjkText></h2>
+            <p className="offclock-sub reveal"><CjkText>{t('about.offClock.sub')}</CjkText></p>
 
             <ul className="offclock-list">
               {offClockItems.map((item, i) => {
@@ -371,8 +371,8 @@ export default function About() {
                       <img src={item.image} alt={item.title} loading="lazy" />
                     </div>
                     <div className="offclock-body">
-                      <h3>{item.title}</h3>
-                      <p>{item.desc}</p>
+                      <h3><CjkText>{item.title}</CjkText></h3>
+                      <p><CjkText>{item.desc}</CjkText></p>
                     </div>
                     {item.label
                       ? <span className="offclock-label">{item.label}</span>
@@ -393,7 +393,7 @@ export default function About() {
                   圖說放在縮圖那一欄，照片吃掉文字欄的寬度，右緣跟其他列一致。 */}
               <li className="reveal" style={{ '--reveal-delay': '240ms' } as CSSProperties}>
                 <div className="offclock-row offclock-row--photos">
-                  <span className="offclock-caption">{t('about.offClock.sports.caption')}</span>
+                  <span className="offclock-caption"><CjkText>{t('about.offClock.sports.caption')}</CjkText></span>
                   <div className="offclock-photos">
                     {sportsPhotos.map(photo => (
                       <div key={photo.src} className="offclock-photo">
@@ -738,7 +738,6 @@ export default function About() {
             line-height: 1.7;
             color: var(--text-secondary);
             margin: 0 0 40px;
-            max-width: 640px;
           }
 
           /* 列表跟上面的 Values 卡片同寬（滿 1200px 容器），右緣切齊同一條線。
@@ -781,9 +780,6 @@ export default function About() {
             line-height: 1.7;
             color: var(--text-secondary);
             margin: 0;
-            /* 用 px 不用 ch：ch 依 "0" 的字寬計算，中文字寬約兩倍，
-               52ch 在中文只剩 26 個字，會斷在很怪的地方。 */
-            max-width: 640px;
           }
           .offclock-label {
             justify-self: end;

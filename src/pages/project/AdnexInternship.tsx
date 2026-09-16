@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
+import CjkText from '../../components/CjkText';
 import {
   TrendingUp, Users, Bot, FileSpreadsheet,
   Megaphone, Target, BarChart3, Presentation,
@@ -67,34 +68,34 @@ export default function AdnexInternship() {
                     <Briefcase size={24} />
                   </div>
                   <div className="badge-content">
-                    <div className="badge-title">{t('project.adnex.hero.badge')}</div>
-                    <div className="badge-subtitle">{t('project.adnex.hero.badgeSub')}</div>
+                    <div className="badge-title"><CjkText>{t('project.adnex.hero.badge')}</CjkText></div>
+                    <div className="badge-subtitle"><CjkText>{t('project.adnex.hero.badgeSub')}</CjkText></div>
                   </div>
                 </div>
               </div>
 
               <h1 className="hero-title">
-                {t('project.adnex.hero.title')}
+                <CjkText>{t('project.adnex.hero.title')}</CjkText>
               </h1>
 
               <p className="hero-subtitle">
-                {t('project.adnex.hero.desc')}
+                <CjkText>{t('project.adnex.hero.desc')}</CjkText>
               </p>
 
               <div className="hero-details">
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.adnex.hero.timelineLabel')}</span>
-                  <span className="detail-value">{t('project.adnex.hero.timelineValue')}</span>
+                  <span className="detail-label"><CjkText>{t('project.adnex.hero.timelineLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.adnex.hero.timelineValue')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.adnex.hero.roleLabel')}</span>
-                  <span className="detail-value">{t('project.adnex.hero.roleValue')}</span>
-                  <span className="detail-sub">{t('project.adnex.hero.roleSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.adnex.hero.roleLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.adnex.hero.roleValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.adnex.hero.roleSub')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.adnex.hero.focusLabel')}</span>
-                  <span className="detail-value">{t('project.adnex.hero.focusValue')}</span>
-                  <span className="detail-sub">{t('project.adnex.hero.focusSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.adnex.hero.focusLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.adnex.hero.focusValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.adnex.hero.focusSub')}</CjkText></span>
                 </div>
               </div>
             </motion.div>
@@ -108,23 +109,23 @@ export default function AdnexInternship() {
               <div className="column-content">
                 <div className="section-header-sm">
                   <Target size={24} color="var(--blue-ink)" />
-                  <h2 className="section-heading-sm">{t('project.adnex.challenge.heading')}</h2>
+                  <h2 className="section-heading-sm"><CjkText>{t('project.adnex.challenge.heading')}</CjkText></h2>
                 </div>
                 <p className="body-text">
-                  {t('project.adnex.challenge.desc')}
+                  <CjkText>{t('project.adnex.challenge.desc')}</CjkText>
                 </p>
               </div>
 
               <div className="column-content gray-box">
                 <div className="section-header-sm">
                   <Megaphone size={24} color="var(--blue-ink)" />
-                  <h2 className="section-heading-sm">{t('project.adnex.objectives.heading')}</h2>
+                  <h2 className="section-heading-sm"><CjkText>{t('project.adnex.objectives.heading')}</CjkText></h2>
                 </div>
                 <ul className="objective-list">
-                  <li><strong>{t('project.adnex.objectives.o1label')}</strong> {t('project.adnex.objectives.o1desc')}</li>
-                  <li><strong>{t('project.adnex.objectives.o2label')}</strong> {t('project.adnex.objectives.o2desc')}</li>
-                  <li><strong>{t('project.adnex.objectives.o3label')}</strong> {t('project.adnex.objectives.o3desc')}</li>
-                  <li><strong>{t('project.adnex.objectives.o4label')}</strong> {t('project.adnex.objectives.o4desc')}</li>
+                  <li><strong><CjkText>{t('project.adnex.objectives.o1label')}</CjkText></strong> <CjkText>{t('project.adnex.objectives.o1desc')}</CjkText></li>
+                  <li><strong><CjkText>{t('project.adnex.objectives.o2label')}</CjkText></strong> <CjkText>{t('project.adnex.objectives.o2desc')}</CjkText></li>
+                  <li><strong><CjkText>{t('project.adnex.objectives.o3label')}</CjkText></strong> <CjkText>{t('project.adnex.objectives.o3desc')}</CjkText></li>
+                  <li><strong><CjkText>{t('project.adnex.objectives.o4label')}</CjkText></strong> <CjkText>{t('project.adnex.objectives.o4desc')}</CjkText></li>
                 </ul>
               </div>
             </div>
@@ -135,48 +136,48 @@ export default function AdnexInternship() {
         <section className="content-section reveal" style={{ background: 'var(--surface)' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-heading text-center" style={{ marginBottom: '64px' }}>
-              {t('project.adnex.execution.heading')}
+              <CjkText>{t('project.adnex.execution.heading')}</CjkText>
             </h2>
 
             <div className="initiatives-grid">
               {/* Initiative 1 */}
               <div className="initiative-card">
                 <div className="card-icon-wrapper"><TrendingUp size={28} /></div>
-                <h3 className="card-title">{t('project.adnex.execution.e1title')}</h3>
+                <h3 className="card-title"><CjkText>{t('project.adnex.execution.e1title')}</CjkText></h3>
                 <p className="card-text">
-                  {t('project.adnex.execution.e1desc')}
+                  <CjkText>{t('project.adnex.execution.e1desc')}</CjkText>
                 </p>
-                <div className="impact-tag">{t('project.adnex.execution.e1result')}</div>
+                <div className="impact-tag"><CjkText>{t('project.adnex.execution.e1result')}</CjkText></div>
               </div>
 
               {/* Initiative 2 */}
               <div className="initiative-card">
                 <div className="card-icon-wrapper"><Users size={28} /></div>
-                <h3 className="card-title">{t('project.adnex.execution.e2title')}</h3>
+                <h3 className="card-title"><CjkText>{t('project.adnex.execution.e2title')}</CjkText></h3>
                 <p className="card-text">
-                  {t('project.adnex.execution.e2desc')}
+                  <CjkText>{t('project.adnex.execution.e2desc')}</CjkText>
                 </p>
-                <div className="impact-tag">{t('project.adnex.execution.e2result')}</div>
+                <div className="impact-tag"><CjkText>{t('project.adnex.execution.e2result')}</CjkText></div>
               </div>
 
               {/* Initiative 3 */}
               <div className="initiative-card">
                 <div className="card-icon-wrapper"><Bot size={28} /></div>
-                <h3 className="card-title">{t('project.adnex.execution.e3title')}</h3>
+                <h3 className="card-title"><CjkText>{t('project.adnex.execution.e3title')}</CjkText></h3>
                 <p className="card-text">
-                  {t('project.adnex.execution.e3desc')}
+                  <CjkText>{t('project.adnex.execution.e3desc')}</CjkText>
                 </p>
-                <div className="impact-tag">{t('project.adnex.execution.e3result')}</div>
+                <div className="impact-tag"><CjkText>{t('project.adnex.execution.e3result')}</CjkText></div>
               </div>
 
               {/* Initiative 4 */}
               <div className="initiative-card">
                 <div className="card-icon-wrapper"><FileSpreadsheet size={28} /></div>
-                <h3 className="card-title">{t('project.adnex.execution.e4title')}</h3>
+                <h3 className="card-title"><CjkText>{t('project.adnex.execution.e4title')}</CjkText></h3>
                 <p className="card-text">
-                  {t('project.adnex.execution.e4desc')}
+                  <CjkText>{t('project.adnex.execution.e4desc')}</CjkText>
                 </p>
-                <div className="impact-tag">{t('project.adnex.execution.e4result')}</div>
+                <div className="impact-tag"><CjkText>{t('project.adnex.execution.e4result')}</CjkText></div>
               </div>
             </div>
           </div>
@@ -186,7 +187,7 @@ export default function AdnexInternship() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-heading text-center" style={{ marginBottom: '48px' }}>
-              {t('project.adnex.visuals.heading')}
+              <CjkText>{t('project.adnex.visuals.heading')}</CjkText>
             </h2>
 
             {/* Top 3 main images */}
@@ -196,7 +197,7 @@ export default function AdnexInternship() {
                   <img src={ap[7]} alt={t('project.adnex.visuals.socialAlt')} loading="lazy" className="visual-img-contain" />
                   <div className="expand-hint"><Maximize2 size={20} /></div>
                 </div>
-                <p className="image-caption">{t('project.adnex.visuals.socialLabel')}</p>
+                <p className="image-caption"><CjkText>{t('project.adnex.visuals.socialLabel')}</CjkText></p>
               </div>
 
               <div className="visual-item">
@@ -204,7 +205,7 @@ export default function AdnexInternship() {
                   <img src={ap[4]} alt={t('project.adnex.visuals.kolLabel')} loading="lazy" className="visual-img-contain" />
                   <div className="expand-hint"><Maximize2 size={20} /></div>
                 </div>
-                <p className="image-caption">{t('project.adnex.visuals.kolLabel')}</p>
+                <p className="image-caption"><CjkText>{t('project.adnex.visuals.kolLabel')}</CjkText></p>
               </div>
 
               <div className="visual-item">
@@ -212,7 +213,7 @@ export default function AdnexInternship() {
                   <img src={ap[1]} alt={t('project.adnex.visuals.aiAlt')} loading="lazy" className="visual-img-contain" />
                   <div className="expand-hint"><Maximize2 size={20} /></div>
                 </div>
-                <p className="image-caption">{t('project.adnex.visuals.aiLabel')}</p>
+                <p className="image-caption"><CjkText>{t('project.adnex.visuals.aiLabel')}</CjkText></p>
               </div>
             </div>
 
@@ -237,21 +238,21 @@ export default function AdnexInternship() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="impact-banner">
               <div className="banner-content">
-                <h2 className="banner-title">{t('project.adnex.impact.heading')}</h2>
+                <h2 className="banner-title"><CjkText>{t('project.adnex.impact.heading')}</CjkText></h2>
                 <div className="metrics-row">
                   <div className="metric-box">
-                    <div className="metric-number">{t('project.adnex.impact.m1value')}</div>
-                    <div className="metric-label">{t('project.adnex.impact.m1label')}</div>
-                    <div className="metric-sub">{t('project.adnex.impact.m1sub')}</div>
+                    <div className="metric-number"><CjkText>{t('project.adnex.impact.m1value')}</CjkText></div>
+                    <div className="metric-label"><CjkText>{t('project.adnex.impact.m1label')}</CjkText></div>
+                    <div className="metric-sub"><CjkText>{t('project.adnex.impact.m1sub')}</CjkText></div>
                   </div>
                   <div className="metric-box">
-                    <div className="metric-number">{t('project.adnex.impact.m2value')}</div>
-                    <div className="metric-label">{t('project.adnex.impact.m2label')}</div>
+                    <div className="metric-number"><CjkText>{t('project.adnex.impact.m2value')}</CjkText></div>
+                    <div className="metric-label"><CjkText>{t('project.adnex.impact.m2label')}</CjkText></div>
                   </div>
                   <div className="metric-box">
-                    <div className="metric-number">{t('project.adnex.impact.m3value')}</div>
-                    <div className="metric-label">{t('project.adnex.impact.m3label')}</div>
-                    <div className="metric-sub">{t('project.adnex.impact.m3sub')}</div>
+                    <div className="metric-number"><CjkText>{t('project.adnex.impact.m3value')}</CjkText></div>
+                    <div className="metric-label"><CjkText>{t('project.adnex.impact.m3label')}</CjkText></div>
+                    <div className="metric-sub"><CjkText>{t('project.adnex.impact.m3sub')}</CjkText></div>
                   </div>
                 </div>
               </div>

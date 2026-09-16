@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
+import CjkText from '../components/CjkText';
 
 const photoModules = import.meta.glob(
   '../assets/images/photography/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG}',
@@ -59,13 +60,13 @@ export default function Photography() {
             lineHeight: .9, letterSpacing: '-.04em',
             textTransform: 'uppercase', margin: '0 0 16px',
             color: 'var(--text-primary)',
-          }}>{t('photography.title')}</h1>
+          }}><CjkText>{t('photography.title')}</CjkText></h1>
           <p style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '12px', letterSpacing: '.1em',
             textTransform: 'uppercase', color: 'var(--text-tertiary)',
             margin: 0,
-          }}>{t('photography.meta')}{' '}{photos.length}{' '}{t('photography.frames')}</p>
+          }}><CjkText>{t('photography.meta')}</CjkText>{' '}{photos.length}{' '}<CjkText>{t('photography.frames')}</CjkText></p>
           <div style={{ borderBottom: '2px solid var(--border-strong)', marginTop: '24px' }} />
         </div>
 

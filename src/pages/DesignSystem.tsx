@@ -2,6 +2,7 @@ import { useState, useEffect, type CSSProperties } from 'react';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
+import CjkText from '../components/CjkText';
 
 /* ─── 資料層 ─────────────────────────────────────
    token 名稱與數值不抽 i18n：它們是程式碼識別字，不是文案。
@@ -50,8 +51,8 @@ function SectionHead({ num, title, sub }: { num: string; title: string; sub: str
         fontFamily: 'var(--font-display)', fontWeight: 700,
         fontSize: 'clamp(24px, 3.2vw, 38px)', letterSpacing: '-.02em',
         textTransform: 'uppercase', margin: '0 0 10px', lineHeight: 1.1,
-      }}>{title}</h2>
-      <p style={{ fontSize: 16, lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0, maxWidth: '68ch' }}>{sub}</p>
+      }}><CjkText>{title}</CjkText></h2>
+      <p style={{ fontSize: 16, lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0 }}><CjkText>{sub}</CjkText></p>
     </div>
   );
 }
@@ -122,11 +123,11 @@ export default function DesignSystem() {
             fontFamily: 'var(--font-display)', fontWeight: 500,
             fontSize: 'clamp(40px, 7vw, 88px)', lineHeight: .9,
             letterSpacing: '-.04em', textTransform: 'uppercase', margin: '0 0 20px',
-          }}>{t('designSystem.title1')}{' '}
-            <em style={{ fontStyle: 'normal', background: 'var(--accent)', color: 'var(--on-accent)', padding: '0 .12em' }}>{t('designSystem.title2')}</em>
+          }}><CjkText>{t('designSystem.title1')}</CjkText>{' '}
+            <em style={{ fontStyle: 'normal', background: 'var(--accent)', color: 'var(--on-accent)', padding: '0 .12em' }}><CjkText>{t('designSystem.title2')}</CjkText></em>
           </h1>
-          <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 20px' }}>{t('designSystem.meta')}</p>
-          <p style={{ fontSize: 17, lineHeight: 1.7, color: 'var(--text-primary)', margin: 0, maxWidth: '62ch' }}>{t('designSystem.lede')}</p>
+          <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 20px' }}><CjkText>{t('designSystem.meta')}</CjkText></p>
+          <p style={{ fontSize: 17, lineHeight: 1.7, color: 'var(--text-primary)', margin: 0 }}><CjkText>{t('designSystem.lede')}</CjkText></p>
         </div>
 
         <div style={wrap}>
@@ -135,7 +136,7 @@ export default function DesignSystem() {
           <section className="reveal" style={section}>
             <SectionHead num="01" title={t('designSystem.layers.title')} sub={t('designSystem.layers.sub')} />
 
-            <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 14px' }}>{t('designSystem.layers.l1')}</p>
+            <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 14px' }}><CjkText>{t('designSystem.layers.l1')}</CjkText></p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 36 }}>
               {PRIMITIVES.flatMap(p => p.vars).map(v => (
                 <div key={v} style={{ width: 128 }}>
@@ -149,7 +150,7 @@ export default function DesignSystem() {
               ))}
             </div>
 
-            <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 14px' }}>{t('designSystem.layers.l2')}</p>
+            <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 14px' }}><CjkText>{t('designSystem.layers.l2')}</CjkText></p>
             <div style={{ display: 'grid', gap: 10, marginBottom: 36 }}>
               {SEMANTICS.map((row, i) => (
                 <div key={i} style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
@@ -172,8 +173,8 @@ export default function DesignSystem() {
               ))}
             </div>
 
-            <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 10px' }}>{t('designSystem.layers.l3')}</p>
-            <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0, maxWidth: '68ch' }}>{t('designSystem.layers.l3desc')}</p>
+            <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 10px' }}><CjkText>{t('designSystem.layers.l3')}</CjkText></p>
+            <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0 }}><CjkText>{t('designSystem.layers.l3desc')}</CjkText></p>
           </section>
 
           <Rule />
@@ -189,7 +190,7 @@ export default function DesignSystem() {
                       <th key={h} className="text-meta-style" style={{
                         textAlign: 'left', padding: '10px 12px',
                         borderBottom: '2px solid var(--border-strong)', color: 'var(--text-tertiary)',
-                      }}>{h}</th>
+                      }}><CjkText>{h}</CjkText></th>
                     ))}
                   </tr>
                 </thead>
@@ -204,7 +205,7 @@ export default function DesignSystem() {
                         </span>
                       </td>
                       <td style={{ padding: '12px', borderBottom: '1px solid var(--border)', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                        {t(`designSystem.flip.${v.replace('--', '').replace(/-/g, '')}`)}
+                        <CjkText>{t(`designSystem.flip.${v.replace('--', '').replace(/-/g, '')}`)}</CjkText>
                       </td>
                     </tr>
                   ))}
@@ -213,10 +214,10 @@ export default function DesignSystem() {
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginTop: 28 }}>
               <div style={{ flex: '1 1 240px', padding: 24, background: 'var(--accent)', borderRadius: 'var(--radius-lg)' }}>
-                <p style={{ margin: 0, color: 'var(--on-accent)', fontWeight: 600 }}>{t('designSystem.flip.demoAcid')}</p>
+                <p style={{ margin: 0, color: 'var(--on-accent)', fontWeight: 600 }}><CjkText>{t('designSystem.flip.demoAcid')}</CjkText></p>
               </div>
               <div style={{ flex: '1 1 240px', padding: 24, background: 'var(--surface-inverse)', borderRadius: 'var(--radius-lg)' }}>
-                <p style={{ margin: 0, color: 'var(--accent-on-inverse)', fontWeight: 600 }}>{t('designSystem.flip.demoInverse')}</p>
+                <p style={{ margin: 0, color: 'var(--accent-on-inverse)', fontWeight: 600 }}><CjkText>{t('designSystem.flip.demoInverse')}</CjkText></p>
               </div>
             </div>
           </section>
@@ -228,7 +229,7 @@ export default function DesignSystem() {
             <SectionHead num="03" title={t('designSystem.scale.title')} sub={t('designSystem.scale.sub')} />
             <div style={{ display: 'grid', gap: 40, gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
               <div>
-                <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 16px' }}>{t('designSystem.scale.spacing')}</p>
+                <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 16px' }}><CjkText>{t('designSystem.scale.spacing')}</CjkText></p>
                 {SPACE.map(v => (
                   <div key={v} style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 8 }}>
                     <span style={{ width: 96, flexShrink: 0 }}><Mono>{v.replace('--', '')}</Mono></span>
@@ -238,7 +239,7 @@ export default function DesignSystem() {
                 ))}
               </div>
               <div>
-                <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 16px' }}>{t('designSystem.scale.radius')}</p>
+                <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: '0 0 16px' }}><CjkText>{t('designSystem.scale.radius')}</CjkText></p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
                   {RADII.map(v => (
                     <div key={v} style={{ textAlign: 'center' }}>
@@ -270,7 +271,7 @@ export default function DesignSystem() {
                   lineHeight: ts.lh, letterSpacing: ts.ls,
                   textTransform: ts.name === 'meta' ? 'uppercase' : 'none',
                   color: 'var(--text-primary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-                }}>{t('designSystem.type.specimen')}</div>
+                }}><CjkText>{t('designSystem.type.specimen')}</CjkText></div>
                 <div style={{ textAlign: 'right', whiteSpace: 'nowrap' }}>
                   <div><Mono>{ts.name}</Mono></div>
                   <div><Mono dim>{ts.size} / {ts.lh}</Mono></div>
@@ -303,7 +304,7 @@ export default function DesignSystem() {
                         outline: state === 'focus' ? '2px solid var(--accent-text)' : 'none',
                         outlineOffset: 3,
                       }}
-                    >{t('designSystem.states.primary')}</button>
+                    ><CjkText>{t('designSystem.states.primary')}</CjkText></button>
                     <button
                       type="button"
                       disabled={state === 'disabled'}
@@ -318,12 +319,12 @@ export default function DesignSystem() {
                         outline: state === 'focus' ? '2px solid var(--accent-text)' : 'none',
                         outlineOffset: 3,
                       }}
-                    >{t('designSystem.states.secondary')}</button>
+                    ><CjkText>{t('designSystem.states.secondary')}</CjkText></button>
                   </div>
                 ))}
               </div>
             </div>
-            <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--text-secondary)', margin: '24px 0 0', maxWidth: '68ch' }}>{t('designSystem.states.note')}</p>
+            <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--text-secondary)', margin: '24px 0 0' }}><CjkText>{t('designSystem.states.note')}</CjkText></p>
           </section>
 
           <Rule />
@@ -350,8 +351,8 @@ export default function DesignSystem() {
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0, maxWidth: '68ch' }}>
-              {t('designSystem.breakpoints.live')} <Mono>{width}px → {bp}</Mono>
+            <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0 }}>
+              <CjkText>{t('designSystem.breakpoints.live')}</CjkText> <Mono>{width}px → {bp}</Mono>
             </p>
           </section>
 
@@ -376,15 +377,15 @@ export default function DesignSystem() {
                     lineHeight: 1, letterSpacing: '-.03em', color: 'var(--accent-text)',
                   }}>{item.n}</div>
                   <div>
-                    <h3 style={{ fontSize: 17, fontWeight: 700, margin: '0 0 6px', color: 'var(--text-primary)' }}>{t(`designSystem.audit.${item.k}.title`)}</h3>
-                    <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0, maxWidth: '62ch' }}>{t(`designSystem.audit.${item.k}.desc`)}</p>
+                    <h3 style={{ fontSize: 17, fontWeight: 700, margin: '0 0 6px', color: 'var(--text-primary)' }}><CjkText>{t(`designSystem.audit.${item.k}.title`)}</CjkText></h3>
+                    <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0 }}><CjkText>{t(`designSystem.audit.${item.k}.desc`)}</CjkText></p>
                   </div>
                   <span className="text-meta-style" style={{
                     padding: '4px 10px', whiteSpace: 'nowrap',
                     borderRadius: 'var(--radius-pill)',
                     background: item.tag === 'fixed' ? 'var(--accent)' : 'var(--surface-muted)',
                     color: item.tag === 'fixed' ? 'var(--on-accent)' : 'var(--text-secondary)',
-                  }}>{t(`designSystem.audit.tag.${item.tag}`)}</span>
+                  }}><CjkText>{t(`designSystem.audit.tag.${item.tag}`)}</CjkText></span>
                 </div>
               ))}
             </div>
@@ -395,7 +396,7 @@ export default function DesignSystem() {
           {/* ── 08 Figma ── */}
           <section className="reveal" style={{ ...section, paddingBottom: 96 }}>
             <SectionHead num="08" title={t('designSystem.figma.title')} sub={t('designSystem.figma.sub')} />
-            <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: 0 }}>{t('designSystem.figma.status')}</p>
+            <p className="text-meta-style" style={{ color: 'var(--text-tertiary)', margin: 0 }}><CjkText>{t('designSystem.figma.status')}</CjkText></p>
           </section>
         </div>
 

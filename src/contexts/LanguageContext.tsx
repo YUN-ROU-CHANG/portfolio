@@ -7,14 +7,15 @@ type Locale = 'en' | 'zh';
 const dictionaries: Record<Locale, unknown> = { en, zh };
 
 // Resolves a dot-path key ("home.hero.title") in a nested dictionary.
-// Empty strings count as missing so zh.json can be filled in gradually.
+// 回傳 undefined 代表這本字典裡沒有這個 key，空字串代表 key 在、值是空的。
+// 兩者語意不同，見下方 t()。
 function lookup(dict: unknown, key: string): string | undefined {
   let cur: unknown = dict;
   for (const part of key.split('.')) {
     if (cur === null || typeof cur !== 'object') return undefined;
     cur = (cur as Record<string, unknown>)[part];
   }
-  return typeof cur === 'string' && cur !== '' ? cur : undefined;
+  return typeof cur === 'string' ? cur : undefined;
 }
 
 interface LanguageContextType {
@@ -43,10 +44,18 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = locale === 'zh' ? 'zh-Hant' : 'en';
   }, [locale]);
 
-  // Falls back to English when a zh key is missing or still empty,
-  // and to the key itself if the key doesn't exist at all.
-  const t = (key: string): string =>
-    lookup(dictionaries[locale], key) ?? lookup(dictionaries.en, key) ?? key;
+  // zh.json 的兩種「沒有中文」語意不同：
+  //   值是空字串 → 刻意沿用英文（Rose Chang、Figma、論文標題這類專有名詞）。
+  //   整個 key 不存在 → 中文頁不顯示這段，回傳空字串讓元件自己收掉。
+  // 所以在 en.json 新增 key 時，zh.json 也要補上同一個 key（值可先留空字串），
+  // 否則那段內容在中文頁會直接消失。
+  const t = (key: string): string => {
+    const own = lookup(dictionaries[locale], key);
+    if (own) return own;
+    const fallback = lookup(dictionaries.en, key);
+    if (own === undefined && locale !== 'en' && fallback !== undefined) return '';
+    return fallback || key;
+  };
 
   return (
     <LanguageContext.Provider value={{ locale, setLocale, t }}>

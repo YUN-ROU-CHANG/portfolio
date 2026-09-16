@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
+import CjkText from '../../components/CjkText';
 import {
   Award, Zap, Users, Lightbulb, Cpu,
   Printer, Trash2, BookOpen, Star, Maximize2, X
@@ -73,32 +74,32 @@ export default function Oblivilight() {
               <div className="award-badges">
                 <div className="award-badge primary">
                   <Award size={20} />
-                  <span>{t('project.oblivilight.hero.badge')}</span>
+                  <span><CjkText>{t('project.oblivilight.hero.badge')}</CjkText></span>
                 </div>
                 <div className="award-badge secondary">
                   <Star size={20} />
-                  <span>{t('project.oblivilight.hero.badge2')}</span>
+                  <span><CjkText>{t('project.oblivilight.hero.badge2')}</CjkText></span>
                 </div>
               </div>
 
-              <h1 className="hero-title">{t('project.oblivilight.hero.title')}</h1>
-              <p className="hero-subtitle">{t('project.oblivilight.hero.subtitle')}</p>
+              <h1 className="hero-title"><CjkText>{t('project.oblivilight.hero.title')}</CjkText></h1>
+              <p className="hero-subtitle"><CjkText>{t('project.oblivilight.hero.subtitle')}</CjkText></p>
 
               <div className="hero-details">
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.oblivilight.hero.timelineLabel')}</span>
-                  <span className="detail-value">{t('project.oblivilight.hero.timelineValue')}</span>
-                  <span className="detail-sub">{t('project.oblivilight.hero.timelineSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.oblivilight.hero.timelineLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.oblivilight.hero.timelineValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.oblivilight.hero.timelineSub')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.oblivilight.hero.roleLabel')}</span>
-                  <span className="detail-value">{t('project.oblivilight.hero.roleValue')}</span>
-                  <span className="detail-sub">{t('project.oblivilight.hero.teamValue')}</span>
+                  <span className="detail-label"><CjkText>{t('project.oblivilight.hero.roleLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.oblivilight.hero.roleValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.oblivilight.hero.teamValue')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.oblivilight.hero.recognitionLabel')}</span>
-                  <span className="detail-value highlight">🏆 {t('project.oblivilight.hero.badge')}</span>
-                  <span className="detail-sub">{t('project.oblivilight.hero.recognitionSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.oblivilight.hero.recognitionLabel')}</CjkText></span>
+                  <span className="detail-value highlight">🏆 <CjkText>{t('project.oblivilight.hero.badge')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.oblivilight.hero.recognitionSub')}</CjkText></span>
                 </div>
               </div>
             </motion.div>
@@ -112,32 +113,32 @@ export default function Oblivilight() {
               <div className="column-content">
                 <div className="section-header-sm">
                   <Zap size={24} color="hsl(var(--g1))" />
-                  <h2 className="section-heading-sm">{t('project.oblivilight.challenge.title')}</h2>
+                  <h2 className="section-heading-sm"><CjkText>{t('project.oblivilight.challenge.title')}</CjkText></h2>
                 </div>
                 <p className="body-text">
-                  {t('project.oblivilight.challenge.desc')}
+                  <CjkText>{t('project.oblivilight.challenge.desc')}</CjkText>
                 </p>
                 <div className="metrics-grid-mini">
                   <div className="metric-item">
-                    <strong>{t('project.oblivilight.challenge.card1title')}</strong>
-                    <span>{t('project.oblivilight.challenge.card1desc')}</span>
+                    <strong><CjkText>{t('project.oblivilight.challenge.card1title')}</CjkText></strong>
+                    <span><CjkText>{t('project.oblivilight.challenge.card1desc')}</CjkText></span>
                   </div>
                   <div className="metric-item">
-                    <strong>{t('project.oblivilight.challenge.card2title')}</strong>
-                    <span>{t('project.oblivilight.challenge.card2desc')}</span>
+                    <strong><CjkText>{t('project.oblivilight.challenge.card2title')}</CjkText></strong>
+                    <span><CjkText>{t('project.oblivilight.challenge.card2desc')}</CjkText></span>
                   </div>
                   <div className="metric-item">
-                    <strong>{t('project.oblivilight.challenge.card3title')}</strong>
-                    <span>{t('project.oblivilight.challenge.card3desc')}</span>
+                    <strong><CjkText>{t('project.oblivilight.challenge.card3title')}</CjkText></strong>
+                    <span><CjkText>{t('project.oblivilight.challenge.card3desc')}</CjkText></span>
                   </div>
                 </div>
               </div>
 
               <div className="column-media">
                 <div className="insight-card">
-                  <h4 className="insight-title">{t('project.oblivilight.concept.heading')}</h4>
+                  <h4 className="insight-title"><CjkText>{t('project.oblivilight.concept.heading')}</CjkText></h4>
                   <p className="insight-text">
-                    {t('project.oblivilight.concept.desc')}
+                    <CjkText>{t('project.oblivilight.concept.desc')}</CjkText>
                   </p>
                 </div>
               </div>
@@ -156,10 +157,10 @@ export default function Oblivilight() {
             <div className="text-center mb-12">
               <div className="section-header-sm justify-center">
                 <BookOpen size={28} color="hsl(var(--g2))" />
-                <h2 className="section-heading-sm ml-3">{t('project.oblivilight.research.heading')}</h2>
+                <h2 className="section-heading-sm ml-3"><CjkText>{t('project.oblivilight.research.heading')}</CjkText></h2>
               </div>
               <p className="body-text mt-4">
-                {t('project.oblivilight.research.desc')}
+                <CjkText>{t('project.oblivilight.research.desc')}</CjkText>
               </p>
             </div>
 
@@ -187,8 +188,8 @@ export default function Oblivilight() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="text-center mb-12">
-              <h2 className="section-heading">{t('project.oblivilight.flow.heading')}</h2>
-              <p className="section-subheading">{t('project.oblivilight.flow.desc')}</p>
+              <h2 className="section-heading"><CjkText>{t('project.oblivilight.flow.heading')}</CjkText></h2>
+              <p className="section-subheading"><CjkText>{t('project.oblivilight.flow.desc')}</CjkText></p>
             </div>
 
             {/* Remember Demo Image */}
@@ -199,26 +200,26 @@ export default function Oblivilight() {
             <div className="concept-grid">
               <div className="concept-card">
                 <div className="card-icon"><Printer size={32} /></div>
-                <h3>{t('project.oblivilight.flow.step1title')}</h3>
-                <p>{t('project.oblivilight.flow.step1desc')}</p>
+                <h3><CjkText>{t('project.oblivilight.flow.step1title')}</CjkText></h3>
+                <p><CjkText>{t('project.oblivilight.flow.step1desc')}</CjkText></p>
               </div>
 
               <div className="concept-card">
                 <div className="card-icon"><Lightbulb size={32} /></div>
-                <h3>{t('project.oblivilight.flow.step2title')}</h3>
-                <p>{t('project.oblivilight.flow.step2desc')}</p>
+                <h3><CjkText>{t('project.oblivilight.flow.step2title')}</CjkText></h3>
+                <p><CjkText>{t('project.oblivilight.flow.step2desc')}</CjkText></p>
               </div>
 
               <div className="concept-card">
                 <div className="card-icon"><Trash2 size={32} /></div>
-                <h3>{t('project.oblivilight.flow.step3title')}</h3>
-                <p>{t('project.oblivilight.flow.step3desc')}</p>
+                <h3><CjkText>{t('project.oblivilight.flow.step3title')}</CjkText></h3>
+                <p><CjkText>{t('project.oblivilight.flow.step3desc')}</CjkText></p>
               </div>
             </div>
 
             {/* Use Way GIFs (2x2 Grid) */}
             <div className="mt-12">
-              <h3 className="highlight-title text-center mb-6">{t('project.oblivilight.interact.heading')}</h3>
+              <h3 className="highlight-title text-center mb-6"><CjkText>{t('project.oblivilight.interact.heading')}</CjkText></h3>
               <div className="gif-grid-2x2">
                 <div className="image-wrapper shadow-box"><img src={getAsset('use-way-1')} alt={t('project.oblivilight.interact.alt1')} className="full-contain-img" /></div>
                 <div className="image-wrapper shadow-box"><img src={getAsset('use-way-2')} alt={t('project.oblivilight.interact.alt2')} className="full-contain-img" /></div>
@@ -229,7 +230,7 @@ export default function Oblivilight() {
 
             {/* Forgetting Mechanism GIFs (3 Columns) */}
             <div className="mt-12">
-              <h3 className="highlight-title text-center mb-6">{t('project.oblivilight.forgetting.heading')}</h3>
+              <h3 className="highlight-title text-center mb-6"><CjkText>{t('project.oblivilight.forgetting.heading')}</CjkText></h3>
               <div className="gif-grid-3">
                 <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_1')} alt={t('project.oblivilight.forgetting.alt1')} className="full-contain-img" /></div>
                 <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_2')} alt={t('project.oblivilight.forgetting.alt2')} className="full-contain-img" /></div>
@@ -247,16 +248,16 @@ export default function Oblivilight() {
                 <div className="section-header-sm">
                   <Cpu size={24} color="hsl(var(--g4))" />
                   {/* 修改：將標題改為粗體小標風格 */}
-                  <h3 className="highlight-title mb-0" style={{ fontSize: '24px' }}>{t('project.oblivilight.tech.heading')}</h3>
+                  <h3 className="highlight-title mb-0" style={{ fontSize: '24px' }}><CjkText>{t('project.oblivilight.tech.heading')}</CjkText></h3>
                 </div>
                 <p className="body-text">
-                  {t('project.oblivilight.tech.intro')}
+                  <CjkText>{t('project.oblivilight.tech.intro')}</CjkText>
                 </p>
                 <ul className="feature-list">
-                  <li><strong>{t('project.oblivilight.tech.item1label')}</strong> {t('project.oblivilight.tech.item1desc')}</li>
-                  <li><strong>{t('project.oblivilight.tech.item2label')}</strong> {t('project.oblivilight.tech.item2desc')}</li>
-                  <li><strong>{t('project.oblivilight.tech.item3label')}</strong> {t('project.oblivilight.tech.item3desc')}</li>
-                  <li><strong>{t('project.oblivilight.tech.item4label')}</strong> {t('project.oblivilight.tech.item4desc')}</li>
+                  <li><strong><CjkText>{t('project.oblivilight.tech.item1label')}</CjkText></strong> <CjkText>{t('project.oblivilight.tech.item1desc')}</CjkText></li>
+                  <li><strong><CjkText>{t('project.oblivilight.tech.item2label')}</CjkText></strong> <CjkText>{t('project.oblivilight.tech.item2desc')}</CjkText></li>
+                  <li><strong><CjkText>{t('project.oblivilight.tech.item3label')}</CjkText></strong> <CjkText>{t('project.oblivilight.tech.item3desc')}</CjkText></li>
+                  <li><strong><CjkText>{t('project.oblivilight.tech.item4label')}</CjkText></strong> <CjkText>{t('project.oblivilight.tech.item4desc')}</CjkText></li>
                 </ul>
               </div>
 
@@ -282,17 +283,17 @@ export default function Oblivilight() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="text-center mb-12">
               <Award size={48} color="hsl(var(--g1))" className="mx-auto mb-4" />
-              <h2 className="section-heading">{t('project.oblivilight.impact.heading')}</h2>
-              <p className="section-subheading">{t('project.oblivilight.impact.title')}</p>
+              <h2 className="section-heading"><CjkText>{t('project.oblivilight.impact.heading')}</CjkText></h2>
+              <p className="section-subheading"><CjkText>{t('project.oblivilight.impact.title')}</CjkText></p>
             </div>
 
             <div className="outcome-grid-2">
               {/* TAICHI Demo */}
               <div className="outcome-card text-center">
                 <div className="outcome-icon mx-auto"><Star size={36} /></div>
-                <h3 className="outcome-title">{t('project.oblivilight.hero.badge2')}</h3>
+                <h3 className="outcome-title"><CjkText>{t('project.oblivilight.hero.badge2')}</CjkText></h3>
                 <p className="outcome-text text-center">
-                  {t('project.oblivilight.impact.taichiDesc')}
+                  <CjkText>{t('project.oblivilight.impact.taichiDesc')}</CjkText>
                 </p>
                 <div className="image-wrapper shadow-box mt-6" style={{ height: '200px' }}>
                   <img src={getAsset('awards-photo')} alt={t('project.oblivilight.impact.awardsAlt')} className="full-contain-img" />
@@ -302,9 +303,9 @@ export default function Oblivilight() {
               {/* Team Collaboration */}
               <div className="outcome-card text-center">
                 <div className="outcome-icon mx-auto"><Users size={36} /></div>
-                <h3 className="outcome-title">{t('project.oblivilight.impact.teamTitle')}</h3>
+                <h3 className="outcome-title"><CjkText>{t('project.oblivilight.impact.teamTitle')}</CjkText></h3>
                 <p className="outcome-text text-center">
-                  {t('project.oblivilight.impact.teamDesc')}
+                  <CjkText>{t('project.oblivilight.impact.teamDesc')}</CjkText>
                 </p>
                 <div className="image-wrapper shadow-box mt-6" style={{ height: '200px' }}>
                   <img src={getAsset('our-team')} alt={t('project.oblivilight.impact.teamAlt')} className="full-contain-img" />

@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import { Award, Package, Globe, Lightbulb, Users, TrendingUp, ArrowRight } from 'lucide-react';
+import CjkText from '../../components/CjkText';
 
 export default function GoodLuckPeanut() {
   const { t } = useLanguage();
@@ -33,44 +34,44 @@ export default function GoodLuckPeanut() {
               <div className="hero-tags">
                 <span className="hero-tag branding">
                   <Package size={16} />
-                  {t('project.goodLuckPeanut.hero.badge1')}
+                  <CjkText>{t('project.goodLuckPeanut.hero.badge1')}</CjkText>
                 </span>
                 <span className="hero-tag web">
                   <Globe size={16} />
-                  {t('project.goodLuckPeanut.hero.badge2')}
+                  <CjkText>{t('project.goodLuckPeanut.hero.badge2')}</CjkText>
                 </span>
               </div>
               
               <h1 className="hero-title">
-                {t('project.goodLuckPeanut.hero.title')}
+                <CjkText>{t('project.goodLuckPeanut.hero.title')}</CjkText>
               </h1>
               
               <p className="hero-subtitle">
-                {t('project.goodLuckPeanut.hero.subtitle')}
+                <CjkText>{t('project.goodLuckPeanut.hero.subtitle')}</CjkText>
               </p>
 
               {/* Project Details Grid */}
               <div className="hero-details">
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.goodLuckPeanut.hero.timelineLabel')}</span>
+                  <span className="detail-label"><CjkText>{t('project.goodLuckPeanut.hero.timelineLabel')}</CjkText></span>
                   <span className="detail-value">
                     {'2022 - 2023'}
                   </span>
                   <span className="detail-sub">
-                    {t('project.goodLuckPeanut.hero.timelineValue')}
+                    <CjkText>{t('project.goodLuckPeanut.hero.timelineValue')}</CjkText>
                   </span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.goodLuckPeanut.hero.roleLabel')}</span>
+                  <span className="detail-label"><CjkText>{t('project.goodLuckPeanut.hero.roleLabel')}</CjkText></span>
                   <span className="detail-value">
-                    {t('project.goodLuckPeanut.hero.roleValue')}
+                    <CjkText>{t('project.goodLuckPeanut.hero.roleValue')}</CjkText>
                   </span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.goodLuckPeanut.hero.recognitionLabel')}</span>
+                  <span className="detail-label"><CjkText>{t('project.goodLuckPeanut.hero.recognitionLabel')}</CjkText></span>
                   <span className="detail-value">
                     <Award size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '6px' }} />
-                    {t('project.goodLuckPeanut.hero.recognitionValue')}
+                    <CjkText>{t('project.goodLuckPeanut.hero.recognitionValue')}</CjkText>
                   </span>
                 </div>
               </div>
@@ -83,10 +84,10 @@ export default function GoodLuckPeanut() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="overview-intro">
               <h2 className="section-heading">
-                {t('project.goodLuckPeanut.overview.heading')}
+                <CjkText>{t('project.goodLuckPeanut.overview.heading')}</CjkText>
               </h2>
               <p className="body-text-large">
-                {t('project.goodLuckPeanut.overview.desc')}
+                <CjkText>{t('project.goodLuckPeanut.overview.desc')}</CjkText>
               </p>
             </div>
 
@@ -97,10 +98,10 @@ export default function GoodLuckPeanut() {
                   <Package size={32} />
                 </div>
                 <h3 className="part-title">
-                  {t('project.goodLuckPeanut.overview.part1title')}
+                  <CjkText>{t('project.goodLuckPeanut.overview.part1title')}</CjkText>
                 </h3>
                 <p className="part-desc">
-                  {t('project.goodLuckPeanut.overview.part1desc')}
+                  <CjkText>{t('project.goodLuckPeanut.overview.part1desc')}</CjkText>
                 </p>
               </div>
               <div className="part-card">
@@ -108,10 +109,10 @@ export default function GoodLuckPeanut() {
                   <Globe size={32} />
                 </div>
                 <h3 className="part-title">
-                  {t('project.goodLuckPeanut.overview.part2title')}
+                  <CjkText>{t('project.goodLuckPeanut.overview.part2title')}</CjkText>
                 </h3>
                 <p className="part-desc">
-                  {t('project.goodLuckPeanut.overview.part2desc')}
+                  <CjkText>{t('project.goodLuckPeanut.overview.part2desc')}</CjkText>
                 </p>
               </div>
             </div>
@@ -133,10 +134,10 @@ export default function GoodLuckPeanut() {
               <div className="part-number">01</div>
               <div>
                 <h2 className="section-heading">
-                  {t('project.goodLuckPeanut.brand.heading')}
+                  <CjkText>{t('project.goodLuckPeanut.brand.heading')}</CjkText>
                 </h2>
                 <p className="section-subheading">
-                  {t('project.goodLuckPeanut.brand.subtitle')}
+                  <CjkText>{t('project.goodLuckPeanut.brand.subtitle')}</CjkText>
                 </p>
               </div>
             </div>
@@ -146,28 +147,28 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Lightbulb size={24} color="hsl(var(--g1))" />
                 <h3 className="subsection-title">
-                  {t('project.goodLuckPeanut.brand.challengeHeading')}
+                  <CjkText>{t('project.goodLuckPeanut.brand.challengeHeading')}</CjkText>
                 </h3>
               </div>
               
               <div className="two-column-layout">
                 <div className="column-content">
                   <p className="body-text">
-                    {t('project.goodLuckPeanut.brand.challengeDesc')}
+                    <CjkText>{t('project.goodLuckPeanut.brand.challengeDesc')}</CjkText>
                   </p>
 
                   <div className="challenge-list">
                     <div className="challenge-item">
                       <div className="challenge-bullet"></div>
-                      <span>{t('project.goodLuckPeanut.brand.pain1')}</span>
+                      <span><CjkText>{t('project.goodLuckPeanut.brand.pain1')}</CjkText></span>
                     </div>
                     <div className="challenge-item">
                       <div className="challenge-bullet"></div>
-                      <span>{t('project.goodLuckPeanut.brand.pain2')}</span>
+                      <span><CjkText>{t('project.goodLuckPeanut.brand.pain2')}</CjkText></span>
                     </div>
                     <div className="challenge-item">
                       <div className="challenge-bullet"></div>
-                      <span>{t('project.goodLuckPeanut.brand.pain3')}</span>
+                      <span><CjkText>{t('project.goodLuckPeanut.brand.pain3')}</CjkText></span>
                     </div>
                   </div>
                 </div>
@@ -175,7 +176,7 @@ export default function GoodLuckPeanut() {
                 <div className="column-media">
                   <div className="image-placeholder old-packaging">
                     <p className="placeholder-label">
-                      {t('project.goodLuckPeanut.brand.oldPackImg')}
+                      <CjkText>{t('project.goodLuckPeanut.brand.oldPackImg')}</CjkText>
                     </p>
                   </div>
                 </div>
@@ -187,17 +188,17 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <TrendingUp size={24} color="hsl(var(--g2))" />
                 <h3 className="subsection-title">
-                  {t('project.goodLuckPeanut.strategy.heading')}
+                  <CjkText>{t('project.goodLuckPeanut.strategy.heading')}</CjkText>
                 </h3>
               </div>
 
               <div className="strategy-highlight">
                 <div className="highlight-content">
                   <h4 className="highlight-title">
-                    {t('project.goodLuckPeanut.strategy.narrativeTitle')}
+                    <CjkText>{t('project.goodLuckPeanut.strategy.narrativeTitle')}</CjkText>
                   </h4>
                   <p className="body-text">
-                    {t('project.goodLuckPeanut.strategy.narrativeDesc')}
+                    <CjkText>{t('project.goodLuckPeanut.strategy.narrativeDesc')}</CjkText>
                   </p>
                 </div>
               </div>
@@ -206,30 +207,30 @@ export default function GoodLuckPeanut() {
                 <div className="strategy-card">
                   <div className="strategy-number">01</div>
                   <h4 className="strategy-card-title">
-                    {t('project.goodLuckPeanut.strategy.pillar1title')}
+                    <CjkText>{t('project.goodLuckPeanut.strategy.pillar1title')}</CjkText>
                   </h4>
                   <p className="strategy-card-text">
-                    {t('project.goodLuckPeanut.strategy.pillar1desc')}
+                    <CjkText>{t('project.goodLuckPeanut.strategy.pillar1desc')}</CjkText>
                   </p>
                 </div>
 
                 <div className="strategy-card">
                   <div className="strategy-number">02</div>
                   <h4 className="strategy-card-title">
-                    {t('project.goodLuckPeanut.strategy.pillar2title')}
+                    <CjkText>{t('project.goodLuckPeanut.strategy.pillar2title')}</CjkText>
                   </h4>
                   <p className="strategy-card-text">
-                    {t('project.goodLuckPeanut.strategy.pillar2desc')}
+                    <CjkText>{t('project.goodLuckPeanut.strategy.pillar2desc')}</CjkText>
                   </p>
                 </div>
 
                 <div className="strategy-card">
                   <div className="strategy-number">03</div>
                   <h4 className="strategy-card-title">
-                    {t('project.goodLuckPeanut.strategy.pillar3title')}
+                    <CjkText>{t('project.goodLuckPeanut.strategy.pillar3title')}</CjkText>
                   </h4>
                   <p className="strategy-card-text">
-                    {t('project.goodLuckPeanut.strategy.pillar3desc')}
+                    <CjkText>{t('project.goodLuckPeanut.strategy.pillar3desc')}</CjkText>
                   </p>
                 </div>
               </div>
@@ -240,7 +241,7 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Package size={24} color="hsl(var(--g3))" />
                 <h3 className="subsection-title">
-                  {t('project.goodLuckPeanut.design.heading')}
+                  <CjkText>{t('project.goodLuckPeanut.design.heading')}</CjkText>
                 </h3>
               </div>
 
@@ -249,7 +250,7 @@ export default function GoodLuckPeanut() {
                 <div className="showcase-main">
                   <div className="image-placeholder packaging-hero">
                     <p className="placeholder-label">
-                      {t('project.goodLuckPeanut.design.img1')}
+                      <CjkText>{t('project.goodLuckPeanut.design.img1')}</CjkText>
                     </p>
                   </div>
                 </div>
@@ -259,22 +260,22 @@ export default function GoodLuckPeanut() {
               <div className="design-details-grid">
                 <div className="image-placeholder">
                   <p className="placeholder-label">
-                    {t('project.goodLuckPeanut.design.img2')}
+                    <CjkText>{t('project.goodLuckPeanut.design.img2')}</CjkText>
                   </p>
                 </div>
                 <div className="image-placeholder">
                   <p className="placeholder-label">
-                    {t('project.goodLuckPeanut.design.img3')}
+                    <CjkText>{t('project.goodLuckPeanut.design.img3')}</CjkText>
                   </p>
                 </div>
                 <div className="image-placeholder">
                   <p className="placeholder-label">
-                    {t('project.goodLuckPeanut.design.img4')}
+                    <CjkText>{t('project.goodLuckPeanut.design.img4')}</CjkText>
                   </p>
                 </div>
                 <div className="image-placeholder">
                   <p className="placeholder-label">
-                    {t('project.goodLuckPeanut.design.img5')}
+                    <CjkText>{t('project.goodLuckPeanut.design.img5')}</CjkText>
                   </p>
                 </div>
               </div>
@@ -284,22 +285,22 @@ export default function GoodLuckPeanut() {
                 <div className="feature-row">
                   <ArrowRight size={20} color="hsl(var(--g1))" />
                   <div>
-                    <strong>{t('project.goodLuckPeanut.design.f1label')}</strong>
-                    {t('project.goodLuckPeanut.design.f1desc')}
+                    <strong><CjkText>{t('project.goodLuckPeanut.design.f1label')}</CjkText></strong>
+                    <CjkText>{t('project.goodLuckPeanut.design.f1desc')}</CjkText>
                   </div>
                 </div>
                 <div className="feature-row">
                   <ArrowRight size={20} color="hsl(var(--g2))" />
                   <div>
-                    <strong>{t('project.goodLuckPeanut.design.f2label')}</strong>
-                    {t('project.goodLuckPeanut.design.f2desc')}
+                    <strong><CjkText>{t('project.goodLuckPeanut.design.f2label')}</CjkText></strong>
+                    <CjkText>{t('project.goodLuckPeanut.design.f2desc')}</CjkText>
                   </div>
                 </div>
                 <div className="feature-row">
                   <ArrowRight size={20} color="hsl(var(--g3))" />
                   <div>
-                    <strong>{t('project.goodLuckPeanut.design.f3label')}</strong>
-                    {t('project.goodLuckPeanut.design.f3desc')}
+                    <strong><CjkText>{t('project.goodLuckPeanut.design.f3label')}</CjkText></strong>
+                    <CjkText>{t('project.goodLuckPeanut.design.f3desc')}</CjkText>
                   </div>
                 </div>
               </div>
@@ -322,10 +323,10 @@ export default function GoodLuckPeanut() {
               <div className="part-number">02</div>
               <div>
                 <h2 className="section-heading">
-                  {t('project.goodLuckPeanut.hero.badge2')}
+                  <CjkText>{t('project.goodLuckPeanut.hero.badge2')}</CjkText>
                 </h2>
                 <p className="section-subheading">
-                  {t('project.goodLuckPeanut.web.subtitle')}
+                  <CjkText>{t('project.goodLuckPeanut.web.subtitle')}</CjkText>
                 </p>
               </div>
             </div>
@@ -335,12 +336,12 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Globe size={24} color="hsl(var(--g1))" />
                 <h3 className="subsection-title">
-                  {t('project.goodLuckPeanut.web.contextHeading')}
+                  <CjkText>{t('project.goodLuckPeanut.web.contextHeading')}</CjkText>
                 </h3>
               </div>
 
               <p className="body-text">
-                {t('project.goodLuckPeanut.web.contextDesc')}
+                <CjkText>{t('project.goodLuckPeanut.web.contextDesc')}</CjkText>
               </p>
             </div>
 
@@ -349,25 +350,25 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Users size={24} color="hsl(var(--g2))" />
                 <h3 className="subsection-title">
-                  {t('project.goodLuckPeanut.web.compareHeading')}
+                  <CjkText>{t('project.goodLuckPeanut.web.compareHeading')}</CjkText>
                 </h3>
               </div>
 
               <div className="comparison-container">
                 <div className="comparison-side old">
                   <div className="comparison-label">
-                    {t('project.goodLuckPeanut.web.oldTitle')}
+                    <CjkText>{t('project.goodLuckPeanut.web.oldTitle')}</CjkText>
                   </div>
                   <div className="image-placeholder old-website">
                     <p className="placeholder-label">
-                      {t('project.goodLuckPeanut.web.oldImg')}
+                      <CjkText>{t('project.goodLuckPeanut.web.oldImg')}</CjkText>
                     </p>
                   </div>
                   <ul className="comparison-list">
-                    <li>{t('project.goodLuckPeanut.web.old1')}</li>
-                    <li>{t('project.goodLuckPeanut.web.old2')}</li>
-                    <li>{t('project.goodLuckPeanut.web.old3')}</li>
-                    <li>{t('project.goodLuckPeanut.web.old4')}</li>
+                    <li><CjkText>{t('project.goodLuckPeanut.web.old1')}</CjkText></li>
+                    <li><CjkText>{t('project.goodLuckPeanut.web.old2')}</CjkText></li>
+                    <li><CjkText>{t('project.goodLuckPeanut.web.old3')}</CjkText></li>
+                    <li><CjkText>{t('project.goodLuckPeanut.web.old4')}</CjkText></li>
                   </ul>
                 </div>
 
@@ -377,18 +378,18 @@ export default function GoodLuckPeanut() {
 
                 <div className="comparison-side new">
                   <div className="comparison-label new-label">
-                    {t('project.goodLuckPeanut.web.newTitle')}
+                    <CjkText>{t('project.goodLuckPeanut.web.newTitle')}</CjkText>
                   </div>
                   <div className="image-placeholder new-website">
                     <p className="placeholder-label">
-                      {t('project.goodLuckPeanut.web.newImg')}
+                      <CjkText>{t('project.goodLuckPeanut.web.newImg')}</CjkText>
                     </p>
                   </div>
                   <ul className="comparison-list">
-                    <li>{t('project.goodLuckPeanut.web.new1')}</li>
-                    <li>{t('project.goodLuckPeanut.web.new2')}</li>
-                    <li>{t('project.goodLuckPeanut.web.new3')}</li>
-                    <li>{t('project.goodLuckPeanut.web.new4')}</li>
+                    <li><CjkText>{t('project.goodLuckPeanut.web.new1')}</CjkText></li>
+                    <li><CjkText>{t('project.goodLuckPeanut.web.new2')}</CjkText></li>
+                    <li><CjkText>{t('project.goodLuckPeanut.web.new3')}</CjkText></li>
+                    <li><CjkText>{t('project.goodLuckPeanut.web.new4')}</CjkText></li>
                   </ul>
                 </div>
               </div>
@@ -399,18 +400,18 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Lightbulb size={24} color="hsl(var(--g3))" />
                 <h3 className="subsection-title">
-                  {t('project.goodLuckPeanut.web.mapHeading')}
+                  <CjkText>{t('project.goodLuckPeanut.web.mapHeading')}</CjkText>
                 </h3>
               </div>
 
               <p className="body-text">
-                {t('project.goodLuckPeanut.web.mapDesc')}
+                <CjkText>{t('project.goodLuckPeanut.web.mapDesc')}</CjkText>
               </p>
 
               <div className="visual-showcase">
                 <div className="image-placeholder functional-map">
                   <p className="placeholder-label">
-                    {t('project.goodLuckPeanut.web.mapImg')}
+                    <CjkText>{t('project.goodLuckPeanut.web.mapImg')}</CjkText>
                   </p>
                 </div>
               </div>
@@ -421,12 +422,12 @@ export default function GoodLuckPeanut() {
               <div className="subsection-header">
                 <Globe size={24} color="hsl(var(--g4))" />
                 <h3 className="subsection-title">
-                  {t('project.goodLuckPeanut.web.uiHeading')}
+                  <CjkText>{t('project.goodLuckPeanut.web.uiHeading')}</CjkText>
                 </h3>
               </div>
 
               <p className="body-text">
-                {t('project.goodLuckPeanut.web.uiDesc')}
+                <CjkText>{t('project.goodLuckPeanut.web.uiDesc')}</CjkText>
               </p>
 
               {/* UI Screens Grid */}
@@ -434,33 +435,33 @@ export default function GoodLuckPeanut() {
                 <div className="ui-screen-item">
                   <div className="image-placeholder ui-screen">
                     <p className="placeholder-label">
-                      {t('project.goodLuckPeanut.web.screen1img')}
+                      <CjkText>{t('project.goodLuckPeanut.web.screen1img')}</CjkText>
                     </p>
                   </div>
                   <h4 className="ui-screen-label">
-                    {t('project.goodLuckPeanut.web.screen1')}
+                    <CjkText>{t('project.goodLuckPeanut.web.screen1')}</CjkText>
                   </h4>
                 </div>
 
                 <div className="ui-screen-item">
                   <div className="image-placeholder ui-screen">
                     <p className="placeholder-label">
-                      {t('project.goodLuckPeanut.web.screen2img')}
+                      <CjkText>{t('project.goodLuckPeanut.web.screen2img')}</CjkText>
                     </p>
                   </div>
                   <h4 className="ui-screen-label">
-                    {t('project.goodLuckPeanut.web.screen2')}
+                    <CjkText>{t('project.goodLuckPeanut.web.screen2')}</CjkText>
                   </h4>
                 </div>
 
                 <div className="ui-screen-item">
                   <div className="image-placeholder ui-screen">
                     <p className="placeholder-label">
-                      {t('project.goodLuckPeanut.web.screen3img')}
+                      <CjkText>{t('project.goodLuckPeanut.web.screen3img')}</CjkText>
                     </p>
                   </div>
                   <h4 className="ui-screen-label">
-                    {t('project.goodLuckPeanut.web.screen3')}
+                    <CjkText>{t('project.goodLuckPeanut.web.screen3')}</CjkText>
                   </h4>
                 </div>
               </div>
@@ -469,28 +470,28 @@ export default function GoodLuckPeanut() {
               <div className="highlights-grid">
                 <div className="highlight-card">
                   <h4 className="highlight-card-title">
-                    {t('project.goodLuckPeanut.web.h1title')}
+                    <CjkText>{t('project.goodLuckPeanut.web.h1title')}</CjkText>
                   </h4>
                   <p className="highlight-card-text">
-                    {t('project.goodLuckPeanut.web.h1desc')}
+                    <CjkText>{t('project.goodLuckPeanut.web.h1desc')}</CjkText>
                   </p>
                 </div>
 
                 <div className="highlight-card">
                   <h4 className="highlight-card-title">
-                    {t('project.goodLuckPeanut.web.h2title')}
+                    <CjkText>{t('project.goodLuckPeanut.web.h2title')}</CjkText>
                   </h4>
                   <p className="highlight-card-text">
-                    {t('project.goodLuckPeanut.web.h2desc')}
+                    <CjkText>{t('project.goodLuckPeanut.web.h2desc')}</CjkText>
                   </p>
                 </div>
 
                 <div className="highlight-card">
                   <h4 className="highlight-card-title">
-                    {t('project.goodLuckPeanut.web.h3title')}
+                    <CjkText>{t('project.goodLuckPeanut.web.h3title')}</CjkText>
                   </h4>
                   <p className="highlight-card-text">
-                    {t('project.goodLuckPeanut.web.h3desc')}
+                    <CjkText>{t('project.goodLuckPeanut.web.h3desc')}</CjkText>
                   </p>
                 </div>
               </div>
@@ -505,10 +506,10 @@ export default function GoodLuckPeanut() {
               <div className="outcome-header">
                 <Award size={48} color="hsl(var(--g1))" />
                 <h2 className="section-heading" style={{ marginBottom: '16px' }}>
-                  {t('project.goodLuckPeanut.outcome.heading')}
+                  <CjkText>{t('project.goodLuckPeanut.outcome.heading')}</CjkText>
                 </h2>
                 <p className="section-subheading">
-                  {t('project.goodLuckPeanut.outcome.subtitle')}
+                  <CjkText>{t('project.goodLuckPeanut.outcome.subtitle')}</CjkText>
                 </p>
               </div>
 
@@ -518,10 +519,10 @@ export default function GoodLuckPeanut() {
                     <Award size={40} />
                   </div>
                   <h3 className="outcome-title">
-                    {t('project.goodLuckPeanut.outcome.r1title')}
+                    <CjkText>{t('project.goodLuckPeanut.outcome.r1title')}</CjkText>
                   </h3>
                   <p className="outcome-text">
-                    {t('project.goodLuckPeanut.outcome.r1desc')}
+                    <CjkText>{t('project.goodLuckPeanut.outcome.r1desc')}</CjkText>
                   </p>
                 </div>
 
@@ -530,10 +531,10 @@ export default function GoodLuckPeanut() {
                     <Package size={36} />
                   </div>
                   <h3 className="outcome-title">
-                    {t('project.goodLuckPeanut.outcome.r2title')}
+                    <CjkText>{t('project.goodLuckPeanut.outcome.r2title')}</CjkText>
                   </h3>
                   <p className="outcome-text">
-                    {t('project.goodLuckPeanut.outcome.r2desc')}
+                    <CjkText>{t('project.goodLuckPeanut.outcome.r2desc')}</CjkText>
                   </p>
                 </div>
 
@@ -542,10 +543,10 @@ export default function GoodLuckPeanut() {
                     <Globe size={36} />
                   </div>
                   <h3 className="outcome-title">
-                    {t('project.goodLuckPeanut.outcome.r3title')}
+                    <CjkText>{t('project.goodLuckPeanut.outcome.r3title')}</CjkText>
                   </h3>
                   <p className="outcome-text">
-                    {t('project.goodLuckPeanut.outcome.r3desc')}
+                    <CjkText>{t('project.goodLuckPeanut.outcome.r3desc')}</CjkText>
                   </p>
                 </div>
               </div>

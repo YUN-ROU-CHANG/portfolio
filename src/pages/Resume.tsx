@@ -43,8 +43,7 @@ const getResumeData = (t: (key: string) => string) => ({
       description: [
         t('resume.experience.bilingual.d1'),
         t('resume.experience.bilingual.d2'),
-        t('resume.experience.bilingual.d3'),
-      ],
+      ].filter(Boolean),
       badges: [t('resume.chips.socialMediaMgmt'), t('resume.chips.eventCoordination'), t('resume.chips.docHandling'), t('resume.chips.adminSupport'), t('resume.chips.canva')]
     },
     {
@@ -59,7 +58,7 @@ const getResumeData = (t: (key: string) => string) => ({
         t('resume.experience.ra.d3'),
         t('resume.experience.ra.d4'),
         t('resume.experience.ra.d5'),
-      ],
+      ].filter(Boolean),
       badges: [t('resume.chips.researchWriting'), t('resume.chips.proposalDev'), t('resume.chips.statSoftware'), t('resume.chips.qualInterview')]
     },
     {
@@ -75,7 +74,7 @@ const getResumeData = (t: (key: string) => string) => ({
         t('resume.experience.kdan.d4'),
         t('resume.experience.kdan.d5'),
         t('resume.experience.kdan.d6')
-      ],
+      ].filter(Boolean),
       badges: [t('resume.chips.socialMediaMgmt'), t('resume.chips.adCampaign'), t('resume.chips.creativeIdeation'), t('resume.chips.crossIndustry'), t('resume.chips.brandAwareness'), t('resume.chips.marketResearch')]
     },
     {
@@ -87,9 +86,7 @@ const getResumeData = (t: (key: string) => string) => ({
       description: [
         t('resume.experience.mengya.d1'),
         t('resume.experience.mengya.d2'),
-        t('resume.experience.mengya.d3'),
-        t('resume.experience.mengya.d4'),
-      ],
+      ].filter(Boolean),
       badges: [t('resume.chips.adSales'), t('resume.chips.crm'), t('resume.chips.clientData'), t('resume.chips.docProcessing'), t('resume.chips.dataEntry'), t('resume.chips.adminSupport')]
     },
     {
@@ -100,9 +97,7 @@ const getResumeData = (t: (key: string) => string) => ({
       period: t('resume.experience.wonlaiwon.period'),
       description: [
         t('resume.experience.wonlaiwon.d1'),
-        t('resume.experience.wonlaiwon.d2'),
-        t('resume.experience.wonlaiwon.d3'),
-      ],
+      ].filter(Boolean),
       badges: [t('resume.chips.productPhoto'), t('resume.chips.bgRemoval'), t('resume.chips.adCopywriting'), t('resume.chips.docProcessing'), t('resume.chips.dataEntry'), t('resume.chips.photoshop'), t('resume.chips.illustrator')]
     },
   ],
@@ -152,7 +147,7 @@ function ExperienceItem({ experience }: { experience: Experience }) {
               <Briefcase size={20} />
             </div>
             <div>
-              <CardTitle className="exp-title">{experience.title}</CardTitle>
+              <CardTitle className="exp-title"><CjkText>{experience.title}</CjkText></CardTitle>
               <CardDescription className="exp-meta">{experience.company} · {experience.period}</CardDescription>
             </div>
           </CardHeader>
@@ -231,16 +226,16 @@ export default function Resume() {
           <div className="container">
             <div className="resume-header-content reveal">
               <div>
-                <h1 className="name">{t('resume.header.title')}</h1>
-                <p className="body muted">{t('resume.header.lastUpdated')}{' '}{resumeData.lastUpdated}</p>
+                <h1 className="name"><CjkText>{t('resume.header.title')}</CjkText></h1>
+                <p className="body muted"><CjkText>{t('resume.header.lastUpdated')}</CjkText>{' '}{resumeData.lastUpdated}</p>
               </div>
               <div className="resume-actions">
                 <Button className="btn-pill interactive-button-base btn--primary" asChild>
-                  <a href={resumePdf} download><Download size={18} />{' '}{t('resume.header.downloadPdf')}</a>
+                  <a href={resumePdf} download><Download size={18} />{' '}<CjkText>{t('resume.header.downloadPdf')}</CjkText></a>
                 </Button>
                 {resumeData.contact.linkedin && (
                   <Button variant="outline" className="btn-pill interactive-button-base" asChild>
-                    <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin size={18} />{' '}{t('resume.header.linkedin')}</a>
+                    <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin size={18} />{' '}<CjkText>{t('resume.header.linkedin')}</CjkText></a>
                   </Button>
                 )}
               </div>
@@ -259,8 +254,7 @@ export default function Resume() {
         <section className="section">
           <div className="container">
             <div className="reveal" style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <h2 className="section-head">{t('resume.experience.heading')}</h2>
-              <p className="body muted" style={{ maxWidth: '600px', margin: '0 auto' }}><CjkText>{t('resume.experience.sub')}</CjkText></p>
+              <h2 className="section-head"><CjkText>{t('resume.experience.heading')}</CjkText></h2>
             </div>
             <ol className="timeline-list">
               {resumeData.experience.map((exp) => (
@@ -274,10 +268,11 @@ export default function Resume() {
 
         {/* Skills Section */}
         <section className="section" style={{ paddingTop: 'var(--space-10)', paddingBottom: 'var(--space-10)' }}>
-          <div className="container" style={{ maxWidth: '1400px' }}>
+          {/* 與經歷、學歷、獎項同寬：全站 .container（1200px，≥1600px 時 1440px） */}
+          <div className="container">
             <div className="reveal" style={{ marginBottom: 'var(--space-10)' }}>
               <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <Code size={32} color="var(--accent-text)" />{' '}{t('resume.skills.heading')}</h2>
+                <Code size={32} color="var(--accent-text)" />{' '}<CjkText>{t('resume.skills.heading')}</CjkText></h2>
             </div>
 
             <div className="skills-grid">
@@ -337,12 +332,12 @@ export default function Resume() {
               {/* Education */}
               <div>
                 <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <GraduationCap size={32} color="var(--accent-text)" />{' '}{t('resume.education.heading')}</h2>
+                  <GraduationCap size={32} color="var(--accent-text)" />{' '}<CjkText>{t('resume.education.heading')}</CjkText></h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {resumeData.education.map((edu, index) => (
                     <Card key={index} style={{ border: '1px solid rgba(0,0,0,0.06)' }}>
                       <CardHeader style={{ padding: '24px' }}>
-                        <CardTitle className="exp-title">{edu.degree}</CardTitle>
+                        <CardTitle className="exp-title"><CjkText>{edu.degree}</CjkText></CardTitle>
                         <CardDescription>{edu.institution} · {edu.year}</CardDescription>
                         {edu.description && <p className="edu-desc" style={{ fontSize: '14px', marginTop: '8px', color: 'var(--text-tertiary)' }}><CjkText>{edu.description}</CjkText></p>}
                       </CardHeader>
@@ -354,12 +349,12 @@ export default function Resume() {
               {/* Certifications */}
               <div>
                 <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <Award size={32} color="var(--accent-text)" />{' '}{t('resume.certs.heading')}</h2>
+                  <Award size={32} color="var(--accent-text)" />{' '}<CjkText>{t('resume.certs.heading')}</CjkText></h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {resumeData.certifications.map((cert, index) => (
                     <Card key={index} style={{ border: '1px solid rgba(0,0,0,0.06)' }}>
                       <CardHeader style={{ padding: '24px' }}>
-                        <CardTitle className="exp-title">{cert.name}</CardTitle>
+                        <CardTitle className="exp-title"><CjkText>{cert.name}</CjkText></CardTitle>
                         <CardDescription>{cert.issuer} · {cert.year}</CardDescription>
                       </CardHeader>
                     </Card>
@@ -376,19 +371,19 @@ export default function Resume() {
         <section className="section" id="awards" style={{ paddingBottom: 'var(--space-10)' }}>
           <div className="container">
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <Award size={32} color="var(--accent-text)" />{' '}{t('resume.awards.heading')}</h2>
+              <Award size={32} color="var(--accent-text)" />{' '}<CjkText>{t('resume.awards.heading')}</CjkText></h2>
             <div className="awards-grid reveal">
               {awards.map(award => (
                 <div className="award-item-clean" key={award.key}>
                   <span className="award-year">{award.year}</span>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                      <h4 style={{ margin: 0, marginBottom: '6px' }}>{award.title}</h4>
+                      <h4 style={{ margin: 0, marginBottom: '6px' }}><CjkText>{award.title}</CjkText></h4>
                       <button onClick={() => setLightbox(award.cert)} className="cert-btn" aria-label="View Certificate">
-                        <FileText size={12} /> <span>{t('common.certificate')}</span>
+                        <FileText size={12} /> <span><CjkText>{t('common.certificate')}</CjkText></span>
                       </button>
                     </div>
-                    <p>{award.desc}</p>
+                    <p><CjkText>{award.desc}</CjkText></p>
                   </div>
                 </div>
               ))}
@@ -483,11 +478,11 @@ export default function Resume() {
         }
 
         /* Grid Timeline Layout - The Fix */
+        /* 不另設寬度上限：年份欄貼齊容器左緣，卡片右緣與下方技能、學歷、獎項切齊同一條線 */
         .timeline-list {
           display: flex;
           flex-direction: column;
           gap: 0;
-          max-width: 900px;
           margin: 0 auto;
           list-style: none;
           padding: 0;
@@ -583,6 +578,21 @@ export default function Resume() {
           margin-bottom: 0;
         }
         .exp-badge { margin-right: 8px; margin-bottom: 8px; background: color-mix(in srgb, var(--acid) 14%, transparent); color: var(--accent-text); }
+
+        /* 1024px 以上把卡片拆成兩欄：左邊職稱與公司，右邊條列與標籤。
+           卡片外框仍與技能、學歷切齊，但一行文字收在約 640px，
+           不會像單欄那樣拉滿 1000px 以上，節奏也跟 About 的兩欄一致。 */
+        @media (min-width: 1024px) {
+          .timeline-card {
+            display: grid;
+            grid-template-columns: clamp(220px, 24%, 300px) minmax(0, 1fr);
+            column-gap: 40px;
+            row-gap: 0;
+            align-items: start;
+          }
+          .timeline-card .resume-card-header { padding: 24px 0 24px 24px; }
+          .timeline-card .resume-card-content { padding: 24px 24px 24px 0; }
+        }
 
           /* Skills Grid */
           .skills-grid {

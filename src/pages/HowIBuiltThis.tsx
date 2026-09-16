@@ -2,6 +2,7 @@ import { useState, useEffect, type CSSProperties } from 'react';
 import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
+import CjkText from '../components/CjkText';
 
 const getSteps = (t: (key: string) => string) => [
   {
@@ -63,14 +64,14 @@ export default function HowIBuiltThis() {
             fontSize: 'clamp(40px, 7vw, 88px)',
             lineHeight: .9, letterSpacing: '-.04em',
             textTransform: 'uppercase', margin: '0 0 20px',
-          }}>{t('howIBuilt.title1')}{' '}
-            <em style={{ fontStyle: 'normal', background: 'var(--accent)', color: 'var(--on-accent)', padding: '0 .12em' }}>{t('howIBuilt.title2')}</em>
+          }}><CjkText>{t('howIBuilt.title1')}</CjkText>{' '}
+            <em style={{ fontStyle: 'normal', background: 'var(--accent)', color: 'var(--on-accent)', padding: '0 .12em' }}><CjkText>{t('howIBuilt.title2')}</CjkText></em>
           </h1>
           <p style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '12px', letterSpacing: '.1em',
             textTransform: 'uppercase', color: 'var(--text-tertiary)', margin: 0,
-          }}>{t('howIBuilt.meta')}</p>
+          }}><CjkText>{t('howIBuilt.meta')}</CjkText></p>
         </div>
 
         {/* Steps */}
@@ -79,8 +80,9 @@ export default function HowIBuiltThis() {
             <div key={i} className="reveal" style={{
               '--reveal-delay': `${i * 80}ms`,
               display: 'grid',
-              gridTemplateColumns: '80px 1fr',
-              gap: '40px',
+              // 窄螢幕把編號欄與間距縮小，內文欄才不會被擠到 240px 以下
+              gridTemplateColumns: 'clamp(40px, 10vw, 80px) 1fr',
+              gap: 'clamp(16px, 4vw, 40px)',
               padding: '48px 0',
               borderBottom: '1px solid var(--border)',
               alignItems: 'start',
@@ -88,7 +90,7 @@ export default function HowIBuiltThis() {
               {/* Number */}
               <div style={{
                 fontFamily: 'var(--font-display)',
-                fontWeight: 500, fontSize: '56px',
+                fontWeight: 500, fontSize: 'clamp(32px, 8vw, 56px)',
                 lineHeight: 1, letterSpacing: '-.04em',
                 color: 'rgba(12,12,12,.15)',
               }}>{step.num}</div>
@@ -100,18 +102,17 @@ export default function HowIBuiltThis() {
                   fontWeight: 500, fontSize: 'clamp(22px, 3vw, 36px)',
                   letterSpacing: '-.02em', textTransform: 'uppercase',
                   margin: '0 0 6px',
-                }}>{step.title}</h2>
+                }}><CjkText>{step.title}</CjkText></h2>
                 <p style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '12px', letterSpacing: '.1em',
                   textTransform: 'uppercase', color: 'var(--text-tertiary)',
                   margin: '0 0 16px',
-                }}>{step.subtitle}</p>
+                }}><CjkText>{step.subtitle}</CjkText></p>
                 <p style={{
                   fontSize: '16px', lineHeight: 1.7,
                   color: 'var(--text-primary)', margin: '0 0 20px',
-                  maxWidth: '60ch',
-                }}>{step.body}</p>
+                }}><CjkText>{step.body}</CjkText></p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                   {step.tags.map(tag => (
                     <span key={tag} style={{
@@ -121,7 +122,7 @@ export default function HowIBuiltThis() {
                       padding: '5px 10px',
                       border: '1px solid var(--border-strong)',
                       borderRadius: '4px',
-                    }}>{tag}</span>
+                    }}><CjkText>{tag}</CjkText></span>
                   ))}
                 </div>
               </div>
@@ -134,13 +135,13 @@ export default function HowIBuiltThis() {
             fontFamily: 'var(--font-mono)',
             fontSize: '12px', letterSpacing: '.1em',
             textTransform: 'uppercase', color: 'var(--text-tertiary)',
-          }}>{t('howIBuilt.sourceNote')}{' '}
+          }}><CjkText>{t('howIBuilt.sourceNote')}</CjkText>{' '}
             <a
               href="https://github.com/YUN-ROU-CHANG/portfolio"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: 'var(--text-primary)', borderBottom: '1px solid var(--border-strong)', textDecoration: 'none' }}
-            >{t('howIBuilt.githubLink')}</a>
+            ><CjkText>{t('howIBuilt.githubLink')}</CjkText></a>
           </div>
         </div>
 

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
+import CjkText from '../../components/CjkText';
 import {
   Award, Target, Users, Sparkles, TrendingUp, Gift,
   Heart, BarChart3, CheckCircle2, ExternalLink, Activity, Box, Maximize2, X
@@ -76,39 +77,39 @@ export default function Innoconnect() {
                     <Award size={28} />
                   </div>
                   <div className="badge-content">
-                    <div className="badge-title">{t('project.innoconnect.hero.badge')}</div>
-                    <div className="badge-subtitle">{t('project.innoconnect.hero.badgeSub')}</div>
+                    <div className="badge-title"><CjkText>{t('project.innoconnect.hero.badge')}</CjkText></div>
+                    <div className="badge-subtitle"><CjkText>{t('project.innoconnect.hero.badgeSub')}</CjkText></div>
                   </div>
                 </div>
               </div>
 
-              <h1 className="hero-title">{t('project.innoconnect.hero.title')}</h1>
-              <p className="hero-subtitle">{t('project.innoconnect.hero.subtitle')}</p>
+              <h1 className="hero-title"><CjkText>{t('project.innoconnect.hero.title')}</CjkText></h1>
+              <p className="hero-subtitle"><CjkText>{t('project.innoconnect.hero.subtitle')}</CjkText></p>
 
               <div className="hero-details">
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.innoconnect.hero.timelineLabel')}</span>
-                  <span className="detail-value">{t('project.innoconnect.hero.timelineValue')}</span>
-                  <span className="detail-sub">{t('project.innoconnect.hero.timelineSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.innoconnect.hero.timelineLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.innoconnect.hero.timelineValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.innoconnect.hero.timelineSub')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.innoconnect.hero.roleLabel')}</span>
-                  <span className="detail-value">{t('project.innoconnect.hero.roleValue')}</span>
-                  <span className="detail-sub">{t('project.innoconnect.hero.roleSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.innoconnect.hero.roleLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.innoconnect.hero.roleValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.innoconnect.hero.roleSub')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.innoconnect.hero.achievementLabel')}</span>
-                  <span className="detail-value achievement-gold">🏆 {t('project.innoconnect.hero.achievementValue')}</span>
-                  <span className="detail-sub">{t('project.innoconnect.hero.achievementSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.innoconnect.hero.achievementLabel')}</CjkText></span>
+                  <span className="detail-value achievement-gold">🏆 <CjkText>{t('project.innoconnect.hero.achievementValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.innoconnect.hero.achievementSub')}</CjkText></span>
                 </div>
               </div>
 
               <div className="competition-context">
                 <div className="context-icon"><Sparkles size={24} /></div>
                 <div className="context-content">
-                  <h3 className="context-title">{t('project.innoconnect.intro.title')}</h3>
+                  <h3 className="context-title"><CjkText>{t('project.innoconnect.intro.title')}</CjkText></h3>
                   <p className="context-text">
-                    {t('project.innoconnect.intro.desc')}
+                    <CjkText>{t('project.innoconnect.intro.desc')}</CjkText>
                   </p>
                 </div>
               </div>
@@ -120,26 +121,26 @@ export default function Innoconnect() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="overview-intro">
-              <h2 className="section-heading">{t('project.innoconnect.overview.heading')}</h2>
+              <h2 className="section-heading"><CjkText>{t('project.innoconnect.overview.heading')}</CjkText></h2>
               <p className="body-text-large">
-                {t('project.innoconnect.overview.desc')}
+                <CjkText>{t('project.innoconnect.overview.desc')}</CjkText>
               </p>
             </div>
             <div className="metrics-grid">
               <div className="metric-card">
                 <div className="metric-icon"><Award size={40} /></div>
                 <div className="metric-number">1 / 186</div>
-                <div className="metric-label">{t('project.innoconnect.overview.stat1')}</div>
+                <div className="metric-label"><CjkText>{t('project.innoconnect.overview.stat1')}</CjkText></div>
               </div>
               <div className="metric-card">
                 <div className="metric-icon"><TrendingUp size={40} /></div>
                 <div className="metric-number">90%</div>
-                <div className="metric-label">{t('project.innoconnect.overview.stat2')}</div>
+                <div className="metric-label"><CjkText>{t('project.innoconnect.overview.stat2')}</CjkText></div>
               </div>
               <div className="metric-card">
                 <div className="metric-icon"><Users size={40} /></div>
-                <div className="metric-number">{t('project.innoconnect.overview.stat3num')}</div>
-                <div className="metric-label">{t('project.innoconnect.overview.stat3')}</div>
+                <div className="metric-number"><CjkText>{t('project.innoconnect.overview.stat3num')}</CjkText></div>
+                <div className="metric-label"><CjkText>{t('project.innoconnect.overview.stat3')}</CjkText></div>
               </div>
             </div>
           </div>
@@ -151,35 +152,35 @@ export default function Innoconnect() {
             <div className="subsection">
               <div className="subsection-header">
                 <Target size={24} color="hsl(var(--g1))" />
-                <h3 className="subsection-title">{t('project.innoconnect.challenge.heading')}</h3>
+                <h3 className="subsection-title"><CjkText>{t('project.innoconnect.challenge.heading')}</CjkText></h3>
               </div>
 
               <div className="two-column-layout">
                 <div className="column-content">
-                  <h4 className="highlight-title">{t('project.innoconnect.challenge.title')}</h4>
+                  <h4 className="highlight-title"><CjkText>{t('project.innoconnect.challenge.title')}</CjkText></h4>
                   <p className="body-text">
-                    {t('project.innoconnect.challenge.desc')}
+                    <CjkText>{t('project.innoconnect.challenge.desc')}</CjkText>
                   </p>
                   <div className="challenge-list">
                     <div className="challenge-item">
                       <div className="challenge-bullet problem"></div>
                       <div>
-                        <strong>{t('project.innoconnect.challenge.item1label')}</strong>
-                        <span>{t('project.innoconnect.challenge.item1desc')}</span>
+                        <strong><CjkText>{t('project.innoconnect.challenge.item1label')}</CjkText></strong>
+                        <span><CjkText>{t('project.innoconnect.challenge.item1desc')}</CjkText></span>
                       </div>
                     </div>
                     <div className="challenge-item">
                       <div className="challenge-bullet problem"></div>
                       <div>
-                        <strong>{t('project.innoconnect.challenge.item2label')}</strong>
-                        <span>{t('project.innoconnect.challenge.item2desc')}</span>
+                        <strong><CjkText>{t('project.innoconnect.challenge.item2label')}</CjkText></strong>
+                        <span><CjkText>{t('project.innoconnect.challenge.item2desc')}</CjkText></span>
                       </div>
                     </div>
                     <div className="challenge-item">
                       <div className="challenge-bullet problem"></div>
                       <div>
-                        <strong>{t('project.innoconnect.challenge.item3label')}</strong>
-                        <span>{t('project.innoconnect.challenge.item3desc')}</span>
+                        <strong><CjkText>{t('project.innoconnect.challenge.item3label')}</CjkText></strong>
+                        <span><CjkText>{t('project.innoconnect.challenge.item3desc')}</CjkText></span>
                       </div>
                     </div>
                   </div>
@@ -193,9 +194,9 @@ export default function Innoconnect() {
               </div>
 
               <div className="insight-card full-width">
-                <h4 className="insight-title">{t('project.innoconnect.challenge.insightLabel')}</h4>
+                <h4 className="insight-title"><CjkText>{t('project.innoconnect.challenge.insightLabel')}</CjkText></h4>
                 <p className="insight-text">
-                  {t('project.innoconnect.challenge.insight')}
+                  <CjkText>{t('project.innoconnect.challenge.insight')}</CjkText>
                 </p>
               </div>
             </div>
@@ -208,17 +209,17 @@ export default function Innoconnect() {
             <div className="subsection">
               <div className="subsection-header">
                 <Sparkles size={24} color="hsl(var(--g2))" />
-                <h3 className="subsection-title">{t('project.innoconnect.strategy.heading')}</h3>
+                <h3 className="subsection-title"><CjkText>{t('project.innoconnect.strategy.heading')}</CjkText></h3>
               </div>
               <p className="body-text" style={{ marginBottom: '40px' }}>
-                {t('project.innoconnect.strategy.desc')}
+                <CjkText>{t('project.innoconnect.strategy.desc')}</CjkText>
               </p>
 
               <div className="strategy-pillars">
                 <div className="pillar-card">
                   <div className="pillar-content-top">
                     <div className="pillar-number">01</div>
-                    <h4 className="pillar-subtitle">{t('project.innoconnect.strategy.pillar1')}</h4>
+                    <h4 className="pillar-subtitle"><CjkText>{t('project.innoconnect.strategy.pillar1')}</CjkText></h4>
                   </div>
                   <div className="pillar-image-wrapper shadow-box bg-white">
                     <img src={getImage('psychological-test-results')} alt={t('project.innoconnect.strategy.pillar1alt')} />
@@ -228,7 +229,7 @@ export default function Innoconnect() {
                 <div className="pillar-card">
                   <div className="pillar-content-top">
                     <div className="pillar-number">02</div>
-                    <h4 className="pillar-subtitle">{t('project.innoconnect.strategy.pillar2')}</h4>
+                    <h4 className="pillar-subtitle"><CjkText>{t('project.innoconnect.strategy.pillar2')}</CjkText></h4>
                   </div>
                   <div className="pillar-image-wrapper shadow-box bg-white">
                     <img src={getImage('wish-page-2')} alt={t('project.innoconnect.strategy.pillar2alt')} />
@@ -238,7 +239,7 @@ export default function Innoconnect() {
                 <div className="pillar-card">
                   <div className="pillar-content-top">
                     <div className="pillar-number">03</div>
-                    <h4 className="pillar-subtitle">{t('project.innoconnect.strategy.pillar3')}</h4>
+                    <h4 className="pillar-subtitle"><CjkText>{t('project.innoconnect.strategy.pillar3')}</CjkText></h4>
                   </div>
                   <div className="pillar-image-wrapper shadow-box bg-white">
                     <img src={getImage('gift-recommadation')} alt={t('project.innoconnect.strategy.pillar3alt')} />
@@ -255,7 +256,7 @@ export default function Innoconnect() {
             <div className="subsection text-center">
               <div className="subsection-header justify-center">
                 <Activity size={24} color="hsl(var(--g1))" />
-                <h3 className="subsection-title">{t('project.innoconnect.strategy.leanTitle')}</h3>
+                <h3 className="subsection-title"><CjkText>{t('project.innoconnect.strategy.leanTitle')}</CjkText></h3>
               </div>
               <div
                 className="visual-showcase shadow-box interactive-image-area"
@@ -277,26 +278,26 @@ export default function Innoconnect() {
             <div className="subsection">
               <div className="subsection-header">
                 <Sparkles size={24} color="hsl(var(--g3))" />
-                <h3 className="subsection-title">{t('project.innoconnect.solution1.heading')}</h3>
+                <h3 className="subsection-title"><CjkText>{t('project.innoconnect.solution1.heading')}</CjkText></h3>
               </div>
 
               <div className="solution-explanation">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
                   <div style={{ flex: '1 1 600px' }}>
-                    <h4 className="highlight-title">{t('project.innoconnect.solution1.title')}</h4>
+                    <h4 className="highlight-title"><CjkText>{t('project.innoconnect.solution1.title')}</CjkText></h4>
                     <p className="body-text">
-                      {t('project.innoconnect.solution1.desc')}
+                      <CjkText>{t('project.innoconnect.solution1.desc')}</CjkText>
                     </p>
                   </div>
                   <a href="https://ooopenlab.cc/quiz/7b8AWHtQhsr7S0hhQA0b" target="_blank" rel="noreferrer" className="primary-link-btn">
-                    {t('project.innoconnect.solution1.quizLabel')} <ExternalLink size={18} />
+                    <CjkText>{t('project.innoconnect.solution1.quizLabel')}</CjkText> <ExternalLink size={18} />
                   </a>
                 </div>
 
                 <div className="feature-highlights">
-                  <div className="feature-item"><CheckCircle2 size={20} color="hsl(var(--g3))" /><span>{t('project.innoconnect.solution1.feat1')}</span></div>
-                  <div className="feature-item"><CheckCircle2 size={20} color="hsl(var(--g3))" /><span>{t('project.innoconnect.solution1.feat2')}</span></div>
-                  <div className="feature-item"><CheckCircle2 size={20} color="hsl(var(--g3))" /><span>{t('project.innoconnect.solution1.feat3')}</span></div>
+                  <div className="feature-item"><CheckCircle2 size={20} color="hsl(var(--g3))" /><span><CjkText>{t('project.innoconnect.solution1.feat1')}</CjkText></span></div>
+                  <div className="feature-item"><CheckCircle2 size={20} color="hsl(var(--g3))" /><span><CjkText>{t('project.innoconnect.solution1.feat2')}</CjkText></span></div>
+                  <div className="feature-item"><CheckCircle2 size={20} color="hsl(var(--g3))" /><span><CjkText>{t('project.innoconnect.solution1.feat3')}</CjkText></span></div>
                 </div>
               </div>
 
@@ -315,30 +316,30 @@ export default function Innoconnect() {
             <div className="subsection">
               <div className="subsection-header">
                 <Heart size={24} color="hsl(var(--g4))" />
-                <h3 className="subsection-title">{t('project.innoconnect.solution2.heading')}</h3>
+                <h3 className="subsection-title"><CjkText>{t('project.innoconnect.solution2.heading')}</CjkText></h3>
               </div>
 
               <div className="solution-explanation">
-                <h4 className="highlight-title">{t('project.innoconnect.solution2.title')}</h4>
+                <h4 className="highlight-title"><CjkText>{t('project.innoconnect.solution2.title')}</CjkText></h4>
                 <p className="body-text">
-                  {t('project.innoconnect.solution2.desc')}
+                  <CjkText>{t('project.innoconnect.solution2.desc')}</CjkText>
                 </p>
 
                 <div className="feature-grid">
                   <div className="feature-card">
                     <div className="feature-icon"><Gift size={32} /></div>
-                    <h5 className="feature-title">{t('project.innoconnect.solution2.feat1title')}</h5>
-                    <p className="feature-text">{t('project.innoconnect.solution2.feat1desc')}</p>
+                    <h5 className="feature-title"><CjkText>{t('project.innoconnect.solution2.feat1title')}</CjkText></h5>
+                    <p className="feature-text"><CjkText>{t('project.innoconnect.solution2.feat1desc')}</CjkText></p>
                   </div>
                   <div className="feature-card">
                     <div className="feature-icon"><Users size={32} /></div>
-                    <h5 className="feature-title">{t('project.innoconnect.solution2.feat2title')}</h5>
-                    <p className="feature-text">{t('project.innoconnect.solution2.feat2desc')}</p>
+                    <h5 className="feature-title"><CjkText>{t('project.innoconnect.solution2.feat2title')}</CjkText></h5>
+                    <p className="feature-text"><CjkText>{t('project.innoconnect.solution2.feat2desc')}</CjkText></p>
                   </div>
                   <div className="feature-card">
                     <div className="feature-icon"><Sparkles size={32} /></div>
-                    <h5 className="feature-title">{t('project.innoconnect.solution2.feat3title')}</h5>
-                    <p className="feature-text">{t('project.innoconnect.solution2.feat3desc')}</p>
+                    <h5 className="feature-title"><CjkText>{t('project.innoconnect.solution2.feat3title')}</CjkText></h5>
+                    <p className="feature-text"><CjkText>{t('project.innoconnect.solution2.feat3desc')}</CjkText></p>
                   </div>
                 </div>
               </div>
@@ -356,24 +357,24 @@ export default function Innoconnect() {
             <div className="subsection">
               <div className="subsection-header">
                 <TrendingUp size={24} color="hsl(var(--g1))" />
-                <h3 className="subsection-title">{t('project.innoconnect.solution3.heading')}</h3>
+                <h3 className="subsection-title"><CjkText>{t('project.innoconnect.solution3.heading')}</CjkText></h3>
               </div>
 
               <div className="solution-explanation">
-                <h4 className="highlight-title">{t('project.innoconnect.solution3.title')}</h4>
+                <h4 className="highlight-title"><CjkText>{t('project.innoconnect.solution3.title')}</CjkText></h4>
                 <p className="body-text">
-                  {t('project.innoconnect.solution3.desc')}
+                  <CjkText>{t('project.innoconnect.solution3.desc')}</CjkText>
                 </p>
               </div>
 
-              <h4 className="highlight-title" style={{ marginTop: '48px' }}>{t('project.innoconnect.solution3.vpcTitle')}</h4>
+              <h4 className="highlight-title" style={{ marginTop: '48px' }}><CjkText>{t('project.innoconnect.solution3.vpcTitle')}</CjkText></h4>
               <div className="two-column-layout" style={{ marginBottom: '48px' }}>
                 <div
                   className="image-wrapper shadow-box bg-white interactive-image-area"
                   style={{ padding: '24px', flexDirection: 'column' }}
                   onClick={() => setLightboxImage(getImage('value-proposition-canvas-giver'))}
                 >
-                  <h5 className="text-center font-bold mb-4">{t('project.innoconnect.solution3.giverLabel')}</h5>
+                  <h5 className="text-center font-bold mb-4"><CjkText>{t('project.innoconnect.solution3.giverLabel')}</CjkText></h5>
                   <img src={getImage('value-proposition-canvas-giver')} alt={t('project.innoconnect.solution3.giverAlt')} className="full-contain-img" />
                   <div className="expand-hint">
                     <Maximize2 size={20} />
@@ -384,7 +385,7 @@ export default function Innoconnect() {
                   style={{ padding: '24px', flexDirection: 'column' }}
                   onClick={() => setLightboxImage(getImage('value-proposition-canvas-receive'))}
                 >
-                  <h5 className="text-center font-bold mb-4">{t('project.innoconnect.solution3.receiverLabel')}</h5>
+                  <h5 className="text-center font-bold mb-4"><CjkText>{t('project.innoconnect.solution3.receiverLabel')}</CjkText></h5>
                   <img src={getImage('value-proposition-canvas-receive')} alt={t('project.innoconnect.solution3.receiverAlt')} className="full-contain-img" />
                   <div className="expand-hint">
                     <Maximize2 size={20} />
@@ -393,7 +394,7 @@ export default function Innoconnect() {
               </div>
 
               {/* Service Blueprint */}
-              <h4 className="highlight-title">{t('project.innoconnect.solution3.blueprintTitle')}</h4>
+              <h4 className="highlight-title"><CjkText>{t('project.innoconnect.solution3.blueprintTitle')}</CjkText></h4>
               <div
                 className="visual-showcase shadow-box bg-white p-4 interactive-image-area"
                 onClick={() => setLightboxImage(getImage('service-blueprint'))}
@@ -409,10 +410,10 @@ export default function Innoconnect() {
                 <div className="column-content">
                   <div className="section-header-sm">
                     <Box size={24} color="hsl(var(--g1))" />
-                    <h4 className="highlight-title mb-0">{t('project.innoconnect.solution3.deliveryTitle')}</h4>
+                    <h4 className="highlight-title mb-0"><CjkText>{t('project.innoconnect.solution3.deliveryTitle')}</CjkText></h4>
                   </div>
                   <p className="body-text">
-                    {t('project.innoconnect.solution3.deliveryDesc')}
+                    <CjkText>{t('project.innoconnect.solution3.deliveryDesc')}</CjkText>
                   </p>
                   <div
                     className="image-wrapper shadow-box bg-white p-4 mt-4 interactive-image-area"
@@ -429,10 +430,10 @@ export default function Innoconnect() {
                 <div className="column-content">
                   <div className="section-header-sm">
                     <TrendingUp size={24} color="hsl(var(--g1))" />
-                    <h4 className="highlight-title mb-0">{t('project.innoconnect.solution3.refundTitle')}</h4>
+                    <h4 className="highlight-title mb-0"><CjkText>{t('project.innoconnect.solution3.refundTitle')}</CjkText></h4>
                   </div>
                   <p className="body-text">
-                    {t('project.innoconnect.solution3.refundDesc')}
+                    <CjkText>{t('project.innoconnect.solution3.refundDesc')}</CjkText>
                   </p>
                   <div
                     className="image-wrapper shadow-box bg-white p-4 mt-4 interactive-image-area"
@@ -455,12 +456,12 @@ export default function Innoconnect() {
             <div className="subsection">
               <div className="subsection-header">
                 <BarChart3 size={24} color="hsl(var(--g2))" />
-                <h3 className="subsection-title">{t('project.innoconnect.validation.heading')}</h3>
+                <h3 className="subsection-title"><CjkText>{t('project.innoconnect.validation.heading')}</CjkText></h3>
               </div>
 
               <div className="validation-explanation">
                 <p className="body-text">
-                  {t('project.innoconnect.validation.desc')}
+                  <CjkText>{t('project.innoconnect.validation.desc')}</CjkText>
                 </p>
               </div>
 
@@ -471,10 +472,10 @@ export default function Innoconnect() {
               <div className="testing-results-1col">
                 <div className="result-card sus-card">
                   <div className="result-header">
-                    <h5 className="result-title">{t('project.innoconnect.validation.susTitle')}</h5>
+                    <h5 className="result-title"><CjkText>{t('project.innoconnect.validation.susTitle')}</CjkText></h5>
                   </div>
                   <p className="body-text" style={{ fontSize: '16px', marginBottom: '24px' }}>
-                    {t('project.innoconnect.validation.susDesc')}
+                    <CjkText>{t('project.innoconnect.validation.susDesc')}</CjkText>
                   </p>
                   <div className="flex-col-gap-large">
                     <div className="image-wrapper shadow-box p-4 bg-white">
@@ -488,10 +489,10 @@ export default function Innoconnect() {
 
                 <div className="result-card ueq-card" style={{ marginTop: '48px' }}>
                   <div className="result-header">
-                    <h5 className="result-title">{t('project.innoconnect.validation.ueqTitle')}</h5>
+                    <h5 className="result-title"><CjkText>{t('project.innoconnect.validation.ueqTitle')}</CjkText></h5>
                   </div>
                   <p className="body-text" style={{ fontSize: '16px', marginBottom: '24px' }}>
-                    {t('project.innoconnect.validation.ueqDesc')}
+                    <CjkText>{t('project.innoconnect.validation.ueqDesc')}</CjkText>
                   </p>
                   <div className="image-wrapper shadow-box p-4 bg-white" style={{ height: 'auto' }}>
                     <img src={getImage('ueq')} alt={t('project.innoconnect.validation.ueqAlt')} className="full-contain-img" />
@@ -520,30 +521,30 @@ export default function Innoconnect() {
               >
                 <Award size={48} color="hsl(var(--g1))" style={{ flexShrink: 0 }} />
                 <h2 className="section-heading" style={{ margin: 0, lineHeight: 1 }}>
-                  {t('project.innoconnect.impact.heading')}
+                  <CjkText>{t('project.innoconnect.impact.heading')}</CjkText>
                 </h2>
               </div>
               <p className="section-subheading text-center mx-auto mb-12" style={{ maxWidth: '700px' }}>
-                {t('project.innoconnect.impact.title')}
+                <CjkText>{t('project.innoconnect.impact.title')}</CjkText>
               </p>
 
               <div className="outcome-grid">
                 <div className="outcome-card featured">
                   <div className="outcome-icon gold-icon"><Award size={50} /></div>
-                  <h3 className="outcome-title">🏆 {t('project.innoconnect.impact.awardTitle')}</h3>
+                  <h3 className="outcome-title">🏆 <CjkText>{t('project.innoconnect.impact.awardTitle')}</CjkText></h3>
                   <p className="outcome-text">
-                    {t('project.innoconnect.impact.awardDesc')}
+                    <CjkText>{t('project.innoconnect.impact.awardDesc')}</CjkText>
                   </p>
                 </div>
                 <div className="outcome-card">
                   <div className="outcome-icon"><TrendingUp size={40} /></div>
-                  <h3 className="outcome-title">{t('project.innoconnect.impact.engagementTitle')}</h3>
-                  <p className="outcome-text">{t('project.innoconnect.impact.engagementDesc')}</p>
+                  <h3 className="outcome-title"><CjkText>{t('project.innoconnect.impact.engagementTitle')}</CjkText></h3>
+                  <p className="outcome-text"><CjkText>{t('project.innoconnect.impact.engagementDesc')}</CjkText></p>
                 </div>
                 <div className="outcome-card">
                   <div className="outcome-icon"><BarChart3 size={40} /></div>
-                  <h3 className="outcome-title">{t('project.innoconnect.impact.researchTitle')}</h3>
-                  <p className="outcome-text">{t('project.innoconnect.impact.researchDesc')}</p>
+                  <h3 className="outcome-title"><CjkText>{t('project.innoconnect.impact.researchTitle')}</CjkText></h3>
+                  <p className="outcome-text"><CjkText>{t('project.innoconnect.impact.researchDesc')}</CjkText></p>
                 </div>
               </div>
 

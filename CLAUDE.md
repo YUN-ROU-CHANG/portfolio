@@ -38,13 +38,15 @@ Token 分三層，全部定義在 src/styles/globals.css：
 * 稽核判定標籤只用【保留】【收斂】【移除】。 理由若只是「好看」就歸收斂或移除。
 
 文案架構（i18n）
-文案唯一來源是 src/locales/en.json 與 src/locales/zh.json，各 1,393 個 key，結構相同。 改文案編輯 JSON，不要改 component。
+文案唯一來源是 src/locales/en.json 與 src/locales/zh.json，各 1,384 個 key，結構相同。 改文案編輯 JSON，不要改 component。
 
 * src/contexts/LanguageContext.tsx 提供 useLanguage() 的 t(key)、setLocale、locale。
-* zh 缺值或空字串自動 fallback 到 en，key 不存在時回傳 key 本身。
+* zh 的值是空字串會 fallback 到 en（刻意保留英文的專有名詞）；zh 整個 key 不存在則回傳空字串，代表該段中文頁不顯示，元件要自己收掉（`{t(k) && …}` 或陣列 `.filter(Boolean)`）。兩邊都沒有的 key 回傳 key 本身，會直接印在畫面上。
+* 在 en.json 新增 key 時，zh.json 一定要補上同名 key（值可先留空字串），否則那段內容在中文頁會消失。刪內容時兩本字典與元件呼叫要一起刪。
 * 語言偏好存 localStorage key `locale`，並同步 html lang（zh 為 zh-Hant）。
 * 語言切換鈕在 Layout 膠囊導航內，顯示目標語言（中／EN）。
-* zh.json 目前有 89 個 key 是空字串走 fallback，多數為刻意保留英文的專有名詞（Rose Chang、UX Design Awards 等）。
+* zh.json 目前有 86 個 key 是空字串走 fallback，多數為刻意保留英文的專有名詞（Rose Chang、UX Design Awards 等）。
+* 中文斷行一律用 src/components/CjkText.tsx 包住文案（`<CjkText>{t('…')}</CjkText>`），以 props 或變數傳入的文案也要包，否則中文會被攔腰斷詞。元件 CSS 若有 `.x span {…}` 這類後代選擇器要改成 `.x > span`，避免套到 CjkText 的詞 span 上。
 * 以下刻意未抽成 i18n，補抽會壞版或無意義，禁止改動： aria-label（Layout 手機版 CSS 用 button[aria-label="Go back"] 當選擇器掛樣式）、 email、純符號、Photography 的 Go to slide 模板字串、Clock 的 TPE 前綴。
 
 字體

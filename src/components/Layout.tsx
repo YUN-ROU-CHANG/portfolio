@@ -51,7 +51,7 @@ function Clock() {
     return () => clearInterval(id);
   }, []);
   return (
-    <span style={{ color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.08em' }}>
+    <span className="top-clock" style={{ color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.08em' }}>
       {time}
     </span>
   );
@@ -136,7 +136,7 @@ export default function Layout({ children }: LayoutProps) {
         {/* Left: name + clock */}
         <div className="top-left">
           <Link to="/" style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', letterSpacing: '-.01em', textTransform: 'none', color: 'var(--text-primary)', textDecoration: 'none' }}>{t('nav.brand')}</Link>
-          <span style={{ color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.08em' }}>{t('nav.brandSub')}</span>
+          <span className="top-brand-sub" style={{ color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.08em' }}>{t('nav.brandSub')}</span>
           <Clock />
         </div>
 
@@ -224,7 +224,16 @@ export default function Layout({ children }: LayoutProps) {
           box-shadow: 0 2px 12px rgba(12,12,12,0.08);
         }
         
-        .top-left { display: flex; gap: 18px; align-items: center; }
+        .top-left { display: flex; gap: 18px; align-items: center; white-space: nowrap; }
+        .top-right { white-space: nowrap; }
+
+        /* 1fr auto 1fr 讓左右欄等寬。左欄（名字＋ROSE＋時鐘）約 258px，
+           英文右欄（求職狀態＋聯絡我）約 267px，1140px 以下分到的寬度不夠，
+           名字與狀態會被擠成兩行。所以先收掉 ROSE、時鐘與求職狀態，
+           只留名字、膠囊導航與聯絡按鈕；900px 以下整個右欄本來就會收掉。 */
+        @media (max-width: 1140px) {
+          .top-brand-sub, .top-clock, .top-chip { display: none; }
+        }
         
         /* Navigation Capsule */
         .top-mid {

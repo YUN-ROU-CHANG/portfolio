@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
+import CjkText from '../../components/CjkText';
 import { 
   Award, PlayCircle, Palette, Lightbulb, 
   ChevronRight, ExternalLink, Globe, Smartphone
@@ -101,10 +102,10 @@ export default function ProjectArchive() {
             >
               <div className="eyebrow-tag">
                 <Lightbulb size={16} />
-                <span>{t('project.archive.header.eyebrow')}</span>
+                <span><CjkText>{t('project.archive.header.eyebrow')}</CjkText></span>
               </div>
-              <h1 className="hero-title">{t('project.archive.header.title')}</h1>
-              <p className="hero-subtitle">{t('project.archive.header.subtitle')}</p>
+              <h1 className="hero-title"><CjkText>{t('project.archive.header.title')}</CjkText></h1>
+              <p className="hero-subtitle"><CjkText>{t('project.archive.header.subtitle')}</CjkText></p>
             </motion.div>
 
             {/* Filter Tabs */}
@@ -167,17 +168,17 @@ export default function ProjectArchive() {
                       <div className="card-header">
                         <div className="project-type">
                           {project.icon}
-                          <span>{project.type}</span>
+                          <span><CjkText>{project.type}</CjkText></span>
                         </div>
                         <a href={project.link} target="_blank" rel="noopener noreferrer" className="external-link-btn" aria-label="View Project">
                           <ExternalLink size={18} />
                         </a>
                       </div>
 
-                      <h3 className="project-title">{project.title}</h3>
-                      <div className="project-role">{project.role}</div>
+                      <h3 className="project-title"><CjkText>{project.title}</CjkText></h3>
+                      <div className="project-role"><CjkText>{project.role}</CjkText></div>
                       
-                      <p className="project-pitch">{project.pitch}</p>
+                      <p className="project-pitch"><CjkText>{project.pitch}</CjkText></p>
 
                       {/* 技能標籤區 */}
                       <div className="skill-tags">

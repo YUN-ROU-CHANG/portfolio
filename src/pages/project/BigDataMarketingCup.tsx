@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
+import CjkText from '../../components/CjkText';
 import { 
   Trophy, Database, Target, TrendingUp, 
   Smartphone, Activity, Lightbulb, Users, 
@@ -46,34 +47,34 @@ export default function BigDataMarketingCup() {
                     <Trophy size={24} />
                   </div>
                   <div className="badge-content">
-                    <div className="badge-title">{t('project.bigDataCup.hero.badge')}</div>
-                    <div className="badge-subtitle">{t('project.bigDataCup.hero.badgeSub')}</div>
+                    <div className="badge-title"><CjkText>{t('project.bigDataCup.hero.badge')}</CjkText></div>
+                    <div className="badge-subtitle"><CjkText>{t('project.bigDataCup.hero.badgeSub')}</CjkText></div>
                   </div>
                 </div>
               </div>
               
               <h1 className="hero-title">
-                {t('project.bigDataCup.hero.title')}
+                <CjkText>{t('project.bigDataCup.hero.title')}</CjkText>
               </h1>
               
               <p className="hero-subtitle">
-                {t('project.bigDataCup.hero.desc')}
+                <CjkText>{t('project.bigDataCup.hero.desc')}</CjkText>
               </p>
 
               <div className="hero-details">
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.bigDataCup.hero.clientLabel')}</span>
-                  <span className="detail-value">{t('project.bigDataCup.hero.clientValue')}</span>
+                  <span className="detail-label"><CjkText>{t('project.bigDataCup.hero.clientLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.bigDataCup.hero.clientValue')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.bigDataCup.hero.roleLabel')}</span>
-                  <span className="detail-value">{t('project.bigDataCup.hero.roleValue')}</span>
-                  <span className="detail-sub">{t('project.bigDataCup.hero.roleSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.bigDataCup.hero.roleLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.bigDataCup.hero.roleValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.bigDataCup.hero.roleSub')}</CjkText></span>
                 </div>
                 <div className="detail-item">
-                  <span className="detail-label">{t('project.bigDataCup.hero.scopeLabel')}</span>
-                  <span className="detail-value">{t('project.bigDataCup.hero.scopeValue')}</span>
-                  <span className="detail-sub">{t('project.bigDataCup.hero.scopeSub')}</span>
+                  <span className="detail-label"><CjkText>{t('project.bigDataCup.hero.scopeLabel')}</CjkText></span>
+                  <span className="detail-value"><CjkText>{t('project.bigDataCup.hero.scopeValue')}</CjkText></span>
+                  <span className="detail-sub"><CjkText>{t('project.bigDataCup.hero.scopeSub')}</CjkText></span>
                 </div>
               </div>
             </motion.div>
@@ -94,25 +95,25 @@ export default function BigDataMarketingCup() {
               <div className="column-content">
                 <div className="section-header-sm">
                   <Target size={24} color="var(--red-ink)" />
-                  <h2 className="section-heading-sm">{t('project.bigDataCup.challenge.heading')}</h2>
+                  <h2 className="section-heading-sm"><CjkText>{t('project.bigDataCup.challenge.heading')}</CjkText></h2>
                 </div>
                 <p className="body-text">
-                  {t('project.bigDataCup.challenge.desc')}
+                  <CjkText>{t('project.bigDataCup.challenge.desc')}</CjkText>
                 </p>
                 <div className="impact-tag" style={{ marginTop: '24px', display: 'inline-block' }}>
-                  {t('project.bigDataCup.challenge.goal')}
+                  <CjkText>{t('project.bigDataCup.challenge.goal')}</CjkText>
                 </div>
               </div>
 
               <div className="column-content gray-box">
                 <div className="section-header-sm">
                   <Database size={24} color="var(--red-ink)" />
-                  <h2 className="section-heading-sm">{t('project.bigDataCup.insights.heading')}</h2>
+                  <h2 className="section-heading-sm"><CjkText>{t('project.bigDataCup.insights.heading')}</CjkText></h2>
                 </div>
                 <ul className="objective-list">
-                  <li><strong>{t('project.bigDataCup.insights.i1label')}</strong> {t('project.bigDataCup.insights.i1desc')}</li>
-                  <li><strong>{t('project.bigDataCup.insights.i2label')}</strong> {t('project.bigDataCup.insights.i2desc')}</li>
-                  <li><strong>{t('project.bigDataCup.insights.i3label')}</strong> {t('project.bigDataCup.insights.i3desc')}</li>
+                  <li><strong><CjkText>{t('project.bigDataCup.insights.i1label')}</CjkText></strong> <CjkText>{t('project.bigDataCup.insights.i1desc')}</CjkText></li>
+                  <li><strong><CjkText>{t('project.bigDataCup.insights.i2label')}</CjkText></strong> <CjkText>{t('project.bigDataCup.insights.i2desc')}</CjkText></li>
+                  <li><strong><CjkText>{t('project.bigDataCup.insights.i3label')}</CjkText></strong> <CjkText>{t('project.bigDataCup.insights.i3desc')}</CjkText></li>
                 </ul>
               </div>
             </div>
@@ -127,26 +128,26 @@ export default function BigDataMarketingCup() {
         <section className="content-section reveal" style={{ background: 'color-mix(in srgb, #F43F5E 8%, var(--surface))' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="text-center" style={{ marginBottom: '64px' }}>
-              <h2 className="section-heading">{t('project.bigDataCup.strategy.heading')}</h2>
-              <p className="section-subheading">{t('project.bigDataCup.strategy.desc')}</p>
+              <h2 className="section-heading"><CjkText>{t('project.bigDataCup.strategy.heading')}</CjkText></h2>
+              <p className="section-subheading"><CjkText>{t('project.bigDataCup.strategy.desc')}</CjkText></p>
             </div>
 
             <div className="strategy-grid">
               <div className="strategy-card">
                 <div className="card-number">01</div>
                 <div className="card-icon-wrapper"><Lightbulb size={28} /></div>
-                <h3 className="card-title">{t('project.bigDataCup.strategy.s1title')}</h3>
+                <h3 className="card-title"><CjkText>{t('project.bigDataCup.strategy.s1title')}</CjkText></h3>
                 <p className="card-text">
-                  {t('project.bigDataCup.strategy.s1a')}<strong>{t('project.bigDataCup.strategy.s1em')}</strong>{t('project.bigDataCup.strategy.s1b')}
+                  <CjkText>{t('project.bigDataCup.strategy.s1a')}</CjkText><strong><CjkText>{t('project.bigDataCup.strategy.s1em')}</CjkText></strong><CjkText>{t('project.bigDataCup.strategy.s1b')}</CjkText>
                 </p>
               </div>
 
               <div className="strategy-card">
                 <div className="card-number">02</div>
                 <div className="card-icon-wrapper"><Crosshair size={28} /></div>
-                <h3 className="card-title">{t('project.bigDataCup.strategy.s2title')}</h3>
+                <h3 className="card-title"><CjkText>{t('project.bigDataCup.strategy.s2title')}</CjkText></h3>
                 <p className="card-text">
-                  {t('project.bigDataCup.strategy.s2desc')}
+                  <CjkText>{t('project.bigDataCup.strategy.s2desc')}</CjkText>
                 </p>
               </div>
 
@@ -154,18 +155,18 @@ export default function BigDataMarketingCup() {
                 <div className="card-number">03</div>
                 <div className="card-number-alt" style={{ display: 'none' }}>03</div>
                 <div className="card-icon-wrapper"><Repeat size={28} /></div>
-                <h3 className="card-title">{t('project.bigDataCup.strategy.s3title')}</h3>
+                <h3 className="card-title"><CjkText>{t('project.bigDataCup.strategy.s3title')}</CjkText></h3>
                 <p className="card-text">
-                  {t('project.bigDataCup.strategy.s3desc')}
+                  <CjkText>{t('project.bigDataCup.strategy.s3desc')}</CjkText>
                 </p>
               </div>
 
               <div className="strategy-card highlight">
                 <div className="card-number">04</div>
                 <div className="card-icon-wrapper"><Smartphone size={28} /></div>
-                <h3 className="card-title">{t('project.bigDataCup.strategy.s4title')}</h3>
+                <h3 className="card-title"><CjkText>{t('project.bigDataCup.strategy.s4title')}</CjkText></h3>
                 <p className="card-text">
-                  {t('project.bigDataCup.strategy.s4a')}<strong>{t('project.bigDataCup.strategy.s4em')}</strong>{t('project.bigDataCup.strategy.s4b')}
+                  <CjkText>{t('project.bigDataCup.strategy.s4a')}</CjkText><strong><CjkText>{t('project.bigDataCup.strategy.s4em')}</CjkText></strong><CjkText>{t('project.bigDataCup.strategy.s4b')}</CjkText>
                 </p>
               </div>
             </div>
@@ -176,10 +177,10 @@ export default function BigDataMarketingCup() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="text-center" style={{ marginBottom: '48px' }}>
-              <div className="badge-inline">{t('project.bigDataCup.app.heading')}</div>
-              <h2 className="section-heading" style={{ marginTop: '16px' }}>{t('project.bigDataCup.strategy.s4em')}</h2>
+              <div className="badge-inline"><CjkText>{t('project.bigDataCup.app.heading')}</CjkText></div>
+              <h2 className="section-heading" style={{ marginTop: '16px' }}><CjkText>{t('project.bigDataCup.strategy.s4em')}</CjkText></h2>
               <p className="section-subheading" style={{ maxWidth: '800px', margin: '0 auto' }}>
-                {t('project.bigDataCup.app.desc')}
+                <CjkText>{t('project.bigDataCup.app.desc')}</CjkText>
               </p>
             </div>
 
@@ -191,8 +192,8 @@ export default function BigDataMarketingCup() {
                   {/* Replace this placeholder with <img src="/path/to/台畜健身APP start page.png" /> */}
                   <img src={bp[5]} alt={t('project.bigDataCup.app.s1alt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
                 </div>
-                <h4 className="screen-title">{t('project.bigDataCup.app.s1title')}</h4>
-                <p className="screen-desc">{t('project.bigDataCup.app.s1desc')}</p>
+                <h4 className="screen-title"><CjkText>{t('project.bigDataCup.app.s1title')}</CjkText></h4>
+                <p className="screen-desc"><CjkText>{t('project.bigDataCup.app.s1desc')}</CjkText></p>
               </div>
 
               {/* Screen 2: Home */}
@@ -201,8 +202,8 @@ export default function BigDataMarketingCup() {
                   {/* Replace this placeholder with <img src="/path/to/台畜健身APP home.jpg" /> */}
                   <img src={bp[1]} alt={t('project.bigDataCup.app.s2alt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
                 </div>
-                <h4 className="screen-title">{t('project.bigDataCup.app.s2title')}</h4>
-                <p className="screen-desc">{t('project.bigDataCup.app.s2desc')}</p>
+                <h4 className="screen-title"><CjkText>{t('project.bigDataCup.app.s2title')}</CjkText></h4>
+                <p className="screen-desc"><CjkText>{t('project.bigDataCup.app.s2desc')}</CjkText></p>
               </div>
 
               {/* Screen 3: Plan */}
@@ -211,8 +212,8 @@ export default function BigDataMarketingCup() {
                   {/* Replace this placeholder with <img src="/path/to/台畜健身APP plan.jpg" /> */}
                   <img src={bp[3]} alt={t('project.bigDataCup.app.s3alt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
                 </div>
-                <h4 className="screen-title">{t('project.bigDataCup.app.s3title')}</h4>
-                <p className="screen-desc">{t('project.bigDataCup.app.s3desc')}</p>
+                <h4 className="screen-title"><CjkText>{t('project.bigDataCup.app.s3title')}</CjkText></h4>
+                <p className="screen-desc"><CjkText>{t('project.bigDataCup.app.s3desc')}</CjkText></p>
               </div>
 
               {/* Screen 4: Social */}
@@ -221,8 +222,8 @@ export default function BigDataMarketingCup() {
                   {/* Replace this placeholder with <img src="/path/to/台畜健身APP social.jpg" /> */}
                   <img src={bp[4]} alt={t('project.bigDataCup.app.s4alt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
                 </div>
-                <h4 className="screen-title">{t('project.bigDataCup.app.s4title')}</h4>
-                <p className="screen-desc">{t('project.bigDataCup.app.s4desc')}</p>
+                <h4 className="screen-title"><CjkText>{t('project.bigDataCup.app.s4title')}</CjkText></h4>
+                <p className="screen-desc"><CjkText>{t('project.bigDataCup.app.s4desc')}</CjkText></p>
               </div>
 
               {/* Screen 5: Personal Page */}
@@ -231,8 +232,8 @@ export default function BigDataMarketingCup() {
                   {/* Replace this placeholder with <img src="/path/to/台畜健身APP personal page.jpg" /> */}
                   <img src={bp[2]} alt={t('project.bigDataCup.app.s5alt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
                 </div>
-                <h4 className="screen-title">{t('project.bigDataCup.app.s5title')}</h4>
-                <p className="screen-desc">{t('project.bigDataCup.app.s5desc')}</p>
+                <h4 className="screen-title"><CjkText>{t('project.bigDataCup.app.s5title')}</CjkText></h4>
+                <p className="screen-desc"><CjkText>{t('project.bigDataCup.app.s5desc')}</CjkText></p>
               </div>
             </div>
           </div>
@@ -243,21 +244,21 @@ export default function BigDataMarketingCup() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="impact-banner">
               <div className="banner-content">
-                <h2 className="banner-title">{t('project.bigDataCup.impact.heading')}</h2>
+                <h2 className="banner-title"><CjkText>{t('project.bigDataCup.impact.heading')}</CjkText></h2>
                 <div className="metrics-row">
                   <div className="metric-box">
                     <div className="metric-icon"><Trophy size={40} color="white" /></div>
-                    <div className="metric-number">{t('project.bigDataCup.impact.m1num')}</div>
-                    <div className="metric-label">{t('project.bigDataCup.impact.m1label')}</div>
+                    <div className="metric-number"><CjkText>{t('project.bigDataCup.impact.m1num')}</CjkText></div>
+                    <div className="metric-label"><CjkText>{t('project.bigDataCup.impact.m1label')}</CjkText></div>
                   </div>
                   <div className="metric-box">
                     <div className="metric-icon"><Layers size={40} color="white" /></div>
-                    <div className="metric-number">{t('project.bigDataCup.impact.m2num')}</div>
-                    <div className="metric-label">{t('project.bigDataCup.impact.m2label')}</div>
+                    <div className="metric-number"><CjkText>{t('project.bigDataCup.impact.m2num')}</CjkText></div>
+                    <div className="metric-label"><CjkText>{t('project.bigDataCup.impact.m2label')}</CjkText></div>
                   </div>
                 </div>
                 <p className="banner-footer-text">
-                  {t('project.bigDataCup.impact.judgesDesc')}
+                  <CjkText>{t('project.bigDataCup.impact.judgesDesc')}</CjkText>
                 </p>
               </div>
             </div>
