@@ -85,12 +85,6 @@ export default function HCIPublications() {
         </section>
 
 
-        <div style={{maxWidth:'1200px',margin:'0 auto',padding:'0 var(--space-4)'}}>
-          <img src={hp[2]} alt={t('project.hciPublications.gcce.photoAlt')}
-            loading="lazy"
-            style={{width:'100%',height:'auto',borderRadius:'8px',border:'1px solid rgba(12,12,12,.08)',display:'block',marginTop:'24px',marginBottom:'32px'}} />
-        </div>
-
         {/* Paper 1: IEEE GCCE */}
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
