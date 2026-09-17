@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
@@ -7,7 +7,7 @@ import CjkText from '../../components/CjkText';
 import { 
   BookOpen, Mic, Activity, BarChart3, 
   Music, Users, BrainCircuit, Lightbulb,
-  Award, Target, ChevronRight
+  Award, Target, ChevronRight, Maximize2, X
 } from 'lucide-react';
 
 
@@ -20,6 +20,7 @@ const hp = Object.values(hciPhotos) as string[];
 export default function HCIPublications() {
   const { t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setShowTop(window.scrollY > 300);
@@ -32,6 +33,25 @@ export default function HCIPublications() {
   return (
     <Layout>
       <div id="hci-publications-page">
+        <AnimatePresence>
+          {lightboxImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="lightbox-overlay"
+              onClick={() => setLightboxImage(null)}
+            >
+              <button className="lightbox-close" onClick={() => setLightboxImage(null)}>
+                <X size={32} />
+              </button>
+              <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+                <img src={lightboxImage} alt={t('common.enlargedView')} />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Hero Section */}
         <section className="hero-section">
           <div className="container" style={{ maxWidth: '1200px' }}>
@@ -86,12 +106,12 @@ export default function HCIPublications() {
               <div className="paper-grid">
                 {/* Left Column: Summary & Methods */}
                 <div className="paper-main">
-                  <h3 className="section-heading-sm"><CjkText>{t('project.hciPublications.labels.challenge')}</CjkText></h3>
+                  <h3 className="section-heading-sm"><span><CjkText>{t('project.hciPublications.labels.challenge')}</CjkText></span></h3>
                   <p className="body-text">
                     <CjkText>{t('project.hciPublications.gcce.challenge')}</CjkText>
                   </p>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><CjkText>{t('project.hciPublications.labels.methodology')}</CjkText></h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><span><CjkText>{t('project.hciPublications.labels.methodology')}</CjkText></span></h3>
                   <ul className="method-list">
                     <li>
                       <Activity size={20} />
@@ -107,14 +127,31 @@ export default function HCIPublications() {
                     </li>
                   </ul>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><CjkText>{t('project.hciPublications.labels.findings')}</CjkText></h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><span><CjkText>{t('project.hciPublications.labels.findings')}</CjkText></span></h3>
                   <div className="findings-box">
                     <p className="body-text" style={{ marginBottom: 0 }}>
                       <CjkText>{t('project.hciPublications.gcce.findings')}</CjkText>
                     </p>
                   </div>
+
                 </div>
 
+
+                {/* Right Column: Visuals & Implications */}
+                <div className="paper-sidebar">
+                  <div className="visual-asset">
+                    <div
+                      className="fig-figure interactive-image-area"
+                      onClick={() => setLightboxImage(hp[1])}
+                    >
+                      <img src={hp[1]} alt={t('project.hciPublications.gcce.figAlt')} loading="lazy" />
+                      <div className="expand-hint">
+                        <Maximize2 size={18} />
+                        <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
+                      </div>
+                    </div>
+                    <p className="image-caption"><CjkText>{t('project.hciPublications.gcce.figCaption')}</CjkText></p>
+                  </div>
 
                   <a href="https://ieeexplore.ieee.org/document/11275196"
                     target="_blank" rel="noopener noreferrer"
@@ -132,22 +169,19 @@ export default function HCIPublications() {
                     </div>
                   </a>
 
-                {/* Right Column: Visuals & Implications */}
-                <div className="paper-sidebar">
-                  <div className="visual-asset">
-                    {/* Placeholder for "flow chart.jpg" (Fig 2 in PDF) */}
-                    <img src={hp[1]} alt={t('project.hciPublications.gcce.figAlt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}} />
-                    <p className="image-caption"><CjkText>{t('project.hciPublications.gcce.figCaption')}</CjkText></p>
-                  </div>
-
-                  <div className="implication-card">
-                    <div className="card-icon"><Lightbulb size={24} /></div>
-                    <h4 className="card-title"><CjkText>{t('project.hciPublications.labels.implications')}</CjkText></h4>
-                    <p className="card-text">
-                      <CjkText>{t('project.hciPublications.gcce.implications')}</CjkText>
-                    </p>
-                  </div>
                 </div>
+              </div>
+
+              {/* 設計啟示是這篇的收斂，放在側欄只有 396px 寬，字被擠成細長一條。
+                  搬到 grid 下方獨立成整列。 */}
+              <div className="implication-card">
+                <div className="implication-head">
+                  <span className="card-icon"><Lightbulb size={24} /></span>
+                  <h4 className="card-title"><CjkText>{t('project.hciPublications.labels.implications')}</CjkText></h4>
+                </div>
+                <p className="card-text">
+                  <CjkText>{t('project.hciPublications.gcce.implications')}</CjkText>
+                </p>
               </div>
             </div>
           </div>
@@ -168,12 +202,12 @@ export default function HCIPublications() {
               <div className="paper-grid reverse-layout">
                 {/* Left Column: Methods & Findings */}
                 <div className="paper-main">
-                  <h3 className="section-heading-sm"><CjkText>{t('project.hciPublications.labels.challenge')}</CjkText></h3>
+                  <h3 className="section-heading-sm"><span><CjkText>{t('project.hciPublications.labels.challenge')}</CjkText></span></h3>
                   <p className="body-text">
                     <CjkText>{t('project.hciPublications.ssim.challenge')}</CjkText>
                   </p>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><CjkText>{t('project.hciPublications.labels.methodology')}</CjkText></h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><span><CjkText>{t('project.hciPublications.labels.methodology')}</CjkText></span></h3>
                   <ul className="method-list">
                     <li>
                       <Users size={20} />
@@ -189,7 +223,7 @@ export default function HCIPublications() {
                     </li>
                   </ul>
 
-                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><CjkText>{t('project.hciPublications.labels.findings')}</CjkText></h3>
+                  <h3 className="section-heading-sm" style={{ marginTop: '32px' }}><span><CjkText>{t('project.hciPublications.labels.findings')}</CjkText></span></h3>
                   <div className="findings-box">
                     <p className="body-text" style={{ marginBottom: 0 }}>
                       <CjkText>{t('project.hciPublications.ssim.findings')}</CjkText>
@@ -200,19 +234,32 @@ export default function HCIPublications() {
                 {/* Right Column: Visuals & Implications */}
                 <div className="paper-sidebar">
                   <div className="visual-asset">
-                    {/* Placeholder for Workflow Image */}
-                    <img src={hp[0]} alt={t('project.hciPublications.ssim.figAlt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
+                    <div
+                      className="fig-figure interactive-image-area"
+                      onClick={() => setLightboxImage(hp[0])}
+                    >
+                      <img src={hp[0]} alt={t('project.hciPublications.ssim.figAlt')} loading="lazy" />
+                      <div className="expand-hint">
+                        <Maximize2 size={18} />
+                        <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
+                      </div>
+                    </div>
                     <p className="image-caption"><CjkText>{t('project.hciPublications.ssim.figCaption')}</CjkText></p>
                   </div>
 
-                  <div className="implication-card">
-                    <div className="card-icon"><Music size={24} /></div>
-                    <h4 className="card-title"><CjkText>{t('project.hciPublications.labels.implications')}</CjkText></h4>
-                    <p className="card-text">
-                      <CjkText>{t('project.hciPublications.ssim.implications')}</CjkText>
-                    </p>
-                  </div>
                 </div>
+              </div>
+
+              {/* 設計啟示是這篇的收斂，放在側欄只有 396px 寬，字被擠成細長一條。
+                  搬到 grid 下方獨立成整列。 */}
+              <div className="implication-card">
+                <div className="implication-head">
+                  <span className="card-icon"><Music size={24} /></span>
+                  <h4 className="card-title"><CjkText>{t('project.hciPublications.labels.implications')}</CjkText></h4>
+                </div>
+                <p className="card-text">
+                  <CjkText>{t('project.hciPublications.ssim.implications')}</CjkText>
+                </p>
               </div>
             </div>
           </div>
@@ -355,14 +402,15 @@ export default function HCIPublications() {
           }
 
           /* Grid Layout */
+          /* 兩欄等寬：右欄原本只有 0.8fr，流程圖被壓得很小，左欄又長出一截。 */
           .paper-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1fr 1fr;
             gap: 64px;
           }
 
           .paper-grid.reverse-layout {
-            grid-template-columns: 0.8fr 1.2fr;
+            grid-template-columns: 1fr 1fr;
           }
           
           .paper-grid.reverse-layout .paper-main {
@@ -371,6 +419,55 @@ export default function HCIPublications() {
           .paper-grid.reverse-layout .paper-sidebar {
             order: 1;
           }
+
+          .fig-figure {
+            position: relative;
+            width: 100%;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--card);
+            border: 1px solid var(--border);
+          }
+          .fig-figure img { width: 100%; height: auto; display: block; }
+          .interactive-image-area {
+            cursor: zoom-in;
+            transition: transform .3s ease, box-shadow .3s ease;
+          }
+          .interactive-image-area:hover {
+            transform: scale(1.01);
+            box-shadow: 0 16px 36px color-mix(in srgb, var(--text-primary) 16%, transparent);
+          }
+          .expand-hint {
+            position: absolute;
+            top: 12px; right: 12px;
+            background-color: var(--card-glass);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 8px 12px;
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--text-primary);
+            font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 0.55;
+            transition: opacity .2s ease, transform .2s ease;
+          }
+          .expand-hint__label { display: none; }
+          .interactive-image-area:hover .expand-hint { opacity: 1; transform: scale(1.06); }
+          .interactive-image-area:hover .expand-hint__label { display: inline; }
+
+          .lightbox-overlay {
+            position: fixed; inset: 0; z-index: 1000;
+            background: rgba(12,12,12,.9);
+            display: flex; align-items: center; justify-content: center;
+            padding: 40px; cursor: zoom-out;
+          }
+          .lightbox-close {
+            position: absolute; top: 24px; right: 24px;
+            background: none; border: none; color: #fff; cursor: pointer;
+          }
+          .lightbox-content { max-width: 100%; max-height: 100%; cursor: default; }
+          .lightbox-content img { max-width: 100%; max-height: 85vh; object-fit: contain; display: block; }
 
           /* Typography inside papers */
 
@@ -441,7 +538,7 @@ export default function HCIPublications() {
           }
 
           .image-caption {
-            font-size: 13px;
+            font-size: 15px;
             color: var(--text-tertiary);
             margin-top: 12px;
             text-align: center;
@@ -450,8 +547,9 @@ export default function HCIPublications() {
 
           /* Implication Card */
           .implication-card {
+            margin-top: 48px;
             background: rgb(var(--brand-dark));
-            padding: 32px;
+            padding: 32px 40px;
             border-radius: 16px;
             color: white;
             position: relative;
@@ -465,22 +563,29 @@ export default function HCIPublications() {
             background: linear-gradient(90deg, #3B82F6, #10B981);
           }
 
+          /* icon 原本自成一行，標題另起一行，兩者對不齊。改成同一列垂直置中。 */
+          .implication-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+          }
           .card-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 48px;
             height: 48px;
+            flex-shrink: 0;
             background: rgba(255,255,255,0.1);
             border-radius: 12px;
-            margin-bottom: 20px;
             color: #60A5FA;
           }
 
           .card-title {
             font-size: 18px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin: 0;
           }
 
           .card-text {

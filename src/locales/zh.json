@@ -13,6 +13,7 @@
   },
   "common": {
     "certificate": "證書",
+    "clickToZoom": "點擊放大",
     "enlargedView": "圖片放大檢視",
     "explore": "看更多 →"
   },
@@ -200,7 +201,7 @@
         "tag": "睡眠拖延研究",
         "titleLine1": "從實際睡前行為",
         "titleLine2": "獲得真實數據",
-        "desc": "睡眠拖延的混合方法研究，從前導研究、受測者招募到實驗 App 製作，於 App 內收集使用者行為數據與問卷回覆，並進行統計驗證分析。",
+        "desc": "睡眠拖延的混合方法研究，從前導研究、受測者招募到實驗 App 製作，於 App 內收集使用者行為數據與問卷回覆，並進行統計驗證分析。使用 Notion 進行專案管理",
         "imgAlt": "研究管理 Notion 畫面",
         "stat1a": "位受測者",
         "stat2a": "套驗證量表",
@@ -218,9 +219,9 @@
       },
       "uiDesign": {
         "tag": "完整 UI/UX 設計流程",
-        "titleLine1": "不只畫畫面，",
-        "titleLine2": "更建立設計系統",
-        "desc": "完整 Figma 工作流，從線框圖一路做到設計 token 與互動原型。",
+        "titleLine1": "熟悉 Figma 工作流，",
+        "titleLine2": "從線框圖到互動原型",
+        "desc": "完整 Figma 工作流，從線框圖做到設計 token 與互動原型。",
         "imgAlt": "Figma UI 設計畫面",
         "pill1": "線框圖",
         "pill2": "設計系統",
@@ -228,16 +229,16 @@
         "pill4": "互動原型"
       },
       "ai": {
-        "tag": "AI 增幅",
-        "titleLine1": "不只研究 AI，",
-        "titleLine2": "更用 AI 做設計",
-        "desc": "這個作品集就是用 AI 協作開發完成的。帶過 10 人團隊的 AI 創意工具內訓，也在 IEEE GCCE 2025 發表 AI 語音研究。",
+        "tag": "AI 工具協作",
+        "titleLine1": "研究 AI，",
+        "titleLine2": "也用 AI 做產品設計",
+        "desc": "作品集使用 AI 協作開發。過去曾教 10 人企劃團隊進行 AI 創意工具內訓，也在 IEEE GCCE 2025 發表 AI 語音應用之研究。",
         "imgAlt": "AI 協作開發畫面"
       },
       "crossFunc": {
         "tag": "跨職能協作",
-        "titleLine1": "一個人，",
-        "titleLine2": "說很多種語言",
+        "titleLine1": "與設計師、工程師",
+        "titleLine2": "跨職能溝通",
         "desc": "在研究、設計、商業與利害關係人之間流暢切換語言。",
         "imgAlt": "跨職能協作照片",
         "stat1a": "位 KOL 關係",
@@ -250,29 +251,29 @@
     "values": {
       "heading": "價值",
       "clarity": {
-        "title": "在混亂中找清晰",
+        "title": "讓複雜的資訊轉變為易懂的內容",
         "lead": "把複雜資訊整理成可執行的計畫。",
-        "desc": "仔細記錄過程，不讓任何洞察流失，也讓利害關係人對方向有共識。"
+        "desc": "清晰紀錄會議過程，提供會議洞察，讓利害關係人對方向有共識。"
       },
       "curiosity": {
-        "title": "用好奇心驅動",
-        "lead": "擁抱新事物，優化現在的做法。",
-        "desc": "主動把新技術接進實際工作流，幫團隊做得更聰明。"
+        "title": "好奇心與創新",
+        "lead": "擁抱與學習新事物，優化工作流程。",
+        "desc": "主動把新技術（如：AI 相關工具）應用到實際工作流，提升工作效率。"
       },
       "resilience": {
         "title": "韌性與同理",
-        "lead": "營造正向的協作環境。",
-        "desc": "帶著韌性與溫度合作，確保使用者的需求被聽見，團隊士氣也顧得住。"
+        "lead": "正向性格（always look at the bright side），總是團隊的支柱。",
+        "desc": "帶著韌性與溫度合作，確保使用者與團隊成員的需求被聽見。"
       },
       "hardware": {
-        "title": "硬體遇上介面",
-        "lead": "著迷於實體產品與數位體驗的交會。",
-        "desc": "從車用 UX 到穿戴裝置，我想在限制最多的嵌入式場景做設計，因為限制往往逼出最有創意的解法。"
+        "title": "提升產品體驗",
+        "lead": "著迷於提升產品數位體驗。",
+        "desc": "透過使用者研究、User Journey Map、使用者訪談等方法，深入了解使用者需求，並設計出更符合使用者期望的產品體驗。"
       }
     },
     "offClock": {
       "heading": "工作之外",
-      "sub": "不做設計的時候，我在探索新的媒材。",
+      "sub": "不做設計的時候，我透過不同的方式探索新的媒材。",
       "photography": {
         "title": "攝影",
         "desc": "捕捉日常的瞬間、質地與光線。攝影讓我對構圖和細節更敏銳，也回饋到設計工作上。",
@@ -1067,6 +1068,8 @@
       "impact": {
         "heading": "肯定與團隊成果",
         "title": "得獎展示與展覽邀請",
+        "validationHeading": "外部驗證",
+        "validationTitle": "OpenHCI '25 Best Demo，並獲邀於 TAICHI 展出",
         "taichiDesc": "獲選於 TAICHI Demo 展出，該展匯集前沿的 HCI 研究與原型。",
         "awardsAlt": "得獎照片",
         "teamTitle": "團隊合作",

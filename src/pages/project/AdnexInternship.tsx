@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import CjkText from '../../components/CjkText';
+import FlowLabel from '../../components/FlowLabel';
 import {
   TrendingUp, Users, Bot, FileSpreadsheet,
   Megaphone, Target, BarChart3, Presentation,
@@ -107,9 +108,10 @@ export default function AdnexInternship() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="two-column-layout">
               <div className="column-content">
+                <FlowLabel beat="problem" />
                 <div className="section-header-sm">
                   <Target size={24} color="var(--blue-ink)" />
-                  <h2 className="section-heading-sm"><CjkText>{t('project.adnex.challenge.heading')}</CjkText></h2>
+                  <h2 className="section-heading-sm"><span><CjkText>{t('project.adnex.challenge.heading')}</CjkText></span></h2>
                 </div>
                 <p className="body-text">
                   <CjkText>{t('project.adnex.challenge.desc')}</CjkText>
@@ -119,7 +121,7 @@ export default function AdnexInternship() {
               <div className="column-content gray-box">
                 <div className="section-header-sm">
                   <Megaphone size={24} color="var(--blue-ink)" />
-                  <h2 className="section-heading-sm"><CjkText>{t('project.adnex.objectives.heading')}</CjkText></h2>
+                  <h2 className="section-heading-sm"><span><CjkText>{t('project.adnex.objectives.heading')}</CjkText></span></h2>
                 </div>
                 <ul className="objective-list">
                   <li><strong><CjkText>{t('project.adnex.objectives.o1label')}</CjkText></strong> <CjkText>{t('project.adnex.objectives.o1desc')}</CjkText></li>
@@ -135,6 +137,7 @@ export default function AdnexInternship() {
         {/* Key Initiatives & Actions */}
         <section className="content-section reveal" style={{ background: 'var(--surface)' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
+            <div className="text-center"><FlowLabel beat="solution" /></div>
             <h2 className="section-heading text-center" style={{ marginBottom: '64px' }}>
               <CjkText>{t('project.adnex.execution.heading')}</CjkText>
             </h2>
@@ -238,6 +241,7 @@ export default function AdnexInternship() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="impact-banner">
               <div className="banner-content">
+                <FlowLabel beat="outcome" />
                 <h2 className="banner-title"><CjkText>{t('project.adnex.impact.heading')}</CjkText></h2>
                 <div className="metrics-row">
                   <div className="metric-box">
@@ -336,7 +340,7 @@ export default function AdnexInternship() {
           }
           .image-caption {
             margin-top: 16px;
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-gray);
             text-align: center;
             font-weight: 500;
@@ -541,22 +545,17 @@ export default function AdnexInternship() {
           }
 
           /* Impact Banner */
+          /* 2026/09：原本是實色飽和底配白字，標題卻吃到深色而掉到 3.1:1。
+             改成粉彩底加 ink 文字，色相保留、明度自適應，對比一次拉到 15:1 以上。 */
           .impact-banner {
-            background: var(--blue-primary);
+            background: var(--blue-light);
+            border: 1px solid var(--border);
             border-radius: 24px;
             padding: 64px 40px;
-            color: white;
+            color: var(--text-primary);
             text-align: center;
             position: relative;
             overflow: hidden;
-          }
-
-          .impact-banner::after {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
-            pointer-events: none;
           }
 
           .banner-title {
@@ -587,13 +586,13 @@ export default function AdnexInternship() {
             font-size: 48px;
             font-weight: 800;
             line-height: 1;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: var(--blue-ink);
           }
 
           .metric-label {
             font-size: 15px;
             font-weight: 500;
-            opacity: 0.9;
+            color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
           }
@@ -602,9 +601,9 @@ export default function AdnexInternship() {
             margin-top: 6px;
             max-width: 22ch;
             font-family: var(--font-mono);
-            font-size: 12px;
+            font-size: 13px;
             line-height: 1.5;
-            opacity: 0.72;
+            color: var(--text-tertiary);
           }
 
           /* Responsive */

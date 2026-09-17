@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import CjkText from '../../components/CjkText';
+import FlowLabel from '../../components/FlowLabel';
 import { 
   Trophy, Database, Target, TrendingUp, 
   Smartphone, Activity, Lightbulb, Users, 
-  Crosshair, Repeat, Layers
+  Crosshair, Repeat, Layers, Maximize2, X
 } from 'lucide-react';
 
 
@@ -15,11 +16,18 @@ const bigDataPhotos = import.meta.glob(
   '../../assets/images/project/BigDataMarketingCup/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
   { eager: true, import: 'default' }
 );
-const bp = Object.values(bigDataPhotos) as string[];
+// 原本用 bp[0]、bp[5] 這種位置索引取圖，資料夾一增刪檔案整排就錯位。
+// 改成用檔名查，檔案怎麼排都不受影響。
+const getImage = (fileName: string) => {
+  const target = `/${fileName.toLowerCase()}.`;
+  const hit = Object.entries(bigDataPhotos).find(([path]) => path.toLowerCase().includes(target));
+  return hit ? (hit[1] as string) : '';
+};
 
 export default function BigDataMarketingCup() {
   const { t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setShowTop(window.scrollY > 300);
@@ -32,6 +40,25 @@ export default function BigDataMarketingCup() {
   return (
     <Layout>
       <div id="big-data-cup-page">
+        <AnimatePresence>
+          {lightboxImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="lightbox-overlay"
+              onClick={() => setLightboxImage(null)}
+            >
+              <button className="lightbox-close" onClick={() => setLightboxImage(null)}>
+                <X size={32} />
+              </button>
+              <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+                <img src={lightboxImage} alt={t('common.enlargedView')} />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Hero Section */}
         <section className="hero-section">
           <div className="container" style={{ maxWidth: '1200px' }}>
@@ -82,10 +109,12 @@ export default function BigDataMarketingCup() {
         </section>
 
 
-        <div style={{maxWidth:'1200px',margin:'0 auto',padding:'0 var(--space-4)'}}>
-          <img src={bp[6]} alt={t('project.bigDataCup.hero.coverAlt')}
-            loading="lazy"
-            style={{width:'100%',height:'auto',borderRadius:'8px',display:'block',marginBottom:'32px'}} />
+        {/* 原圖 2201×1887，手機內容只佔中間：左右各留白 30.7%、上下 21.9% 與 19.3%。
+            直接滿版貼上去會有一大片空白，這裡用固定比例的圖框以 cover 裁掉約一半的上下留白。 */}
+        <div className="container" style={{ maxWidth: '1200px' }}>
+          <div className="cover-figure">
+            <img src={getImage('big-data-cup-cover')} alt={t('project.bigDataCup.hero.coverAlt')} loading="lazy" />
+          </div>
         </div>
 
         {/* The Challenge & Market Context */}
@@ -93,9 +122,10 @@ export default function BigDataMarketingCup() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="two-column-layout">
               <div className="column-content">
+                <FlowLabel beat="problem" />
                 <div className="section-header-sm">
                   <Target size={24} color="var(--red-ink)" />
-                  <h2 className="section-heading-sm"><CjkText>{t('project.bigDataCup.challenge.heading')}</CjkText></h2>
+                  <h2 className="section-heading-sm"><span><CjkText>{t('project.bigDataCup.challenge.heading')}</CjkText></span></h2>
                 </div>
                 <p className="body-text">
                   <CjkText>{t('project.bigDataCup.challenge.desc')}</CjkText>
@@ -106,9 +136,10 @@ export default function BigDataMarketingCup() {
               </div>
 
               <div className="column-content gray-box">
+                <FlowLabel beat="analysis" />
                 <div className="section-header-sm">
                   <Database size={24} color="var(--red-ink)" />
-                  <h2 className="section-heading-sm"><CjkText>{t('project.bigDataCup.insights.heading')}</CjkText></h2>
+                  <h2 className="section-heading-sm"><span><CjkText>{t('project.bigDataCup.insights.heading')}</CjkText></span></h2>
                 </div>
                 <ul className="objective-list">
                   <li><strong><CjkText>{t('project.bigDataCup.insights.i1label')}</CjkText></strong> <CjkText>{t('project.bigDataCup.insights.i1desc')}</CjkText></li>
@@ -120,14 +151,24 @@ export default function BigDataMarketingCup() {
           </div>
         </section>
 
-<img src={bp[0]} alt={t('project.bigDataCup.insights.competitorAlt')}
-              loading="lazy"
-              style={{width:'100%',height:'auto',borderRadius:'8px',border:'1px solid rgba(12,12,12,.08)',display:'block',marginTop:'24px'}} />
+        <div className="container" style={{ maxWidth: '1200px' }}>
+          <div
+            className="deck-figure interactive-image-area"
+            onClick={() => setLightboxImage(getImage('advantage'))}
+          >
+            <img src={getImage('advantage')} alt={t('project.bigDataCup.insights.competitorAlt')} loading="lazy" />
+            <div className="expand-hint">
+              <Maximize2 size={18} />
+              <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
+            </div>
+          </div>
+        </div>
 
         {/* Strategy Grid */}
         <section className="content-section reveal" style={{ background: 'color-mix(in srgb, #F43F5E 8%, var(--surface))' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="text-center" style={{ marginBottom: '64px' }}>
+              <FlowLabel beat="solution" />
               <h2 className="section-heading"><CjkText>{t('project.bigDataCup.strategy.heading')}</CjkText></h2>
               <p className="section-subheading"><CjkText>{t('project.bigDataCup.strategy.desc')}</CjkText></p>
             </div>
@@ -188,9 +229,10 @@ export default function BigDataMarketingCup() {
             <div className="app-mockup-grid">
               {/* Screen 1: Start Page */}
               <div className="app-screen">
-                <div className="screen-frame">
-                  {/* Replace this placeholder with <img src="/path/to/台畜健身APP start page.png" /> */}
-                  <img src={bp[5]} alt={t('project.bigDataCup.app.s1alt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
+                <div className="phone-mock">
+                  <div className="phone-mock__screen">
+                    <img src={getImage('start page')} alt={t('project.bigDataCup.app.s1alt')} loading="lazy" />
+                  </div>
                 </div>
                 <h4 className="screen-title"><CjkText>{t('project.bigDataCup.app.s1title')}</CjkText></h4>
                 <p className="screen-desc"><CjkText>{t('project.bigDataCup.app.s1desc')}</CjkText></p>
@@ -198,9 +240,10 @@ export default function BigDataMarketingCup() {
 
               {/* Screen 2: Home */}
               <div className="app-screen">
-                <div className="screen-frame">
-                  {/* Replace this placeholder with <img src="/path/to/台畜健身APP home.jpg" /> */}
-                  <img src={bp[1]} alt={t('project.bigDataCup.app.s2alt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
+                <div className="phone-mock">
+                  <div className="phone-mock__screen">
+                    <img src={getImage('main page')} alt={t('project.bigDataCup.app.s2alt')} loading="lazy" />
+                  </div>
                 </div>
                 <h4 className="screen-title"><CjkText>{t('project.bigDataCup.app.s2title')}</CjkText></h4>
                 <p className="screen-desc"><CjkText>{t('project.bigDataCup.app.s2desc')}</CjkText></p>
@@ -208,9 +251,10 @@ export default function BigDataMarketingCup() {
 
               {/* Screen 3: Plan */}
               <div className="app-screen">
-                <div className="screen-frame">
-                  {/* Replace this placeholder with <img src="/path/to/台畜健身APP plan.jpg" /> */}
-                  <img src={bp[3]} alt={t('project.bigDataCup.app.s3alt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
+                <div className="phone-mock">
+                  <div className="phone-mock__screen">
+                    <img src={getImage('fitness plan')} alt={t('project.bigDataCup.app.s3alt')} loading="lazy" />
+                  </div>
                 </div>
                 <h4 className="screen-title"><CjkText>{t('project.bigDataCup.app.s3title')}</CjkText></h4>
                 <p className="screen-desc"><CjkText>{t('project.bigDataCup.app.s3desc')}</CjkText></p>
@@ -218,9 +262,10 @@ export default function BigDataMarketingCup() {
 
               {/* Screen 4: Social */}
               <div className="app-screen">
-                <div className="screen-frame">
-                  {/* Replace this placeholder with <img src="/path/to/台畜健身APP social.jpg" /> */}
-                  <img src={bp[4]} alt={t('project.bigDataCup.app.s4alt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
+                <div className="phone-mock">
+                  <div className="phone-mock__screen">
+                    <img src={getImage('social media')} alt={t('project.bigDataCup.app.s4alt')} loading="lazy" />
+                  </div>
                 </div>
                 <h4 className="screen-title"><CjkText>{t('project.bigDataCup.app.s4title')}</CjkText></h4>
                 <p className="screen-desc"><CjkText>{t('project.bigDataCup.app.s4desc')}</CjkText></p>
@@ -228,9 +273,10 @@ export default function BigDataMarketingCup() {
 
               {/* Screen 5: Personal Page */}
               <div className="app-screen">
-                <div className="screen-frame">
-                  {/* Replace this placeholder with <img src="/path/to/台畜健身APP personal page.jpg" /> */}
-                  <img src={bp[2]} alt={t('project.bigDataCup.app.s5alt')} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />
+                <div className="phone-mock">
+                  <div className="phone-mock__screen">
+                    <img src={getImage('personal page')} alt={t('project.bigDataCup.app.s5alt')} loading="lazy" />
+                  </div>
                 </div>
                 <h4 className="screen-title"><CjkText>{t('project.bigDataCup.app.s5title')}</CjkText></h4>
                 <p className="screen-desc"><CjkText>{t('project.bigDataCup.app.s5desc')}</CjkText></p>
@@ -244,22 +290,20 @@ export default function BigDataMarketingCup() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="impact-banner">
               <div className="banner-content">
+                <FlowLabel beat="outcome" />
                 <h2 className="banner-title"><CjkText>{t('project.bigDataCup.impact.heading')}</CjkText></h2>
                 <div className="metrics-row">
                   <div className="metric-box">
-                    <div className="metric-icon"><Trophy size={40} color="white" /></div>
+                    <div className="metric-icon"><Trophy size={40} color="var(--red-ink)" /></div>
                     <div className="metric-number"><CjkText>{t('project.bigDataCup.impact.m1num')}</CjkText></div>
                     <div className="metric-label"><CjkText>{t('project.bigDataCup.impact.m1label')}</CjkText></div>
                   </div>
                   <div className="metric-box">
-                    <div className="metric-icon"><Layers size={40} color="white" /></div>
+                    <div className="metric-icon"><Layers size={40} color="var(--red-ink)" /></div>
                     <div className="metric-number"><CjkText>{t('project.bigDataCup.impact.m2num')}</CjkText></div>
                     <div className="metric-label"><CjkText>{t('project.bigDataCup.impact.m2label')}</CjkText></div>
                   </div>
                 </div>
-                <p className="banner-footer-text">
-                  <CjkText>{t('project.bigDataCup.impact.judgesDesc')}</CjkText>
-                </p>
               </div>
             </div>
           </div>
@@ -531,20 +575,116 @@ export default function BigDataMarketingCup() {
             text-align: center;
           }
 
-          .screen-frame {
+          /* 新的介面圖是 1572px 寬的長截圖，沒有內建手機外框，這裡用 CSS 補上。
+             機身色刻意用 primitive（不隨亮暗模式翻轉），手機本來就是深色的。 */
+          .phone-mock {
+            position: relative;
             width: 100%;
-            border-radius: 24px;
             padding: 8px;
-            background: var(--card);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border: 1px solid var(--border-color);
+            background: var(--ink-2);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.18);
             margin-bottom: 24px;
             transition: transform 0.3s ease;
           }
-
-          .app-screen:hover .screen-frame {
-            transform: translateY(-8px);
+          /* 比例掛在螢幕層而不是機身：機身有 aspect-ratio 時，
+             內部 height:100% 會反過來把它撐開，五支手機就高矮不一。 */
+          .phone-mock__screen {
+            width: 100%;
+            aspect-ratio: 9 / 19.5;
+            border-radius: 23px;
+            overflow: hidden;
+            background: #fff;
           }
+          /* 截圖比例從 0.35 到 0.46 不等，一律 cover 對齊頂端，露出每一頁的開頭 */
+          .phone-mock__screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+          }
+          /* 瀏海 */
+          .phone-mock::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36%;
+            height: 17px;
+            background: var(--ink-2);
+            border-radius: 0 0 11px 11px;
+          }
+          .app-screen:hover .phone-mock { transform: translateY(-8px); }
+
+          .cover-figure {
+            width: 100%;
+            max-width: 820px;
+            aspect-ratio: 1.55;
+            margin: 0 auto 32px;
+            border-radius: 8px;
+            overflow: hidden;
+          }
+          .cover-figure img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+          }
+
+          /* 圖16：競爭態勢簡報圖。原本滿版 1200px 太搶，縮到 780px 置中並可點擊放大 */
+          .deck-figure {
+            position: relative;
+            width: 100%;
+            max-width: 780px;
+            margin: 24px auto 64px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            background: var(--card);
+          }
+          .deck-figure img { width: 100%; height: auto; display: block; }
+          .interactive-image-area {
+            cursor: zoom-in;
+            transition: transform .3s ease, box-shadow .3s ease;
+          }
+          .interactive-image-area:hover {
+            transform: scale(1.01);
+            box-shadow: 0 16px 36px color-mix(in srgb, var(--text-primary) 16%, transparent);
+          }
+          .expand-hint {
+            position: absolute;
+            top: 16px; right: 16px;
+            background-color: var(--card-glass);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 8px 12px;
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--text-primary);
+            font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 0.55;
+            transition: opacity .2s ease, transform .2s ease;
+          }
+          .expand-hint__label { display: none; }
+          .interactive-image-area:hover .expand-hint { opacity: 1; transform: scale(1.06); }
+          .interactive-image-area:hover .expand-hint__label { display: inline; }
+
+          .lightbox-overlay {
+            position: fixed; inset: 0; z-index: 1000;
+            background: rgba(12,12,12,.9);
+            display: flex; align-items: center; justify-content: center;
+            padding: 40px; cursor: zoom-out;
+          }
+          .lightbox-close {
+            position: absolute; top: 24px; right: 24px;
+            background: none; border: none; color: #fff; cursor: pointer;
+          }
+          .lightbox-content { max-width: 100%; max-height: 100%; cursor: default; }
+          .lightbox-content img { max-width: 100%; max-height: 85vh; object-fit: contain; display: block; }
 
           .image-placeholder.mock-app {
             width: 100%;
@@ -566,28 +706,23 @@ export default function BigDataMarketingCup() {
           }
 
           .screen-desc {
-            font-size: 13px;
+            font-size: 15px;
             color: var(--text-gray);
             line-height: 1.5;
           }
 
           /* Impact Banner */
+          /* 2026/09：原本是實色飽和底配白字，標題卻吃到深色而掉到 3.1:1。
+             改成粉彩底加 ink 文字，色相保留、明度自適應，對比一次拉到 15:1 以上。 */
           .impact-banner {
-            background: var(--red-primary);
+            background: var(--red-light);
+            border: 1px solid var(--border);
             border-radius: 24px;
             padding: 64px 40px;
-            color: white;
+            color: var(--text-primary);
             text-align: center;
             position: relative;
             overflow: hidden;
-          }
-
-          .impact-banner::after {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 100%);
-            pointer-events: none;
           }
 
           .banner-title {
@@ -616,7 +751,7 @@ export default function BigDataMarketingCup() {
           }
 
           .metric-icon {
-            background: rgba(255,255,255,0.2);
+            background: color-mix(in srgb, var(--red-primary) 14%, transparent);
             padding: 16px;
             border-radius: 50%;
             margin-bottom: 8px;
@@ -626,26 +761,15 @@ export default function BigDataMarketingCup() {
             font-size: 48px;
             font-weight: 800;
             line-height: 1;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            color: var(--red-ink);
           }
 
           .metric-label {
             font-size: 15px;
             font-weight: 600;
-            opacity: 0.9;
+            color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-          }
-
-          .banner-footer-text {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 16px;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.9);
-            font-style: italic;
-            position: relative;
-            z-index: 1;
           }
 
           /* Responsive */

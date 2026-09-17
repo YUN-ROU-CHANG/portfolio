@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import CjkText from '../../components/CjkText';
+import FlowLabel from '../../components/FlowLabel';
 import {
   Award, Target, Users, Sparkles, TrendingUp, Gift,
   Heart, BarChart3, CheckCircle2, ExternalLink, Activity, Box, Maximize2, X
@@ -150,13 +151,15 @@ export default function Innoconnect() {
         <section className="content-section reveal" style={{ background: 'linear-gradient(180deg, rgba(255,248,225,0.2) 0%, transparent 100%)' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="subsection">
-              <div className="subsection-header">
-                <Target size={24} color="hsl(var(--g1))" />
-                <h3 className="subsection-title"><CjkText>{t('project.innoconnect.challenge.heading')}</CjkText></h3>
-              </div>
-
+              {/* 眉標與章節標題放進左欄，右側圖卡才會跟左欄文字齊頭。
+                  放在 two-column-layout 外面的話，圖卡會從標題下方才開始。 */}
               <div className="two-column-layout">
                 <div className="column-content">
+                  <FlowLabel beat="problem" />
+                  <div className="subsection-header">
+                    <Target size={24} color="hsl(var(--g1))" />
+                    <h3 className="subsection-title"><CjkText>{t('project.innoconnect.challenge.heading')}</CjkText></h3>
+                  </div>
                   <h4 className="highlight-title"><CjkText>{t('project.innoconnect.challenge.title')}</CjkText></h4>
                   <p className="body-text">
                     <CjkText>{t('project.innoconnect.challenge.desc')}</CjkText>
@@ -207,6 +210,7 @@ export default function Innoconnect() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="subsection">
+              <FlowLabel beat="solution" />
               <div className="subsection-header">
                 <Sparkles size={24} color="hsl(var(--g2))" />
                 <h3 className="subsection-title"><CjkText>{t('project.innoconnect.strategy.heading')}</CjkText></h3>
@@ -265,7 +269,8 @@ export default function Innoconnect() {
               >
                 <img src={getImage('lean-canvas')} alt={t('project.innoconnect.strategy.leanAlt')} className="full-contain-img" />
                 <div className="expand-hint">
-                  <Maximize2 size={20} />
+                  <Maximize2 size={18} />
+                  <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
                 </div>
               </div>
             </div>
@@ -290,7 +295,7 @@ export default function Innoconnect() {
                     </p>
                   </div>
                   <a href="https://ooopenlab.cc/quiz/7b8AWHtQhsr7S0hhQA0b" target="_blank" rel="noreferrer" className="primary-link-btn">
-                    <CjkText>{t('project.innoconnect.solution1.quizLabel')}</CjkText> <ExternalLink size={18} />
+                    <span><CjkText>{t('project.innoconnect.solution1.quizLabel')}</CjkText></span> <ExternalLink size={18} />
                   </a>
                 </div>
 
@@ -344,7 +349,7 @@ export default function Innoconnect() {
                 </div>
               </div>
 
-              <div className="visual-showcase shadow-box" style={{ padding: '32px', background: 'var(--surface)' }}>
+              <div className="visual-showcase shadow-box" style={{ padding: '32px', marginTop: '32px', background: 'var(--surface)' }}>
                 <img src={getImage('wish-and-card-customization')} alt={t('project.innoconnect.solution2.alt1')} className="full-contain-img" />
               </div>
             </div>
@@ -377,7 +382,8 @@ export default function Innoconnect() {
                   <h5 className="text-center font-bold mb-4"><CjkText>{t('project.innoconnect.solution3.giverLabel')}</CjkText></h5>
                   <img src={getImage('value-proposition-canvas-giver')} alt={t('project.innoconnect.solution3.giverAlt')} className="full-contain-img" />
                   <div className="expand-hint">
-                    <Maximize2 size={20} />
+                    <Maximize2 size={18} />
+                    <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
                   </div>
                 </div>
                 <div
@@ -388,7 +394,8 @@ export default function Innoconnect() {
                   <h5 className="text-center font-bold mb-4"><CjkText>{t('project.innoconnect.solution3.receiverLabel')}</CjkText></h5>
                   <img src={getImage('value-proposition-canvas-receive')} alt={t('project.innoconnect.solution3.receiverAlt')} className="full-contain-img" />
                   <div className="expand-hint">
-                    <Maximize2 size={20} />
+                    <Maximize2 size={18} />
+                    <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
                   </div>
                 </div>
               </div>
@@ -401,7 +408,8 @@ export default function Innoconnect() {
               >
                 <img src={getImage('service-blueprint')} alt={t('project.innoconnect.solution3.blueprintTitle')} className="full-contain-img" />
                 <div className="expand-hint">
-                  <Maximize2 size={20} />
+                  <Maximize2 size={18} />
+                  <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
                 </div>
               </div>
 
@@ -421,7 +429,8 @@ export default function Innoconnect() {
                   >
                     <img src={getImage('flowchart-shipping')} alt={t('project.innoconnect.solution3.deliveryAlt')} />
                     <div className="expand-hint">
-                      <Maximize2 size={20} />
+                      <Maximize2 size={18} />
+                    <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
                     </div>
                   </div>
                 </div>
@@ -441,7 +450,8 @@ export default function Innoconnect() {
                   >
                     <img src={getImage('Expected-price-difference-chart')} alt={t('project.innoconnect.solution3.refundAlt')} />
                     <div className="expand-hint">
-                      <Maximize2 size={20} />
+                      <Maximize2 size={18} />
+                    <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
                     </div>
                   </div>
                 </div>
@@ -454,6 +464,7 @@ export default function Innoconnect() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="subsection">
+              <FlowLabel beat="validation" />
               <div className="subsection-header">
                 <BarChart3 size={24} color="hsl(var(--g2))" />
                 <h3 className="subsection-title"><CjkText>{t('project.innoconnect.validation.heading')}</CjkText></h3>
@@ -507,6 +518,7 @@ export default function Innoconnect() {
         <section className="content-section reveal" style={{ paddingBottom: '120px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="outcome-section">
+              <div className="text-center"><FlowLabel beat="outcome" /></div>
               {/* 確保這個區塊的 Icon 和標題完全垂直置中對齊 */}
               <div
                 className="outcome-header mx-auto"
@@ -608,24 +620,43 @@ export default function Innoconnect() {
           .lightbox-content img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
           
           /* Interactive Image Styling & Expand Hint */
-          .interactive-image-area { cursor: zoom-in; transition: transform 0.3s ease; position: relative; }
-          .interactive-image-area:hover { transform: scale(1.01); }
+          /* 原本提示只在 hover 時淡入一顆小圖示，太不明顯，讀者不知道圖可以點。
+             改成平常就留一顆半透明的標記，hover 再放大、加深並帶出文字。 */
+          .interactive-image-area {
+            cursor: zoom-in;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+          }
+          .interactive-image-area:hover {
+            transform: scale(1.01);
+            box-shadow: 0 16px 36px color-mix(in srgb, var(--text-primary) 16%, transparent);
+          }
           .expand-hint {
             position: absolute;
             top: 16px;
             right: 16px;
             background-color: var(--card-glass);
-            border-radius: 50%;
-            padding: 8px;
-            display: flex;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 8px 12px;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            color: hsl(var(--g1));
+            gap: 6px;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            opacity: 0;
-            transition: opacity 0.2s ease;
+            opacity: 0.55;
+            transition: opacity 0.2s ease, transform 0.2s ease;
           }
-          .interactive-image-area:hover .expand-hint { opacity: 1; }
+          .expand-hint__label { display: none; }
+          .interactive-image-area:hover .expand-hint {
+            opacity: 1;
+            transform: scale(1.06);
+          }
+          .interactive-image-area:hover .expand-hint__label { display: inline; }
 
           /* Award Images Grid */
           .award-images-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -788,11 +819,13 @@ export default function Innoconnect() {
           .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
           .feature-card { padding: 24px; background: var(--card-glass); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; }
           .feature-icon { display: inline-flex; width: 64px; height: 64px; background: linear-gradient(135deg, hsl(var(--g4)/.1), hsl(var(--g1)/.1)); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 16px; color: hsl(var(--g4)); }
-          .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 64px; }
+          /* featured 卡佔滿整列，底下只有兩張卡。原本是三欄，兩張卡會靠左留一個空格，
+             改成兩欄後自然置中。 */
+          .outcome-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-bottom: 64px; }
           .outcome-card { padding: 40px 24px; background: var(--card-glass); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; }
           /* 金橘色調保留，但混進 --surface 才會跟著亮暗模式走 */
           .outcome-card.featured {
-            grid-column: span 3;
+            grid-column: span 2;
             background: linear-gradient(135deg,
               color-mix(in srgb, #FFD700 14%, var(--surface)),
               color-mix(in srgb, #FFA500 14%, var(--surface)));

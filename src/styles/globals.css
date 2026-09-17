@@ -376,13 +376,13 @@
 .highlight-title { font-size: 20px; font-weight: 600; color: var(--theme-heading); margin-bottom: 12px; }
 
 .body-text { font-size: 16px; line-height: 1.8; color: var(--color-text-muted); }
-.body-text-sm { font-size: 14px; line-height: 1.6; color: var(--color-text-muted); margin: 0; }
+.body-text-sm { font-size: 15px; line-height: 1.6; color: var(--color-text-muted); margin: 0; }
 .body-text-large { font-size: 20px; line-height: 1.7; color: var(--text-primary); font-weight: 500; }
 
 .detail-item { text-align: center; display: flex; flex-direction: column; gap: 6px; }
-.detail-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-muted); }
+.detail-label { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-muted); }
 .detail-value { font-size: 15px; font-weight: 600; color: var(--text-primary); }
-.detail-sub { font-size: 13px; color: var(--color-text-muted); }
+.detail-sub { font-size: 15px; color: var(--color-text-muted); }
 
 .shadow-box { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); border: 1px solid var(--border); }
 
@@ -397,6 +397,44 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+/* ────────────────────────────────────────────────
+   案例頁敘事流程眉標（問題／分析／解決方案／驗證／成效）
+   搭配 src/components/FlowLabel.tsx。案例頁的章節本來
+   各自取名，讀者看不出自己讀到哪一拍，這道眉標補上那件事。
+   ──────────────────────────────────────────────── */
+.flow-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin-bottom: 14px;
+}
+
+/* 拍別後面接原本的章節名時，中間隔一道細線 */
+.flow-label__sep {
+  display: inline-block;
+  flex: none;
+  width: 1px;
+  height: 11px;
+  background: var(--border-strong);
+  opacity: 0.4;
+}
+
+.flow-label__beat,
+.flow-label__note { white-space: nowrap; }
+.flow-label__note { color: var(--text-tertiary); }
+
+/* Sleep Guardian 的 --sg-night 區塊是靜態深底，兩個模式都不翻轉，
+   所以這裡跟該頁既有的 .sg-section-label--light 一樣直接鎖 --acid。 */
+.flow-label--light { color: var(--acid); }
+.flow-label--light .flow-label__sep { background: rgba(255, 255, 255, 0.28); opacity: 1; }
+.flow-label--light .flow-label__note { color: rgba(255, 255, 255, 0.62); }
 
 /* ────────────────────────────────────────────────
    Scroll reveal（全站共用，搭配 useRevealOnScroll）

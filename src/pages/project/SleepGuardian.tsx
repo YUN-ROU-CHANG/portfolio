@@ -26,6 +26,7 @@ import stimFriction from '../../assets/images/project/sleep-guardian/stim-fricti
 import stimAudio from '../../assets/images/project/sleep-guardian/stim-audio.webp';
 import stimBaseline from '../../assets/images/project/sleep-guardian/stim-baseline.webp';
 import CjkText from '../../components/CjkText';
+import FlowLabel from '../../components/FlowLabel';
 
 type T = (key: string) => string;
 
@@ -81,7 +82,7 @@ function GoldenChannelHeatmap({ t }: { t: T }) {
         </div>
         {HEAT_ROWS.map(row => (
           <div className="sg-heat-row" role="row" key={row.k}>
-            <span className="sg-heat-rowlabel" role="rowheader"><CjkText>{c(row.k)}</CjkText></span>
+            <span className="sg-heat-rowlabel" role="rowheader"><span><CjkText>{c(row.k)}</CjkText></span></span>
             {/* 值用長條編碼而非底色填滿：把 acid 混進暗色底會讓文字對比在中間段失效。 */}
             {row.cells.map((cell, i) => (
               <span className={`sg-heat-cell${i === 1 ? ' sg-heat-cell--audio' : ''}`} role="cell" key={i}>
@@ -193,7 +194,9 @@ function ChartLegend({ t }: { t: T }) {
       {(['threat', 'empathy', 'friction'] as const).map(h => (
         <span key={h}>
           <i style={{ background: `var(--sg-${h})` }} />
-          <CjkText>{c(`group${h[0].toUpperCase()}${h.slice(1)}`)}</CjkText>
+          {/* 圖例項目本身是 inline-flex，文字要自成一個 flex item，
+              否則 CjkText 的詞 span 會被 gap 拆成好幾行。 */}
+          <span><CjkText>{c(`group${h[0].toUpperCase()}${h.slice(1)}`)}</CjkText></span>
         </span>
       ))}
       <em><CjkText>{c('dLegend')}</CjkText></em>
@@ -229,7 +232,7 @@ function EtaSquaredChart({ t }: { t: T }) {
     <ChartFrame title={c('etaTitle')} note={c('etaNote')}>
       <div className="sg-legend">
         {ETA_SERIES.map(s => (
-          <span key={s.key}><i className={`sg-fill--${s.fill}`} /><CjkText>{c(s.key)}</CjkText></span>
+          <span key={s.key}><i className={`sg-fill--${s.fill}`} /><span><CjkText>{c(s.key)}</CjkText></span></span>
         ))}
       </div>
       <div className="sg-eta">
@@ -301,8 +304,8 @@ export default function SleepGuardian() {
     { src: appIntro2, alt: t('project.sleepGuardian.appAlts.setup'), caption: t('project.sleepGuardian.screens.s2') },
     { src: appEmpathy, alt: t('project.sleepGuardian.framework.empathy.title'), caption: t('project.sleepGuardian.screens.s3') },
     { src: appAudio, alt: t('project.sleepGuardian.appAlts.audio'), caption: t('project.sleepGuardian.screens.s4') },
-    { src: appSurvey, alt: t('project.sleepGuardian.appAlts.survey'), caption: t('project.sleepGuardian.screens.s5') },
     { src: appStatistic, alt: t('project.sleepGuardian.appAlts.stats'), caption: t('project.sleepGuardian.screens.s6') },
+    { src: appSurvey, alt: t('project.sleepGuardian.appAlts.survey'), caption: t('project.sleepGuardian.screens.s5') },
     { src: appFinish, alt: t('project.sleepGuardian.appAlts.finish'), caption: t('project.sleepGuardian.screens.s7') },
   ];
 
@@ -322,9 +325,9 @@ export default function SleepGuardian() {
             >
               <div className="sg-badge-row">
                 <span className="sg-badge sg-badge--thesis">
-                  <BookOpen size={14} /><CjkText>{t('project.sleepGuardian.hero.badge')}</CjkText></span>
+                  <BookOpen size={14} /><span><CjkText>{t('project.sleepGuardian.hero.badge')}</CjkText></span></span>
                 <span className="sg-badge sg-badge--status">
-                  <Activity size={14} /><CjkText>{t('project.sleepGuardian.hero.status')}</CjkText></span>
+                  <Activity size={14} /><span><CjkText>{t('project.sleepGuardian.hero.status')}</CjkText></span></span>
               </div>
 
               <h1 className="sg-hero-title"><CjkText>{t('project.sleepGuardian.hero.title')}</CjkText></h1>
@@ -367,77 +370,20 @@ export default function SleepGuardian() {
           </div>
         </section>
 
-        {/* ── RESULTS ── */}
-        {/* 緊接 hero：先給結論與設計建議，方法與工具留到後面當佐證。 */}
-        <section className="sg-section sg-section--tinted sg-reveal">
-          <div className="sg-container">
-            <div className="sg-section-label">
-              <BarChart3 size={18} /><CjkText>{t('project.sleepGuardian.results.heading')}</CjkText></div>
-            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.results.title')}</CjkText></h2>
-            <p className="sg-results-intro"><CjkText>{t('project.sleepGuardian.results.intro')}</CjkText></p>
-
-            {/* 統計量白話版：非研究背景的讀者（PM／HM）不必先懂 η²p 才看得懂圖表。 */}
-            <div className="sg-gloss">
-              <span className="sg-gloss-heading"><CjkText>{t('project.sleepGuardian.charts.glossHeading')}</CjkText></span>
-              <dl>
-                {['gloss1', 'gloss2', 'gloss3', 'gloss4'].map(k => (
-                  <div key={k}>
-                    <dt><CjkText>{t(`project.sleepGuardian.charts.${k}term`)}</CjkText></dt>
-                    <dd><CjkText>{t(`project.sleepGuardian.charts.${k}desc`)}</CjkText></dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-
-            {/* 每張圖直接放進它佐證的那張發現卡，讀者不用往下捲去找證據。
-                發現五沒有對應圖表。 */}
-            <div className="sg-results-list">
-              {[
-                { k: 'f1', Chart: EtaSquaredChart },
-                { k: 'f2', Chart: GoldenChannelHeatmap },
-                { k: 'f3', Chart: EffectSizeChart },
-                { k: 'f4', Chart: IntentionBehaviourChart },
-                { k: 'f5', Chart: null },
-              ].map(({ k, Chart }, i) => (
-                <div className="sg-result-card" key={k}>
-                  <span className="sg-result-num">{String(i + 1).padStart(2, '0')}</span>
-                  <h4><CjkText>{t(`project.sleepGuardian.results.${k}title`)}</CjkText></h4>
-                  <p><CjkText>{t(`project.sleepGuardian.results.${k}desc`)}</CjkText></p>
-                  {Chart && <Chart t={t} />}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── DESIGN IMPLICATIONS ── */}
-        <section className="sg-section sg-reveal">
-          <div className="sg-container">
-            <div className="sg-section-label">
-              <Zap size={18} /><CjkText>{t('project.sleepGuardian.implications.heading')}</CjkText></div>
-            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.implications.title')}</CjkText></h2>
-            <p className="sg-results-intro"><CjkText>{t('project.sleepGuardian.implications.intro')}</CjkText></p>
-
-            <div className="sg-impl-grid">
-              {['i1', 'i2', 'i3', 'i4'].map((k, i) => (
-                <div className="sg-impl-card" key={k}>
-                  <span className="sg-impl-num">{String(i + 1).padStart(2, '0')}</span>
-                  <h4><CjkText>{t(`project.sleepGuardian.implications.${k}title`)}</CjkText></h4>
-                  <p><CjkText>{t(`project.sleepGuardian.implications.${k}desc`)}</CjkText></p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ── PROBLEM ── */}
         <section className="sg-section sg-reveal">
           <div className="sg-container">
-            <div className="sg-section-label">
-              <Brain size={18} /><CjkText>{t('project.sleepGuardian.problem.heading')}</CjkText></div>
-            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.problem.title')}</CjkText></h2>
+            {/* 眉標與標題放進左欄，右側統計卡的頂端才會跟左欄文字齊頭。
+                放在 sg-two-col 外面的話，卡片會從標題下方才開始，低一截。 */}
             <div className="sg-two-col">
               <div>
+                <FlowLabel
+                  beat="problem"
+                  note={t('project.sleepGuardian.problem.heading')}
+                  icon={<Brain size={18} />}
+                  className="flow-label--sg"
+                />
+                <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.problem.title')}</CjkText></h2>
                 <p className="sg-body">
                   <strong><CjkText>{t('project.sleepGuardian.problem.p1a')}</CjkText></strong>{' '}<CjkText>{t('project.sleepGuardian.problem.p1b')}</CjkText>{' '}<em><CjkText>{t('project.sleepGuardian.problem.p1em')}</CjkText></em>{' '}<CjkText>{t('project.sleepGuardian.problem.p1c')}</CjkText></p>
                 <p className="sg-body"><CjkText>{t('project.sleepGuardian.problem.p2')}</CjkText></p>
@@ -467,8 +413,12 @@ export default function SleepGuardian() {
         {/* 決策轉折擺在理論框架之前：先講研究砍掉了什麼，理論才有落點。 */}
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
-            <div className="sg-section-label">
-              <Layers size={18} /><CjkText>{t('project.sleepGuardian.pilot.heading')}</CjkText></div>
+            <FlowLabel
+              beat="analysis"
+              note={t('project.sleepGuardian.pilot.heading')}
+              icon={<Layers size={18} />}
+              className="flow-label--sg"
+            />
             <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.pilot.title')}</CjkText></h2>
             <p className="sg-results-intro"><CjkText>{t('project.sleepGuardian.pilot.intro')}</CjkText></p>
 
@@ -512,8 +462,12 @@ export default function SleepGuardian() {
         {/* ── THEORETICAL FRAMEWORK ── */}
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
-            <div className="sg-section-label">
-              <Layers size={18} /><CjkText>{t('project.sleepGuardian.framework.heading')}</CjkText></div>
+            <FlowLabel
+              beat="analysis"
+              note={t('project.sleepGuardian.framework.heading')}
+              icon={<Layers size={18} />}
+              className="flow-label--sg"
+            />
             <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.framework.title')}</CjkText></h2>
             <p className="sg-body"><CjkText>{t('project.sleepGuardian.framework.introA')}</CjkText>{' '}<strong><CjkText>{t('project.sleepGuardian.framework.introEm')}</CjkText></strong>{' '}<CjkText>{t('project.sleepGuardian.framework.introB')}</CjkText></p>
             <div className="sg-pathway-grid">
@@ -565,8 +519,12 @@ export default function SleepGuardian() {
         {/* ── EXPERIMENT DESIGN ── */}
         <section className="sg-section sg-reveal">
           <div className="sg-container">
-            <div className="sg-section-label">
-              <FlaskConical size={18} /><CjkText>{t('project.sleepGuardian.experiment.heading')}</CjkText></div>
+            <FlowLabel
+              beat="solution"
+              note={t('project.sleepGuardian.experiment.heading')}
+              icon={<FlaskConical size={18} />}
+              className="flow-label--sg"
+            />
             <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.experiment.title')}</CjkText></h2>
             <p className="sg-body"><CjkText>{t('project.sleepGuardian.experiment.introA')}</CjkText>{' '}<strong><CjkText>{t('project.sleepGuardian.experiment.introEm')}</CjkText></strong>{' '}<CjkText>{t('project.sleepGuardian.experiment.introB')}</CjkText></p>
 
@@ -629,8 +587,12 @@ export default function SleepGuardian() {
         {/* ── STIMULUS DESIGN DECISIONS ── */}
         <section className="sg-section sg-reveal">
           <div className="sg-container">
-            <div className="sg-section-label">
-              <AlertTriangle size={18} /><CjkText>{t('project.sleepGuardian.stim.heading')}</CjkText></div>
+            <FlowLabel
+              beat="solution"
+              note={t('project.sleepGuardian.stim.heading')}
+              icon={<AlertTriangle size={18} />}
+              className="flow-label--sg"
+            />
             <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.stim.title')}</CjkText></h2>
 
             {/* 先讓讀者看到刺激物本身，再談我為什麼那樣設計 */}
@@ -645,7 +607,7 @@ export default function SleepGuardian() {
               ].map(s => {
                 const caption = t(`project.sleepGuardian.stim.${s.k}`);
                 return (
-                  <figure className="sg-stim-item" key={s.k}>
+                  <figure className={s.k === 'gFriction' ? 'sg-stim-item sg-stim-item--tall' : 'sg-stim-item'} key={s.k}>
                     <button
                       type="button"
                       className="sg-stim-btn"
@@ -683,8 +645,12 @@ export default function SleepGuardian() {
         {/* ── SLEEP GUARDIAN APP (MODIFIED) ── */}
         <section className="sg-section sg-section--dark sg-reveal">
           <div className="sg-container">
-            <div className="sg-section-label sg-section-label--light">
-              <Smartphone size={18} /><CjkText>{t('project.sleepGuardian.instrument.heading')}</CjkText></div>
+            <FlowLabel
+              beat="solution"
+              note={t('project.sleepGuardian.instrument.heading')}
+              icon={<Smartphone size={18} />} tone="light"
+              className="flow-label--sg"
+            />
             <h2 className="sg-section-title sg-title--light"><CjkText>{t('project.sleepGuardian.instrument.title')}</CjkText></h2>
             <p className="sg-body sg-body--light"><CjkText>{t('project.sleepGuardian.instrument.intro')}</CjkText></p>
 
@@ -755,8 +721,12 @@ export default function SleepGuardian() {
         {/* ── MEASUREMENT BATTERY ── */}
         <section className="sg-section sg-reveal">
           <div className="sg-container">
-            <div className="sg-section-label">
-              <BarChart3 size={18} /><CjkText>{t('project.sleepGuardian.measures.heading')}</CjkText></div>
+            <FlowLabel
+              beat="validation"
+              note={t('project.sleepGuardian.measures.heading')}
+              icon={<BarChart3 size={18} />}
+              className="flow-label--sg"
+            />
             <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.measures.title')}</CjkText></h2>
 
             <div className="sg-measure-timeline">
@@ -827,11 +797,86 @@ export default function SleepGuardian() {
           </div>
         </section>
 
+        {/* ── RESULTS ── */}
+        {/* 方法與工具鋪陳完，才交出結論與設計建議；RQ 表格緊接在後面當逐題佐證。 */}
+        <section className="sg-section sg-section--tinted sg-reveal">
+          <div className="sg-container">
+            <FlowLabel
+              beat="outcome"
+              note={t('project.sleepGuardian.results.heading')}
+              icon={<BarChart3 size={18} />}
+              className="flow-label--sg"
+            />
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.results.title')}</CjkText></h2>
+            <p className="sg-results-intro"><CjkText>{t('project.sleepGuardian.results.intro')}</CjkText></p>
+
+            {/* 統計量白話版：非研究背景的讀者（PM／HM）不必先懂 η²p 才看得懂圖表。 */}
+            <div className="sg-gloss">
+              <span className="sg-gloss-heading"><CjkText>{t('project.sleepGuardian.charts.glossHeading')}</CjkText></span>
+              <dl>
+                {['gloss1', 'gloss2', 'gloss3', 'gloss4'].map(k => (
+                  <div key={k}>
+                    <dt><CjkText>{t(`project.sleepGuardian.charts.${k}term`)}</CjkText></dt>
+                    <dd><CjkText>{t(`project.sleepGuardian.charts.${k}desc`)}</CjkText></dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            {/* 每張圖直接放進它佐證的那張發現卡，讀者不用往下捲去找證據。
+                發現五沒有對應圖表。 */}
+            <div className="sg-results-list">
+              {[
+                { k: 'f1', Chart: EtaSquaredChart },
+                { k: 'f2', Chart: GoldenChannelHeatmap },
+                { k: 'f3', Chart: EffectSizeChart },
+                { k: 'f4', Chart: IntentionBehaviourChart },
+                { k: 'f5', Chart: null },
+              ].map(({ k, Chart }, i) => (
+                <div className="sg-result-card" key={k}>
+                  <span className="sg-result-num">{String(i + 1).padStart(2, '0')}</span>
+                  <h4><CjkText>{t(`project.sleepGuardian.results.${k}title`)}</CjkText></h4>
+                  <p><CjkText>{t(`project.sleepGuardian.results.${k}desc`)}</CjkText></p>
+                  {Chart && <Chart t={t} />}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── DESIGN IMPLICATIONS ── */}
+        <section className="sg-section sg-reveal">
+          <div className="sg-container">
+            <FlowLabel
+              beat="outcome"
+              note={t('project.sleepGuardian.implications.heading')}
+              icon={<Zap size={18} />}
+              className="flow-label--sg"
+            />
+            <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.implications.title')}</CjkText></h2>
+            <p className="sg-results-intro"><CjkText>{t('project.sleepGuardian.implications.intro')}</CjkText></p>
+
+            <div className="sg-impl-grid">
+              {['i1', 'i2', 'i3', 'i4'].map((k, i) => (
+                <div className="sg-impl-card" key={k}>
+                  <span className="sg-impl-num">{String(i + 1).padStart(2, '0')}</span>
+                  <h4><CjkText>{t(`project.sleepGuardian.implications.${k}title`)}</CjkText></h4>
+                  <p><CjkText>{t(`project.sleepGuardian.implications.${k}desc`)}</CjkText></p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── RESEARCH QUESTIONS ── */}
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
-            <div className="sg-section-label">
-              <FlaskConical size={18} /><CjkText>{t('project.sleepGuardian.rq.heading')}</CjkText></div>
+            <FlowLabel
+              beat="outcome"
+              note={t('project.sleepGuardian.rq.heading')}
+              icon={<FlaskConical size={18} />}
+              className="flow-label--sg"
+            />
             <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.rq.title')}</CjkText></h2>
 
             {/* 論文共 5 個 RQ 加一項探索性分析。
@@ -873,7 +918,7 @@ export default function SleepGuardian() {
         <section className="sg-section sg-section--tinted sg-reveal">
           <div className="sg-container">
             <div className="sg-section-label">
-              <AlertTriangle size={18} /><CjkText>{t('project.sleepGuardian.limits.heading')}</CjkText></div>
+              <AlertTriangle size={18} /><span><CjkText>{t('project.sleepGuardian.limits.heading')}</CjkText></span></div>
             <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.limits.title')}</CjkText></h2>
 
             <div className="sg-limits-grid">
@@ -891,7 +936,7 @@ export default function SleepGuardian() {
         <section className="sg-section sg-reveal" style={{ paddingBottom: '120px' }}>
           <div className="sg-container">
             <div className="sg-section-label">
-              <CheckCircle2 size={18} /><CjkText>{t('project.sleepGuardian.status.heading')}</CjkText></div>
+              <CheckCircle2 size={18} /><span><CjkText>{t('project.sleepGuardian.status.heading')}</CjkText></span></div>
             <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.status.title')}</CjkText></h2>
 
             <div className="sg-contribution-grid">
@@ -1019,7 +1064,7 @@ export default function SleepGuardian() {
           }
           .sg-meta-item { display: flex; flex-direction: column; gap: 4px; }
           .sg-meta-label {
-            font-size: 12px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1.2px;
             /* 0.35 在深底上只有 3.17:1，12px 需要 4.5:1 */
@@ -1052,6 +1097,19 @@ export default function SleepGuardian() {
             margin-bottom: 16px;
           }
           .sg-section-label--light { color: var(--acid); }
+
+          /* FlowLabel 在這頁沿用 sg-section-label 的字體與字距，讓拍別眉標
+             跟其餘章節眉標長得一樣。--sg-accent 本來就等於 --accent-text，
+             所以顏色不必另外指定；深底那段要壓過全域的 --light。 */
+          .flow-label--sg {
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            margin-bottom: 16px;
+          }
+          .flow-label--sg.flow-label--light { color: var(--acid); }
+
           .sg-section-title {
             font-family: var(--font-display);
             font-size: clamp(26px, 3.5vw, 38px);
@@ -1098,7 +1156,7 @@ export default function SleepGuardian() {
             margin-bottom: 6px;
             letter-spacing: -0.5px;
           }
-          .sg-stat-desc { font-size: 13px; line-height: 1.6; color: var(--sg-muted); }
+          .sg-stat-desc { font-size: 15px; line-height: 1.6; color: var(--sg-muted); }
 
           .sg-pathway-grid {
             display: grid;
@@ -1136,11 +1194,11 @@ export default function SleepGuardian() {
             margin-bottom: 8px;
           }
           .sg-pathway-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--sg-text); margin-bottom: 4px; }
-          .sg-pathway-mech { font-size: 13px; font-family: var(--font-display); font-weight: 600; color: var(--sg-muted); margin-bottom: 14px; }
-          .sg-pathway-desc { font-size: 14px; line-height: 1.7; color: var(--sg-muted); margin-bottom: 20px; }
+          .sg-pathway-mech { font-size: 15px; font-family: var(--font-display); font-weight: 600; color: var(--sg-muted); margin-bottom: 14px; }
+          .sg-pathway-desc { font-size: 15px; line-height: 1.7; color: var(--sg-muted); margin-bottom: 20px; }
           .sg-pathway-example { padding: 14px 16px; border-radius: 8px; background: var(--sg-surface); }
           .sg-example-label {
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--sg-muted);
@@ -1149,7 +1207,7 @@ export default function SleepGuardian() {
             display: block;
             margin-bottom: 6px;
           }
-          .sg-example-text { font-size: 13px; line-height: 1.6; color: var(--sg-text); font-style: italic; }
+          .sg-example-text { font-size: 15px; line-height: 1.6; color: var(--sg-text); font-style: italic; }
 
           .sg-design-matrix {
             display: flex;
@@ -1220,7 +1278,7 @@ export default function SleepGuardian() {
             color: var(--sg-accent);
           }
           .sg-info-box svg { flex-shrink: 0; margin-top: 2px; }
-          .sg-info-box p { font-size: 14px; line-height: 1.6; color: var(--sg-text); margin: 0; }
+          .sg-info-box p { font-size: 15px; line-height: 1.6; color: var(--sg-text); margin: 0; }
 
           .sg-decision-row {
             display: grid;
@@ -1235,7 +1293,7 @@ export default function SleepGuardian() {
           }
           .sg-decision-card svg { color: var(--sg-accent); margin-bottom: 12px; }
           .sg-decision-card h4 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
-          .sg-decision-card p { font-size: 13px; line-height: 1.6; color: var(--sg-muted); }
+          .sg-decision-card p { font-size: 15px; line-height: 1.6; color: var(--sg-muted); }
 
           .sg-app-features {
             display: grid;
@@ -1258,7 +1316,7 @@ export default function SleepGuardian() {
             margin-bottom: 10px;
           }
           .sg-app-feature-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
-          .sg-app-feature-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.55); }
+          .sg-app-feature-desc { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.55); }
 
           /* =========================================
              圖片展示區塊 Styles 
@@ -1403,7 +1461,7 @@ export default function SleepGuardian() {
             margin-bottom: 4px;
           }
           .sg-measure-name { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--sg-text); margin-bottom: 4px; line-height: 1.35; }
-          .sg-measure-purpose { font-size: 11.5px; line-height: 1.55; color: var(--sg-muted); }
+          .sg-measure-purpose { font-size: 14px; line-height: 1.55; color: var(--sg-muted); }
 
           /* RQ 表格：原本六張大卡，改表格後高度砍半，四欄一列 */
           .sg-rq-table-wrap { margin-top: 32px; overflow-x: auto; }
@@ -1443,13 +1501,13 @@ export default function SleepGuardian() {
           .sg-rq-q {
             display: block;
             font-family: var(--font-display);
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--sg-text);
             line-height: 1.5;
           }
-          .sg-rq-pred { font-size: 13px; line-height: 1.7; color: var(--sg-muted); }
-          .sg-rq-actual { font-size: 13px; line-height: 1.7; color: var(--sg-text); }
+          .sg-rq-pred { font-size: 15px; line-height: 1.7; color: var(--sg-muted); }
+          .sg-rq-actual { font-size: 15px; line-height: 1.7; color: var(--sg-text); }
           .sg-rq-verdict {
             display: inline-block;
             font-family: var(--font-display);
@@ -1474,7 +1532,7 @@ export default function SleepGuardian() {
             color: var(--sg-accent);
           }
           .sg-analysis-note svg { flex-shrink: 0; margin-top: 2px; }
-          .sg-analysis-note p { font-size: 13px; line-height: 1.6; color: var(--sg-text); margin: 0; }
+          .sg-analysis-note p { font-size: 15px; line-height: 1.6; color: var(--sg-text); margin: 0; }
 
           /* ── Design implications ── */
           .sg-impl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -1492,13 +1550,13 @@ export default function SleepGuardian() {
             color: var(--accent-text); margin-bottom: 10px;
           }
           .sg-impl-card h4 { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--sg-text); margin-bottom: 10px; line-height: 1.35; }
-          .sg-impl-card p { font-size: 14px; line-height: 1.75; color: var(--sg-muted); margin: 0; }
+          .sg-impl-card p { font-size: 15px; line-height: 1.75; color: var(--sg-muted); margin: 0; }
 
           /* ── Scope & limitations ── */
           .sg-limits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
           .sg-limit-card { padding: 22px 24px; border-left: 3px solid var(--sg-border); }
           .sg-limit-card h4 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
-          .sg-limit-card p { font-size: 13.5px; line-height: 1.7; color: var(--sg-muted); margin: 0; }
+          .sg-limit-card p { font-size: 15px; line-height: 1.7; color: var(--sg-muted); margin: 0; }
 
           /* ── Pilot：原構想 → 砍掉的理由 → 收斂後 ── */
           .sg-pivot {
@@ -1521,22 +1579,22 @@ export default function SleepGuardian() {
           .sg-pivot-label {
             display: block;
             font-family: var(--font-mono);
-            font-size: 10.5px; letter-spacing: 1.3px; text-transform: uppercase;
+            font-size: 12px; letter-spacing: 1.3px; text-transform: uppercase;
             color: var(--sg-muted); margin-bottom: 12px;
           }
           .sg-pivot-col--after .sg-pivot-label { color: var(--accent-text); }
-          .sg-pivot-col > p { font-size: 13.5px; line-height: 1.75; color: var(--sg-text); margin: 0; }
+          .sg-pivot-col > p { font-size: 15px; line-height: 1.75; color: var(--sg-text); margin: 0; }
           .sg-pivot-col dl { margin: 0; display: flex; flex-direction: column; gap: 12px; }
           .sg-pivot-col dt {
-            font-family: var(--font-display); font-size: 13px; font-weight: 700;
+            font-family: var(--font-display); font-size: 15px; font-weight: 700;
             color: var(--sg-text); margin-bottom: 3px;
           }
-          .sg-pivot-col dd { margin: 0; font-size: 13px; line-height: 1.65; color: var(--sg-muted); }
+          .sg-pivot-col dd { margin: 0; font-size: 15px; line-height: 1.65; color: var(--sg-muted); }
 
           .sg-turn-label {
             display: block;
             font-family: var(--font-mono);
-            font-size: 11px; letter-spacing: 1.3px; text-transform: uppercase;
+            font-size: 12px; letter-spacing: 1.3px; text-transform: uppercase;
             color: var(--accent-text); margin-bottom: 16px;
           }
           .sg-turn-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -1551,7 +1609,7 @@ export default function SleepGuardian() {
             font-family: var(--font-display); font-size: 16px; font-weight: 700;
             color: var(--sg-text); margin-bottom: 10px; line-height: 1.4;
           }
-          .sg-turn-card > p { font-size: 13px; line-height: 1.7; color: var(--sg-muted); margin: 0; flex: 1; }
+          .sg-turn-card > p { font-size: 15px; line-height: 1.7; color: var(--sg-muted); margin: 0; flex: 1; }
           .sg-turn-decision {
             margin-top: 14px !important;
             padding-top: 14px;
@@ -1562,16 +1620,21 @@ export default function SleepGuardian() {
           .sg-method-line {
             margin: 32px 0 0;
             font-family: var(--font-mono);
-            font-size: 11.5px; line-height: 1.8; color: var(--sg-muted);
+            font-size: 13px; line-height: 1.8; color: var(--sg-muted);
           }
 
           /* ── 刺激物實圖 ── */
+          /* 設計摩擦那張原圖是 1.40:1，其餘四張刺激物是 4.54:1，高度差三倍。
+             用 auto-fit 會讓第一列被它撐高，左邊兩欄空出一塊。改成固定三欄，
+             把它釘在第三欄跨兩列，四張橫幅就填滿左側，不留空洞。 */
           .sg-stim-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+            align-items: start;
             gap: 20px;
             margin-bottom: 40px;
           }
+          .sg-stim-item--tall { grid-column: 3; grid-row: 1 / span 2; }
           .sg-stim-item { margin: 0; display: flex; flex-direction: column; gap: 12px; }
           .sg-stim-btn {
             display: block; padding: 0; border: 1px solid var(--sg-border);
@@ -1592,7 +1655,12 @@ export default function SleepGuardian() {
             color: var(--sg-text); margin-bottom: 4px;
           }
           .sg-stim-name i { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
-          .sg-stim-sub { display: block; font-size: 12.5px; line-height: 1.55; color: var(--sg-muted); }
+          .sg-stim-sub { display: block; font-size: 14px; line-height: 1.55; color: var(--sg-muted); }
+
+          @media (max-width: 959px) {
+            .sg-stim-grid { grid-template-columns: 1fr; }
+            .sg-stim-item--tall { grid-column: auto; grid-row: auto; }
+          }
 
           @media (prefers-reduced-motion: reduce) {
             .sg-stim-btn { transition: none !important; }
@@ -1615,7 +1683,7 @@ export default function SleepGuardian() {
             font-family: var(--font-display); font-size: 18px; font-weight: 700;
             color: var(--sg-text); margin-bottom: 10px; line-height: 1.35;
           }
-          .sg-decision p { font-size: 14px; line-height: 1.8; color: var(--sg-muted); margin: 0; }
+          .sg-decision p { font-size: 15px; line-height: 1.8; color: var(--sg-muted); margin: 0; }
 
           @media (max-width: 900px) {
             .sg-pivot, .sg-turn-grid { grid-template-columns: 1fr; }
@@ -1645,18 +1713,18 @@ export default function SleepGuardian() {
             gap: 16px 32px; margin: 0;
           }
           .sg-gloss dt {
-            font-family: var(--font-mono); font-size: 12.5px;
+            font-family: var(--font-mono); font-size: 13px;
             color: var(--sg-text); margin-bottom: 4px;
           }
-          .sg-gloss dd { margin: 0; font-size: 13px; line-height: 1.65; color: var(--sg-muted); }
+          .sg-gloss dd { margin: 0; font-size: 15px; line-height: 1.65; color: var(--sg-muted); }
           @media (max-width: 760px) { .sg-gloss dl { grid-template-columns: 1fr; } }
 
           /* ── Charts ── */
           .sg-charts { display: flex; flex-direction: column; gap: 34px; margin-top: 38px; }
           .sg-chart { margin: 0; }
           .sg-chart-head h4 { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
-          .sg-chart-head p { font-size: 13.5px; line-height: 1.65; color: var(--sg-muted); margin: 0 0 16px; }
-          .sg-chart-foot { font-family: var(--font-mono); font-size: 11px; color: var(--sg-muted); margin: 12px 0 0; }
+          .sg-chart-head p { font-size: 15px; line-height: 1.65; color: var(--sg-muted); margin: 0 0 16px; }
+          .sg-chart-foot { font-family: var(--font-mono); font-size: 12px; color: var(--sg-muted); margin: 12px 0 0; }
 
           /* Heatmap */
           .sg-heat { display: flex; flex-direction: column; gap: 6px; min-width: 560px; }
@@ -1737,7 +1805,7 @@ export default function SleepGuardian() {
           /* Cohen's d */
           .sg-d-chart { display: flex; flex-direction: column; gap: 20px; min-width: 560px; }
           .sg-d-group { display: grid; grid-template-columns: 62px 1fr; gap: 14px; align-items: center; }
-          .sg-d-label { font-family: var(--font-mono); font-size: 12.5px; color: var(--sg-text); }
+          .sg-d-label { font-family: var(--font-mono); font-size: 13px; color: var(--sg-text); }
           .sg-d-bars { display: flex; flex-direction: column; gap: 4px; }
           .sg-d-row { display: grid; grid-template-columns: 1fr 66px; gap: 12px; align-items: center; }
           .sg-d-track { position: relative; height: 17px; }
@@ -1799,11 +1867,11 @@ export default function SleepGuardian() {
 
           /* ── App screens：說明文字 + 點擊放大 ── */
           .sg-zoom-hint {
-            font-family: var(--font-mono); font-size: 11px; letter-spacing: 1px;
+            font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px;
             text-transform: uppercase; color: var(--acid); opacity: .8; margin: 0 0 16px;
           }
           .sg-app-screen-cap {
-            font-size: 12px; line-height: 1.45; text-align: center;
+            font-size: 14px; line-height: 1.45; text-align: center;
             color: rgba(255,255,255,0.72);
           }
 
@@ -1815,7 +1883,7 @@ export default function SleepGuardian() {
           }
           .sg-lightbox figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; cursor: default; }
           .sg-lightbox img { max-width: 88vw; max-height: 80vh; object-fit: contain; border-radius: 12px; }
-          .sg-lightbox figcaption { font-size: 14px; color: rgba(255,255,255,.85); }
+          .sg-lightbox figcaption { font-size: 15px; color: rgba(255,255,255,.85); }
           .sg-lightbox-close {
             position: fixed; top: 24px; right: 24px;
             width: 44px; height: 44px; border-radius: 50%;
@@ -1864,7 +1932,7 @@ export default function SleepGuardian() {
           }
           .sg-hero-finding-desc {
             display: block;
-            font-size: 13px;
+            font-size: 15px;
             line-height: 1.55;
             color: color-mix(in srgb, var(--bone) 72%, transparent);
           }
@@ -1910,7 +1978,7 @@ export default function SleepGuardian() {
           .sg-matrix-axis--between .sg-axis-label { color: var(--sg-text); }
           .sg-measure-cards--objective .sg-measure-purpose { color: var(--sg-text); }
           .sg-result-card p {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.75;
             color: var(--sg-muted);
             margin: 0;
@@ -1921,7 +1989,7 @@ export default function SleepGuardian() {
             padding-top: 16px;
             border-top: 1px solid var(--sg-border);
           }
-          .sg-result-card .sg-chart-head p { margin-bottom: 14px; font-size: 12.5px; }
+          .sg-result-card .sg-chart-head p { margin-bottom: 14px; font-size: 14px; }
 
           @media (max-width: 760px) {
             .sg-hero-findings-row { grid-template-columns: 1fr; gap: 20px; }
@@ -1940,7 +2008,7 @@ export default function SleepGuardian() {
           }
           /* 研究已於 2026/06/26 口試完成，六張卡不再掛狀態徽章（全部一樣就沒有資訊量）。 */
           .sg-contribution-card h4 { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--sg-text); margin-bottom: 10px; line-height: 1.4; }
-          .sg-contribution-card p { font-size: 13px; line-height: 1.7; color: var(--sg-muted); }
+          .sg-contribution-card p { font-size: 15px; line-height: 1.7; color: var(--sg-muted); }
 
           /* 中文四欄自然寬度加總約 1090px，1100 以下改兩欄，每格才不會被擠成兩行 */
           @media (max-width: 1100px) {

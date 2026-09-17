@@ -5,6 +5,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import { Award, Package, Globe, Lightbulb, Users, TrendingUp, ArrowRight } from 'lucide-react';
 import CjkText from '../../components/CjkText';
+import FlowLabel from '../../components/FlowLabel';
 
 export default function GoodLuckPeanut() {
   const { t } = useLanguage();
@@ -34,11 +35,11 @@ export default function GoodLuckPeanut() {
               <div className="hero-tags">
                 <span className="hero-tag branding">
                   <Package size={16} />
-                  <CjkText>{t('project.goodLuckPeanut.hero.badge1')}</CjkText>
+                  <span><CjkText>{t('project.goodLuckPeanut.hero.badge1')}</CjkText></span>
                 </span>
                 <span className="hero-tag web">
                   <Globe size={16} />
-                  <CjkText>{t('project.goodLuckPeanut.hero.badge2')}</CjkText>
+                  <span><CjkText>{t('project.goodLuckPeanut.hero.badge2')}</CjkText></span>
                 </span>
               </div>
               
@@ -144,6 +145,7 @@ export default function GoodLuckPeanut() {
 
             {/* The Challenge */}
             <div className="subsection">
+              <FlowLabel beat="problem" />
               <div className="subsection-header">
                 <Lightbulb size={24} color="hsl(var(--g1))" />
                 <h3 className="subsection-title">
@@ -185,6 +187,7 @@ export default function GoodLuckPeanut() {
 
             {/* The Strategy */}
             <div className="subsection">
+              <FlowLabel beat="solution" />
               <div className="subsection-header">
                 <TrendingUp size={24} color="hsl(var(--g2))" />
                 <h3 className="subsection-title">
@@ -333,6 +336,7 @@ export default function GoodLuckPeanut() {
 
             {/* Context */}
             <div className="subsection">
+              <FlowLabel beat="problem" />
               <div className="subsection-header">
                 <Globe size={24} color="hsl(var(--g1))" />
                 <h3 className="subsection-title">
@@ -347,6 +351,7 @@ export default function GoodLuckPeanut() {
 
             {/* Before vs After Comparison */}
             <div className="subsection">
+              <FlowLabel beat="analysis" />
               <div className="subsection-header">
                 <Users size={24} color="hsl(var(--g2))" />
                 <h3 className="subsection-title">
@@ -397,6 +402,7 @@ export default function GoodLuckPeanut() {
 
             {/* UX Process */}
             <div className="subsection">
+              <FlowLabel beat="solution" />
               <div className="subsection-header">
                 <Lightbulb size={24} color="hsl(var(--g3))" />
                 <h3 className="subsection-title">
@@ -504,6 +510,7 @@ export default function GoodLuckPeanut() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="outcome-section">
               <div className="outcome-header">
+                <div className="text-center"><FlowLabel beat="outcome" /></div>
                 <Award size={48} color="hsl(var(--g1))" />
                 <h2 className="section-heading" style={{ marginBottom: '16px' }}>
                   <CjkText>{t('project.goodLuckPeanut.outcome.heading')}</CjkText>
@@ -811,7 +818,7 @@ export default function GoodLuckPeanut() {
           }
 
           .strategy-card-text {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }
@@ -955,7 +962,7 @@ export default function GoodLuckPeanut() {
           }
 
           .comparison-list li {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
             color: var(--color-text-muted);
             padding-left: 20px;
@@ -1013,7 +1020,7 @@ export default function GoodLuckPeanut() {
           }
 
           .highlight-card-text {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }

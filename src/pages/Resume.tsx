@@ -236,11 +236,11 @@ export default function Resume() {
               </div>
               <div className="resume-actions">
                 <Button className="btn-pill interactive-button-base btn--primary" asChild>
-                  <a href={resumePdf} download><Download size={18} />{' '}<CjkText>{t('resume.header.downloadPdf')}</CjkText></a>
+                  <a href={resumePdf} download><Download size={18} />{' '}<span><CjkText>{t('resume.header.downloadPdf')}</CjkText></span></a>
                 </Button>
                 {resumeData.contact.linkedin && (
                   <Button variant="outline" className="btn-pill interactive-button-base" asChild>
-                    <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin size={18} />{' '}<CjkText>{t('resume.header.linkedin')}</CjkText></a>
+                    <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin size={18} />{' '}<span><CjkText>{t('resume.header.linkedin')}</CjkText></span></a>
                   </Button>
                 )}
               </div>
@@ -259,7 +259,7 @@ export default function Resume() {
         <section className="section">
           <div className="container">
             <div className="reveal" style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <h2 className="section-head"><CjkText>{t('resume.experience.heading')}</CjkText></h2>
+              <h2 className="section-head"><span><CjkText>{t('resume.experience.heading')}</CjkText></span></h2>
             </div>
             <ol className="timeline-list">
               {resumeData.experience.map((exp) => (
@@ -277,7 +277,7 @@ export default function Resume() {
           <div className="container">
             <div className="reveal" style={{ marginBottom: 'var(--space-10)' }}>
               <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <Code size={32} color="var(--accent-text)" />{' '}<CjkText>{t('resume.skills.heading')}</CjkText></h2>
+                <Code size={32} color="var(--accent-text)" />{' '}<span><CjkText>{t('resume.skills.heading')}</CjkText></span></h2>
             </div>
 
             <div className="skills-grid">
@@ -337,7 +337,7 @@ export default function Resume() {
               {/* Education */}
               <div>
                 <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <GraduationCap size={32} color="var(--accent-text)" />{' '}<CjkText>{t('resume.education.heading')}</CjkText></h2>
+                  <GraduationCap size={32} color="var(--accent-text)" />{' '}<span><CjkText>{t('resume.education.heading')}</CjkText></span></h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {resumeData.education.map((edu, index) => (
                     <Card key={index} style={{ border: '1px solid rgba(0,0,0,0.06)' }}>
@@ -354,7 +354,7 @@ export default function Resume() {
               {/* Certifications */}
               <div>
                 <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <Award size={32} color="var(--accent-text)" />{' '}<CjkText>{t('resume.certs.heading')}</CjkText></h2>
+                  <Award size={32} color="var(--accent-text)" />{' '}<span><CjkText>{t('resume.certs.heading')}</CjkText></span></h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {resumeData.certifications.map((cert, index) => (
                     <Card key={index} style={{ border: '1px solid rgba(0,0,0,0.06)' }}>
@@ -400,7 +400,7 @@ export default function Resume() {
         <section className="section" id="awards" style={{ paddingBottom: 'var(--space-10)' }}>
           <div className="container">
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <Award size={32} color="var(--accent-text)" />{' '}<CjkText>{t('resume.awards.heading')}</CjkText></h2>
+              <Award size={32} color="var(--accent-text)" />{' '}<span><CjkText>{t('resume.awards.heading')}</CjkText></span></h2>
             <div className="awards-grid reveal">
               {awards.map(award => (
                 <div className="award-item-clean" key={award.key}>
@@ -465,7 +465,7 @@ export default function Resume() {
         .award-item-clean:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
         .award-year { font-family: var(--font-mono); font-size: 18px; font-weight: 700; color: var(--accent-text); opacity: 0.8; padding-top: 2px; }
         .award-item-clean h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
-        .award-item-clean p { font-size: 14px; color: var(--text-tertiary); line-height: 1.5; margin: 0; }
+        .award-item-clean p { font-size: 15px; color: var(--text-tertiary); line-height: 1.5; margin: 0; }
         @media (max-width: 768px) { .awards-grid { grid-template-columns: 1fr; } }
 
         .cert-btn {

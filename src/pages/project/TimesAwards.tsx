@@ -5,6 +5,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import { Award, Video, Globe, Headphones, Lightbulb, Target, Sparkles, Star } from 'lucide-react';
 import CjkText from '../../components/CjkText';
+import FlowLabel from '../../components/FlowLabel';
 
 const timesPhotos = import.meta.glob(
   '../../assets/images/project/TimesYoungCreativeAwards/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
@@ -146,6 +147,7 @@ export default function TimesAwards() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="overview-intro">
+              <FlowLabel beat="analysis" />
               <h2 className="section-heading">
                 <CjkText>{t('project.timesAwards.concept.heading')}</CjkText>
               </h2>
@@ -188,9 +190,50 @@ export default function TimesAwards() {
           </div>
         </section>
 
+        {/* Creative Insights：原本壓在頁尾的 impact 裡，往前提到核心概念之後，
+            讓「四件作品」之前先有一段分析，補上這頁缺席的那一拍。 */}
+        <section className="content-section reveal">
+          <div className="container" style={{ maxWidth: '1200px' }}>
+            <div className="takeaways-section">
+            <h3 className="takeaways-title">
+              <CjkText>{t('project.timesAwards.insights.heading')}</CjkText>
+            </h3>
+            <div className="takeaways-grid">
+              <div className="takeaway-card">
+                <h4 className="takeaway-card-title">
+                  <CjkText>{t('project.timesAwards.insights.i1title')}</CjkText>
+                </h4>
+                <p className="takeaway-card-text">
+                  <CjkText>{t('project.timesAwards.insights.i1desc')}</CjkText>
+                </p>
+              </div>
+
+              <div className="takeaway-card">
+                <h4 className="takeaway-card-title">
+                  <CjkText>{t('project.timesAwards.insights.i2title')}</CjkText>
+                </h4>
+                <p className="takeaway-card-text">
+                  <CjkText>{t('project.timesAwards.insights.i2desc')}</CjkText>
+                </p>
+              </div>
+
+              <div className="takeaway-card">
+                <h4 className="takeaway-card-title">
+                  <CjkText>{t('project.timesAwards.insights.i3title')}</CjkText>
+                </h4>
+                <p className="takeaway-card-text">
+                  <CjkText>{t('project.timesAwards.insights.i3desc')}</CjkText>
+                </p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Work 1: Career Festival (3rd Place Winner) */}
         <section className="content-section reveal work-section" style={{ background: 'linear-gradient(180deg, rgba(205,133,63,0.08) 0%, transparent 100%)' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
+            <FlowLabel beat="solution" />
             <div className="work-header">
               <div className="work-badge winner">
                 <Award size={20} />
@@ -465,6 +508,7 @@ export default function TimesAwards() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="outcome-section">
               <div className="outcome-header">
+                <div className="text-center"><FlowLabel beat="outcome" /></div>
                 {/* 修正對齊：將 icon 與文字包在 flex 容器中 */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '16px' }}>
                   <Award size={48} color="#CD853F" />
@@ -515,40 +559,6 @@ export default function TimesAwards() {
                 </div>
               </div>
 
-              {/* Key Takeaways */}
-              <div className="takeaways-section">
-                <h3 className="takeaways-title">
-                  <CjkText>{t('project.timesAwards.insights.heading')}</CjkText>
-                </h3>
-                <div className="takeaways-grid">
-                  <div className="takeaway-card">
-                    <h4 className="takeaway-card-title">
-                      <CjkText>{t('project.timesAwards.insights.i1title')}</CjkText>
-                    </h4>
-                    <p className="takeaway-card-text">
-                      <CjkText>{t('project.timesAwards.insights.i1desc')}</CjkText>
-                    </p>
-                  </div>
-
-                  <div className="takeaway-card">
-                    <h4 className="takeaway-card-title">
-                      <CjkText>{t('project.timesAwards.insights.i2title')}</CjkText>
-                    </h4>
-                    <p className="takeaway-card-text">
-                      <CjkText>{t('project.timesAwards.insights.i2desc')}</CjkText>
-                    </p>
-                  </div>
-
-                  <div className="takeaway-card">
-                    <h4 className="takeaway-card-title">
-                      <CjkText>{t('project.timesAwards.insights.i3title')}</CjkText>
-                    </h4>
-                    <p className="takeaway-card-text">
-                      <CjkText>{t('project.timesAwards.insights.i3desc')}</CjkText>
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -732,8 +742,14 @@ export default function TimesAwards() {
           /* Overview */
           .overview-intro {
             text-align: center;
-            max-width: 1000px;
             margin: 0 auto 64px;
+          }
+          /* 眉標與標題維持窄欄好讀，概念卡本身放寬到整個容器 */
+          .overview-intro > .flow-label,
+          .overview-intro > .section-heading {
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
           }
 
           /* Concept Highlight Box */
@@ -948,7 +964,7 @@ export default function TimesAwards() {
           }
 
           .features-list li {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
             color: var(--color-text-muted);
             padding-left: 24px;
@@ -1046,7 +1062,7 @@ export default function TimesAwards() {
 
           .outcome-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 32px;
             margin-bottom: 64px;
           }
@@ -1060,7 +1076,7 @@ export default function TimesAwards() {
           }
 
           .outcome-card.featured {
-            grid-column: span 3;
+            grid-column: span 2;
             padding: 56px 32px;
           }
 
@@ -1135,7 +1151,7 @@ export default function TimesAwards() {
           }
 
           .takeaway-card-text {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }

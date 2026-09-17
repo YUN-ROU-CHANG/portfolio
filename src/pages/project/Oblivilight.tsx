@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import CjkText from '../../components/CjkText';
+import FlowLabel from '../../components/FlowLabel';
 import {
   Award, Zap, Users, Lightbulb, Cpu,
   Printer, Trash2, BookOpen, Star, Maximize2, X
@@ -111,9 +112,10 @@ export default function Oblivilight() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="two-column-layout">
               <div className="column-content">
+                <FlowLabel beat="problem" />
                 <div className="section-header-sm">
                   <Zap size={24} color="hsl(var(--g1))" />
-                  <h2 className="section-heading-sm"><CjkText>{t('project.oblivilight.challenge.title')}</CjkText></h2>
+                  <h2 className="section-heading-sm"><span><CjkText>{t('project.oblivilight.challenge.title')}</CjkText></span></h2>
                 </div>
                 <p className="body-text">
                   <CjkText>{t('project.oblivilight.challenge.desc')}</CjkText>
@@ -145,7 +147,7 @@ export default function Oblivilight() {
             </div>
 
             {/* The Concept Exhibition Image */}
-            <div className="image-wrapper shadow-box bg-white mt-12">
+            <div className="image-wrapper shadow-box bg-white mt-12 oc-wide-figure">
               <img src={getAsset('exhibition-pictures')} alt={t('project.oblivilight.concept.exhibitionAlt')} className="full-contain-img" />
             </div>
           </div>
@@ -153,11 +155,12 @@ export default function Oblivilight() {
 
         {/* User Research & Insights */}
         <section className="content-section reveal" style={{ background: 'rgba(251, 146, 60, 0.04)' }}>
-          <div className="container" style={{ maxWidth: '1000px' }}>
+          <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="text-center mb-12">
+              <div><FlowLabel beat="analysis" /></div>
               <div className="section-header-sm justify-center">
                 <BookOpen size={28} color="hsl(var(--g2))" />
-                <h2 className="section-heading-sm ml-3"><CjkText>{t('project.oblivilight.research.heading')}</CjkText></h2>
+                <h2 className="section-heading-sm ml-3"><span><CjkText>{t('project.oblivilight.research.heading')}</CjkText></span></h2>
               </div>
               <p className="body-text mt-4">
                 <CjkText>{t('project.oblivilight.research.desc')}</CjkText>
@@ -165,19 +168,19 @@ export default function Oblivilight() {
             </div>
 
             <div className="flex-col-gap-large">
-              <div className="image-wrapper shadow-box bg-white p-4">
+              <div className="image-wrapper shadow-box bg-white p-4 oc-wide-figure">
                 <img src={getAsset('user-concern')} alt={t('project.oblivilight.research.alt1')} className="full-contain-img" />
               </div>
-              <div className="image-wrapper shadow-box bg-white p-4">
+              <div className="image-wrapper shadow-box bg-white p-4 oc-wide-figure">
                 <img src={getAsset('after-interview')} alt={t('project.oblivilight.research.alt2')} className="full-contain-img" />
               </div>
-              <div className="image-wrapper shadow-box bg-white p-4">
+              <div className="image-wrapper shadow-box bg-white p-4 oc-wide-figure">
                 <img src={getAsset('interview-results')} alt={t('project.oblivilight.research.alt3')} className="full-contain-img" />
               </div>
-              <div className="image-wrapper shadow-box bg-white p-4">
+              <div className="image-wrapper shadow-box bg-white p-4 oc-wide-figure">
                 <img src={getAsset('persona')} alt={t('project.oblivilight.research.alt4')} className="full-contain-img" />
               </div>
-              <div className="image-wrapper shadow-box bg-white p-4">
+              <div className="image-wrapper shadow-box bg-white p-4 oc-wide-figure">
                 <img src={getAsset('pov-and-hmw')} alt={t('project.oblivilight.research.alt5')} className="full-contain-img" />
               </div>
             </div>
@@ -188,12 +191,13 @@ export default function Oblivilight() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="text-center mb-12">
+              <div><FlowLabel beat="solution" /></div>
               <h2 className="section-heading"><CjkText>{t('project.oblivilight.flow.heading')}</CjkText></h2>
               <p className="section-subheading"><CjkText>{t('project.oblivilight.flow.desc')}</CjkText></p>
             </div>
 
             {/* Remember Demo Image */}
-            <div className="image-wrapper shadow-box bg-white p-4 mb-12">
+            <div className="image-wrapper shadow-box bg-white p-4 mb-12 oc-wide-figure">
               <img src={getAsset('remember-demo')} alt={t('project.oblivilight.flow.demoAlt')} className="full-contain-img" />
             </div>
 
@@ -221,10 +225,10 @@ export default function Oblivilight() {
             <div className="mt-12">
               <h3 className="highlight-title text-center mb-6"><CjkText>{t('project.oblivilight.interact.heading')}</CjkText></h3>
               <div className="gif-grid-2x2">
-                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-1')} alt={t('project.oblivilight.interact.alt1')} className="full-contain-img" /></div>
-                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-2')} alt={t('project.oblivilight.interact.alt2')} className="full-contain-img" /></div>
-                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-3')} alt={t('project.oblivilight.interact.alt3')} className="full-contain-img" /></div>
-                <div className="image-wrapper shadow-box"><img src={getAsset('use-way-4')} alt={t('project.oblivilight.interact.alt4')} className="full-contain-img" /></div>
+                <div className="image-wrapper shadow-box interactive-image-area" onClick={() => setLightboxImage(getAsset('use-way-1'))}><img src={getAsset('use-way-1')} alt={t('project.oblivilight.interact.alt1')} className="full-contain-img" /><div className="expand-hint"><Maximize2 size={18} /><span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span></div></div>
+                <div className="image-wrapper shadow-box interactive-image-area" onClick={() => setLightboxImage(getAsset('use-way-2'))}><img src={getAsset('use-way-2')} alt={t('project.oblivilight.interact.alt2')} className="full-contain-img" /><div className="expand-hint"><Maximize2 size={18} /><span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span></div></div>
+                <div className="image-wrapper shadow-box interactive-image-area" onClick={() => setLightboxImage(getAsset('use-way-3'))}><img src={getAsset('use-way-3')} alt={t('project.oblivilight.interact.alt3')} className="full-contain-img" /><div className="expand-hint"><Maximize2 size={18} /><span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span></div></div>
+                <div className="image-wrapper shadow-box interactive-image-area" onClick={() => setLightboxImage(getAsset('use-way-4'))}><img src={getAsset('use-way-4')} alt={t('project.oblivilight.interact.alt4')} className="full-contain-img" /><div className="expand-hint"><Maximize2 size={18} /><span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span></div></div>
               </div>
             </div>
 
@@ -232,9 +236,9 @@ export default function Oblivilight() {
             <div className="mt-12">
               <h3 className="highlight-title text-center mb-6"><CjkText>{t('project.oblivilight.forgetting.heading')}</CjkText></h3>
               <div className="gif-grid-3">
-                <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_1')} alt={t('project.oblivilight.forgetting.alt1')} className="full-contain-img" /></div>
-                <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_2')} alt={t('project.oblivilight.forgetting.alt2')} className="full-contain-img" /></div>
-                <div className="image-wrapper shadow-box"><img src={getAsset('to-forgot_3')} alt={t('project.oblivilight.forgetting.alt3')} className="full-contain-img" /></div>
+                <div className="image-wrapper shadow-box interactive-image-area" onClick={() => setLightboxImage(getAsset('to-forgot_1'))}><img src={getAsset('to-forgot_1')} alt={t('project.oblivilight.forgetting.alt1')} className="full-contain-img" /><div className="expand-hint"><Maximize2 size={18} /><span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span></div></div>
+                <div className="image-wrapper shadow-box interactive-image-area" onClick={() => setLightboxImage(getAsset('to-forgot_2'))}><img src={getAsset('to-forgot_2')} alt={t('project.oblivilight.forgetting.alt2')} className="full-contain-img" /><div className="expand-hint"><Maximize2 size={18} /><span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span></div></div>
+                <div className="image-wrapper shadow-box interactive-image-area" onClick={() => setLightboxImage(getAsset('to-forgot_3'))}><img src={getAsset('to-forgot_3')} alt={t('project.oblivilight.forgetting.alt3')} className="full-contain-img" /><div className="expand-hint"><Maximize2 size={18} /><span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span></div></div>
               </div>
             </div>
           </div>
@@ -245,6 +249,7 @@ export default function Oblivilight() {
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="two-column-layout">
               <div className="column-content">
+                <FlowLabel beat="solution" />
                 <div className="section-header-sm">
                   <Cpu size={24} color="hsl(var(--g4))" />
                   {/* 修改：將標題改為粗體小標風格 */}
@@ -264,13 +269,13 @@ export default function Oblivilight() {
               <div className="column-media">
                 {/* 修改：加上 interactive-image-area 類別與 onClick 事件，並加入放大圖示 */}
                 <div
-                  className="image-wrapper shadow-box bg-white p-4 interactive-image-area"
-                  style={{ minHeight: '300px' }}
+                  className="image-wrapper shadow-box bg-white p-4 interactive-image-area oc-wide-figure"
                   onClick={() => setLightboxImage(getAsset('tech'))}
                 >
                   <img src={getAsset('tech')} alt={t('project.oblivilight.tech.diagramAlt')} className="full-contain-img" />
                   <div className="expand-hint">
-                    <Maximize2 size={20} />
+                    <Maximize2 size={18} />
+                    <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
                   </div>
                 </div>
               </div>
@@ -279,37 +284,48 @@ export default function Oblivilight() {
         </section>
 
         {/* Recognition & Impact */}
-        <section className="content-section reveal" style={{ paddingBottom: '80px' }}>
+        {/* External Validation：這個六天的工作坊作品沒有做使用者測試，
+            撐起「驗證」這一拍的是 OpenHCI 的評選與 TAICHI 的展出邀請。 */}
+        <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="text-center mb-12">
               <Award size={48} color="hsl(var(--g1))" className="mx-auto mb-4" />
+              <div><FlowLabel beat="validation" /></div>
+              <h2 className="section-heading"><CjkText>{t('project.oblivilight.impact.validationHeading')}</CjkText></h2>
+              <p className="section-subheading"><CjkText>{t('project.oblivilight.impact.validationTitle')}</CjkText></p>
+            </div>
+
+            <div className="outcome-card text-center" style={{ maxWidth: '820px', margin: '0 auto' }}>
+              <div className="outcome-icon mx-auto"><Star size={36} /></div>
+              <h3 className="outcome-title"><CjkText>{t('project.oblivilight.hero.badge2')}</CjkText></h3>
+              <p className="outcome-text text-center">
+                <CjkText>{t('project.oblivilight.impact.taichiDesc')}</CjkText>
+              </p>
+              <div className="image-wrapper shadow-box mt-6 oc-photo-figure">
+                <img src={getAsset('awards-photo')} alt={t('project.oblivilight.impact.awardsAlt')} className="full-contain-img" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Team Impact */}
+        <section className="content-section reveal" style={{ paddingBottom: '80px' }}>
+          <div className="container" style={{ maxWidth: '1200px' }}>
+            <div className="text-center mb-12">
+              <Users size={48} color="hsl(var(--g4))" className="mx-auto mb-4" />
+              <div><FlowLabel beat="outcome" /></div>
               <h2 className="section-heading"><CjkText>{t('project.oblivilight.impact.heading')}</CjkText></h2>
               <p className="section-subheading"><CjkText>{t('project.oblivilight.impact.title')}</CjkText></p>
             </div>
 
-            <div className="outcome-grid-2">
-              {/* TAICHI Demo */}
-              <div className="outcome-card text-center">
-                <div className="outcome-icon mx-auto"><Star size={36} /></div>
-                <h3 className="outcome-title"><CjkText>{t('project.oblivilight.hero.badge2')}</CjkText></h3>
-                <p className="outcome-text text-center">
-                  <CjkText>{t('project.oblivilight.impact.taichiDesc')}</CjkText>
-                </p>
-                <div className="image-wrapper shadow-box mt-6" style={{ height: '200px' }}>
-                  <img src={getAsset('awards-photo')} alt={t('project.oblivilight.impact.awardsAlt')} className="full-contain-img" />
-                </div>
-              </div>
-
-              {/* Team Collaboration */}
-              <div className="outcome-card text-center">
-                <div className="outcome-icon mx-auto"><Users size={36} /></div>
-                <h3 className="outcome-title"><CjkText>{t('project.oblivilight.impact.teamTitle')}</CjkText></h3>
-                <p className="outcome-text text-center">
-                  <CjkText>{t('project.oblivilight.impact.teamDesc')}</CjkText>
-                </p>
-                <div className="image-wrapper shadow-box mt-6" style={{ height: '200px' }}>
-                  <img src={getAsset('our-team')} alt={t('project.oblivilight.impact.teamAlt')} className="full-contain-img" />
-                </div>
+            <div className="outcome-card text-center" style={{ maxWidth: '820px', margin: '0 auto' }}>
+              <div className="outcome-icon mx-auto"><Users size={36} /></div>
+              <h3 className="outcome-title"><CjkText>{t('project.oblivilight.impact.teamTitle')}</CjkText></h3>
+              <p className="outcome-text text-center">
+                <CjkText>{t('project.oblivilight.impact.teamDesc')}</CjkText>
+              </p>
+              <div className="image-wrapper shadow-box mt-6 oc-photo-figure">
+                <img src={getAsset('our-team')} alt={t('project.oblivilight.impact.teamAlt')} className="full-contain-img" />
               </div>
             </div>
           </div>
@@ -343,24 +359,47 @@ export default function Oblivilight() {
           .lightbox-content img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
           
           /* Interactive Image Styling & Expand Hint 新增樣式 */
-          .interactive-image-area { cursor: zoom-in; transition: transform 0.3s ease; position: relative; }
-          .interactive-image-area:hover { transform: scale(1.01); }
+          .interactive-image-area {
+            cursor: zoom-in;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+          }
+          .interactive-image-area:hover {
+            transform: scale(1.01);
+            box-shadow: 0 16px 36px color-mix(in srgb, var(--text-primary) 16%, transparent);
+          }
+          /* 提示平常就半透明可見，hover 再放大加深並帶出文字 */
           .expand-hint {
             position: absolute;
             top: 16px;
             right: 16px;
             background-color: var(--card-glass);
-            border-radius: 50%;
-            padding: 8px;
-            display: flex;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 8px 12px;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            color: hsl(var(--g1));
+            gap: 6px;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            opacity: 0;
-            transition: opacity 0.2s ease;
+            opacity: 0.55;
+            transition: opacity 0.2s ease, transform 0.2s ease;
           }
-          .interactive-image-area:hover .expand-hint { opacity: 1; }
+          .expand-hint__label { display: none; }
+          .interactive-image-area:hover .expand-hint { opacity: 1; transform: scale(1.06); }
+          .interactive-image-area:hover .expand-hint__label { display: inline; }
+
+          /* 單欄大圖一律 16:9。研究段五張、互動流程、技術圖本來就是 1.78:1，
+             展場照是 1.33:1，用 contain 留白不裁切，尺寸才會整列一致。 */
+          .oc-wide-figure { aspect-ratio: 16 / 9; height: auto; }
+          /* 得獎照與團隊照都是 1.5:1 的實拍照，原本鎖死 200px 高顯得很小。
+             改成依原圖比例自適應，兩張尺寸一致。 */
+          .oc-photo-figure { aspect-ratio: 3 / 2; height: auto; }
+          .oc-photo-figure .full-contain-img { object-fit: cover; }
 
           /* 保留原本的所有樣式 */
           .full-contain-img { width: 100%; height: 100%; object-fit: contain; display: block; }

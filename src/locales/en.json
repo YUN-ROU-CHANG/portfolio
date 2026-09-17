@@ -13,6 +13,7 @@
   },
   "common": {
     "certificate": "Certificate",
+    "clickToZoom": "Click to enlarge",
     "enlargedView": "Enlarged view",
     "explore": "Explore →"
   },
@@ -1067,6 +1068,8 @@
       "impact": {
         "heading": "Recognition & Team Impact",
         "title": "Award-Winning Demo & Exhibition Selection",
+        "validationHeading": "External validation",
+        "validationTitle": "Best Demo at OpenHCI '25, then invited to exhibit at TAICHI",
         "taichiDesc": "Chosen to be showcased at the prestigious TAICHI Demo exhibition, highlighting innovative HCI research and prototypes.",
         "awardsAlt": "Awards Photo",
         "teamTitle": "Team Collaboration",

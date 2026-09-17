@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import Layout from '../components/Layout';
@@ -62,12 +62,7 @@ function WorkCard({ work, feature, index }: { work: Work; feature?: boolean; ind
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.2, 0.8, 0.2, 1] }}
     >
       <Link className={`work-card${feature ? ' work-card--feature' : ''}`} to={`/projects/${work.slug}`}>
-        {/* feature 卡把封面圖網址傳進 CSS，讓 ::before 拿同一張圖當模糊底填滿留白。
-            其餘四張是 cover 滿版，不需要這層。 */}
-        <div
-          className="work-cover"
-          style={feature ? ({ '--cover-img': `url(${work.cover})` } as CSSProperties) : undefined}
-        >
+        <div className="work-cover">
           <img src={work.cover} alt={work.imgAlt} loading={feature ? 'eager' : 'lazy'} />
         </div>
         <div className="work-body">
@@ -157,8 +152,8 @@ export default function Home() {
             {/* 舊的第二顆是 href="#selected-works"。全站走 HashRouter，網址列的 hash
                 已經被路由佔用，錨點連結會被當成路由 /selected-works 而導不到任何地方。
                 Selected Works 本來就在首屏正下方，不需要按鈕帶路，改指向履歷。 */}
-            <Link className="btn-pill btn--primary" to="/about"><CjkText>{t('home.hero.aboutBtn')}</CjkText>{' '}<span className="dot">→</span></Link>
-            <Link className="btn-pill btn--secondary" to="/resume"><CjkText>{t('home.hero.resumeBtn')}</CjkText>{' '}<span className="dot">→</span></Link>
+            <Link className="btn-pill btn--primary" to="/about"><span><CjkText>{t('home.hero.aboutBtn')}</CjkText></span>{' '}<span className="dot">→</span></Link>
+            <Link className="btn-pill btn--secondary" to="/resume"><span><CjkText>{t('home.hero.resumeBtn')}</CjkText></span>{' '}<span className="dot">→</span></Link>
           </div>
         </motion.div>
       </section>
@@ -168,7 +163,7 @@ export default function Home() {
         <div className="container">
           <div className="section-header-flex">
             <h2 className="section-head">
-              <Briefcase size={32} color="var(--accent-text)" /><CjkText>{t('home.works.heading')}</CjkText>
+              <Briefcase size={32} color="var(--accent-text)" /><span><CjkText>{t('home.works.heading')}</CjkText></span>
             </h2>
             <Link to="/projects" className="view-all-link"><CjkText>{t('home.works.viewAll')}</CjkText></Link>
           </div>
@@ -236,7 +231,7 @@ export default function Home() {
       <section className="section" id="contact" style={{ paddingTop: '64px', paddingBottom: '96px' }}>
         <div className="container contact-wrap">
           <h2 className="section-head reveal" style={{ justifyContent: 'center' }}>
-            <Mail size={32} color="var(--accent-text)" /><CjkText>{t('home.contact.heading')}</CjkText>
+            <Mail size={32} color="var(--accent-text)" /><span><CjkText>{t('home.contact.heading')}</CjkText></span>
           </h2>
           <p className="contact-sub"><CjkText>{t('home.contact.sub')}</CjkText></p>
           <div className="contact-pills">
@@ -483,7 +478,7 @@ export default function Home() {
         .work-body { padding: clamp(20px, 2.2vw, 28px) clamp(22px, 2.4vw, 32px) clamp(24px, 2.6vw, 32px); }
         .work-meta {
           font-family: var(--font-mono);
-          font-size: 11px;
+          font-size: 12px;
           letter-spacing: .12em;
           text-transform: uppercase;
           color: var(--text-tertiary);
@@ -546,25 +541,11 @@ export default function Home() {
 
         /* Feature card: cover left, copy right */
         .work-card--feature { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
-        /* 封面內容（白字＋手機）的實際範圍是 1574×808，比例 1.95:1，
-           但這個圖框被右側文字欄撐成約 1.4:1。cover 一定會裁掉字或手機，
-           contain 又會留下兩條死板的空白帶。
-           解法：真圖用 contain 完整顯示，底下鋪一層同一張圖的模糊放大版填滿邊緣。
-           這張封面的底色本來就是平滑藍色漸層，模糊層會自然接續，看起來仍是滿版。 */
-        .work-card--feature .work-cover { aspect-ratio: auto; height: 100%; min-height: 340px; position: relative; }
-        .work-card--feature .work-cover::before {
-          content: ''; position: absolute; inset: 0;
-          background-image: var(--cover-img);
-          background-size: cover; background-position: center;
-          /* 放大 1.15 倍是為了把 blur 在邊緣造成的透明羽化推出視野外。 */
-          filter: blur(28px); transform: scale(1.15);
-        }
-        .work-card--feature .work-cover img { object-fit: contain; position: relative; z-index: 1; }
-        /* hover 放大跟其他四張一致。contain 下縮放比 624/1800，放大 1.04 倍左右各溢出 35 原圖 px，
-           而這張圖左右空白邊有 104 與 121px，所以吃掉的全是空白，字與手機不會被切。
-           模糊底同步放大，避免只有前景動、背景不動的分層感。 */
-        .work-card--feature:hover .work-cover::before { transform: scale(1.19); }
-        .work-card--feature .work-cover::before { transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+        /* 2026/09：這張原本用 contain 加一層模糊墊底填滿留白，看起來不像滿版。
+           改回與其餘四張一致的 cover。原圖 1800×1012（1.78:1）放進 1.52:1 的圖框，
+           每邊裁掉約 130px，而畫面內容（1574px 寬）左右各有 113px 留白，
+           實際只吃進內容約 17px，字與手機都還在。hover 放大沿用共用規則。 */
+        .work-card--feature .work-cover { aspect-ratio: auto; height: 100%; min-height: 340px; }
         .work-card--feature .work-body { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 3.2vw, 48px); }
         .work-card--feature .work-title { font-size: clamp(24px, 2.6vw, 36px); }
         .work-card--feature .work-caption { font-size: clamp(15px, 1.1vw, 16.5px); }

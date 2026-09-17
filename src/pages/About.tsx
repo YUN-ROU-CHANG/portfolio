@@ -184,7 +184,7 @@ export default function About() {
         <section className="section" id="about-strengths" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
-              <Lightbulb size={32} color="var(--accent-text)" /><CjkText>{t('about.strengths.heading')}</CjkText></h2>
+              <Lightbulb size={32} color="var(--accent-text)" /><span><CjkText>{t('about.strengths.heading')}</CjkText></span></h2>
 
             <div className="bento-grid" ref={strengthsRef}>
 
@@ -195,7 +195,7 @@ export default function About() {
                   <div className="bento-overlay overlay-dark"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-dark"><CjkText>{t('about.strengths.research.tag')}</CjkText></span>
+                  <span className="bento-tag tag-dark"><span><CjkText>{t('about.strengths.research.tag')}</CjkText></span></span>
                   <h3 className="bento-title"><CjkText>{t('about.strengths.research.titleLine1')}</CjkText><br /><CjkText>{t('about.strengths.research.titleLine2')}</CjkText></h3>
                   <p className="bento-sub"><CjkText>{t('about.strengths.research.desc')}</CjkText></p>
                   <div className="bento-stats-row mt-auto">
@@ -222,7 +222,7 @@ export default function About() {
                   <div className="bento-overlay overlay-light"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-amber"><CjkText>{t('about.strengths.awards.tag')}</CjkText></span>
+                  <span className="bento-tag tag-amber"><span><CjkText>{t('about.strengths.awards.tag')}</CjkText></span></span>
                   <h3 className="bento-title"><CjkText>{t('about.strengths.awards.titleLine1')}</CjkText><br /><CjkText>{t('about.strengths.awards.titleLine2')}</CjkText></h3>
                   <p className="bento-sub"><CjkText>{t('about.strengths.awards.desc')}</CjkText></p>
                   <div className="bento-badge-row mt-auto">
@@ -240,7 +240,7 @@ export default function About() {
                   <div className="bento-overlay overlay-light-blur"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-teal"><CjkText>{t('about.strengths.uiDesign.tag')}</CjkText></span>
+                  <span className="bento-tag tag-teal"><span><CjkText>{t('about.strengths.uiDesign.tag')}</CjkText></span></span>
                   <h3 className="bento-title"><CjkText>{t('about.strengths.uiDesign.titleLine1')}</CjkText><br /><CjkText>{t('about.strengths.uiDesign.titleLine2')}</CjkText></h3>
                   <p className="bento-sub"><CjkText>{t('about.strengths.uiDesign.desc')}</CjkText></p>
                   <div className="bento-pill-stack mt-auto">
@@ -259,7 +259,7 @@ export default function About() {
                   <div className="bento-overlay overlay-light"></div>
                 </div>
                 <div className="bento-content">
-                  <span className="bento-tag tag-blue"><CjkText>{t('about.strengths.ai.tag')}</CjkText></span>
+                  <span className="bento-tag tag-blue"><span><CjkText>{t('about.strengths.ai.tag')}</CjkText></span></span>
                   <h3 className="bento-title"><CjkText>{t('about.strengths.ai.titleLine1')}</CjkText><br /><CjkText>{t('about.strengths.ai.titleLine2')}</CjkText></h3>
                   <p className="bento-sub"><CjkText>{t('about.strengths.ai.desc')}</CjkText></p>
                 </div>
@@ -273,7 +273,7 @@ export default function About() {
                 </div>
                 <div className="bento-content bento-content--row">
                   <div className="content-left">
-                    <span className="bento-tag tag-gray"><CjkText>{t('about.strengths.crossFunc.tag')}</CjkText></span>
+                    <span className="bento-tag tag-gray"><span><CjkText>{t('about.strengths.crossFunc.tag')}</CjkText></span></span>
                     <h3 className="bento-title"><CjkText>{t('about.strengths.crossFunc.titleLine1')}</CjkText><br /><CjkText>{t('about.strengths.crossFunc.titleLine2')}</CjkText></h3>
                     <p className="bento-sub" style={{ maxWidth: '400px' }}><CjkText>{t('about.strengths.crossFunc.desc')}</CjkText></p>
                   </div>
@@ -304,7 +304,7 @@ export default function About() {
         <section className="section" id="about-values" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
-              <Heart size={32} color="var(--accent-text)" /><CjkText>{t('about.values.heading')}</CjkText></h2>
+              <Heart size={32} color="var(--accent-text)" /><span><CjkText>{t('about.values.heading')}</CjkText></span></h2>
 
             <div className="about-values-grid" ref={valuesRef}>
               <div className="gframe reveal" style={{ height: '100%', '--reveal-delay': '0ms' } as CSSProperties}>
@@ -358,7 +358,7 @@ export default function About() {
         <section className="section" id="about-offclock" style={{ paddingTop: '80px', paddingBottom: '96px' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <Bike size={32} color="var(--accent-text)" aria-hidden="true" /><CjkText>{t('about.offClock.heading')}</CjkText></h2>
+              <Bike size={32} color="var(--accent-text)" aria-hidden="true" /><span><CjkText>{t('about.offClock.heading')}</CjkText></span></h2>
             <p className="offclock-sub reveal"><CjkText>{t('about.offClock.sub')}</CjkText></p>
 
             <ul className="offclock-list">
@@ -776,7 +776,7 @@ export default function About() {
             color: var(--text-primary);
           }
           .offclock-body p {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.7;
             color: var(--text-secondary);
             margin: 0;
@@ -786,7 +786,7 @@ export default function About() {
             align-self: center;
             white-space: nowrap;
             font-family: var(--font-mono);
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: .1em;
             text-transform: uppercase;
             color: var(--accent-text);
@@ -813,7 +813,7 @@ export default function About() {
           .offclock-caption {
             display: block;
             font-family: var(--font-mono);
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: .1em;
             text-transform: uppercase;
             color: var(--text-tertiary);

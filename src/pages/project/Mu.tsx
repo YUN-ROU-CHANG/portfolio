@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import CjkText from '../../components/CjkText';
+import FlowLabel from '../../components/FlowLabel';
 import {
   Award, Leaf, Wind, Map, BookOpen,
   Target, Compass, Sparkles, CheckCircle2,
@@ -164,6 +165,7 @@ export default function MuProject() {
         <section className="content-section reveal" style={{ background: 'linear-gradient(180deg, rgba(4, 92, 90, 0.04) 0%, transparent 100%)' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="subsection">
+              <FlowLabel beat="problem" />
               <div className="subsection-header">
                 <Target size={24} color="hsl(var(--g1))" />
                 <h3 className="subsection-title"><CjkText>{t('project.mu.challenge.heading')}</CjkText></h3>
@@ -211,6 +213,7 @@ export default function MuProject() {
         <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="subsection">
+              <FlowLabel beat="analysis" />
               <div className="subsection-header">
                 <Compass size={24} color="hsl(var(--g2))" />
                 <h3 className="subsection-title"><CjkText>{t('project.mu.research.heading')}</CjkText></h3>
@@ -260,8 +263,8 @@ export default function MuProject() {
                   <div className="pie-chart-container">
                     <div className="pie-chart" style={{ background: 'conic-gradient(hsl(var(--g2)) 0% 78.3%, var(--surface-muted) 78.3% 100%)' }}></div>
                     <div className="pie-legend">
-                      <div className="legend-item"><span className="dot" style={{ background: 'hsl(var(--g2))' }}></span><CjkText>{t('project.mu.research.f2bar1')}</CjkText></div>
-                      <div className="legend-item"><span className="dot" style={{ background: 'var(--surface-muted)' }}></span><CjkText>{t('project.mu.research.f2bar2')}</CjkText></div>
+                      <div className="legend-item"><span className="dot" style={{ background: 'hsl(var(--g2))' }}></span><span><CjkText>{t('project.mu.research.f2bar1')}</CjkText></span></div>
+                      <div className="legend-item"><span className="dot" style={{ background: 'var(--surface-muted)' }}></span><span><CjkText>{t('project.mu.research.f2bar2')}</CjkText></span></div>
                     </div>
                   </div>
                   <div className="chart-insight"><CjkText>{t('project.mu.research.f2insight')}</CjkText></div>
@@ -298,6 +301,9 @@ export default function MuProject() {
         <section className="content-section reveal" style={{ background: 'linear-gradient(180deg, rgba(4, 92, 90, 0.04) 0%, transparent 100%)' }}>
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="subsection">
+              <div className="text-center">
+                <FlowLabel beat="solution" />
+              </div>
               <div className="subsection-header justify-center mb-12">
                 <Sparkles size={28} color="hsl(var(--g3))" />
                 <h3 className="subsection-title"><CjkText>{t('project.mu.solutions.heading')}</CjkText></h3>
@@ -360,17 +366,23 @@ export default function MuProject() {
           </div>
         </section>
 
-        {/* Validation & Expected Impact */}
-        <section className="content-section reveal" style={{ paddingBottom: '120px' }}>
+        {/* External Validation：這個專案沒有做使用者測試，能撐起「驗證」這一拍的
+            是 UX Design Awards 的外部評選，所以獨立成段，不跟成效混在一起。 */}
+        <section className="content-section reveal">
           <div className="container" style={{ maxWidth: '1200px' }}>
             <div className="outcome-section">
               <div className="outcome-header">
-                <ShieldCheck size={48} color="hsl(var(--g1))" />
-                <h2 className="section-heading" style={{ marginBottom: '16px' }}>
-                  <CjkText>{t('project.mu.impact.heading')}</CjkText>
+                <div className="text-center">
+                  <FlowLabel beat="validation" />
+                </div>
+                {/* icon 與標題同一列置中。獨立成一行時會落在標題左上方，看起來像漏掉定位。
+                    標題文字要包一層 span，否則 CjkText 的詞會各自變成 flex item 被 gap 拆行。 */}
+                <h2 className="section-heading outcome-heading-row" style={{ marginBottom: '16px' }}>
+                  <ShieldCheck size={48} color="hsl(var(--g1))" />
+                  <span><CjkText>{t('project.mu.validation.heading')}</CjkText></span>
                 </h2>
                 <p className="section-subheading">
-                  <CjkText>{t('project.mu.impact.title')}</CjkText>
+                  <CjkText>{t('project.mu.validation.title')}</CjkText>
                 </p>
               </div>
 
@@ -379,19 +391,47 @@ export default function MuProject() {
                   <div className="outcome-icon green-icon"><Award size={50} /></div>
                   <h3 className="outcome-title">✨ <CjkText>{t('project.mu.hero.recognitionValue')}</CjkText></h3>
                   <p className="outcome-text text-center">
-                    <CjkText>{t('project.mu.impact.nomineeDesc')}</CjkText>
+                    <CjkText>{t('project.mu.validation.nomineeDesc')}</CjkText>
                   </p>
-                  {/* PDF Embed for Certificate */}
-                  <div className="pdf-container shadow-box mt-8" style={{ height: '400px', width: '100%', maxWidth: '600px', margin: '32px auto 0' }}>
-                    <iframe
-                      src={`${getAsset('uxda-certificate')}#view=FitH`}
-                      width="100%"
-                      height="100%"
-                      style={{ border: 'none', borderRadius: '8px', background: '#fff' }}
-                      title={t('project.mu.impact.certTitle')}
+                  {/* 證書原本是內嵌 PDF，帶著瀏覽器的工具列，讀起來像檔案不像作品。
+                      改成從 PDF 轉出的圖片，並沿用全站的點擊放大。 */}
+                  <div
+                    className="cert-figure shadow-box interactive-image-area"
+                    onClick={() => openLightbox('uxda-certificate-page')}
+                  >
+                    <img
+                      src={getAsset('uxda-certificate-page')}
+                      alt={t('project.mu.validation.certTitle')}
+                      loading="lazy"
                     />
+                    <div className="expand-hint">
+                      <Maximize2 size={18} />
+                      <span className="expand-hint__label"><CjkText>{t('common.clickToZoom')}</CjkText></span>
+                    </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Impact */}
+        <section className="content-section reveal" style={{ paddingBottom: '120px' }}>
+          <div className="container" style={{ maxWidth: '1200px' }}>
+            <div className="outcome-section">
+              <div className="outcome-header">
+                <div className="text-center">
+                  <FlowLabel beat="outcome" />
+                </div>
+                {/* icon 與標題同一列置中。獨立成一行時會落在標題左上方，看起來像漏掉定位。
+                    標題文字要包一層 span，否則 CjkText 的詞會各自變成 flex item 被 gap 拆行。 */}
+                <h2 className="section-heading outcome-heading-row" style={{ marginBottom: '16px' }}>
+                  <Leaf size={48} color="hsl(var(--g3))" />
+                  <span><CjkText>{t('project.mu.impact.heading')}</CjkText></span>
+                </h2>
+                <p className="section-subheading">
+                  <CjkText>{t('project.mu.impact.title')}</CjkText>
+                </p>
               </div>
 
               {/* Final App Image */}
@@ -478,8 +518,8 @@ export default function MuProject() {
           .data-viz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
           .chart-card { background: var(--card); padding: 24px; border-radius: var(--radius-lg); display: flex; flex-direction: column; }
           .chart-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-          .chart-desc { font-size: 14px; color: var(--color-text-muted); margin-bottom: 24px; flex-grow: 1; }
-          .chart-insight { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 14px; font-weight: 600; color: hsl(var(--g2)); }
+          .chart-desc { font-size: 15px; color: var(--color-text-muted); margin-bottom: 24px; flex-grow: 1; }
+          .chart-insight { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 15px; font-weight: 600; color: hsl(var(--g2)); }
           
           /* Bar Chart CSS */
           .bar-chart-container { display: flex; flex-direction: column; gap: 16px; }
@@ -511,6 +551,40 @@ export default function MuProject() {
 
           /* Outcome Section */
           .outcome-section { text-align: center; }
+          .outcome-heading-row { display: flex; align-items: center; justify-content: center; gap: 16px; }
+
+          /* 證書圖：直式 A4，限高避免壓過卡片裡的文字 */
+          .cert-figure {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            margin: 32px auto 0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--card);
+            cursor: zoom-in;
+            transition: transform .3s ease, box-shadow .3s ease;
+          }
+          .cert-figure img { width: 100%; height: auto; display: block; }
+          .cert-figure:hover { transform: scale(1.01); }
+          .expand-hint {
+            position: absolute;
+            top: 16px; right: 16px;
+            background-color: var(--card-glass);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 8px 12px;
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--text-primary);
+            font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 0.55;
+            transition: opacity .2s ease, transform .2s ease;
+          }
+          .expand-hint__label { display: none; }
+          .cert-figure:hover .expand-hint { opacity: 1; transform: scale(1.06); }
+          .cert-figure:hover .expand-hint__label { display: inline; }
           .outcome-header { max-width: 700px; margin: 0 auto 48px; }
           .outcome-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
           .outcome-card { padding: 40px 24px; background: var(--card-glass); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; }
