@@ -68,7 +68,7 @@
       "innoconnect": {
         "titlePre": "Innoconnect+,",
         "titleHighlight": "Hi-Life track gold",
-        "titlePost": "from 10 finalists, with SUS 90% positive (N=19).",
+        "titlePost": "from 10 finalists, with 90% of 19 testers rating it positive.",
         "caption": "Redesigned Hi-Life's Send-a-Gift service. Service blueprint, user journey design, and prototype usability testing smoothed the flow and tackled the marketing and usability pain points. Gold in the Hi-Life track, one of 10 finalists.",
         "tag1": "Service Design",
         "tag2": "User Journey",
@@ -160,7 +160,7 @@
       "h1label": "Research & publications",
       "h1text": "For my thesis I ran a 3×3 mixed-design controlled experiment (appeal type × sensory modality, N=48) on while-in-bed procrastination: appeal type moved how people felt (η²p .18–.29) and barely moved how they scrolled. Separately, first author on two international conference papers, on AI-assisted music creation and on emotional response to AI voice, one of which won Best Paper.",
       "h2label": "Award-winning design",
-      "h2text": "Gold in the Hi-Life track of a national service innovation competition, one of 10 finalists, with the design validated by usability testing (SUS 90% positive, N=19). Best Demo at OpenHCI '25.",
+      "h2text": "Gold in the Hi-Life track of a national service innovation competition, one of 10 finalists, with the design validated by usability testing (90% of 19 testers rated it positive). Best Demo at OpenHCI '25.",
       "h3label": "Execution & process",
       "h3text": "Sourced 110+ creators and ran about 15 collaborations end to end, from pitch through contract to wrap, during a tech marketing internship. Wrote the handover SOP for it."
     },
@@ -170,7 +170,7 @@
       "catBuild": "Build & handoff",
       "catStrategy": "Strategy",
       "usability": "Usability Testing",
-      "abtest": "Controlled Experiment / A-B",
+      "abtest": "Controlled Experiment",
       "spss": "SPSS / Quant",
       "interviews": "User Interviews",
       "survey": "Survey Design",
@@ -220,11 +220,11 @@
         "tag": "Full-Cycle UI Design",
         "titleLine1": "Design Systems,",
         "titleLine2": "Not Just Screens",
-        "desc": "Full Figma stack — wireframes through to component libraries and interactive prototypes.",
+        "desc": "Full Figma stack — wireframes through to design tokens and interactive prototypes.",
         "imgAlt": "Figma UI Design",
         "pill1": "Wireframing",
         "pill2": "Design System",
-        "pill3": "Component Library",
+        "pill3": "Design Tokens",
         "pill4": "Interactive Prototype"
       },
       "ai": {
@@ -367,7 +367,7 @@
         "tag3": "Campaign"
       },
       "bigDataCup": {
-        "period": "Sep – Nov 2024",
+        "period": "Sep – Dec 2024",
         "type": "UI/UX Design & Research",
         "title": "Big Data Marketing Cup",
         "desc": "🥉 3rd Place Winner. Designed the UI/UX for \"Taiwan Livestock\" fitness app.",
@@ -432,7 +432,7 @@
       },
       "mengya": {
         "year": "Jul 2022",
-        "title": "Corporate Training Project Intern",
+        "title": "Training Program Execution Intern",
         "company": "Meng Ya Management Consulting Co., Ltd.",
         "period": "Jul – Sep 2022",
         "d1": "Acted as the point of contact between 3 corporate clients and instructors, coordinating and supporting pre-session preparation and on-site delivery for 17+ training sessions, and produced 3 corporate training videos.",
@@ -440,7 +440,7 @@
       },
       "wonlaiwon": {
         "year": "Jan 2022",
-        "title": "Part-Time Worker",
+        "title": "Part-Time Staff",
         "company": "Won-Lai-Won Enterprise Group",
         "period": "Jan – Feb 2022",
         "d1": "Handled product photography, background removal, photo editing, and product listings; helped write product copy."
@@ -477,21 +477,17 @@
       "ga": "Google Analytics",
       "canva": "Canva",
       "sketchup": "SketchUp",
-      "html": "HTML",
-      "css": "CSS",
-      "javascript": "JavaScript",
-      "react": "React",
       "prototyping": "Prototyping",
       "userResearch": "User Research",
       "usabilityTesting": "Usability Testing",
       "designThinking": "Design Thinking",
       "wireframing": "Wireframing",
-      "designSystems": "Design systems"
+      "designSystems": "Design systems",
+      "aiAssisted": "AI-Assisted Development"
     },
     "skills": {
       "heading": "Skills",
       "catTools": "Tools",
-      "catProgramming": "Programming Languages(basic familiarity)",
       "catMethods": "Methods"
     },
     "education": {
@@ -929,7 +925,7 @@
         "f3title": "Mindless scrolling is a flow state",
         "f3desc": "Participants described losing track of time inside the feed rather than deciding to stay up. A2 said the screen’s blue light left them feeling more awake, not less.",
         "f3decision": "Became the Instagram-feed simulation inside Sleep Guardian, so the experiment could interrupt a real scrolling state instead of a mock-up.",
-        "method": "N=6 · one-on-one, 15–30 minutes each · convenience sample, ages 18–35 with self-reported bedtime procrastination · ORID focus-discussion framework · recorded and transcribed · September 2024"
+        "method": "N=6 · one-on-one, 15–30 minutes each · convenience sample, ages 18–35 with self-reported bedtime procrastination · ORID focus-discussion framework · recorded and transcribed · Sep 2025"
       },
       "stim": {
         "heading": "Stimulus Design Decisions",
@@ -1328,7 +1324,7 @@
         "e1desc": "Designed and produced 15 high-quality social posts. By diagnosing the root causes of low reach and analyzing competitor benchmarks, I tailored distinct operational strategies for Facebook and Instagram. Implemented strict tracking metrics to monitor growth.",
         "e1result": "Result: Peak single-post engagement reached 10%",
         "e2title": "KOL Workflow Optimization",
-        "e2desc": "Restructured the KOL outreach process. Executed cold outreach to over 120 potential influencers and successfully assisted in coordinating 15 collaborations. Created comprehensive SOP documentation and standardized closing reports to streamline handoffs between full-time staff and interns.",
+        "e2desc": "Restructured the KOL outreach process. Executed cold outreach to 110+ potential influencers and successfully assisted in coordinating 15 collaborations. Created comprehensive SOP documentation and standardized closing reports to streamline handoffs between full-time staff and interns.",
         "e2result": "Result: Dramatically improved cross-team efficiency",
         "e3title": "AI Implementation & Training",
         "e3desc": "Introduced AI image generation tools to the department. After testing them thoroughly myself, I wrote a prompt-engineering SOP and ran two training sessions for 10 full-time marketing planners, so the team could generate the visuals they needed on their own.",
@@ -1543,7 +1539,7 @@
         "keyCopy": "Key Copy"
       },
       "hero": {
-        "badgeSub": "Video Category - National",
+        "badgeSub": "Ambient Advertising · National",
         "badge2": "✨ 3x Shortlisted Works",
         "title": "2025 34th Times Young Creative Awards",
         "subtitle": "Yung Ching Housing Employer Branding Campaign",
@@ -1562,7 +1558,7 @@
       },
       "overview": {
         "title": "Multi-Channel Employer Branding Campaign",
-        "desc": "A comprehensive campaign for Yung Ching Housing that reimagined job hunting as a \"Career Gashapon\" experience. The project won 3rd place nationally in the video category and had three additional works shortlisted across interactive and audio formats, demonstrating excellence in integrated creative strategy."
+        "desc": "A comprehensive campaign for Yung Ching Housing that reimagined job hunting as a \"Career Gashapon\" experience. The project won 3rd place nationally in the ambient advertising category and had three additional works shortlisted across interactive and audio formats, demonstrating excellence in integrated creative strategy."
       },
       "concept": {
         "heading": "Core Concept",
@@ -1580,7 +1576,7 @@
       },
       "work1": {
         "title": "Work 1: \"Career Festival\" (轉職慶典)",
-        "format": "Video Advertisement",
+        "format": "Ambient Media (Video)",
         "concept": "The main video features a visually striking capsule machine designed for fresh graduates. Inside the transparent capsules are symbolic \"career charms\"—including \"50k Guaranteed Salary\" and \"Freedom from Contracts.\" The film uses warm, inviting cinematography to contrast the cold reality of typical job hunting, positioning Yung Ching as a trustworthy partner rather than a gamble.",
         "el1": "Physical capsule machine prop design",
         "el2": "Symbolic \"career charms\" visual metaphor",
@@ -1637,7 +1633,7 @@
         "heading": "Campaign Impact & Recognition",
         "title": "National Recognition Across Multiple Formats",
         "r1title": "Times Awards 3rd Place",
-        "r1desc": "Won 3rd Place nationally in the Video Category for \"Career Festival,\" recognized among hundreds of submissions for creative excellence and strategic messaging in employer branding.",
+        "r1desc": "Won 3rd Place nationally in the Ambient Advertising category for \"Career Festival,\" recognized among hundreds of submissions for creative excellence and strategic messaging in employer branding.",
         "r2title": "Multi-Format Success",
         "r2desc": "Three additional works shortlisted across Interactive and Audio categories, demonstrating versatility in creative execution and integrated campaign thinking.",
         "r3title": "Strategic Creativity",
@@ -1702,7 +1698,7 @@
     "title1": "Design",
     "title2": "System.",
     "meta": "Portfolio design system · 3-layer tokens · Light & dark · WCAG 2.1 AA",
-    "lede": "I built this system in code first, then reverse-engineered it into a Figma library. Every value on this page is read live from the running stylesheet, so the documentation cannot drift from the implementation.",
+    "lede": "I built this system in code first, and I'm currently reverse-engineering it into a Figma library. Every value on this page is read live from the running stylesheet, so the documentation cannot drift from the implementation.",
     "layers": {
       "title": "Three-layer tokens",
       "sub": "Primitives hold the only three hues in the system. Semantic tokens name their roles and carry the light and dark values. A third compatibility layer maps shadcn's variables onto the semantic layer so no component ships its own colour.",

@@ -204,7 +204,7 @@ export default function About() {
                       <span className="bento-stat-label"><CjkText>{t('about.strengths.research.stat1a')}</CjkText></span>
                     </div>
                     <div className="bento-stat">
-                      <span className="bento-stat-num highlight-acid">×5</span>
+                      <span className="bento-stat-num highlight-acid">×6</span>
                       <span className="bento-stat-label"><CjkText>{t('about.strengths.research.stat2a')}</CjkText></span>
                     </div>
                     <div className="bento-stat">

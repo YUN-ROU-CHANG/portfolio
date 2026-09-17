@@ -103,8 +103,7 @@ const getResumeData = (t: (key: string) => string) => ({
   ],
   skills: [
     { category: t('resume.skills.catTools'), items: [t('resume.chips.figma'), t('resume.chips.maze'), t('resume.chips.photoshop'), t('resume.chips.illustrator'), t('resume.chips.premiere'), t('resume.chips.davinci'), t('resume.chips.ga'), t('resume.chips.canva'), t('resume.chips.sketchup')] },
-    { category: t('resume.skills.catProgramming'), items: [t('resume.chips.html'), t('resume.chips.css'), t('resume.chips.javascript'), t('resume.chips.react')] },
-    { category: t('resume.skills.catMethods'), items: [t('resume.chips.prototyping'), t('resume.chips.userResearch'), t('resume.chips.usabilityTesting'), t('resume.chips.designThinking'), t('resume.chips.wireframing'), t('resume.chips.designSystems')] }
+    { category: t('resume.skills.catMethods'), items: [t('resume.chips.prototyping'), t('resume.chips.userResearch'), t('resume.chips.usabilityTesting'), t('resume.chips.designThinking'), t('resume.chips.wireframing'), t('resume.chips.designSystems'), t('resume.chips.aiAssisted')] }
   ],
   education: [
     { degree: t('resume.education.master.degree'), institution: t('resume.education.master.institution'), year: t('resume.education.master.year'), description: t('resume.education.master.desc') },
