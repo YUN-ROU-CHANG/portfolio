@@ -168,7 +168,10 @@ Token 分三層，全部定義在 src/styles/globals.css：
 
 * Good Luck Peanut（好韻）：福瑄食品品牌與包裝改造，加上官網改版。
 
-* 獎項：文創畢業展第二名（2nd Place, Creative Culture Graduate Exhibition）。 敘述重點放在畢業展，英文一律寫全 Graduate Exhibition， 禁止簡寫成 Creative Culture Exhibition。
+* 獎項兩項，彼此獨立，不可合併敘述（2026/09/17 使用者裁決，覆蓋先前的「文創畢業展第二名」寫法）：
+   1. 苗栗縣政府「112 年農村青年創新好點子行動獎勵計畫」銅獎 （Bronze, Miaoli County Rural Youth Innovation Action Award, 2023）。 112 年即 2023 年，英文寫 2023。
+   2. 專題競賽文創組第二名 （2nd Place, Project Competition, Creative Culture category）。
+* 禁止寫成「文創畢業展」「Creative Culture Graduate Exhibition」，該名稱已作廢。
 * 時程：品牌 2022；網站 2023 年 7 月到 9 月
 * 我負責：品牌視覺規劃、UI/UX 設計
 * 客戶：福瑄食品（Fuhshyuan Foods），台灣傳統花生糖製造商。 禁止寫成其他廠商。

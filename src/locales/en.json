@@ -412,11 +412,9 @@
         "title": "Research Assistant",
         "company": "NTUT",
         "period": "Sep 2024 – Jul 2025",
-        "d1": "Assisted Prof. Chien-Wen Cheng in executing project-related tasks.",
-        "d2": "Prepared funding applications for the Teaching Practice Research Program.",
-        "d3": "Contributed to writing the 2025 Teaching Practice Research Proposal.",
-        "d4": "Developed the project findings into a conference paper and submitted it to SSIM, titled “Artificial Intelligence-Assisted Music and Interactive Design for University Students: Exploring Needs and Skill-Based Variations in Music Creation Experience.”",
-        "d5": "Provided administrative support for project documentation and coordination."
+        "d1": "Supported Prof. Chien-Wen Cheng on a Teaching Practice Research project, and helped write the 2025 proposal and prepare the funding application.",
+        "d2": "Developed the findings into international conference papers submitted to SSIM 2024 and IEEE GCCE 2025, on students’ AI-assisted music creation and on emotional response to AI-generated voice; ran the research design, surveys, interviews and statistical analysis.",
+        "d3": "Supported project documentation and cross-unit coordination."
       },
       "kdan": {
         "year": "Mar 2024",
@@ -426,9 +424,8 @@
         "d1": "Ran social media and KOL partnership projects for the sub-brand ADNEX, covering both execution and management.",
         "d2": "Sourced 110+ KOLs and ran about 15 partnerships end to end, from outreach and contracts through to wrap-up, to build brand awareness.",
         "d3": "Managed the brand’s Facebook and Instagram. Found that short interview videos with executives drove the most engagement; after building a strategy around them, one post reached 10.26% engagement, twice the 5.09% average over my time there.",
-        "d4": "Used Nielsen and OpView for market and social listening analysis to support marketing decisions.",
-        "d5": "Created a handover SOP for KOL partnerships on my own initiative, and was asked to lead an internal training session on generative AI tools for the planning department.",
-        "d6": "Analyzed monthly influencer data and submitted 15 reports for client and manager review."
+        "d4": "Used OpView and Nielsen to analyse social volume, sentiment data and ad exposure, producing annual industry reports on online English learning and fitness as strategic input for B2B clients.",
+        "d5": "Created a handover SOP for KOL partnerships on my own initiative, and was asked to lead a generative-AI tools session for the 10 planners in the department, writing a prompt SOP for it."
       },
       "mengya": {
         "year": "Jul 2022",
@@ -476,19 +473,42 @@
       "davinci": "DaVinci Resolve",
       "ga": "Google Analytics",
       "canva": "Canva",
-      "sketchup": "SketchUp",
       "prototyping": "Prototyping",
-      "userResearch": "User Research",
-      "usabilityTesting": "Usability Testing",
+      "usabilityTesting": "Usability Testing (SUS / UEQ)",
       "designThinking": "Design Thinking",
       "wireframing": "Wireframing",
       "designSystems": "Design systems",
-      "aiAssisted": "AI-Assisted Development"
+      "aiAssisted": "AI-Assisted Development",
+      "interviews": "User Interviews",
+      "surveyDesign": "Survey Design",
+      "controlledExp": "Controlled Experiment Design",
+      "latinSquare": "Latin Square Counterbalancing",
+      "spss": "SPSS",
+      "behavioralData": "Behavioural Data Analysis",
+      "competitive": "Competitive & Market Analysis",
+      "problemFraming": "Problem Framing (HMW / POV)",
+      "ia": "Information Architecture",
+      "userFlow": "User Flow",
+      "serviceBlueprint": "Service Blueprint",
+      "hifiPrototype": "Hi-Fi Interactive Prototype",
+      "designTokens": "Design Tokens",
+      "rwd": "Responsive Design",
+      "specWriting": "Spec Writing",
+      "xd": "Adobe XD",
+      "indesign": "InDesign",
+      "afterEffects": "After Effects",
+      "lightroom": "Lightroom",
+      "miro": "Miro",
+      "trello": "Trello",
+      "notion": "Notion",
+      "github": "GitHub",
+      "promptEng": "Prompt Engineering"
     },
     "skills": {
       "heading": "Skills",
-      "catTools": "Tools",
-      "catMethods": "Methods"
+      "catTools": "Tools & AI",
+      "catResearch": "Research & Validation",
+      "catDesign": "Design & Delivery"
     },
     "education": {
       "heading": "Education",
@@ -507,15 +527,25 @@
     },
     "certs": {
       "heading": "Certifications",
-      "toeic": {
-        "name": "TOEIC Listening & Reading: 760",
-        "issuer": "ETS (Educational Testing Service)",
-        "year": "Aug 2026"
-      },
       "python": {
         "name": "Information Technology Specialist - Python",
         "issuer": "Certiport - A Pearson VUE Business",
         "year": "Jan 2023"
+      },
+      "ga": {
+        "name": "Google Analytics Individual Qualification",
+        "issuer": "Google"
+      }
+    },
+    "languages": {
+      "heading": "Languages",
+      "english": {
+        "name": "English",
+        "detail": "TOEIC 760 · ETS · Aug 2026"
+      },
+      "chinese": {
+        "name": "Chinese",
+        "detail": "Native"
       }
     },
     "awards": {
@@ -596,6 +626,13 @@
     "githubLink": "GitHub ↗"
   },
   "project": {
+    "flow": {
+      "problem": "Problem",
+      "analysis": "Analysis",
+      "solution": "Solution",
+      "validation": "Validation",
+      "outcome": "Outcome"
+    },
     "sleepGuardian": {
       "hero": {
         "badge": "M.S. Thesis Research",
@@ -1112,11 +1149,15 @@
         "s4desc": "Replacing long text panels with digestible, card-based UI communicating habitat altitude and conservation threats.",
         "s4alt": "Tree Profiles"
       },
+      "validation": {
+        "heading": "External validation",
+        "title": "Nominated for the UX Design Awards",
+        "nomineeDesc": "The concept was officially nominated for the UX Design Awards, validating the project's research methodology and its approach to a difficult environmental communication problem.",
+        "certTitle": "UXDA Certificate"
+      },
       "impact": {
         "heading": "Impact & Recognition",
         "title": "A scalable, ethical exhibition framework",
-        "nomineeDesc": "The concept was officially nominated for the UX Design Awards, validating the project's research methodology and its approach to a difficult environmental communication problem.",
-        "certTitle": "UXDA Certificate",
         "appAlt": "Mù App Overview"
       }
     },
@@ -1424,8 +1465,7 @@
         "m1num": "3rd",
         "m1label": "Place Overall (Bronze)",
         "m2num": "O2O",
-        "m2label": "Integrated Channel Strategy",
-        "judgesDesc": "The judging panel specifically commended the proposal for its seamless integration of robust EICP data analysis with a highly viable, modern digital product solution, proving the commercial readiness of the GTM strategy."
+        "m2label": "Integrated Channel Strategy"
       }
     },
     "goodLuckPeanut": {
@@ -1439,7 +1479,7 @@
         "roleLabel": "My Role",
         "roleValue": "Brand Visual Planning, UI/UX Design",
         "recognitionLabel": "Recognition",
-        "recognitionValue": "2nd Place - Creative Culture Graduate Exhibition"
+        "recognitionValue": "2nd Place - Project Competition, Creative Culture category"
       },
       "overview": {
         "heading": "Project Overview",
@@ -1523,7 +1563,7 @@
         "heading": "Outcome & Impact",
         "subtitle": "Recognition and Results",
         "r1title": "2nd Place Award",
-        "r1desc": "Won 2nd Place in the Creative Culture Graduate Exhibition, recognizing excellence in cultural brand design and digital innovation.",
+        "r1desc": "Won 2nd Place in the Creative Culture category of the project competition, recognizing excellence in cultural brand design and digital innovation.",
         "r2title": "Brand Repositioning",
         "r2desc": "Successfully repositioned a traditional product for younger demographics while preserving cultural authenticity.",
         "r3title": "Digital Transformation",
@@ -1660,8 +1700,8 @@
         "type": "Brand Identity & Packaging Campaign",
         "role": "Brand Visual, Web Design | Team of 4",
         "pitch": "Drawing on Hakka Tianchuan Day culture, we developed a youth-oriented rebrand for a long-established Miaoli food producer, elevating local specialty value through innovative packaging and visual identity.",
-        "award1": "🥉 Miaoli Rural Youth Innovation Award — Bronze",
-        "award2": "🥈 School Project Competition — 2nd Place",
+        "award1": "🥉 Bronze — Miaoli County Rural Youth Innovation Action Award, 2023",
+        "award2": "🥈 2nd Place — Project Competition, Creative Culture category",
         "tag1": "Brand Identity",
         "tag2": "Packaging",
         "tag3": "Web Design"

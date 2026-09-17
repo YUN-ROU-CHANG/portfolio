@@ -401,7 +401,7 @@
       "heading": "經歷",
       "bilingual": {
         "year": "2025/09",
-        "title": "兼任計劃助理",
+        "title": "兼任計畫助理",
         "company": "國立臺北科技大學 雙語學習中心",
         "period": "2025/09 – 2026/02",
         "d1": "經營雙語中心 FB、LINE 與官網內容，建立跨平台一致的溝通調性。",
@@ -412,11 +412,9 @@
         "title": "研究助理",
         "company": "國立臺北科技大學",
         "period": "2024/09 – 2025/07",
-        "d1": "協助鄭建文教授執行計畫相關工作。",
-        "d2": "準備教學實踐研究計畫的申請資料。",
-        "d3": "參與撰寫 2025 年教學實踐研究計畫書。",
-        "d4": "將計畫成果發展為研討會論文並投稿 SSIM，題目為「Artificial Intelligence-Assisted Music and Interactive Design for University Students: Exploring Needs and Skill-Based Variations in Music Creation Experience」。",
-        "d5": "支援計畫文件整理與行政協調。"
+        "d1": "協助鄭建文教授執行教學實踐研究計畫，參與 2025 年計畫書撰寫與申請資料準備。",
+        "d2": "將計畫成果發展為國際研討會論文並投稿 SSIM 2024 及 IEEE GCCE 2025，題目為學生 AI 輔助音樂創作，以及 AI 語音內容製作的情緒感知，負責研究設計、問卷與訪談執行及統計分析。",
+        "d3": "支援計畫文件整理與跨單位行政協調。"
       },
       "kdan": {
         "year": "2024/03",
@@ -426,9 +424,8 @@
         "d1": "負責子品牌 ADNEX 社群與 KOL 合作專案的執行與管理。",
         "d2": "開發 110+ 位 KOL、全程執行約 15 檔合作（洽談、合約到結案），推動品牌知名度。",
         "d3": "經營品牌 FB／IG，發現主管專訪型短影音互動最佳，策略化後單篇互動率達 10.26%，為經營期間平均 5.09% 的兩倍。",
-        "d4": "運用 Nielsen、OpView 進行市場與社群口碑數據分析，支援行銷決策。",
-        "d5": "主動建立 KOL 合作交接 SOP；受指派主講企劃部門 AI 生成工具內訓，協助同仁優化工作流程。",
-        "d6": "分析每月網紅數據，提交 15 份報告供客戶與主管檢視。"
+        "d4": "以 OpView、Nielsen 分析社群聲量、口碑數據與廣告曝光，產出線上英語教育與健身產業年度報告，作為 B2B 客戶的策略建議。",
+        "d5": "主動建立 KOL 合作交接 SOP；受指派為企劃部門 10 位正職主講 AI 生成工具內訓，並建立 prompt SOP。"
       },
       "mengya": {
         "year": "2022/07",
@@ -476,19 +473,42 @@
       "davinci": "",
       "ga": "",
       "canva": "",
-      "sketchup": "",
       "prototyping": "原型製作",
-      "userResearch": "使用者研究",
-      "usabilityTesting": "易用性測試",
+      "usabilityTesting": "易用性測試（SUS／UEQ）",
       "designThinking": "設計思考",
       "wireframing": "線框圖",
       "designSystems": "設計系統",
-      "aiAssisted": "AI 協作開發"
+      "aiAssisted": "AI 協作開發",
+      "interviews": "使用者訪談",
+      "surveyDesign": "問卷設計",
+      "controlledExp": "受控實驗設計",
+      "latinSquare": "拉丁方格平衡",
+      "spss": "SPSS 統計分析",
+      "behavioralData": "行為數據分析",
+      "competitive": "競品與市場分析",
+      "problemFraming": "問題定義（HMW／POV）",
+      "ia": "資訊架構",
+      "userFlow": "",
+      "serviceBlueprint": "服務藍圖",
+      "hifiPrototype": "高保真互動原型",
+      "designTokens": "設計 token",
+      "rwd": "響應式設計",
+      "specWriting": "需求規格撰寫",
+      "xd": "",
+      "indesign": "",
+      "afterEffects": "",
+      "lightroom": "",
+      "miro": "",
+      "trello": "",
+      "notion": "",
+      "github": "",
+      "promptEng": "Prompt 工程"
     },
     "skills": {
       "heading": "技能",
-      "catTools": "工具",
-      "catMethods": "方法"
+      "catTools": "工具與 AI 協作",
+      "catResearch": "研究與驗證",
+      "catDesign": "設計與交付"
     },
     "education": {
       "heading": "學歷",
@@ -507,15 +527,25 @@
     },
     "certs": {
       "heading": "證照",
-      "toeic": {
-        "name": "多益聽力與閱讀測驗 760 分",
-        "issuer": "ETS 美國教育測驗服務社",
-        "year": "2026/08"
-      },
       "python": {
         "name": "",
         "issuer": "",
         "year": "2023/01"
+      },
+      "ga": {
+        "name": "Google Analytics（分析）個人認證資格",
+        "issuer": ""
+      }
+    },
+    "languages": {
+      "heading": "語言能力",
+      "english": {
+        "name": "英文",
+        "detail": "多益 760 分 · ETS 美國教育測驗服務社 · 2026/08"
+      },
+      "chinese": {
+        "name": "中文",
+        "detail": "母語"
       }
     },
     "awards": {
@@ -596,6 +626,13 @@
     "githubLink": ""
   },
   "project": {
+    "flow": {
+      "problem": "問題",
+      "analysis": "分析",
+      "solution": "解決方案",
+      "validation": "驗證",
+      "outcome": "成效"
+    },
     "sleepGuardian": {
       "hero": {
         "badge": "碩士論文研究",
@@ -1112,11 +1149,15 @@
         "s4desc": "用好消化的卡片式介面取代長篇看板，傳達棲地海拔與保育威脅。",
         "s4alt": "樹木檔案"
       },
+      "validation": {
+        "heading": "外部驗證",
+        "title": "入圍 UX Design Awards",
+        "nomineeDesc": "此概念正式入圍 UX Design Awards，肯定了專案的研究方法，以及面對困難環境溝通問題的解法。",
+        "certTitle": "UXDA 證書"
+      },
       "impact": {
         "heading": "成果與肯定",
         "title": "可擴充、有倫理的展覽框架",
-        "nomineeDesc": "此概念正式入圍 UX Design Awards，肯定了專案的研究方法，以及面對困難環境溝通問題的解法。",
-        "certTitle": "UXDA 證書",
         "appAlt": "Mù App 總覽"
       }
     },
@@ -1424,8 +1465,7 @@
         "m1num": "",
         "m1label": "總名次（銅獎）",
         "m2num": "",
-        "m2label": "整合通路策略",
-        "judgesDesc": "評審特別肯定本提案將扎實的 EICP 數據分析，與高度可行的現代數位產品方案無縫整合，證明了上市策略的商業成熟度。"
+        "m2label": "整合通路策略"
       }
     },
     "goodLuckPeanut": {
@@ -1439,7 +1479,7 @@
         "roleLabel": "我的角色",
         "roleValue": "品牌視覺規劃、UI/UX 設計",
         "recognitionLabel": "獲獎",
-        "recognitionValue": "文創畢業展 第二名"
+        "recognitionValue": "專題競賽文創組 第二名"
       },
       "overview": {
         "heading": "專案概述",
@@ -1523,7 +1563,7 @@
         "heading": "成果與影響",
         "subtitle": "肯定與成果",
         "r1title": "第二名",
-        "r1desc": "榮獲文化創意畢業展第二名，肯定在文化品牌設計與數位創新上的表現。",
+        "r1desc": "榮獲專題競賽文創組第二名，肯定在文化品牌設計與數位創新上的表現。",
         "r2title": "品牌重新定位",
         "r2desc": "成功為年輕客群重新定位傳統產品，同時保留文化的真實性。",
         "r3title": "數位轉型",
@@ -1660,8 +1700,8 @@
         "type": "品牌識別與包裝企劃",
         "role": "品牌視覺、網頁設計 | 4 人團隊",
         "pitch": "取材客家天穿日文化，為苗栗老字號食品廠打造年輕化的品牌重塑，透過創新包裝與視覺識別提升在地特產的價值。",
-        "award1": "🥉 苗栗青年農村創新獎 — 銅獎",
-        "award2": "🥈 校內專題競賽 — 第二名",
+        "award1": "🥉 苗栗縣政府 112 年農村青年創新好點子行動獎勵計畫 — 銅獎",
+        "award2": "🥈 專題競賽文創組 — 第二名",
         "tag1": "品牌識別",
         "tag2": "包裝",
         "tag3": "網頁設計"

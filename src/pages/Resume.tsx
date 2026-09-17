@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../co
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { Separator } from '../components/ui/separator';
-import { Download, Linkedin, Github, Briefcase, GraduationCap, Award, Code, FileText } from 'lucide-react';
+import { Download, Linkedin, Github, Briefcase, GraduationCap, Award, Code, FileText, Languages } from 'lucide-react';
 
 // 引入你指定的 PDF 檔案
 import resumePdf from '../assets/images/Yun-Rou_Chang_Resume.pdf';
@@ -56,8 +56,6 @@ const getResumeData = (t: (key: string) => string) => ({
         t('resume.experience.ra.d1'),
         t('resume.experience.ra.d2'),
         t('resume.experience.ra.d3'),
-        t('resume.experience.ra.d4'),
-        t('resume.experience.ra.d5'),
       ].filter(Boolean),
       badges: [t('resume.chips.researchWriting'), t('resume.chips.proposalDev'), t('resume.chips.statSoftware'), t('resume.chips.qualInterview')]
     },
@@ -73,7 +71,6 @@ const getResumeData = (t: (key: string) => string) => ({
         t('resume.experience.kdan.d3'),
         t('resume.experience.kdan.d4'),
         t('resume.experience.kdan.d5'),
-        t('resume.experience.kdan.d6')
       ].filter(Boolean),
       badges: [t('resume.chips.socialMediaMgmt'), t('resume.chips.adCampaign'), t('resume.chips.creativeIdeation'), t('resume.chips.crossIndustry'), t('resume.chips.brandAwareness'), t('resume.chips.marketResearch')]
     },
@@ -102,16 +99,22 @@ const getResumeData = (t: (key: string) => string) => ({
     },
   ],
   skills: [
-    { category: t('resume.skills.catTools'), items: [t('resume.chips.figma'), t('resume.chips.maze'), t('resume.chips.photoshop'), t('resume.chips.illustrator'), t('resume.chips.premiere'), t('resume.chips.davinci'), t('resume.chips.ga'), t('resume.chips.canva'), t('resume.chips.sketchup')] },
-    { category: t('resume.skills.catMethods'), items: [t('resume.chips.prototyping'), t('resume.chips.userResearch'), t('resume.chips.usabilityTesting'), t('resume.chips.designThinking'), t('resume.chips.wireframing'), t('resume.chips.designSystems'), t('resume.chips.aiAssisted')] }
+    { category: t('resume.skills.catResearch'), items: [t('resume.chips.interviews'), t('resume.chips.surveyDesign'), t('resume.chips.controlledExp'), t('resume.chips.latinSquare'), t('resume.chips.spss'), t('resume.chips.usabilityTesting'), t('resume.chips.behavioralData'), t('resume.chips.competitive'), t('resume.chips.designThinking')] },
+    { category: t('resume.skills.catDesign'), items: [t('resume.chips.problemFraming'), t('resume.chips.ia'), t('resume.chips.userFlow'), t('resume.chips.serviceBlueprint'), t('resume.chips.wireframing'), t('resume.chips.prototyping'), t('resume.chips.hifiPrototype'), t('resume.chips.designSystems'), t('resume.chips.designTokens'), t('resume.chips.rwd'), t('resume.chips.specWriting')] },
+    { category: t('resume.skills.catTools'), items: [t('resume.chips.figma'), t('resume.chips.xd'), t('resume.chips.photoshop'), t('resume.chips.illustrator'), t('resume.chips.indesign'), t('resume.chips.afterEffects'), t('resume.chips.premiere'), t('resume.chips.lightroom'), t('resume.chips.davinci'), t('resume.chips.canva'), t('resume.chips.maze'), t('resume.chips.miro'), t('resume.chips.trello'), t('resume.chips.notion'), t('resume.chips.ga'), t('resume.chips.aiAssisted'), t('resume.chips.promptEng'), t('resume.chips.github')] }
   ],
   education: [
     { degree: t('resume.education.master.degree'), institution: t('resume.education.master.institution'), year: t('resume.education.master.year'), description: t('resume.education.master.desc') },
     { degree: t('resume.education.bachelor.degree'), institution: t('resume.education.bachelor.institution'), year: t('resume.education.bachelor.year'), description: t('resume.education.bachelor.desc') }
   ],
   certifications: [
-    { name: t('resume.certs.toeic.name'), issuer: t('resume.certs.toeic.issuer'), year: t('resume.certs.toeic.year') },
     { name: t('resume.certs.python.name'), issuer: t('resume.certs.python.issuer'), year: t('resume.certs.python.year') },
+    // 這張證照沒有公開的發證年月，年份留空，卡片會只顯示發證單位。
+    { name: t('resume.certs.ga.name'), issuer: t('resume.certs.ga.issuer'), year: undefined },
+  ],
+  languages: [
+    { name: t('resume.languages.english.name'), detail: t('resume.languages.english.detail') },
+    { name: t('resume.languages.chinese.name'), detail: t('resume.languages.chinese.detail') },
   ]
 });
 
@@ -357,11 +360,35 @@ export default function Resume() {
                     <Card key={index} style={{ border: '1px solid rgba(0,0,0,0.06)' }}>
                       <CardHeader style={{ padding: '24px' }}>
                         <CardTitle className="exp-title"><CjkText>{cert.name}</CjkText></CardTitle>
-                        <CardDescription>{cert.issuer} · {cert.year}</CardDescription>
+                        <CardDescription>{cert.issuer}{cert.year ? ` · ${cert.year}` : ''}</CardDescription>
                       </CardHeader>
                     </Card>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Separator className="container-sep" />
+
+        {/* Languages — 只放可查證的檢定成績，自評的聽說讀寫等級留在面試談 */}
+        <section className="section">
+          <div className="container">
+            <div className="reveal">
+              <h2 className="section-head" style={{ textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                {/* CjkText 會把中文拆成多個 span，這裡的 h2 是 flex + gap，
+                    不包一層 span 的話詞與詞之間會被塞進 12px 的間隙。 */}
+                <Languages size={32} color="var(--accent-text)" />{' '}<span><CjkText>{t('resume.languages.heading')}</CjkText></span></h2>
+              <div className="education-cert-grid">
+                {resumeData.languages.map((lang, index) => (
+                  <Card key={index} style={{ border: '1px solid rgba(0,0,0,0.06)' }}>
+                    <CardHeader style={{ padding: '24px' }}>
+                      <CardTitle className="exp-title"><CjkText>{lang.name}</CjkText></CardTitle>
+                      <CardDescription><CjkText>{lang.detail}</CjkText></CardDescription>
+                    </CardHeader>
+                  </Card>
+                ))}
               </div>
             </div>
           </div>
