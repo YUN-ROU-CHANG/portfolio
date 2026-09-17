@@ -345,9 +345,9 @@ export default function About() {
                   <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
                     <Monitor size={24} color="var(--accent-text)" aria-hidden="true" />
                   </div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}><CjkText>{t('about.values.hardware.title')}</CjkText></h3>
+                  <h3 style={{ fontSize: '20px', fontWeight: '600', lineHeight: '1.4', color: 'var(--text-primary)' }}><CjkText>{t('about.values.userResearch.title')}</CjkText></h3>
                   <p className="body muted value-desc" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                    <strong><CjkText>{t('about.values.hardware.lead')}</CjkText></strong>{' '}<CjkText>{t('about.values.hardware.desc')}</CjkText></p>
+                    <strong><CjkText>{t('about.values.userResearch.lead')}</CjkText></strong>{' '}<CjkText>{t('about.values.userResearch.desc')}</CjkText></p>
                 </div>
               </div>
             </div>

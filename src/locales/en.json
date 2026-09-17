@@ -92,7 +92,7 @@
       "heading": "Select Honors & Awards",
       "viewAll": "View all awards →",
       "tuition": {
-        "title": "Outstanding Graduate Research Award",
+        "title": "Outstanding Domestic Graduate Student Research Award",
         "desc": "Full tuition waiver for publishing two first-author HCI conference papers."
       },
       "uxda": {
@@ -201,7 +201,7 @@
         "tag": "Research at Scale",
         "titleLine1": "Rigorous Research,",
         "titleLine2": "Real Numbers",
-        "desc": "Mixed-methods study on bedtime procrastination, from the pilot study and participant recruitment to building the experiment app, collecting in-app behavioral data and survey responses, and validating the results statistically.",
+        "desc": "Mixed-methods study on bedtime procrastination, from the pilot study and participant recruitment to building the experiment app, collecting in-app behavioral data and survey responses, and validating the results statistically. Ran the project in Notion.",
         "imgAlt": "Research Notion",
         "stat1a": "participants",
         "stat2a": "validated",
@@ -219,8 +219,8 @@
       },
       "uiDesign": {
         "tag": "Full-Cycle UI Design",
-        "titleLine1": "Design Systems,",
-        "titleLine2": "Not Just Screens",
+        "titleLine1": "Fluent in Figma,",
+        "titleLine2": "from wireframe to prototype",
         "desc": "Full Figma stack — wireframes through to design tokens and interactive prototypes.",
         "imgAlt": "Figma UI Design",
         "pill1": "Wireframing",
@@ -229,16 +229,16 @@
         "pill4": "Interactive Prototype"
       },
       "ai": {
-        "tag": "AI-Augmented",
-        "titleLine1": "Designing With AI,",
-        "titleLine2": "Not Just About It",
-        "desc": "Built this portfolio with AI-assisted development. Trained a 10-person team on AI creative tools. Researching AI vocal agency at IEEE GCCE 2025.",
+        "tag": "AI-assisted",
+        "titleLine1": "I research AI,",
+        "titleLine2": "and design products with it",
+        "desc": "Built this portfolio with AI-assisted development. Ran an internal AI creative-tools training for a 10-person planning team. Presented research on AI voice prominence at IEEE GCCE 2025.",
         "imgAlt": "AI Coding"
       },
       "crossFunc": {
         "tag": "Cross-Functional",
-        "titleLine1": "One Person,",
-        "titleLine2": "Many Languages",
+        "titleLine1": "I work across",
+        "titleLine2": "design and engineering",
         "desc": "Speaking fluently across research, design, business, and stakeholder contexts.",
         "imgAlt": "Cross Functional Collaboration",
         "stat1a": "KOL relationships",
@@ -251,29 +251,29 @@
     "values": {
       "heading": "My Values",
       "clarity": {
-        "title": "Clarity in Chaos",
+        "title": "Complex information, made readable",
         "lead": "I turn complex information into actionable plans.",
-        "desc": "I document carefully so no insight gets lost, and stakeholders stay aligned on a clear vision."
+        "desc": "I write up meetings clearly, surface what came out of them, and keep stakeholders aligned on the direction."
       },
       "curiosity": {
-        "title": "Curiosity as a Driver",
-        "lead": "I embrace the new to optimize the now.",
-        "desc": "I actively bridge new tech with practical workflows, helping teams work smarter."
+        "title": "Curiosity and innovation",
+        "lead": "I pick up new things and use them to improve how the work gets done.",
+        "desc": "I bring new tech, AI tools especially, into real workflows so the work moves faster."
       },
       "resilience": {
         "title": "Resilience & Empathy",
-        "lead": "I foster a positive and collaborative environment.",
-        "desc": "I bring resilience and warmth to collaboration—ensuring user needs are heard and team morale stays high."
+        "lead": "I stay positive, and I keep the team steady.",
+        "desc": "I bring resilience and warmth to collaboration, so both users and teammates get heard."
       },
-      "hardware": {
-        "title": "Hardware Meets Interface",
-        "lead": "I'm drawn to the intersection of physical products and digital experiences.",
-        "desc": "From automotive UX to wearable interfaces, I'm eager to design for embedded systems where constraints spark the most creative solutions."
+      "userResearch": {
+        "title": "Better product experience",
+        "lead": "I care about making digital product experiences better.",
+        "desc": "I use user research, journey maps and interviews to understand what people actually need, then design the experience around it."
       }
     },
     "offClock": {
       "heading": "Off the clock",
-      "sub": "When I'm not designing interfaces, I'm exploring new mediums.",
+      "sub": "When I'm not designing interfaces, I find other ways to explore new mediums.",
       "photography": {
         "title": "Photography",
         "desc": "Capturing everyday moments, textures, and light. Photography sharpens my eye for composition and detail in design work.",
