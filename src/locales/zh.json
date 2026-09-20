@@ -20,14 +20,14 @@
   "home": {
     "hero": {
       "name": "",
-      "title": "使用者研究與產品設計",
-      "lede": "把行為研究變成能上線的產品。",
+      "title": "UX/UI 設計師",
+      "lede": "我關注想做和實際做之間的落差。",
       "proof": "主修 UI/UX 設計與人機互動。能從模糊需求定義問題，從使用者研究看到解決方案，完成 IA、User Flow 到 Figma 高保真互動原型，並以易用性測試與統計分析驗證設計是否真的有效。",
       "chip1": "北科大 互動設計碩士",
       "chip2": "2 篇第一作者論文，1 篇最佳論文",
       "chip3": "OpenHCI '25 Best Demo",
       "chip4": "全國服務創新跨界共創大賽 萊爾富題金獎",
-      "chip5": "UX Design Awards 提名",
+      "chip5": "UX Design Awards 2025 提名",
       "aboutBtn": "認識我",
       "badgeAfter": "開放全職機會",
       "resumeBtn": "履歷"
@@ -38,8 +38,8 @@
       "sleepGuardian": {
         "titlePre": "Sleep Guardian／",
         "titleHighlight": "48 人",
-        "titlePost": "受控實驗，製作 Sleep Guardian App 讓使用者在自己的手機進行實驗。",
-        "caption": "碩士論文規劃並執行遠端非同步實驗（N=48），打造 React Native 介入 App 讓實驗符合生態效度，研究睡前躺床滑手機的在床拖延行為。",
+        "titlePost": "受控實驗，使用者在家中床上使用自己的手機進行。",
+        "caption": "碩士論文研究在床拖延。打造 React Native 介入 App，讓受測者在真實的睡前情境參與實驗，比較三種通知訴求和一般系統通知的差別。",
         "tag1": "碩士論文",
         "tag2": "使用者研究",
         "tag3": "受控實驗",
@@ -48,8 +48,8 @@
       "oblivilight": {
         "titlePre": "Oblivilight／",
         "titleHighlight": "OpenHCI '25 Best Demo",
-        "titlePost": "從 12 場深度訪談洞察用戶需求。",
-        "caption": "6 天工作坊做出可運作的實體互動裝置，透過 12 場深度訪談發現使用者需求是想向 AI 傾訴、卻怕被記住隱私資訊，據此設計 10 種情緒燈光系統。",
+        "titlePost": "一個會主動遺忘的情緒光效裝置。",
+        "caption": "6 天工作坊做出可運作的實體互動裝置。團隊 11 場深度訪談（我執行其中 3 場）發現使用者想向 AI 傾訴、卻怕被永久記住，我將此矛盾轉換成 10 種情緒光效系統。",
         "tag1": "產品設計",
         "tag2": "實體互動",
         "tag3": "HCI",
@@ -58,7 +58,7 @@
       },
       "mu": {
         "titlePre": "Mù／",
-        "titleHighlight": "UX Design Awards",
+        "titleHighlight": "UX Design Awards 2025",
         "titlePost": "提名，為台灣瀕危珍貴木打造多感官互動導覽。",
         "caption": "N=23 的問卷、桌面研究與訪談推翻原本的睡眠艙構想，我主導專案主題改為台灣 12 種珍貴木，並以問卷結果決定定點聞香與雙導覽路徑的設計。",
         "tag2": "多感官互動",
@@ -70,7 +70,7 @@
         "titlePre": "Innoconnect+／",
         "titleHighlight": "萊爾富題金獎",
         "titlePost": "決賽 10 隊中獲金獎，19 位受測者中 90% 給出正面評價。",
-        "caption": "萊爾富來送禮服務再設計，透過服務藍圖、使用者旅程設計與原型易用性驗證等，優化流程解決行銷與使用者痛點。決賽 10 隊中獲得萊爾富題金獎。",
+        "caption": "萊爾富「來送禮」服務再設計。我用心理測驗讓使用者認識與接觸到「來送禮」服務，並把「禮物逾期要補差價」改成「退回會員點數」，減少使用者送禮的心理負擔。",
         "tag1": "服務設計",
         "tag2": "使用者旅程設計",
         "tag3": "金獎",
@@ -1154,7 +1154,7 @@
       },
       "validation": {
         "heading": "外部驗證",
-        "title": "入圍 UX Design Awards",
+        "title": "入圍 UX Design Awards 2025",
         "nomineeDesc": "此概念正式入圍 UX Design Awards，肯定了專案的研究方法，以及面對困難環境溝通問題的解法。",
         "certTitle": "UXDA 證書"
       },

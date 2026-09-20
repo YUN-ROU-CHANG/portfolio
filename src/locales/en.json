@@ -20,14 +20,14 @@
   "home": {
     "hero": {
       "name": "Rose Chang",
-      "title": "UX Researcher & Product Designer",
-      "lede": "I turn behavioural research into products that ship.",
+      "title": "UX/UI Designer",
+      "lede": "I work on the gap between what people mean to do and what they actually do.",
       "proof": "I study UI/UX design and human-computer interaction. I define the problem while the brief is still vague, find the answer in user research, take it through information architecture, user flows, and high-fidelity Figma prototypes, then verify the design actually works with usability testing and statistical analysis.",
       "chip1": "M.S. Interaction Design, Taipei Tech",
       "chip2": "2 first-author papers, 1 Best Paper",
       "chip3": "OpenHCI '25 Best Demo",
       "chip4": "Gold, Hi-Life service innovation",
-      "chip5": "UX Design Awards nominee",
+      "chip5": "UX Design Awards 2025 nominee",
       "aboutBtn": "About Me",
       "badgeAfter": "Open to full-time roles",
       "resumeBtn": "Résumé"
@@ -37,9 +37,9 @@
       "viewAll": "View all projects →",
       "sleepGuardian": {
         "titlePre": "Sleep Guardian,",
-        "titleHighlight": "48-participant",
-        "titlePost": "controlled experiment, run on participants' own phones through the app I built.",
-        "caption": "M.S. thesis. Planned and ran a remote, asynchronous experiment (N=48) on while-in-bed procrastination, building a React Native intervention app to keep the study ecologically valid.",
+        "titleHighlight": "48 participants",
+        "titlePost": "taking part from their own beds, on their own phones.",
+        "caption": "My M.S. thesis on while-in-bed procrastination. I built a React Native intervention app so people could take part in their real bedtime routine, then compared three notification appeals against a normal system notification.",
         "tag1": "M.S. Thesis",
         "tag2": "User Research",
         "tag3": "Controlled Experiment",
@@ -48,8 +48,8 @@
       "oblivilight": {
         "titlePre": "Oblivilight,",
         "titleHighlight": "OpenHCI '25 Best Demo",
-        "titlePost": "built on 12 in-depth interviews.",
-        "caption": "A working tangible device built in a 6-day workshop. 12 in-depth interviews found that people want to confide in AI but fear being remembered forever, and I turned that into a 10-state emotional light system.",
+        "titlePost": "— a light that forgets on purpose.",
+        "caption": "A working tangible device built in a 6-day workshop. Our 11 interviews (I ran 3 of them) found that people want to confide in AI but fear being remembered forever, and I turned that contradiction into a 10-state emotional light system.",
         "tag1": "Product Design",
         "tag2": "Tangible UX",
         "tag3": "HCI",
@@ -58,9 +58,9 @@
       },
       "mu": {
         "titlePre": "Mù,",
-        "titleHighlight": "UX Design Awards",
+        "titleHighlight": "UX Design Awards 2025",
         "titlePost": "nominee. A multisensory guide to Taiwan's endangered woods.",
-        "caption": "N=23 surveys and interviews overturned the original sleep-pod concept and moved the project to Taiwan's 12 precious woods, using emotional design and mixed methods to preserve cultural memory.",
+        "caption": "Surveys and interviews with 23 people killed our original sleep-pod concept. I led the pivot to Taiwan's 12 precious woods, and used the survey data to decide where the scent stations go and why there are two routes through the exhibition.",
         "tag2": "Multisensory",
         "tag3": "Emotional Design",
         "status": "Nominated",
@@ -69,8 +69,8 @@
       "innoconnect": {
         "titlePre": "Innoconnect+,",
         "titleHighlight": "Hi-Life track gold",
-        "titlePost": "from 10 finalists, with 90% of 19 testers rating it positive.",
-        "caption": "Redesigned Hi-Life's Send-a-Gift service. Service blueprint, user journey design, and prototype usability testing smoothed the flow and tackled the marketing and usability pain points. Gold in the Hi-Life track, one of 10 finalists.",
+        "titlePost": "from 10 finalists, with 90% rating it positive on SUS (n=19).",
+        "caption": "Redesigned Hi-Life's send-a-gift service. I used a personality quiz as the way in, and turned the \"pay the difference on an expired gift\" rule into points refunded to the member's account, so sending one stops feeling like a risk.",
         "tag1": "Service Design",
         "tag2": "User Journey",
         "tag3": "Gold Award",
@@ -96,7 +96,7 @@
         "desc": "Full tuition waiver for publishing two first-author HCI conference papers."
       },
       "uxda": {
-        "title": "UX Design Awards",
+        "title": "UX Design Awards 2025",
         "desc": "Nominated for the global UX Design Awards for the multisensory interactive guide, Mù."
       },
       "timesYoung": {
@@ -125,7 +125,7 @@
       }
     },
     "contact": {
-      "heading": "Let's build something together",
+      "heading": "Want to talk? I'd like to hear what you're working on.",
       "sub": "Always up for a coffee and a chat.",
       "linkedin": "Let's connect →"
     },
@@ -338,7 +338,7 @@
       "mu": {
         "period": "Aug – Dec 2025",
         "type": "UX Design & Research",
-        "title": "UX Design Awards｜Mù",
+        "title": "UX Design Awards 2025｜Mù",
         "desc": "Nominated for UX Design Awards. A multisensory guide to Taiwan's endangered woods exploring emotional design.",
         "tag1": "Nominated",
         "tag2": "Multisensory"
@@ -1021,7 +1021,7 @@
       },
       "research": {
         "heading": "User Research & Insights",
-        "desc": "I ran three of the team's 12 user interviews, exploring interaction design for how smart systems \"forget\". They surfaced one contradiction that reset the project: people want to confide in AI but fear being remembered permanently. That finding pushed us off the original AI-diary concept and onto active forgetting as the core experience, and I translated colour psychology into a system of 10 emotional light states.",
+        "desc": "I ran three of the team's 11 user interviews, exploring interaction design for how smart systems \"forget\". They surfaced one contradiction that reset the project: people want to confide in AI but fear being remembered permanently. That finding pushed us off the original AI-diary concept and onto active forgetting as the core experience, and I translated colour psychology into a system of 10 emotional light states.",
         "alt1": "User Concern",
         "alt2": "After Interview",
         "alt3": "Interview Results",
@@ -1079,7 +1079,7 @@
     },
     "mu": {
       "hero": {
-        "badge": "UX Design Awards",
+        "badge": "UX Design Awards 2025",
         "badgeSub": "Nominated Concept",
         "title": "Mù – A Multisensory Guide",
         "subtitle": "Rebuilding the sensory relationship between people and Taiwan's endangered woods",
@@ -1154,7 +1154,7 @@
       },
       "validation": {
         "heading": "External validation",
-        "title": "Nominated for the UX Design Awards",
+        "title": "Nominated for the UX Design Awards 2025",
         "nomineeDesc": "The concept was officially nominated for the UX Design Awards, validating the project's research methodology and its approach to a difficult environmental communication problem.",
         "certTitle": "UXDA Certificate"
       },
