@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
+import { createLayout } from 'animejs';
 import Layout from '../components/Layout';
 import TypeIn from '../components/TypeIn';
 import CjkText from '../components/CjkText';
@@ -33,19 +34,19 @@ const AWARD_LOGOS = [
 ];
 
 // 首頁只放五件作品。第一件是碩論，用全寬大卡；其餘四件 2×2。
-// 每張卡的說明一律用 caption（帶結果與數字），不用 desc（描述流程）。
+// 卡片資訊層級：封面圖 → 專案名 → 三顆 tag。說明（caption）在桌機收進 hover
+// 遮罩裡，觸控裝置沒有 hover，改成常駐顯示在標題下方（CSS 段落有說明）。
+// titlePre / titleHighlight / titlePost 三個 key 目前休眠，改回整句標題只要換這裡。
 const getWorks = (t: (key: string) => string) => [
-  { slug: 'sleep-guardian', k: 'sleepGuardian', year: '2026', kind: 'tag1', cover: sleepGuardianCover },
-  { slug: 'oblivilight', k: 'oblivilight', year: '2025', kind: 'tag2', cover: oblivilightCover },
-  { slug: 'mu', k: 'mu', year: '2025', kind: 'tag2', cover: muCover },
-  { slug: 'innoconnect', k: 'innoconnect', year: '2024', kind: 'tag1', cover: innoconnectCover },
-  { slug: 'hci-publications', k: 'publications', year: '2025', kind: 'tag2', cover: gcceCover },
+  { slug: 'sleep-guardian', k: 'sleepGuardian', year: '2026', cover: sleepGuardianCover },
+  { slug: 'oblivilight', k: 'oblivilight', year: '2025', cover: oblivilightCover },
+  { slug: 'mu', k: 'mu', year: '2025', cover: muCover },
+  { slug: 'innoconnect', k: 'innoconnect', year: '2024', cover: innoconnectCover },
+  { slug: 'hci-publications', k: 'publications', year: '2025', cover: gcceCover },
 ].map(w => ({
   ...w,
-  kindLabel: t(`home.works.${w.k}.${w.kind}`),
-  titlePre: t(`home.works.${w.k}.titlePre`),
-  titleHighlight: t(`home.works.${w.k}.titleHighlight`),
-  titlePost: t(`home.works.${w.k}.titlePost`),
+  name: t(`home.works.${w.k}.name`),
+  tags: ['tag1', 'tag2', 'tag3'].map(tag => t(`home.works.${w.k}.${tag}`)).filter(Boolean),
   caption: t(`home.works.${w.k}.caption`),
   imgAlt: t(`home.works.${w.k}.imgAlt`),
   exploreLabel: t('home.works.explore'),
@@ -61,21 +62,34 @@ function WorkCard({ work, feature, index }: { work: Work; feature?: boolean; ind
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.2, 0.8, 0.2, 1] }}
     >
-      <Link className={`work-card${feature ? ' work-card--feature' : ''}`} to={`/projects/${work.slug}`}>
+      <Link
+        className={`work-card${feature ? ' work-card--feature' : ''}`}
+        to={`/projects/${work.slug}`}
+        data-cursor-label={work.exploreLabel}
+      >
         <div className="work-cover">
           <img src={work.cover} alt={work.imgAlt} loading={feature ? 'eager' : 'lazy'} />
+          {/* 桌機 hover／focus 時淡入的說明遮罩。整段文字在 .work-body 裡還有一份
+              給輔助技術讀，所以這層一律 aria-hidden，避免同一段被唸兩次。 */}
+          <div className="work-overlay" aria-hidden="true">
+            <p className="work-overlay__text"><CjkText>{work.caption}</CjkText></p>
+            <span className="work-cta">
+              {work.exploreLabel}
+              <span className="work-cta__arrow">→</span>
+            </span>
+          </div>
         </div>
         <div className="work-body">
-          <div className="work-meta">{work.year} · {work.kindLabel}</div>
-          <h3 className="work-title">
-            <CjkText>{work.titlePre}</CjkText>{' '}
-            <em><CjkText>{work.titleHighlight}</CjkText></em>{' '}
-            <CjkText>{work.titlePost}</CjkText>
-          </h3>
+          <div className="work-meta">{work.year}</div>
+          <h3 className="work-title"><CjkText>{work.name}</CjkText></h3>
+          {/* 桌機視覺上收起來（仍留在無障礙樹），觸控裝置常駐顯示 */}
           <p className="work-caption"><CjkText>{work.caption}</CjkText></p>
-          {/* 常駐的可點擊提示。整張卡本身就是 <a>，所以這裡只能是 span，
-              不能再包一層連結，否則是不合法的巢狀連結。 */}
-          <span className="work-cta">
+          <ul className="work-tags">
+            {work.tags.map(tag => <li key={tag}><CjkText>{tag}</CjkText></li>)}
+          </ul>
+          {/* 觸控裝置看不到遮罩，需要一個常駐的可點擊提示。整張卡本身就是 <a>，
+              所以這裡只能是 span，不能再包一層連結。 */}
+          <span className="work-cta work-cta--inline">
             {work.exploreLabel}
             <span className="work-cta__arrow" aria-hidden="true">→</span>
           </span>
@@ -108,6 +122,79 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // 獎項 modal。anime.js 的 createLayout 量測「更新前」與「更新後」兩個版面，
+  // 再把差值補成動畫，所以被點的那張卡要複製一份進 <dialog>，原本那張暫時隱藏。
+  // dialog 直接掛在 body，不進 React 樹，避免 React 與 anime 互搶同一批節點。
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const layoutRef = useRef<ReturnType<typeof createLayout> | null>(null);
+  const openerRef = useRef<HTMLButtonElement | null>(null);
+  const awardDuration = reduceMotion ? 0 : 500;
+
+  useEffect(() => {
+    const dialog = document.createElement('dialog');
+    dialog.id = 'award-dialog';
+    document.body.appendChild(dialog);
+    const layout = createLayout(dialog, {
+      children: ['.award-card', '.award-logo', '.award-text', '.award-title', '.award-desc'],
+    });
+    dialogRef.current = dialog;
+    layoutRef.current = layout;
+
+    const close = () => {
+      const opener = openerRef.current;
+      layout.update(() => {
+        dialog.close();
+        opener?.classList.remove('is-open');
+      }, { duration: awardDuration });
+      // 焦點送回原本那顆按鈕，鍵盤操作才不會掉到頁首
+      opener?.focus();
+      openerRef.current = null;
+    };
+
+    // Esc：先擋掉瀏覽器預設的瞬間關閉，改走同一套收合動畫
+    const onCancel = (e: Event) => { e.preventDefault(); close(); };
+    const onClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target === dialog || target.closest('.award-dialog__close')) close();
+    };
+    dialog.addEventListener('cancel', onCancel);
+    dialog.addEventListener('click', onClick);
+
+    return () => {
+      dialog.removeEventListener('cancel', onCancel);
+      dialog.removeEventListener('click', onClick);
+      layout.revert();
+      dialog.remove();
+      dialogRef.current = null;
+      layoutRef.current = null;
+    };
+  }, [awardDuration]);
+
+  const openAward = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    const dialog = dialogRef.current;
+    const layout = layoutRef.current;
+    const item = e.currentTarget;
+    const card = item.querySelector('.award-card');
+    if (!dialog || !layout || !card) return;
+
+    openerRef.current = item;
+    dialog.setAttribute('aria-label', item.getAttribute('aria-label') ?? '');
+    dialog.innerHTML = '';
+    dialog.appendChild(card.cloneNode(true));
+
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'award-dialog__close';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.textContent = '×';
+    dialog.appendChild(closeBtn);
+
+    layout.update(() => {
+      dialog.showModal();
+      item.classList.add('is-open');
+    }, { duration: awardDuration });
+  }, [awardDuration]);
 
   return (
     <Layout>
@@ -202,25 +289,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Awards — 一行摘要，完整清單在 Resume */}
+      {/* 3. Awards — 六個有 logo 的獎項，點開用 anime.js 的 layout 動畫展成 modal。
+             完整清單（含沒有 logo 的兩項）在 Resume。 */}
       <section className="section" id="awards" style={{ paddingTop: 0, paddingBottom: '72px' }}>
         <div className="container">
           <div className="awards-strip reveal">
-            {/* logo 跑馬燈：軌道複製一份接續播放，滑鼠移入暫停 */}
-            <div className="awards-marquee">
-              <div className="awards-track">
-                {[0, 1].map(dup => (
-                  <div className="awards-set" key={dup} aria-hidden={dup === 1 || undefined}>
-                    {AWARD_LOGOS.map(logo => (
-                      <span className="awards-logo" key={`${dup}-${logo.k}`}>
-                        <img src={logo.src} alt={dup === 0 ? t(`home.awards.${logo.k}.title`) : ''} loading="lazy" />
-                      </span>
-                    ))}
-                  </div>
-                ))}
-              </div>
+            <div className="awards-head">
+              <h2 className="awards-heading">
+                <CjkText>{t('home.awards.heading')}</CjkText>
+                <sup className="awards-count">8</sup>
+              </h2>
+              <Link to="/resume#awards" className="awards-link"><CjkText>{t('home.awards.viewAll')}</CjkText></Link>
             </div>
-            <Link to="/resume#awards" className="awards-link"><CjkText>{t('home.awards.viewAll')}</CjkText></Link>
+            <ul className="awards-row">
+              {AWARD_LOGOS.map(logo => (
+                <li key={logo.k}>
+                  {/* 收起來時 .award-text 是 display:none，會連帶離開無障礙樹，
+                      所以名字要靠 aria-label 帶，否則這顆按鈕會沒有可讀名稱。 */}
+                  <button
+                    type="button"
+                    className="award-item"
+                    aria-label={t(`home.awards.${logo.k}.title`)}
+                    data-cursor-label={t('home.works.explore')}
+                    onClick={openAward}
+                  >
+                    <span className="award-card">
+                      <span className="award-logo">
+                        <img src={logo.src} alt="" loading="lazy" />
+                      </span>
+                      <span className="award-text">
+                        <span className="award-title">{t(`home.awards.${logo.k}.title`)}</span>
+                        <span className="award-desc">{t(`home.awards.${logo.k}.desc`)}</span>
+                      </span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -454,6 +559,7 @@ export default function Home() {
         }
         .work-card {
           display: block;
+          position: relative;
           text-decoration: none;
           color: inherit;
           border-radius: var(--radius-lg);
@@ -468,7 +574,53 @@ export default function Home() {
           box-shadow: 0 18px 44px color-mix(in srgb, var(--text-primary) 12%, transparent);
           border-color: var(--border-strong);
         }
-        .work-cover { overflow: hidden; background: var(--surface-muted); aspect-ratio: 16 / 10; }
+        .work-cover { position: relative; overflow: hidden; background: var(--surface-muted); aspect-ratio: 16 / 10; }
+
+        /* 說明遮罩。壓在照片上的深色罩子兩個模式都必須維持深色，否則暗色模式
+           翻成亮底會讓照片消失，所以這裡刻意直接引用 primitive，與案例頁那些
+           自帶深底的 mockup 是同一類例外。預設不顯示，只有在桌機且真的有
+           hover 能力的裝置上才啟用（見下方 media query）。 */
+        .work-overlay {
+          position: absolute;
+          inset: 0;
+          display: none;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 22px;
+          /* 下緣多留一段給右下角的 Learn more，避免長段落壓到它 */
+          padding: clamp(28px, 3.4vw, 52px) clamp(28px, 3.4vw, 52px) clamp(60px, 5.2vw, 80px);
+          background: color-mix(in srgb, var(--ink) 90%, transparent);
+          color: var(--ink-bright);
+        }
+        /* 左右對齊。要給一個固定的行寬 justify 才有作用，
+           align-items: center 之下的 flex item 是 shrink-to-fit。 */
+        .work-overlay__text {
+          margin: 0;
+          width: 100%;
+          max-width: 46ch;
+          text-align: justify;
+          text-justify: inter-character;
+          font-size: clamp(15px, 1.25vw, 18px);
+          line-height: 1.7;
+          color: var(--ink-bright);
+        }
+        /* 右下角的 Learn more 刻意做成「標示」而不是「按鈕」：
+           不加底線、不加框。底線與框都在說「只有這幾個字可以點」，
+           但整張卡都是連結。可點的訊號改由整張卡本身承擔：遮罩蓋滿整張圖、
+           卡片上浮、圖片放大、游標膠囊在卡上任何位置出現，
+           Learn more 只負責說明「點下去會發生什麼」，箭頭跟著整張卡的 hover 右移。 */
+        .work-overlay .work-cta {
+          position: absolute;
+          right: clamp(20px, 2.4vw, 32px);
+          bottom: clamp(18px, 2.1vw, 28px);
+          align-self: auto;
+          margin-top: 0;
+          padding-bottom: 0;
+          border-bottom: 0;
+          font-size: 13px;
+          color: var(--acid);
+        }
         .work-cover img {
           width: 100%; height: 100%; object-fit: cover; display: block;
           transition: transform .7s cubic-bezier(.2,.8,.2,1);
@@ -487,17 +639,30 @@ export default function Home() {
         .work-title {
           font-family: var(--font-display);
           font-weight: 600;
-          font-size: clamp(19px, 1.7vw, 24px);
+          font-size: clamp(20px, 1.8vw, 26px);
           line-height: 1.25;
           letter-spacing: -.02em;
-          margin: 0 0 12px;
+          margin: 0 0 10px;
           color: var(--text-primary);
         }
-        .work-title em {
-          font-style: normal;
-          background: var(--accent);
-          color: var(--on-accent);
-          padding: 0 .12em;
+
+        .work-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+        .work-tags li {
+          font-family: var(--font-mono);
+          font-size: 11.5px;
+          letter-spacing: .03em;
+          line-height: 1.2;
+          padding: 6px 11px;
+          border-radius: var(--radius-pill);
+          background: var(--surface-muted);
+          color: var(--text-secondary);
         }
         /* 不另外設 max-width：行長已經由卡片本身決定。多加一道 62ch（約 567px）
            會比同一張卡的標題窄兩百多 px，單欄時右邊就留下一塊很明顯的空白。 */
@@ -505,7 +670,34 @@ export default function Home() {
           font-size: 14.5px;
           line-height: 1.65;
           color: var(--text-secondary);
-          margin: 0;
+          margin: 0 0 14px;
+        }
+
+        /* 只有真的有 hover 的大螢幕才把說明收進遮罩。觸控裝置永遠拿不到 hover，
+           所以那邊維持說明常駐在標題下方，不做遮罩。 */
+        @media (min-width: 901px) and (hover: hover) {
+          .work-overlay {
+            display: flex;
+            opacity: 0;
+            transition: opacity .35s cubic-bezier(.2,.8,.2,1);
+          }
+          .work-card:hover .work-overlay,
+          .work-card:focus-visible .work-overlay { opacity: 1; }
+
+          /* 視覺上收起來，但留在無障礙樹裡，螢幕閱讀器仍讀得到說明。
+             用 clip-path 而不是 display:none，就是為了不把它移出無障礙樹。 */
+          .work-body .work-caption {
+            position: absolute;
+            width: 1px; height: 1px;
+            margin: 0; padding: 0;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+          }
+
+          /* 遮罩接手了提示，body 裡那顆就收掉。要用 .work-body 前綴把權重拉到
+             (0,2,0)，否則會被後面才宣告的 .work-cta { display: inline-flex } 蓋掉。 */
+          .work-body .work-cta--inline { display: none; }
         }
 
         /* 常駐的「可點擊」提示。原本只有 hover 放大當線索，
@@ -531,8 +723,10 @@ export default function Home() {
           display: inline-block;
           transition: transform .25s cubic-bezier(.2, .8, .2, 1);
         }
-        .work-card:hover .work-cta,
-        .work-card:focus-visible .work-cta {
+        /* 刻意限定在 .work-body 底下。遮罩裡那顆是壓在深色罩子上的，
+           accent-text 在亮色模式是深棕色 #7A5C00，套上去會讀不到。 */
+        .work-card:hover .work-body .work-cta,
+        .work-card:focus-visible .work-body .work-cta {
           color: var(--accent-text);
           border-color: var(--accent-text);
         }
@@ -547,8 +741,9 @@ export default function Home() {
            實際只吃進內容約 17px，字與手機都還在。hover 放大沿用共用規則。 */
         .work-card--feature .work-cover { aspect-ratio: auto; height: 100%; min-height: 340px; }
         .work-card--feature .work-body { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 3.2vw, 48px); }
-        .work-card--feature .work-title { font-size: clamp(24px, 2.6vw, 36px); }
+        .work-card--feature .work-title { font-size: clamp(26px, 2.8vw, 38px); }
         .work-card--feature .work-caption { font-size: clamp(15px, 1.1vw, 16.5px); }
+        .work-card--feature .work-overlay__text { font-size: clamp(17px, 1.5vw, 22px); max-width: 40ch; }
 
         @media (max-width: 900px) {
           .work-card--feature { grid-template-columns: 1fr; }
@@ -556,28 +751,44 @@ export default function Home() {
           .work-grid { grid-template-columns: 1fr; }
         }
 
-        /* ── Awards strip ── */
+        /* ── Awards ── */
         .awards-strip {
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+          padding: 22px 0 24px;
+        }
+        .awards-head {
           display: flex;
           align-items: baseline;
           justify-content: space-between;
           gap: 24px;
           flex-wrap: wrap;
-          border-top: 1px solid var(--border);
-          border-bottom: 1px solid var(--border);
-          padding: 20px 0;
+          margin-bottom: 18px;
         }
-        /* logo 一律放在固定的淺色晶片上，這樣深色 logo 在暗色模式也讀得到，
-           不必為每個檔案個別調 filter。 */
-        .awards-marquee {
-          flex: 1 1 520px;
-          overflow: hidden;
-          -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-                  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+        .awards-heading {
+          margin: 0;
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: clamp(18px, 1.6vw, 22px);
+          letter-spacing: -.01em;
+          color: var(--text-primary);
         }
-        .awards-track { display: flex; width: max-content; animation: awards-scroll 34s linear infinite; }
-        .awards-marquee:hover .awards-track { animation-play-state: paused; }
-        .awards-set { display: flex; align-items: center; gap: 14px; padding-right: 14px; }
+        /* 上標數字：告訴人點進去總共有幾項，八項裡有兩項沒有 logo */
+        .awards-count {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          font-weight: 400;
+          margin-left: 6px;
+          color: var(--accent-text);
+        }
+        .awards-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 14px;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
         /* How I work 窄帶 */
         .how-i-work-band {
           display: flex; align-items: center; justify-content: space-between;
@@ -617,15 +828,46 @@ export default function Home() {
           .hiw-link { flex: 1 1 auto; text-align: center; }
         }
 
-        .awards-logo {
+        /* 按鈕外殼只負責點擊與焦點，視覺全部掛在 .award-card 上，
+           因為進 modal 的是 .award-card 這一層（anime 要量測的就是它）。 */
+        .award-item {
+          display: block;
+          padding: 0;
+          border: 0;
+          background: none;
+          cursor: pointer;
+          border-radius: var(--radius-md);
+        }
+        .award-item.is-open { visibility: hidden; }
+        .award-item:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; }
+
+        .award-card {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          border-radius: var(--radius-md);
+          background: var(--surface);
+          border: 1px solid var(--border);
+          padding: 8px;
+          transition: border-color .25s ease, transform .25s cubic-bezier(.2,.8,.2,1);
+        }
+        .award-item:hover .award-card,
+        .award-item:focus-visible .award-card {
+          border-color: var(--accent);
+          transform: translateY(-2px);
+        }
+        /* logo 一律放在固定的淺色晶片上，這樣深色 logo 在暗色模式也讀得到，
+           不必為每個檔案個別調 filter。 */
+        .award-logo {
           display: inline-flex; align-items: center; justify-content: center;
           height: 62px; width: 128px; flex-shrink: 0;
           padding: 10px 14px; border-radius: var(--radius-md);
           background: var(--bone-3, #F6F2E7);
           border: 1px solid color-mix(in srgb, var(--text-primary) 10%, transparent);
         }
-        .awards-logo img { max-height: 100%; max-width: 100%; object-fit: contain; display: block; }
-        @keyframes awards-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .award-logo img { max-height: 100%; max-width: 100%; object-fit: contain; display: block; }
+        /* 收起來時不顯示，展開後由 #award-dialog 的規則打開 */
+        .award-text { display: none; }
         .awards-link {
           font-family: var(--font-mono);
           font-size: 12px;
@@ -638,6 +880,69 @@ export default function Home() {
           white-space: nowrap;
         }
         .awards-link:hover { color: var(--accent-text); }
+
+        /* 獎項 modal。dialog 掛在 body 不在 React 樹裡，所以這裡用 id 選擇器
+           全域命中；Home 卸載時 effect 會把它移除。 */
+        /* showModal() 的置中靠 UA 的 position:fixed + inset:0 + margin:auto。
+           這裡改寫成 relative 會讓 dialog 掉回文件流，捲動後就飛到畫面外，
+           所以要維持 fixed，並自己補上 inset / margin / height 讓它置中。 */
+        #award-dialog {
+          position: fixed;
+          inset: 0;
+          margin: auto;
+          height: fit-content;
+          max-height: calc(100vh - 80px);
+          width: calc(100% - 40px);
+          max-width: 520px;
+          padding: clamp(22px, 3vw, 34px);
+          border: 1px solid var(--border-strong);
+          border-radius: var(--radius-lg);
+          background: var(--surface);
+          color: var(--text-primary);
+        }
+        /* ::backdrop 拿不到 :root 的變數，這裡直接寫 ink 的字面值；
+           遮罩本來就該在兩個模式都維持深色，與卡片遮罩同一類例外。 */
+        #award-dialog::backdrop { background: rgba(12, 12, 12, 0.55); }
+        #award-dialog .award-card {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 18px;
+          padding: 0;
+          border: 0;
+          background: none;
+          transform: none;
+        }
+        #award-dialog .award-logo { height: 76px; width: 156px; }
+        #award-dialog .award-text { display: block; }
+        #award-dialog .award-title {
+          display: block;
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: clamp(18px, 2vw, 22px);
+          line-height: 1.3;
+          margin-bottom: 10px;
+          color: var(--text-primary);
+        }
+        #award-dialog .award-desc {
+          display: block;
+          font-size: 15px;
+          line-height: 1.7;
+          color: var(--text-secondary);
+        }
+        .award-dialog__close {
+          position: absolute;
+          top: 10px; right: 12px;
+          width: 34px; height: 34px;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 20px; line-height: 1;
+          border: 1px solid var(--border);
+          border-radius: 50%;
+          background: var(--surface);
+          color: var(--text-secondary);
+          cursor: pointer;
+        }
+        .award-dialog__close:hover { color: var(--text-primary); border-color: var(--border-strong); }
+        .award-dialog__close:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
 
         /* ── Contact ── */
         .contact-wrap { text-align: center; display: flex; flex-direction: column; align-items: center; }
@@ -659,15 +964,15 @@ export default function Home() {
 
         /* ── Reduced motion ── */
         @media (prefers-reduced-motion: reduce) {
-          .awards-track { animation: none !important; }
-          .awards-marquee { overflow-x: auto; }
+          .award-card { transition: none !important; }
+          .award-item:hover .award-card { transform: none !important; }
           .avail-dot { animation: none !important; }
           .interactive-name .char { animation: none !important; transition: none !important; }
           /* 光暈留著當靜態背景，只停掉漂移；進場位移一併取消。
              捲動連動的位移由 useReducedMotion 在 JS 端跳過。 */
           .hero-glow span { animation: none !important; }
           .hero-inner > :not(.name), .hero-creds > li { animation: none !important; }
-          .work-card, .work-cover img, .contact-pill, .btn-pill, .work-cta__arrow { transition: none !important; }
+          .work-card, .work-cover img, .contact-pill, .btn-pill, .work-cta__arrow, .work-overlay { transition: none !important; }
           .work-card:hover .work-cta__arrow { transform: none !important; }
           .work-card:hover, .contact-pill:hover, .btn--primary:hover { transform: none !important; }
           .work-card:hover .work-cover img { transform: none !important; }

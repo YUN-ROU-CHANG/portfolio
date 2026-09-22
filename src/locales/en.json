@@ -7,7 +7,6 @@
     "about": "About",
     "projects": "Projects",
     "resume": "Resume",
-    "chip": "Open to '26 Roles",
     "contact": "Contact →",
     "footer": "© Yun-Rou Chang 2026"
   },
@@ -15,13 +14,14 @@
     "certificate": "Certificate",
     "clickToZoom": "Click to enlarge",
     "enlargedView": "Enlarged view",
-    "explore": "Explore →"
+    "explore": "Explore →",
+    "cursorExplore": "Explore"
   },
   "home": {
     "hero": {
       "name": "Rose Chang",
       "title": "UX/UI Designer",
-      "lede": "I work on the gap between what people mean to do and what they actually do.",
+      "lede": "Users don't always do what they say. I use research to find what they actually meant.",
       "proof": "I study UI/UX design and human-computer interaction. I define the problem while the brief is still vague, find the answer in user research, take it through information architecture, user flows, and high-fidelity Figma prototypes, then verify the design actually works with usability testing and statistical analysis.",
       "chip1": "M.S. Interaction Design, Taipei Tech",
       "chip2": "2 first-author papers, 1 Best Paper",
@@ -36,6 +36,7 @@
       "heading": "Selected Works",
       "viewAll": "View all projects →",
       "sleepGuardian": {
+        "name": "Sleep Guardian",
         "titlePre": "Sleep Guardian,",
         "titleHighlight": "48 participants",
         "titlePost": "taking part from their own beds, on their own phones.",
@@ -46,6 +47,7 @@
         "imgAlt": "Sleep Guardian"
       },
       "oblivilight": {
+        "name": "Oblivilight",
         "titlePre": "Oblivilight,",
         "titleHighlight": "OpenHCI '25 Best Demo",
         "titlePost": "— a light that forgets on purpose.",
@@ -57,16 +59,19 @@
         "status": "Best Demo Award\nTAICHI '25 Demo"
       },
       "mu": {
+        "name": "Mù",
         "titlePre": "Mù,",
         "titleHighlight": "UX Design Awards 2025",
         "titlePost": "nominee. A multisensory guide to Taiwan's endangered woods.",
         "caption": "Surveys and interviews with 23 people killed our original sleep-pod concept. I led the pivot to Taiwan's 12 precious woods, and used the survey data to decide where the scent stations go and why there are two routes through the exhibition.",
+        "tag1": "UX Research",
         "tag2": "Multisensory",
         "tag3": "Emotional Design",
         "status": "Nominated",
         "imgAlt": "Mù"
       },
       "innoconnect": {
+        "name": "Innoconnect+",
         "titlePre": "Innoconnect+,",
         "titleHighlight": "Hi-Life track gold",
         "titlePost": "from 10 finalists, with 90% rating it positive on SUS (n=19).",
@@ -77,6 +82,7 @@
         "imgAlt": "Innoconnect"
       },
       "publications": {
+        "name": "Publications",
         "titlePre": "Publications,",
         "titleHighlight": "two first-author",
         "titlePost": "international conference papers.",
@@ -86,7 +92,7 @@
         "tag3": "Best Paper",
         "imgAlt": "Research Papers"
       },
-      "explore": "Explore"
+      "explore": "Learn more"
     },
     "awards": {
       "heading": "Select Honors & Awards",

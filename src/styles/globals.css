@@ -449,9 +449,12 @@
   transition-delay: var(--reveal-delay, 0ms);
 }
 
+/* 收尾用 none 而不是 translateY(0)：非 none 的 transform 會讓元素永遠成為
+   position: fixed 子孫的 containing block。自從 reveal 套用到整個 <section>
+   之後，區塊裡若有 fixed 元素（燈箱、回頂端按鈕）就會被釘在區塊內。 */
 .reveal.in {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 /* ────────────────────────────────────────────────

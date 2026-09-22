@@ -7,7 +7,6 @@
     "about": "關於我",
     "projects": "作品",
     "resume": "履歷",
-    "chip": "求職中 · 2026",
     "contact": "聯絡我 →",
     "footer": ""
   },
@@ -15,13 +14,14 @@
     "certificate": "證書",
     "clickToZoom": "點擊放大",
     "enlargedView": "圖片放大檢視",
-    "explore": "看更多 →"
+    "explore": "看更多 →",
+    "cursorExplore": ""
   },
   "home": {
     "hero": {
       "name": "",
       "title": "UX/UI 設計師",
-      "lede": "我關注想做和實際做之間的落差。",
+      "lede": "使用者說的跟做的不一樣？透過研究探索使用者真正的意圖。",
       "proof": "主修 UI/UX 設計與人機互動。能從模糊需求定義問題，從使用者研究看到解決方案，完成 IA、User Flow 到 Figma 高保真互動原型，並以易用性測試與統計分析驗證設計是否真的有效。",
       "chip1": "北科大 互動設計碩士",
       "chip2": "2 篇第一作者論文，1 篇最佳論文",
@@ -36,6 +36,7 @@
       "heading": "精選作品",
       "viewAll": "看所有專案 →",
       "sleepGuardian": {
+        "name": "",
         "titlePre": "Sleep Guardian／",
         "titleHighlight": "48 人",
         "titlePost": "受控實驗，使用者在家中床上使用自己的手機進行。",
@@ -46,6 +47,7 @@
         "imgAlt": "Sleep Guardian 專案封面"
       },
       "oblivilight": {
+        "name": "",
         "titlePre": "Oblivilight／",
         "titleHighlight": "OpenHCI '25 Best Demo",
         "titlePost": "一個會主動遺忘的情緒光效裝置。",
@@ -57,16 +59,19 @@
         "status": "Best Demo Award\nTAICHI '25 Demo"
       },
       "mu": {
+        "name": "",
         "titlePre": "Mù／",
         "titleHighlight": "UX Design Awards 2025",
         "titlePost": "提名，為台灣瀕危珍貴木打造多感官互動導覽。",
         "caption": "N=23 的問卷、桌面研究與訪談推翻原本的睡眠艙構想，我主導專案主題改為台灣 12 種珍貴木，並以問卷結果決定定點聞香與雙導覽路徑的設計。",
+        "tag1": "使用者研究",
         "tag2": "多感官互動",
         "tag3": "情感設計",
         "status": "提名",
         "imgAlt": "Mù 專案封面"
       },
       "innoconnect": {
+        "name": "",
         "titlePre": "Innoconnect+／",
         "titleHighlight": "萊爾富題金獎",
         "titlePost": "決賽 10 隊中獲金獎，19 位受測者中 90% 給出正面評價。",
@@ -77,6 +82,7 @@
         "imgAlt": "Innoconnect 專案封面"
       },
       "publications": {
+        "name": "研究發表",
         "titlePre": "研究發表／",
         "titleHighlight": "兩篇",
         "titlePost": "第一作者國際研討會論文",
@@ -86,7 +92,7 @@
         "tag3": "最佳論文",
         "imgAlt": "研討會論文封面"
       },
-      "explore": "看專案"
+      "explore": ""
     },
     "awards": {
       "heading": "精選獲獎與榮譽",

@@ -1,8 +1,10 @@
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect, useRef, ReactNode } from 'react';
 import { Link, NavLink } from 'react-router';
 import { motion } from 'motion/react';
 import { Sun, Moon } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
+import Cursor from './Cursor';
 
 function ThemeToggle() {
   const [dark, setDark] = useState(
@@ -84,7 +86,13 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   const { t } = useLanguage();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // 捲動淡入掛在這裡，每一頁都被 Layout 包住，新頁面不必記得自己接。
+  // 個別頁面仍可再呼叫一次帶 deps 的版本，處理首次 render 之後才長出來的節點
+  // （例如 Projects 切換分頁時重建的清單）。重複呼叫是安全的：已經 .in 的元素
+  // 不會再被觀察。
+  useRevealOnScroll();
+  const blobRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -98,17 +106,36 @@ export default function Layout({ children }: LayoutProps) {
     const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (rm.matches) return;
 
-    let tx = 0, ty = 0, x = 0, y = 0, rafId = 0;
+    // 光暈位置寫進 CSS 變數，不走 React state。舊版在 rAF 裡呼叫
+    // setMousePosition，等於整個 Layout（連同底下所有頁面內容）每秒重繪 60 次，
+    // 滑鼠靜止時也不會停。改成直接寫 style 之後 React 完全不介入，
+    // 追上目標就把迴圈收掉。
+    const el = blobRef.current;
+    if (!el) return;
+
+    let tx = window.innerWidth / 2, ty = window.innerHeight / 2;
+    let x = tx, y = ty, rafId = 0;
+
+    const animate = () => {
+      const dx = tx - x;
+      const dy = ty - y;
+      x += dx * 0.12;
+      y += dy * 0.12;
+      el.style.setProperty('--blob-x', `${x}px`);
+      el.style.setProperty('--blob-y', `${y}px`);
+      if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) {
+        rafId = 0;
+        return;
+      }
+      rafId = requestAnimationFrame(animate);
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
       tx = e.clientX;
       ty = e.clientY;
+      if (!rafId) rafId = requestAnimationFrame(animate);
     };
-    const animate = () => {
-      x += (tx - x) * 0.12;
-      y += (ty - y) * 0.12;
-      setMousePosition({ x, y });
-      rafId = requestAnimationFrame(animate);
-    };
+
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     rafId = requestAnimationFrame(animate);
     return () => {
@@ -124,8 +151,9 @@ export default function Layout({ children }: LayoutProps) {
       {/* Mouse blob */}
       <div
         className="blob"
+        ref={blobRef}
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px,
+          background: `radial-gradient(600px circle at var(--blob-x, 50vw) var(--blob-y, 50vh),
             color-mix(in srgb, var(--acid) 14%, transparent) 0%,
             color-mix(in srgb, var(--acid) 7%, transparent) 55%, transparent 100%)`
         }}
@@ -135,7 +163,10 @@ export default function Layout({ children }: LayoutProps) {
       <header className={`top-bar ${scrolled ? 'scrolled' : ''}`} role="banner">
         {/* Left: name + clock */}
         <div className="top-left">
-          <Link to="/" style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', letterSpacing: '-.01em', textTransform: 'none', color: 'var(--text-primary)', textDecoration: 'none' }}>{t('nav.brand')}</Link>
+          {/* 字標取代文字姓名。alt 沿用 nav.brand，連結的可讀名稱仍是 Yun-Rou Chang */}
+          <Link to="/" className="top-logo">
+            <img src="/logo.png" alt={t('nav.brand')} width={30} height={30} />
+          </Link>
           <span className="top-brand-sub" style={{ color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '.08em' }}>{t('nav.brandSub')}</span>
           <Clock />
         </div>
@@ -150,10 +181,8 @@ export default function Layout({ children }: LayoutProps) {
           <LanguageToggle />
         </nav>
 
-        {/* Right: chip + CTA (hidden on mobile) */}
+        {/* Right: CTA (hidden on mobile) */}
         <div className="top-right">
-          <span className="top-chip">
-            <span className="dot" />{t('nav.chip')}</span>
           <a href="mailto:yuu07798@gmail.com" className="top-cta">{t('nav.contact')}</a>
         </div>
       </header>
@@ -163,6 +192,8 @@ export default function Layout({ children }: LayoutProps) {
       </main>
 
       <footer>{t('nav.footer')}</footer>
+
+      <Cursor />
 
       <style>{`
         /* Global Variables & Reset */
@@ -225,14 +256,26 @@ export default function Layout({ children }: LayoutProps) {
         }
         
         .top-left { display: flex; gap: 18px; align-items: center; white-space: nowrap; }
+        .top-logo {
+          display: inline-flex;
+          align-items: center;
+          border-radius: 6px;
+          transition: transform .25s cubic-bezier(.2,.8,.2,1);
+        }
+        .top-logo img { display: block; width: 30px; height: 30px; object-fit: contain; }
+        .top-logo:hover { transform: rotate(-6deg) scale(1.06); }
+        .top-logo:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; }
+        @media (prefers-reduced-motion: reduce) {
+          .top-logo { transition: none; }
+          .top-logo:hover { transform: none; }
+        }
         .top-right { white-space: nowrap; }
 
         /* 1fr auto 1fr 讓左右欄等寬。左欄（名字＋ROSE＋時鐘）約 258px，
-           英文右欄（求職狀態＋聯絡我）約 267px，1140px 以下分到的寬度不夠，
-           名字與狀態會被擠成兩行。所以先收掉 ROSE、時鐘與求職狀態，
+           1140px 以下分到的寬度不夠，名字會被擠成兩行。所以先收掉 ROSE 與時鐘，
            只留名字、膠囊導航與聯絡按鈕；900px 以下整個右欄本來就會收掉。 */
         @media (max-width: 1140px) {
-          .top-brand-sub, .top-clock, .top-chip { display: none; }
+          .top-brand-sub, .top-clock { display: none; }
         }
         
         /* Navigation Capsule */
@@ -291,20 +334,6 @@ export default function Layout({ children }: LayoutProps) {
           display: flex; gap: 14px; align-items: center;
           justify-content: flex-end;
         }
-        .top-chip {
-          display: inline-flex; align-items: center; gap: 6px;
-          padding: 6px 10px;
-          border: 1px solid var(--border-strong); border-radius: 999px;
-          font-family: var(--font-mono);
-          font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
-          color: var(--text-primary);
-        }
-        .top-chip .dot {
-          width: 6px; height: 6px; border-radius: 50%;
-          background: var(--text-primary);
-          animation: chipBlink 1.6s steps(2) infinite;
-        }
-        @keyframes chipBlink { 50% { opacity: .3; } }
         .top-cta {
           padding: 8px 14px;
           background: var(--surface-inverse); color: var(--accent-on-inverse);
