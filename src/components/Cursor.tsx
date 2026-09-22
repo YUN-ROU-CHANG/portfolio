@@ -26,6 +26,12 @@ import { useLanguage } from '../contexts/LanguageContext';
 const TIP_X = 2;
 const TIP_Y = 2;
 
+// 1×1 全透明 PNG。Safari（WebKit）在點擊、焦點改變或重繪後，常把 cursor:none
+// 的元素改回顯示系統游標，要等滑鼠移出再移回才又消失；改用一張透明圖片當游標
+// 比 none 穩定。none 留在後面當備援，圖片載不到時仍然隱藏。
+const BLANK_CURSOR =
+  'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR4nGNgAAIAAAUAAXpeqz8AAAAASUVORK5CYII=") 0 0, none';
+
 const TEXT_ENTRY = 'input:not([type=button]):not([type=submit]):not([type=checkbox]):not([type=radio]):not([type=range]), textarea, select, [contenteditable=""], [contenteditable="true"]';
 const CLICKABLE = 'a, button, [role="button"], label, summary';
 
@@ -60,25 +66,20 @@ export default function Cursor() {
     let frame = 0;
     let x = -100;
     let y = -100;
+    let target: HTMLElement | null = null;
+    let dragging = false;
 
+    // 事件只記座標和目標，判斷與寫 DOM 一律集中到每幀一次。
+    // 高回報率滑鼠一秒可以送上數百次 pointermove，每次都做 closest() 與
+    // classList 是白費工。
     const paint = () => {
       frame = 0;
       root.style.transform = `translate3d(${x - TIP_X}px, ${y - TIP_Y}px, 0)`;
-    };
-
-    let dragging = false;
-
-    const onMove = (e: PointerEvent) => {
-      x = e.clientX;
-      y = e.clientY;
-      if (!frame) frame = requestAnimationFrame(paint);
 
       // 捲軸不屬於網頁內容，cursor:none 管不到，系統游標一定會出現；
       // 滑鼠一旦進入捲軸，頁面也收不到 pointermove，自訂箭頭會卡在邊緣。
       // 所以一碰到捲軸所在的邊緣就先把箭頭收起來，只留系統游標。
       const onScrollbar = x >= html.clientWidth || y >= html.clientHeight;
-
-      const target = e.target as HTMLElement | null;
       const handBack =
         dragging ||
         onScrollbar ||
@@ -95,9 +96,21 @@ export default function Cursor() {
       root.classList.toggle('is-link', !labelled && !!target?.closest?.(CLICKABLE));
     };
 
+    const onMove = (e: PointerEvent) => {
+      x = e.clientX;
+      y = e.clientY;
+      target = e.target as HTMLElement | null;
+      if (!frame) frame = requestAnimationFrame(paint);
+    };
+
     // Leaving the window has to clear it, or the arrow stays frozen on screen.
     // mouseleave does not bubble, so it goes on <html>, not document.
-    const onLeave = () => root.classList.remove('is-visible', 'is-link', 'is-active');
+    // 同時取消還沒畫的那一幀，否則它會用最後的位置把箭頭又叫回來。
+    const onLeave = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      root.classList.remove('is-visible', 'is-link', 'is-active');
+    };
 
     // 移到捲軸或瀏覽器外框時，pointerout 的 relatedTarget 會是 null
     const onOut = (e: PointerEvent) => { if (!e.relatedTarget) onLeave(); };
@@ -153,7 +166,7 @@ export default function Cursor() {
 
       <style>{`
         html.has-custom-cursor,
-        html.has-custom-cursor * { cursor: none !important; }
+        html.has-custom-cursor * { cursor: ${BLANK_CURSOR} !important; }
 
         /* 文字輸入與開著的 modal 把游標還給作業系統（理由見元件頂端說明） */
         html.has-custom-cursor :is(${TEXT_ENTRY}) { cursor: text !important; }

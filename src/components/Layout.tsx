@@ -105,10 +105,12 @@ export default function Layout({ children }: LayoutProps) {
     const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (rm.matches) return;
 
-    // 光暈位置寫進 CSS 變數，不走 React state。舊版在 rAF 裡呼叫
-    // setMousePosition，等於整個 Layout（連同底下所有頁面內容）每秒重繪 60 次，
-    // 滑鼠靜止時也不會停。改成直接寫 style 之後 React 完全不介入，
-    // 追上目標就把迴圈收掉。
+    // 光暈是一顆固定大小、只畫一次的圓，用 transform 移動，只走 GPU 合成。
+    // 前兩版的問題：
+    // 1. 在 rAF 裡呼叫 setMousePosition，整個 Layout 連同所有頁面內容每秒重繪 60 次。
+    // 2. 改寫 CSS 變數去移動「蓋滿整個視窗」的 radial-gradient 背景，雖然 React 不
+    //    介入了，瀏覽器仍得每幀重畫整片視窗大小的漸層；header 的 backdrop-filter
+    //    又疊在上面，模糊也跟著每幀重算。Chrome 上的卡頓就是這個。
     const el = blobRef.current;
     if (!el) return;
 
@@ -120,8 +122,7 @@ export default function Layout({ children }: LayoutProps) {
       const dy = ty - y;
       x += dx * 0.12;
       y += dy * 0.12;
-      el.style.setProperty('--blob-x', `${x}px`);
-      el.style.setProperty('--blob-y', `${y}px`);
+      el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) {
         rafId = 0;
         return;
@@ -148,15 +149,9 @@ export default function Layout({ children }: LayoutProps) {
       <a className="skip-link" href="#main">{t('nav.skipLink')}</a>
 
       {/* Mouse blob */}
-      <div
-        className="blob"
-        ref={blobRef}
-        style={{
-          background: `radial-gradient(600px circle at var(--blob-x, 50vw) var(--blob-y, 50vh),
-            color-mix(in srgb, var(--acid) 14%, transparent) 0%,
-            color-mix(in srgb, var(--acid) 7%, transparent) 55%, transparent 100%)`
-        }}
-      />
+      <div className="blob" aria-hidden="true">
+        <div className="blob__dot" ref={blobRef} />
+      </div>
 
       {/* Top Bar Navigation */}
       <header className={`top-bar ${scrolled ? 'scrolled' : ''}`} role="banner">
@@ -488,7 +483,23 @@ export default function Layout({ children }: LayoutProps) {
         .skip-link:focus { left: 20px; top: 20px; }
 
         /* Blob */
-        .blob { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+        .blob { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+        /* 1200px 的圓、closest-side 半徑 600px，跟舊版 600px circle 的大小一樣。
+           負 margin 把圓心對到 (0,0)，translate3d 直接給滑鼠座標就好。
+           預設停在畫面中央：減少動態效果時不會跟著滑鼠，就留在這裡。 */
+        .blob__dot {
+          position: absolute;
+          top: 0; left: 0;
+          width: 1200px; height: 1200px;
+          margin: -600px 0 0 -600px;
+          border-radius: 50%;
+          background: radial-gradient(closest-side,
+            color-mix(in srgb, var(--acid) 14%, transparent) 0%,
+            color-mix(in srgb, var(--acid) 7%, transparent) 55%,
+            transparent 100%);
+          transform: translate3d(50vw, 50vh, 0);
+          will-change: transform;
+        }
 
         /* Footer */
         footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; font-size: 12px; color: var(--text-tertiary); }
