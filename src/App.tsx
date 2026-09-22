@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router';
 import { AnimatePresence, motion } from 'motion/react';
 import { LanguageProvider } from './contexts/LanguageContext';
+import Cursor from './components/Cursor';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -72,6 +73,9 @@ export default function App() {
       <HashRouter>
         <AnimatedRoutes />
       </HashRouter>
+      {/* 放在換頁動畫外面，整個網站只掛一次。放在各頁的 Layout 裡的話，
+          每次換頁都會卸載再掛載，中間的空窗會讓系統游標閃出來。 */}
+      <Cursor />
     </LanguageProvider>
   );
 }

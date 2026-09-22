@@ -4,7 +4,6 @@ import { motion } from 'motion/react';
 import { Sun, Moon } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
-import Cursor from './Cursor';
 
 function ThemeToggle() {
   const [dark, setDark] = useState(
@@ -192,8 +191,6 @@ export default function Layout({ children }: LayoutProps) {
       </main>
 
       <footer>{t('nav.footer')}</footer>
-
-      <Cursor />
 
       <style>{`
         /* Global Variables & Reset */

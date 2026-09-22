@@ -66,13 +66,24 @@ export default function Cursor() {
       root.style.transform = `translate3d(${x - TIP_X}px, ${y - TIP_Y}px, 0)`;
     };
 
+    let dragging = false;
+
     const onMove = (e: PointerEvent) => {
       x = e.clientX;
       y = e.clientY;
       if (!frame) frame = requestAnimationFrame(paint);
 
+      // 捲軸不屬於網頁內容，cursor:none 管不到，系統游標一定會出現；
+      // 滑鼠一旦進入捲軸，頁面也收不到 pointermove，自訂箭頭會卡在邊緣。
+      // 所以一碰到捲軸所在的邊緣就先把箭頭收起來，只留系統游標。
+      const onScrollbar = x >= html.clientWidth || y >= html.clientHeight;
+
       const target = e.target as HTMLElement | null;
-      const handBack = !!document.querySelector('dialog[open]') || !!target?.closest?.(TEXT_ENTRY);
+      const handBack =
+        dragging ||
+        onScrollbar ||
+        !!document.querySelector('dialog[open]') ||
+        !!target?.closest?.(TEXT_ENTRY);
       root.classList.toggle('is-visible', !handBack);
       if (handBack) {
         root.classList.remove('is-link', 'is-active');
@@ -88,8 +99,23 @@ export default function Cursor() {
     // mouseleave does not bubble, so it goes on <html>, not document.
     const onLeave = () => root.classList.remove('is-visible', 'is-link', 'is-active');
 
+    // 移到捲軸或瀏覽器外框時，pointerout 的 relatedTarget 會是 null
+    const onOut = (e: PointerEvent) => { if (!e.relatedTarget) onLeave(); };
+
+    // 原生拖曳（例如按住作品卡的封面圖移動）期間，瀏覽器會顯示自己的拖曳游標，
+    // 而且不再送 pointermove，所以拖曳時收起箭頭，放開後下一次移動再出現。
+    const onDragStart = () => { dragging = true; onLeave(); };
+    const onDragEnd = () => { dragging = false; };
+
+    const onVisibility = () => { if (document.hidden) onLeave(); };
+
     document.addEventListener('pointermove', onMove, { passive: true });
     document.addEventListener('pointerdown', onMove, { passive: true });
+    document.addEventListener('pointerout', onOut, { passive: true });
+    document.addEventListener('dragstart', onDragStart);
+    document.addEventListener('dragend', onDragEnd);
+    document.addEventListener('drop', onDragEnd);
+    document.addEventListener('visibilitychange', onVisibility);
     html.addEventListener('mouseleave', onLeave);
     window.addEventListener('blur', onLeave);
 
@@ -98,6 +124,11 @@ export default function Cursor() {
       html.classList.remove('has-custom-cursor');
       document.removeEventListener('pointermove', onMove);
       document.removeEventListener('pointerdown', onMove);
+      document.removeEventListener('pointerout', onOut);
+      document.removeEventListener('dragstart', onDragStart);
+      document.removeEventListener('dragend', onDragEnd);
+      document.removeEventListener('drop', onDragEnd);
+      document.removeEventListener('visibilitychange', onVisibility);
       html.removeEventListener('mouseleave', onLeave);
       window.removeEventListener('blur', onLeave);
     };
