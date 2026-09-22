@@ -1,6 +1,6 @@
 CLAUDE.md
 專案身分
-個人求職作品集網站。擁有者：張韻柔（Yun-Rou Chang, Rose）。 國立臺北科技大學互動設計系碩士班，2026 年 8 月畢業。 目標職缺：UX Researcher / Interaction Designer / Product Manager。
+個人求職作品集網站。擁有者：張韻柔（Yun-Rou Chang, Rose）。 國立臺北科技大學互動設計系碩士班，2026 年 8 月畢業。 目標職缺：UIUX Designer / Product Designer / Product Manager（設計類與 PM 約各半）。 網站職稱一律寫 Product Designer／產品設計師（2026/09/22 使用者裁決），PM 能力靠案例中的產品決策證明，不寫進職稱。
 技術棧
 React 18 + TypeScript + Vite 6 + Tailwind CSS v4 + shadcn/ui
 
