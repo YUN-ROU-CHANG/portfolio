@@ -32,6 +32,11 @@ const TIP_Y = 2;
 const BLANK_CURSOR =
   'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR4nGNgAAIAAAUAAXpeqz8AAAAASUVORK5CYII=") 0 0, none';
 
+// 可點擊放大的圖片外框。這三個 class 是案例頁六個檔案共用的，
+// 掛在它們身上就等於涵蓋全部 22 張圖，不必在每一處 JSX 補屬性，
+// 之後新增的圖只要沿用同一個外框 class 也會自動有膠囊。
+const ZOOMABLE = '.interactive-image-area, .interactive-image-container, .cert-figure';
+
 const TEXT_ENTRY = 'input:not([type=button]):not([type=submit]):not([type=checkbox]):not([type=radio]):not([type=range]), textarea, select, [contenteditable=""], [contenteditable="true"]';
 const CLICKABLE = 'a, button, [role="button"], label, summary';
 
@@ -41,6 +46,7 @@ export default function Cursor() {
   const rootRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const exploreText = t('common.cursorExplore');
+  const zoomText = t('common.clickToZoom');
 
   useEffect(() => {
     // Touch and pen never get this. pointer: fine as well as hover keeps it off
@@ -74,7 +80,10 @@ export default function Cursor() {
     // classList 是白費工。
     const paint = () => {
       frame = 0;
-      root.style.transform = `translate3d(${x - TIP_X}px, ${y - TIP_Y}px, 0)`;
+      // 取整數。clientX/Y 在縮放過的螢幕上是小數，直接拿去 translate 會讓
+      // 膠囊落在像素格線之間，文字就糊掉了。箭頭尖端差半個像素看不出來，
+      // 但那行小字看得很清楚。
+      root.style.transform = `translate3d(${Math.round(x) - TIP_X}px, ${Math.round(y) - TIP_Y}px, 0)`;
 
       // 捲軸不屬於網頁內容，cursor:none 管不到，系統游標一定會出現；
       // 滑鼠一旦進入捲軸，頁面也收不到 pointermove，自訂箭頭會卡在邊緣。
@@ -91,9 +100,17 @@ export default function Cursor() {
         return;
       }
 
+      // 膠囊的字由目標決定：作品卡等元素自己帶 data-cursor-label，
+      // 可放大的圖片統一顯示「點擊放大」。
       const labelled = target?.closest?.('[data-cursor-label]');
-      root.classList.toggle('is-active', !!labelled);
-      root.classList.toggle('is-link', !labelled && !!target?.closest?.(CLICKABLE));
+      const text = labelled
+        ? labelled.getAttribute('data-cursor-label') ?? ''
+        : target?.closest?.(ZOOMABLE)
+          ? zoomText
+          : '';
+      if (text && label.textContent !== text) label.textContent = text;
+      root.classList.toggle('is-active', !!text);
+      root.classList.toggle('is-link', !text && !!target?.closest?.(CLICKABLE));
     };
 
     const onMove = (e: PointerEvent) => {
@@ -145,7 +162,7 @@ export default function Cursor() {
       html.removeEventListener('mouseleave', onLeave);
       window.removeEventListener('blur', onLeave);
     };
-  }, [enabled]);
+  }, [enabled, zoomText]);
 
   if (!enabled) return null;
 
@@ -167,6 +184,11 @@ export default function Cursor() {
       <style>{`
         html.has-custom-cursor,
         html.has-custom-cursor * { cursor: ${BLANK_CURSOR} !important; }
+
+        /* 桌機保留右上角的放大鏡 icon，只收掉它旁邊的文字，因為膠囊已經
+           在講同一句話了。觸控裝置不會有 has-custom-cursor，文字照舊顯示。
+           .expand-hint 在六個案例頁各自定義，用 !important 一次蓋掉。 */
+        html.has-custom-cursor .expand-hint__label { display: none !important; }
 
         /* 文字輸入與開著的 modal 把游標還給作業系統（理由見元件頂端說明） */
         html.has-custom-cursor :is(${TEXT_ENTRY}) { cursor: text !important; }
@@ -221,7 +243,7 @@ export default function Cursor() {
           transform-origin: left center;
           transition: transform .22s cubic-bezier(.2,.8,.2,1), opacity .15s ease;
         }
-        .cursor.is-active .cursor__label { opacity: 1; transform: scale(1); }
+        .cursor.is-active .cursor__label { opacity: 1; transform: none; }
 
         @media (prefers-reduced-motion: reduce) {
           .cursor, .cursor__arrow, .cursor__label { transition: none; }

@@ -50,6 +50,7 @@ const getWorks = (t: (key: string) => string) => [
   caption: t(`home.works.${w.k}.caption`),
   imgAlt: t(`home.works.${w.k}.imgAlt`),
   exploreLabel: t('home.works.explore'),
+  cursorLabel: t('common.cursorExplore'),
 }));
 
 type Work = ReturnType<typeof getWorks>[number];
@@ -65,7 +66,7 @@ function WorkCard({ work, feature, index }: { work: Work; feature?: boolean; ind
       <Link
         className={`work-card${feature ? ' work-card--feature' : ''}`}
         to={`/projects/${work.slug}`}
-        data-cursor-label={work.exploreLabel}
+        data-cursor-label={work.cursorLabel}
       >
         <div className="work-cover">
           <img src={work.cover} alt={work.imgAlt} loading={feature ? 'eager' : 'lazy'} />
@@ -310,7 +311,7 @@ export default function Home() {
                     type="button"
                     className="award-item"
                     aria-label={t(`home.awards.${logo.k}.title`)}
-                    data-cursor-label={t('home.works.explore')}
+                    data-cursor-label={t('common.cursorExplore')}
                     onClick={openAward}
                   >
                     <span className="award-card">
@@ -925,7 +926,7 @@ export default function Home() {
         }
         #award-dialog .award-desc {
           display: block;
-          font-size: 15px;
+          font-size: 18px;
           line-height: 1.7;
           color: var(--text-secondary);
         }
