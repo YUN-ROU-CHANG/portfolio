@@ -442,11 +442,11 @@ export default function Oblivilight() {
           .two-column-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
           
           .metrics-grid-mini { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(251, 146, 60, 0.1); }
-          .metric-item { display: flex; align-items: center; gap: 12px; font-size: 15px; }
+          .metric-item { display: flex; align-items: center; gap: 12px; font-size: 18px; }
           .metric-item strong { color: hsl(var(--g1)); min-width: 140px; }
 
           .insight-card { padding: 40px; background: linear-gradient(135deg, hsl(var(--g1)/.08), hsl(var(--g2)/.08)); border-left: 4px solid hsl(var(--g1)); border-radius: var(--radius-lg); }
-          .insight-title { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: hsl(var(--g1)); margin-bottom: 16px; }
+          .insight-title { font-size: 20px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: hsl(var(--g1)); margin-bottom: 16px; }
           .insight-text { font-size: 18px; line-height: 1.6; font-weight: 500; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
 
           /* Concept Grid */
@@ -455,11 +455,11 @@ export default function Oblivilight() {
           .concept-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(251, 146, 60, 0.12); }
           .card-icon { display: inline-flex; width: 72px; height: 72px; background: linear-gradient(135deg, hsl(var(--g1)/.1), hsl(var(--g2)/.1)); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 24px; color: hsl(var(--g1)); }
           .concept-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
-          .concept-card p { font-size: 15px; line-height: 1.6; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); }
+          .concept-card p { font-size: 18px; line-height: 1.6; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); }
 
           /* Feature List */
           .feature-list { list-style: none; padding: 0; margin: 24px 0 0 0; display: flex; flex-direction: column; gap: 16px; }
-          .feature-list li { position: relative; padding-left: 24px; font-size: 15px; line-height: 1.6; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); }
+          .feature-list li { position: relative; padding-left: 24px; font-size: 18px; line-height: 1.6; color: color-mix(in srgb, #D97706 55%, var(--text-primary)); }
           .feature-list li::before { content: '→'; position: absolute; left: 0; color: hsl(var(--g4)); font-weight: bold; }
           .feature-list strong { color: color-mix(in srgb, #CD853F 60%, var(--text-primary)); }
 

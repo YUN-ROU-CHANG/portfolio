@@ -606,7 +606,7 @@ export default function About() {
           }
 
           .bento-sub {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--text-tertiary);
             margin: 0;
@@ -776,7 +776,7 @@ export default function About() {
             color: var(--text-primary);
           }
           .offclock-body p {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.7;
             color: var(--text-secondary);
             margin: 0;

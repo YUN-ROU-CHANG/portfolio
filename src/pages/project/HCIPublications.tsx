@@ -480,7 +480,7 @@ export default function HCIPublications() {
             display: flex;
             align-items: flex-start;
             gap: 16px;
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--text-secondary);
           }
@@ -532,7 +532,7 @@ export default function HCIPublications() {
           }
 
           .image-caption {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--text-tertiary);
             margin-top: 12px;
             text-align: center;
@@ -583,7 +583,7 @@ export default function HCIPublications() {
           }
 
           .card-text {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: #CBD5E1;
           }

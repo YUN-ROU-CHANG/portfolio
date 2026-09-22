@@ -729,7 +729,7 @@ export default function TimesAwards() {
           }
 
           .context-text {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.7;
             color: var(--color-text-muted);
           }
@@ -948,7 +948,7 @@ export default function TimesAwards() {
           }
 
           .features-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
             color: var(--md-on-surface);
             margin-bottom: 12px;
@@ -964,7 +964,7 @@ export default function TimesAwards() {
           }
 
           .features-list li {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--color-text-muted);
             padding-left: 24px;
@@ -1112,7 +1112,7 @@ export default function TimesAwards() {
           }
 
           .outcome-text {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }
@@ -1151,7 +1151,7 @@ export default function TimesAwards() {
           }
 
           .takeaway-card-text {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }

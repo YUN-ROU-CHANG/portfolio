@@ -28,20 +28,19 @@ function getSegmenter(): Segmenter | null {
   return cached;
 }
 
-export default function CjkText({ children }: { children?: string | null }) {
-  const parts = useMemo(() => {
-    const text = children ?? '';
-    const segmenter = getSegmenter();
-    // 沒有漢字的字串（英文模式、純數字、專有名詞）原樣送回，不多包一層。
-    if (!segmenter || !CJK.test(text)) return null;
-    return [...segmenter.segment(text)].map((s) => ({
-      text: s.segment,
-      keep: s.isWordLike === true && s.segment.length > 1 && CJK.test(s.segment),
-    }));
-  }, [children]);
+function segmentParts(text: string) {
+  const segmenter = getSegmenter();
+  // 沒有漢字的字串（英文模式、純數字、專有名詞）原樣送回，不多包一層。
+  if (!segmenter || !CJK.test(text)) return null;
+  return [...segmenter.segment(text)].map((s) => ({
+    text: s.segment,
+    keep: s.isWordLike === true && s.segment.length > 1 && CJK.test(s.segment),
+  }));
+}
 
-  if (!parts) return <>{children}</>;
-
+function Segmented({ text }: { text: string }) {
+  const parts = useMemo(() => segmentParts(text), [text]);
+  if (!parts) return <>{text}</>;
   return (
     <>
       {parts.map((part, i) =>
@@ -49,6 +48,46 @@ export default function CjkText({ children }: { children?: string | null }) {
           <span key={i} className="cjk-w">{part.text}</span>
         ) : (
           <Fragment key={i}>{part.text}</Fragment>
+        )
+      )}
+    </>
+  );
+}
+
+/**
+ * 段落裡要加粗的詞，在 JSON 裡用 [[雙方括號]] 標起來，這裡轉成 <strong>。
+ * 文案仍然只存在字典裡，元件不必為了一個粗體字拆成三個 key，也不用
+ * dangerouslySetInnerHTML。
+ *
+ * 用 [[ ]] 而不是 Markdown 的 **：統計表的 sigNote 本來就寫著
+ * 「* p<.05  ** p<.01」，用星號會把它誤判成粗體。
+ */
+const BOLD = /\[\[(.+?)\]\]/gs;
+
+export default function CjkText({ children }: { children?: string | null }) {
+  const chunks = useMemo(() => {
+    const text = children ?? '';
+    if (!text.includes('[[')) return null;
+    const out: { text: string; bold: boolean }[] = [];
+    let last = 0;
+    for (const m of text.matchAll(BOLD)) {
+      if (m.index! > last) out.push({ text: text.slice(last, m.index), bold: false });
+      out.push({ text: m[1], bold: true });
+      last = m.index! + m[0].length;
+    }
+    if (last < text.length) out.push({ text: text.slice(last), bold: false });
+    return out;
+  }, [children]);
+
+  if (!chunks) return <Segmented text={children ?? ''} />;
+
+  return (
+    <>
+      {chunks.map((c, i) =>
+        c.bold ? (
+          <strong key={i}><Segmented text={c.text} /></strong>
+        ) : (
+          <Fragment key={i}><Segmented text={c.text} /></Fragment>
         )
       )}
     </>

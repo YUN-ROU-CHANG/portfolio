@@ -423,7 +423,7 @@ export default function ProjectArchive() {
           }
 
           .project-pitch {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--text-muted);
             margin-bottom: 24px;

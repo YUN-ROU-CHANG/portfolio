@@ -507,7 +507,7 @@ export default function MuProject() {
           .challenge-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
           .challenge-item { display: flex; align-items: flex-start; gap: 12px; }
           .challenge-bullet { width: 8px; height: 8px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; background: hsl(var(--g4)); }
-          .challenge-item div { font-size: 15px; line-height: 1.6; color: var(--color-text-muted); }
+          .challenge-item div { font-size: 18px; line-height: 1.6; color: var(--color-text-muted); }
 
           .insight-card { padding: 32px; background: linear-gradient(135deg, hsl(var(--g1)/.05), hsl(var(--g2)/.05)); border-left: 4px solid hsl(var(--g1)); border-radius: var(--radius-lg); }
           .insight-title { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: hsl(var(--g1)); margin-bottom: 12px; }
@@ -518,8 +518,8 @@ export default function MuProject() {
           .data-viz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
           .chart-card { background: var(--card); padding: 24px; border-radius: var(--radius-lg); display: flex; flex-direction: column; }
           .chart-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-          .chart-desc { font-size: 15px; color: var(--color-text-muted); margin-bottom: 24px; flex-grow: 1; }
-          .chart-insight { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 15px; font-weight: 600; color: hsl(var(--g2)); }
+          .chart-desc { font-size: 18px; color: var(--color-text-muted); margin-bottom: 24px; flex-grow: 1; }
+          .chart-insight { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 18px; font-weight: 600; color: hsl(var(--g2)); }
           
           /* Bar Chart CSS */
           .bar-chart-container { display: flex; flex-direction: column; gap: 16px; }
@@ -542,7 +542,7 @@ export default function MuProject() {
           .ui-text-area { padding: 24px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
           .feature-icon-sm { width: 40px; height: 40px; background: hsl(var(--g3)/.1); color: hsl(var(--g3)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
           .ui-title { font-size: 20px; font-weight: 700; color: var(--md-on-surface); }
-          .ui-desc { font-size: 15px; line-height: 1.6; color: var(--color-text-muted); }
+          .ui-desc { font-size: 18px; line-height: 1.6; color: var(--color-text-muted); }
           .ui-image-area { width: 100%; height: 400px; background: var(--surface); padding: 16px; cursor: pointer; position: relative; }
           .ui-image-area img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.3s ease; }
           .expand-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; opacity: 0; transition: opacity 0.2s; backdrop-filter: blur(2px); }

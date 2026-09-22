@@ -340,7 +340,7 @@ export default function AdnexInternship() {
           }
           .image-caption {
             margin-top: 16px;
-            font-size: 15px;
+            font-size: 16px;
             color: var(--text-gray);
             text-align: center;
             font-weight: 500;
@@ -386,7 +386,7 @@ export default function AdnexInternship() {
           }
 
           .badge-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--text-dark);
           }
@@ -465,7 +465,7 @@ export default function AdnexInternship() {
           .objective-list li {
             position: relative;
             padding-left: 24px;
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--text-gray);
           }
@@ -520,7 +520,7 @@ export default function AdnexInternship() {
           }
 
           .card-text {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.7;
             color: var(--text-gray);
             flex-grow: 1;

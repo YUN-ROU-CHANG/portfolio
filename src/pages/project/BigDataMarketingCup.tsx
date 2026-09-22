@@ -373,7 +373,7 @@ export default function BigDataMarketingCup() {
           }
 
           .badge-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 800;
             color: var(--red-dark);
           }
@@ -463,7 +463,7 @@ export default function BigDataMarketingCup() {
           .objective-list li {
             position: relative;
             padding-left: 28px;
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--text-gray);
           }
@@ -541,7 +541,7 @@ export default function BigDataMarketingCup() {
           }
 
           .card-text {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.7;
             color: var(--text-gray);
             position: relative;
@@ -699,14 +699,14 @@ export default function BigDataMarketingCup() {
           }
 
           .screen-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 8px;
           }
 
           .screen-desc {
-            font-size: 15px;
+            font-size: 18px;
             color: var(--text-gray);
             line-height: 1.5;
           }

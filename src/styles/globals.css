@@ -375,8 +375,8 @@
 .subsection-title { font-size: 28px; font-weight: 600; color: var(--theme-heading); }
 .highlight-title { font-size: 20px; font-weight: 600; color: var(--theme-heading); margin-bottom: 12px; }
 
-.body-text { font-size: 16px; line-height: 1.8; color: var(--color-text-muted); }
-.body-text-sm { font-size: 15px; line-height: 1.6; color: var(--color-text-muted); margin: 0; }
+.body-text { font-size: 18px; line-height: 1.8; color: var(--color-text-muted); }
+.body-text-sm { font-size: 16px; line-height: 1.6; color: var(--color-text-muted); margin: 0; }
 .body-text-large { font-size: 20px; line-height: 1.7; color: var(--text-primary); font-weight: 500; }
 
 .detail-item { text-align: center; display: flex; flex-direction: column; gap: 6px; }

@@ -1121,7 +1121,7 @@ export default function SleepGuardian() {
           }
           .sg-title--light { color: #fff; }
 
-          .sg-body { font-size: 17px; line-height: 1.82; color: var(--sg-muted); margin-bottom: 20px; }
+          .sg-body { font-size: 18px; line-height: 1.82; color: var(--sg-muted); margin-bottom: 20px; }
           .sg-body--light { color: rgba(255,255,255,0.65); }
 
           .sg-two-col {
@@ -1156,7 +1156,7 @@ export default function SleepGuardian() {
             margin-bottom: 6px;
             letter-spacing: -0.5px;
           }
-          .sg-stat-desc { font-size: 15px; line-height: 1.6; color: var(--sg-muted); }
+          .sg-stat-desc { font-size: 18px; line-height: 1.6; color: var(--sg-muted); }
 
           .sg-pathway-grid {
             display: grid;
@@ -1194,8 +1194,8 @@ export default function SleepGuardian() {
             margin-bottom: 8px;
           }
           .sg-pathway-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--sg-text); margin-bottom: 4px; }
-          .sg-pathway-mech { font-size: 15px; font-family: var(--font-display); font-weight: 600; color: var(--sg-muted); margin-bottom: 14px; }
-          .sg-pathway-desc { font-size: 15px; line-height: 1.7; color: var(--sg-muted); margin-bottom: 20px; }
+          .sg-pathway-mech { font-size: 18px; font-family: var(--font-display); font-weight: 600; color: var(--sg-muted); margin-bottom: 14px; }
+          .sg-pathway-desc { font-size: 18px; line-height: 1.7; color: var(--sg-muted); margin-bottom: 20px; }
           .sg-pathway-example { padding: 14px 16px; border-radius: 8px; background: var(--sg-surface); }
           .sg-example-label {
             font-size: 12px;
@@ -1207,7 +1207,7 @@ export default function SleepGuardian() {
             display: block;
             margin-bottom: 6px;
           }
-          .sg-example-text { font-size: 15px; line-height: 1.6; color: var(--sg-text); font-style: italic; }
+          .sg-example-text { font-size: 18px; line-height: 1.6; color: var(--sg-text); font-style: italic; }
 
           .sg-design-matrix {
             display: flex;
@@ -1278,11 +1278,12 @@ export default function SleepGuardian() {
             color: var(--sg-accent);
           }
           .sg-info-box svg { flex-shrink: 0; margin-top: 2px; }
-          .sg-info-box p { font-size: 15px; line-height: 1.6; color: var(--sg-text); margin: 0; }
+          .sg-info-box p { font-size: 18px; line-height: 1.6; color: var(--sg-text); margin: 0; }
 
           .sg-decision-row {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            /* 剛好四張，2×2 最平衡；窄螢幕在下方的 media query 收成單欄 */
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
           }
           .sg-decision-card {
@@ -1292,8 +1293,8 @@ export default function SleepGuardian() {
             background: var(--sg-surface);
           }
           .sg-decision-card svg { color: var(--sg-accent); margin-bottom: 12px; }
-          .sg-decision-card h4 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
-          .sg-decision-card p { font-size: 15px; line-height: 1.6; color: var(--sg-muted); }
+          .sg-decision-card h4 { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
+          .sg-decision-card p { font-size: 18px; line-height: 1.6; color: var(--sg-muted); }
 
           .sg-app-features {
             display: grid;
@@ -1315,8 +1316,8 @@ export default function SleepGuardian() {
             color: var(--acid);
             margin-bottom: 10px;
           }
-          .sg-app-feature-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
-          .sg-app-feature-desc { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.55); }
+          .sg-app-feature-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+          .sg-app-feature-desc { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.55); }
 
           /* =========================================
              圖片展示區塊 Styles 
@@ -1433,7 +1434,7 @@ export default function SleepGuardian() {
             background: var(--sg-accent);
           }
           .sg-phase-label {
-            font-size: 12px;
+            font-size: 13px;
             font-family: var(--font-display);
             font-weight: 700;
             text-transform: uppercase;
@@ -1441,7 +1442,7 @@ export default function SleepGuardian() {
             color: var(--sg-accent);
             margin-bottom: 10px;
           }
-          .sg-measure-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+          .sg-measure-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
           .sg-measure-cards--objective .sg-measure-card {
             border-color: color-mix(in srgb, var(--accent-text) 28%, transparent);
             background: color-mix(in srgb, var(--accent) 16%, var(--surface));
@@ -1453,15 +1454,15 @@ export default function SleepGuardian() {
             background: var(--card);
           }
           .sg-measure-abbr {
-            font-size: 12px;
+            font-size: 13px;
             font-family: var(--font-display);
             font-weight: 800;
             letter-spacing: 1px;
             color: var(--sg-accent);
             margin-bottom: 4px;
           }
-          .sg-measure-name { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--sg-text); margin-bottom: 4px; line-height: 1.35; }
-          .sg-measure-purpose { font-size: 14px; line-height: 1.55; color: var(--sg-muted); }
+          .sg-measure-name { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--sg-text); margin-bottom: 4px; line-height: 1.35; }
+          .sg-measure-purpose { font-size: 18px; line-height: 1.7; color: var(--sg-muted); }
 
           /* RQ 表格：原本六張大卡，改表格後高度砍半，四欄一列 */
           .sg-rq-table-wrap { margin-top: 32px; overflow-x: auto; }
@@ -1501,13 +1502,13 @@ export default function SleepGuardian() {
           .sg-rq-q {
             display: block;
             font-family: var(--font-display);
-            font-size: 15px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--sg-text);
             line-height: 1.5;
           }
-          .sg-rq-pred { font-size: 15px; line-height: 1.7; color: var(--sg-muted); }
-          .sg-rq-actual { font-size: 15px; line-height: 1.7; color: var(--sg-text); }
+          .sg-rq-pred { font-size: 18px; line-height: 1.7; color: var(--sg-muted); }
+          .sg-rq-actual { font-size: 18px; line-height: 1.7; color: var(--sg-text); }
           .sg-rq-verdict {
             display: inline-block;
             font-family: var(--font-display);
@@ -1532,7 +1533,7 @@ export default function SleepGuardian() {
             color: var(--sg-accent);
           }
           .sg-analysis-note svg { flex-shrink: 0; margin-top: 2px; }
-          .sg-analysis-note p { font-size: 15px; line-height: 1.6; color: var(--sg-text); margin: 0; }
+          .sg-analysis-note p { font-size: 18px; line-height: 1.6; color: var(--sg-text); margin: 0; }
 
           /* ── Design implications ── */
           .sg-impl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -1550,13 +1551,13 @@ export default function SleepGuardian() {
             color: var(--accent-text); margin-bottom: 10px;
           }
           .sg-impl-card h4 { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--sg-text); margin-bottom: 10px; line-height: 1.35; }
-          .sg-impl-card p { font-size: 15px; line-height: 1.75; color: var(--sg-muted); margin: 0; }
+          .sg-impl-card p { font-size: 18px; line-height: 1.75; color: var(--sg-muted); margin: 0; }
 
           /* ── Scope & limitations ── */
           .sg-limits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
           .sg-limit-card { padding: 22px 24px; border-left: 3px solid var(--sg-border); }
-          .sg-limit-card h4 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
-          .sg-limit-card p { font-size: 15px; line-height: 1.7; color: var(--sg-muted); margin: 0; }
+          .sg-limit-card h4 { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
+          .sg-limit-card p { font-size: 18px; line-height: 1.7; color: var(--sg-muted); margin: 0; }
 
           /* ── Pilot：原構想 → 砍掉的理由 → 收斂後 ── */
           .sg-pivot {
@@ -1583,13 +1584,13 @@ export default function SleepGuardian() {
             color: var(--sg-muted); margin-bottom: 12px;
           }
           .sg-pivot-col--after .sg-pivot-label { color: var(--accent-text); }
-          .sg-pivot-col > p { font-size: 15px; line-height: 1.75; color: var(--sg-text); margin: 0; }
+          .sg-pivot-col > p { font-size: 18px; line-height: 1.75; color: var(--sg-text); margin: 0; }
           .sg-pivot-col dl { margin: 0; display: flex; flex-direction: column; gap: 12px; }
           .sg-pivot-col dt {
-            font-family: var(--font-display); font-size: 15px; font-weight: 700;
+            font-family: var(--font-display); font-size: 18px; font-weight: 700;
             color: var(--sg-text); margin-bottom: 3px;
           }
-          .sg-pivot-col dd { margin: 0; font-size: 15px; line-height: 1.65; color: var(--sg-muted); }
+          .sg-pivot-col dd { margin: 0; font-size: 18px; line-height: 1.65; color: var(--sg-muted); }
 
           .sg-turn-label {
             display: block;
@@ -1606,10 +1607,10 @@ export default function SleepGuardian() {
             display: flex; flex-direction: column;
           }
           .sg-turn-card h4 {
-            font-family: var(--font-display); font-size: 16px; font-weight: 700;
+            font-family: var(--font-display); font-size: 20px; font-weight: 700;
             color: var(--sg-text); margin-bottom: 10px; line-height: 1.4;
           }
-          .sg-turn-card > p { font-size: 15px; line-height: 1.7; color: var(--sg-muted); margin: 0; flex: 1; }
+          .sg-turn-card > p { font-size: 18px; line-height: 1.7; color: var(--sg-muted); margin: 0; flex: 1; }
           .sg-turn-decision {
             margin-top: 14px !important;
             padding-top: 14px;
@@ -1651,7 +1652,7 @@ export default function SleepGuardian() {
           }
           .sg-stim-name {
             display: flex; align-items: center; gap: 8px;
-            font-family: var(--font-display); font-size: 15px; font-weight: 700;
+            font-family: var(--font-display); font-size: 18px; font-weight: 700;
             color: var(--sg-text); margin-bottom: 4px;
           }
           .sg-stim-name i { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
@@ -1680,10 +1681,15 @@ export default function SleepGuardian() {
             color: var(--accent-text); padding-top: 3px;
           }
           .sg-decision h4 {
-            font-family: var(--font-display); font-size: 18px; font-weight: 700;
+            font-family: var(--font-display); font-size: 22px; font-weight: 700;
             color: var(--sg-text); margin-bottom: 10px; line-height: 1.35;
           }
-          .sg-decision p { font-size: 15px; line-height: 1.8; color: var(--sg-muted); margin: 0; }
+          /* [[粗體]] 標記出來的重點。內文是 muted 色，粗體改用亮一階的 sg-text，
+             光靠字重在暗底上跳不出來。 */
+          .sg-decision p strong,
+          .sg-body strong,
+          .sg-decision-card p strong { color: var(--sg-text); font-weight: 700; }
+          .sg-decision p { font-size: 18px; line-height: 1.8; color: var(--sg-muted); margin: 0; }
 
           @media (max-width: 900px) {
             .sg-pivot, .sg-turn-grid { grid-template-columns: 1fr; }
@@ -1716,14 +1722,14 @@ export default function SleepGuardian() {
             font-family: var(--font-mono); font-size: 13px;
             color: var(--sg-text); margin-bottom: 4px;
           }
-          .sg-gloss dd { margin: 0; font-size: 15px; line-height: 1.65; color: var(--sg-muted); }
+          .sg-gloss dd { margin: 0; font-size: 18px; line-height: 1.65; color: var(--sg-muted); }
           @media (max-width: 760px) { .sg-gloss dl { grid-template-columns: 1fr; } }
 
           /* ── Charts ── */
           .sg-charts { display: flex; flex-direction: column; gap: 34px; margin-top: 38px; }
           .sg-chart { margin: 0; }
           .sg-chart-head h4 { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--sg-text); margin-bottom: 8px; }
-          .sg-chart-head p { font-size: 15px; line-height: 1.65; color: var(--sg-muted); margin: 0 0 16px; }
+          .sg-chart-head p { font-size: 18px; line-height: 1.65; color: var(--sg-muted); margin: 0 0 16px; }
           .sg-chart-foot { font-family: var(--font-mono); font-size: 12px; color: var(--sg-muted); margin: 12px 0 0; }
 
           /* Heatmap */
@@ -1932,7 +1938,7 @@ export default function SleepGuardian() {
           }
           .sg-hero-finding-desc {
             display: block;
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.55;
             color: color-mix(in srgb, var(--bone) 72%, transparent);
           }
@@ -1978,7 +1984,7 @@ export default function SleepGuardian() {
           .sg-matrix-axis--between .sg-axis-label { color: var(--sg-text); }
           .sg-measure-cards--objective .sg-measure-purpose { color: var(--sg-text); }
           .sg-result-card p {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.75;
             color: var(--sg-muted);
             margin: 0;
@@ -2008,7 +2014,7 @@ export default function SleepGuardian() {
           }
           /* 研究已於 2026/06/26 口試完成，六張卡不再掛狀態徽章（全部一樣就沒有資訊量）。 */
           .sg-contribution-card h4 { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--sg-text); margin-bottom: 10px; line-height: 1.4; }
-          .sg-contribution-card p { font-size: 15px; line-height: 1.7; color: var(--sg-muted); }
+          .sg-contribution-card p { font-size: 18px; line-height: 1.7; color: var(--sg-muted); }
 
           /* 中文四欄自然寬度加總約 1090px，1100 以下改兩欄，每格才不會被擠成兩行 */
           @media (max-width: 1100px) {
@@ -2020,6 +2026,7 @@ export default function SleepGuardian() {
             .sg-pathway-grid,
             .sg-decision-row,
             .sg-app-features,
+            .sg-decision-row,
             .sg-contribution-grid { grid-template-columns: 1fr; }
             .sg-design-matrix { flex-direction: column; align-items: stretch; }
             .sg-matrix-cross { text-align: center; }

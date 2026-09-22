@@ -697,7 +697,7 @@ export default function GoodLuckPeanut() {
           }
 
           .part-desc {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }
@@ -772,7 +772,7 @@ export default function GoodLuckPeanut() {
           }
 
           .challenge-item span {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }
@@ -811,14 +811,14 @@ export default function GoodLuckPeanut() {
           }
 
           .strategy-card-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
             color: var(--md-on-surface);
             margin-bottom: 8px;
           }
 
           .strategy-card-text {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }
@@ -910,7 +910,7 @@ export default function GoodLuckPeanut() {
           }
 
           .feature-row div {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }
@@ -962,7 +962,7 @@ export default function GoodLuckPeanut() {
           }
 
           .comparison-list li {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--color-text-muted);
             padding-left: 20px;
@@ -1013,14 +1013,14 @@ export default function GoodLuckPeanut() {
           }
 
           .highlight-card-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
             color: var(--md-on-surface);
             margin-bottom: 8px;
           }
 
           .highlight-card-text {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }
@@ -1080,7 +1080,7 @@ export default function GoodLuckPeanut() {
           }
 
           .outcome-text {
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.6;
             color: var(--color-text-muted);
           }

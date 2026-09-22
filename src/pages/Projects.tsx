@@ -245,7 +245,7 @@ export default function Projects() {
           .project-info { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
           .project-meta { font-size: 14px !important; line-height: 1.4 !important; color: var(--color-text-muted); margin: 0; }
           .project-title { font-size: 20px; font-weight: 600; line-height: 1.3; color: var(--text-primary); margin: 0; }
-          .project-description { font-size: 15px !important; line-height: 1.6 !important; color: var(--color-text-muted); margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+          .project-description { font-size: 18px !important; line-height: 1.6 !important; color: var(--color-text-muted); margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
           .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
           .project-tag { padding: 4px 10px; font-size: 12px !important; line-height: 1.4 !important; color: var(--accent-text); background: linear-gradient(135deg, color-mix(in srgb, var(--acid) 30%, transparent), color-mix(in srgb, var(--acid) 8%, transparent)); border-radius: var(--radius-sm); white-space: nowrap; }
           
@@ -264,7 +264,7 @@ export default function Projects() {
             .projects-grid { grid-template-columns: 1fr; gap: 16px; }
             .project-info { padding: 20px; }
             .project-title { font-size: 18px; }
-            .project-description { font-size: 15px !important; }
+            .project-description { font-size: 18px !important; }
             .tabs { flex-wrap: wrap; gap: 6px; padding: 4px; }
             .tab { padding: 8px 14px; font-size: 12px; }
             .tabs-container { margin-bottom: 32px; }

@@ -812,10 +812,10 @@ export default function Innoconnect() {
           .challenge-item { display: flex; align-items: flex-start; gap: 12px; }
           .challenge-bullet { width: 8px; height: 8px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; background: hsl(var(--g3)); }
           .challenge-bullet.problem { background: #ef4444; }
-          .challenge-item div { font-size: 15px; line-height: 1.6; color: var(--color-text-muted); }
+          .challenge-item div { font-size: 18px; line-height: 1.6; color: var(--color-text-muted); }
           .feature-highlights { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
           .feature-item { display: flex; align-items: flex-start; gap: 12px; }
-          .feature-item span { font-size: 15px; line-height: 1.6; color: var(--color-text-muted); }
+          .feature-item span { font-size: 18px; line-height: 1.6; color: var(--color-text-muted); }
           .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
           .feature-card { padding: 24px; background: var(--card-glass); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; }
           .feature-icon { display: inline-flex; width: 64px; height: 64px; background: linear-gradient(135deg, hsl(var(--g4)/.1), hsl(var(--g1)/.1)); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 16px; color: hsl(var(--g4)); }

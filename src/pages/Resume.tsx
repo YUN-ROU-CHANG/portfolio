@@ -464,8 +464,8 @@ export default function Resume() {
         .award-item-clean { display: flex; gap: 20px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .award-item-clean:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
         .award-year { font-family: var(--font-mono); font-size: 18px; font-weight: 700; color: var(--accent-text); opacity: 0.8; padding-top: 2px; }
-        .award-item-clean h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
-        .award-item-clean p { font-size: 15px; color: var(--text-tertiary); line-height: 1.5; margin: 0; }
+        .award-item-clean h4 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
+        .award-item-clean p { font-size: 18px; color: var(--text-tertiary); line-height: 1.5; margin: 0; }
         @media (max-width: 768px) { .awards-grid { grid-template-columns: 1fr; } }
 
         .cert-btn {
@@ -590,7 +590,7 @@ export default function Resume() {
         .exp-period { display: block; margin-top: 4px; font-variant-numeric: tabular-nums; }
         .resume-card-content { padding: 0 20px 20px 76px; }
         .exp-desc-list { 
-          font-size: 15px; 
+          font-size: 18px; 
           line-height: 1.6; 
           margin-bottom: 16px; 
           color: var(--text-secondary);
