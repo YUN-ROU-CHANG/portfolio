@@ -31,7 +31,7 @@ type Experience = {
 
 // Data
 const getResumeData = (t: (key: string) => string) => ({
-  lastUpdated: '2026-04-30',
+  lastUpdated: '2026-09-18',
   contact: { email: 'yuu07798@gmail.com', linkedin: 'https://www.linkedin.com/in/rose-chang0708', github: 'https://github.com' },
   experience: [
     {
