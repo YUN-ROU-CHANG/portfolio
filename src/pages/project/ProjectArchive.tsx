@@ -4,8 +4,8 @@ import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import CjkText from '../../components/CjkText';
 import { 
-  Award, PlayCircle, Palette, Lightbulb, 
-  ChevronRight, ExternalLink, Globe, Smartphone
+  PlayCircle, Palette, Lightbulb, 
+  ExternalLink, Smartphone
 } from 'lucide-react';
 
 // 定義專案資料結構

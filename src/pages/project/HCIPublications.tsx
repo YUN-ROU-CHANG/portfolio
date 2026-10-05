@@ -5,9 +5,9 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import CjkText from '../../components/CjkText';
 import { 
-  BookOpen, Mic, Activity, BarChart3, 
+  BookOpen, Activity, BarChart3, 
   Music, Users, BrainCircuit, Lightbulb,
-  Award, Target, ChevronRight, Maximize2, X
+  Target, Maximize2, X
 } from 'lucide-react';
 
 

@@ -26,7 +26,6 @@ import cycling2 from '../assets/images/off-clock/cycling-2.webp';
 
 export default function About() {
   const { t, locale } = useLanguage();
-  const heroRef = useRef<HTMLDivElement>(null);
   const strengthsRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
 

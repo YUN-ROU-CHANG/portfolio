@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
-import sleepGuardianCover from '../../assets/images/home/sleep-guardian-cover.webp';
 import { motion } from 'motion/react';
 import Layout from '../../components/Layout';
 import { useLanguage } from '../../contexts/LanguageContext';
 import {
-  Moon, Brain, Smartphone, FlaskConical, BarChart3,
-  ChevronRight, Shield, Heart, Zap, Clock, Activity,
+  Brain, Smartphone, FlaskConical, BarChart3,
+  Shield, Heart, Zap, Clock, Activity,
   BookOpen, Layers, CheckCircle2, AlertTriangle
 } from 'lucide-react';
 
 // 引入你指定的新圖片
-import codeImg from '../../assets/images/project/sleep-guardian/sleep-guardian-code.webp';
 import notionImg from '../../assets/images/project/sleep-guardian/experiment-notion.webp';
 import appAudio from '../../assets/images/project/sleep-guardian/audio.webp';
 import appEmpathy from '../../assets/images/project/sleep-guardian/empathy.webp';
@@ -55,7 +53,7 @@ const D_ROWS = [
 ];
 
 // 圖表已併進對應的發現卡，標題會和卡片的 h4 重複，所以只留方法說明。
-function ChartFrame({ note, children }: { title?: string; note: string; children: React.ReactNode }) {
+function ChartFrame({ note, children }: { note: string; children: React.ReactNode }) {
   return (
     <figure className="sg-chart">
       <figcaption className="sg-chart-head">
@@ -70,7 +68,7 @@ function ChartFrame({ note, children }: { title?: string; note: string; children
 function GoldenChannelHeatmap({ t }: { t: T }) {
   const c = (k: string) => t(`project.sleepGuardian.charts.${k}`);
   return (
-    <ChartFrame title={c('heatTitle')} note={c('heatNote')}>
+    <ChartFrame note={c('heatNote')}>
       <div className="sg-heat" role="table">
         <div className="sg-heat-row sg-heat-row--head" role="row">
           <span className="sg-heat-rowlabel" role="columnheader" />
@@ -109,7 +107,7 @@ function IntentionBehaviourChart({ t }: { t: T }) {
   const MIN = -0.4, MAX = 0.6, span = MAX - MIN;
   const zero = ((0 - MIN) / span) * 100;
   return (
-    <ChartFrame title={c('linkTitle')} note={c('linkNote')}>
+    <ChartFrame note={c('linkNote')}>
       <div className="sg-link-chart">
         {LINK_BARS.map(b => {
           const pos = b.r >= 0;
@@ -147,7 +145,7 @@ function EffectSizeChart({ t }: { t: T }) {
   const zero = ((0 - MIN) / span) * 100;
   const refs = [-0.8, -0.5, -0.2, 0.2, 0.5, 0.8];
   return (
-    <ChartFrame title={c('dTitle')} note={c('dNote')}>
+    <ChartFrame note={c('dNote')}>
       <ChartLegend t={t} />
       <div className="sg-d-chart">
         {D_ROWS.map(row => (
@@ -229,7 +227,7 @@ function EtaSquaredChart({ t }: { t: T }) {
   const MAX = 0.32;
   const pct = (v: number) => (v / MAX) * 100;
   return (
-    <ChartFrame title={c('etaTitle')} note={c('etaNote')}>
+    <ChartFrame note={c('etaNote')}>
       <div className="sg-legend">
         {ETA_SERIES.map(s => (
           <span key={s.key}><i className={`sg-fill--${s.fill}`} /><span><CjkText>{c(s.key)}</CjkText></span></span>

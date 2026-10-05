@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import { motion, useScroll } from 'motion/react';
+import { motion } from 'motion/react';
 import Layout from '../components/Layout';
 import CjkText from '../components/CjkText';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../co
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { Separator } from '../components/ui/separator';
-import { Download, Linkedin, Github, Briefcase, GraduationCap, Award, Code, FileText, Languages } from 'lucide-react';
+import { Download, Linkedin, Briefcase, GraduationCap, Award, Code, FileText, Languages } from 'lucide-react';
 
 // 引入你指定的 PDF 檔案
 import resumePdf from '../assets/images/Yun-Rou_Chang_Resume.pdf';

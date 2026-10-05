@@ -7,7 +7,7 @@ import CjkText from '../../components/CjkText';
 import FlowLabel from '../../components/FlowLabel';
 import {
   Award, Leaf, Wind, Map, BookOpen,
-  Target, Compass, Sparkles, CheckCircle2,
+  Target, Compass, Sparkles,
   Volume2, ShieldCheck, Maximize2, X
 } from 'lucide-react';
 

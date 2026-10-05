@@ -6,9 +6,8 @@ import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import CjkText from '../../components/CjkText';
 import FlowLabel from '../../components/FlowLabel';
 import { 
-  Trophy, Database, Target, TrendingUp, 
-  Smartphone, Activity, Lightbulb, Users, 
-  Crosshair, Repeat, Layers, Maximize2, X
+  Trophy, Database, Target, Smartphone,
+  Lightbulb, Crosshair, Repeat, Layers, Maximize2, X
 } from 'lucide-react';
 
 

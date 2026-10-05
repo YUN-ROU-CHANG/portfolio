@@ -7,8 +7,7 @@ import CjkText from '../../components/CjkText';
 import FlowLabel from '../../components/FlowLabel';
 import {
   TrendingUp, Users, Bot, FileSpreadsheet,
-  Megaphone, Target, BarChart3, Presentation,
-  Briefcase, CheckCircle2, Maximize2, X
+  Megaphone, Target, Briefcase, Maximize2, X
 } from 'lucide-react';
 
 
