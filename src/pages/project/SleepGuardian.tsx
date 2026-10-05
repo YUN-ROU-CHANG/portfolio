@@ -852,7 +852,6 @@ export default function SleepGuardian() {
               className="flow-label--sg"
             />
             <h2 className="sg-section-title"><CjkText>{t('project.sleepGuardian.implications.title')}</CjkText></h2>
-            <p className="sg-results-intro"><CjkText>{t('project.sleepGuardian.implications.intro')}</CjkText></p>
 
             <div className="sg-impl-grid">
               {['i1', 'i2', 'i3', 'i4'].map((k, i) => (

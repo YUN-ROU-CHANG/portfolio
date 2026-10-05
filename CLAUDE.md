@@ -38,14 +38,14 @@ Token 分三層，全部定義在 src/styles/globals.css：
 * 稽核判定標籤只用【保留】【收斂】【移除】。 理由若只是「好看」就歸收斂或移除。
 
 文案架構（i18n）
-文案唯一來源是 src/locales/en.json 與 src/locales/zh.json，各 1,384 個 key，結構相同。 改文案編輯 JSON，不要改 component。
+文案唯一來源是 src/locales/en.json 與 src/locales/zh.json，各 1,396 個 key，結構相同。 改文案編輯 JSON，不要改 component。
 
 * src/contexts/LanguageContext.tsx 提供 useLanguage() 的 t(key)、setLocale、locale。
 * zh 的值是空字串會 fallback 到 en（刻意保留英文的專有名詞）；zh 整個 key 不存在則回傳空字串，代表該段中文頁不顯示，元件要自己收掉（`{t(k) && …}` 或陣列 `.filter(Boolean)`）。兩邊都沒有的 key 回傳 key 本身，會直接印在畫面上。
 * 在 en.json 新增 key 時，zh.json 一定要補上同名 key（值可先留空字串），否則那段內容在中文頁會消失。刪內容時兩本字典與元件呼叫要一起刪。
 * 語言偏好存 localStorage key `locale`，並同步 html lang（zh 為 zh-Hant）。
 * 語言切換鈕在 Layout 膠囊導航內，顯示目標語言（中／EN）。
-* zh.json 目前有 86 個 key 是空字串走 fallback，多數為刻意保留英文的專有名詞（Rose Chang、UX Design Awards 等）。
+* zh.json 目前有 94 個 key 是空字串走 fallback，多數為刻意保留英文的專有名詞（Rose Chang、UX Design Awards 等）。
 * 中文斷行一律用 src/components/CjkText.tsx 包住文案（`<CjkText>{t('…')}</CjkText>`），以 props 或變數傳入的文案也要包，否則中文會被攔腰斷詞。元件 CSS 若有 `.x span {…}` 這類後代選擇器要改成 `.x > span`，避免套到 CjkText 的詞 span 上。
 * 以下刻意未抽成 i18n，補抽會壞版或無意義，禁止改動： aria-label（Layout 手機版 CSS 用 button[aria-label="Go back"] 當選擇器掛樣式）、 email、純符號、Photography 的 Go to slide 模板字串、Clock 的 TPE 前綴。
 
@@ -84,10 +84,11 @@ Token 分三層，全部定義在 src/styles/globals.css：
 * 分析工具：SPSS
 * 分析架構：三層次驗證（ANOVA／介入 vs. 基線對照／Friedman），另有三模型分離 ANCOVA 逐一加入 BPS、BSCS、REI 共變項。
 * 受測者條件：18 至 35 歲、具常態性社群媒體（如 Instagram）使用習慣、具中度至重度在床拖延傾向。
+   * 例外：Sleep Guardian 頁 measures.bpsDesc 刻意只寫「具在床拖延傾向」，不寫程度（2026/10/05 使用者裁決）。受測者條件本身不變，其他處仍寫中度至重度。
 * 排除條件（四項）：輪班工作、確診臨床睡眠障礙、重大精神疾患、有服用安眠或其他睡眠相關藥物習慣。
 * 關鍵發現可引用：
    * 客觀與主觀分裂：感官與訴求對主觀心理有大效果（η²p .18 到 .29）， 對自動化滑動行為幾乎無影響。
-   * 聽覺是黃金通道：三組訴求差異幾乎全集中於純聽覺條件；視聽整合反而遮蔽差異。
+   * 聽覺是黃金通道：三組訴求差異幾乎全集中於純聽覺條件；視聽整合反而遮蔽差異。Sleep Guardian 頁 results.f2desc 另寫「聽覺通道的介入效果遠大於視覺通道，且視聽結合的效果不如純聽覺」（2026/10/05 使用者裁決）。
    * 介入優於基線：設計摩擦於 PAD 喚起度呈超大效果（d = -1.282）。
    * 意圖與行為連結：唯共情組意圖能轉化為行為（r = +.516）；共情 vs. 設計摩擦 Fisher z = 2.174（p = .030）達顯著。
    * 個體特質有獨立預測力但不調節介入效果，可採通用設計。
@@ -106,7 +107,7 @@ Token 分三層，全部定義在 src/styles/globals.css：
 
 1. 聽覺通道優先化：精緻化語氣、語速、節奏；採漸進音量與舒緩音色，避免刺耳音效觸發抗拒。
 2. 機制導向之訴求選擇：情感共鳴用共情、認知警覺用威脅、直接打斷用設計摩擦；三者可組合使用。
-3. 設計摩擦難度校準：採動態難度或無解之開放式任務，避免過易任務觸發「闖關遊戲化」。
+3. 設計摩擦難度校準：採動態難度或無解之開放式任務。論文原意是避免過易任務觸發「闖關遊戲化」；Sleep Guardian 頁 implications.i3desc 現寫「題目太簡單會失效，但若題目太困難會讓通知變得像是一種闖關遊戲」（2026/10/05 使用者裁決，網站以此為準）。
 4. 累積觀與多層次強度：長期反覆暴露重塑 System 1；提供鎖機／遊戲化／情境擴展三層強度。
 
 研究限制（四項，可公開書寫）
@@ -130,15 +131,15 @@ Token 分三層，全部定義在 src/styles/globals.css：
 * Sleep Guardian：碩士論文的研究工具與案例頁。 所有研究方法、實驗設計、樣本數、統計結果一律以上方「碩士論文」為準，不得另行敘述。
 
 * 頁面定位：M.S. Thesis Research，狀態 Completed，2025 到 2026
-* 我負責：Lead Researcher、App Developer、Interaction Designer
-* 技術：React Native / Expo 自建實驗平台，四個核心模組為 Instagram feed 模擬、 體驗碼與拉丁方格派送（T／E／F 組別對應 R1 到 R4 順序）、行為資料自動記錄、WebView 問卷
+* 我負責：研究、App 開發、問卷設計、統計分析（英文 Research · App Development · Survey Design · Statistical Analysis；Sleep Guardian 頁首 Role 欄，2026/10/05 使用者裁決，取代先前的 Lead Researcher、App Developer、Interaction Designer）
+* 技術：以 Claude Code 協作、React Native / Expo 自建實驗平台，四個核心模組為 Instagram feed 模擬、 體驗碼與拉丁方格派送（T／E／F 組別對應 R1 到 R4 順序）、行為資料自動記錄、WebView 問卷（Surveycake）
 * 實驗協定：時間鎖定 20:00 到 04:00、前 3 分鐘沉浸期不發通知、通知間隔 3 分鐘
 * 順序平衡：4×4 拉丁方格（三種感官模態加基線共 4 個受測者內條件）
 * 客觀行為指標兩項：Notification Dismissal Latency（NDL）、Post-notification Scroll Count（PSC）
 * 量表：BPS、BSCS、REI-10、PAD、TAM、UEQ-S
 * 理論依據：威脅訴求本於 Witte EPPM（1992）、共情訴求本於 Neff（2003）自我慈悲、 設計摩擦本於 Cox et al.（2016）
 * 文獻回顧 50+ 篇同儕審查文獻
-* 樣本數推估用 G*Power（Faul et al., 2007）
+* 樣本數檢定力分析：網站一律寫「以 SPSS 進行檢定力分析」（2026/10/05 使用者裁決，zh 與 en 皆同），不寫 G*Power。
 
 * Oblivilight：OpenHCI 工作坊作品，7 人團隊，獲 Best Demo， 受邀於 TAICHI 展示。
 
