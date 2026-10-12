@@ -9,10 +9,10 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../co
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { Separator } from '../components/ui/separator';
-import { Download, Linkedin, Briefcase, GraduationCap, Award, Code, FileText, Languages } from 'lucide-react';
+import { ExternalLink, Linkedin, Briefcase, GraduationCap, Award, Code, FileText, Languages } from 'lucide-react';
 
-// 引入你指定的 PDF 檔案
-import resumePdf from '../assets/images/Yun-Rou_Chang_Resume.pdf';
+// 履歷 PDF 放在 Google Drive（權限：知道連結的任何人可檢視）
+const RESUME_DRIVE_URL = 'https://drive.google.com/file/d/1pHYAS3vj2m6HxlCWZFfbHZVtnV9rmeTD/view?usp=share_link';
 
 // 獎狀與證明圖片（2026/08 從首頁搬過來，首頁只留一行摘要）
 import tuitionCert from '../assets/images/home/tuition.webp';
@@ -236,7 +236,7 @@ export default function Resume() {
               </div>
               <div className="resume-actions">
                 <Button className="btn-pill interactive-button-base btn--primary" asChild>
-                  <a href={resumePdf} download><Download size={18} />{' '}<span><CjkText>{t('resume.header.downloadPdf')}</CjkText></span></a>
+                  <a href={RESUME_DRIVE_URL} target="_blank" rel="noopener noreferrer"><ExternalLink size={18} />{' '}<span><CjkText>{t('resume.header.downloadPdf')}</CjkText></span></a>
                 </Button>
                 {resumeData.contact.linkedin && (
                   <Button variant="outline" className="btn-pill interactive-button-base" asChild>
@@ -253,7 +253,7 @@ export default function Resume() {
         {/* 2026/08：原本這裡是內嵌 PDF 檢視器（object type="application/pdf"）。
             移除三個理由：iOS Safari 不支援內嵌 PDF（一律掉到 fallback）、
             桌機載入慢、而且它顯示的內容跟下面的 HTML 履歷完全重複。
-            PDF 仍保留在頁首的下載按鈕，招募方要丟進 ATS 的檔案沒有少。 */}
+            PDF 連到 Drive，由頁首按鈕在新分頁開啟，招募方要丟進 ATS 的檔案沒有少。 */}
 
         {/* Experience Timeline */}
         <section className="section">
